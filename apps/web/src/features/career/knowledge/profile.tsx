@@ -13,6 +13,7 @@ import { Input } from "@reactive-resume/ui/components/input";
 import { NativeSelect } from "@reactive-resume/ui/components/native-select";
 import { SwitchRow } from "@reactive-resume/ui/components/switch";
 import { Textarea } from "@reactive-resume/ui/components/textarea";
+import { toast } from "@reactive-resume/ui/components/toast";
 import { cn } from "@reactive-resume/utils/style";
 import { CareerLoadError, CareerLoading } from "../load-state";
 import { withUndo } from "../shared";
@@ -103,6 +104,8 @@ export function ProfilePage() {
 				</p>
 			</div>
 
+			<ImportFromResume onImported={refresh} />
+
 			<section className="grid gap-3">
 				<div className="flex flex-wrap items-center gap-2">
 					<h2 className="flex-1 text-base font-semibold">
@@ -178,6 +181,66 @@ export function ProfilePage() {
 			</section>
 
 			<SkillsSection skills={profile.skills} onChanged={refresh} />
+		</div>
+	);
+}
+
+// ---- Import ----
+
+type ImportFromResumeProps = { onImported: () => void };
+
+/** Copies a resume's history into the profile. Shown on every visit: it's safe to rerun and skips duplicates. */
+function ImportFromResume({ onImported }: ImportFromResumeProps) {
+	const { data: documents } = useQuery(orpc.documents.list.queryOptions({ input: { trashed: false } }));
+	const resumes = (documents ?? []).filter((document) => document.type === "resume");
+	const [resumeId, setResumeId] = useState("");
+	const chosen = resumeId || resumes[0]?.id || "";
+	const run = useMutation({
+		...orpc.masterProfile.importFromResume.mutationOptions(),
+		onSuccess: (counts) => {
+			onImported();
+			const total = counts.entries + counts.achievements + counts.skills;
+			toast.add({
+				type: "success",
+				description:
+					total === 0
+						? t`Nothing new in that resume. Your profile already has it.`
+						: t`Added ${counts.entries} entries, ${counts.achievements} achievements and ${counts.skills} skills. Review them, add numbers you can back up, and hide anything you don't want used.`,
+			});
+		},
+		onError: (error) => toastError(error, t`Couldn't import that resume. Try again.`),
+	});
+	if (resumes.length === 0) return null;
+
+	return (
+		<div className="flex flex-wrap items-center gap-2 rounded-xl border border-dashed border-line-2 py-1.5 ps-3.5 pe-1.5">
+			<Icon name="download-simple" size={20} className="text-ink-3" />
+			<span className="min-w-0 flex-1 basis-48 text-[13px] text-ink-2">
+				<Trans>Fill your profile from a resume you already have</Trans>
+			</span>
+			<div className="w-auto">
+				<NativeSelect
+					aria-label={t`Resume to import`}
+					value={chosen}
+					onChange={(event) => setResumeId(event.target.value)}
+					className="h-8 max-w-56 text-[13px]"
+				>
+					{resumes.map((resume) => (
+						<option key={resume.id} value={resume.id}>
+							{resume.name}
+						</option>
+					))}
+				</NativeSelect>
+			</div>
+			<Button
+				variant="secondary"
+				size="sm"
+				className="h-8"
+				loading={run.isPending}
+				onClick={() => chosen && run.mutate({ resumeId: chosen })}
+			>
+				<Trans>Import</Trans>
+			</Button>
 		</div>
 	);
 }

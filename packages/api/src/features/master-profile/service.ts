@@ -8,6 +8,8 @@ import { ORPCError } from "@orpc/client";
 import { and, asc, eq, inArray, sql } from "drizzle-orm";
 import { db } from "@reactive-resume/db/client";
 import * as tables from "@reactive-resume/db/schema";
+import { resumeService } from "../resume/service";
+import { resumeToProfile } from "./import";
 
 type Entry = typeof tables.profileEntry.$inferSelect;
 type Achievement = typeof tables.profileAchievement.$inferSelect;
@@ -199,5 +201,73 @@ export const masterProfileService = {
 					.where(and(eq(table.id, rowId), eq(table.userId, userId)));
 			}
 		});
+	},
+
+	/**
+	 * Adds a resume's experience, projects, education, volunteering, certifications, awards and skills to the
+	 * profile. Entries already present (same type, title, organization and start) only gain bullets they don't
+	 * have; skills already present are skipped. Safe to run again.
+	 */
+	importFromResume: async (userId: string, resumeId: string) => {
+		const resume = await resumeService.getById({ id: resumeId, userId });
+		const imported = resumeToProfile(resume.data);
+		const counts = { entries: 0, achievements: 0, skills: 0 };
+		const key = (entry: { kind: string; title: string; organization: string; startDate: string | null }) =>
+			[entry.kind, entry.title, entry.organization, entry.startDate ?? ""].join("\u0000").toLocaleLowerCase();
+
+		await db.transaction(async (tx) => {
+			const existing = await tx.select().from(tables.profileEntry).where(eq(tables.profileEntry.userId, userId));
+			const byKey = new Map(existing.map((entry) => [key(entry), entry.id]));
+			const texts = new Set(
+				(
+					await tx
+						.select({ entryId: tables.profileAchievement.entryId, text: tables.profileAchievement.text })
+						.from(tables.profileAchievement)
+						.where(eq(tables.profileAchievement.userId, userId))
+				).map((row) => `${row.entryId}\u0000${row.text.trim().toLocaleLowerCase()}`),
+			);
+			const [order] = await tx
+				.select({ entry: sql<number | null>`max(${tables.profileEntry.sortOrder})` })
+				.from(tables.profileEntry)
+				.where(eq(tables.profileEntry.userId, userId));
+			let entryOrder = (order?.entry ?? -1) + 1;
+
+			for (const { entry, achievements } of imported.entries) {
+				let entryId = byKey.get(key(entry));
+				if (!entryId) {
+					const [row] = await tx
+						.insert(tables.profileEntry)
+						.values({ userId, sortOrder: entryOrder++, ...entry })
+						.returning({ id: tables.profileEntry.id });
+					if (!row) continue;
+					entryId = row.id;
+					byKey.set(key(entry), entryId);
+					counts.entries++;
+				}
+				const fresh = achievements.filter((achievement) => {
+					const textKey = `${entryId}\u0000${achievement.text.trim().toLocaleLowerCase()}`;
+					if (texts.has(textKey)) return false;
+					texts.add(textKey);
+					return true;
+				});
+				if (fresh.length > 0) {
+					await tx
+						.insert(tables.profileAchievement)
+						.values(fresh.map((achievement, index) => ({ userId, entryId, sortOrder: index, ...achievement })));
+					counts.achievements += fresh.length;
+				}
+			}
+
+			if (imported.skills.length > 0) {
+				const inserted = await tx
+					.insert(tables.profileSkill)
+					.values(imported.skills.map((skill, index) => ({ userId, sortOrder: index, ...skill })))
+					.onConflictDoNothing()
+					.returning({ id: tables.profileSkill.id });
+				counts.skills = inserted.length;
+			}
+		});
+
+		return counts;
 	},
 };

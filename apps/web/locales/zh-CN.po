@@ -138,6 +138,11 @@ msgstr "{0, plural, other {# 个申请}}"
 msgid "{0, plural, one {# approved variant} other {# approved variants}}"
 msgstr ""
 
+#. placeholder {0}: bullets.length
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "{0, plural, one {# bullet placed} other {# bullets placed}}"
+msgstr ""
+
 #. placeholder {0}: state?.characters ?? 0
 #: src/features/resume/editor/write/rich-text-editor-field.tsx
 msgid "{0, plural, one {# character} other {# characters}}"
@@ -741,6 +746,10 @@ msgstr "{pendingOnPage, plural, one {# 建议在此页面进行编辑 · 在您�
 #: src/features/resume/editor/write/section-row.tsx
 msgid "{proposed, plural, one {# proposed} other {# proposed}}"
 msgstr "{proposed, plural, one {# 提议} other {# 提议}}"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "{rephrased, plural, one {# reworded} other {# reworded}}"
+msgstr ""
 
 #: src/features/resume/editor/write/write-panel.tsx
 msgid "{sections, plural, one {# section} other {# sections}}"
@@ -1482,6 +1491,10 @@ msgstr "添加部分"
 msgid "Add skill"
 msgstr "添加技能"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Add some first"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Add some whitespace between sections so a person can skim it."
 msgstr "在各部分之间加一些留白，方便读者快速浏览。"
@@ -1554,6 +1567,13 @@ msgstr ""
 msgid "Added {0} at {1}"
 msgstr "在 {1} 添加了 {0}"
 
+#. placeholder {0}: counts.entries
+#. placeholder {1}: counts.achievements
+#. placeholder {2}: counts.skills
+#: src/features/career/knowledge/profile.tsx
+msgid "Added {0} entries, {1} achievements and {2} skills. Review them, add numbers you can back up, and hide anything you don't want used."
+msgstr ""
+
 #: src/features/career/knowledge/facts.tsx
 #: src/features/career/shared.tsx
 msgid "Added by you"
@@ -1590,6 +1610,10 @@ msgstr "如果届时仍未收到回复，会在“今天”中添加提醒。"
 #: src/features/templates/gallery.tsx
 msgid "Adjust fonts, colors, spacing and sections in the resume builder. Export your finished resume to PDF or Word, or share a link. The PDFs above are examples to help you compare designs."
 msgstr "在简历生成器中调整字体、颜色、间距和部分。将完成的简历导出为 PDF 或 Microsoft Word，或共享链接。上面的 PDF 文件是帮助您比较设计的示例。"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Adjust to the posting"
+msgstr ""
 
 #: src/features/homepage/sections.tsx
 msgid "Ads"
@@ -2171,6 +2195,18 @@ msgstr "希望看到您在新手引导方面的工作示例。"
 msgid "Aspect ratio"
 msgstr "宽高比"
 
+#: src/features/applications/components/detail/sent-documents.tsx
+msgid "Assemble from profile"
+msgstr ""
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Assemble from your profile"
+msgstr ""
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Assemble resume"
+msgstr ""
+
 #: src/features/assistant/assistant-button.tsx
 #: src/features/assistant/assistant-panel.tsx
 #: src/features/assistant/conversation.tsx
@@ -2321,6 +2357,10 @@ msgstr "返回登录"
 #: src/features/career/knowledge/stories.tsx
 msgid "Back to stories"
 msgstr "返回故事"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Backed"
+msgstr ""
 
 #: src/features/career/knowledge/stories.tsx
 #: src/features/career/workspace/apply.tsx
@@ -2514,6 +2554,14 @@ msgstr "列表条目 {n}"
 msgid "Bulleted list"
 msgstr "项目符号列表"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Bullets may be reworded to use the posting's terms and a summary is written. Rewrites that add a number you didn't record are rejected and your wording is used instead."
+msgstr ""
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Bullets print exactly as you wrote them, or as one of your approved variants. Your existing summary is kept."
+msgstr ""
+
 #: src/features/homepage/footer.tsx
 msgid "By the community, for the community."
 msgstr "由社群贡献，为社群服务。"
@@ -2542,6 +2590,7 @@ msgstr "软件可以读取您的简历吗？"
 #: src/dialogs/auth/enable-two-factor.tsx
 #: src/features/applications/components/application-form-sheet.tsx
 #: src/features/applications/components/detail/activity.tsx
+#: src/features/applications/components/detail/assemble-dialog.tsx
 #: src/features/applications/components/detail/close-dialog.tsx
 #: src/features/applications/components/detail/contacts.tsx
 #: src/features/applications/components/export-applications-sheet.tsx
@@ -2929,6 +2978,7 @@ msgstr ""
 #: src/dialogs/auth/disable-two-factor.tsx
 #: src/dialogs/auth/enable-two-factor.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/detail/assemble-dialog.tsx
 #: src/features/applications/components/interview-dialog.tsx
 #: src/features/career/coach.tsx
 #: src/features/career/schedule-sheet.tsx
@@ -3425,6 +3475,10 @@ msgstr "无法添加申请。请重试。"
 msgid "Couldn't add the passkey. Try again."
 msgstr "无法添加密钥。再试一次。"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Couldn't assemble the resume. Try again."
+msgstr ""
+
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
 msgid "Couldn't attach the file. Try again."
@@ -3589,6 +3643,10 @@ msgstr "无法隐藏此职位。请重试。"
 #: src/features/documents/new-document-dialog.tsx
 msgid "Couldn't import"
 msgstr "无法导入"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Couldn't import that resume. Try again."
+msgstr ""
 
 #: src/features/ats-checker/checker.tsx
 msgid "Couldn't import the file. Try again from Documents."
@@ -4116,6 +4174,10 @@ msgstr "创建密钥"
 #: src/features/auth/pages/login.tsx
 msgid "Create one now"
 msgstr "现在就创建一个"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Create or import a resume first. It provides your name, contact details and design."
+msgstr ""
 
 #: src/features/documents/documents-page.tsx
 #: src/features/resume/share/format.ts
@@ -5396,6 +5458,10 @@ msgstr "填写职位和公司。在“设置”中连接 AI 提供商，即可�
 msgid "Fill in the role and company. The posting is saved with the application."
 msgstr "填写角色和公司。职位发布与职位申请一起保存。"
 
+#: src/features/career/knowledge/profile.tsx
+msgid "Fill your profile from a resume you already have"
+msgstr ""
+
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Filled from the application. The greeting follows the name."
 msgstr "从工作申请中填写。问候语跟在名字之后。"
@@ -6160,6 +6226,7 @@ msgstr "被忽视的问题又回来了"
 msgid "Images cover most of the page."
 msgstr "图片占据了页面的大部分空间。"
 
+#: src/features/career/knowledge/profile.tsx
 #: src/features/command-palette/pages/navigation.tsx
 msgid "Import"
 msgstr "导入"
@@ -6649,6 +6716,10 @@ msgstr "保留最具体的部分"
 #: src/features/resume/editor/check/actions.ts
 msgid "Kept as it is"
 msgstr "保持原样"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Kept as you wrote it"
+msgstr ""
 
 #: src/features/homepage/write.tsx
 msgid "Kept yours"
@@ -7476,6 +7547,10 @@ msgstr "麦克风已被阻止。请在浏览器设置中允许，或输入您的
 msgid "Minimum base salary"
 msgstr "最低基本工资"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Missing evidence isn't missing ability. If you have done it, add it to your profile and assemble again."
+msgstr ""
+
 #: src/features/homepage/prepare.tsx
 msgid "Missing evidence means your notes don’t show it yet, not that you lack it."
 msgstr "缺少证据只表示您的笔记中尚未体现，并不代表您不具备。"
@@ -7861,6 +7936,10 @@ msgstr ""
 msgid "New stage color"
 msgstr "新阶段颜色"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "new summary"
+msgstr ""
+
 #: src/features/homepage/remember.tsx
 msgid "New teams at Northwind were stalling in setup; most never got through."
 msgstr "Northwind 的新团队常卡在设置阶段，多数没能完成。"
@@ -7980,6 +8059,7 @@ msgstr "未找到电子邮件地址。"
 msgid "No entries yet. Start with your current or most recent role."
 msgstr ""
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
 #: src/features/career/shared.tsx
 #: src/features/homepage/prepare.tsx
 #: src/features/homepage/remember.tsx
@@ -8320,6 +8400,10 @@ msgstr "没有匹配“{0}”"
 msgid "Nothing matches these filters"
 msgstr "没有任何内容与这些过滤器匹配"
 
+#: src/features/career/knowledge/profile.tsx
+msgid "Nothing new in that resume. Your profile already has it."
+msgstr ""
+
 #: src/features/career/workspace/saved.tsx
 msgid "Nothing saved yet"
 msgstr "暂无保存的内容"
@@ -8578,6 +8662,10 @@ msgstr "打开导出的文件，确认你可以选取并复制其中的每一部
 msgid "Open the Reactive Resume app"
 msgstr "打开Reactive Resume应用程序"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Open the resume"
+msgstr ""
+
 #: src/features/career/today.tsx
 msgid "Open the schedule"
 msgstr "打开定时任务"
@@ -8796,6 +8884,10 @@ msgstr "Parcel & Co."
 #: src/features/homepage/write.tsx
 msgid "Parcel & Co. · Porto"
 msgstr "Parcel & Co. · Porto"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Partly backed"
+msgstr ""
 
 #: src/features/career/shared.tsx
 #: src/features/homepage/prepare.tsx
@@ -9489,6 +9581,10 @@ msgstr "R"
 msgid "Raise the design sheet"
 msgstr "升起设计单"
 
+#: src/features/applications/components/detail/sent-documents.tsx
+msgid "Re-assemble from profile"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Re-export from a single-column layout, then copy the text out and check it reads top to bottom."
 msgstr "以单栏布局重新导出，然后把文字复制出来，检查是否按从上到下的顺序阅读。"
@@ -10168,6 +10264,10 @@ msgstr "简历（可选）"
 msgid "Resume + letter"
 msgstr "简历+信件"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Resume assembled"
+msgstr ""
+
 #: src/features/homepage/tailor.tsx
 msgid "Resume attached"
 msgstr "已附简历"
@@ -10201,6 +10301,10 @@ msgstr "简历页"
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Resume submitted (optional)"
 msgstr "提交简历（可选）"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Resume to import"
+msgstr ""
 
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/command-palette/pages/resumes.tsx
@@ -10264,6 +10368,10 @@ msgstr "查看草稿"
 #: src/features/resume/editor/write/write-panel.tsx
 msgid "Review each section before using this resume."
 msgstr "使用此简历之前请先查看每个部分。"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Review it in the editor before you send it. Every line comes from your master profile."
+msgstr ""
 
 #: src/features/career/workspace/debrief.tsx
 msgid "Review my answer"
@@ -11620,6 +11728,10 @@ msgstr "每一条都以具体的动词开头：搭建、领导、降低、迁移
 msgid "Start from"
 msgstr "开始于"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Start from (keeps its contact details, template and design)"
+msgstr ""
+
 #: src/features/documents/new-document-dialog.tsx
 msgid "Start from one you have and link the application."
 msgstr "从您拥有的一份工作申请开始并链接该工作申请。"
@@ -12508,6 +12620,10 @@ msgstr "无法打开此申请。"
 msgid "This application has no posting saved yet. Paste it to match against it."
 msgstr "此职位申请尚未保存职位发布。粘贴它以匹配它。"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "This application has no posting text saved, so there's little to match against. Add the posting to the application first for a better result."
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "This browser can't record here. Choose an audio file, or type your answer."
 msgstr "此浏览器无法在此处录音。请选择音频文件，或输入您的回答。"
@@ -13325,6 +13441,10 @@ msgstr "用于辅导：{excerpt}"
 msgid "Use lowercase letters, numbers and single dashes."
 msgstr "使用小写字母、数字和单破折号。"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Use my exact wording"
+msgstr ""
+
 #: src/features/career/knowledge/search-regions-field.tsx
 msgid "Use my timezone"
 msgstr "使用我的时区"
@@ -13758,6 +13878,10 @@ msgstr "成功是什么样子、哪个挑战最重要，以及下一步。"
 msgid "What the file-level check found in the PDF you'd send. It ran in this tab; nothing was uploaded."
 msgstr "文件级检查在您发送的 PDF 中发现的内容。它在此选项卡中运行；没有上传任何内容。"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "What the posting asks for"
+msgstr ""
+
 #: src/features/applications/components/interview-dialog.tsx
 msgid "What they asked you to prepare"
 msgstr "对方要求您准备的内容"
@@ -13916,6 +14040,10 @@ msgstr "一个季度内，激活率从 31% 升至 44%。"
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Without one, you fill in the recipient yourself and drafting uses only your resume."
 msgstr "如果没有，您需要自己填写收件人，并且起草时仅使用您的简历。"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Wording"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Words run together when the text is extracted."
@@ -14175,6 +14303,11 @@ msgstr "您的 AI 连接"
 msgid "Your AI connection"
 msgstr "您的 AI 连接"
 
+#. placeholder {0}: application.company
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Your AI connection picks the achievements and skills from your master profile that best match this posting, and builds a new resume for {0} from them. Your profile, the posting and the base resume's text are sent to that connection."
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "Your answer"
 msgstr "您的回答"
@@ -14300,6 +14433,10 @@ msgstr "您的简历上的工作地点发生了变化。这封信也更新了。
 #: src/features/ats-checker/messages.ts
 msgid "Your margins are very narrow."
 msgstr "你的页边距非常窄。"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Your master profile has no achievements yet."
+msgstr ""
 
 #: src/features/career/coach.tsx
 msgid "your message"

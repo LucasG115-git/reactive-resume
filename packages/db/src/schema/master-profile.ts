@@ -1,8 +1,10 @@
-import type { ProfileEntryKind, ProfileMetric } from "@reactive-resume/schema/master-profile";
+import type { ProfileAssemblyResult, ProfileEntryKind, ProfileMetric } from "@reactive-resume/schema/master-profile";
 import { sql } from "drizzle-orm";
 import * as pg from "drizzle-orm/pg-core";
 import { generateId } from "@reactive-resume/utils/string";
+import { application } from "./applications";
 import { user } from "./auth";
+import { resume } from "./resume";
 
 const owned = () => ({
 	id: pg
@@ -71,4 +73,30 @@ export const profileSkill = pg.pgTable(
 		aliases: stringList("aliases"),
 	},
 	(t) => [pg.uniqueIndex("profile_skill_user_name_idx").on(t.userId, sql`lower(${t.name})`)],
+);
+
+/** One "assemble from posting" run: which profile records became which resume lines, and requirement coverage. */
+export const profileAssembly = pg.pgTable(
+	"profile_assembly",
+	{
+		id: pg
+			.text("id")
+			.primaryKey()
+			.$defaultFn(() => generateId()),
+		userId: pg
+			.text("user_id")
+			.notNull()
+			.references(() => user.id, { onDelete: "cascade" }),
+		applicationId: pg
+			.text("application_id")
+			.notNull()
+			.references(() => application.id, { onDelete: "cascade" }),
+		resumeId: pg.text("resume_id").references(() => resume.id, { onDelete: "set null" }),
+		mode: pg.text("mode").notNull().$type<"rephrase" | "verbatim">(),
+		/** Provider and model that chose the evidence, for later comparison. */
+		model: pg.text("model").notNull().default(""),
+		result: pg.jsonb("result").notNull().$type<ProfileAssemblyResult>(),
+		createdAt: pg.timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+	},
+	(t) => [pg.index().on(t.userId, t.applicationId, t.createdAt)],
 );

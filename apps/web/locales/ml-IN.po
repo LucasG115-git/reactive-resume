@@ -138,6 +138,11 @@ msgstr "{0, plural, one {# അപേക്ഷ} other {# അപേക്ഷകൾ
 msgid "{0, plural, one {# approved variant} other {# approved variants}}"
 msgstr ""
 
+#. placeholder {0}: bullets.length
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "{0, plural, one {# bullet placed} other {# bullets placed}}"
+msgstr ""
+
 #. placeholder {0}: state?.characters ?? 0
 #: src/features/resume/editor/write/rich-text-editor-field.tsx
 msgid "{0, plural, one {# character} other {# characters}}"
@@ -741,6 +746,10 @@ msgstr "{pendingOnPage, plural, one {# ഈ പേജിൽ എഡിറ്റ്
 #: src/features/resume/editor/write/section-row.tsx
 msgid "{proposed, plural, one {# proposed} other {# proposed}}"
 msgstr "{proposed, plural, one {# നിർദ്ദേശിച്ചു} other {# നിർദ്ദേശിച്ചു}}"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "{rephrased, plural, one {# reworded} other {# reworded}}"
+msgstr ""
 
 #: src/features/resume/editor/write/write-panel.tsx
 msgid "{sections, plural, one {# section} other {# sections}}"
@@ -1482,6 +1491,10 @@ msgstr "വിഭാഗം ചേർക്കുക"
 msgid "Add skill"
 msgstr "വൈദഗ്ദ്ധ്യം ചേർക്കുക"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Add some first"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Add some whitespace between sections so a person can skim it."
 msgstr "ഒരാൾക്ക് പെട്ടെന്ന് കണ്ണോടിക്കാൻ കഴിയുംവിധം വിഭാഗങ്ങൾക്കിടയിൽ അൽപ്പം വെളുത്ത സ്ഥലം ചേർക്കുക."
@@ -1554,6 +1567,13 @@ msgstr ""
 msgid "Added {0} at {1}"
 msgstr "{1}-ൽ {0} ചേർത്തു"
 
+#. placeholder {0}: counts.entries
+#. placeholder {1}: counts.achievements
+#. placeholder {2}: counts.skills
+#: src/features/career/knowledge/profile.tsx
+msgid "Added {0} entries, {1} achievements and {2} skills. Review them, add numbers you can back up, and hide anything you don't want used."
+msgstr ""
+
 #: src/features/career/knowledge/facts.tsx
 #: src/features/career/shared.tsx
 msgid "Added by you"
@@ -1590,6 +1610,10 @@ msgstr "അപ്പോഴേക്കും മറുപടി ലഭിച്�
 #: src/features/templates/gallery.tsx
 msgid "Adjust fonts, colors, spacing and sections in the resume builder. Export your finished resume to PDF or Word, or share a link. The PDFs above are examples to help you compare designs."
 msgstr "സിവി ബിൽഡറിൽ ഫോണ്ടുകൾ, നിറങ്ങൾ, സ്‌പെയ്‌സിംഗ്, സെക്ഷനുകൾ എന്നിവ ക്രമീകരിക്കുക. നിങ്ങളുടെ പൂർത്തിയാക്കിയ CV PDF അല്ലെങ്കിൽ Microsoft Word-ലേക്ക് കയറ്റുമതി ചെയ്യുക അല്ലെങ്കിൽ ഒരു ലിങ്ക് പങ്കിടുക. ഡിസൈനുകൾ താരതമ്യം ചെയ്യാൻ നിങ്ങളെ സഹായിക്കുന്ന ഉദാഹരണങ്ങളാണ് മുകളിലുള്ള PDF ഫയലുകൾ."
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Adjust to the posting"
+msgstr ""
 
 #: src/features/homepage/sections.tsx
 msgid "Ads"
@@ -2171,6 +2195,18 @@ msgstr "നിങ്ങളുടെ ഓൺബോർഡിംഗ് ജോലി�
 msgid "Aspect ratio"
 msgstr "ആസ്പെക്ട് റേഷ്യോ"
 
+#: src/features/applications/components/detail/sent-documents.tsx
+msgid "Assemble from profile"
+msgstr ""
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Assemble from your profile"
+msgstr ""
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Assemble resume"
+msgstr ""
+
 #: src/features/assistant/assistant-button.tsx
 #: src/features/assistant/assistant-panel.tsx
 #: src/features/assistant/conversation.tsx
@@ -2321,6 +2357,10 @@ msgstr "സൈൻ ഇന്നിലേക്ക് മടങ്ങുക"
 #: src/features/career/knowledge/stories.tsx
 msgid "Back to stories"
 msgstr "കഥകളിലേക്ക് മടങ്ങുക"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Backed"
+msgstr ""
 
 #: src/features/career/knowledge/stories.tsx
 #: src/features/career/workspace/apply.tsx
@@ -2514,6 +2554,14 @@ msgstr "ലിസ്റ്റ് എൻട്രി {n}"
 msgid "Bulleted list"
 msgstr "ബുള്ളറ്റ് ലിസ്റ്റ്"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Bullets may be reworded to use the posting's terms and a summary is written. Rewrites that add a number you didn't record are rejected and your wording is used instead."
+msgstr ""
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Bullets print exactly as you wrote them, or as one of your approved variants. Your existing summary is kept."
+msgstr ""
+
 #: src/features/homepage/footer.tsx
 msgid "By the community, for the community."
 msgstr "സമൂഹത്താൽ, സമൂഹത്തിനായി."
@@ -2542,6 +2590,7 @@ msgstr "സോഫ്റ്റ്‌വെയറിന് നിങ്ങളു�
 #: src/dialogs/auth/enable-two-factor.tsx
 #: src/features/applications/components/application-form-sheet.tsx
 #: src/features/applications/components/detail/activity.tsx
+#: src/features/applications/components/detail/assemble-dialog.tsx
 #: src/features/applications/components/detail/close-dialog.tsx
 #: src/features/applications/components/detail/contacts.tsx
 #: src/features/applications/components/export-applications-sheet.tsx
@@ -2929,6 +2978,7 @@ msgstr ""
 #: src/dialogs/auth/disable-two-factor.tsx
 #: src/dialogs/auth/enable-two-factor.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/detail/assemble-dialog.tsx
 #: src/features/applications/components/interview-dialog.tsx
 #: src/features/career/coach.tsx
 #: src/features/career/schedule-sheet.tsx
@@ -3425,6 +3475,10 @@ msgstr "അപേക്ഷ ചേർക്കാനായില്ല. വീണ
 msgid "Couldn't add the passkey. Try again."
 msgstr "പാസ്കീ ചേർക്കാനായില്ല. വീണ്ടും ശ്രമിക്കുക."
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Couldn't assemble the resume. Try again."
+msgstr ""
+
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
 msgid "Couldn't attach the file. Try again."
@@ -3589,6 +3643,10 @@ msgstr "ഈ റോൾ മറയ്ക്കാനായില്ല. വീണ�
 #: src/features/documents/new-document-dialog.tsx
 msgid "Couldn't import"
 msgstr "ഇറക്കുമതി ചെയ്യാനായില്ല"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Couldn't import that resume. Try again."
+msgstr ""
 
 #: src/features/ats-checker/checker.tsx
 msgid "Couldn't import the file. Try again from Documents."
@@ -4116,6 +4174,10 @@ msgstr "കീ സൃഷ്ടിക്കുക"
 #: src/features/auth/pages/login.tsx
 msgid "Create one now"
 msgstr "ഇപ്പോൾ ഒരെണ്ണം ഉണ്ടാക്കുക"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Create or import a resume first. It provides your name, contact details and design."
+msgstr ""
 
 #: src/features/documents/documents-page.tsx
 #: src/features/resume/share/format.ts
@@ -5396,6 +5458,10 @@ msgstr "റോളും കമ്പനിയും പൂരിപ്പിക�
 msgid "Fill in the role and company. The posting is saved with the application."
 msgstr "റോളും കമ്പനിയും പൂരിപ്പിക്കുക. തൊഴിൽ അപേക്ഷയോടൊപ്പം ജോലി പോസ്റ്റിംഗ് സംരക്ഷിക്കപ്പെടുന്നു."
 
+#: src/features/career/knowledge/profile.tsx
+msgid "Fill your profile from a resume you already have"
+msgstr ""
+
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Filled from the application. The greeting follows the name."
 msgstr "ജോലി അപേക്ഷയിൽ നിന്ന് പൂരിപ്പിച്ചത്. പേരിന് പിന്നാലെയാണ് ആശംസ."
@@ -6160,6 +6226,7 @@ msgstr "അവഗണിക്കപ്പെട്ട പ്രശ്നങ്�
 msgid "Images cover most of the page."
 msgstr "ചിത്രങ്ങൾ പേജിന്റെ ഭൂരിഭാഗവും മൂടുന്നു."
 
+#: src/features/career/knowledge/profile.tsx
 #: src/features/command-palette/pages/navigation.tsx
 msgid "Import"
 msgstr "ഇംപോർട്ട്"
@@ -6649,6 +6716,10 @@ msgstr "ഏറ്റവും നിർദ്ദിഷ്ട ഭാഗങ്ങ�
 #: src/features/resume/editor/check/actions.ts
 msgid "Kept as it is"
 msgstr "അതുപോലെ സൂക്ഷിച്ചു"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Kept as you wrote it"
+msgstr ""
 
 #: src/features/homepage/write.tsx
 msgid "Kept yours"
@@ -7476,6 +7547,10 @@ msgstr "മൈക്രോഫോൺ തടഞ്ഞിരിക്കുന്�
 msgid "Minimum base salary"
 msgstr "കുറഞ്ഞ അടിസ്ഥാന ശമ്പളം"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Missing evidence isn't missing ability. If you have done it, add it to your profile and assemble again."
+msgstr ""
+
 #: src/features/homepage/prepare.tsx
 msgid "Missing evidence means your notes don’t show it yet, not that you lack it."
 msgstr "തെളിവില്ല എന്നതിനർത്ഥം നിങ്ങളുടെ കുറിപ്പുകളിൽ അത് ഇതുവരെ കാണിക്കുന്നില്ല എന്നാണ്, നിങ്ങൾക്ക് അത് ഇല്ല എന്നല്ല."
@@ -7861,6 +7936,10 @@ msgstr ""
 msgid "New stage color"
 msgstr "പുതിയ ഘട്ടത്തിന്റെ നിറം"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "new summary"
+msgstr ""
+
 #: src/features/homepage/remember.tsx
 msgid "New teams at Northwind were stalling in setup; most never got through."
 msgstr "Northwind-ലെ പുതിയ ടീമുകൾ സെറ്റപ്പിൽ കുടുങ്ങിയിരുന്നു; മിക്കവരും പൂർത്തിയാക്കിയില്ല."
@@ -7980,6 +8059,7 @@ msgstr "ഇമെയിൽ വിലാസം കണ്ടെത്തിയി�
 msgid "No entries yet. Start with your current or most recent role."
 msgstr ""
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
 #: src/features/career/shared.tsx
 #: src/features/homepage/prepare.tsx
 #: src/features/homepage/remember.tsx
@@ -8320,6 +8400,10 @@ msgstr "ഒന്നും പൊരുത്തപ്പെടുന്നി�
 msgid "Nothing matches these filters"
 msgstr "ഈ ഫിൽട്ടറുകളുമായി ഒന്നും പൊരുത്തപ്പെടുന്നില്ല"
 
+#: src/features/career/knowledge/profile.tsx
+msgid "Nothing new in that resume. Your profile already has it."
+msgstr ""
+
 #: src/features/career/workspace/saved.tsx
 msgid "Nothing saved yet"
 msgstr "ഇതുവരെ ഒന്നും സംരക്ഷിച്ചിട്ടില്ല"
@@ -8578,6 +8662,10 @@ msgstr "എക്സ്പോർട്ട് ചെയ്ത ഫയൽ തുറ
 msgid "Open the Reactive Resume app"
 msgstr "Reactive Resume ആപ്പ് തുറക്കുക"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Open the resume"
+msgstr ""
+
 #: src/features/career/today.tsx
 msgid "Open the schedule"
 msgstr "ഷെഡ്യൂൾ തുറക്കുക"
@@ -8796,6 +8884,10 @@ msgstr "Parcel & Co."
 #: src/features/homepage/write.tsx
 msgid "Parcel & Co. · Porto"
 msgstr "Parcel & Co. · Porto"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Partly backed"
+msgstr ""
 
 #: src/features/career/shared.tsx
 #: src/features/homepage/prepare.tsx
@@ -9489,6 +9581,10 @@ msgstr "R"
 msgid "Raise the design sheet"
 msgstr "ഡിസൈൻ ഷീറ്റ് ഉയർത്തുക"
 
+#: src/features/applications/components/detail/sent-documents.tsx
+msgid "Re-assemble from profile"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Re-export from a single-column layout, then copy the text out and check it reads top to bottom."
 msgstr "ഒറ്റ-കോളം ലേഔട്ടിൽ നിന്ന് വീണ്ടും എക്സ്പോർട്ട് ചെയ്ത്, ടെക്സ്റ്റ് പകർത്തി അത് മുകളിൽ നിന്ന് താഴേക്ക് വായിക്കുന്നുവെന്ന് ഉറപ്പാക്കുക."
@@ -10168,6 +10264,10 @@ msgstr "റെസ്യൂമെ (ഓപ്ഷണൽ)"
 msgid "Resume + letter"
 msgstr "റെസ്യൂമെ + കത്ത്"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Resume assembled"
+msgstr ""
+
 #: src/features/homepage/tailor.tsx
 msgid "Resume attached"
 msgstr "റെസ്യൂമെ അറ്റാച്ച് ചെയ്തു"
@@ -10201,6 +10301,10 @@ msgstr "റെസ്യൂമെ പേജ്"
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Resume submitted (optional)"
 msgstr "റെസ്യൂമെ സമർപ്പിച്ചു (ഓപ്ഷണൽ)"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Resume to import"
+msgstr ""
 
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/command-palette/pages/resumes.tsx
@@ -10264,6 +10368,10 @@ msgstr "ഡ്രാഫ്റ്റ് പരിശോധിക്കുക"
 #: src/features/resume/editor/write/write-panel.tsx
 msgid "Review each section before using this resume."
 msgstr "ഈ റെസ്യൂമെ ഉപയോഗിക്കുന്നതിന് മുമ്പ് ഓരോ വിഭാഗവും അവലോകനം ചെയ്യുക."
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Review it in the editor before you send it. Every line comes from your master profile."
+msgstr ""
 
 #: src/features/career/workspace/debrief.tsx
 msgid "Review my answer"
@@ -11620,6 +11728,10 @@ msgstr "ഓരോന്നും ഒരു വ്യക്തമായ ക്ര
 msgid "Start from"
 msgstr "മുതൽ ആരംഭിക്കുക"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Start from (keeps its contact details, template and design)"
+msgstr ""
+
 #: src/features/documents/new-document-dialog.tsx
 msgid "Start from one you have and link the application."
 msgstr "നിങ്ങളുടെ പക്കലുള്ള ഒന്നിൽ നിന്ന് ആരംഭിച്ച് ജോലി അപേക്ഷ ലിങ്ക് ചെയ്യുക."
@@ -12508,6 +12620,10 @@ msgstr "ഈ അപേക്ഷ തുറക്കാനായില്ല."
 msgid "This application has no posting saved yet. Paste it to match against it."
 msgstr "ഈ അപേക്ഷയിൽ ഇതുവരെ ജോലി പോസ്റ്റിംഗൊന്നും സംരക്ഷിച്ചിട്ടില്ല. അതുമായി പൊരുത്തപ്പെടുത്താൻ അത് ഒട്ടിക്കുക."
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "This application has no posting text saved, so there's little to match against. Add the posting to the application first for a better result."
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "This browser can't record here. Choose an audio file, or type your answer."
 msgstr "ഈ ബ്രൗസറിന് ഇവിടെ റെക്കോർഡ് ചെയ്യാനാവില്ല. ഒരു ഓഡിയോ ഫയൽ തിരഞ്ഞെടുക്കുക, അല്ലെങ്കിൽ ഉത്തരം ടൈപ്പ് ചെയ്യുക."
@@ -13325,6 +13441,10 @@ msgstr "കോച്ചിംഗിൽ ഉപയോഗിക്കുക: {excer
 msgid "Use lowercase letters, numbers and single dashes."
 msgstr "ചെറിയ അക്ഷരങ്ങളും അക്കങ്ങളും ഒറ്റ ഡാഷുകളും ഉപയോഗിക്കുക."
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Use my exact wording"
+msgstr ""
+
 #: src/features/career/knowledge/search-regions-field.tsx
 msgid "Use my timezone"
 msgstr "എന്റെ സമയമേഖല ഉപയോഗിക്കുക"
@@ -13758,6 +13878,10 @@ msgstr "വിജയം എങ്ങനെയിരിക്കും, ഏത്
 msgid "What the file-level check found in the PDF you'd send. It ran in this tab; nothing was uploaded."
 msgstr "നിങ്ങൾ അയയ്‌ക്കാൻ ആഗ്രഹിക്കുന്ന PDF-ൽ ഫയൽ-ലെവൽ പരിശോധന കണ്ടെത്തിയത്. ഇത് ഈ ടാബിൽ പ്രവർത്തിച്ചു; ഒന്നും അപ്‌ലോഡ് ചെയ്തിട്ടില്ല."
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "What the posting asks for"
+msgstr ""
+
 #: src/features/applications/components/interview-dialog.tsx
 msgid "What they asked you to prepare"
 msgstr "തയ്യാറാക്കാൻ അവർ ആവശ്യപ്പെട്ടത്"
@@ -13916,6 +14040,10 @@ msgstr "ഒരു പാദത്തിനുള്ളിൽ, ആക്റ്റ
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Without one, you fill in the recipient yourself and drafting uses only your resume."
 msgstr "ഒന്നുമില്ലാതെ, നിങ്ങൾ സ്വീകർത്താവിനെ പൂരിപ്പിക്കുകയും ഡ്രാഫ്റ്റിംഗ് നിങ്ങളുടെ റെസ്യൂമെ മാത്രം ഉപയോഗിക്കുകയും ചെയ്യുന്നു."
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Wording"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Words run together when the text is extracted."
@@ -14175,6 +14303,11 @@ msgstr "നിങ്ങളുടെ AI കണക്ഷൻ"
 msgid "Your AI connection"
 msgstr "നിങ്ങളുടെ AI കണക്ഷൻ"
 
+#. placeholder {0}: application.company
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Your AI connection picks the achievements and skills from your master profile that best match this posting, and builds a new resume for {0} from them. Your profile, the posting and the base resume's text are sent to that connection."
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "Your answer"
 msgstr "നിങ്ങളുടെ ഉത്തരം"
@@ -14300,6 +14433,10 @@ msgstr "റെസ്യൂമെയിൽ നിങ്ങളുടെ സ്ഥ�
 #: src/features/ats-checker/messages.ts
 msgid "Your margins are very narrow."
 msgstr "നിങ്ങളുടെ മാർജിനുകൾ വളരെ ഇടുങ്ങിയതാണ്."
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Your master profile has no achievements yet."
+msgstr ""
 
 #: src/features/career/coach.tsx
 msgid "your message"

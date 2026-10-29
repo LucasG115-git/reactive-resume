@@ -138,6 +138,11 @@ msgstr "{0, plural, zero {# pieteikumi} one {# pieteikums} other {# pieteikumi}}
 msgid "{0, plural, one {# approved variant} other {# approved variants}}"
 msgstr ""
 
+#. placeholder {0}: bullets.length
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "{0, plural, one {# bullet placed} other {# bullets placed}}"
+msgstr ""
+
 #. placeholder {0}: state?.characters ?? 0
 #: src/features/resume/editor/write/rich-text-editor-field.tsx
 msgid "{0, plural, one {# character} other {# characters}}"
@@ -741,6 +746,10 @@ msgstr "{pendingOnPage, plural, one {# ierosinātais labojums šajā lapā · ne
 #: src/features/resume/editor/write/section-row.tsx
 msgid "{proposed, plural, one {# proposed} other {# proposed}}"
 msgstr "{proposed, plural, one {Piedāvātais #} other {Piedāvātais #}}"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "{rephrased, plural, one {# reworded} other {# reworded}}"
+msgstr ""
 
 #: src/features/resume/editor/write/write-panel.tsx
 msgid "{sections, plural, one {# section} other {# sections}}"
@@ -1482,6 +1491,10 @@ msgstr "Pievienot sadaļu"
 msgid "Add skill"
 msgstr "Pievienojiet prasmi"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Add some first"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Add some whitespace between sections so a person can skim it."
 msgstr "Pievienojiet nedaudz brīvas vietas starp sadaļām, lai cilvēks to varētu ātri pārskatīt."
@@ -1554,6 +1567,13 @@ msgstr ""
 msgid "Added {0} at {1}"
 msgstr "Pievienots {0} pie {1}"
 
+#. placeholder {0}: counts.entries
+#. placeholder {1}: counts.achievements
+#. placeholder {2}: counts.skills
+#: src/features/career/knowledge/profile.tsx
+msgid "Added {0} entries, {1} achievements and {2} skills. Review them, add numbers you can back up, and hide anything you don't want used."
+msgstr ""
+
 #: src/features/career/knowledge/facts.tsx
 #: src/features/career/shared.tsx
 msgid "Added by you"
@@ -1590,6 +1610,10 @@ msgstr "Ja līdz tam atbilde nebūs saņemta, sadaļā “Šodien” tiks pievie
 #: src/features/templates/gallery.tsx
 msgid "Adjust fonts, colors, spacing and sections in the resume builder. Export your finished resume to PDF or Word, or share a link. The PDFs above are examples to help you compare designs."
 msgstr "Pielāgojiet fontus, krāsas, atstarpes un sadaļas CV veidotājā. Eksportējiet gatavo CV PDF vai Microsoft Word formātā vai kopīgojiet saiti. Iepriekš minētie PDF faili ir piemēri, kas palīdz salīdzināt dizainus."
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Adjust to the posting"
+msgstr ""
 
 #: src/features/homepage/sections.tsx
 msgid "Ads"
@@ -2171,6 +2195,18 @@ msgstr "Lūdz jūsu lietotāju ievadīšanas darba piemēru."
 msgid "Aspect ratio"
 msgstr "Malu attiecība"
 
+#: src/features/applications/components/detail/sent-documents.tsx
+msgid "Assemble from profile"
+msgstr ""
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Assemble from your profile"
+msgstr ""
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Assemble resume"
+msgstr ""
+
 #: src/features/assistant/assistant-button.tsx
 #: src/features/assistant/assistant-panel.tsx
 #: src/features/assistant/conversation.tsx
@@ -2321,6 +2357,10 @@ msgstr "Atpakaļ uz pieteikšanos"
 #: src/features/career/knowledge/stories.tsx
 msgid "Back to stories"
 msgstr "Atpakaļ uz stāstiem"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Backed"
+msgstr ""
 
 #: src/features/career/knowledge/stories.tsx
 #: src/features/career/workspace/apply.tsx
@@ -2514,6 +2554,14 @@ msgstr "saraksta ieraksts {n}"
 msgid "Bulleted list"
 msgstr "Saraksts ar aizzīmēm"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Bullets may be reworded to use the posting's terms and a summary is written. Rewrites that add a number you didn't record are rejected and your wording is used instead."
+msgstr ""
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Bullets print exactly as you wrote them, or as one of your approved variants. Your existing summary is kept."
+msgstr ""
+
 #: src/features/homepage/footer.tsx
 msgid "By the community, for the community."
 msgstr "No kopienas kopienai."
@@ -2542,6 +2590,7 @@ msgstr "Vai programmatūra var nolasīt jūsu CV?"
 #: src/dialogs/auth/enable-two-factor.tsx
 #: src/features/applications/components/application-form-sheet.tsx
 #: src/features/applications/components/detail/activity.tsx
+#: src/features/applications/components/detail/assemble-dialog.tsx
 #: src/features/applications/components/detail/close-dialog.tsx
 #: src/features/applications/components/detail/contacts.tsx
 #: src/features/applications/components/export-applications-sheet.tsx
@@ -2929,6 +2978,7 @@ msgstr ""
 #: src/dialogs/auth/disable-two-factor.tsx
 #: src/dialogs/auth/enable-two-factor.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/detail/assemble-dialog.tsx
 #: src/features/applications/components/interview-dialog.tsx
 #: src/features/career/coach.tsx
 #: src/features/career/schedule-sheet.tsx
@@ -3425,6 +3475,10 @@ msgstr "Nevarēja pievienot pieteikumu. Mēģiniet vēlreiz."
 msgid "Couldn't add the passkey. Try again."
 msgstr "Nevarēja pievienot ieejas atslēgu. Mēģiniet vēlreiz."
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Couldn't assemble the resume. Try again."
+msgstr ""
+
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
 msgid "Couldn't attach the file. Try again."
@@ -3589,6 +3643,10 @@ msgstr "Nevarēja paslēpt šo vakanci. Mēģiniet vēlreiz."
 #: src/features/documents/new-document-dialog.tsx
 msgid "Couldn't import"
 msgstr "Nevarēja importēt"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Couldn't import that resume. Try again."
+msgstr ""
 
 #: src/features/ats-checker/checker.tsx
 msgid "Couldn't import the file. Try again from Documents."
@@ -4116,6 +4174,10 @@ msgstr "Izveidot atslēgu"
 #: src/features/auth/pages/login.tsx
 msgid "Create one now"
 msgstr "Izveidojiet to tagad"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Create or import a resume first. It provides your name, contact details and design."
+msgstr ""
 
 #: src/features/documents/documents-page.tsx
 #: src/features/resume/share/format.ts
@@ -5396,6 +5458,10 @@ msgstr "Aizpildiet lomu un uzņēmumu. Iestatījumos pievienojiet AI pakalpojumu
 msgid "Fill in the role and company. The posting is saved with the application."
 msgstr "Aizpildiet lomu un uzņēmumu. Darba sludinājums tiek saglabāts kopā ar darba pieteikumu."
 
+#: src/features/career/knowledge/profile.tsx
+msgid "Fill your profile from a resume you already have"
+msgstr ""
+
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Filled from the application. The greeting follows the name."
 msgstr "Aizpildīts no darba pieteikuma. Sveiciens seko vārdam."
@@ -6160,6 +6226,7 @@ msgstr "Ignorētās problēmas ir atgriezušās"
 msgid "Images cover most of the page."
 msgstr "Attēli aizņem lielāko daļu lapas."
 
+#: src/features/career/knowledge/profile.tsx
 #: src/features/command-palette/pages/navigation.tsx
 msgid "Import"
 msgstr "Importēt"
@@ -6649,6 +6716,10 @@ msgstr "Saglabā visspecifiskākās daļas"
 #: src/features/resume/editor/check/actions.ts
 msgid "Kept as it is"
 msgstr "Saglabāts kā ir"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Kept as you wrote it"
+msgstr ""
 
 #: src/features/homepage/write.tsx
 msgid "Kept yours"
@@ -7476,6 +7547,10 @@ msgstr "Mikrofons ir bloķēts. Atļaujiet to pārlūkprogrammas iestatījumos v
 msgid "Minimum base salary"
 msgstr "Minimālā pamatalga"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Missing evidence isn't missing ability. If you have done it, add it to your profile and assemble again."
+msgstr ""
+
 #: src/features/homepage/prepare.tsx
 msgid "Missing evidence means your notes don’t show it yet, not that you lack it."
 msgstr "Trūkstoši pierādījumi nozīmē, ka jūsu piezīmēs tas vēl nav redzams, nevis ka jums tā trūkst."
@@ -7861,6 +7936,10 @@ msgstr ""
 msgid "New stage color"
 msgstr "Jaunā posma krāsa"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "new summary"
+msgstr ""
+
 #: src/features/homepage/remember.tsx
 msgid "New teams at Northwind were stalling in setup; most never got through."
 msgstr "Jaunās Northwind komandas iestrēga iestatīšanā; lielākā daļa to tā arī nepabeidza."
@@ -7980,6 +8059,7 @@ msgstr "E-pasta adrese nav atrasta."
 msgid "No entries yet. Start with your current or most recent role."
 msgstr ""
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
 #: src/features/career/shared.tsx
 #: src/features/homepage/prepare.tsx
 #: src/features/homepage/remember.tsx
@@ -8320,6 +8400,10 @@ msgstr "Nekas neatbilst “{0}”"
 msgid "Nothing matches these filters"
 msgstr "Nekas neatbilst šiem filtriem"
 
+#: src/features/career/knowledge/profile.tsx
+msgid "Nothing new in that resume. Your profile already has it."
+msgstr ""
+
 #: src/features/career/workspace/saved.tsx
 msgid "Nothing saved yet"
 msgstr "Vēl nekas nav saglabāts"
@@ -8578,6 +8662,10 @@ msgstr "Atveriet eksportēto failu un pārliecinieties, ka varat iezīmēt un ko
 msgid "Open the Reactive Resume app"
 msgstr "Atveriet lietotni Reactive Resume"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Open the resume"
+msgstr ""
+
 #: src/features/career/today.tsx
 msgid "Open the schedule"
 msgstr "Atvērt grafiku"
@@ -8796,6 +8884,10 @@ msgstr "Parcel & Co."
 #: src/features/homepage/write.tsx
 msgid "Parcel & Co. · Porto"
 msgstr "Parcel & Co. · Porto"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Partly backed"
+msgstr ""
 
 #: src/features/career/shared.tsx
 #: src/features/homepage/prepare.tsx
@@ -9489,6 +9581,10 @@ msgstr "R"
 msgid "Raise the design sheet"
 msgstr "Paceliet dizaina lapu"
 
+#: src/features/applications/components/detail/sent-documents.tsx
+msgid "Re-assemble from profile"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Re-export from a single-column layout, then copy the text out and check it reads top to bottom."
 msgstr "Eksportējiet atkārtoti no vienkolonnas izkārtojuma, pēc tam izkopējiet tekstu un pārbaudiet, vai tas lasāms no augšas uz leju."
@@ -10168,6 +10264,10 @@ msgstr "CV (pēc izvēles)"
 msgid "Resume + letter"
 msgstr "CV + vēstule"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Resume assembled"
+msgstr ""
+
 #: src/features/homepage/tailor.tsx
 msgid "Resume attached"
 msgstr "CV pievienots"
@@ -10201,6 +10301,10 @@ msgstr "CV lapa"
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Resume submitted (optional)"
 msgstr "CV iesniegts (pēc izvēles)"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Resume to import"
+msgstr ""
 
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/command-palette/pages/resumes.tsx
@@ -10264,6 +10368,10 @@ msgstr "Pārskatīt melnrakstu"
 #: src/features/resume/editor/write/write-panel.tsx
 msgid "Review each section before using this resume."
 msgstr "Pirms šī CV izmantošanas pārskatiet katru sadaļu."
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Review it in the editor before you send it. Every line comes from your master profile."
+msgstr ""
 
 #: src/features/career/workspace/debrief.tsx
 msgid "Review my answer"
@@ -11620,6 +11728,10 @@ msgstr "Sāciet katru ar konkrētu darbības vārdu: izveidoja, vadīja, samazin
 msgid "Start from"
 msgstr "Sāciet no"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Start from (keeps its contact details, template and design)"
+msgstr ""
+
 #: src/features/documents/new-document-dialog.tsx
 msgid "Start from one you have and link the application."
 msgstr "Sāciet ar vienu, kas jums ir, un saistiet darba pieteikumu."
@@ -12508,6 +12620,10 @@ msgstr "Šo pieteikumu nevarēja atvērt."
 msgid "This application has no posting saved yet. Paste it to match against it."
 msgstr "Šajā darba pieteikumā vēl nav saglabāts neviens darba sludinājums. Ielīmējiet to, lai tas atbilstu tam."
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "This application has no posting text saved, so there's little to match against. Add the posting to the application first for a better result."
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "This browser can't record here. Choose an audio file, or type your answer."
 msgstr "Šī pārlūkprogramma šeit nevar ierakstīt. Izvēlieties audio failu vai ievadiet atbildi."
@@ -13325,6 +13441,10 @@ msgstr "Izmantot konsultēšanā: {excerpt}"
 msgid "Use lowercase letters, numbers and single dashes."
 msgstr "Izmantojiet mazos burtus, ciparus un atsevišķas domuzīmes."
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Use my exact wording"
+msgstr ""
+
 #: src/features/career/knowledge/search-regions-field.tsx
 msgid "Use my timezone"
 msgstr "Izmantot manu laika joslu"
@@ -13758,6 +13878,10 @@ msgstr "Kā izskatās panākumi, kurš izaicinājums ir svarīgākais un kāds i
 msgid "What the file-level check found in the PDF you'd send. It ran in this tab; nothing was uploaded."
 msgstr "Ko faila līmeņa pārbaude atrada jūsu nosūtītajā PDF. Tas darbojās šajā cilnē; nekas netika augšupielādēts."
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "What the posting asks for"
+msgstr ""
+
 #: src/features/applications/components/interview-dialog.tsx
 msgid "What they asked you to prepare"
 msgstr "Ko jums lūdza sagatavot"
@@ -13916,6 +14040,10 @@ msgstr "Ceturkšņa laikā aktivizācija pieauga no 31 % līdz 44 %."
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Without one, you fill in the recipient yourself and drafting uses only your resume."
 msgstr "Bez tā jūs pats aizpildāt adresātu, un sastādīšanai tiek izmantots tikai jūsu CV."
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Wording"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Words run together when the text is extracted."
@@ -14175,6 +14303,11 @@ msgstr "jūsu AI savienojums"
 msgid "Your AI connection"
 msgstr "Jūsu AI savienojums"
 
+#. placeholder {0}: application.company
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Your AI connection picks the achievements and skills from your master profile that best match this posting, and builds a new resume for {0} from them. Your profile, the posting and the base resume's text are sent to that connection."
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "Your answer"
 msgstr "Jūsu atbilde"
@@ -14300,6 +14433,10 @@ msgstr "Jūsu atrašanās vieta ir mainīta CV. Vēstule arī atjaunināta."
 #: src/features/ats-checker/messages.ts
 msgid "Your margins are very narrow."
 msgstr "Jūsu malas ir ļoti šauras."
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Your master profile has no achievements yet."
+msgstr ""
 
 #: src/features/career/coach.tsx
 msgid "your message"

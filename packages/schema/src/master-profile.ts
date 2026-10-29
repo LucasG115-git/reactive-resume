@@ -82,3 +82,39 @@ export const profileReorderInputSchema = z.object({
 	ids: z.array(z.string().min(1)).min(1).max(500),
 });
 export type ProfileReorderInput = z.infer<typeof profileReorderInputSchema>;
+
+export const assembleModeSchema = z.enum(["rephrase", "verbatim"]);
+export type AssembleMode = z.infer<typeof assembleModeSchema>;
+
+export const assembleInputSchema = z.object({
+	applicationId: z.string().min(1),
+	/** The resume whose contact details, design and other sections are kept. */
+	baseResumeId: z.string().min(1),
+	mode: assembleModeSchema.default("rephrase"),
+	name: z.string().trim().min(1).max(200).optional(),
+});
+export type AssembleInput = z.infer<typeof assembleInputSchema>;
+
+export const profileAssemblyResultSchema = z.object({
+	coverage: z.array(
+		z.object({
+			requirement: z.string(),
+			strength: z.enum(["strong", "partial", "none"]),
+			achievementIds: z.array(z.string()),
+			skillIds: z.array(z.string()),
+		}),
+	),
+	bullets: z.array(
+		z.object({
+			achievementId: z.string(),
+			entryId: z.string().nullable(),
+			text: z.string(),
+			source: z.enum(["rephrased", "original", "variant"]),
+		}),
+	),
+	entryIds: z.array(z.string()),
+	skillIds: z.array(z.string()),
+	summaryUsed: z.boolean(),
+	warnings: z.array(z.string()),
+});
+export type ProfileAssemblyResult = z.infer<typeof profileAssemblyResultSchema>;

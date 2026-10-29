@@ -138,6 +138,11 @@ msgstr "{0, plural, one {# Bewerbung} other {# Bewerbungen}}"
 msgid "{0, plural, one {# approved variant} other {# approved variants}}"
 msgstr ""
 
+#. placeholder {0}: bullets.length
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "{0, plural, one {# bullet placed} other {# bullets placed}}"
+msgstr ""
+
 #. placeholder {0}: state?.characters ?? 0
 #: src/features/resume/editor/write/rich-text-editor-field.tsx
 msgid "{0, plural, one {# character} other {# characters}}"
@@ -741,6 +746,10 @@ msgstr "{pendingOnPage, plural, one {# hat eine Änderung dieser Seite vorgeschl
 #: src/features/resume/editor/write/section-row.tsx
 msgid "{proposed, plural, one {# proposed} other {# proposed}}"
 msgstr "{proposed, plural, one {# vorgeschlagen} other {# vorgeschlagen}}"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "{rephrased, plural, one {# reworded} other {# reworded}}"
+msgstr ""
 
 #: src/features/resume/editor/write/write-panel.tsx
 msgid "{sections, plural, one {# section} other {# sections}}"
@@ -1482,6 +1491,10 @@ msgstr "Abschnitt hinzufügen"
 msgid "Add skill"
 msgstr "Fertigkeit hinzufügen"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Add some first"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Add some whitespace between sections so a person can skim it."
 msgstr "Fügen Sie etwas Weißraum zwischen den Abschnitten hinzu, damit man ihn überfliegen kann."
@@ -1554,6 +1567,13 @@ msgstr ""
 msgid "Added {0} at {1}"
 msgstr "{0} bei {1} hinzugefügt"
 
+#. placeholder {0}: counts.entries
+#. placeholder {1}: counts.achievements
+#. placeholder {2}: counts.skills
+#: src/features/career/knowledge/profile.tsx
+msgid "Added {0} entries, {1} achievements and {2} skills. Review them, add numbers you can back up, and hide anything you don't want used."
+msgstr ""
+
 #: src/features/career/knowledge/facts.tsx
 #: src/features/career/shared.tsx
 msgid "Added by you"
@@ -1590,6 +1610,10 @@ msgstr "Fügt unter „Heute“ eine Erinnerung hinzu, falls Sie bis dahin nicht
 #: src/features/templates/gallery.tsx
 msgid "Adjust fonts, colors, spacing and sections in the resume builder. Export your finished resume to PDF or Word, or share a link. The PDFs above are examples to help you compare designs."
 msgstr "Passen Sie Schriftarten, Farben, Abstände und Abschnitte im CV Builder an. Exportieren Sie Ihren fertigen Lebenslauf als PDF oder Microsoft Word oder teilen Sie einen Link. Die oben stehenden PDF-Dateien sind Beispiele, die Ihnen beim Vergleich von Designs helfen sollen."
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Adjust to the posting"
+msgstr ""
 
 #: src/features/homepage/sections.tsx
 msgid "Ads"
@@ -2171,6 +2195,18 @@ msgstr "Bittet um ein Beispiel Ihrer Onboarding-Arbeit."
 msgid "Aspect ratio"
 msgstr "Seitenverhältnis"
 
+#: src/features/applications/components/detail/sent-documents.tsx
+msgid "Assemble from profile"
+msgstr ""
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Assemble from your profile"
+msgstr ""
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Assemble resume"
+msgstr ""
+
 #: src/features/assistant/assistant-button.tsx
 #: src/features/assistant/assistant-panel.tsx
 #: src/features/assistant/conversation.tsx
@@ -2321,6 +2357,10 @@ msgstr "Zurück zur Anmeldung"
 #: src/features/career/knowledge/stories.tsx
 msgid "Back to stories"
 msgstr "Zurück zu den Geschichten"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Backed"
+msgstr ""
 
 #: src/features/career/knowledge/stories.tsx
 #: src/features/career/workspace/apply.tsx
@@ -2514,6 +2554,14 @@ msgstr "Listeneintrag {n}"
 msgid "Bulleted list"
 msgstr "Aufzählungsliste"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Bullets may be reworded to use the posting's terms and a summary is written. Rewrites that add a number you didn't record are rejected and your wording is used instead."
+msgstr ""
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Bullets print exactly as you wrote them, or as one of your approved variants. Your existing summary is kept."
+msgstr ""
+
 #: src/features/homepage/footer.tsx
 msgid "By the community, for the community."
 msgstr "Von der Gemeinschaft, für die Gemeinschaft."
@@ -2542,6 +2590,7 @@ msgstr "Kann Software Ihren Lebenslauf lesen?"
 #: src/dialogs/auth/enable-two-factor.tsx
 #: src/features/applications/components/application-form-sheet.tsx
 #: src/features/applications/components/detail/activity.tsx
+#: src/features/applications/components/detail/assemble-dialog.tsx
 #: src/features/applications/components/detail/close-dialog.tsx
 #: src/features/applications/components/detail/contacts.tsx
 #: src/features/applications/components/export-applications-sheet.tsx
@@ -2929,6 +2978,7 @@ msgstr ""
 #: src/dialogs/auth/disable-two-factor.tsx
 #: src/dialogs/auth/enable-two-factor.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/detail/assemble-dialog.tsx
 #: src/features/applications/components/interview-dialog.tsx
 #: src/features/career/coach.tsx
 #: src/features/career/schedule-sheet.tsx
@@ -3425,6 +3475,10 @@ msgstr "Die Bewerbung konnte nicht hinzugefügt werden. Versuchen Sie es erneut.
 msgid "Couldn't add the passkey. Try again."
 msgstr "Der Hauptschlüssel konnte nicht hinzugefügt werden. Versuchen Sie es erneut."
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Couldn't assemble the resume. Try again."
+msgstr ""
+
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
 msgid "Couldn't attach the file. Try again."
@@ -3589,6 +3643,10 @@ msgstr "Diese Stelle konnte nicht ausgeblendet werden. Versuchen Sie es erneut."
 #: src/features/documents/new-document-dialog.tsx
 msgid "Couldn't import"
 msgstr "Konnte nicht importiert werden"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Couldn't import that resume. Try again."
+msgstr ""
 
 #: src/features/ats-checker/checker.tsx
 msgid "Couldn't import the file. Try again from Documents."
@@ -4116,6 +4174,10 @@ msgstr "Schlüssel erstellen"
 #: src/features/auth/pages/login.tsx
 msgid "Create one now"
 msgstr "Jetzt einen erstellen"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Create or import a resume first. It provides your name, contact details and design."
+msgstr ""
 
 #: src/features/documents/documents-page.tsx
 #: src/features/resume/share/format.ts
@@ -5396,6 +5458,10 @@ msgstr "Geben Sie die Rolle und das Unternehmen ein. Verbinden Sie in den Einste
 msgid "Fill in the role and company. The posting is saved with the application."
 msgstr "Geben Sie die Rolle und das Unternehmen ein. Die Stellenausschreibung wird mit der Stellenbewerbung gespeichert."
 
+#: src/features/career/knowledge/profile.tsx
+msgid "Fill your profile from a resume you already have"
+msgstr ""
+
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Filled from the application. The greeting follows the name."
 msgstr "Ausgefüllt aus der Bewerbung. Nach dem Namen folgt die Begrüßung."
@@ -6160,6 +6226,7 @@ msgstr "Ignorierte Probleme sind zurück"
 msgid "Images cover most of the page."
 msgstr "Bilder bedecken den Großteil der Seite."
 
+#: src/features/career/knowledge/profile.tsx
 #: src/features/command-palette/pages/navigation.tsx
 msgid "Import"
 msgstr "Importieren"
@@ -6649,6 +6716,10 @@ msgstr "Behält die spezifischsten Teile"
 #: src/features/resume/editor/check/actions.ts
 msgid "Kept as it is"
 msgstr "So behalten wie es ist"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Kept as you wrote it"
+msgstr ""
 
 #: src/features/homepage/write.tsx
 msgid "Kept yours"
@@ -7476,6 +7547,10 @@ msgstr "Mikrofon blockiert. Erlauben Sie es in den Browsereinstellungen oder tip
 msgid "Minimum base salary"
 msgstr "Mindestgrundgehalt"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Missing evidence isn't missing ability. If you have done it, add it to your profile and assemble again."
+msgstr ""
+
 #: src/features/homepage/prepare.tsx
 msgid "Missing evidence means your notes don’t show it yet, not that you lack it."
 msgstr "Fehlende Belege bedeuten, dass Ihre Notizen es noch nicht zeigen, nicht, dass es Ihnen fehlt."
@@ -7861,6 +7936,10 @@ msgstr ""
 msgid "New stage color"
 msgstr "Farbe der neuen Phase"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "new summary"
+msgstr ""
+
 #: src/features/homepage/remember.tsx
 msgid "New teams at Northwind were stalling in setup; most never got through."
 msgstr "Neue Teams bei Northwind blieben bei der Einrichtung hängen; die meisten kamen nie durch."
@@ -7980,6 +8059,7 @@ msgstr "Es wurde keine E-Mail-Adresse gefunden."
 msgid "No entries yet. Start with your current or most recent role."
 msgstr ""
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
 #: src/features/career/shared.tsx
 #: src/features/homepage/prepare.tsx
 #: src/features/homepage/remember.tsx
@@ -8320,6 +8400,10 @@ msgstr "Nichts passt zu „{0}“"
 msgid "Nothing matches these filters"
 msgstr "Nichts entspricht diesen Filtern"
 
+#: src/features/career/knowledge/profile.tsx
+msgid "Nothing new in that resume. Your profile already has it."
+msgstr ""
+
 #: src/features/career/workspace/saved.tsx
 msgid "Nothing saved yet"
 msgstr "Noch nichts gespeichert"
@@ -8578,6 +8662,10 @@ msgstr "Öffnen Sie die exportierte Datei und bestätigen Sie, dass Sie jeden Te
 msgid "Open the Reactive Resume app"
 msgstr "Öffnen Sie die Reactive Resume-App"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Open the resume"
+msgstr ""
+
 #: src/features/career/today.tsx
 msgid "Open the schedule"
 msgstr "Zeitplan öffnen"
@@ -8796,6 +8884,10 @@ msgstr "Parcel & Co."
 #: src/features/homepage/write.tsx
 msgid "Parcel & Co. · Porto"
 msgstr "Parcel & Co. · Porto"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Partly backed"
+msgstr ""
 
 #: src/features/career/shared.tsx
 #: src/features/homepage/prepare.tsx
@@ -9489,6 +9581,10 @@ msgstr "R"
 msgid "Raise the design sheet"
 msgstr "Heben Sie das Designblatt an"
 
+#: src/features/applications/components/detail/sent-documents.tsx
+msgid "Re-assemble from profile"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Re-export from a single-column layout, then copy the text out and check it reads top to bottom."
 msgstr "Exportieren Sie erneut aus einem einspaltigen Layout, kopieren Sie dann den Text heraus und prüfen Sie, ob er von oben nach unten lesbar ist."
@@ -10168,6 +10264,10 @@ msgstr "Lebenslauf (optional)"
 msgid "Resume + letter"
 msgstr "Lebenslauf + Anschreiben"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Resume assembled"
+msgstr ""
+
 #: src/features/homepage/tailor.tsx
 msgid "Resume attached"
 msgstr "Lebenslauf angehängt"
@@ -10201,6 +10301,10 @@ msgstr "Lebenslaufseite"
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Resume submitted (optional)"
 msgstr "Lebenslauf eingereicht (optional)"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Resume to import"
+msgstr ""
 
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/command-palette/pages/resumes.tsx
@@ -10264,6 +10368,10 @@ msgstr "Entwurf prüfen"
 #: src/features/resume/editor/write/write-panel.tsx
 msgid "Review each section before using this resume."
 msgstr "Lesen Sie jeden Abschnitt durch, bevor Sie diesen Lebenslauf verwenden."
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Review it in the editor before you send it. Every line comes from your master profile."
+msgstr ""
 
 #: src/features/career/workspace/debrief.tsx
 msgid "Review my answer"
@@ -11620,6 +11728,10 @@ msgstr "Beginnen Sie jeden mit einem konkreten Verb: built, led, reduced, migrat
 msgid "Start from"
 msgstr "Beginnen Sie mit"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Start from (keeps its contact details, template and design)"
+msgstr ""
+
 #: src/features/documents/new-document-dialog.tsx
 msgid "Start from one you have and link the application."
 msgstr "Beginnen Sie mit einem vorhandenen Formular und verknüpfen Sie die Bewerbung."
@@ -12508,6 +12620,10 @@ msgstr "Diese Bewerbung konnte nicht geöffnet werden."
 msgid "This application has no posting saved yet. Paste it to match against it."
 msgstr "Für diese Bewerbung ist noch keine Stellenausschreibung gespeichert. Fügen Sie sie ein, um damit abzugleichen."
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "This application has no posting text saved, so there's little to match against. Add the posting to the application first for a better result."
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "This browser can't record here. Choose an audio file, or type your answer."
 msgstr "Dieser Browser kann hier nicht aufnehmen. Wählen Sie eine Audiodatei oder tippen Sie Ihre Antwort."
@@ -13325,6 +13441,10 @@ msgstr "Im Coaching verwenden: {excerpt}"
 msgid "Use lowercase letters, numbers and single dashes."
 msgstr "Verwenden Sie Kleinbuchstaben, Zahlen und einzelne Bindestriche."
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Use my exact wording"
+msgstr ""
+
 #: src/features/career/knowledge/search-regions-field.tsx
 msgid "Use my timezone"
 msgstr "Meine Zeitzone verwenden"
@@ -13758,6 +13878,10 @@ msgstr "Wie Erfolg aussieht, welche Herausforderung am wichtigsten ist und der n
 msgid "What the file-level check found in the PDF you'd send. It ran in this tab; nothing was uploaded."
 msgstr "Was die Überprüfung auf Dateiebene in dem von Ihnen gesendeten PDF ergeben hat. Es wurde in dieser Registerkarte ausgeführt. Es wurde nichts hochgeladen."
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "What the posting asks for"
+msgstr ""
+
 #: src/features/applications/components/interview-dialog.tsx
 msgid "What they asked you to prepare"
 msgstr "Worauf Sie sich vorbereiten sollen"
@@ -13916,6 +14040,10 @@ msgstr "Innerhalb eines Quartals stieg die Aktivierung von 31 % auf 44 %."
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Without one, you fill in the recipient yourself and drafting uses only your resume."
 msgstr "Ohne einen tragen Sie den Empfänger selbst ein und für die Erstellung wird nur Ihr Lebenslauf verwendet."
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Wording"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Words run together when the text is extracted."
@@ -14175,6 +14303,11 @@ msgstr "Ihre KI-Verbindung"
 msgid "Your AI connection"
 msgstr "Ihre KI-Verbindung"
 
+#. placeholder {0}: application.company
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Your AI connection picks the achievements and skills from your master profile that best match this posting, and builds a new resume for {0} from them. Your profile, the posting and the base resume's text are sent to that connection."
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "Your answer"
 msgstr "Ihre Antwort"
@@ -14300,6 +14433,10 @@ msgstr "Ihr Standort hat sich im Lebenslauf geändert. Auch der Brief wurde aktu
 #: src/features/ats-checker/messages.ts
 msgid "Your margins are very narrow."
 msgstr "Ihre Ränder sind sehr schmal."
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Your master profile has no achievements yet."
+msgstr ""
 
 #: src/features/career/coach.tsx
 msgid "your message"

@@ -138,6 +138,11 @@ msgstr "{0, plural, one {#টি আবেদন} other {#টি আবেদন
 msgid "{0, plural, one {# approved variant} other {# approved variants}}"
 msgstr ""
 
+#. placeholder {0}: bullets.length
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "{0, plural, one {# bullet placed} other {# bullets placed}}"
+msgstr ""
+
 #. placeholder {0}: state?.characters ?? 0
 #: src/features/resume/editor/write/rich-text-editor-field.tsx
 msgid "{0, plural, one {# character} other {# characters}}"
@@ -741,6 +746,10 @@ msgstr "{pendingOnPage, plural, one {এই পৃষ্ঠায় # প্র
 #: src/features/resume/editor/write/section-row.tsx
 msgid "{proposed, plural, one {# proposed} other {# proposed}}"
 msgstr "{proposed, plural, one {# প্রস্তাবিত} other {# প্রস্তাবিত}}"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "{rephrased, plural, one {# reworded} other {# reworded}}"
+msgstr ""
 
 #: src/features/resume/editor/write/write-panel.tsx
 msgid "{sections, plural, one {# section} other {# sections}}"
@@ -1482,6 +1491,10 @@ msgstr "বিভাগ যোগ করুন"
 msgid "Add skill"
 msgstr "দক্ষতা যোগ করুন"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Add some first"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Add some whitespace between sections so a person can skim it."
 msgstr "সেকশনগুলোর মধ্যে কিছুটা ফাঁকা জায়গা রাখুন, যাতে কেউ দ্রুত চোখ বুলাতে পারে।"
@@ -1554,6 +1567,13 @@ msgstr ""
 msgid "Added {0} at {1}"
 msgstr "{1} এ {0} যোগ করা হয়েছে"
 
+#. placeholder {0}: counts.entries
+#. placeholder {1}: counts.achievements
+#. placeholder {2}: counts.skills
+#: src/features/career/knowledge/profile.tsx
+msgid "Added {0} entries, {1} achievements and {2} skills. Review them, add numbers you can back up, and hide anything you don't want used."
+msgstr ""
+
 #: src/features/career/knowledge/facts.tsx
 #: src/features/career/shared.tsx
 msgid "Added by you"
@@ -1590,6 +1610,10 @@ msgstr "এর মধ্যে উত্তর না পেলে আজ বি
 #: src/features/templates/gallery.tsx
 msgid "Adjust fonts, colors, spacing and sections in the resume builder. Export your finished resume to PDF or Word, or share a link. The PDFs above are examples to help you compare designs."
 msgstr "সিভি বিল্ডারে ফন্ট, রঙ, ব্যবধান এবং বিভাগগুলি সামঞ্জস্য করুন। আপনার সমাপ্ত সিভি PDF বা Microsoft Word-এ রপ্তানি করুন, অথবা একটি লিঙ্ক শেয়ার করুন। উপরের PDF ফাইলগুলি আপনাকে ডিজাইন তুলনা করতে সাহায্য করার জন্য উদাহরণ।"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Adjust to the posting"
+msgstr ""
 
 #: src/features/homepage/sections.tsx
 msgid "Ads"
@@ -2171,6 +2195,18 @@ msgstr "আপনার অনবোর্ডিং কাজের একটি
 msgid "Aspect ratio"
 msgstr "আকার অনুপাত"
 
+#: src/features/applications/components/detail/sent-documents.tsx
+msgid "Assemble from profile"
+msgstr ""
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Assemble from your profile"
+msgstr ""
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Assemble resume"
+msgstr ""
+
 #: src/features/assistant/assistant-button.tsx
 #: src/features/assistant/assistant-panel.tsx
 #: src/features/assistant/conversation.tsx
@@ -2321,6 +2357,10 @@ msgstr "সাইন ইনে ফিরে যান"
 #: src/features/career/knowledge/stories.tsx
 msgid "Back to stories"
 msgstr "গল্পে ফিরে যান"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Backed"
+msgstr ""
 
 #: src/features/career/knowledge/stories.tsx
 #: src/features/career/workspace/apply.tsx
@@ -2514,6 +2554,14 @@ msgstr "তালিকা এন্ট্রি {n}"
 msgid "Bulleted list"
 msgstr "বুলেটেড তালিকা"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Bullets may be reworded to use the posting's terms and a summary is written. Rewrites that add a number you didn't record are rejected and your wording is used instead."
+msgstr ""
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Bullets print exactly as you wrote them, or as one of your approved variants. Your existing summary is kept."
+msgstr ""
+
 #: src/features/homepage/footer.tsx
 msgid "By the community, for the community."
 msgstr "কমিউনিটির তৈরি, কমিউনিটির জন্য।"
@@ -2542,6 +2590,7 @@ msgstr "সফ্টওয়্যার আপনার জীবনবৃত�
 #: src/dialogs/auth/enable-two-factor.tsx
 #: src/features/applications/components/application-form-sheet.tsx
 #: src/features/applications/components/detail/activity.tsx
+#: src/features/applications/components/detail/assemble-dialog.tsx
 #: src/features/applications/components/detail/close-dialog.tsx
 #: src/features/applications/components/detail/contacts.tsx
 #: src/features/applications/components/export-applications-sheet.tsx
@@ -2929,6 +2978,7 @@ msgstr ""
 #: src/dialogs/auth/disable-two-factor.tsx
 #: src/dialogs/auth/enable-two-factor.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/detail/assemble-dialog.tsx
 #: src/features/applications/components/interview-dialog.tsx
 #: src/features/career/coach.tsx
 #: src/features/career/schedule-sheet.tsx
@@ -3425,6 +3475,10 @@ msgstr "আবেদনটি যোগ করা যায়নি। আব�
 msgid "Couldn't add the passkey. Try again."
 msgstr "পাসকি যোগ করা যায়নি। আবার চেষ্টা করুন"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Couldn't assemble the resume. Try again."
+msgstr ""
+
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
 msgid "Couldn't attach the file. Try again."
@@ -3589,6 +3643,10 @@ msgstr "এই পদটি লুকানো যায়নি। আবা�
 #: src/features/documents/new-document-dialog.tsx
 msgid "Couldn't import"
 msgstr "আমদানি করা যায়নি"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Couldn't import that resume. Try again."
+msgstr ""
 
 #: src/features/ats-checker/checker.tsx
 msgid "Couldn't import the file. Try again from Documents."
@@ -4116,6 +4174,10 @@ msgstr "কী তৈরি করুন"
 #: src/features/auth/pages/login.tsx
 msgid "Create one now"
 msgstr "এখনই একটি তৈরি করুন"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Create or import a resume first. It provides your name, contact details and design."
+msgstr ""
 
 #: src/features/documents/documents-page.tsx
 #: src/features/resume/share/format.ts
@@ -5396,6 +5458,10 @@ msgstr "পদ ও কোম্পানি পূরণ করুন। চা�
 msgid "Fill in the role and company. The posting is saved with the application."
 msgstr "ভূমিকা এবং কোম্পানি পূরণ করুন. চাকরির আবেদনের সাথে চাকরির পোস্টিং সংরক্ষণ করা হয়।"
 
+#: src/features/career/knowledge/profile.tsx
+msgid "Fill your profile from a resume you already have"
+msgstr ""
+
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Filled from the application. The greeting follows the name."
 msgstr "চাকরির আবেদনপত্র থেকে পূরণ করা হয়েছে। অভিবাদন নাম অনুসরণ করে।"
@@ -6160,6 +6226,7 @@ msgstr "উপেক্ষিত সমস্যা ফিরে এসেছে
 msgid "Images cover most of the page."
 msgstr "ছবি পৃষ্ঠার বেশিরভাগ অংশ জুড়ে আছে।"
 
+#: src/features/career/knowledge/profile.tsx
 #: src/features/command-palette/pages/navigation.tsx
 msgid "Import"
 msgstr "ইমপোর্ট"
@@ -6649,6 +6716,10 @@ msgstr "সবচেয়ে নির্দিষ্ট অংশ রাখে
 #: src/features/resume/editor/check/actions.ts
 msgid "Kept as it is"
 msgstr "যেমন আছে তেমন রাখা হয়েছে"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Kept as you wrote it"
+msgstr ""
 
 #: src/features/homepage/write.tsx
 msgid "Kept yours"
@@ -7476,6 +7547,10 @@ msgstr "মাইক্রোফোন ব্লক করা আছে। ব�
 msgid "Minimum base salary"
 msgstr "ন্যূনতম মূল বেতন"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Missing evidence isn't missing ability. If you have done it, add it to your profile and assemble again."
+msgstr ""
+
 #: src/features/homepage/prepare.tsx
 msgid "Missing evidence means your notes don’t show it yet, not that you lack it."
 msgstr "প্রমাণ নেই মানে আপনার নোটে এখনও তা দেখা যাচ্ছে না, আপনার তা নেই এমন নয়।"
@@ -7861,6 +7936,10 @@ msgstr ""
 msgid "New stage color"
 msgstr "নতুন পর্যায়ের রং"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "new summary"
+msgstr ""
+
 #: src/features/homepage/remember.tsx
 msgid "New teams at Northwind were stalling in setup; most never got through."
 msgstr "Northwind-এ নতুন টিমগুলো সেটআপে আটকে যাচ্ছিল; বেশিরভাগই শেষ করতে পারত না।"
@@ -7980,6 +8059,7 @@ msgstr "কোনো ইমেইল ঠিকানা পাওয়া য�
 msgid "No entries yet. Start with your current or most recent role."
 msgstr ""
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
 #: src/features/career/shared.tsx
 #: src/features/homepage/prepare.tsx
 #: src/features/homepage/remember.tsx
@@ -8320,6 +8400,10 @@ msgstr "\"{0}\" এর সাথে কিছুই মেলে না"
 msgid "Nothing matches these filters"
 msgstr "কিছুই এই ফিল্টার মেলে না"
 
+#: src/features/career/knowledge/profile.tsx
+msgid "Nothing new in that resume. Your profile already has it."
+msgstr ""
+
 #: src/features/career/workspace/saved.tsx
 msgid "Nothing saved yet"
 msgstr "এখনও কিছু সংরক্ষিত হয়নি"
@@ -8578,6 +8662,10 @@ msgstr "এক্সপোর্ট করা ফাইলটি খুলে �
 msgid "Open the Reactive Resume app"
 msgstr "Reactive Resume অ্যাপটি খুলুন"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Open the resume"
+msgstr ""
+
 #: src/features/career/today.tsx
 msgid "Open the schedule"
 msgstr "সময়সূচি খুলুন"
@@ -8796,6 +8884,10 @@ msgstr "Parcel & Co."
 #: src/features/homepage/write.tsx
 msgid "Parcel & Co. · Porto"
 msgstr "Parcel & Co. · Porto"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Partly backed"
+msgstr ""
 
 #: src/features/career/shared.tsx
 #: src/features/homepage/prepare.tsx
@@ -9489,6 +9581,10 @@ msgstr "R"
 msgid "Raise the design sheet"
 msgstr "নকশা শীট বাড়ান"
 
+#: src/features/applications/components/detail/sent-documents.tsx
+msgid "Re-assemble from profile"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Re-export from a single-column layout, then copy the text out and check it reads top to bottom."
 msgstr "একক-কলাম লেআউট থেকে পুনরায় এক্সপোর্ট করুন, তারপর টেক্সট কপি করে দেখুন এটি উপর থেকে নিচে পড়া যায় কিনা।"
@@ -10168,6 +10264,10 @@ msgstr "জীবনবৃত্তান্ত (ঐচ্ছিক)"
 msgid "Resume + letter"
 msgstr "জীবনবৃত্তান্ত + চিঠি"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Resume assembled"
+msgstr ""
+
 #: src/features/homepage/tailor.tsx
 msgid "Resume attached"
 msgstr "রিজিউমি সংযুক্ত"
@@ -10201,6 +10301,10 @@ msgstr "জীবনবৃত্তান্ত পাতা"
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Resume submitted (optional)"
 msgstr "জীবনবৃত্তান্ত জমা দেওয়া (ঐচ্ছিক)"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Resume to import"
+msgstr ""
 
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/command-palette/pages/resumes.tsx
@@ -10264,6 +10368,10 @@ msgstr "খসড়া পর্যালোচনা করুন"
 #: src/features/resume/editor/write/write-panel.tsx
 msgid "Review each section before using this resume."
 msgstr "এই জীবনবৃত্তান্ত ব্যবহার করার আগে প্রতিটি বিভাগ পর্যালোচনা করুন."
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Review it in the editor before you send it. Every line comes from your master profile."
+msgstr ""
 
 #: src/features/career/workspace/debrief.tsx
 msgid "Review my answer"
@@ -11620,6 +11728,10 @@ msgstr "প্রতিটি একটি সুনির্দিষ্ট ক
 msgid "Start from"
 msgstr "থেকে শুরু করুন"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Start from (keeps its contact details, template and design)"
+msgstr ""
+
 #: src/features/documents/new-document-dialog.tsx
 msgid "Start from one you have and link the application."
 msgstr "আপনার কাছে একটি থেকে শুরু করুন এবং চাকরির আবেদন লিঙ্ক করুন।"
@@ -12508,6 +12620,10 @@ msgstr "এই আবেদনটি খোলা যায়নি।"
 msgid "This application has no posting saved yet. Paste it to match against it."
 msgstr "এই চাকরির আবেদনে এখনও কোনো চাকরির বিজ্ঞপ্তি সংরক্ষিত নেই। মিলিয়ে দেখতে এটি পেস্ট করুন।"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "This application has no posting text saved, so there's little to match against. Add the posting to the application first for a better result."
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "This browser can't record here. Choose an audio file, or type your answer."
 msgstr "এই ব্রাউজার এখানে রেকর্ড করতে পারে না। একটি অডিও ফাইল বেছে নিন, অথবা আপনার উত্তর টাইপ করুন।"
@@ -13325,6 +13441,10 @@ msgstr "কোচিংয়ে ব্যবহার করুন: {excerpt}"
 msgid "Use lowercase letters, numbers and single dashes."
 msgstr "ছোট হাতের অক্ষর, সংখ্যা এবং একক ড্যাশ ব্যবহার করুন।"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Use my exact wording"
+msgstr ""
+
 #: src/features/career/knowledge/search-regions-field.tsx
 msgid "Use my timezone"
 msgstr "আমার টাইমজোন ব্যবহার করুন"
@@ -13758,6 +13878,10 @@ msgstr "সাফল্য দেখতে কেমন, কোন চ্যা�
 msgid "What the file-level check found in the PDF you'd send. It ran in this tab; nothing was uploaded."
 msgstr "আপনি যে PDF পাঠাবেন তাতে ফাইল-স্তরের চেকটি কী পাওয়া গেছে। এটা এই ট্যাবে রান; কিছুই আপলোড করা হয়নি।"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "What the posting asks for"
+msgstr ""
+
 #: src/features/applications/components/interview-dialog.tsx
 msgid "What they asked you to prepare"
 msgstr "তারা আপনাকে যা প্রস্তুত করতে বলেছে"
@@ -13916,6 +14040,10 @@ msgstr "এক প্রান্তিকের মধ্যে অ্যাক
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Without one, you fill in the recipient yourself and drafting uses only your resume."
 msgstr "একটি ছাড়া, আপনি নিজেই প্রাপক পূরণ করেন এবং ড্রাফটিং শুধুমাত্র আপনার জীবনবৃত্তান্ত ব্যবহার করে।"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Wording"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Words run together when the text is extracted."
@@ -14175,6 +14303,11 @@ msgstr "আপনার এআই সংযোগ"
 msgid "Your AI connection"
 msgstr "আপনার এআই সংযোগ"
 
+#. placeholder {0}: application.company
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Your AI connection picks the achievements and skills from your master profile that best match this posting, and builds a new resume for {0} from them. Your profile, the posting and the base resume's text are sent to that connection."
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "Your answer"
 msgstr "আপনার উত্তর"
@@ -14300,6 +14433,10 @@ msgstr "জীবনবৃত্তান্তে আপনার অবস্�
 #: src/features/ats-checker/messages.ts
 msgid "Your margins are very narrow."
 msgstr "আপনার মার্জিন খুবই সংকীর্ণ।"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Your master profile has no achievements yet."
+msgstr ""
 
 #: src/features/career/coach.tsx
 msgid "your message"

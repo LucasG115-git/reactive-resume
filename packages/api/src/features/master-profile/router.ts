@@ -2,7 +2,9 @@ import { createSelectSchema } from "drizzle-zod";
 import z from "zod";
 import * as tables from "@reactive-resume/db/schema";
 import {
+	assembleInputSchema,
 	profileAchievementInputSchema,
+	profileAssemblyResultSchema,
 	profileEntryInputSchema,
 	profileEntryKindSchema,
 	profileMetricSchema,
@@ -10,6 +12,8 @@ import {
 	profileSkillInputSchema,
 } from "@reactive-resume/schema/master-profile";
 import { protectedProcedure } from "../../context";
+import { aiRequestRateLimit } from "../../middleware/rate-limit";
+import { assembleService } from "./assemble/service";
 import { masterProfileService } from "./service";
 
 const tags = ["Master profile"];
@@ -35,7 +39,42 @@ export const masterProfileSchema = z.object({
 const id = z.object({ id: z.string().min(1) });
 const optionalId = z.object({ id: z.string().min(1).optional() });
 
+const assemblySchema = createSelectSchema(tables.profileAssembly, {
+	mode: z.enum(["rephrase", "verbatim"]),
+	result: profileAssemblyResultSchema,
+});
+
 export const masterProfileRouter = {
+	assemble: protectedProcedure
+		.route({
+			method: "POST",
+			path: "/master-profile/assemble",
+			tags,
+			operationId: "assembleResumeFromProfile",
+			summary: "Assemble a tailored resume for an application",
+			description:
+				"Chooses the master-profile achievements and skills that best match the application's posting, builds a resume from them on top of a base resume's details and design, links it to the application, and records which profile item each line came from. Uses the default AI connection.",
+		})
+		.use(aiRequestRateLimit)
+		.input(assembleInputSchema)
+		.output(z.object({ assemblyId: z.string(), resumeId: z.string(), result: profileAssemblyResultSchema }))
+		.errors({
+			BAD_GATEWAY: { message: "The AI provider returned an error or couldn't be reached.", status: 502 },
+		})
+		.handler(({ context, input, signal }) => assembleService.assemble(context.user.id, input, { signal })),
+
+	latestAssembly: protectedProcedure
+		.route({
+			method: "GET",
+			path: "/master-profile/assemblies/latest",
+			tags,
+			operationId: "getLatestProfileAssembly",
+			summary: "Get the latest assembly for an application",
+		})
+		.input(z.object({ applicationId: z.string().min(1) }))
+		.output(assemblySchema.nullable())
+		.handler(({ context, input }) => assembleService.latest(context.user.id, input.applicationId)),
+
 	get: protectedProcedure
 		.route({
 			method: "GET",
@@ -48,6 +87,20 @@ export const masterProfileRouter = {
 		.input(z.object({}).optional())
 		.output(masterProfileSchema)
 		.handler(({ context }) => masterProfileService.get(context.user.id)),
+
+	importFromResume: protectedProcedure
+		.route({
+			method: "POST",
+			path: "/master-profile/import-resume",
+			tags,
+			operationId: "importMasterProfileFromResume",
+			summary: "Add a resume's history to the master profile",
+			description:
+				"Copies a resume's experience, projects, education, volunteering, certifications, awards and skills into the master profile, skipping anything already there. Uses no AI.",
+		})
+		.input(z.object({ resumeId: z.string().min(1) }))
+		.output(z.object({ entries: z.number(), achievements: z.number(), skills: z.number() }))
+		.handler(({ context, input }) => masterProfileService.importFromResume(context.user.id, input.resumeId)),
 
 	saveEntry: protectedProcedure
 		.route({

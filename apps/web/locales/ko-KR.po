@@ -138,6 +138,11 @@ msgstr "{0, plural, other {지원 #건}}"
 msgid "{0, plural, one {# approved variant} other {# approved variants}}"
 msgstr ""
 
+#. placeholder {0}: bullets.length
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "{0, plural, one {# bullet placed} other {# bullets placed}}"
+msgstr ""
+
 #. placeholder {0}: state?.characters ?? 0
 #: src/features/resume/editor/write/rich-text-editor-field.tsx
 msgid "{0, plural, one {# character} other {# characters}}"
@@ -741,6 +746,10 @@ msgstr "{pendingOnPage, plural, one {#는 이 페이지에 대한 편집을 제�
 #: src/features/resume/editor/write/section-row.tsx
 msgid "{proposed, plural, one {# proposed} other {# proposed}}"
 msgstr "{proposed, plural, one {# 제안} other {# 제안}}"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "{rephrased, plural, one {# reworded} other {# reworded}}"
+msgstr ""
 
 #: src/features/resume/editor/write/write-panel.tsx
 msgid "{sections, plural, one {# section} other {# sections}}"
@@ -1482,6 +1491,10 @@ msgstr "섹션 추가"
 msgid "Add skill"
 msgstr "스킬 추가"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Add some first"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Add some whitespace between sections so a person can skim it."
 msgstr "사람이 훑어볼 수 있도록 섹션 사이에 여백을 추가하세요."
@@ -1554,6 +1567,13 @@ msgstr ""
 msgid "Added {0} at {1}"
 msgstr "{1}에 {0}를 추가했습니다."
 
+#. placeholder {0}: counts.entries
+#. placeholder {1}: counts.achievements
+#. placeholder {2}: counts.skills
+#: src/features/career/knowledge/profile.tsx
+msgid "Added {0} entries, {1} achievements and {2} skills. Review them, add numbers you can back up, and hide anything you don't want used."
+msgstr ""
+
 #: src/features/career/knowledge/facts.tsx
 #: src/features/career/shared.tsx
 msgid "Added by you"
@@ -1590,6 +1610,10 @@ msgstr "그때까지 답이 없으면 오늘에 알림을 추가합니다."
 #: src/features/templates/gallery.tsx
 msgid "Adjust fonts, colors, spacing and sections in the resume builder. Export your finished resume to PDF or Word, or share a link. The PDFs above are examples to help you compare designs."
 msgstr "CV 빌더에서 글꼴, 색상, 간격, 섹션을 조정하세요. 완성된 이력서를 PDF 또는 Microsoft Word로 내보내거나 링크를 공유하세요. 위의 PDF 파일은 디자인을 비교하는 데 도움이 되는 예입니다."
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Adjust to the posting"
+msgstr ""
 
 #: src/features/homepage/sections.tsx
 msgid "Ads"
@@ -2171,6 +2195,18 @@ msgstr "온보딩 작업 사례를 요청합니다."
 msgid "Aspect ratio"
 msgstr "화면 비율"
 
+#: src/features/applications/components/detail/sent-documents.tsx
+msgid "Assemble from profile"
+msgstr ""
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Assemble from your profile"
+msgstr ""
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Assemble resume"
+msgstr ""
+
 #: src/features/assistant/assistant-button.tsx
 #: src/features/assistant/assistant-panel.tsx
 #: src/features/assistant/conversation.tsx
@@ -2321,6 +2357,10 @@ msgstr "로그인으로 돌아가기"
 #: src/features/career/knowledge/stories.tsx
 msgid "Back to stories"
 msgstr "스토리로 돌아가기"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Backed"
+msgstr ""
 
 #: src/features/career/knowledge/stories.tsx
 #: src/features/career/workspace/apply.tsx
@@ -2514,6 +2554,14 @@ msgstr "목록 항목 {n}"
 msgid "Bulleted list"
 msgstr "글머리 기호 목록"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Bullets may be reworded to use the posting's terms and a summary is written. Rewrites that add a number you didn't record are rejected and your wording is used instead."
+msgstr ""
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Bullets print exactly as you wrote them, or as one of your approved variants. Your existing summary is kept."
+msgstr ""
+
 #: src/features/homepage/footer.tsx
 msgid "By the community, for the community."
 msgstr "커뮤니티에 의해, 커뮤니티를 위해."
@@ -2542,6 +2590,7 @@ msgstr "소프트웨어가 이력서를 읽을 수 있나요?"
 #: src/dialogs/auth/enable-two-factor.tsx
 #: src/features/applications/components/application-form-sheet.tsx
 #: src/features/applications/components/detail/activity.tsx
+#: src/features/applications/components/detail/assemble-dialog.tsx
 #: src/features/applications/components/detail/close-dialog.tsx
 #: src/features/applications/components/detail/contacts.tsx
 #: src/features/applications/components/export-applications-sheet.tsx
@@ -2929,6 +2978,7 @@ msgstr ""
 #: src/dialogs/auth/disable-two-factor.tsx
 #: src/dialogs/auth/enable-two-factor.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/detail/assemble-dialog.tsx
 #: src/features/applications/components/interview-dialog.tsx
 #: src/features/career/coach.tsx
 #: src/features/career/schedule-sheet.tsx
@@ -3425,6 +3475,10 @@ msgstr "지원을 추가할 수 없습니다. 다시 시도해 보세요."
 msgid "Couldn't add the passkey. Try again."
 msgstr "암호키를 추가할 수 없습니다. 다시 시도해 보세요."
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Couldn't assemble the resume. Try again."
+msgstr ""
+
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
 msgid "Couldn't attach the file. Try again."
@@ -3589,6 +3643,10 @@ msgstr "이 직무를 숨길 수 없습니다. 다시 시도해 보세요."
 #: src/features/documents/new-document-dialog.tsx
 msgid "Couldn't import"
 msgstr "가져올 수 없습니다."
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Couldn't import that resume. Try again."
+msgstr ""
 
 #: src/features/ats-checker/checker.tsx
 msgid "Couldn't import the file. Try again from Documents."
@@ -4116,6 +4174,10 @@ msgstr "키 생성"
 #: src/features/auth/pages/login.tsx
 msgid "Create one now"
 msgstr "지금 만들기"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Create or import a resume first. It provides your name, contact details and design."
+msgstr ""
 
 #: src/features/documents/documents-page.tsx
 #: src/features/resume/share/format.ts
@@ -5396,6 +5458,10 @@ msgstr "직무와 회사를 입력하세요. 설정에서 AI 제공자를 연결
 msgid "Fill in the role and company. The posting is saved with the application."
 msgstr "역할과 회사를 입력하세요. 채용 공고는 채용 지원서와 함께 저장됩니다."
 
+#: src/features/career/knowledge/profile.tsx
+msgid "Fill your profile from a resume you already have"
+msgstr ""
+
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Filled from the application. The greeting follows the name."
 msgstr "취업 지원서에서 작성되었습니다. 인사말은 이름을 따릅니다."
@@ -6160,6 +6226,7 @@ msgstr "무시된 문제가 다시 발생함"
 msgid "Images cover most of the page."
 msgstr "이미지가 페이지의 대부분을 차지하고 있습니다."
 
+#: src/features/career/knowledge/profile.tsx
 #: src/features/command-palette/pages/navigation.tsx
 msgid "Import"
 msgstr "가져오기"
@@ -6649,6 +6716,10 @@ msgstr "가장 구체적인 부분을 유지합니다."
 #: src/features/resume/editor/check/actions.ts
 msgid "Kept as it is"
 msgstr "그대로 유지"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Kept as you wrote it"
+msgstr ""
 
 #: src/features/homepage/write.tsx
 msgid "Kept yours"
@@ -7476,6 +7547,10 @@ msgstr "마이크가 차단되었습니다. 브라우저 설정에서 허용하�
 msgid "Minimum base salary"
 msgstr "최소 기본급"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Missing evidence isn't missing ability. If you have done it, add it to your profile and assemble again."
+msgstr ""
+
 #: src/features/homepage/prepare.tsx
 msgid "Missing evidence means your notes don’t show it yet, not that you lack it."
 msgstr "근거가 없다는 것은 아직 노트에 나타나지 않았다는 뜻이지, 그 역량이 없다는 뜻이 아닙니다."
@@ -7861,6 +7936,10 @@ msgstr ""
 msgid "New stage color"
 msgstr "새 단계 색상"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "new summary"
+msgstr ""
+
 #: src/features/homepage/remember.tsx
 msgid "New teams at Northwind were stalling in setup; most never got through."
 msgstr "Northwind의 신규 팀들이 설정 단계에서 멈췄고, 대부분 끝까지 가지 못했습니다."
@@ -7980,6 +8059,7 @@ msgstr "이메일 주소를 찾을 수 없습니다."
 msgid "No entries yet. Start with your current or most recent role."
 msgstr ""
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
 #: src/features/career/shared.tsx
 #: src/features/homepage/prepare.tsx
 #: src/features/homepage/remember.tsx
@@ -8320,6 +8400,10 @@ msgstr "“{0}”와 일치하는 항목이 없습니다."
 msgid "Nothing matches these filters"
 msgstr "이 필터와 일치하는 항목이 없습니다."
 
+#: src/features/career/knowledge/profile.tsx
+msgid "Nothing new in that resume. Your profile already has it."
+msgstr ""
+
 #: src/features/career/workspace/saved.tsx
 msgid "Nothing saved yet"
 msgstr "아직 저장된 항목 없음"
@@ -8578,6 +8662,10 @@ msgstr "내보낸 파일을 열어 모든 부분을 선택하고 복사할 수 �
 msgid "Open the Reactive Resume app"
 msgstr "Reactive Resume 앱을 엽니다."
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Open the resume"
+msgstr ""
+
 #: src/features/career/today.tsx
 msgid "Open the schedule"
 msgstr "스케줄 열기"
@@ -8796,6 +8884,10 @@ msgstr "Parcel & Co."
 #: src/features/homepage/write.tsx
 msgid "Parcel & Co. · Porto"
 msgstr "Parcel & Co. · Porto"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Partly backed"
+msgstr ""
 
 #: src/features/career/shared.tsx
 #: src/features/homepage/prepare.tsx
@@ -9489,6 +9581,10 @@ msgstr "R"
 msgid "Raise the design sheet"
 msgstr "디자인 시트를 올려보세요"
 
+#: src/features/applications/components/detail/sent-documents.tsx
+msgid "Re-assemble from profile"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Re-export from a single-column layout, then copy the text out and check it reads top to bottom."
 msgstr "단일 열 레이아웃으로 다시 내보낸 뒤, 텍스트를 복사해 위에서 아래로 순서대로 읽히는지 확인하세요."
@@ -10168,6 +10264,10 @@ msgstr "이력서(선택사항)"
 msgid "Resume + letter"
 msgstr "이력서 + 편지"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Resume assembled"
+msgstr ""
+
 #: src/features/homepage/tailor.tsx
 msgid "Resume attached"
 msgstr "이력서 첨부됨"
@@ -10201,6 +10301,10 @@ msgstr "이력서 페이지"
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Resume submitted (optional)"
 msgstr "이력서 제출(선택)"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Resume to import"
+msgstr ""
 
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/command-palette/pages/resumes.tsx
@@ -10264,6 +10368,10 @@ msgstr "초안 검토"
 #: src/features/resume/editor/write/write-panel.tsx
 msgid "Review each section before using this resume."
 msgstr "이 이력서를 사용하기 전에 각 섹션을 검토하세요."
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Review it in the editor before you send it. Every line comes from your master profile."
+msgstr ""
 
 #: src/features/career/workspace/debrief.tsx
 msgid "Review my answer"
@@ -11620,6 +11728,10 @@ msgstr "각 항목을 구체적인 동사로 시작하세요: 구축했다, 이�
 msgid "Start from"
 msgstr "다음에서 시작"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Start from (keeps its contact details, template and design)"
+msgstr ""
+
 #: src/features/documents/new-document-dialog.tsx
 msgid "Start from one you have and link the application."
 msgstr "가지고 있는 것부터 시작하여 입사 지원서를 연결하세요."
@@ -12508,6 +12620,10 @@ msgstr "이 지원 내역을 열 수 없습니다."
 msgid "This application has no posting saved yet. Paste it to match against it."
 msgstr "이 채용 지원서에는 아직 저장된 채용 공고가 없습니다. 일치하도록 붙여넣으세요."
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "This application has no posting text saved, so there's little to match against. Add the posting to the application first for a better result."
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "This browser can't record here. Choose an audio file, or type your answer."
 msgstr "이 브라우저에서는 녹음할 수 없습니다. 오디오 파일을 선택하거나 답변을 입력하세요."
@@ -13325,6 +13441,10 @@ msgstr "코칭에 사용: {excerpt}"
 msgid "Use lowercase letters, numbers and single dashes."
 msgstr "소문자, 숫자, 단일 대시를 사용하세요."
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Use my exact wording"
+msgstr ""
+
 #: src/features/career/knowledge/search-regions-field.tsx
 msgid "Use my timezone"
 msgstr "내 시간대 사용"
@@ -13758,6 +13878,10 @@ msgstr "성공의 모습, 가장 중요한 과제, 다음 단계."
 msgid "What the file-level check found in the PDF you'd send. It ran in this tab; nothing was uploaded."
 msgstr "귀하가 보내실 PDF에서 발견된 파일 수준 검사 내용입니다. 이 탭에서 실행되었습니다. 아무것도 업로드되지 않았습니다."
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "What the posting asks for"
+msgstr ""
+
 #: src/features/applications/components/interview-dialog.tsx
 msgid "What they asked you to prepare"
 msgstr "준비 요청받은 내용"
@@ -13916,6 +14040,10 @@ msgstr "한 분기 만에 활성화율이 31%에서 44%가 되었습니다."
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Without one, you fill in the recipient yourself and drafting uses only your resume."
 msgstr "하나도 없으면 수신자를 직접 입력하고 초안 작성 시 이력서만 사용됩니다."
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Wording"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Words run together when the text is extracted."
@@ -14175,6 +14303,11 @@ msgstr "내 AI 연결"
 msgid "Your AI connection"
 msgstr "내 AI 연결"
 
+#. placeholder {0}: application.company
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Your AI connection picks the achievements and skills from your master profile that best match this posting, and builds a new resume for {0} from them. Your profile, the posting and the base resume's text are sent to that connection."
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "Your answer"
 msgstr "내 답변"
@@ -14300,6 +14433,10 @@ msgstr "이력서에서 귀하의 위치가 변경되었습니다. 편지도 업
 #: src/features/ats-checker/messages.ts
 msgid "Your margins are very narrow."
 msgstr "여백이 매우 좁습니다."
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Your master profile has no achievements yet."
+msgstr ""
 
 #: src/features/career/coach.tsx
 msgid "your message"

@@ -138,6 +138,11 @@ msgstr "{0, plural, other {# hồ sơ ứng tuyển}}"
 msgid "{0, plural, one {# approved variant} other {# approved variants}}"
 msgstr ""
 
+#. placeholder {0}: bullets.length
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "{0, plural, one {# bullet placed} other {# bullets placed}}"
+msgstr ""
+
 #. placeholder {0}: state?.characters ?? 0
 #: src/features/resume/editor/write/rich-text-editor-field.tsx
 msgid "{0, plural, one {# character} other {# characters}}"
@@ -741,6 +746,10 @@ msgstr "{pendingOnPage, plural, one {# đề xuất chỉnh sửa trên trang n�
 #: src/features/resume/editor/write/section-row.tsx
 msgid "{proposed, plural, one {# proposed} other {# proposed}}"
 msgstr "{proposed, plural, one {đề xuất #} other {đề xuất #}}"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "{rephrased, plural, one {# reworded} other {# reworded}}"
+msgstr ""
 
 #: src/features/resume/editor/write/write-panel.tsx
 msgid "{sections, plural, one {# section} other {# sections}}"
@@ -1482,6 +1491,10 @@ msgstr "Thêm phần"
 msgid "Add skill"
 msgstr "Thêm kỹ năng"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Add some first"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Add some whitespace between sections so a person can skim it."
 msgstr "Thêm khoảng trắng giữa các phần để người đọc có thể lướt qua dễ dàng."
@@ -1554,6 +1567,13 @@ msgstr ""
 msgid "Added {0} at {1}"
 msgstr "Đã thêm {0} tại {1}"
 
+#. placeholder {0}: counts.entries
+#. placeholder {1}: counts.achievements
+#. placeholder {2}: counts.skills
+#: src/features/career/knowledge/profile.tsx
+msgid "Added {0} entries, {1} achievements and {2} skills. Review them, add numbers you can back up, and hide anything you don't want used."
+msgstr ""
+
 #: src/features/career/knowledge/facts.tsx
 #: src/features/career/shared.tsx
 msgid "Added by you"
@@ -1590,6 +1610,10 @@ msgstr "Thêm lời nhắc vào Hôm nay nếu đến lúc đó bạn vẫn chư
 #: src/features/templates/gallery.tsx
 msgid "Adjust fonts, colors, spacing and sections in the resume builder. Export your finished resume to PDF or Word, or share a link. The PDFs above are examples to help you compare designs."
 msgstr "Điều chỉnh phông chữ, màu sắc, khoảng cách và các phần trong trình tạo CV. Xuất CV đã hoàn thành của bạn sang PDF hoặc Microsoft Word hoặc chia sẻ liên kết. Các tệp PDF ở trên là ví dụ giúp bạn so sánh các thiết kế."
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Adjust to the posting"
+msgstr ""
 
 #: src/features/homepage/sections.tsx
 msgid "Ads"
@@ -2171,6 +2195,18 @@ msgstr "Muốn xem một ví dụ về công việc onboarding của bạn."
 msgid "Aspect ratio"
 msgstr "Tỷ lệ khung hình"
 
+#: src/features/applications/components/detail/sent-documents.tsx
+msgid "Assemble from profile"
+msgstr ""
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Assemble from your profile"
+msgstr ""
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Assemble resume"
+msgstr ""
+
 #: src/features/assistant/assistant-button.tsx
 #: src/features/assistant/assistant-panel.tsx
 #: src/features/assistant/conversation.tsx
@@ -2321,6 +2357,10 @@ msgstr "Quay lại đăng nhập"
 #: src/features/career/knowledge/stories.tsx
 msgid "Back to stories"
 msgstr "Quay lại câu chuyện"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Backed"
+msgstr ""
 
 #: src/features/career/knowledge/stories.tsx
 #: src/features/career/workspace/apply.tsx
@@ -2514,6 +2554,14 @@ msgstr "mục danh sách {n}"
 msgid "Bulleted list"
 msgstr "Danh sách có dấu đầu dòng"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Bullets may be reworded to use the posting's terms and a summary is written. Rewrites that add a number you didn't record are rejected and your wording is used instead."
+msgstr ""
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Bullets print exactly as you wrote them, or as one of your approved variants. Your existing summary is kept."
+msgstr ""
+
 #: src/features/homepage/footer.tsx
 msgid "By the community, for the community."
 msgstr "Bởi cộng đồng, vì cộng đồng."
@@ -2542,6 +2590,7 @@ msgstr "Phần mềm có đọc được sơ yếu lý lịch của bạn không
 #: src/dialogs/auth/enable-two-factor.tsx
 #: src/features/applications/components/application-form-sheet.tsx
 #: src/features/applications/components/detail/activity.tsx
+#: src/features/applications/components/detail/assemble-dialog.tsx
 #: src/features/applications/components/detail/close-dialog.tsx
 #: src/features/applications/components/detail/contacts.tsx
 #: src/features/applications/components/export-applications-sheet.tsx
@@ -2929,6 +2978,7 @@ msgstr ""
 #: src/dialogs/auth/disable-two-factor.tsx
 #: src/dialogs/auth/enable-two-factor.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/detail/assemble-dialog.tsx
 #: src/features/applications/components/interview-dialog.tsx
 #: src/features/career/coach.tsx
 #: src/features/career/schedule-sheet.tsx
@@ -3425,6 +3475,10 @@ msgstr "Không thể thêm hồ sơ ứng tuyển. Hãy thử lại."
 msgid "Couldn't add the passkey. Try again."
 msgstr "Không thể thêm mật mã. Hãy thử lại."
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Couldn't assemble the resume. Try again."
+msgstr ""
+
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
 msgid "Couldn't attach the file. Try again."
@@ -3589,6 +3643,10 @@ msgstr "Không thể ẩn vị trí này. Hãy thử lại."
 #: src/features/documents/new-document-dialog.tsx
 msgid "Couldn't import"
 msgstr "Không thể nhập"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Couldn't import that resume. Try again."
+msgstr ""
 
 #: src/features/ats-checker/checker.tsx
 msgid "Couldn't import the file. Try again from Documents."
@@ -4116,6 +4174,10 @@ msgstr "Tạo khóa"
 #: src/features/auth/pages/login.tsx
 msgid "Create one now"
 msgstr "Tạo ngay bây giờ"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Create or import a resume first. It provides your name, contact details and design."
+msgstr ""
 
 #: src/features/documents/documents-page.tsx
 #: src/features/resume/share/format.ts
@@ -5396,6 +5458,10 @@ msgstr "Điền vai trò và công ty. Kết nối nhà cung cấp AI trong Cài
 msgid "Fill in the role and company. The posting is saved with the application."
 msgstr "Điền vào vai trò và công ty. Tin tuyển dụng được lưu cùng với đơn xin việc."
 
+#: src/features/career/knowledge/profile.tsx
+msgid "Fill your profile from a resume you already have"
+msgstr ""
+
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Filled from the application. The greeting follows the name."
 msgstr "Điền từ đơn xin việc. Lời chào theo sau tên."
@@ -6160,6 +6226,7 @@ msgstr "Các vấn đề bị bỏ qua đã quay trở lại"
 msgid "Images cover most of the page."
 msgstr "Hình ảnh chiếm phần lớn trang."
 
+#: src/features/career/knowledge/profile.tsx
 #: src/features/command-palette/pages/navigation.tsx
 msgid "Import"
 msgstr "Nhập"
@@ -6649,6 +6716,10 @@ msgstr "Giữ những phần cụ thể nhất"
 #: src/features/resume/editor/check/actions.ts
 msgid "Kept as it is"
 msgstr "Giữ nguyên như cũ"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Kept as you wrote it"
+msgstr ""
 
 #: src/features/homepage/write.tsx
 msgid "Kept yours"
@@ -7476,6 +7547,10 @@ msgstr "Micrô bị chặn. Hãy cho phép trong cài đặt trình duyệt ho�
 msgid "Minimum base salary"
 msgstr "Lương cơ bản tối thiểu"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Missing evidence isn't missing ability. If you have done it, add it to your profile and assemble again."
+msgstr ""
+
 #: src/features/homepage/prepare.tsx
 msgid "Missing evidence means your notes don’t show it yet, not that you lack it."
 msgstr "Thiếu bằng chứng nghĩa là ghi chú của bạn chưa thể hiện điều đó, chứ không phải bạn không có."
@@ -7861,6 +7936,10 @@ msgstr ""
 msgid "New stage color"
 msgstr "Màu giai đoạn mới"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "new summary"
+msgstr ""
+
 #: src/features/homepage/remember.tsx
 msgid "New teams at Northwind were stalling in setup; most never got through."
 msgstr "Các nhóm mới tại Northwind bị kẹt ở bước thiết lập; hầu hết không vượt qua được."
@@ -7980,6 +8059,7 @@ msgstr "Không tìm thấy địa chỉ email nào."
 msgid "No entries yet. Start with your current or most recent role."
 msgstr ""
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
 #: src/features/career/shared.tsx
 #: src/features/homepage/prepare.tsx
 #: src/features/homepage/remember.tsx
@@ -8320,6 +8400,10 @@ msgstr "Không có gì khớp với “{0}”"
 msgid "Nothing matches these filters"
 msgstr "Không có gì phù hợp với các bộ lọc này"
 
+#: src/features/career/knowledge/profile.tsx
+msgid "Nothing new in that resume. Your profile already has it."
+msgstr ""
+
 #: src/features/career/workspace/saved.tsx
 msgid "Nothing saved yet"
 msgstr "Chưa lưu gì"
@@ -8578,6 +8662,10 @@ msgstr "Mở tệp đã xuất và xác nhận bạn có thể chọn và sao ch
 msgid "Open the Reactive Resume app"
 msgstr "Mở ứng dụng Reactive Resume"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Open the resume"
+msgstr ""
+
 #: src/features/career/today.tsx
 msgid "Open the schedule"
 msgstr "Mở lịch trình"
@@ -8796,6 +8884,10 @@ msgstr "Parcel & Co."
 #: src/features/homepage/write.tsx
 msgid "Parcel & Co. · Porto"
 msgstr "Parcel & Co. · Porto"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Partly backed"
+msgstr ""
 
 #: src/features/career/shared.tsx
 #: src/features/homepage/prepare.tsx
@@ -9489,6 +9581,10 @@ msgstr "R"
 msgid "Raise the design sheet"
 msgstr "Nâng cao bảng thiết kế"
 
+#: src/features/applications/components/detail/sent-documents.tsx
+msgid "Re-assemble from profile"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Re-export from a single-column layout, then copy the text out and check it reads top to bottom."
 msgstr "Xuất lại từ bố cục một cột, sau đó sao chép văn bản ra và kiểm tra xem nó có đọc từ trên xuống dưới hay không."
@@ -10168,6 +10264,10 @@ msgstr "sơ yếu lý lịch (tùy chọn)"
 msgid "Resume + letter"
 msgstr "sơ yếu lý lịch + thư"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Resume assembled"
+msgstr ""
+
 #: src/features/homepage/tailor.tsx
 msgid "Resume attached"
 msgstr "Đã đính kèm sơ yếu lý lịch"
@@ -10201,6 +10301,10 @@ msgstr "trang sơ yếu lý lịch"
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Resume submitted (optional)"
 msgstr "sơ yếu lý lịch đã nộp (tùy chọn)"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Resume to import"
+msgstr ""
 
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/command-palette/pages/resumes.tsx
@@ -10264,6 +10368,10 @@ msgstr "Xem bản nháp"
 #: src/features/resume/editor/write/write-panel.tsx
 msgid "Review each section before using this resume."
 msgstr "Xem lại từng phần trước khi sử dụng bản lý lịch này."
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Review it in the editor before you send it. Every line comes from your master profile."
+msgstr ""
 
 #: src/features/career/workspace/debrief.tsx
 msgid "Review my answer"
@@ -11620,6 +11728,10 @@ msgstr "Bắt đầu mỗi mục bằng một động từ cụ thể: xây dự
 msgid "Start from"
 msgstr "Bắt đầu từ"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Start from (keeps its contact details, template and design)"
+msgstr ""
+
 #: src/features/documents/new-document-dialog.tsx
 msgid "Start from one you have and link the application."
 msgstr "Bắt đầu từ cái bạn có và liên kết đơn xin việc."
@@ -12508,6 +12620,10 @@ msgstr "Không thể mở hồ sơ ứng tuyển này."
 msgid "This application has no posting saved yet. Paste it to match against it."
 msgstr "Đơn xin việc này chưa có tin tuyển dụng nào được lưu. Dán nó để phù hợp với nó."
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "This application has no posting text saved, so there's little to match against. Add the posting to the application first for a better result."
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "This browser can't record here. Choose an audio file, or type your answer."
 msgstr "Trình duyệt này không thể ghi âm ở đây. Hãy chọn tệp âm thanh hoặc nhập câu trả lời."
@@ -13325,6 +13441,10 @@ msgstr "Dùng khi tư vấn: {excerpt}"
 msgid "Use lowercase letters, numbers and single dashes."
 msgstr "Sử dụng chữ thường, số và dấu gạch ngang đơn."
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Use my exact wording"
+msgstr ""
+
 #: src/features/career/knowledge/search-regions-field.tsx
 msgid "Use my timezone"
 msgstr "Sử dụng múi giờ của tôi"
@@ -13758,6 +13878,10 @@ msgstr "Thành công trông như thế nào, thách thức nào quan trọng nh�
 msgid "What the file-level check found in the PDF you'd send. It ran in this tab; nothing was uploaded."
 msgstr "Kiểm tra cấp độ tệp được tìm thấy trong PDF mà bạn gửi. Nó chạy trong tab này; không có gì được tải lên."
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "What the posting asks for"
+msgstr ""
+
 #: src/features/applications/components/interview-dialog.tsx
 msgid "What they asked you to prepare"
 msgstr "Họ yêu cầu bạn chuẩn bị gì"
@@ -13916,6 +14040,10 @@ msgstr "Trong một quý, tỷ lệ kích hoạt tăng từ 31% lên 44%."
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Without one, you fill in the recipient yourself and drafting uses only your resume."
 msgstr "Nếu không có ai, bạn sẽ tự điền thông tin người nhận và việc soạn thảo chỉ sử dụng lý lịch của bạn."
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Wording"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Words run together when the text is extracted."
@@ -14175,6 +14303,11 @@ msgstr "kết nối AI của bạn"
 msgid "Your AI connection"
 msgstr "Kết nối AI của bạn"
 
+#. placeholder {0}: application.company
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Your AI connection picks the achievements and skills from your master profile that best match this posting, and builds a new resume for {0} from them. Your profile, the posting and the base resume's text are sent to that connection."
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "Your answer"
 msgstr "Câu trả lời của bạn"
@@ -14300,6 +14433,10 @@ msgstr "Vị trí của bạn đã thay đổi trên bản lý lịch. Bức th�
 #: src/features/ats-checker/messages.ts
 msgid "Your margins are very narrow."
 msgstr "Lề trang của bạn rất hẹp."
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Your master profile has no achievements yet."
+msgstr ""
 
 #: src/features/career/coach.tsx
 msgid "your message"
