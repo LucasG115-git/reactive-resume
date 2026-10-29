@@ -133,6 +133,11 @@ msgstr "{0, plural, other {已更新 # 个申请}}"
 msgid "{0, plural, one {# application} other {# applications}}"
 msgstr "{0, plural, other {# 个申请}}"
 
+#. placeholder {0}: achievement.variants.length
+#: src/features/career/knowledge/profile.tsx
+msgid "{0, plural, one {# approved variant} other {# approved variants}}"
+msgstr ""
+
 #. placeholder {0}: state?.characters ?? 0
 #: src/features/resume/editor/write/rich-text-editor-field.tsx
 msgid "{0, plural, one {# character} other {# characters}}"
@@ -163,7 +168,9 @@ msgstr "{0, plural, one {已将 # 个文件移至垃圾箱} other {已将 # 个�
 msgid "{0, plural, one {# edit couldn't be placed: its text changed. Ask again to redo it.} other {# edits couldn't be placed: their text changed. Ask again to redo them.}}"
 msgstr "{0, plural, one {无法放置 # 编辑：其文本已更改。再次要求重做。} other {无法放置 # 编辑：其文本已更改。再次要求重做。}}"
 
+#. placeholder {0}: profile.entries.length
 #. placeholder {0}: step.entries
+#: src/features/career/knowledge/profile.tsx
 #: src/features/documents/new-document-dialog.tsx
 msgid "{0, plural, one {# entry} other {# entries}}"
 msgstr "{0, plural, other {# 个条目}}"
@@ -213,6 +220,11 @@ msgstr "{0, plural, other {# 个部分}}"
 #: src/features/applications/components/list-view.tsx
 msgid "{0, plural, one {# selected} other {# selected}}"
 msgstr "{0, plural, one {已选择 #} other {已选择 #}}"
+
+#. placeholder {0}: profile.skills.length
+#: src/features/career/knowledge/profile.tsx
+msgid "{0, plural, one {# skill} other {# skills}}"
+msgstr ""
 
 #. placeholder {0}: used.stories.length
 #: src/features/career/coach-chat.tsx
@@ -459,6 +471,10 @@ msgstr "{0}。问题已解决。"
 msgid "{accepted} of {0} applied"
 msgstr "{0} 项中已应用 {accepted} 项"
 
+#: src/features/career/knowledge/profile.tsx
+msgid "{achievementCount, plural, one {# achievement} other {# achievements}}"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-components/page-canvas.tsx
 msgid "{authored, plural, =1 {Fit to one page} other {Fit to # pages}}"
 msgstr "{authored, plural, =1 {适配为一页} other {适配为 # 页}}"
@@ -506,6 +522,26 @@ msgstr "{count, plural, other {# 个待解决问题}}"
 #: src/features/career/workspace/messages.tsx
 msgid "{count, plural, one {Apply # change} other {Apply # changes}}"
 msgstr "{count, plural, other {应用 # 项更改}}"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "{count, plural, one {Award} other {Awards}}"
+msgstr ""
+
+#: src/features/career/knowledge/profile.tsx
+msgid "{count, plural, one {Certification} other {Certifications}}"
+msgstr ""
+
+#: src/features/career/knowledge/profile.tsx
+msgid "{count, plural, one {Position} other {Experience}}"
+msgstr ""
+
+#: src/features/career/knowledge/profile.tsx
+msgid "{count, plural, one {Project} other {Projects}}"
+msgstr ""
+
+#: src/features/career/knowledge/profile.tsx
+msgid "{count, plural, one {Volunteer role} other {Volunteering}}"
+msgstr ""
 
 #: src/features/templates/gallery.tsx
 msgid "{count} free resume templates. Find your fit."
@@ -1128,6 +1164,10 @@ msgstr "成就"
 msgid "Account"
 msgstr "账户"
 
+#: src/features/career/knowledge/profile.tsx
+msgid "Achievement deleted"
+msgstr ""
+
 #: src/features/career/knowledge/stories.tsx
 #: src/features/homepage/remember.tsx
 msgid "Action"
@@ -1221,6 +1261,10 @@ msgstr "添加电话号码"
 msgid "Add a place, then Enter"
 msgstr "添加地点，然后按 Enter"
 
+#: src/features/career/knowledge/profile.tsx
+msgid "Add a position"
+msgstr ""
+
 #: src/features/career/workspace/apply.tsx
 msgid "Add a question from the form"
 msgstr "添加表单中的问题"
@@ -1265,6 +1309,10 @@ msgstr "添加标签"
 msgid "Add a tag and press Enter…"
 msgstr "添加标签并按 Enter…"
 
+#: src/features/career/knowledge/profile.tsx
+msgid "Add achievement"
+msgstr ""
+
 #: src/features/settings/ai/providers.tsx
 msgid "Add AI provider"
 msgstr "添加AI提供商"
@@ -1284,6 +1332,10 @@ msgstr "请先添加一个申请"
 #: src/features/resume/editor/check/issues.ts
 msgid "Add an email"
 msgstr "添加电子邮件"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Add an entry"
+msgstr ""
 
 #: src/features/career/workspace/prepare.tsx
 #: src/features/career/workspace/shell.tsx
@@ -1331,6 +1383,7 @@ msgstr "添加日期"
 msgid "Add education"
 msgstr "添加教育背景"
 
+#: src/features/career/knowledge/profile.tsx
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Add entry"
 msgstr "添加条目"
@@ -1371,6 +1424,10 @@ msgstr "添加关键字"
 #: src/features/resume/editor/write/outline.tsx
 msgid "Add language"
 msgstr "添加语言"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Add metric"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Add one link that shows your work."
@@ -1420,6 +1477,7 @@ msgstr "添加筛选电话和技术访谈，以便在此处和日历上查看它
 msgid "Add section"
 msgstr "添加部分"
 
+#: src/features/career/knowledge/profile.tsx
 #: src/features/resume/editor/write/outline.tsx
 msgid "Add skill"
 msgstr "添加技能"
@@ -1485,6 +1543,10 @@ msgstr "请先填写发生了什么，然后才能保存。"
 #: src/features/resume/editor/check/issues.ts
 msgid "Add your name"
 msgstr "添加您的名字"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Add…"
+msgstr ""
 
 #. placeholder {0}: role.trim()
 #. placeholder {1}: company.trim()
@@ -1714,6 +1776,14 @@ msgstr "移动端也可使用"
 #: src/features/resume/editor/design/style-groups.tsx
 msgid "Also shows the icons on skills, profiles and interests."
 msgstr "还显示技能、个人资料和兴趣的图标。"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Always include"
+msgstr ""
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Always included"
+msgstr ""
 
 #: src/libs/locale.ts
 msgid "Amharic"
@@ -1999,6 +2069,10 @@ msgstr "投递 · 描述一项您主导的产品改进。"
 msgid "Apply 1 change"
 msgstr "应用 1 项更改"
 
+#: src/features/career/knowledge/profile.tsx
+msgid "Approved alternative wordings, one per line (optional)"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Arabic"
 msgstr "阿拉伯语"
@@ -2184,6 +2258,14 @@ msgstr "可注册"
 #: src/features/ats-checker/messages.ts
 msgid "Avoid heavy letter-spacing effects, then re-export."
 msgstr "避免使用过大的字距效果，然后重新导出。"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Award"
+msgstr ""
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Awarded by"
+msgstr ""
 
 #: src/features/resume/editor/write/entries.tsx
 msgid "Awarder"
@@ -2467,6 +2549,7 @@ msgstr "软件可以读取您的简历吗？"
 #: src/features/applications/components/interview-dialog.tsx
 #: src/features/applications/components/manage-lanes-sheet.tsx
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/profile.tsx
 #: src/features/career/knowledge/stories.tsx
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/workspace/fit.tsx
@@ -2497,6 +2580,14 @@ msgstr "职业生涯管理工具。"
 #: src/libs/locale.ts
 msgid "Catalan"
 msgstr "加泰罗尼亚语"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Category"
+msgstr ""
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Certification"
+msgstr ""
 
 #: src/libs/resume/section.tsx
 msgid "Certifications"
@@ -2829,6 +2920,10 @@ msgstr "单击页面上的任何内容以设置其样式。您所遵循的规则
 #: src/features/auth/pages/consent.tsx
 msgid "Client ID"
 msgstr "客户端 ID"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Client or organization"
+msgstr ""
 
 #: src/dialogs/auth/change-password.tsx
 #: src/dialogs/auth/disable-two-factor.tsx
@@ -3408,6 +3503,18 @@ msgstr "无法创建这封信。请重试。"
 msgid "Couldn't create your account. Try again."
 msgstr "无法创建你的账户。请重试。"
 
+#: src/features/career/knowledge/profile.tsx
+msgid "Couldn't delete that achievement. Try again."
+msgstr ""
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Couldn't delete that entry. Try again."
+msgstr ""
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Couldn't delete that skill. Try again."
+msgstr ""
+
 #: src/features/career/knowledge/stories.tsx
 msgid "Couldn't delete that story. Try again."
 msgstr "无法删除该故事。请重试。"
@@ -3654,6 +3761,10 @@ msgstr "无法撤销密钥。请重试。"
 msgid "Couldn't revoke this connection. Try again."
 msgstr "无法撤销此连接。请重试。"
 
+#: src/features/career/knowledge/profile.tsx
+msgid "Couldn't save that achievement. Try again."
+msgstr ""
+
 #: src/features/career/hooks.ts
 msgid "Couldn't save that change. Check your connection and try again."
 msgstr "无法保存该更改。请检查网络连接后重试。"
@@ -3662,6 +3773,14 @@ msgstr "无法保存该更改。请检查网络连接后重试。"
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Couldn't save that change. Try again."
 msgstr "无法保存该更改。再试一次。"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Couldn't save that entry. Check the dates and try again."
+msgstr ""
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Couldn't save that skill. Try again."
+msgstr ""
 
 #: src/features/career/workspace/debrief.tsx
 #: src/features/career/workspace/fit.tsx
@@ -4175,6 +4294,10 @@ msgstr "默认"
 msgid "Degree"
 msgstr "学位"
 
+#: src/features/career/knowledge/profile.tsx
+msgid "Degree or program"
+msgstr ""
+
 #: src/features/applications/components/interview-dialog.tsx
 #: src/features/career/coach.tsx
 #: src/features/career/schedule-sheet.tsx
@@ -4198,8 +4321,11 @@ msgstr "删除“{0}”？"
 msgid "Delete “{title}”?"
 msgstr "删除“{title}”？"
 
+#. placeholder {0}: entry.title
+#. placeholder {0}: skill.name
 #. placeholder {0}: thread.title
 #: src/features/assistant/assistant-panel.tsx
+#: src/features/career/knowledge/profile.tsx
 msgid "Delete {0}"
 msgstr "删除{0}"
 
@@ -4274,6 +4400,10 @@ msgstr "删除您的帐户？"
 #: src/features/auth/pages/consent.tsx
 msgid "Delete your documents and account data."
 msgstr "删除您的文档和账户数据。"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Delete: {excerpt}"
+msgstr ""
 
 #: src/features/applications/components/application-actions-menu.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
@@ -4736,6 +4866,11 @@ msgstr "此聊天中的早前消息"
 msgid "Edit"
 msgstr "编辑"
 
+#. placeholder {0}: entry.title
+#: src/features/career/knowledge/profile.tsx
+msgid "Edit {0}"
+msgstr ""
+
 #. Screen reader label for button that edits a keyword chip. Variable is the current keyword text.
 #: src/components/input/chip-input.tsx
 msgid "Edit {chip}"
@@ -4744,6 +4879,10 @@ msgstr "编辑 {chip}"
 #: src/features/resume/editor/proposals/proposal-list.tsx
 msgid "Edit {number}:"
 msgstr "编辑{number}："
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Edit achievement"
+msgstr ""
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Edit application"
@@ -4766,6 +4905,7 @@ msgstr "编辑日期"
 msgid "Edit details…"
 msgstr "编辑详细信息..."
 
+#: src/features/career/knowledge/profile.tsx
 #: src/routes/builder/$resumeId/-components/editor-shell.tsx
 msgid "Edit entry"
 msgstr "编辑条目"
@@ -4798,6 +4938,10 @@ msgstr "编辑问题"
 msgid "Edit schedule"
 msgstr "编辑定时任务"
 
+#: src/features/career/knowledge/profile.tsx
+msgid "Edit skill"
+msgstr ""
+
 #: src/features/resume/editor/check/issues.ts
 msgid "Edit the email"
 msgstr "编辑电子邮件"
@@ -4809,6 +4953,10 @@ msgstr "编辑链接"
 #: src/features/applications/components/detail/next-step-card.tsx
 msgid "Edit this interview…"
 msgstr "编辑本次采访..."
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Edit: {excerpt}"
+msgstr ""
 
 #: src/features/applications/components/detail/activity.tsx
 msgid "Edit…"
@@ -4843,6 +4991,7 @@ msgstr "编辑观点"
 msgid "Editorial"
 msgstr "社论"
 
+#: src/features/career/knowledge/profile.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 #: src/libs/resume/section.tsx
@@ -4888,9 +5037,17 @@ msgstr "给招聘人员发电子邮件"
 msgid "Embed all fonts when exporting, so characters map the way you intended."
 msgstr "导出时嵌入所有字体，确保字符按你的预期显示。"
 
+#: src/features/career/knowledge/profile.tsx
+msgid "Employer"
+msgstr ""
+
 #: src/features/resume/editor/write/dates-field.tsx
 msgid "End"
 msgstr "结尾"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "End (blank if current)"
+msgstr ""
 
 #: src/libs/locale.ts
 msgid "English"
@@ -5003,6 +5160,7 @@ msgstr "请输入你的密码。"
 msgid "Entries"
 msgstr "条目"
 
+#: src/features/career/knowledge/profile.tsx
 #: src/features/resume/editor/write/entry-card.tsx
 msgid "Entry deleted"
 msgstr "条目已删除"
@@ -5071,6 +5229,10 @@ msgstr "工作经历"
 #: src/features/resume/editor/design/entries-group.tsx
 msgid "Experience, Education and more"
 msgstr "工作经历、教育经历等"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Experience, projects and education"
+msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
 msgid "Expires"
@@ -5774,6 +5936,10 @@ msgstr "不展示"
 msgid "Hidden from New roles"
 msgstr "已从新职位中隐藏"
 
+#: src/features/career/knowledge/profile.tsx
+msgid "Hidden from resumes"
+msgstr ""
+
 #: src/features/resume/editor/write/outline.tsx
 msgid "Hidden sections"
 msgstr "已隐藏的部分"
@@ -5801,6 +5967,10 @@ msgstr "隐藏联系方式"
 #: src/features/resume/editor/write/entry-card.tsx
 msgid "Hide from page"
 msgstr "从页面隐藏"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Hide from resumes"
+msgstr ""
 
 #: src/features/resume/editor/chrome.tsx
 msgid "Hide panel"
@@ -6234,6 +6404,7 @@ msgstr "问题{0}：{1}"
 msgid "Issue ignored"
 msgstr "问题被忽略"
 
+#: src/features/career/knowledge/profile.tsx
 #: src/features/resume/editor/write/entries.tsx
 msgid "Issuer"
 msgstr "签发机构"
@@ -6340,6 +6511,10 @@ msgstr "职位搜索失败。请重试或粘贴职位发布链接。"
 #: src/features/applications/components/insights-view.tsx
 msgid "Job search pipeline"
 msgstr "求职流程"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Job title"
+msgstr ""
 
 #: src/features/homepage/sections.tsx
 msgid "Job tracker"
@@ -6453,6 +6628,10 @@ msgstr "在此浏览器中保留录音，以便我下载"
 #: src/features/ats-checker/messages.ts
 msgid "Keep them to roughly two lines, so a skim-reader finishes them."
 msgstr "把每一条控制在大约两行，方便快速浏览的读者读完。"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Keep this achievement whenever its entry is on a resume."
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Keep to two or three families. Each extra font is another chance for one to map badly."
@@ -6679,6 +6858,10 @@ msgstr "时长（分钟）"
 msgid "Length is not a defect, and there is no universal one-page rule. Keep the pages that earn their place."
 msgstr "长度本身不是缺陷，也没有放之四海皆准的一页纸规则。保留那些真正有价值的内容页。"
 
+#: src/features/career/knowledge/profile.tsx
+msgid "less admin time"
+msgstr ""
+
 #: src/features/settings/ai/mcp.tsx
 msgid "Let AI clients like Claude or Cursor read and edit your resumes, using an API key above."
 msgstr "使用上面的 API 键，让 Claude 或 Cursor 等 AI 客户端读取和编辑您的简历。"
@@ -6741,6 +6924,15 @@ msgstr "信件"
 msgid "Level"
 msgstr "等级"
 
+#: src/features/career/knowledge/profile.tsx
+msgid "Level (optional)"
+msgstr ""
+
+#. placeholder {0}: skill.level
+#: src/features/career/knowledge/profile.tsx
+msgid "Level {0} of 5"
+msgstr ""
+
 #. Accessible label for skill/proficiency level indicator, where level is current value out of 5
 #: src/components/level/display.tsx
 msgid "Level {level} of 5"
@@ -6789,6 +6981,10 @@ msgstr "如此接近的行在阅读时可以连在一起。至少使用 {minimum
 #: src/features/resume/editor/write/rich-text-editor-field.tsx
 msgid "Link"
 msgstr "关联"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Link (optional)"
+msgstr ""
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Link a Reactive Resume (recommended)"
@@ -6995,6 +7191,7 @@ msgstr "加载中…"
 #: src/features/applications/components/application-form-sheet.tsx
 #: src/features/applications/components/import-applications-sheet.tsx
 #: src/features/applications/components/interview-dialog.tsx
+#: src/features/career/knowledge/profile.tsx
 #: src/features/resume/editor/check/parser-view.tsx
 #: src/features/resume/editor/design/entries-group.tsx
 #: src/features/resume/editor/write/basics-card.tsx
@@ -7185,6 +7382,10 @@ msgstr "已标记为已申请。您发送的版本已保留。"
 msgid "Marked as read"
 msgstr "已标记为已读"
 
+#: src/features/career/knowledge/profile.tsx
+msgid "Master profile"
+msgstr ""
+
 #. placeholder {0}: resume?.name ?? t`the resume`
 #: src/routes/builder/letter/-components/design-panel.tsx
 msgid "Match “{0}”"
@@ -7262,6 +7463,10 @@ msgstr "消息 · 从您的邮件粘贴"
 #: src/features/homepage/remember.tsx
 msgid "Messages · Reply to Sam at Fieldnote"
 msgstr "消息 · 回复 Fieldnote 的 Sam"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Metrics (only numbers you can back up)"
+msgstr ""
 
 #: src/features/career/workspace/practise.tsx
 msgid "Microphone blocked. Allow it in your browser settings, or type your answer."
@@ -7580,6 +7785,10 @@ msgstr "绝不"
 msgid "New"
 msgstr "新的"
 
+#: src/features/career/knowledge/profile.tsx
+msgid "New achievement"
+msgstr ""
+
 #: src/features/settings/ai/api-keys.tsx
 msgid "New API key"
 msgstr "全新 API 钥匙"
@@ -7604,6 +7813,10 @@ msgstr "新的求职信代替"
 #: src/features/documents/new-document-dialog.tsx
 msgid "New document"
 msgstr "新文件"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "New entry"
+msgstr ""
 
 #: src/features/career/knowledge/facts.tsx
 msgid "New fact"
@@ -7639,6 +7852,10 @@ msgstr "新建定时任务"
 #: src/features/resume/editor/write/entry-card.tsx
 msgid "New section"
 msgstr "新版块"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "New skill"
+msgstr ""
 
 #: src/features/applications/components/manage-lanes-sheet.tsx
 msgid "New stage color"
@@ -7759,6 +7976,10 @@ msgstr "没有电子邮件地址"
 msgid "No email address was found."
 msgstr "未找到电子邮件地址。"
 
+#: src/features/career/knowledge/profile.tsx
+msgid "No entries yet. Start with your current or most recent role."
+msgstr ""
+
 #: src/features/career/shared.tsx
 #: src/features/homepage/prepare.tsx
 #: src/features/homepage/remember.tsx
@@ -7859,6 +8080,10 @@ msgstr "还没有简历。"
 msgid "No skills section was found."
 msgstr "未找到技能部分。"
 
+#: src/features/career/knowledge/profile.tsx
+msgid "No skills yet. Add the tools and abilities you'd want a recruiter to search for."
+msgstr ""
+
 #: src/features/applications/components/insights-view.tsx
 msgid "No source data yet."
 msgstr "还没有来源数据。"
@@ -7923,6 +8148,10 @@ msgstr "没有任何"
 msgctxt "Entry header accent"
 msgid "None"
 msgstr "无"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "nonprofit, wordpress, leadership"
+msgstr ""
 
 #: src/features/resume/editor/design/fit.ts
 #: src/features/resume/editor/design/style-groups.tsx
@@ -8024,6 +8253,10 @@ msgstr "未评分"
 #: src/features/applications/stages.ts
 msgid "Not selected"
 msgstr "未选择"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Not set"
+msgstr ""
 
 #: src/features/settings/root.tsx
 msgid "Not set up"
@@ -8438,6 +8671,7 @@ msgstr "或上传简历 PDF"
 msgid "Orange"
 msgstr "橙色"
 
+#: src/features/career/knowledge/profile.tsx
 #: src/features/resume/editor/write/entries.tsx
 msgid "Organization"
 msgstr "组织"
@@ -8459,6 +8693,10 @@ msgstr "其他"
 msgid "Other · OpenAI-compatible"
 msgstr "其他·OpenAI兼容"
 
+#: src/features/career/knowledge/profile.tsx
+msgid "Other achievements"
+msgstr ""
+
 #: src/features/career/offers.tsx
 msgid "Other benefits"
 msgstr "其他福利"
@@ -8467,6 +8705,10 @@ msgstr "其他福利"
 #: src/features/assistant/assistant-panel.tsx
 msgid "Other documents · {0}"
 msgstr "其他文件·{0}"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Other names postings use, comma separated"
+msgstr ""
 
 #: src/features/ats-checker/report/score-header.tsx
 msgid "out of 100"
@@ -8963,6 +9205,7 @@ msgstr "正在准备打印简历…"
 msgid "Preparing…"
 msgstr "正在准备……"
 
+#: src/features/career/knowledge/profile.tsx
 #: src/features/resume/editor/write/dates-field.tsx
 msgid "Present"
 msgstr "至今"
@@ -9064,6 +9307,7 @@ msgstr "熟练度"
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 #: src/features/settings/account/profile.tsx
+#: src/routes/dashboard/career/knowledge/route.tsx
 msgid "Profile"
 msgstr "个人资料"
 
@@ -9087,6 +9331,10 @@ msgstr "个人资料"
 #: src/components/level/combobox.tsx
 msgid "Progress bar"
 msgstr "进度条"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Project name"
+msgstr ""
 
 #: src/libs/resume/section.tsx
 msgid "Projects"
@@ -9454,6 +9702,10 @@ msgstr "准备好"
 msgid "Reason"
 msgstr "原因"
 
+#: src/features/career/knowledge/profile.tsx
+msgid "Rebuilt the volunteer portal on WordPress, cutting coordinator admin time by 40%"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "Recalled"
 msgstr "回忆"
@@ -9684,6 +9936,10 @@ msgstr "删除字段"
 #: src/features/applications/components/file-attachment-field.tsx
 msgid "Remove file"
 msgstr "移除文件"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Remove metric"
+msgstr ""
 
 #: src/features/settings/account/security.tsx
 msgid "Remove passkey"
@@ -10066,6 +10322,7 @@ msgstr "现在"
 #: src/features/applications/components/import-applications-sheet.tsx
 #: src/features/applications/components/interview-dialog.tsx
 #: src/features/applications/components/list-view.tsx
+#: src/features/career/knowledge/profile.tsx
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Role"
 msgstr "职位"
@@ -10191,6 +10448,10 @@ msgstr "保存"
 msgid "Save a job"
 msgstr "保存工作"
 
+#: src/features/career/knowledge/profile.tsx
+msgid "Save achievement"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Save an unprotected copy, with no password and no permissions restrictions."
 msgstr "保存一份不受保护的副本，不设密码，也不设权限限制。"
@@ -10228,6 +10489,10 @@ msgstr "保存连接"
 msgid "Save correction"
 msgstr "保存更正"
 
+#: src/features/career/knowledge/profile.tsx
+msgid "Save entry"
+msgstr ""
+
 #: src/features/settings/ai/web-access.tsx
 msgid "Save first, then test search and reading. No test runs automatically."
 msgstr "先保存，然后测试搜索和阅读。没有测试自动运行。"
@@ -10248,6 +10513,10 @@ msgstr "保存名称"
 #: src/features/career/schedule-sheet.tsx
 msgid "Save schedule"
 msgstr "保存定时任务"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Save skill"
+msgstr ""
 
 #: src/features/assistant/tool-approvals.tsx
 #: src/features/career/knowledge/stories.tsx
@@ -10417,6 +10686,7 @@ msgstr "此服务器不支持定时任务。"
 msgid "Schedules"
 msgstr "定时任务"
 
+#: src/features/career/knowledge/profile.tsx
 #: src/features/resume/editor/write/entries.tsx
 msgid "School"
 msgstr "学校"
@@ -11082,14 +11352,20 @@ msgid "Size"
 msgstr "大小"
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/profile.tsx
 msgid "Skill"
 msgstr "技能"
 
+#: src/features/career/knowledge/profile.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 #: src/libs/resume/section.tsx
 msgid "Skills"
 msgstr "技能"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Skills shown, comma separated"
+msgstr ""
 
 #: src/features/assistant/tool-approvals.tsx
 #: src/features/career/workspace/apply.tsx
@@ -11295,6 +11571,10 @@ msgstr "阶段保持为“{stage}”"
 msgid "Stages"
 msgstr "阶段"
 
+#: src/features/career/knowledge/profile.tsx
+msgid "stakeholder management, nonprofit"
+msgstr ""
+
 #: src/features/homepage/check.tsx
 msgid "Standard section headings"
 msgstr "标准章节标题"
@@ -11314,6 +11594,10 @@ msgstr "GitHub 星标"
 #: src/features/resume/editor/write/dates-field.tsx
 msgid "Start"
 msgstr "开始"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Start (YYYY or YYYY-MM)"
+msgstr ""
 
 #: src/features/career/workspace/prepare.tsx
 msgid "Start a debrief"
@@ -11539,6 +11823,10 @@ msgstr "您进行中申请的摘要"
 msgid "Summary"
 msgstr "总结"
 
+#: src/features/career/knowledge/profile.tsx
+msgid "Summary (scope, team size, what the role was for)"
+msgstr ""
+
 #: src/features/homepage/sections.tsx
 msgid "Support"
 msgstr "支持"
@@ -11654,6 +11942,10 @@ msgstr "标签能为软件提供明确的阅读顺序。如果你的工具支持
 #: src/features/documents/document-actions.tsx
 msgid "Tags group documents in the library; pick one above the grid to filter by it."
 msgstr "为库中的文档添加标签；选择网格上方的一个进行过滤。"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Tags, comma separated"
+msgstr ""
 
 #: src/features/career/knowledge/stories.tsx
 msgid "Tags, separated by commas"
@@ -12163,6 +12455,10 @@ msgstr "第一页顶部的内容看起来不像是姓名。"
 #: src/features/user/dropdown-menu.tsx
 msgid "Theme"
 msgstr "主题"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Themes, comma separated"
+msgstr ""
 
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Then enter the 6-digit code from the app."
@@ -12737,6 +13033,7 @@ msgid "Two-step verification turned on"
 msgstr "两步验证已开启"
 
 #: src/features/applications/components/interview-dialog.tsx
+#: src/features/career/knowledge/profile.tsx
 #: src/features/career/workspace/practise.tsx
 #: src/features/documents/documents-page.tsx
 #: src/features/documents/trash-page.tsx
@@ -12777,6 +13074,10 @@ msgstr "排版"
 msgid "Ukrainian"
 msgstr "乌克兰语"
 
+#: src/features/career/knowledge/profile.tsx
+msgid "Uncategorized"
+msgstr ""
+
 #: src/features/resume/editor/write/rich-text-editor-field.tsx
 msgid "Underline"
 msgstr "下划线"
@@ -12810,6 +13111,10 @@ msgstr "撤销"
 #: src/features/resume/stylesheet/toolbar.tsx
 msgid "Undo resume change"
 msgstr "撤消简历更改"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Unit"
+msgstr ""
 
 #: src/features/homepage/check.tsx
 #: src/features/homepage/hero.tsx
@@ -13130,6 +13435,7 @@ msgstr "乌兹别克语"
 msgid "Valuation and dilution uncertain"
 msgstr "估值和稀释情况不确定"
 
+#: src/features/career/knowledge/profile.tsx
 #: src/features/resume/share/dns-records-dialog.tsx
 msgid "Value"
 msgstr "记录值"
@@ -13309,6 +13615,10 @@ msgstr "我们向 {0} 发送了新的验证链接。"
 msgid "Web access"
 msgstr "网络访问"
 
+#: src/features/career/knowledge/profile.tsx
+msgid "Web development"
+msgstr ""
+
 #: src/features/resume/share/share-panel.tsx
 msgid "Web page"
 msgstr "网页"
@@ -13460,6 +13770,10 @@ msgstr "该怎么办"
 msgid "What was happening before you started?"
 msgstr "在您开始之前，情况是怎样的？"
 
+#: src/features/career/knowledge/profile.tsx
+msgid "What was measured"
+msgstr ""
+
 #: src/features/career/knowledge/stories.tsx
 msgid "What were you responsible for?"
 msgstr "您负责什么？"
@@ -13471,6 +13785,10 @@ msgstr "亮点"
 #: src/features/career/knowledge/stories.tsx
 msgid "What would you do differently?"
 msgstr "如果重来，您会怎么做？"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "What you did and what changed, as a resume bullet"
+msgstr ""
 
 #. placeholder {0}: requirement.text
 #: src/features/career/workspace/fit.tsx
@@ -13711,6 +14029,10 @@ msgstr "写作、改编和发送"
 #: src/features/career/offers.tsx
 msgid "Written offer"
 msgstr "书面录用"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Years (optional)"
+msgstr ""
 
 #: src/features/homepage/faq.tsx
 msgid "Yes. Every feature is free: all {templates} templates, PDF and Word downloads, the ATS checker, cover letters and the job tracker. There are no ads, no tracking and no paid tier. Donations pay for hosting and development."
@@ -14112,6 +14434,10 @@ msgstr "轮到你了"
 #: src/features/career/workspace/prepare.tsx
 msgid "Your two-minute introduction"
 msgstr "两分钟自我介绍"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Your verified career record. Tailored resumes are assembled from these entries, achievements and skills, so keep each claim accurate and add numbers only when you can back them up."
+msgstr ""
 
 #: src/features/resume/share/share-panel.tsx
 msgid "Your web page is live"

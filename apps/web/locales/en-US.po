@@ -128,6 +128,11 @@ msgstr "{0, plural, one {# application updated} other {# applications updated}}"
 msgid "{0, plural, one {# application} other {# applications}}"
 msgstr "{0, plural, one {# application} other {# applications}}"
 
+#. placeholder {0}: achievement.variants.length
+#: src/features/career/knowledge/profile.tsx
+msgid "{0, plural, one {# approved variant} other {# approved variants}}"
+msgstr "{0, plural, one {# approved variant} other {# approved variants}}"
+
 #. placeholder {0}: state?.characters ?? 0
 #: src/features/resume/editor/write/rich-text-editor-field.tsx
 msgid "{0, plural, one {# character} other {# characters}}"
@@ -158,7 +163,9 @@ msgstr "{0, plural, one {# document moved to Trash} other {# documents moved to 
 msgid "{0, plural, one {# edit couldn't be placed: its text changed. Ask again to redo it.} other {# edits couldn't be placed: their text changed. Ask again to redo them.}}"
 msgstr "{0, plural, one {# edit couldn't be placed: its text changed. Ask again to redo it.} other {# edits couldn't be placed: their text changed. Ask again to redo them.}}"
 
+#. placeholder {0}: profile.entries.length
 #. placeholder {0}: step.entries
+#: src/features/career/knowledge/profile.tsx
 #: src/features/documents/new-document-dialog.tsx
 msgid "{0, plural, one {# entry} other {# entries}}"
 msgstr "{0, plural, one {# entry} other {# entries}}"
@@ -208,6 +215,11 @@ msgstr "{0, plural, one {# section} other {# sections}}"
 #: src/features/applications/components/list-view.tsx
 msgid "{0, plural, one {# selected} other {# selected}}"
 msgstr "{0, plural, one {# selected} other {# selected}}"
+
+#. placeholder {0}: profile.skills.length
+#: src/features/career/knowledge/profile.tsx
+msgid "{0, plural, one {# skill} other {# skills}}"
+msgstr "{0, plural, one {# skill} other {# skills}}"
 
 #. placeholder {0}: used.stories.length
 #: src/features/career/coach-chat.tsx
@@ -454,6 +466,10 @@ msgstr "{0}. Issue resolved."
 msgid "{accepted} of {0} applied"
 msgstr "{accepted} of {0} applied"
 
+#: src/features/career/knowledge/profile.tsx
+msgid "{achievementCount, plural, one {# achievement} other {# achievements}}"
+msgstr "{achievementCount, plural, one {# achievement} other {# achievements}}"
+
 #: src/routes/builder/$resumeId/-components/page-canvas.tsx
 msgid "{authored, plural, =1 {Fit to one page} other {Fit to # pages}}"
 msgstr "{authored, plural, =1 {Fit to one page} other {Fit to # pages}}"
@@ -501,6 +517,26 @@ msgstr "{count, plural, one {# open issue} other {# open issues}}"
 #: src/features/career/workspace/messages.tsx
 msgid "{count, plural, one {Apply # change} other {Apply # changes}}"
 msgstr "{count, plural, one {Apply # change} other {Apply # changes}}"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "{count, plural, one {Award} other {Awards}}"
+msgstr "{count, plural, one {Award} other {Awards}}"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "{count, plural, one {Certification} other {Certifications}}"
+msgstr "{count, plural, one {Certification} other {Certifications}}"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "{count, plural, one {Position} other {Experience}}"
+msgstr "{count, plural, one {Position} other {Experience}}"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "{count, plural, one {Project} other {Projects}}"
+msgstr "{count, plural, one {Project} other {Projects}}"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "{count, plural, one {Volunteer role} other {Volunteering}}"
+msgstr "{count, plural, one {Volunteer role} other {Volunteering}}"
 
 #: src/features/templates/gallery.tsx
 msgid "{count} free resume templates. Find your fit."
@@ -1123,6 +1159,10 @@ msgstr "Accomplishment"
 msgid "Account"
 msgstr "Account"
 
+#: src/features/career/knowledge/profile.tsx
+msgid "Achievement deleted"
+msgstr "Achievement deleted"
+
 #: src/features/career/knowledge/stories.tsx
 #: src/features/homepage/remember.tsx
 msgid "Action"
@@ -1216,6 +1256,10 @@ msgstr "Add a phone number"
 msgid "Add a place, then Enter"
 msgstr "Add a place, then Enter"
 
+#: src/features/career/knowledge/profile.tsx
+msgid "Add a position"
+msgstr "Add a position"
+
 #: src/features/career/workspace/apply.tsx
 msgid "Add a question from the form"
 msgstr "Add a question from the form"
@@ -1260,6 +1304,10 @@ msgstr "Add a tag"
 msgid "Add a tag and press Enter…"
 msgstr "Add a tag and press Enter…"
 
+#: src/features/career/knowledge/profile.tsx
+msgid "Add achievement"
+msgstr "Add achievement"
+
 #: src/features/settings/ai/providers.tsx
 msgid "Add AI provider"
 msgstr "Add AI provider"
@@ -1279,6 +1327,10 @@ msgstr "Add an application first"
 #: src/features/resume/editor/check/issues.ts
 msgid "Add an email"
 msgstr "Add an email"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Add an entry"
+msgstr "Add an entry"
 
 #: src/features/career/workspace/prepare.tsx
 #: src/features/career/workspace/shell.tsx
@@ -1326,6 +1378,7 @@ msgstr "Add dates"
 msgid "Add education"
 msgstr "Add education"
 
+#: src/features/career/knowledge/profile.tsx
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Add entry"
 msgstr "Add entry"
@@ -1366,6 +1419,10 @@ msgstr "Add keyword"
 #: src/features/resume/editor/write/outline.tsx
 msgid "Add language"
 msgstr "Add language"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Add metric"
+msgstr "Add metric"
 
 #: src/features/ats-checker/messages.ts
 msgid "Add one link that shows your work."
@@ -1415,6 +1472,7 @@ msgstr "Add screening calls and technical interviews to see them here and on the
 msgid "Add section"
 msgstr "Add section"
 
+#: src/features/career/knowledge/profile.tsx
 #: src/features/resume/editor/write/outline.tsx
 msgid "Add skill"
 msgstr "Add skill"
@@ -1480,6 +1538,10 @@ msgstr "Add what happened before you can save."
 #: src/features/resume/editor/check/issues.ts
 msgid "Add your name"
 msgstr "Add your name"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Add…"
+msgstr "Add…"
 
 #. placeholder {0}: role.trim()
 #. placeholder {1}: company.trim()
@@ -1709,6 +1771,14 @@ msgstr "Also on mobile"
 #: src/features/resume/editor/design/style-groups.tsx
 msgid "Also shows the icons on skills, profiles and interests."
 msgstr "Also shows the icons on skills, profiles and interests."
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Always include"
+msgstr "Always include"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Always included"
+msgstr "Always included"
 
 #: src/libs/locale.ts
 msgid "Amharic"
@@ -1994,6 +2064,10 @@ msgstr "Apply · Describe a product improvement you led."
 msgid "Apply 1 change"
 msgstr "Apply 1 change"
 
+#: src/features/career/knowledge/profile.tsx
+msgid "Approved alternative wordings, one per line (optional)"
+msgstr "Approved alternative wordings, one per line (optional)"
+
 #: src/libs/locale.ts
 msgid "Arabic"
 msgstr "Arabic"
@@ -2179,6 +2253,14 @@ msgstr "Available"
 #: src/features/ats-checker/messages.ts
 msgid "Avoid heavy letter-spacing effects, then re-export."
 msgstr "Avoid heavy letter-spacing effects, then re-export."
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Award"
+msgstr "Award"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Awarded by"
+msgstr "Awarded by"
 
 #: src/features/resume/editor/write/entries.tsx
 msgid "Awarder"
@@ -2462,6 +2544,7 @@ msgstr "Can software read your resume?"
 #: src/features/applications/components/interview-dialog.tsx
 #: src/features/applications/components/manage-lanes-sheet.tsx
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/profile.tsx
 #: src/features/career/knowledge/stories.tsx
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/workspace/fit.tsx
@@ -2492,6 +2575,14 @@ msgstr "career manager."
 #: src/libs/locale.ts
 msgid "Catalan"
 msgstr "Catalan"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Category"
+msgstr "Category"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Certification"
+msgstr "Certification"
 
 #: src/libs/resume/section.tsx
 msgid "Certifications"
@@ -2824,6 +2915,10 @@ msgstr "Click anything on the page to style it. The rule you're in is outlined o
 #: src/features/auth/pages/consent.tsx
 msgid "Client ID"
 msgstr "Client ID"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Client or organization"
+msgstr "Client or organization"
 
 #: src/dialogs/auth/change-password.tsx
 #: src/dialogs/auth/disable-two-factor.tsx
@@ -3403,6 +3498,18 @@ msgstr "Couldn't create the letter. Try again."
 msgid "Couldn't create your account. Try again."
 msgstr "Couldn't create your account. Try again."
 
+#: src/features/career/knowledge/profile.tsx
+msgid "Couldn't delete that achievement. Try again."
+msgstr "Couldn't delete that achievement. Try again."
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Couldn't delete that entry. Try again."
+msgstr "Couldn't delete that entry. Try again."
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Couldn't delete that skill. Try again."
+msgstr "Couldn't delete that skill. Try again."
+
 #: src/features/career/knowledge/stories.tsx
 msgid "Couldn't delete that story. Try again."
 msgstr "Couldn't delete that story. Try again."
@@ -3649,6 +3756,10 @@ msgstr "Couldn't revoke the key. Try again."
 msgid "Couldn't revoke this connection. Try again."
 msgstr "Couldn't revoke this connection. Try again."
 
+#: src/features/career/knowledge/profile.tsx
+msgid "Couldn't save that achievement. Try again."
+msgstr "Couldn't save that achievement. Try again."
+
 #: src/features/career/hooks.ts
 msgid "Couldn't save that change. Check your connection and try again."
 msgstr "Couldn't save that change. Check your connection and try again."
@@ -3657,6 +3768,14 @@ msgstr "Couldn't save that change. Check your connection and try again."
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Couldn't save that change. Try again."
 msgstr "Couldn't save that change. Try again."
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Couldn't save that entry. Check the dates and try again."
+msgstr "Couldn't save that entry. Check the dates and try again."
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Couldn't save that skill. Try again."
+msgstr "Couldn't save that skill. Try again."
 
 #: src/features/career/workspace/debrief.tsx
 #: src/features/career/workspace/fit.tsx
@@ -4170,6 +4289,10 @@ msgstr "Default"
 msgid "Degree"
 msgstr "Degree"
 
+#: src/features/career/knowledge/profile.tsx
+msgid "Degree or program"
+msgstr "Degree or program"
+
 #: src/features/applications/components/interview-dialog.tsx
 #: src/features/career/coach.tsx
 #: src/features/career/schedule-sheet.tsx
@@ -4193,8 +4316,11 @@ msgstr "Delete “{0}”?"
 msgid "Delete “{title}”?"
 msgstr "Delete “{title}”?"
 
+#. placeholder {0}: entry.title
+#. placeholder {0}: skill.name
 #. placeholder {0}: thread.title
 #: src/features/assistant/assistant-panel.tsx
+#: src/features/career/knowledge/profile.tsx
 msgid "Delete {0}"
 msgstr "Delete {0}"
 
@@ -4269,6 +4395,10 @@ msgstr "Delete your account?"
 #: src/features/auth/pages/consent.tsx
 msgid "Delete your documents and account data."
 msgstr "Delete your documents and account data."
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Delete: {excerpt}"
+msgstr "Delete: {excerpt}"
 
 #: src/features/applications/components/application-actions-menu.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
@@ -4731,6 +4861,11 @@ msgstr "earlier messages in this chat"
 msgid "Edit"
 msgstr "Edit"
 
+#. placeholder {0}: entry.title
+#: src/features/career/knowledge/profile.tsx
+msgid "Edit {0}"
+msgstr "Edit {0}"
+
 #. Screen reader label for button that edits a keyword chip. Variable is the current keyword text.
 #: src/components/input/chip-input.tsx
 msgid "Edit {chip}"
@@ -4739,6 +4874,10 @@ msgstr "Edit {chip}"
 #: src/features/resume/editor/proposals/proposal-list.tsx
 msgid "Edit {number}:"
 msgstr "Edit {number}:"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Edit achievement"
+msgstr "Edit achievement"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Edit application"
@@ -4761,6 +4900,7 @@ msgstr "Edit date"
 msgid "Edit details…"
 msgstr "Edit details…"
 
+#: src/features/career/knowledge/profile.tsx
 #: src/routes/builder/$resumeId/-components/editor-shell.tsx
 msgid "Edit entry"
 msgstr "Edit entry"
@@ -4793,6 +4933,10 @@ msgstr "Edit question"
 msgid "Edit schedule"
 msgstr "Edit schedule"
 
+#: src/features/career/knowledge/profile.tsx
+msgid "Edit skill"
+msgstr "Edit skill"
+
 #: src/features/resume/editor/check/issues.ts
 msgid "Edit the email"
 msgstr "Edit the email"
@@ -4804,6 +4948,10 @@ msgstr "Edit the link"
 #: src/features/applications/components/detail/next-step-card.tsx
 msgid "Edit this interview…"
 msgstr "Edit this interview…"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Edit: {excerpt}"
+msgstr "Edit: {excerpt}"
 
 #: src/features/applications/components/detail/activity.tsx
 msgid "Edit…"
@@ -4838,6 +4986,7 @@ msgstr "Editor views"
 msgid "Editorial"
 msgstr "Editorial"
 
+#: src/features/career/knowledge/profile.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 #: src/libs/resume/section.tsx
@@ -4883,9 +5032,17 @@ msgstr "Email the recruiter"
 msgid "Embed all fonts when exporting, so characters map the way you intended."
 msgstr "Embed all fonts when exporting, so characters map the way you intended."
 
+#: src/features/career/knowledge/profile.tsx
+msgid "Employer"
+msgstr "Employer"
+
 #: src/features/resume/editor/write/dates-field.tsx
 msgid "End"
 msgstr "End"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "End (blank if current)"
+msgstr "End (blank if current)"
 
 #: src/libs/locale.ts
 msgid "English"
@@ -4998,6 +5155,7 @@ msgstr "Enter your password."
 msgid "Entries"
 msgstr "Entries"
 
+#: src/features/career/knowledge/profile.tsx
 #: src/features/resume/editor/write/entry-card.tsx
 msgid "Entry deleted"
 msgstr "Entry deleted"
@@ -5066,6 +5224,10 @@ msgstr "Experience"
 #: src/features/resume/editor/design/entries-group.tsx
 msgid "Experience, Education and more"
 msgstr "Experience, Education and more"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Experience, projects and education"
+msgstr "Experience, projects and education"
 
 #: src/features/settings/ai/api-keys.tsx
 msgid "Expires"
@@ -5769,6 +5931,10 @@ msgstr "Hidden"
 msgid "Hidden from New roles"
 msgstr "Hidden from New roles"
 
+#: src/features/career/knowledge/profile.tsx
+msgid "Hidden from resumes"
+msgstr "Hidden from resumes"
+
 #: src/features/resume/editor/write/outline.tsx
 msgid "Hidden sections"
 msgstr "Hidden sections"
@@ -5796,6 +5962,10 @@ msgstr "Hide contact details"
 #: src/features/resume/editor/write/entry-card.tsx
 msgid "Hide from page"
 msgstr "Hide from page"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Hide from resumes"
+msgstr "Hide from resumes"
 
 #: src/features/resume/editor/chrome.tsx
 msgid "Hide panel"
@@ -6229,6 +6399,7 @@ msgstr "Issue {0}: {1}"
 msgid "Issue ignored"
 msgstr "Issue ignored"
 
+#: src/features/career/knowledge/profile.tsx
 #: src/features/resume/editor/write/entries.tsx
 msgid "Issuer"
 msgstr "Issuer"
@@ -6335,6 +6506,10 @@ msgstr "Job search failed. Try again or paste a posting link."
 #: src/features/applications/components/insights-view.tsx
 msgid "Job search pipeline"
 msgstr "Job search pipeline"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Job title"
+msgstr "Job title"
 
 #: src/features/homepage/sections.tsx
 msgid "Job tracker"
@@ -6448,6 +6623,10 @@ msgstr "Keep the recording in this browser so I can download it"
 #: src/features/ats-checker/messages.ts
 msgid "Keep them to roughly two lines, so a skim-reader finishes them."
 msgstr "Keep them to roughly two lines, so a skim-reader finishes them."
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Keep this achievement whenever its entry is on a resume."
+msgstr "Keep this achievement whenever its entry is on a resume."
 
 #: src/features/ats-checker/messages.ts
 msgid "Keep to two or three families. Each extra font is another chance for one to map badly."
@@ -6674,6 +6853,10 @@ msgstr "Length in minutes"
 msgid "Length is not a defect, and there is no universal one-page rule. Keep the pages that earn their place."
 msgstr "Length is not a defect, and there is no universal one-page rule. Keep the pages that earn their place."
 
+#: src/features/career/knowledge/profile.tsx
+msgid "less admin time"
+msgstr "less admin time"
+
 #: src/features/settings/ai/mcp.tsx
 msgid "Let AI clients like Claude or Cursor read and edit your resumes, using an API key above."
 msgstr "Let AI clients like Claude or Cursor read and edit your resumes, using an API key above."
@@ -6736,6 +6919,15 @@ msgstr "Letters"
 msgid "Level"
 msgstr "Level"
 
+#: src/features/career/knowledge/profile.tsx
+msgid "Level (optional)"
+msgstr "Level (optional)"
+
+#. placeholder {0}: skill.level
+#: src/features/career/knowledge/profile.tsx
+msgid "Level {0} of 5"
+msgstr "Level {0} of 5"
+
 #. Accessible label for skill/proficiency level indicator, where level is current value out of 5
 #: src/components/level/display.tsx
 msgid "Level {level} of 5"
@@ -6784,6 +6976,10 @@ msgstr "Lines this close can run together when read. Use at least {minimum}."
 #: src/features/resume/editor/write/rich-text-editor-field.tsx
 msgid "Link"
 msgstr "Link"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Link (optional)"
+msgstr "Link (optional)"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Link a Reactive Resume (recommended)"
@@ -6990,6 +7186,7 @@ msgstr "Loading…"
 #: src/features/applications/components/application-form-sheet.tsx
 #: src/features/applications/components/import-applications-sheet.tsx
 #: src/features/applications/components/interview-dialog.tsx
+#: src/features/career/knowledge/profile.tsx
 #: src/features/resume/editor/check/parser-view.tsx
 #: src/features/resume/editor/design/entries-group.tsx
 #: src/features/resume/editor/write/basics-card.tsx
@@ -7180,6 +7377,10 @@ msgstr "Marked as applied. The versions you sent are kept."
 msgid "Marked as read"
 msgstr "Marked as read"
 
+#: src/features/career/knowledge/profile.tsx
+msgid "Master profile"
+msgstr "Master profile"
+
 #. placeholder {0}: resume?.name ?? t`the resume`
 #: src/routes/builder/letter/-components/design-panel.tsx
 msgid "Match “{0}”"
@@ -7257,6 +7458,10 @@ msgstr "Messages · Pasted from your email"
 #: src/features/homepage/remember.tsx
 msgid "Messages · Reply to Sam at Fieldnote"
 msgstr "Messages · Reply to Sam at Fieldnote"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Metrics (only numbers you can back up)"
+msgstr "Metrics (only numbers you can back up)"
 
 #: src/features/career/workspace/practise.tsx
 msgid "Microphone blocked. Allow it in your browser settings, or type your answer."
@@ -7575,6 +7780,10 @@ msgstr "Never"
 msgid "New"
 msgstr "New"
 
+#: src/features/career/knowledge/profile.tsx
+msgid "New achievement"
+msgstr "New achievement"
+
 #: src/features/settings/ai/api-keys.tsx
 msgid "New API key"
 msgstr "New API key"
@@ -7599,6 +7808,10 @@ msgstr "New cover letter instead"
 #: src/features/documents/new-document-dialog.tsx
 msgid "New document"
 msgstr "New document"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "New entry"
+msgstr "New entry"
 
 #: src/features/career/knowledge/facts.tsx
 msgid "New fact"
@@ -7634,6 +7847,10 @@ msgstr "New schedule"
 #: src/features/resume/editor/write/entry-card.tsx
 msgid "New section"
 msgstr "New section"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "New skill"
+msgstr "New skill"
 
 #: src/features/applications/components/manage-lanes-sheet.tsx
 msgid "New stage color"
@@ -7754,6 +7971,10 @@ msgstr "No email address"
 msgid "No email address was found."
 msgstr "No email address was found."
 
+#: src/features/career/knowledge/profile.tsx
+msgid "No entries yet. Start with your current or most recent role."
+msgstr "No entries yet. Start with your current or most recent role."
+
 #: src/features/career/shared.tsx
 #: src/features/homepage/prepare.tsx
 #: src/features/homepage/remember.tsx
@@ -7854,6 +8075,10 @@ msgstr "No resumes yet."
 msgid "No skills section was found."
 msgstr "No skills section was found."
 
+#: src/features/career/knowledge/profile.tsx
+msgid "No skills yet. Add the tools and abilities you'd want a recruiter to search for."
+msgstr "No skills yet. Add the tools and abilities you'd want a recruiter to search for."
+
 #: src/features/applications/components/insights-view.tsx
 msgid "No source data yet."
 msgstr "No source data yet."
@@ -7918,6 +8143,10 @@ msgstr "None"
 msgctxt "Entry header accent"
 msgid "None"
 msgstr "None"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "nonprofit, wordpress, leadership"
+msgstr "nonprofit, wordpress, leadership"
 
 #: src/features/resume/editor/design/fit.ts
 #: src/features/resume/editor/design/style-groups.tsx
@@ -8019,6 +8248,10 @@ msgstr "Not scored"
 #: src/features/applications/stages.ts
 msgid "Not selected"
 msgstr "Not selected"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Not set"
+msgstr "Not set"
 
 #: src/features/settings/root.tsx
 msgid "Not set up"
@@ -8433,6 +8666,7 @@ msgstr "Or upload a resume PDF"
 msgid "Orange"
 msgstr "Orange"
 
+#: src/features/career/knowledge/profile.tsx
 #: src/features/resume/editor/write/entries.tsx
 msgid "Organization"
 msgstr "Organization"
@@ -8454,6 +8688,10 @@ msgstr "Other"
 msgid "Other · OpenAI-compatible"
 msgstr "Other · OpenAI-compatible"
 
+#: src/features/career/knowledge/profile.tsx
+msgid "Other achievements"
+msgstr "Other achievements"
+
 #: src/features/career/offers.tsx
 msgid "Other benefits"
 msgstr "Other benefits"
@@ -8462,6 +8700,10 @@ msgstr "Other benefits"
 #: src/features/assistant/assistant-panel.tsx
 msgid "Other documents · {0}"
 msgstr "Other documents · {0}"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Other names postings use, comma separated"
+msgstr "Other names postings use, comma separated"
 
 #: src/features/ats-checker/report/score-header.tsx
 msgid "out of 100"
@@ -8958,6 +9200,7 @@ msgstr "Preparing resume for printing…"
 msgid "Preparing…"
 msgstr "Preparing…"
 
+#: src/features/career/knowledge/profile.tsx
 #: src/features/resume/editor/write/dates-field.tsx
 msgid "Present"
 msgstr "Present"
@@ -9059,6 +9302,7 @@ msgstr "Proficiency"
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 #: src/features/settings/account/profile.tsx
+#: src/routes/dashboard/career/knowledge/route.tsx
 msgid "Profile"
 msgstr "Profile"
 
@@ -9082,6 +9326,10 @@ msgstr "Profiles"
 #: src/components/level/combobox.tsx
 msgid "Progress bar"
 msgstr "Progress bar"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Project name"
+msgstr "Project name"
 
 #: src/libs/resume/section.tsx
 msgid "Projects"
@@ -9449,6 +9697,10 @@ msgstr "Ready"
 msgid "Reason"
 msgstr "Reason"
 
+#: src/features/career/knowledge/profile.tsx
+msgid "Rebuilt the volunteer portal on WordPress, cutting coordinator admin time by 40%"
+msgstr "Rebuilt the volunteer portal on WordPress, cutting coordinator admin time by 40%"
+
 #: src/features/career/workspace/practise.tsx
 msgid "Recalled"
 msgstr "Recalled"
@@ -9679,6 +9931,10 @@ msgstr "Remove field"
 #: src/features/applications/components/file-attachment-field.tsx
 msgid "Remove file"
 msgstr "Remove file"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Remove metric"
+msgstr "Remove metric"
 
 #: src/features/settings/account/security.tsx
 msgid "Remove passkey"
@@ -10061,6 +10317,7 @@ msgstr "Right now"
 #: src/features/applications/components/import-applications-sheet.tsx
 #: src/features/applications/components/interview-dialog.tsx
 #: src/features/applications/components/list-view.tsx
+#: src/features/career/knowledge/profile.tsx
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Role"
 msgstr "Role"
@@ -10186,6 +10443,10 @@ msgstr "Save"
 msgid "Save a job"
 msgstr "Save a job"
 
+#: src/features/career/knowledge/profile.tsx
+msgid "Save achievement"
+msgstr "Save achievement"
+
 #: src/features/ats-checker/messages.ts
 msgid "Save an unprotected copy, with no password and no permissions restrictions."
 msgstr "Save an unprotected copy, with no password and no permissions restrictions."
@@ -10223,6 +10484,10 @@ msgstr "Save connection"
 msgid "Save correction"
 msgstr "Save correction"
 
+#: src/features/career/knowledge/profile.tsx
+msgid "Save entry"
+msgstr "Save entry"
+
 #: src/features/settings/ai/web-access.tsx
 msgid "Save first, then test search and reading. No test runs automatically."
 msgstr "Save first, then test search and reading. No test runs automatically."
@@ -10243,6 +10508,10 @@ msgstr "Save name"
 #: src/features/career/schedule-sheet.tsx
 msgid "Save schedule"
 msgstr "Save schedule"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Save skill"
+msgstr "Save skill"
 
 #: src/features/assistant/tool-approvals.tsx
 #: src/features/career/knowledge/stories.tsx
@@ -10412,6 +10681,7 @@ msgstr "Scheduled work isn't available on this server."
 msgid "Schedules"
 msgstr "Schedules"
 
+#: src/features/career/knowledge/profile.tsx
 #: src/features/resume/editor/write/entries.tsx
 msgid "School"
 msgstr "School"
@@ -11077,14 +11347,20 @@ msgid "Size"
 msgstr "Size"
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/profile.tsx
 msgid "Skill"
 msgstr "Skill"
 
+#: src/features/career/knowledge/profile.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 #: src/libs/resume/section.tsx
 msgid "Skills"
 msgstr "Skills"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Skills shown, comma separated"
+msgstr "Skills shown, comma separated"
 
 #: src/features/assistant/tool-approvals.tsx
 #: src/features/career/workspace/apply.tsx
@@ -11290,6 +11566,10 @@ msgstr "Stage stays {stage}"
 msgid "Stages"
 msgstr "Stages"
 
+#: src/features/career/knowledge/profile.tsx
+msgid "stakeholder management, nonprofit"
+msgstr "stakeholder management, nonprofit"
+
 #: src/features/homepage/check.tsx
 msgid "Standard section headings"
 msgstr "Standard section headings"
@@ -11309,6 +11589,10 @@ msgstr "Stars on GitHub"
 #: src/features/resume/editor/write/dates-field.tsx
 msgid "Start"
 msgstr "Start"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Start (YYYY or YYYY-MM)"
+msgstr "Start (YYYY or YYYY-MM)"
 
 #: src/features/career/workspace/prepare.tsx
 msgid "Start a debrief"
@@ -11534,6 +11818,10 @@ msgstr "Summaries of your open applications"
 msgid "Summary"
 msgstr "Summary"
 
+#: src/features/career/knowledge/profile.tsx
+msgid "Summary (scope, team size, what the role was for)"
+msgstr "Summary (scope, team size, what the role was for)"
+
 #: src/features/homepage/sections.tsx
 msgid "Support"
 msgstr "Support"
@@ -11649,6 +11937,10 @@ msgstr "Tags give software an explicit reading order. Enable them when exporting
 #: src/features/documents/document-actions.tsx
 msgid "Tags group documents in the library; pick one above the grid to filter by it."
 msgstr "Tags group documents in the library; pick one above the grid to filter by it."
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Tags, comma separated"
+msgstr "Tags, comma separated"
 
 #: src/features/career/knowledge/stories.tsx
 msgid "Tags, separated by commas"
@@ -12158,6 +12450,10 @@ msgstr "The top of the first page does not look like a name."
 #: src/features/user/dropdown-menu.tsx
 msgid "Theme"
 msgstr "Theme"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Themes, comma separated"
+msgstr "Themes, comma separated"
 
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Then enter the 6-digit code from the app."
@@ -12732,6 +13028,7 @@ msgid "Two-step verification turned on"
 msgstr "Two-step verification turned on"
 
 #: src/features/applications/components/interview-dialog.tsx
+#: src/features/career/knowledge/profile.tsx
 #: src/features/career/workspace/practise.tsx
 #: src/features/documents/documents-page.tsx
 #: src/features/documents/trash-page.tsx
@@ -12772,6 +13069,10 @@ msgstr "Typography"
 msgid "Ukrainian"
 msgstr "Ukrainian"
 
+#: src/features/career/knowledge/profile.tsx
+msgid "Uncategorized"
+msgstr "Uncategorized"
+
 #: src/features/resume/editor/write/rich-text-editor-field.tsx
 msgid "Underline"
 msgstr "Underline"
@@ -12805,6 +13106,10 @@ msgstr "Undo"
 #: src/features/resume/stylesheet/toolbar.tsx
 msgid "Undo resume change"
 msgstr "Undo resume change"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Unit"
+msgstr "Unit"
 
 #: src/features/homepage/check.tsx
 #: src/features/homepage/hero.tsx
@@ -13125,6 +13430,7 @@ msgstr "Uzbek"
 msgid "Valuation and dilution uncertain"
 msgstr "Valuation and dilution uncertain"
 
+#: src/features/career/knowledge/profile.tsx
 #: src/features/resume/share/dns-records-dialog.tsx
 msgid "Value"
 msgstr "Value"
@@ -13304,6 +13610,10 @@ msgstr "We sent a new verification link to {0}."
 msgid "Web access"
 msgstr "Web access"
 
+#: src/features/career/knowledge/profile.tsx
+msgid "Web development"
+msgstr "Web development"
+
 #: src/features/resume/share/share-panel.tsx
 msgid "Web page"
 msgstr "Web page"
@@ -13455,6 +13765,10 @@ msgstr "What to do"
 msgid "What was happening before you started?"
 msgstr "What was happening before you started?"
 
+#: src/features/career/knowledge/profile.tsx
+msgid "What was measured"
+msgstr "What was measured"
+
 #: src/features/career/knowledge/stories.tsx
 msgid "What were you responsible for?"
 msgstr "What were you responsible for?"
@@ -13466,6 +13780,10 @@ msgstr "What works"
 #: src/features/career/knowledge/stories.tsx
 msgid "What would you do differently?"
 msgstr "What would you do differently?"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "What you did and what changed, as a resume bullet"
+msgstr "What you did and what changed, as a resume bullet"
 
 #. placeholder {0}: requirement.text
 #: src/features/career/workspace/fit.tsx
@@ -13706,6 +14024,10 @@ msgstr "writing, tailoring and sending"
 #: src/features/career/offers.tsx
 msgid "Written offer"
 msgstr "Written offer"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Years (optional)"
+msgstr "Years (optional)"
 
 #: src/features/homepage/faq.tsx
 msgid "Yes. Every feature is free: all {templates} templates, PDF and Word downloads, the ATS checker, cover letters and the job tracker. There are no ads, no tracking and no paid tier. Donations pay for hosting and development."
@@ -14107,6 +14429,10 @@ msgstr "Your turn"
 #: src/features/career/workspace/prepare.tsx
 msgid "Your two-minute introduction"
 msgstr "Your two-minute introduction"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Your verified career record. Tailored resumes are assembled from these entries, achievements and skills, so keep each claim accurate and add numbers only when you can back them up."
+msgstr "Your verified career record. Tailored resumes are assembled from these entries, achievements and skills, so keep each claim accurate and add numbers only when you can back them up."
 
 #: src/features/resume/share/share-panel.tsx
 msgid "Your web page is live"

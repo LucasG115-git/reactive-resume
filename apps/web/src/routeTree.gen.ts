@@ -54,6 +54,7 @@ import { Route as DashboardApplicationsApplicationIdChar123TabChar125RouteImport
 import { Route as DashboardCareerCoachChar123ConversationIdChar125RouteImport } from "./routes/dashboard/career/coach.{-$conversationId}";
 import { Route as DashboardCareerKnowledgeFactsRouteImport } from "./routes/dashboard/career/knowledge/facts";
 import { Route as DashboardCareerKnowledgePreferencesRouteImport } from "./routes/dashboard/career/knowledge/preferences";
+import { Route as DashboardCareerKnowledgeProfileRouteImport } from "./routes/dashboard/career/knowledge/profile";
 import { Route as DashboardSettingsAuthenticationIndexRouteImport } from "./routes/dashboard/settings/authentication/index";
 import { Route as DashboardCareerKnowledgeStoriesChar123StoryIdChar125RouteImport } from "./routes/dashboard/career/knowledge/stories.{-$storyId}";
 
@@ -294,6 +295,12 @@ const DashboardCareerKnowledgePreferencesRoute =
     path: "/preferences",
     getParentRoute: () => DashboardCareerKnowledgeRouteRoute,
   } as any);
+const DashboardCareerKnowledgeProfileRoute =
+  DashboardCareerKnowledgeProfileRouteImport.update({
+    id: "/profile",
+    path: "/profile",
+    getParentRoute: () => DashboardCareerKnowledgeRouteRoute,
+  } as any);
 const DashboardSettingsAuthenticationIndexRoute =
   DashboardSettingsAuthenticationIndexRouteImport.update({
     id: "/authentication/",
@@ -352,6 +359,7 @@ export interface FileRoutesByFullPath {
   "/dashboard/career/coach/{-$conversationId}": typeof DashboardCareerCoachChar123ConversationIdChar125Route;
   "/dashboard/career/knowledge/facts": typeof DashboardCareerKnowledgeFactsRoute;
   "/dashboard/career/knowledge/preferences": typeof DashboardCareerKnowledgePreferencesRoute;
+  "/dashboard/career/knowledge/profile": typeof DashboardCareerKnowledgeProfileRoute;
   "/dashboard/settings/authentication/": typeof DashboardSettingsAuthenticationIndexRoute;
   "/dashboard/career/knowledge/stories/{-$storyId}": typeof DashboardCareerKnowledgeStoriesChar123StoryIdChar125Route;
 }
@@ -394,6 +402,7 @@ export interface FileRoutesByTo {
   "/dashboard/career/coach/{-$conversationId}": typeof DashboardCareerCoachChar123ConversationIdChar125Route;
   "/dashboard/career/knowledge/facts": typeof DashboardCareerKnowledgeFactsRoute;
   "/dashboard/career/knowledge/preferences": typeof DashboardCareerKnowledgePreferencesRoute;
+  "/dashboard/career/knowledge/profile": typeof DashboardCareerKnowledgeProfileRoute;
   "/dashboard/settings/authentication": typeof DashboardSettingsAuthenticationIndexRoute;
   "/dashboard/career/knowledge/stories/{-$storyId}": typeof DashboardCareerKnowledgeStoriesChar123StoryIdChar125Route;
 }
@@ -444,6 +453,7 @@ export interface FileRoutesById {
   "/dashboard/career/coach/{-$conversationId}": typeof DashboardCareerCoachChar123ConversationIdChar125Route;
   "/dashboard/career/knowledge/facts": typeof DashboardCareerKnowledgeFactsRoute;
   "/dashboard/career/knowledge/preferences": typeof DashboardCareerKnowledgePreferencesRoute;
+  "/dashboard/career/knowledge/profile": typeof DashboardCareerKnowledgeProfileRoute;
   "/dashboard/settings/authentication/": typeof DashboardSettingsAuthenticationIndexRoute;
   "/dashboard/career/knowledge/stories/{-$storyId}": typeof DashboardCareerKnowledgeStoriesChar123StoryIdChar125Route;
 }
@@ -494,6 +504,7 @@ export interface FileRouteTypes {
     | "/dashboard/career/coach/{-$conversationId}"
     | "/dashboard/career/knowledge/facts"
     | "/dashboard/career/knowledge/preferences"
+    | "/dashboard/career/knowledge/profile"
     | "/dashboard/settings/authentication/"
     | "/dashboard/career/knowledge/stories/{-$storyId}";
   fileRoutesByTo: FileRoutesByTo;
@@ -536,6 +547,7 @@ export interface FileRouteTypes {
     | "/dashboard/career/coach/{-$conversationId}"
     | "/dashboard/career/knowledge/facts"
     | "/dashboard/career/knowledge/preferences"
+    | "/dashboard/career/knowledge/profile"
     | "/dashboard/settings/authentication"
     | "/dashboard/career/knowledge/stories/{-$storyId}";
   id:
@@ -585,6 +597,7 @@ export interface FileRouteTypes {
     | "/dashboard/career/coach/{-$conversationId}"
     | "/dashboard/career/knowledge/facts"
     | "/dashboard/career/knowledge/preferences"
+    | "/dashboard/career/knowledge/profile"
     | "/dashboard/settings/authentication/"
     | "/dashboard/career/knowledge/stories/{-$storyId}";
   fileRoutesById: FileRoutesById;
@@ -915,6 +928,13 @@ declare module "@tanstack/react-router" {
       preLoaderRoute: typeof DashboardCareerKnowledgePreferencesRouteImport;
       parentRoute: typeof DashboardCareerKnowledgeRouteRoute;
     };
+    "/dashboard/career/knowledge/profile": {
+      id: "/dashboard/career/knowledge/profile";
+      path: "/profile";
+      fullPath: "/dashboard/career/knowledge/profile";
+      preLoaderRoute: typeof DashboardCareerKnowledgeProfileRouteImport;
+      parentRoute: typeof DashboardCareerKnowledgeRouteRoute;
+    };
     "/dashboard/settings/authentication/": {
       id: "/dashboard/settings/authentication/";
       path: "/authentication";
@@ -997,6 +1017,7 @@ const AuthRouteRouteWithChildren = AuthRouteRoute._addFileChildren(
 interface DashboardCareerKnowledgeRouteRouteChildren {
   DashboardCareerKnowledgeFactsRoute: typeof DashboardCareerKnowledgeFactsRoute;
   DashboardCareerKnowledgePreferencesRoute: typeof DashboardCareerKnowledgePreferencesRoute;
+  DashboardCareerKnowledgeProfileRoute: typeof DashboardCareerKnowledgeProfileRoute;
   DashboardCareerKnowledgeStoriesChar123StoryIdChar125Route: typeof DashboardCareerKnowledgeStoriesChar123StoryIdChar125Route;
 }
 
@@ -1005,6 +1026,7 @@ const DashboardCareerKnowledgeRouteRouteChildren: DashboardCareerKnowledgeRouteR
     DashboardCareerKnowledgeFactsRoute: DashboardCareerKnowledgeFactsRoute,
     DashboardCareerKnowledgePreferencesRoute:
       DashboardCareerKnowledgePreferencesRoute,
+    DashboardCareerKnowledgeProfileRoute: DashboardCareerKnowledgeProfileRoute,
     DashboardCareerKnowledgeStoriesChar123StoryIdChar125Route:
       DashboardCareerKnowledgeStoriesChar123StoryIdChar125Route,
   };
