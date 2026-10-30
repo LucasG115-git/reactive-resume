@@ -18,6 +18,10 @@ msgstr ""
 "X-Crowdin-File: /apps/web/locales/en-US.po\n"
 "X-Crowdin-File-ID: 545\n"
 
+#: src/features/career/knowledge/profile-file.tsx
+msgid "…or paste YAML or JSON here"
+msgstr ""
+
 #. placeholder {0}: application.role
 #. placeholder {1}: application.company
 #: src/features/applications/components/application-actions-menu.tsx
@@ -97,6 +101,11 @@ msgstr "{0, plural, one {\"{1}\" በሥራ ማስታወቂያው ውስጥ አ�
 #: src/features/documents/document-card.tsx
 msgid "{0, plural, one {{type} · # day left} other {{type} · # days left}}"
 msgstr "{0, plural, one {{type} · # ቀን ቀርቷል} other {{type} · # ቀናት ቀርተዋል}}"
+
+#. placeholder {0}: counts.achievements
+#: src/features/career/knowledge/profile-file.tsx
+msgid "{0, plural, one {# achievement} other {# achievements}}"
+msgstr ""
 
 #. placeholder {0}: insights.total
 #: src/features/applications/components/insights-view.tsx
@@ -197,6 +206,11 @@ msgstr "{0, plural, one {# መስክ በአርታዒው ውስጥ ለፈጣን �
 msgid "{0, plural, one {# issue is ignored.} other {# issues are ignored.}}"
 msgstr "{0, plural, one {የ# ጉዳይ ችላ ተብሏል።} other {የ# ጉዳዮች ችላ ተብለዋል።}}"
 
+#. placeholder {0}: counts.entries
+#: src/features/career/knowledge/profile-file.tsx
+msgid "{0, plural, one {# new entry} other {# new entries}}"
+msgstr ""
+
 #. placeholder {0}: proposals.length
 #: src/features/assistant/conversation.tsx
 #: src/features/resume/editor/proposals/proposal-list.tsx
@@ -226,7 +240,9 @@ msgstr "{0, plural, one {# ክፍል} other {# ክፍሎች}}"
 msgid "{0, plural, one {# selected} other {# selected}}"
 msgstr "{0, plural, one {# ተመርጧል} other {# ተመርጧል}}"
 
+#. placeholder {0}: counts.skills
 #. placeholder {0}: profile.skills.length
+#: src/features/career/knowledge/profile-file.tsx
 #: src/features/career/knowledge/profile.tsx
 msgid "{0, plural, one {# skill} other {# skills}}"
 msgstr ""
@@ -1414,6 +1430,10 @@ msgstr "መስክ አክል"
 msgid "Add figures where you have them: volumes, percentages, timeframes, team sizes."
 msgstr "ባሉዎት ቦታዎች ቁጥሮችን ይጨምሩ፦ መጠኖች፣ መቶኛዎች፣ የጊዜ ገደቦች፣ የቡድን መጠኖች።"
 
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Add from a profile file"
+msgstr ""
+
 #: src/features/applications/components/manage-lanes-sheet.tsx
 msgid "Add Ghosted (closed, no response)"
 msgstr "ምላሽ የተቋረጠ ያክሉ (የተዘጋ፣ ምላሽ የለም)"
@@ -1433,6 +1453,10 @@ msgstr "ቁልፍ ቃል ያክሉ"
 #: src/features/resume/editor/write/outline.tsx
 msgid "Add language"
 msgstr "ቋንቋ ጨምር"
+
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Add many entries at once from a profile file, or have an AI assistant write one with you"
+msgstr ""
 
 #: src/features/career/knowledge/profile.tsx
 msgid "Add metric"
@@ -1533,6 +1557,10 @@ msgstr "ወደ ቀን መቁጠሪያ አክል"
 msgid "Add to pipeline"
 msgstr "ወደ ሂደቱ ያክሉ"
 
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Add to profile"
+msgstr ""
+
 #: src/features/career/workspace/fit.tsx
 msgid "Add to questions"
 msgstr "ወደ ጥያቄዎች አክል"
@@ -1566,6 +1594,13 @@ msgstr ""
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Added {0} at {1}"
 msgstr "{0} በ {1} ታክሏል።"
+
+#. placeholder {0}: result.counts.entries
+#. placeholder {1}: result.counts.achievements
+#. placeholder {2}: result.counts.skills
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Added {0} entries, {1} achievements and {2} skills."
+msgstr ""
 
 #. placeholder {0}: counts.entries
 #. placeholder {1}: counts.achievements
@@ -1606,6 +1641,10 @@ msgstr "አድራሻ"
 #: src/features/career/workspace/messages.tsx
 msgid "Adds a reminder to Today if you haven't heard back by then."
 msgstr "እስከዚያ ድረስ ምላሽ ካልደረሰዎት በዛሬ ውስጥ አስታዋሽ ያክላል።"
+
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Adds to existing"
+msgstr ""
 
 #: src/features/templates/gallery.tsx
 msgid "Adjust fonts, colors, spacing and sections in the resume builder. Export your finished resume to PDF or Word, or share a link. The PDFs above are examples to help you compare designs."
@@ -1774,6 +1813,10 @@ msgstr "አስቀድሞ የተሸፈነ · በገጹ ላይ ለማግኘት አ�
 #: src/features/auth/pages/register.tsx
 msgid "Already have an account? <0/>"
 msgstr "ቀድሞ መለያ አለዎት? <0/>"
+
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Already have:"
+msgstr ""
 
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Already interviewing"
@@ -2321,6 +2364,7 @@ msgstr "አዘርባይጃንኛ"
 msgid "BA, Communication Design"
 msgstr "ቢኤ, የግንኙነት ንድፍ"
 
+#: src/features/career/knowledge/profile-file.tsx
 #: src/features/documents/new-document-dialog.tsx
 msgid "Back"
 msgstr "ተመለስ"
@@ -2598,6 +2642,7 @@ msgstr "ሶፍትዌር የእርስዎን የስራ ልምድ ማንበብ ይ�
 #: src/features/applications/components/interview-dialog.tsx
 #: src/features/applications/components/manage-lanes-sheet.tsx
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/profile-file.tsx
 #: src/features/career/knowledge/profile.tsx
 #: src/features/career/knowledge/stories.tsx
 #: src/features/career/schedule-sheet.tsx
@@ -2763,6 +2808,10 @@ msgstr "DNS አረጋግጥ"
 msgid "Check every claim, date and result against your experience."
 msgstr "እያንዳንዱን አባባል፣ ቀን እና ውጤት ከልምድዎ ጋር ያረጋግጡ።"
 
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Check file"
+msgstr ""
+
 #: src/features/career/workspace/fit.tsx
 msgid "Check fit"
 msgstr "ተስማሚነትን አረጋግጥ"
@@ -2873,6 +2922,10 @@ msgstr "ፋይል ይምረጡ"
 #: src/features/documents/new-document-dialog.tsx
 msgid "Choose a file to import"
 msgstr "ለማስመጣት ፋይል ይምረጡ"
+
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Choose a file, or drop it here"
+msgstr ""
 
 #: src/dialogs/auth/change-password.tsx
 msgid "Choose a password that's different from your current one."
@@ -3388,6 +3441,10 @@ msgstr "{value}ን ቅዳ"
 msgid "Copy a resume for a job"
 msgstr "ለሥራ የሚሆን የትምህርት ማስረጃ ቅዳ"
 
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Copy AI prompt"
+msgstr ""
+
 #: src/features/career/workspace/apply.tsx
 msgid "Copy answers"
 msgstr "መልሶችን ቅዳ"
@@ -3539,6 +3596,10 @@ msgstr "ግልባጩን መቅዳት አልተቻለም። እንደገና ይ�
 #: src/features/resume/share/copy-text.tsx
 msgid "Couldn't copy to the clipboard. Try again."
 msgstr "ወደ ቅንጥብ ሰሌዳ መቅዳት አልተቻለም። እንደገና ይሞክሩ።"
+
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Couldn't copy. Select the text and copy it yourself."
+msgstr ""
 
 #: src/features/documents/use-start-document.ts
 msgid "Couldn't create the document. Try again."
@@ -5267,6 +5328,10 @@ msgstr "የሥራ ማስታወቂያው አጽንዖት የሰጣቸው ቃላ�
 msgid "Every week"
 msgstr "በየሳምንቱ"
 
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Everything in this file is already in your profile."
+msgstr ""
+
 #. placeholder {0}: application.company
 #: src/features/career/workspace/saved.tsx
 msgid "Everything the coach wrote for {0}, newest first."
@@ -5545,6 +5610,10 @@ msgstr "እነዚህን በአርታዒው ውስጥ ያስተካክሉ"
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Fix these values in the CSV, or leave their columns out, before importing."
 msgstr "ከማስመጣትዎ በፊት እነዚህን እሴቶች በCSV ውስጥ ያስተካክሉ፣ ወይም ዓምዶቻቸውን ያስወጡ።"
+
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Fix these, then check again:"
+msgstr ""
 
 #: src/features/homepage/remember.tsx
 msgid "Fixing onboarding drop-off at Northwind Labs"
@@ -7855,6 +7924,7 @@ msgstr "ኔትዎርክ"
 msgid "Never"
 msgstr "በጭራሽ"
 
+#: src/features/career/knowledge/profile-file.tsx
 #: src/features/documents/document-card.tsx
 #: src/routes/dashboard/-components/app-shell.tsx
 msgid "New"
@@ -7930,6 +8000,10 @@ msgstr "አዲስ ክፍል"
 
 #: src/features/career/knowledge/profile.tsx
 msgid "New skill"
+msgstr ""
+
+#: src/features/career/knowledge/profile-file.tsx
+msgid "New skills:"
 msgstr ""
 
 #: src/features/applications/components/manage-lanes-sheet.tsx
@@ -8386,6 +8460,10 @@ msgstr "እዚህ ምንም ነገር ዋጋ ሊያስከፍልዎ አይገባ�
 #: src/features/career/today.tsx
 msgid "Nothing is applied for or created until you choose."
 msgstr "እርስዎ እስኪመርጡ ድረስ ምንም ማመልከቻ አይቀርብም ወይም አይፈጠርም።"
+
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Nothing is saved until you choose Add to profile. Anything already in your profile is skipped."
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Nothing marks a role as ongoing."
@@ -9403,6 +9481,10 @@ msgstr "ችሎታ"
 msgid "Profile"
 msgstr "መገለጫ"
 
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Profile file text"
+msgstr ""
+
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Profile link (optional)"
 msgstr "የመገለጫ አገናኝ (አማራጭ)"
@@ -9435,6 +9517,10 @@ msgstr "ፕሮጀክቶች"
 #: src/features/homepage/hero.tsx
 msgid "Promoted to lead, 2021"
 msgstr "ለመሪነት ከፍ ተደርገዋል፣ 2021"
+
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Prompt copied. Paste it into Claude or ChatGPT."
+msgstr ""
 
 #: src/features/career/workspace/messages.tsx
 msgid "Proposed changes"
@@ -10360,6 +10446,10 @@ msgstr "እንደገና በመሞከር ላይ…"
 #: src/features/resume/share/download-tab.tsx
 msgid "Review"
 msgstr "ግምገማ"
+
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Review before adding"
+msgstr ""
 
 #: src/features/career/today.tsx
 msgid "Review draft"
@@ -11565,6 +11655,10 @@ msgstr "አንዳንድ ጽሁፍ ተሽከርክሯል።"
 msgid "Something went wrong. Please try again."
 msgstr "የሆነ ስህተት ተፈጥሯል። እባክዎ እንደገና ይሞክሩ።"
 
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Something went wrong. Try again."
+msgstr ""
+
 #: src/features/documents/documents-page.tsx
 msgid "Sort"
 msgstr "ደርድር"
@@ -12127,6 +12221,7 @@ msgstr "ከሥራ ባልደረባዎ ጋር ያልተስማሙበትን ጊዜ �
 msgid "Telugu"
 msgstr "ተሉጉኛ"
 
+#: src/features/career/knowledge/profile-file.tsx
 #: src/libs/resume/section.tsx
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 #: src/routes/builder/$resumeId/-components/document-details.tsx
@@ -12266,6 +12361,10 @@ msgstr "አመሰግናለሁ Sam። አንድ ምሳሌ ይኸውና፦ በNort
 msgid "That file couldn't be read as a PDF. Choose a PDF file and try again."
 msgstr "ያ ፋይል እንደ PDF ሊነበብ አልቻለም። የPDF ፋይል ይምረጡ እና እንደገና ይሞክሩ።"
 
+#: src/features/career/knowledge/profile-file.tsx
+msgid "That file is too large for a profile file (over 1 MB)."
+msgstr ""
+
 #: src/features/ats-checker/checker.tsx
 msgid "That file is too large to check. PDFs up to 25 MB work."
 msgstr "ያ ፋይል ለመፈተሽ በጣም ትልቅ ነው። PDFs እስከ 25 MB ስራ።"
@@ -12377,6 +12476,10 @@ msgstr "ወደ ውጭ የተላከው PDF ሊረጋገጥ አልቻለም። እ
 #: src/features/documents/new-document-dialog.tsx
 msgid "The file couldn't be read as a resume."
 msgstr "ፋይሉ እንደ ሪሱሜ ሊነበብ አልቻለም።"
+
+#: src/features/career/knowledge/profile-file.tsx
+msgid "The file should start with sections like \"experience:\" and \"skills:\"."
+msgstr ""
 
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "The greeting follows the name."
@@ -13242,6 +13345,11 @@ msgstr "University of Porto"
 msgid "Unknown"
 msgstr "ያልታወቀ"
 
+#. placeholder {0}: issue.keys.join('", "')
+#: src/features/career/knowledge/profile-file.tsx
+msgid "unknown key \"{0}\". Use experience, projects, education, volunteer, certifications, awards and skills."
+msgstr ""
+
 #: src/features/documents/document-actions.tsx
 msgid "Unlink"
 msgstr "ግንኙነት አቋርጥ"
@@ -13328,9 +13436,17 @@ msgstr "የየታሪክዎን በመዘመን ላይ…"
 msgid "Upload .csv"
 msgstr ".csv ስቀል"
 
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Upload a .yaml or .json profile file, or paste one (an AI assistant's answer is fine as it is)."
+msgstr ""
+
 #: src/features/ats-checker/checker.tsx
 msgid "Upload a PDF and see the text an applicant tracking system extracts: what's missing, what's out of order, and how to fix it. Free, no account needed."
 msgstr "PDF ይስቀሉ እና አመልካች የሚከታተል ስርዓት ያወጣውን ጽሁፍ ይመልከቱ፡ ምን ይጎድላል፣ ያልተስተካከለው እና እንዴት እንደሚስተካከል ይመልከቱ። ነፃ፣ ምንም መለያ አያስፈልግም።"
+
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Upload or paste"
+msgstr ""
 
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Upload photo"

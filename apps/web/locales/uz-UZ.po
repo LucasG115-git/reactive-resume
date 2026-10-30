@@ -18,6 +18,10 @@ msgstr ""
 "X-Crowdin-File: /apps/web/locales/en-US.po\n"
 "X-Crowdin-File-ID: 545\n"
 
+#: src/features/career/knowledge/profile-file.tsx
+msgid "…or paste YAML or JSON here"
+msgstr ""
+
 #. placeholder {0}: application.role
 #. placeholder {1}: application.company
 #: src/features/applications/components/application-actions-menu.tsx
@@ -97,6 +101,11 @@ msgstr "{0, plural, one {\"{1}\" ish e'lonida bir marta paydo bo'ladi.} other {I
 #: src/features/documents/document-card.tsx
 msgid "{0, plural, one {{type} · # day left} other {{type} · # days left}}"
 msgstr "{0, plural, one {{type} · # kun qoldi} other {{type} · # kun qoldi}}"
+
+#. placeholder {0}: counts.achievements
+#: src/features/career/knowledge/profile-file.tsx
+msgid "{0, plural, one {# achievement} other {# achievements}}"
+msgstr ""
 
 #. placeholder {0}: insights.total
 #: src/features/applications/components/insights-view.tsx
@@ -197,6 +206,11 @@ msgstr "{0, plural, one {# ta maydon muharrirda tezkor ko'rib chiqish uchun belg
 msgid "{0, plural, one {# issue is ignored.} other {# issues are ignored.}}"
 msgstr "{0, plural, one {# muammosi e'tiborga olinmaydi.} other {# muammolari e'tiborga olinmaydi.}}"
 
+#. placeholder {0}: counts.entries
+#: src/features/career/knowledge/profile-file.tsx
+msgid "{0, plural, one {# new entry} other {# new entries}}"
+msgstr ""
+
 #. placeholder {0}: proposals.length
 #: src/features/assistant/conversation.tsx
 #: src/features/resume/editor/proposals/proposal-list.tsx
@@ -226,7 +240,9 @@ msgstr "{0, plural, one {# ta bo'lim} other {# ta bo'lim}}"
 msgid "{0, plural, one {# selected} other {# selected}}"
 msgstr "{0, plural, one {# tanlandi} other {# tanlandi}}"
 
+#. placeholder {0}: counts.skills
 #. placeholder {0}: profile.skills.length
+#: src/features/career/knowledge/profile-file.tsx
 #: src/features/career/knowledge/profile.tsx
 msgid "{0, plural, one {# skill} other {# skills}}"
 msgstr ""
@@ -1414,6 +1430,10 @@ msgstr "Maydon qo'shish"
 msgid "Add figures where you have them: volumes, percentages, timeframes, team sizes."
 msgstr "Mavjud boʻlgan joyda raqamlarni qoʻshing: hajmlar, foizlar, vaqt oraliqlari, jamoa hajmlari."
 
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Add from a profile file"
+msgstr ""
+
 #: src/features/applications/components/manage-lanes-sheet.tsx
 msgid "Add Ghosted (closed, no response)"
 msgstr "Javobsizni qo‘shish (yopilgan, javob yo‘q)"
@@ -1433,6 +1453,10 @@ msgstr "Kalit so'zni qo'shing"
 #: src/features/resume/editor/write/outline.tsx
 msgid "Add language"
 msgstr "Til qo'shing"
+
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Add many entries at once from a profile file, or have an AI assistant write one with you"
+msgstr ""
 
 #: src/features/career/knowledge/profile.tsx
 msgid "Add metric"
@@ -1533,6 +1557,10 @@ msgstr "Kalendarga qo'shish"
 msgid "Add to pipeline"
 msgstr "Pipeline'ga qo'shish"
 
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Add to profile"
+msgstr ""
+
 #: src/features/career/workspace/fit.tsx
 msgid "Add to questions"
 msgstr "Savollarga qo'shish"
@@ -1566,6 +1594,13 @@ msgstr ""
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Added {0} at {1}"
 msgstr "{1} da {0} qo‘shildi"
+
+#. placeholder {0}: result.counts.entries
+#. placeholder {1}: result.counts.achievements
+#. placeholder {2}: result.counts.skills
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Added {0} entries, {1} achievements and {2} skills."
+msgstr ""
 
 #. placeholder {0}: counts.entries
 #. placeholder {1}: counts.achievements
@@ -1606,6 +1641,10 @@ msgstr "Manzil"
 #: src/features/career/workspace/messages.tsx
 msgid "Adds a reminder to Today if you haven't heard back by then."
 msgstr "Agar shu vaqtgacha javob bo'lmasa, Bugun bo'limiga eslatma qo'shadi."
+
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Adds to existing"
+msgstr ""
 
 #: src/features/templates/gallery.tsx
 msgid "Adjust fonts, colors, spacing and sections in the resume builder. Export your finished resume to PDF or Word, or share a link. The PDFs above are examples to help you compare designs."
@@ -1774,6 +1813,10 @@ msgstr "Allaqachon qamrab olingan · sahifada topish uchun birini tanlang"
 #: src/features/auth/pages/register.tsx
 msgid "Already have an account? <0/>"
 msgstr "Hisobingiz bormi? <0/>"
+
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Already have:"
+msgstr ""
 
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Already interviewing"
@@ -2321,6 +2364,7 @@ msgstr "Ozarbayjon tili"
 msgid "BA, Communication Design"
 msgstr "BA, aloqa dizayni"
 
+#: src/features/career/knowledge/profile-file.tsx
 #: src/features/documents/new-document-dialog.tsx
 msgid "Back"
 msgstr "Orqaga"
@@ -2598,6 +2642,7 @@ msgstr "Dasturiy ta'minot sizning rezyumeingizni o'qiy oladimi?"
 #: src/features/applications/components/interview-dialog.tsx
 #: src/features/applications/components/manage-lanes-sheet.tsx
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/profile-file.tsx
 #: src/features/career/knowledge/profile.tsx
 #: src/features/career/knowledge/stories.tsx
 #: src/features/career/schedule-sheet.tsx
@@ -2763,6 +2808,10 @@ msgstr "DNS ni tekshirish"
 msgid "Check every claim, date and result against your experience."
 msgstr "Har bir da'vo, sana va natijani tajribangiz bilan solishtiring."
 
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Check file"
+msgstr ""
+
 #: src/features/career/workspace/fit.tsx
 msgid "Check fit"
 msgstr "Moslikni tekshirish"
@@ -2873,6 +2922,10 @@ msgstr "Faylni tanlang"
 #: src/features/documents/new-document-dialog.tsx
 msgid "Choose a file to import"
 msgstr "Import qilish uchun faylni tanlang"
+
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Choose a file, or drop it here"
+msgstr ""
 
 #: src/dialogs/auth/change-password.tsx
 msgid "Choose a password that's different from your current one."
@@ -3388,6 +3441,10 @@ msgstr "{value} ni nusxalash"
 msgid "Copy a resume for a job"
 msgstr "Ish uchun rezyumeni nusxalash"
 
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Copy AI prompt"
+msgstr ""
+
 #: src/features/career/workspace/apply.tsx
 msgid "Copy answers"
 msgstr "Javoblarni nusxalash"
@@ -3539,6 +3596,10 @@ msgstr "Transkriptni nusxalab bo‘lmadi. Qayta urinib ko'ring."
 #: src/features/resume/share/copy-text.tsx
 msgid "Couldn't copy to the clipboard. Try again."
 msgstr "Buferga nusxalab bo'lmadi. Qayta urinib ko'ring."
+
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Couldn't copy. Select the text and copy it yourself."
+msgstr ""
 
 #: src/features/documents/use-start-document.ts
 msgid "Couldn't create the document. Try again."
@@ -5267,6 +5328,10 @@ msgstr "Ish e'loni urg'u bergan har bir atama allaqachon bor."
 msgid "Every week"
 msgstr "Har hafta"
 
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Everything in this file is already in your profile."
+msgstr ""
+
 #. placeholder {0}: application.company
 #: src/features/career/workspace/saved.tsx
 msgid "Everything the coach wrote for {0}, newest first."
@@ -5545,6 +5610,10 @@ msgstr "Bularni muharrirda tuzating"
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Fix these values in the CSV, or leave their columns out, before importing."
 msgstr "Import qilishdan oldin CSV fayldagi bu qiymatlarni tuzating yoki ularning ustunlarini chiqarib tashlang."
+
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Fix these, then check again:"
+msgstr ""
 
 #: src/features/homepage/remember.tsx
 msgid "Fixing onboarding drop-off at Northwind Labs"
@@ -7855,6 +7924,7 @@ msgstr "Tarmoq"
 msgid "Never"
 msgstr "Hech qachon"
 
+#: src/features/career/knowledge/profile-file.tsx
 #: src/features/documents/document-card.tsx
 #: src/routes/dashboard/-components/app-shell.tsx
 msgid "New"
@@ -7930,6 +8000,10 @@ msgstr "Yangi bo'lim"
 
 #: src/features/career/knowledge/profile.tsx
 msgid "New skill"
+msgstr ""
+
+#: src/features/career/knowledge/profile-file.tsx
+msgid "New skills:"
 msgstr ""
 
 #: src/features/applications/components/manage-lanes-sheet.tsx
@@ -8386,6 +8460,10 @@ msgstr "Bu yerda hech narsa qimmatga tushmasligi kerak."
 #: src/features/career/today.tsx
 msgid "Nothing is applied for or created until you choose."
 msgstr "Siz tanlamaguningizcha hech narsaga ariza berilmaydi va hech narsa yaratilmaydi."
+
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Nothing is saved until you choose Add to profile. Anything already in your profile is skipped."
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Nothing marks a role as ongoing."
@@ -9403,6 +9481,10 @@ msgstr "Daraja"
 msgid "Profile"
 msgstr "Profil"
 
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Profile file text"
+msgstr ""
+
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Profile link (optional)"
 msgstr "Profil havolasi (ixtiyoriy)"
@@ -9435,6 +9517,10 @@ msgstr "Loyihalar"
 #: src/features/homepage/hero.tsx
 msgid "Promoted to lead, 2021"
 msgstr "Rahbarlikka ko'tarildi, 2021 yil"
+
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Prompt copied. Paste it into Claude or ChatGPT."
+msgstr ""
 
 #: src/features/career/workspace/messages.tsx
 msgid "Proposed changes"
@@ -10360,6 +10446,10 @@ msgstr "Qayta urinish…"
 #: src/features/resume/share/download-tab.tsx
 msgid "Review"
 msgstr "Ko‘rib chiqish"
+
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Review before adding"
+msgstr ""
 
 #: src/features/career/today.tsx
 msgid "Review draft"
@@ -11565,6 +11655,10 @@ msgstr "Ba'zi matnlar aylantirilgan."
 msgid "Something went wrong. Please try again."
 msgstr "Nimadir noto'g'ri ketdi. Iltimos, qayta urinib ko'ring."
 
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Something went wrong. Try again."
+msgstr ""
+
 #: src/features/documents/documents-page.tsx
 msgid "Sort"
 msgstr "Saralash"
@@ -12127,6 +12221,7 @@ msgstr "Hamkasbingiz bilan kelisha olmagan vaziyat haqida gapirib bering. Uni qa
 msgid "Telugu"
 msgstr "Telugu tili"
 
+#: src/features/career/knowledge/profile-file.tsx
 #: src/libs/resume/section.tsx
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 #: src/routes/builder/$resumeId/-components/document-details.tsx
@@ -12266,6 +12361,10 @@ msgstr "Rahmat, Sam. Mana bitta misol: Northwind Labs kompaniyasida 14 mijoz bil
 msgid "That file couldn't be read as a PDF. Choose a PDF file and try again."
 msgstr "Bu faylni PDF sifatida o'qib bo'lmadi. PDF faylni tanlang va qayta urinib ko'ring."
 
+#: src/features/career/knowledge/profile-file.tsx
+msgid "That file is too large for a profile file (over 1 MB)."
+msgstr ""
+
 #: src/features/ats-checker/checker.tsx
 msgid "That file is too large to check. PDFs up to 25 MB work."
 msgstr "Bu faylni tekshirish uchun juda katta. PDFs 25 tagacha MB ishlaydi."
@@ -12377,6 +12476,10 @@ msgstr "Eksport qilingan PDFni tekshirib bo‘lmadi. Qayta urinib ko'ring."
 #: src/features/documents/new-document-dialog.tsx
 msgid "The file couldn't be read as a resume."
 msgstr "Faylni rezyume sifatida o‘qib bo‘lmadi."
+
+#: src/features/career/knowledge/profile-file.tsx
+msgid "The file should start with sections like \"experience:\" and \"skills:\"."
+msgstr ""
 
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "The greeting follows the name."
@@ -13242,6 +13345,11 @@ msgstr "University of Porto"
 msgid "Unknown"
 msgstr "Noma'lum"
 
+#. placeholder {0}: issue.keys.join('", "')
+#: src/features/career/knowledge/profile-file.tsx
+msgid "unknown key \"{0}\". Use experience, projects, education, volunteer, certifications, awards and skills."
+msgstr ""
+
 #: src/features/documents/document-actions.tsx
 msgid "Unlink"
 msgstr "Aloqani uzish"
@@ -13328,9 +13436,17 @@ msgstr "Rezyume yangilanmoqda..."
 msgid "Upload .csv"
 msgstr ".csv yuklash"
 
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Upload a .yaml or .json profile file, or paste one (an AI assistant's answer is fine as it is)."
+msgstr ""
+
 #: src/features/ats-checker/checker.tsx
 msgid "Upload a PDF and see the text an applicant tracking system extracts: what's missing, what's out of order, and how to fix it. Free, no account needed."
 msgstr "PDF yuklang va abituriyent kuzatuv tizimi chiqaradigan matnni ko‘ring: nima etishmayapti, nima ishlamayapti va uni qanday tuzatish kerak. Bepul, hisob kerak emas."
+
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Upload or paste"
+msgstr ""
 
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Upload photo"

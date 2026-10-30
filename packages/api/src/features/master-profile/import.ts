@@ -4,9 +4,15 @@ import type {
 	ProfileEntryKind,
 	ProfileSkillInput,
 } from "@reactive-resume/schema/master-profile";
+import type { ProfileFile } from "@reactive-resume/schema/master-profile";
 import type { ResumeData } from "@reactive-resume/schema/resume/data";
 import type { ResumeDates } from "@reactive-resume/schema/resume/dates";
-import { profileEntryInputSchema, profileSkillInputSchema } from "@reactive-resume/schema/master-profile";
+import {
+	PROFILE_FILE_SECTIONS,
+	profileAchievementInputSchema,
+	profileEntryInputSchema,
+	profileSkillInputSchema,
+} from "@reactive-resume/schema/master-profile";
 
 const ENTITIES: Record<string, string> = { amp: "&", lt: "<", gt: ">", quot: '"', apos: "'", nbsp: " ", "#39": "'" };
 
@@ -211,5 +217,79 @@ export function resumeToProfile(data: ResumeData): ResumeImport {
 		else addSkill(item.name, "", item.level);
 	}
 
+	return { entries, skills };
+}
+
+export class ProfileFileError extends Error {
+	constructor(readonly problems: string[]) {
+		super(problems.join("\n"));
+	}
+}
+
+const pathOf = (path: ReadonlyArray<PropertyKey>) =>
+	path.map((part, index) => (typeof part === "number" ? `[${part}]` : `${index ? "." : ""}${String(part)}`)).join("");
+
+/**
+ * Turns a validated profile file into records, applying the editor's own rules to every entry, achievement
+ * and skill. Collects every problem, with where it is, instead of stopping at the first.
+ */
+export function profileFileToRecords(file: ProfileFile): ResumeImport {
+	const problems: string[] = [];
+	const entries: ImportedEntry[] = [];
+
+	for (const [section, kind] of Object.entries(PROFILE_FILE_SECTIONS) as Array<
+		[keyof typeof PROFILE_FILE_SECTIONS, ProfileEntryKind]
+	>) {
+		file[section].forEach((item, index) => {
+			const at = `${section}[${index}]`;
+			// Only a title or only an organization is fine: one stands in for the other, as on a resume.
+			const title = item.title.trim() || item.organization.trim();
+			const parsed = profileEntryInputSchema.safeParse({
+				kind,
+				title,
+				organization: item.title.trim() ? item.organization : "",
+				location: item.location,
+				url: item.url,
+				startDate: item.start,
+				endDate: item.end,
+				summary: item.summary,
+				tags: item.tags,
+				hidden: item.hidden ?? false,
+			});
+			if (!parsed.success) {
+				for (const issue of parsed.error.issues)
+					problems.push(
+						`${at}${issue.path.length ? `.${pathOf(issue.path)}` : ""}: ${title ? issue.message : "needs a title or an organization"}`,
+					);
+				return;
+			}
+
+			const achievements: ImportedEntry["achievements"] = [];
+			item.achievements.forEach((raw, position) => {
+				const result = profileAchievementInputSchema.omit({ entryId: true }).safeParse({
+					...raw,
+					metrics: "metrics" in raw ? raw.metrics : [],
+				});
+				if (result.success) achievements.push(result.data);
+				else
+					for (const issue of result.error.issues)
+						problems.push(
+							`${at}.achievements[${position}]${issue.path.length ? `.${pathOf(issue.path)}` : ""}: ${issue.message}`,
+						);
+			});
+			entries.push({ entry: parsed.data, achievements });
+		});
+	}
+
+	const skills: ProfileSkillInput[] = [];
+	file.skills.forEach((raw, index) => {
+		const result = profileSkillInputSchema.safeParse(raw);
+		if (result.success) skills.push(result.data);
+		else
+			for (const issue of result.error.issues)
+				problems.push(`skills[${index}]${issue.path.length ? `.${pathOf(issue.path)}` : ""}: ${issue.message}`);
+	});
+
+	if (problems.length > 0) throw new ProfileFileError(problems.slice(0, 25));
 	return { entries, skills };
 }

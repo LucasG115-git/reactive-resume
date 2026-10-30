@@ -17,6 +17,7 @@ import { toast } from "@reactive-resume/ui/components/toast";
 import { cn } from "@reactive-resume/utils/style";
 import { CareerLoadError, CareerLoading } from "../load-state";
 import { withUndo } from "../shared";
+import { ProfileFileImport } from "./profile-file";
 import { toastError } from "@/libs/error-message";
 import { client, orpc } from "@/libs/orpc/client";
 
@@ -104,6 +105,7 @@ export function ProfilePage() {
 				</p>
 			</div>
 
+			<ProfileFileImport onImported={refresh} />
 			<ImportFromResume onImported={refresh} />
 
 			<section className="grid gap-3">

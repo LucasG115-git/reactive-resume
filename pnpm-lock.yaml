@@ -308,6 +308,9 @@ catalogs:
     wrangler:
       specifier: ^4.154.0
       version: 4.154.0
+    yaml:
+      specifier: ^2.9.1
+      version: 2.9.1
     zod:
       specifier: ^4.6.7
       version: 4.6.7
@@ -1157,6 +1160,9 @@ importers:
       usehooks-ts:
         specifier: ^3.1.1
         version: 3.1.1(react@19.3.1)
+      yaml:
+        specifier: 'catalog:'
+        version: 2.9.1
       zod:
         specifier: 'catalog:'
         version: 4.6.7

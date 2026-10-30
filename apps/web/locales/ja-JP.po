@@ -18,6 +18,10 @@ msgstr ""
 "X-Crowdin-File: /apps/web/locales/en-US.po\n"
 "X-Crowdin-File-ID: 545\n"
 
+#: src/features/career/knowledge/profile-file.tsx
+msgid "…or paste YAML or JSON here"
+msgstr ""
+
 #. placeholder {0}: application.role
 #. placeholder {1}: application.company
 #: src/features/applications/components/application-actions-menu.tsx
@@ -97,6 +101,11 @@ msgstr "{0, plural, one {「{1}」は求人情報に 1 回表示されます。}
 #: src/features/documents/document-card.tsx
 msgid "{0, plural, one {{type} · # day left} other {{type} · # days left}}"
 msgstr "{0, plural, one {{type} · 残り # 日} other {{type} · 残り # 日}}"
+
+#. placeholder {0}: counts.achievements
+#: src/features/career/knowledge/profile-file.tsx
+msgid "{0, plural, one {# achievement} other {# achievements}}"
+msgstr ""
 
 #. placeholder {0}: insights.total
 #: src/features/applications/components/insights-view.tsx
@@ -197,6 +206,11 @@ msgstr "{0, plural, one {# 件のフィールドが、エディターで簡単�
 msgid "{0, plural, one {# issue is ignored.} other {# issues are ignored.}}"
 msgstr "{0, plural, one {# 問題は無視されます。} other {# の問題は無視されます。}}"
 
+#. placeholder {0}: counts.entries
+#: src/features/career/knowledge/profile-file.tsx
+msgid "{0, plural, one {# new entry} other {# new entries}}"
+msgstr ""
+
 #. placeholder {0}: proposals.length
 #: src/features/assistant/conversation.tsx
 #: src/features/resume/editor/proposals/proposal-list.tsx
@@ -226,7 +240,9 @@ msgstr "{0, plural, one {# 個のセクション} other {# 個のセクション
 msgid "{0, plural, one {# selected} other {# selected}}"
 msgstr "{0, plural, one {# が選択されました} other {# が選択されました}}"
 
+#. placeholder {0}: counts.skills
 #. placeholder {0}: profile.skills.length
+#: src/features/career/knowledge/profile-file.tsx
 #: src/features/career/knowledge/profile.tsx
 msgid "{0, plural, one {# skill} other {# skills}}"
 msgstr ""
@@ -1414,6 +1430,10 @@ msgstr "フィールドの追加"
 msgid "Add figures where you have them: volumes, percentages, timeframes, team sizes."
 msgstr "可能な限り数字を加えてください。量、割合、期間、チーム人数などです。"
 
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Add from a profile file"
+msgstr ""
+
 #: src/features/applications/components/manage-lanes-sheet.tsx
 msgid "Add Ghosted (closed, no response)"
 msgstr "返信なし（終了、応答なし）を追加"
@@ -1433,6 +1453,10 @@ msgstr "キーワードの追加"
 #: src/features/resume/editor/write/outline.tsx
 msgid "Add language"
 msgstr "言語を追加する"
+
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Add many entries at once from a profile file, or have an AI assistant write one with you"
+msgstr ""
 
 #: src/features/career/knowledge/profile.tsx
 msgid "Add metric"
@@ -1533,6 +1557,10 @@ msgstr "カレンダーに追加"
 msgid "Add to pipeline"
 msgstr "パイプラインに追加"
 
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Add to profile"
+msgstr ""
+
 #: src/features/career/workspace/fit.tsx
 msgid "Add to questions"
 msgstr "質問に追加"
@@ -1566,6 +1594,13 @@ msgstr ""
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Added {0} at {1}"
 msgstr "{1} に {0} を追加しました"
+
+#. placeholder {0}: result.counts.entries
+#. placeholder {1}: result.counts.achievements
+#. placeholder {2}: result.counts.skills
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Added {0} entries, {1} achievements and {2} skills."
+msgstr ""
 
 #. placeholder {0}: counts.entries
 #. placeholder {1}: counts.achievements
@@ -1606,6 +1641,10 @@ msgstr "住所"
 #: src/features/career/workspace/messages.tsx
 msgid "Adds a reminder to Today if you haven't heard back by then."
 msgstr "それまでに返信がなければ、「今日」にリマインダーを追加します。"
+
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Adds to existing"
+msgstr ""
 
 #: src/features/templates/gallery.tsx
 msgid "Adjust fonts, colors, spacing and sections in the resume builder. Export your finished resume to PDF or Word, or share a link. The PDFs above are examples to help you compare designs."
@@ -1774,6 +1813,10 @@ msgstr "すでに取り上げられています。1 つ選択してページ上�
 #: src/features/auth/pages/register.tsx
 msgid "Already have an account? <0/>"
 msgstr "すでにアカウントをお持ちですか？ <0/>"
+
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Already have:"
+msgstr ""
 
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Already interviewing"
@@ -2321,6 +2364,7 @@ msgstr "アゼルバイジャン語"
 msgid "BA, Communication Design"
 msgstr "学士、コミュニケーションデザイン"
 
+#: src/features/career/knowledge/profile-file.tsx
 #: src/features/documents/new-document-dialog.tsx
 msgid "Back"
 msgstr "戻る"
@@ -2598,6 +2642,7 @@ msgstr "ソフトウェアはあなたの履歴書を読み取ることができ
 #: src/features/applications/components/interview-dialog.tsx
 #: src/features/applications/components/manage-lanes-sheet.tsx
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/profile-file.tsx
 #: src/features/career/knowledge/profile.tsx
 #: src/features/career/knowledge/stories.tsx
 #: src/features/career/schedule-sheet.tsx
@@ -2763,6 +2808,10 @@ msgstr "DNS を確認"
 msgid "Check every claim, date and result against your experience."
 msgstr "すべての主張、日付、成果をあなたの経験と照らし合わせて確認してください。"
 
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Check file"
+msgstr ""
+
 #: src/features/career/workspace/fit.tsx
 msgid "Check fit"
 msgstr "適合度を確認"
@@ -2873,6 +2922,10 @@ msgstr "ファイルを選択してください"
 #: src/features/documents/new-document-dialog.tsx
 msgid "Choose a file to import"
 msgstr "インポートするファイルを選択してください"
+
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Choose a file, or drop it here"
+msgstr ""
 
 #: src/dialogs/auth/change-password.tsx
 msgid "Choose a password that's different from your current one."
@@ -3388,6 +3441,10 @@ msgstr "{value} をコピー"
 msgid "Copy a resume for a job"
 msgstr "仕事の履歴書をコピーする"
 
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Copy AI prompt"
+msgstr ""
+
 #: src/features/career/workspace/apply.tsx
 msgid "Copy answers"
 msgstr "回答をコピー"
@@ -3539,6 +3596,10 @@ msgstr "トランスクリプトをコピーできませんでした。もう一
 #: src/features/resume/share/copy-text.tsx
 msgid "Couldn't copy to the clipboard. Try again."
 msgstr "クリップボードにコピーできませんでした。もう一度お試しください。"
+
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Couldn't copy. Select the text and copy it yourself."
+msgstr ""
 
 #: src/features/documents/use-start-document.ts
 msgid "Couldn't create the document. Try again."
@@ -5267,6 +5328,10 @@ msgstr "求人情報で強調されているすべての用語はすでに存在
 msgid "Every week"
 msgstr "毎週"
 
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Everything in this file is already in your profile."
+msgstr ""
+
 #. placeholder {0}: application.company
 #: src/features/career/workspace/saved.tsx
 msgid "Everything the coach wrote for {0}, newest first."
@@ -5545,6 +5610,10 @@ msgstr "エディターでこれらを修正してください"
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Fix these values in the CSV, or leave their columns out, before importing."
 msgstr "インポートする前に、CSVでこれらの値を修正するか、該当する列を除外してください。"
+
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Fix these, then check again:"
+msgstr ""
 
 #: src/features/homepage/remember.tsx
 msgid "Fixing onboarding drop-off at Northwind Labs"
@@ -7855,6 +7924,7 @@ msgstr "ネットワーク"
 msgid "Never"
 msgstr "一度もない"
 
+#: src/features/career/knowledge/profile-file.tsx
 #: src/features/documents/document-card.tsx
 #: src/routes/dashboard/-components/app-shell.tsx
 msgid "New"
@@ -7930,6 +8000,10 @@ msgstr "新しいセクション"
 
 #: src/features/career/knowledge/profile.tsx
 msgid "New skill"
+msgstr ""
+
+#: src/features/career/knowledge/profile-file.tsx
+msgid "New skills:"
 msgstr ""
 
 #: src/features/applications/components/manage-lanes-sheet.tsx
@@ -8386,6 +8460,10 @@ msgstr "ここでは、試合に費用をかける必要はありません。"
 #: src/features/career/today.tsx
 msgid "Nothing is applied for or created until you choose."
 msgstr "あなたが選ぶまで、応募も作成も行われません。"
+
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Nothing is saved until you choose Add to profile. Anything already in your profile is skipped."
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Nothing marks a role as ongoing."
@@ -9403,6 +9481,10 @@ msgstr "熟練度"
 msgid "Profile"
 msgstr "プロフィール"
 
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Profile file text"
+msgstr ""
+
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Profile link (optional)"
 msgstr "プロフィールリンク（任意）"
@@ -9435,6 +9517,10 @@ msgstr "プロジェクト"
 #: src/features/homepage/hero.tsx
 msgid "Promoted to lead, 2021"
 msgstr "2021 年にリーダーに昇進"
+
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Prompt copied. Paste it into Claude or ChatGPT."
+msgstr ""
 
 #: src/features/career/workspace/messages.tsx
 msgid "Proposed changes"
@@ -10360,6 +10446,10 @@ msgstr "再試行中…"
 #: src/features/resume/share/download-tab.tsx
 msgid "Review"
 msgstr "レビュー"
+
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Review before adding"
+msgstr ""
 
 #: src/features/career/today.tsx
 msgid "Review draft"
@@ -11565,6 +11655,10 @@ msgstr "一部のテキストが回転しています。"
 msgid "Something went wrong. Please try again."
 msgstr "問題が発生しました。もう一度お試しください。"
 
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Something went wrong. Try again."
+msgstr ""
+
 #: src/features/documents/documents-page.tsx
 msgid "Sort"
 msgstr "選別"
@@ -12127,6 +12221,7 @@ msgstr "同僚と意見が合わなかったときのことを教えてくださ
 msgid "Telugu"
 msgstr "テルグ語"
 
+#: src/features/career/knowledge/profile-file.tsx
 #: src/libs/resume/section.tsx
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 #: src/routes/builder/$resumeId/-components/document-details.tsx
@@ -12266,6 +12361,10 @@ msgstr "ありがとうございます、Samさん。一例として、Northwind
 msgid "That file couldn't be read as a PDF. Choose a PDF file and try again."
 msgstr "そのファイルは PDF として読み取れませんでした。PDF ファイルを選んで、もう一度お試しください。"
 
+#: src/features/career/knowledge/profile-file.tsx
+msgid "That file is too large for a profile file (over 1 MB)."
+msgstr ""
+
 #: src/features/ats-checker/checker.tsx
 msgid "That file is too large to check. PDFs up to 25 MB work."
 msgstr "そのファイルは大きすぎて確認できません。 PDFs は最大 25 MB まで動作します。"
@@ -12377,6 +12476,10 @@ msgstr "エクスポートされたPDFは確認できませんでした。もう
 #: src/features/documents/new-document-dialog.tsx
 msgid "The file couldn't be read as a resume."
 msgstr "ファイルを履歴書として読み取ることができませんでした。"
+
+#: src/features/career/knowledge/profile-file.tsx
+msgid "The file should start with sections like \"experience:\" and \"skills:\"."
+msgstr ""
 
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "The greeting follows the name."
@@ -13242,6 +13345,11 @@ msgstr "University of Porto"
 msgid "Unknown"
 msgstr "不明"
 
+#. placeholder {0}: issue.keys.join('", "')
+#: src/features/career/knowledge/profile-file.tsx
+msgid "unknown key \"{0}\". Use experience, projects, education, volunteer, certifications, awards and skills."
+msgstr ""
+
 #: src/features/documents/document-actions.tsx
 msgid "Unlink"
 msgstr "リンクを解除する"
@@ -13328,9 +13436,17 @@ msgstr "履歴書を更新しています…"
 msgid "Upload .csv"
 msgstr ".csv をアップロード"
 
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Upload a .yaml or .json profile file, or paste one (an AI assistant's answer is fine as it is)."
+msgstr ""
+
 #: src/features/ats-checker/checker.tsx
 msgid "Upload a PDF and see the text an applicant tracking system extracts: what's missing, what's out of order, and how to fix it. Free, no account needed."
 msgstr "PDF をアップロードすると、申請者追跡システムが抽出したテキスト (不足しているもの、順序が間違っているもの、およびその修正方法) が表示されます。無料、アカウントは必要ありません。"
+
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Upload or paste"
+msgstr ""
 
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Upload photo"

@@ -18,6 +18,10 @@ msgstr ""
 "X-Crowdin-File: /apps/web/locales/en-US.po\n"
 "X-Crowdin-File-ID: 545\n"
 
+#: src/features/career/knowledge/profile-file.tsx
+msgid "…or paste YAML or JSON here"
+msgstr ""
+
 #. placeholder {0}: application.role
 #. placeholder {1}: application.company
 #: src/features/applications/components/application-actions-menu.tsx
@@ -97,6 +101,11 @@ msgstr "{0, plural, one {채용 공고에 \"{1}\"가 한 번 나타납니다.} o
 #: src/features/documents/document-card.tsx
 msgid "{0, plural, one {{type} · # day left} other {{type} · # days left}}"
 msgstr "{0, plural, one {{type} · #일 남음} other {{type} · #일 남음}}"
+
+#. placeholder {0}: counts.achievements
+#: src/features/career/knowledge/profile-file.tsx
+msgid "{0, plural, one {# achievement} other {# achievements}}"
+msgstr ""
 
 #. placeholder {0}: insights.total
 #: src/features/applications/components/insights-view.tsx
@@ -197,6 +206,11 @@ msgstr "{0, plural, one {편집기에서 빠르게 확인할 필드 #개가 표�
 msgid "{0, plural, one {# issue is ignored.} other {# issues are ignored.}}"
 msgstr "{0, plural, one {# 문제는 무시됩니다.} other {# 문제는 무시됩니다.}}"
 
+#. placeholder {0}: counts.entries
+#: src/features/career/knowledge/profile-file.tsx
+msgid "{0, plural, one {# new entry} other {# new entries}}"
+msgstr ""
+
 #. placeholder {0}: proposals.length
 #: src/features/assistant/conversation.tsx
 #: src/features/resume/editor/proposals/proposal-list.tsx
@@ -226,7 +240,9 @@ msgstr "{0, plural, one {섹션 #개} other {섹션 #개}}"
 msgid "{0, plural, one {# selected} other {# selected}}"
 msgstr "{0, plural, one {# 선택됨} other {# 선택됨}}"
 
+#. placeholder {0}: counts.skills
 #. placeholder {0}: profile.skills.length
+#: src/features/career/knowledge/profile-file.tsx
 #: src/features/career/knowledge/profile.tsx
 msgid "{0, plural, one {# skill} other {# skills}}"
 msgstr ""
@@ -1414,6 +1430,10 @@ msgstr "필드 추가"
 msgid "Add figures where you have them: volumes, percentages, timeframes, team sizes."
 msgstr "가능하다면 수치를 포함하세요: 규모, 비율, 기간, 팀 인원 등."
 
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Add from a profile file"
+msgstr ""
+
 #: src/features/applications/components/manage-lanes-sheet.tsx
 msgid "Add Ghosted (closed, no response)"
 msgstr "응답 없음 추가(마감, 응답 없음)"
@@ -1433,6 +1453,10 @@ msgstr "키워드 추가"
 #: src/features/resume/editor/write/outline.tsx
 msgid "Add language"
 msgstr "언어 추가"
+
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Add many entries at once from a profile file, or have an AI assistant write one with you"
+msgstr ""
 
 #: src/features/career/knowledge/profile.tsx
 msgid "Add metric"
@@ -1533,6 +1557,10 @@ msgstr "캘린더에 추가"
 msgid "Add to pipeline"
 msgstr "파이프라인에 추가"
 
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Add to profile"
+msgstr ""
+
 #: src/features/career/workspace/fit.tsx
 msgid "Add to questions"
 msgstr "질문에 추가"
@@ -1566,6 +1594,13 @@ msgstr ""
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Added {0} at {1}"
 msgstr "{1}에 {0}를 추가했습니다."
+
+#. placeholder {0}: result.counts.entries
+#. placeholder {1}: result.counts.achievements
+#. placeholder {2}: result.counts.skills
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Added {0} entries, {1} achievements and {2} skills."
+msgstr ""
 
 #. placeholder {0}: counts.entries
 #. placeholder {1}: counts.achievements
@@ -1606,6 +1641,10 @@ msgstr "주소"
 #: src/features/career/workspace/messages.tsx
 msgid "Adds a reminder to Today if you haven't heard back by then."
 msgstr "그때까지 답이 없으면 오늘에 알림을 추가합니다."
+
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Adds to existing"
+msgstr ""
 
 #: src/features/templates/gallery.tsx
 msgid "Adjust fonts, colors, spacing and sections in the resume builder. Export your finished resume to PDF or Word, or share a link. The PDFs above are examples to help you compare designs."
@@ -1774,6 +1813,10 @@ msgstr "이미 다뤘습니다. 페이지에서 찾으려면 하나를 선택하
 #: src/features/auth/pages/register.tsx
 msgid "Already have an account? <0/>"
 msgstr "이미 계정이 있으신가요? <0/>"
+
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Already have:"
+msgstr ""
 
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Already interviewing"
@@ -2321,6 +2364,7 @@ msgstr "아제르바이잔어"
 msgid "BA, Communication Design"
 msgstr "학사, 커뮤니케이션 디자인"
 
+#: src/features/career/knowledge/profile-file.tsx
 #: src/features/documents/new-document-dialog.tsx
 msgid "Back"
 msgstr "뒤쪽에"
@@ -2598,6 +2642,7 @@ msgstr "소프트웨어가 이력서를 읽을 수 있나요?"
 #: src/features/applications/components/interview-dialog.tsx
 #: src/features/applications/components/manage-lanes-sheet.tsx
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/profile-file.tsx
 #: src/features/career/knowledge/profile.tsx
 #: src/features/career/knowledge/stories.tsx
 #: src/features/career/schedule-sheet.tsx
@@ -2763,6 +2808,10 @@ msgstr "DNS 확인"
 msgid "Check every claim, date and result against your experience."
 msgstr "모든 주장, 날짜, 결과를 실제 경험과 대조해 확인하세요."
 
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Check file"
+msgstr ""
+
 #: src/features/career/workspace/fit.tsx
 msgid "Check fit"
 msgstr "적합도 확인"
@@ -2873,6 +2922,10 @@ msgstr "파일을 선택하세요"
 #: src/features/documents/new-document-dialog.tsx
 msgid "Choose a file to import"
 msgstr "가져올 파일을 선택하세요"
+
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Choose a file, or drop it here"
+msgstr ""
 
 #: src/dialogs/auth/change-password.tsx
 msgid "Choose a password that's different from your current one."
@@ -3388,6 +3441,10 @@ msgstr "{value} 복사"
 msgid "Copy a resume for a job"
 msgstr "직업에 대한 이력서 복사"
 
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Copy AI prompt"
+msgstr ""
+
 #: src/features/career/workspace/apply.tsx
 msgid "Copy answers"
 msgstr "답변 복사"
@@ -3539,6 +3596,10 @@ msgstr "대화 기록을 복사할 수 없습니다. 다시 시도해 보세요.
 #: src/features/resume/share/copy-text.tsx
 msgid "Couldn't copy to the clipboard. Try again."
 msgstr "클립보드에 복사할 수 없습니다. 다시 시도해 보세요."
+
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Couldn't copy. Select the text and copy it yourself."
+msgstr ""
 
 #: src/features/documents/use-start-document.ts
 msgid "Couldn't create the document. Try again."
@@ -5267,6 +5328,10 @@ msgstr "채용 공고에서 강조하는 모든 용어는 이미 존재합니다
 msgid "Every week"
 msgstr "매주"
 
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Everything in this file is already in your profile."
+msgstr ""
+
 #. placeholder {0}: application.company
 #: src/features/career/workspace/saved.tsx
 msgid "Everything the coach wrote for {0}, newest first."
@@ -5545,6 +5610,10 @@ msgstr "편집기에서 이 문제를 수정하세요."
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Fix these values in the CSV, or leave their columns out, before importing."
 msgstr "가져오기 전에 CSV에서 이 값을 수정하거나 해당 열을 제외하세요."
+
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Fix these, then check again:"
+msgstr ""
 
 #: src/features/homepage/remember.tsx
 msgid "Fixing onboarding drop-off at Northwind Labs"
@@ -7855,6 +7924,7 @@ msgstr "네트워크"
 msgid "Never"
 msgstr "절대"
 
+#: src/features/career/knowledge/profile-file.tsx
 #: src/features/documents/document-card.tsx
 #: src/routes/dashboard/-components/app-shell.tsx
 msgid "New"
@@ -7930,6 +8000,10 @@ msgstr "새로운 섹션"
 
 #: src/features/career/knowledge/profile.tsx
 msgid "New skill"
+msgstr ""
+
+#: src/features/career/knowledge/profile-file.tsx
+msgid "New skills:"
 msgstr ""
 
 #: src/features/applications/components/manage-lanes-sheet.tsx
@@ -8386,6 +8460,10 @@ msgstr "여기서는 일치하는 비용이 들지 않습니다."
 #: src/features/career/today.tsx
 msgid "Nothing is applied for or created until you choose."
 msgstr "직접 선택하기 전에는 아무것도 지원하거나 생성하지 않습니다."
+
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Nothing is saved until you choose Add to profile. Anything already in your profile is skipped."
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Nothing marks a role as ongoing."
@@ -9403,6 +9481,10 @@ msgstr "숙련도"
 msgid "Profile"
 msgstr "프로필"
 
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Profile file text"
+msgstr ""
+
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Profile link (optional)"
 msgstr "프로필 링크(선택 사항)"
@@ -9435,6 +9517,10 @@ msgstr "프로젝트"
 #: src/features/homepage/hero.tsx
 msgid "Promoted to lead, 2021"
 msgstr "2021년 리드로 승진"
+
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Prompt copied. Paste it into Claude or ChatGPT."
+msgstr ""
 
 #: src/features/career/workspace/messages.tsx
 msgid "Proposed changes"
@@ -10360,6 +10446,10 @@ msgstr "재시도 중…"
 #: src/features/resume/share/download-tab.tsx
 msgid "Review"
 msgstr "검토"
+
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Review before adding"
+msgstr ""
 
 #: src/features/career/today.tsx
 msgid "Review draft"
@@ -11565,6 +11655,10 @@ msgstr "일부 텍스트가 회전되어 있습니다."
 msgid "Something went wrong. Please try again."
 msgstr "문제가 발생했습니다. 다시 시도해 주세요."
 
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Something went wrong. Try again."
+msgstr ""
+
 #: src/features/documents/documents-page.tsx
 msgid "Sort"
 msgstr "종류"
@@ -12127,6 +12221,7 @@ msgstr "동료와 의견이 달랐던 때를 말씀해 주세요. 어떻게 해�
 msgid "Telugu"
 msgstr "텔루구어"
 
+#: src/features/career/knowledge/profile-file.tsx
 #: src/libs/resume/section.tsx
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 #: src/routes/builder/$resumeId/-components/document-details.tsx
@@ -12266,6 +12361,10 @@ msgstr "감사합니다, Sam 님. 사례 하나를 말씀드리면, Northwind La
 msgid "That file couldn't be read as a PDF. Choose a PDF file and try again."
 msgstr "해당 파일을 PDF로 읽을 수 없습니다. PDF 파일을 선택하고 다시 시도해 보세요."
 
+#: src/features/career/knowledge/profile-file.tsx
+msgid "That file is too large for a profile file (over 1 MB)."
+msgstr ""
+
 #: src/features/ats-checker/checker.tsx
 msgid "That file is too large to check. PDFs up to 25 MB work."
 msgstr "파일이 너무 커서 확인할 수 없습니다. PDFs 최대 25개의 MB가 작동합니다."
@@ -12377,6 +12476,10 @@ msgstr "내보낸 PDF를 확인할 수 없습니다. 다시 시도해 보세요.
 #: src/features/documents/new-document-dialog.tsx
 msgid "The file couldn't be read as a resume."
 msgstr "파일을 이력서로 읽을 수 없습니다."
+
+#: src/features/career/knowledge/profile-file.tsx
+msgid "The file should start with sections like \"experience:\" and \"skills:\"."
+msgstr ""
 
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "The greeting follows the name."
@@ -13242,6 +13345,11 @@ msgstr "University of Porto"
 msgid "Unknown"
 msgstr "알 수 없음"
 
+#. placeholder {0}: issue.keys.join('", "')
+#: src/features/career/knowledge/profile-file.tsx
+msgid "unknown key \"{0}\". Use experience, projects, education, volunteer, certifications, awards and skills."
+msgstr ""
+
 #: src/features/documents/document-actions.tsx
 msgid "Unlink"
 msgstr "풀리다"
@@ -13328,9 +13436,17 @@ msgstr "이력서를 업데이트하는 중입니다..."
 msgid "Upload .csv"
 msgstr ".csv 업로드"
 
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Upload a .yaml or .json profile file, or paste one (an AI assistant's answer is fine as it is)."
+msgstr ""
+
 #: src/features/ats-checker/checker.tsx
 msgid "Upload a PDF and see the text an applicant tracking system extracts: what's missing, what's out of order, and how to fix it. Free, no account needed."
 msgstr "PDF를 업로드하고 지원자 추적 시스템에서 추출한 텍스트(누락된 내용, 잘못된 내용 및 수정 방법)를 확인하세요. 무료이며 계정이 필요하지 않습니다."
+
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Upload or paste"
+msgstr ""
 
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Upload photo"
