@@ -1,3 +1,4 @@
+import { ORPCError } from "@orpc/client";
 import { createSelectSchema } from "drizzle-zod";
 import z from "zod";
 import * as tables from "@reactive-resume/db/schema";
@@ -7,6 +8,7 @@ import {
 	profileAssemblyResultSchema,
 	profileEntryInputSchema,
 	profileEntryKindSchema,
+	profileFileSchema,
 	profileMetricSchema,
 	profileReorderInputSchema,
 	profileSkillInputSchema,
@@ -14,6 +16,7 @@ import {
 import { protectedProcedure } from "../../context";
 import { aiRequestRateLimit } from "../../middleware/rate-limit";
 import { assembleService } from "./assemble/service";
+import { ProfileFileError } from "./import";
 import { masterProfileService } from "./service";
 
 const tags = ["Master profile"];
@@ -87,6 +90,47 @@ export const masterProfileRouter = {
 		.input(z.object({}).optional())
 		.output(masterProfileSchema)
 		.handler(({ context }) => masterProfileService.get(context.user.id)),
+
+	importFile: protectedProcedure
+		.route({
+			method: "POST",
+			path: "/master-profile/import-file",
+			tags,
+			operationId: "importMasterProfileFile",
+			summary: "Preview or import a profile file",
+			description:
+				"Adds the entries, achievements and skills in a profile file (the JSON form of the YAML profile format) to the master profile, skipping anything already there. With dryRun, nothing is saved and the response lists what would be added.",
+		})
+		.input(z.object({ file: profileFileSchema, dryRun: z.boolean().default(true) }))
+		.output(
+			z.object({
+				counts: z.object({ entries: z.number(), achievements: z.number(), skills: z.number() }),
+				entries: z.array(
+					z.object({
+						kind: z.string(),
+						title: z.string(),
+						organization: z.string(),
+						isNew: z.boolean(),
+						achievements: z.array(z.string()),
+					}),
+				),
+				skills: z.array(z.string()),
+				existingSkills: z.array(z.string()),
+			}),
+		)
+		.errors({ BAD_REQUEST: { message: "The profile file has problems.", status: 400 } })
+		.handler(async ({ context, input }) => {
+			try {
+				return await masterProfileService.importFile(context.user.id, input.file, input.dryRun);
+			} catch (error) {
+				if (error instanceof ProfileFileError)
+					throw new ORPCError("BAD_REQUEST", {
+						message: `The profile file has problems:\n${error.problems.join("\n")}`,
+						data: { problems: error.problems },
+					});
+				throw error;
+			}
+		}),
 
 	importFromResume: protectedProcedure
 		.route({

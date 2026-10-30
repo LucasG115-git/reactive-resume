@@ -18,6 +18,10 @@ msgstr ""
 "X-Crowdin-File: /apps/web/locales/en-US.po\n"
 "X-Crowdin-File-ID: 545\n"
 
+#: src/features/career/knowledge/profile-file.tsx
+msgid "…or paste YAML or JSON here"
+msgstr ""
+
 #. placeholder {0}: application.role
 #. placeholder {1}: application.company
 #: src/features/applications/components/application-actions-menu.tsx
@@ -97,6 +101,11 @@ msgstr "{0, plural, one {జాబ్ పోస్టింగ్‌లో ఒ�
 #: src/features/documents/document-card.tsx
 msgid "{0, plural, one {{type} · # day left} other {{type} · # days left}}"
 msgstr "{0, plural, one {{type} · # రోజు మిగిలి ఉంది} other {{type} · # రోజులు మిగిలి ఉన్నాయి}}"
+
+#. placeholder {0}: counts.achievements
+#: src/features/career/knowledge/profile-file.tsx
+msgid "{0, plural, one {# achievement} other {# achievements}}"
+msgstr ""
 
 #. placeholder {0}: insights.total
 #: src/features/applications/components/insights-view.tsx
@@ -197,6 +206,11 @@ msgstr "{0, plural, one {ఎడిటర్‌లో త్వరగా చూ�
 msgid "{0, plural, one {# issue is ignored.} other {# issues are ignored.}}"
 msgstr "{0, plural, one {# సమస్య విస్మరించబడింది.} other {# సమస్యలు విస్మరించబడ్డాయి.}}"
 
+#. placeholder {0}: counts.entries
+#: src/features/career/knowledge/profile-file.tsx
+msgid "{0, plural, one {# new entry} other {# new entries}}"
+msgstr ""
+
 #. placeholder {0}: proposals.length
 #: src/features/assistant/conversation.tsx
 #: src/features/resume/editor/proposals/proposal-list.tsx
@@ -226,7 +240,9 @@ msgstr "{0, plural, one {# విభాగం} other {# విభాగాలు
 msgid "{0, plural, one {# selected} other {# selected}}"
 msgstr "{0, plural, one {# ఎంచుకోబడింది} other {# ఎంచుకోబడింది}}"
 
+#. placeholder {0}: counts.skills
 #. placeholder {0}: profile.skills.length
+#: src/features/career/knowledge/profile-file.tsx
 #: src/features/career/knowledge/profile.tsx
 msgid "{0, plural, one {# skill} other {# skills}}"
 msgstr ""
@@ -1414,6 +1430,10 @@ msgstr "ఫీల్డ్‌ని జోడించండి"
 msgid "Add figures where you have them: volumes, percentages, timeframes, team sizes."
 msgstr "మీ దగ్గర ఉన్న అంకెలను జోడించండి: పరిమాణాలు, శాతాలు, కాలవ్యవధులు, టీమ్ పరిమాణాలు."
 
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Add from a profile file"
+msgstr ""
+
 #: src/features/applications/components/manage-lanes-sheet.tsx
 msgid "Add Ghosted (closed, no response)"
 msgstr "ప్రతిస్పందన లేదు జోడించండి (ముగిసింది, జవాబు రాలేదు)"
@@ -1433,6 +1453,10 @@ msgstr "కీవర్డ్ జోడించండి"
 #: src/features/resume/editor/write/outline.tsx
 msgid "Add language"
 msgstr "భాషను జోడించండి"
+
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Add many entries at once from a profile file, or have an AI assistant write one with you"
+msgstr ""
 
 #: src/features/career/knowledge/profile.tsx
 msgid "Add metric"
@@ -1533,6 +1557,10 @@ msgstr "క్యాలెండర్‌కు జోడించండి"
 msgid "Add to pipeline"
 msgstr "పైప్‌లైన్‌కు జోడించు"
 
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Add to profile"
+msgstr ""
+
 #: src/features/career/workspace/fit.tsx
 msgid "Add to questions"
 msgstr "ప్రశ్నలకు జోడించు"
@@ -1566,6 +1594,13 @@ msgstr ""
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Added {0} at {1}"
 msgstr "{1} వద్ద {0} జోడించబడింది"
+
+#. placeholder {0}: result.counts.entries
+#. placeholder {1}: result.counts.achievements
+#. placeholder {2}: result.counts.skills
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Added {0} entries, {1} achievements and {2} skills."
+msgstr ""
 
 #. placeholder {0}: counts.entries
 #. placeholder {1}: counts.achievements
@@ -1606,6 +1641,10 @@ msgstr "చిరునామా"
 #: src/features/career/workspace/messages.tsx
 msgid "Adds a reminder to Today if you haven't heard back by then."
 msgstr "అప్పటికి మీకు స్పందన రాకపోతే, ‘ఈరోజు’లో రిమైండర్‌ను జోడిస్తుంది."
+
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Adds to existing"
+msgstr ""
 
 #: src/features/templates/gallery.tsx
 msgid "Adjust fonts, colors, spacing and sections in the resume builder. Export your finished resume to PDF or Word, or share a link. The PDFs above are examples to help you compare designs."
@@ -1774,6 +1813,10 @@ msgstr "ఇప్పటికే కవర్ చేయబడింది · ప
 #: src/features/auth/pages/register.tsx
 msgid "Already have an account? <0/>"
 msgstr "ఇప్పటికే ఖాతా ఉందా? <0/>"
+
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Already have:"
+msgstr ""
 
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Already interviewing"
@@ -2321,6 +2364,7 @@ msgstr "అజర్బైజానీ"
 msgid "BA, Communication Design"
 msgstr "BA, కమ్యూనికేషన్ డిజైన్"
 
+#: src/features/career/knowledge/profile-file.tsx
 #: src/features/documents/new-document-dialog.tsx
 msgid "Back"
 msgstr "వెనుకకు"
@@ -2598,6 +2642,7 @@ msgstr "సాఫ్ట్‌వేర్ మీ రెజ్యూమెను 
 #: src/features/applications/components/interview-dialog.tsx
 #: src/features/applications/components/manage-lanes-sheet.tsx
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/profile-file.tsx
 #: src/features/career/knowledge/profile.tsx
 #: src/features/career/knowledge/stories.tsx
 #: src/features/career/schedule-sheet.tsx
@@ -2763,6 +2808,10 @@ msgstr "DNSను తనిఖీ చేయండి"
 msgid "Check every claim, date and result against your experience."
 msgstr "ప్రతి వాదన, తేదీ, ఫలితాన్ని మీ అనుభవంతో సరిచూసుకోండి."
 
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Check file"
+msgstr ""
+
 #: src/features/career/workspace/fit.tsx
 msgid "Check fit"
 msgstr "ఫిట్‌ను తనిఖీ చేయి"
@@ -2873,6 +2922,10 @@ msgstr "ఫైల్‌ను ఎంచుకోండి"
 #: src/features/documents/new-document-dialog.tsx
 msgid "Choose a file to import"
 msgstr "దిగుమతి చేయడానికి ఫైల్‌ను ఎంచుకోండి"
+
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Choose a file, or drop it here"
+msgstr ""
 
 #: src/dialogs/auth/change-password.tsx
 msgid "Choose a password that's different from your current one."
@@ -3388,6 +3441,10 @@ msgstr "{value}ను కాపీ చేయండి"
 msgid "Copy a resume for a job"
 msgstr "ఉద్యోగం కోసం రెజ్యూమేని కాపీ చేయండి"
 
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Copy AI prompt"
+msgstr ""
+
 #: src/features/career/workspace/apply.tsx
 msgid "Copy answers"
 msgstr "సమాధానాలను కాపీ చేయి"
@@ -3539,6 +3596,10 @@ msgstr "ట్రాన్స్‌క్రిప్ట్‌ను కాప�
 #: src/features/resume/share/copy-text.tsx
 msgid "Couldn't copy to the clipboard. Try again."
 msgstr "క్లిప్‌బోర్డ్‌కు కాపీ చేయడం సాధ్యపడలేదు. మళ్ళీ ప్రయత్నించండి."
+
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Couldn't copy. Select the text and copy it yourself."
+msgstr ""
 
 #: src/features/documents/use-start-document.ts
 msgid "Couldn't create the document. Try again."
@@ -5267,6 +5328,10 @@ msgstr "ఉద్యోగ పోస్టింగ్ నొక్కి చె
 msgid "Every week"
 msgstr "ప్రతి వారం"
 
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Everything in this file is already in your profile."
+msgstr ""
+
 #. placeholder {0}: application.company
 #: src/features/career/workspace/saved.tsx
 msgid "Everything the coach wrote for {0}, newest first."
@@ -5545,6 +5610,10 @@ msgstr "వీటిని ఎడిటర్‌లో పరిష్కరి�
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Fix these values in the CSV, or leave their columns out, before importing."
 msgstr "ఇంపోర్ట్ చేసే ముందు CSVలో ఈ విలువలను సరిచేయండి, లేదా వాటి కాలమ్‌లను వదిలేయండి."
+
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Fix these, then check again:"
+msgstr ""
 
 #: src/features/homepage/remember.tsx
 msgid "Fixing onboarding drop-off at Northwind Labs"
@@ -7855,6 +7924,7 @@ msgstr "నెట్‌వర్క్"
 msgid "Never"
 msgstr "ఎప్పుడూ"
 
+#: src/features/career/knowledge/profile-file.tsx
 #: src/features/documents/document-card.tsx
 #: src/routes/dashboard/-components/app-shell.tsx
 msgid "New"
@@ -7930,6 +8000,10 @@ msgstr "కొత్త విభాగం"
 
 #: src/features/career/knowledge/profile.tsx
 msgid "New skill"
+msgstr ""
+
+#: src/features/career/knowledge/profile-file.tsx
+msgid "New skills:"
 msgstr ""
 
 #: src/features/applications/components/manage-lanes-sheet.tsx
@@ -8386,6 +8460,10 @@ msgstr "ఇక్కడ ఏదీ మీకు సరిపోలిక ఖర�
 #: src/features/career/today.tsx
 msgid "Nothing is applied for or created until you choose."
 msgstr "మీరు ఎంచుకునే వరకు దేనికీ దరఖాస్తు చేయబడదు, ఏదీ సృష్టించబడదు."
+
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Nothing is saved until you choose Add to profile. Anything already in your profile is skipped."
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Nothing marks a role as ongoing."
@@ -9403,6 +9481,10 @@ msgstr "నైపుణ్యం స్థాయి"
 msgid "Profile"
 msgstr "ప్రొఫైల్"
 
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Profile file text"
+msgstr ""
+
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Profile link (optional)"
 msgstr "ప్రొఫైల్ లింక్ (ఐచ్ఛికం)"
@@ -9435,6 +9517,10 @@ msgstr "ప్రాజెక్ట్స్"
 #: src/features/homepage/hero.tsx
 msgid "Promoted to lead, 2021"
 msgstr "2021లో లీడ్‌గా ప్రమోట్ చేయబడింది"
+
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Prompt copied. Paste it into Claude or ChatGPT."
+msgstr ""
 
 #: src/features/career/workspace/messages.tsx
 msgid "Proposed changes"
@@ -10360,6 +10446,10 @@ msgstr "మళ్లీ ప్రయత్నిస్తోంది..."
 #: src/features/resume/share/download-tab.tsx
 msgid "Review"
 msgstr "సమీక్షించండి"
+
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Review before adding"
+msgstr ""
 
 #: src/features/career/today.tsx
 msgid "Review draft"
@@ -11565,6 +11655,10 @@ msgstr "కొంత టెక్స్ట్ తిప్పబడింది.
 msgid "Something went wrong. Please try again."
 msgstr "ఏదో తప్పు జరిగింది. దయచేసి మళ్ళీ ప్రయత్నించండి."
 
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Something went wrong. Try again."
+msgstr ""
+
 #: src/features/documents/documents-page.tsx
 msgid "Sort"
 msgstr "క్రమబద్ధీకరించు"
@@ -12127,6 +12221,7 @@ msgstr "సహోద్యోగితో మీకు అభిప్రాయ�
 msgid "Telugu"
 msgstr "తెలుగు"
 
+#: src/features/career/knowledge/profile-file.tsx
 #: src/libs/resume/section.tsx
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 #: src/routes/builder/$resumeId/-components/document-details.tsx
@@ -12266,6 +12361,10 @@ msgstr "ధన్యవాదాలు, Sam. ఇదిగో ఒకటి: North
 msgid "That file couldn't be read as a PDF. Choose a PDF file and try again."
 msgstr "ఆ ఫైల్‌ని PDFగా చదవడం సాధ్యపడలేదు. PDF ఫైల్‌ను ఎంచుకుని మళ్ళీ ప్రయత్నించండి."
 
+#: src/features/career/knowledge/profile-file.tsx
+msgid "That file is too large for a profile file (over 1 MB)."
+msgstr ""
+
 #: src/features/ats-checker/checker.tsx
 msgid "That file is too large to check. PDFs up to 25 MB work."
 msgstr "ఆ ఫైల్ తనిఖీ చేయడానికి చాలా పెద్దది. PDFs 25 MB వరకు పని చేస్తుంది."
@@ -12377,6 +12476,10 @@ msgstr "ఎగుమతి చేయబడిన PDFని తనిఖీ చ�
 #: src/features/documents/new-document-dialog.tsx
 msgid "The file couldn't be read as a resume."
 msgstr "ఫైల్‌ను రెజ్యూమ్‌గా చదవడం సాధ్యపడలేదు."
+
+#: src/features/career/knowledge/profile-file.tsx
+msgid "The file should start with sections like \"experience:\" and \"skills:\"."
+msgstr ""
 
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "The greeting follows the name."
@@ -13242,6 +13345,11 @@ msgstr "University of Porto"
 msgid "Unknown"
 msgstr "తెలియదు"
 
+#. placeholder {0}: issue.keys.join('", "')
+#: src/features/career/knowledge/profile-file.tsx
+msgid "unknown key \"{0}\". Use experience, projects, education, volunteer, certifications, awards and skills."
+msgstr ""
+
 #: src/features/documents/document-actions.tsx
 msgid "Unlink"
 msgstr "అన్‌లింక్ చేయండి"
@@ -13328,9 +13436,17 @@ msgstr "మీ రిజ్యూమ్‌ను నవీకరిస్తో�
 msgid "Upload .csv"
 msgstr ".csv అప్‌లోడ్ చేయండి"
 
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Upload a .yaml or .json profile file, or paste one (an AI assistant's answer is fine as it is)."
+msgstr ""
+
 #: src/features/ats-checker/checker.tsx
 msgid "Upload a PDF and see the text an applicant tracking system extracts: what's missing, what's out of order, and how to fix it. Free, no account needed."
 msgstr "PDFని అప్‌లోడ్ చేయండి మరియు దరఖాస్తుదారు ట్రాకింగ్ సిస్టమ్ ఎక్స్‌ట్రాక్ట్ చేసే టెక్స్ట్‌ను చూడండి: ఏమి లేదు, ఏది ఆర్డర్‌లో లేదు మరియు దాన్ని ఎలా పరిష్కరించాలి. ఉచితం, ఖాతా అవసరం లేదు."
+
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Upload or paste"
+msgstr ""
 
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Upload photo"

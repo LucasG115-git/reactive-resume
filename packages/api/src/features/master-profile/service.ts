@@ -1,15 +1,18 @@
+import type { ResumeImport } from "./import";
 import type {
 	ProfileAchievementInput,
 	ProfileEntryInput,
 	ProfileReorderInput,
 	ProfileSkillInput,
 } from "@reactive-resume/schema/master-profile";
+import type { ProfileFile } from "@reactive-resume/schema/master-profile";
 import { ORPCError } from "@orpc/client";
 import { and, asc, eq, inArray, sql } from "drizzle-orm";
 import { db } from "@reactive-resume/db/client";
 import * as tables from "@reactive-resume/db/schema";
+import { lockUser } from "../documents/ownership";
 import { resumeService } from "../resume/service";
-import { resumeToProfile } from "./import";
+import { profileFileToRecords, resumeToProfile } from "./import";
 
 type Entry = typeof tables.profileEntry.$inferSelect;
 type Achievement = typeof tables.profileAchievement.$inferSelect;
@@ -210,64 +213,128 @@ export const masterProfileService = {
 	 */
 	importFromResume: async (userId: string, resumeId: string) => {
 		const resume = await resumeService.getById({ id: resumeId, userId });
-		const imported = resumeToProfile(resume.data);
-		const counts = { entries: 0, achievements: 0, skills: 0 };
-		const key = (entry: { kind: string; title: string; organization: string; startDate: string | null }) =>
-			[entry.kind, entry.title, entry.organization, entry.startDate ?? ""].join("\u0000").toLocaleLowerCase();
+		return (await importRecords(userId, resumeToProfile(resume.data), false)).counts;
+	},
 
-		await db.transaction(async (tx) => {
-			const existing = await tx.select().from(tables.profileEntry).where(eq(tables.profileEntry.userId, userId));
-			const byKey = new Map(existing.map((entry) => [key(entry), entry.id]));
-			const texts = new Set(
-				(
-					await tx
-						.select({ entryId: tables.profileAchievement.entryId, text: tables.profileAchievement.text })
-						.from(tables.profileAchievement)
-						.where(eq(tables.profileAchievement.userId, userId))
-				).map((row) => `${row.entryId}\u0000${row.text.trim().toLocaleLowerCase()}`),
-			);
-			const [order] = await tx
-				.select({ entry: sql<number | null>`max(${tables.profileEntry.sortOrder})` })
-				.from(tables.profileEntry)
-				.where(eq(tables.profileEntry.userId, userId));
-			let entryOrder = (order?.entry ?? -1) + 1;
+	/** Adds a profile file's records, or with `dryRun` only reports what would be added. */
+	importFile: (userId: string, file: ProfileFile, dryRun: boolean) =>
+		importRecords(userId, profileFileToRecords(file), dryRun),
+};
 
-			for (const { entry, achievements } of imported.entries) {
-				let entryId = byKey.get(key(entry));
-				if (!entryId) {
-					const [row] = await tx
-						.insert(tables.profileEntry)
-						.values({ userId, sortOrder: entryOrder++, ...entry })
-						.returning({ id: tables.profileEntry.id });
-					if (!row) continue;
-					entryId = row.id;
-					byKey.set(key(entry), entryId);
-					counts.entries++;
-				}
-				const fresh = achievements.filter((achievement) => {
-					const textKey = `${entryId}\u0000${achievement.text.trim().toLocaleLowerCase()}`;
-					if (texts.has(textKey)) return false;
-					texts.add(textKey);
-					return true;
-				});
-				if (fresh.length > 0) {
-					await tx
-						.insert(tables.profileAchievement)
-						.values(fresh.map((achievement, index) => ({ userId, entryId, sortOrder: index, ...achievement })));
-					counts.achievements += fresh.length;
-				}
+export type ImportPreview = {
+	counts: { entries: number; achievements: number; skills: number };
+	/** Every entry in the import, whether it's new, and the achievements it would gain. */
+	entries: Array<{ kind: string; title: string; organization: string; isNew: boolean; achievements: string[] }>;
+	/** Skill names that would be added. */
+	skills: string[];
+	/** Skill names already in the profile, left as they are. */
+	existingSkills: string[];
+};
+
+const entryKey = (entry: { kind: string; title: string; organization: string; startDate: string | null }) =>
+	[entry.kind, entry.title, entry.organization, entry.startDate ?? ""].join("\u0000").toLocaleLowerCase();
+const textKey = (entryId: string, text: string) => `${entryId}\u0000${text.trim().toLocaleLowerCase()}`;
+
+/**
+ * Adds imported records to a profile, skipping what's already there: an entry with the same type, title,
+ * organization and start only gains achievements it doesn't have, and existing skills are left alone.
+ * Plans first, then writes everything in one transaction, so a preview and the real run agree.
+ */
+function importRecords(userId: string, imported: ResumeImport, dryRun: boolean): Promise<ImportPreview> {
+	return db.transaction(async (tx) => {
+		await lockUser(tx, userId);
+		const existing = await tx.select().from(tables.profileEntry).where(eq(tables.profileEntry.userId, userId));
+		const byKey = new Map(existing.map((entry) => [entryKey(entry), entry.id]));
+		const texts = new Set(
+			(
+				await tx
+					.select({ entryId: tables.profileAchievement.entryId, text: tables.profileAchievement.text })
+					.from(tables.profileAchievement)
+					.where(eq(tables.profileAchievement.userId, userId))
+			).map((row) => textKey(row.entryId ?? "", row.text)),
+		);
+		const skillNames = new Set(
+			(
+				await tx
+					.select({ name: tables.profileSkill.name })
+					.from(tables.profileSkill)
+					.where(eq(tables.profileSkill.userId, userId))
+			).map((row) => row.name.toLocaleLowerCase()),
+		);
+
+		// Plan: entries keyed so repeats inside one import merge too.
+		type Planned = {
+			entry: (typeof imported.entries)[number]["entry"];
+			existingId: string | null;
+			achievements: (typeof imported.entries)[number]["achievements"];
+		};
+		const planned = new Map<string, Planned>();
+		for (const { entry, achievements } of imported.entries) {
+			const key = entryKey(entry);
+			const plan = planned.get(key) ?? { entry, existingId: byKey.get(key) ?? null, achievements: [] };
+			const scope = plan.existingId ?? `new:${key}`;
+			for (const achievement of achievements) {
+				const keyText = textKey(scope, achievement.text);
+				if (texts.has(keyText)) continue;
+				texts.add(keyText);
+				plan.achievements.push(achievement);
 			}
-
-			if (imported.skills.length > 0) {
-				const inserted = await tx
-					.insert(tables.profileSkill)
-					.values(imported.skills.map((skill, index) => ({ userId, sortOrder: index, ...skill })))
-					.onConflictDoNothing()
-					.returning({ id: tables.profileSkill.id });
-				counts.skills = inserted.length;
-			}
+			planned.set(key, plan);
+		}
+		const skills = imported.skills.filter((skill) => {
+			const name = skill.name.toLocaleLowerCase();
+			if (skillNames.has(name)) return false;
+			skillNames.add(name);
+			return true;
 		});
 
-		return counts;
-	},
-};
+		const preview: ImportPreview = {
+			counts: {
+				entries: [...planned.values()].filter((plan) => !plan.existingId).length,
+				achievements: [...planned.values()].reduce((sum, plan) => sum + plan.achievements.length, 0),
+				skills: skills.length,
+			},
+			entries: [...planned.values()].map((plan) => ({
+				kind: plan.entry.kind,
+				title: plan.entry.title,
+				organization: plan.entry.organization,
+				isNew: !plan.existingId,
+				achievements: plan.achievements.map((achievement) => achievement.text),
+			})),
+			skills: skills.map((skill) => skill.name),
+			existingSkills: imported.skills
+				.map((skill) => skill.name)
+				.filter((name) => !skills.some((skill) => skill.name === name)),
+		};
+		if (dryRun) return preview;
+
+		const [order] = await tx
+			.select({ entry: sql<number | null>`max(${tables.profileEntry.sortOrder})` })
+			.from(tables.profileEntry)
+			.where(eq(tables.profileEntry.userId, userId));
+		let entryOrder = (order?.entry ?? -1) + 1;
+		for (const plan of planned.values()) {
+			let entryId = plan.existingId;
+			if (!entryId) {
+				const [row] = await tx
+					.insert(tables.profileEntry)
+					.values({ userId, sortOrder: entryOrder++, ...plan.entry })
+					.returning({ id: tables.profileEntry.id });
+				if (!row) continue;
+				entryId = row.id;
+			}
+			if (plan.achievements.length > 0)
+				await tx
+					.insert(tables.profileAchievement)
+					.values(
+						plan.achievements.map((achievement, index) => ({ userId, entryId, sortOrder: index, ...achievement })),
+					);
+		}
+		if (skills.length > 0)
+			await tx
+				.insert(tables.profileSkill)
+				.values(skills.map((skill, index) => ({ userId, sortOrder: index, ...skill })))
+				.onConflictDoNothing();
+		return preview;
+	});
+}

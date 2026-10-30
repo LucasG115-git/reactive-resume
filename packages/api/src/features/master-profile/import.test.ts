@@ -178,3 +178,80 @@ describe("resumeToProfile", () => {
 		expect(result.entries[0]?.achievements.map((a) => a.text)).toEqual(["Built reports"]);
 	});
 });
+
+describe("profile files", () => {
+	it("accepts the friendly forms: plain-string achievements, numeric years, 'present', skill maps", async () => {
+		const { profileFileSchema } = await import("@reactive-resume/schema/master-profile");
+		const { profileFileToRecords } = await import("./import");
+		const file = profileFileSchema.parse({
+			version: 1,
+			experience: [
+				{
+					title: "Founder",
+					organization: "Countdown Creative",
+					start: "2019-3",
+					end: "present",
+					achievements: [
+						"Built sites for nonprofits",
+						{
+							text: "Cut admin time by 40%",
+							metrics: [{ value: 40, unit: "%", label: "less admin time" }],
+							skills: "WordPress, PHP",
+							core: true,
+						},
+					],
+				},
+			],
+			education: [{ organization: "Trent University", title: "BBA, Entrepreneurship", start: 2012, end: 2016 }],
+			volunteer: [{ organization: "Volunteer Peterborough" }],
+			skills: { "Web development": ["WordPress", "Elementor"], Tools: "Airtable, Make" },
+		});
+		const records = profileFileToRecords(file);
+		expect(
+			records.entries.map(({ entry }) => [entry.kind, entry.title, entry.organization, entry.startDate, entry.endDate]),
+		).toEqual([
+			["position", "Founder", "Countdown Creative", "2019-03", null],
+			["education", "BBA, Entrepreneurship", "Trent University", "2012", "2016"],
+			["volunteer", "Volunteer Peterborough", "", null, null],
+		]);
+		expect(records.entries[0]?.achievements).toMatchObject([
+			{ text: "Built sites for nonprofits", core: false },
+			{
+				text: "Cut admin time by 40%",
+				metrics: [{ value: "40", unit: "%" }],
+				skills: ["WordPress", "PHP"],
+				core: true,
+			},
+		]);
+		expect(records.skills.map((skill) => [skill.name, skill.category])).toEqual([
+			["WordPress", "Web development"],
+			["Elementor", "Web development"],
+			["Airtable", "Tools"],
+			["Make", "Tools"],
+		]);
+	});
+
+	it("reports every problem with where it is", async () => {
+		const { profileFileSchema } = await import("@reactive-resume/schema/master-profile");
+		const { profileFileToRecords, ProfileFileError } = await import("./import");
+		expect(profileFileSchema.safeParse({ experience: [{ title: "X", start: "March 2019" }] }).success).toBe(false);
+		expect(profileFileSchema.safeParse({ jobs: [] }).success).toBe(false);
+
+		const file = profileFileSchema.parse({
+			experience: [{ title: "A", start: "2020", end: "2019" }, { start: "2020" }],
+			projects: [{ title: "P", achievements: [""] }],
+		});
+		let caught: unknown;
+		try {
+			profileFileToRecords(file);
+		} catch (error) {
+			caught = error;
+		}
+		expect(caught).toBeInstanceOf(ProfileFileError);
+		expect((caught as InstanceType<typeof ProfileFileError>).problems).toEqual([
+			"experience[0].endDate: End date is before start date",
+			"experience[1].title: needs a title or an organization",
+			"projects[0].achievements[0].text: Too small: expected string to have >=1 characters",
+		]);
+	});
+});

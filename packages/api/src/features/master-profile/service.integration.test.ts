@@ -131,6 +131,58 @@ describe.skipIf(!databaseUrl)("master profile persistence", () => {
 			name: "JavaScript",
 		});
 	});
+	it("previews a profile file without saving, then imports exactly what it previewed", async () => {
+		const { profileFileSchema } = await import("@reactive-resume/schema/master-profile");
+		const existing = await service.saveEntry(
+			"alice",
+			entry({ kind: "position", organization: "Countdown Creative", title: "Founder", startDate: "2019-03" }),
+		);
+		await service.saveAchievement("alice", achievement({ entryId: existing.id, text: "Built sites for nonprofits" }));
+		await service.saveSkill("alice", skill({ name: "WordPress" }));
+
+		const file = profileFileSchema.parse({
+			experience: [
+				{
+					title: "Founder",
+					organization: "Countdown Creative",
+					start: "2019-03",
+					achievements: ["built sites for nonprofits", "Ran discovery workshops"],
+				},
+				{ title: "Analyst", organization: "Old Co", start: 2010, end: 2012, achievements: ["Built reports"] },
+			],
+			skills: ["wordpress", "Airtable"],
+		});
+
+		const preview = await service.importFile("alice", file, true);
+		expect(preview.counts).toEqual({ entries: 1, achievements: 2, skills: 1 });
+		expect(preview.entries).toEqual([
+			{
+				kind: "position",
+				title: "Founder",
+				organization: "Countdown Creative",
+				isNew: false,
+				achievements: ["Ran discovery workshops"],
+			},
+			{ kind: "position", title: "Analyst", organization: "Old Co", isNew: true, achievements: ["Built reports"] },
+		]);
+		expect(preview.skills).toEqual(["Airtable"]);
+		expect(preview.existingSkills).toEqual(["wordpress"]);
+		// Nothing saved by the preview.
+		expect((await service.get("alice")).entries).toHaveLength(1);
+
+		const done = await service.importFile("alice", file, false);
+		expect(done).toEqual(preview);
+		const profile = await service.get("alice");
+		expect(profile.entries.map((e) => [e.title, e.achievements.map((a) => a.text)])).toEqual([
+			["Founder", ["Built sites for nonprofits", "Ran discovery workshops"]],
+			["Analyst", ["Built reports"]],
+		]);
+		expect(profile.skills.map((s) => s.name).toSorted()).toEqual(["Airtable", "WordPress"]);
+
+		// Running it again adds nothing; it's someone else's profile for bob.
+		expect((await service.importFile("alice", file, false)).counts).toEqual({ entries: 0, achievements: 0, skills: 0 });
+		expect((await service.importFile("bob", file, true)).counts).toEqual({ entries: 2, achievements: 3, skills: 2 });
+	});
 });
 
 describe("profile entry input", () => {
