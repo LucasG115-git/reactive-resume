@@ -12,6 +12,7 @@ import { isCanonicalStageEvent } from "../../lanes";
 import { PIPELINE } from "../../stages";
 import { useInvalidateApplications } from "../../use-application-actions";
 import { FileAttachmentField } from "../file-attachment-field";
+import { AssembleDialog } from "./assemble-dialog";
 import { useDialogStore } from "@/dialogs/store";
 import { toastError } from "@/libs/error-message";
 import { orpc } from "@/libs/orpc/client";
@@ -58,6 +59,7 @@ export function SentDocuments({ application, disabled }: SentDocumentsProps) {
 	const openDialog = useDialogStore((state) => state.openDialog);
 	const { data: documents } = useQuery(orpc.documents.list.queryOptions({ input: { trashed: false } }));
 	const [attaching, setAttaching] = useState(Boolean(application.resumeFileUrl || application.coverLetterUrl));
+	const [assembling, setAssembling] = useState(false);
 
 	const update = useMutation({
 		...orpc.applications.update.mutationOptions(),
@@ -144,11 +146,18 @@ export function SentDocuments({ application, disabled }: SentDocumentsProps) {
 				</SentDocumentRow>
 			)}
 
-			{(!application.resumeId || !application.coverLetterId) && (
+			{(!application.resumeId || !application.coverLetterId || !application.sentResumeVersionId) && (
 				<div className="flex flex-wrap gap-1.5">
+					{!application.sentResumeVersionId && (
+						<Button size="sm" disabled={disabled} onClick={() => setAssembling(true)}>
+							<Icon name="magic-wand" size={16} />
+							{application.resumeId ? <Trans>Re-assemble from profile</Trans> : <Trans>Assemble from profile</Trans>}
+						</Button>
+					)}
 					{!application.resumeId && (
 						<Button
 							size="sm"
+							variant="secondary"
 							disabled={disabled}
 							onClick={() => openDialog("document.new", { step: "copy", applicationId: application.id })}
 						>
@@ -169,6 +178,8 @@ export function SentDocuments({ application, disabled }: SentDocumentsProps) {
 					)}
 				</div>
 			)}
+
+			<AssembleDialog application={application} open={assembling} onOpenChange={setAssembling} />
 
 			{attaching ? (
 				<div className="grid gap-1.5">

@@ -8,6 +8,7 @@ import { coverLettersRouter } from "../features/cover-letters/router";
 import { customDomainRouter } from "../features/custom-domain/router";
 import { documentsRouter } from "../features/documents/router";
 import { flagsRouter } from "../features/flags/router";
+import { masterProfileRouter } from "../features/master-profile/router";
 import { resumeRouter } from "../features/resume/router";
 import { statisticsRouter } from "../features/statistics/router";
 import { storageRouter } from "../features/storage/router";
@@ -24,6 +25,7 @@ export default {
 	customDomain: customDomainRouter,
 	documents: documentsRouter,
 	flags: flagsRouter,
+	masterProfile: masterProfileRouter,
 	resume: resumeRouter,
 	statistics: statisticsRouter,
 	storage: storageRouter,

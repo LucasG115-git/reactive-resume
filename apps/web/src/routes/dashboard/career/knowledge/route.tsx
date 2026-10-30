@@ -15,6 +15,7 @@ export const Route = createFileRoute("/dashboard/career/knowledge")({
 
 type Section = {
 	to:
+		| "/dashboard/career/knowledge/profile"
 		| "/dashboard/career/knowledge/facts"
 		| "/dashboard/career/knowledge/stories/{-$storyId}"
 		| "/dashboard/career/knowledge/preferences";
@@ -29,7 +30,15 @@ function KnowledgeLayout() {
 	const matchRoute = useMatchRoute();
 	const facts = useQuery(orpc.career.facts.queryOptions({ input: { applicationId: null, all: true } }));
 	const stories = useQuery(orpc.career.stories.queryOptions({ input: { applicationId: null } }));
+	const profile = useQuery(orpc.masterProfile.get.queryOptions());
 	const sections: Section[] = [
+		{
+			to: "/dashboard/career/knowledge/profile",
+			match: "/dashboard/career/knowledge/profile",
+			icon: "user-circle",
+			label: t`Profile`,
+			count: profile.data?.entries.length,
+		},
 		{
 			to: "/dashboard/career/knowledge/facts",
 			match: "/dashboard/career/knowledge/facts",

@@ -5,6 +5,7 @@
 	"private": true,
 	"exports": {
 		"./career": "./src/career.ts",
+		"./master-profile": "./src/master-profile.ts",
 		"./cover-letter/data": "./src/cover-letter/data.ts",
 		"./applications/*": "./src/applications/*.ts",
 		"./icons": "./src/icons.ts",
