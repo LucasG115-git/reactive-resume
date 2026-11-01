@@ -357,6 +357,26 @@ msgstr "{0} ditutup"
 msgid "{0} edits applied"
 msgstr "{0} suntingan diterapkan"
 
+#. placeholder {0}: result.switchedOff
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
+msgid "{0} facts switched off because their profile item is hidden or deleted"
+msgstr ""
+
+#. placeholder {0}: result.updated
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
+msgid "{0} facts updated from profile edits (old text kept in each fact's history)"
+msgstr ""
+
+#. placeholder {0}: result.keptCorrections
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
+msgid "{0} facts you corrected in Knowledge, left as you wrote them"
+msgstr ""
+
+#. placeholder {0}: result.keptOff
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
+msgid "{0} facts you switched off or forgot, left that way"
+msgstr ""
+
 #. placeholder {0}: semantics.dates.length
 #: src/features/resume/editor/check/parser-view.tsx
 msgid "{0} found"
@@ -397,6 +417,11 @@ msgstr "{0} mnt"
 #: src/features/career/offers.tsx
 msgid "{0} more"
 msgstr "{0} lebih banyak"
+
+#. placeholder {0}: result.added
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
+msgid "{0} new facts"
+msgstr ""
 
 #. placeholder {0}: report.passedChecks
 #. placeholder {1}: report.applicableChecks
@@ -2643,6 +2668,7 @@ msgstr "Bisakah perangkat lunak membaca resume Anda?"
 #: src/features/applications/components/manage-lanes-sheet.tsx
 #: src/features/career/knowledge/facts.tsx
 #: src/features/career/knowledge/profile-file.tsx
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
 #: src/features/career/knowledge/profile.tsx
 #: src/features/career/knowledge/stories.tsx
 #: src/features/career/schedule-sheet.tsx
@@ -3562,6 +3588,10 @@ msgstr "Tidak dapat mengubah jadwal ini. Coba lagi."
 msgid "Couldn't change your password. Check your current password and try again."
 msgstr "Tidak dapat mengubah kata sandi Anda. Periksa kata sandi Anda saat ini dan coba lagi."
 
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
+msgid "Couldn't check your Knowledge. Try again."
+msgstr ""
+
 #: src/features/auth/pages/consent.tsx
 msgid "Couldn't complete this connection. Restart the connection from your client and try again."
 msgstr "Tidak dapat menyelesaikan koneksi ini. Mulai ulang koneksi dari klien Anda, lalu coba lagi."
@@ -4037,6 +4067,10 @@ msgstr "Tidak dapat beralih koneksi. Coba lagi."
 #: src/features/assistant/assistant-panel.tsx
 msgid "Couldn't switch models. Try again."
 msgstr "Tidak dapat berganti model. Coba lagi."
+
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
+msgid "Couldn't sync your Knowledge. Try again."
+msgstr ""
 
 #: src/features/career/workspace/practise.tsx
 msgid "Couldn't transcribe. Your recording is still here."
@@ -4976,6 +5010,10 @@ msgstr "Setiap persyaratan dalam lowongan diperiksa terhadap fakta dan cerita di
 msgid "Each send starts fresh with this message and selected files. Previous conversation history stays here."
 msgstr "Setiap pengiriman dimulai dari awal dengan pesan ini dan file yang dipilih. Riwayat percakapan sebelumnya tetap ada di sini."
 
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
+msgid "Each visible entry, achievement and skill group becomes a fact marked \"From your profile\". Edit them here in your profile; sync again after changes."
+msgstr ""
+
 #: src/features/career/coach.tsx
 msgid "earlier messages in this chat"
 msgstr "pesan sebelumnya di chat ini"
@@ -5454,6 +5492,10 @@ msgstr "Jenis fakta"
 msgid "Facts"
 msgstr "Fakta"
 
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
+msgid "Facts are shared with your AI connection when you use coaching tools. You can still correct, switch off or forget any of them in <0>Facts</0>, and syncing won't undo that."
+msgstr ""
+
 #: src/features/career/coach.tsx
 msgid "Facts, stories and preferences that are switched on in Knowledge"
 msgstr "Fakta, cerita, dan preferensi yang diaktifkan di Pengetahuan"
@@ -5837,6 +5879,10 @@ msgstr "Dari entri pengalaman Anda"
 #: src/features/career/knowledge/facts.tsx
 msgid "From your message"
 msgstr "Dari pesan Anda"
+
+#: src/features/career/knowledge/facts.tsx
+msgid "From your profile"
+msgstr ""
 
 #: src/features/career/knowledge/facts.tsx
 msgid "From your resume"
@@ -6840,6 +6886,13 @@ msgstr "Pengetahuan tidak dapat dimuat. Coba lagi atau nonaktifkan Pengetahuan s
 #: src/features/homepage/prepare.tsx
 msgid "Knowledge doesn’t mention mentoring."
 msgstr "Pengetahuan tidak menyebutkan pembimbingan."
+
+#. placeholder {0}: result.added
+#. placeholder {1}: result.updated
+#. placeholder {2}: result.switchedOff
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
+msgid "Knowledge synced: {0} added, {1} updated, {2} switched off."
+msgstr ""
 
 #: src/libs/locale.ts
 msgid "Korean"
@@ -8452,6 +8505,10 @@ msgstr "Informasi"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/notes.tsx
 msgid "Notes"
 msgstr "Catatan"
+
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
+msgid "Nothing else to change."
+msgstr ""
 
 #: src/features/ats-checker/checker.tsx
 msgid "Nothing here should cost you a match."
@@ -12101,6 +12158,14 @@ msgstr "Beralih ke satu kolom"
 msgid "Switched to one column"
 msgstr "Beralih ke satu kolom"
 
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
+msgid "Sync"
+msgstr ""
+
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
+msgid "Sync to Knowledge"
+msgstr ""
+
 #: src/features/resume/builder/draft.ts
 msgid "Synced changes made in another tab."
 msgstr "Perubahan yang dilakukan di tab lain telah disinkronkan."
@@ -13597,6 +13662,10 @@ msgstr "Gunakan jawaban ini"
 msgid "Use this device's timezone ({device})"
 msgstr "Gunakan zona waktu perangkat ini ({device})"
 
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
+msgid "Use this profile in Fit, Apply, Prepare and the coach by syncing it to your Facts"
+msgstr ""
+
 #: src/features/settings/ai/providers.tsx
 msgid "Use this provider"
 msgstr "Gunakan penyedia ini"
@@ -14517,6 +14586,10 @@ msgstr "Fakta, cerita, dan preferensi yang Anda aktifkan dapat dikirim ke koneks
 #: src/features/career/workspace/fit.tsx
 msgid "Your evidence"
 msgstr "Bukti Anda"
+
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
+msgid "Your Facts already match your profile."
+msgstr ""
 
 #: src/features/ats-checker/checker.tsx
 msgid "Your file"

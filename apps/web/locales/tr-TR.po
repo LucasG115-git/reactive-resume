@@ -357,6 +357,26 @@ msgstr "{0} kapalı"
 msgid "{0} edits applied"
 msgstr "{0} düzenleme uygulandı"
 
+#. placeholder {0}: result.switchedOff
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
+msgid "{0} facts switched off because their profile item is hidden or deleted"
+msgstr ""
+
+#. placeholder {0}: result.updated
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
+msgid "{0} facts updated from profile edits (old text kept in each fact's history)"
+msgstr ""
+
+#. placeholder {0}: result.keptCorrections
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
+msgid "{0} facts you corrected in Knowledge, left as you wrote them"
+msgstr ""
+
+#. placeholder {0}: result.keptOff
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
+msgid "{0} facts you switched off or forgot, left that way"
+msgstr ""
+
 #. placeholder {0}: semantics.dates.length
 #: src/features/resume/editor/check/parser-view.tsx
 msgid "{0} found"
@@ -397,6 +417,11 @@ msgstr "{0} dk"
 #: src/features/career/offers.tsx
 msgid "{0} more"
 msgstr "{0} daha fazla"
+
+#. placeholder {0}: result.added
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
+msgid "{0} new facts"
+msgstr ""
 
 #. placeholder {0}: report.passedChecks
 #. placeholder {1}: report.applicableChecks
@@ -2643,6 +2668,7 @@ msgstr "Yazılım özgeçmişinizi okuyabilir mi?"
 #: src/features/applications/components/manage-lanes-sheet.tsx
 #: src/features/career/knowledge/facts.tsx
 #: src/features/career/knowledge/profile-file.tsx
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
 #: src/features/career/knowledge/profile.tsx
 #: src/features/career/knowledge/stories.tsx
 #: src/features/career/schedule-sheet.tsx
@@ -3562,6 +3588,10 @@ msgstr "Bu zamanlama değiştirilemedi. Tekrar deneyin."
 msgid "Couldn't change your password. Check your current password and try again."
 msgstr "Şifreniz değiştirilemedi. Mevcut şifrenizi kontrol edip tekrar deneyin."
 
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
+msgid "Couldn't check your Knowledge. Try again."
+msgstr ""
+
 #: src/features/auth/pages/consent.tsx
 msgid "Couldn't complete this connection. Restart the connection from your client and try again."
 msgstr "Bu bağlantı tamamlanamadı. Bağlantıyı istemcinizden yeniden başlatın ve tekrar deneyin."
@@ -4037,6 +4067,10 @@ msgstr "Bağlantı değiştirilemedi. Tekrar deneyin."
 #: src/features/assistant/assistant-panel.tsx
 msgid "Couldn't switch models. Try again."
 msgstr "Model değiştirilemedi. Tekrar deneyin."
+
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
+msgid "Couldn't sync your Knowledge. Try again."
+msgstr ""
 
 #: src/features/career/workspace/practise.tsx
 msgid "Couldn't transcribe. Your recording is still here."
@@ -4976,6 +5010,10 @@ msgstr "İlandaki her gereksinim, Bilgi Bankanızdaki bilgiler ve hikayelerle ka
 msgid "Each send starts fresh with this message and selected files. Previous conversation history stays here."
 msgstr "Her gönderim bu mesajla ve seçilen dosyalarla yeniden başlar. Önceki görüşme geçmişi burada kalır."
 
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
+msgid "Each visible entry, achievement and skill group becomes a fact marked \"From your profile\". Edit them here in your profile; sync again after changes."
+msgstr ""
+
 #: src/features/career/coach.tsx
 msgid "earlier messages in this chat"
 msgstr "bu sohbetteki önceki mesajlar"
@@ -5454,6 +5492,10 @@ msgstr "Bilgi türü"
 msgid "Facts"
 msgstr "Bilgiler"
 
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
+msgid "Facts are shared with your AI connection when you use coaching tools. You can still correct, switch off or forget any of them in <0>Facts</0>, and syncing won't undo that."
+msgstr ""
+
 #: src/features/career/coach.tsx
 msgid "Facts, stories and preferences that are switched on in Knowledge"
 msgstr "Bilgi Bankasında açık olan bilgiler, hikayeler ve tercihler"
@@ -5837,6 +5879,10 @@ msgstr "Deneyim girişlerinizden"
 #: src/features/career/knowledge/facts.tsx
 msgid "From your message"
 msgstr "Mesajınızdan"
+
+#: src/features/career/knowledge/facts.tsx
+msgid "From your profile"
+msgstr ""
 
 #: src/features/career/knowledge/facts.tsx
 msgid "From your resume"
@@ -6840,6 +6886,13 @@ msgstr "Bilgi Bankası yüklenemedi. Göndermeden önce tekrar deneyin veya Bilg
 #: src/features/homepage/prepare.tsx
 msgid "Knowledge doesn’t mention mentoring."
 msgstr "Bilgi Bankası'nda mentorluktan söz edilmiyor."
+
+#. placeholder {0}: result.added
+#. placeholder {1}: result.updated
+#. placeholder {2}: result.switchedOff
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
+msgid "Knowledge synced: {0} added, {1} updated, {2} switched off."
+msgstr ""
 
 #: src/libs/locale.ts
 msgid "Korean"
@@ -8452,6 +8505,10 @@ msgstr "Bilgi"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/notes.tsx
 msgid "Notes"
 msgstr "Notlar"
+
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
+msgid "Nothing else to change."
+msgstr ""
 
 #: src/features/ats-checker/checker.tsx
 msgid "Nothing here should cost you a match."
@@ -12101,6 +12158,14 @@ msgstr "Bir sütuna geç"
 msgid "Switched to one column"
 msgstr "Tek sütuna geçildi"
 
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
+msgid "Sync"
+msgstr ""
+
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
+msgid "Sync to Knowledge"
+msgstr ""
+
 #: src/features/resume/builder/draft.ts
 msgid "Synced changes made in another tab."
 msgstr "Başka bir sekmede yapılan değişiklikler senkronize edildi."
@@ -13597,6 +13662,10 @@ msgstr "Bu cevapları kullan"
 msgid "Use this device's timezone ({device})"
 msgstr "Bu cihazın saat dilimini kullan ({device})"
 
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
+msgid "Use this profile in Fit, Apply, Prepare and the coach by syncing it to your Facts"
+msgstr ""
+
 #: src/features/settings/ai/providers.tsx
 msgid "Use this provider"
 msgstr "Bu sağlayıcıyı kullan"
@@ -14517,6 +14586,10 @@ msgstr "Koçluk araçlarını veya zamanlanmış görüşme hazırlığını kul
 #: src/features/career/workspace/fit.tsx
 msgid "Your evidence"
 msgstr "Kanıtınız"
+
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
+msgid "Your Facts already match your profile."
+msgstr ""
 
 #: src/features/ats-checker/checker.tsx
 msgid "Your file"

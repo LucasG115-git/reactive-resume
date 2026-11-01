@@ -357,6 +357,26 @@ msgstr "{0} κλειστό"
 msgid "{0} edits applied"
 msgstr "Εφαρμόστηκαν {0} τροποποιήσεις"
 
+#. placeholder {0}: result.switchedOff
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
+msgid "{0} facts switched off because their profile item is hidden or deleted"
+msgstr ""
+
+#. placeholder {0}: result.updated
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
+msgid "{0} facts updated from profile edits (old text kept in each fact's history)"
+msgstr ""
+
+#. placeholder {0}: result.keptCorrections
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
+msgid "{0} facts you corrected in Knowledge, left as you wrote them"
+msgstr ""
+
+#. placeholder {0}: result.keptOff
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
+msgid "{0} facts you switched off or forgot, left that way"
+msgstr ""
+
 #. placeholder {0}: semantics.dates.length
 #: src/features/resume/editor/check/parser-view.tsx
 msgid "{0} found"
@@ -397,6 +417,11 @@ msgstr "{0} λεπ."
 #: src/features/career/offers.tsx
 msgid "{0} more"
 msgstr "{0} περισσότερα"
+
+#. placeholder {0}: result.added
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
+msgid "{0} new facts"
+msgstr ""
 
 #. placeholder {0}: report.passedChecks
 #. placeholder {1}: report.applicableChecks
@@ -2643,6 +2668,7 @@ msgstr "Μπορεί το λογισμικό να διαβάσει το βιογ
 #: src/features/applications/components/manage-lanes-sheet.tsx
 #: src/features/career/knowledge/facts.tsx
 #: src/features/career/knowledge/profile-file.tsx
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
 #: src/features/career/knowledge/profile.tsx
 #: src/features/career/knowledge/stories.tsx
 #: src/features/career/schedule-sheet.tsx
@@ -3562,6 +3588,10 @@ msgstr "Δεν ήταν δυνατή η αλλαγή αυτού του προγ�
 msgid "Couldn't change your password. Check your current password and try again."
 msgstr "Δεν ήταν δυνατή η αλλαγή του κωδικού πρόσβασής σας. Ελέγξτε τον τρέχοντα κωδικό πρόσβασης και προσπαθήστε ξανά."
 
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
+msgid "Couldn't check your Knowledge. Try again."
+msgstr ""
+
 #: src/features/auth/pages/consent.tsx
 msgid "Couldn't complete this connection. Restart the connection from your client and try again."
 msgstr "Δεν ήταν δυνατή η ολοκλήρωση αυτής της σύνδεσης. Ξεκινήστε ξανά τη σύνδεση από την εφαρμογή-πελάτη σας και προσπαθήστε ξανά."
@@ -4037,6 +4067,10 @@ msgstr "Δεν ήταν δυνατή η εναλλαγή συνδέσεων. Π�
 #: src/features/assistant/assistant-panel.tsx
 msgid "Couldn't switch models. Try again."
 msgstr "Δεν ήταν δυνατή η αλλαγή μοντέλων. Προσπαθήστε ξανά."
+
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
+msgid "Couldn't sync your Knowledge. Try again."
+msgstr ""
 
 #: src/features/career/workspace/practise.tsx
 msgid "Couldn't transcribe. Your recording is still here."
@@ -4976,6 +5010,10 @@ msgstr "Κάθε απαίτηση της αγγελίας ελέγχεται μ�
 msgid "Each send starts fresh with this message and selected files. Previous conversation history stays here."
 msgstr "Κάθε αποστολή ξεκινά καινούρια με αυτό το μήνυμα και επιλεγμένα αρχεία. Το ιστορικό προηγούμενων συνομιλιών παραμένει εδώ."
 
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
+msgid "Each visible entry, achievement and skill group becomes a fact marked \"From your profile\". Edit them here in your profile; sync again after changes."
+msgstr ""
+
 #: src/features/career/coach.tsx
 msgid "earlier messages in this chat"
 msgstr "προηγούμενα μηνύματα σε αυτή τη συνομιλία"
@@ -5454,6 +5492,10 @@ msgstr "Τύπος γεγονότος"
 msgid "Facts"
 msgstr "Γεγονότα"
 
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
+msgid "Facts are shared with your AI connection when you use coaching tools. You can still correct, switch off or forget any of them in <0>Facts</0>, and syncing won't undo that."
+msgstr ""
+
 #: src/features/career/coach.tsx
 msgid "Facts, stories and preferences that are switched on in Knowledge"
 msgstr "Γεγονότα, ιστορίες και προτιμήσεις που είναι ενεργά στη Γνώση"
@@ -5837,6 +5879,10 @@ msgstr "Από τις καταχωρίσεις της εμπειρίας σας"
 #: src/features/career/knowledge/facts.tsx
 msgid "From your message"
 msgstr "Από το μήνυμά σας"
+
+#: src/features/career/knowledge/facts.tsx
+msgid "From your profile"
+msgstr ""
 
 #: src/features/career/knowledge/facts.tsx
 msgid "From your resume"
@@ -6840,6 +6886,13 @@ msgstr "Η Γνώση δεν φορτώθηκε. Δοκιμάστε ξανά ή 
 #: src/features/homepage/prepare.tsx
 msgid "Knowledge doesn’t mention mentoring."
 msgstr "Η Γνώση δεν αναφέρει καθοδήγηση."
+
+#. placeholder {0}: result.added
+#. placeholder {1}: result.updated
+#. placeholder {2}: result.switchedOff
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
+msgid "Knowledge synced: {0} added, {1} updated, {2} switched off."
+msgstr ""
 
 #: src/libs/locale.ts
 msgid "Korean"
@@ -8452,6 +8505,10 @@ msgstr "Πληροφορίες"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/notes.tsx
 msgid "Notes"
 msgstr "Σημειώσεις"
+
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
+msgid "Nothing else to change."
+msgstr ""
 
 #: src/features/ats-checker/checker.tsx
 msgid "Nothing here should cost you a match."
@@ -12101,6 +12158,14 @@ msgstr "Μετάβαση σε μία στήλη"
 msgid "Switched to one column"
 msgstr "Μετάβαση σε μία στήλη"
 
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
+msgid "Sync"
+msgstr ""
+
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
+msgid "Sync to Knowledge"
+msgstr ""
+
 #: src/features/resume/builder/draft.ts
 msgid "Synced changes made in another tab."
 msgstr "Συγχρονισμένες αλλαγές που έγιναν σε άλλη καρτέλα."
@@ -13597,6 +13662,10 @@ msgstr "Χρήση αυτών των απαντήσεων"
 msgid "Use this device's timezone ({device})"
 msgstr "Χρήση της ζώνης ώρας αυτής της συσκευής ({device})"
 
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
+msgid "Use this profile in Fit, Apply, Prepare and the coach by syncing it to your Facts"
+msgstr ""
+
 #: src/features/settings/ai/providers.tsx
 msgid "Use this provider"
 msgstr "Χρησιμοποιήστε αυτόν τον πάροχο"
@@ -14517,6 +14586,10 @@ msgstr "Τα ενεργά γεγονότα, οι ιστορίες και οι π
 #: src/features/career/workspace/fit.tsx
 msgid "Your evidence"
 msgstr "Τα τεκμήριά σας"
+
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
+msgid "Your Facts already match your profile."
+msgstr ""
 
 #: src/features/ats-checker/checker.tsx
 msgid "Your file"

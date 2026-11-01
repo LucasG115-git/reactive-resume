@@ -91,6 +91,29 @@ export const masterProfileRouter = {
 		.output(masterProfileSchema)
 		.handler(({ context }) => masterProfileService.get(context.user.id)),
 
+	syncKnowledge: protectedProcedure
+		.route({
+			method: "POST",
+			path: "/master-profile/sync-knowledge",
+			tags,
+			operationId: "syncMasterProfileKnowledge",
+			summary: "Sync the master profile to Career Knowledge facts",
+			description:
+				"Adds, updates or switches off the facts made from the master profile so Fit, Apply, Prepare and the coach can use it. Facts corrected, switched off or forgotten in Knowledge are left as they are. With dryRun, nothing changes and the counts say what would.",
+		})
+		.input(z.object({ dryRun: z.boolean().default(true) }))
+		.output(
+			z.object({
+				added: z.number(),
+				updated: z.number(),
+				switchedOff: z.number(),
+				keptCorrections: z.number(),
+				keptOff: z.number(),
+				unchanged: z.number(),
+			}),
+		)
+		.handler(({ context, input }) => masterProfileService.syncKnowledge(context.user.id, input.dryRun)),
+
 	importFile: protectedProcedure
 		.route({
 			method: "POST",

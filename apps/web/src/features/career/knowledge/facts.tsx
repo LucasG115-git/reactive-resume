@@ -324,6 +324,8 @@ function sourceLabel(fact: Fact) {
 			return t`From a document you attached`;
 		case "debrief":
 			return t`From a debrief`;
+		case "profile":
+			return t`From your profile`;
 	}
 }
 

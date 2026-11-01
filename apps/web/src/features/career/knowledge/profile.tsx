@@ -18,6 +18,7 @@ import { cn } from "@reactive-resume/utils/style";
 import { CareerLoadError, CareerLoading } from "../load-state";
 import { withUndo } from "../shared";
 import { ProfileFileImport } from "./profile-file";
+import { ProfileKnowledgeSync } from "./profile-knowledge-sync";
 import { toastError } from "@/libs/error-message";
 import { client, orpc } from "@/libs/orpc/client";
 
@@ -105,6 +106,7 @@ export function ProfilePage() {
 				</p>
 			</div>
 
+			<ProfileKnowledgeSync />
 			<ProfileFileImport onImported={refresh} />
 			<ImportFromResume onImported={refresh} />
 

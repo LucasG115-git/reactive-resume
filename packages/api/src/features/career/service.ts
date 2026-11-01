@@ -62,7 +62,7 @@ export async function requireCareerApplication(input: Owned & { interviewId?: st
 
 async function sourceText(userId: string, source: CareerSource, applicationId: string | null) {
 	// Typed or confirmed by the user in the app.
-	if (source.kind === "manual" || source.kind === "debrief") return source.quote;
+	if (source.kind === "manual" || source.kind === "debrief" || source.kind === "profile") return source.quote;
 	if (source.kind === "user-message") {
 		const [row] = await db
 			.select({
@@ -271,7 +271,7 @@ async function knowledgeVersion(input: Owned, reader: DbOrTx = db) {
  * A fact changed: stop in-flight coach replies that read the old text. A forgotten fact is also unlinked from
  * stories and saved items, so nothing keeps pointing at it.
  */
-async function invalidateMemory(userId: string, id: string, tx: DbOrTx, forgotten = false) {
+export async function invalidateMemory(userId: string, id: string, tx: DbOrTx, forgotten = false) {
 	if (forgotten) {
 		const unlink = (column: typeof tables.careerStory.data | typeof tables.careerArtifact.evidence) =>
 			sql`jsonb_set(${column}, '{factIds}', coalesce((select jsonb_agg(f) from jsonb_array_elements(${column}->'factIds') f where f <> to_jsonb(${id}::text)), '[]'::jsonb))`;
