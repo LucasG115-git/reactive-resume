@@ -16,6 +16,7 @@ import { cn } from "@reactive-resume/utils/style";
 import { useSessionDraft } from "../hooks";
 import { CareerLoadError, CareerLoading } from "../load-state";
 import { CollapseRow, Eyebrow, Swap, useNow, withUndo } from "../shared";
+import { StoryFileImport } from "./story-file";
 import { collectInterviews, upcomingInterviews } from "@/features/applications/interviews";
 import { applicationsListQueryOptions } from "@/features/applications/queries";
 import { toastError } from "@/libs/error-message";
@@ -102,79 +103,82 @@ export function StoriesPage({ storyId, edit }: StoriesPageProps) {
 	};
 
 	return (
-		<div className="grid items-start gap-5 lg:grid-cols-[300px_minmax(0,1fr)]">
-			<div className="grid content-start gap-2">
-				<AnimatePresence initial={false}>
-					{list.map((story) => (
-						<StoryCard
-							key={story.id}
-							story={story}
-							selected={story.id === selected?.id}
-							changed={factChanged(story, factsById)}
-						/>
-					))}
-				</AnimatePresence>
-				<Link
-					to="/dashboard/career/knowledge/stories/{-$storyId}"
-					params={{ storyId: undefined }}
-					search={{ edit: true }}
-					className={cn(
-						"touch-target relative flex h-9 items-center justify-center gap-1.5 rounded-lg border border-dashed border-line-2 text-[13px] font-medium text-ink-2 transition-colors duration-quick hover:bg-hover hover:text-ink",
-						editing && !selected && "border-accent text-ink",
-					)}
-				>
-					<Icon name="plus" size={18} />
-					<Trans>Add a story</Trans>
-				</Link>
-				<p className="px-0.5 py-1 text-xs leading-[17px] text-ink-3">
-					<Trans>
-						Situation, Task, Action, Result, Reflection. Link each story to facts you can support; leave unknown
-						outcomes blank.
-					</Trans>
-				</p>
-			</div>
-
-			{storyId && !selected ? (
-				<div role="status" className="grid gap-2 rounded-xl border border-line p-6">
-					<h2 className="text-lg font-semibold">
-						<Trans>Story not found</Trans>
-					</h2>
-					<p className="text-sm text-ink-2">
-						<Trans>It may have been deleted. Choose another story or add a new one.</Trans>
-					</p>
-					<Button variant="secondary" onClick={() => open(undefined)}>
-						<Trans>Back to stories</Trans>
-					</Button>
-				</div>
-			) : selected || editing ? (
-				<div className="relative rounded-xl border border-line bg-surface px-4 py-5 sm:px-6 sm:py-[22px]">
-					<Swap id={editing ? "edit" : "read"}>
-						{editing ? (
-							<StoryEditor
-								key={selected?.id ?? "new"}
-								story={selected}
-								facts={facts ?? []}
-								onSaved={(id) => open(id)}
-								onCancel={() => open(selected?.id)}
-								onDelete={selected ? () => remove(selected) : undefined}
+		<div className="grid gap-4">
+			<StoryFileImport />
+			<div className="grid items-start gap-5 lg:grid-cols-[300px_minmax(0,1fr)]">
+				<div className="grid content-start gap-2">
+					<AnimatePresence initial={false}>
+						{list.map((story) => (
+							<StoryCard
+								key={story.id}
+								story={story}
+								selected={story.id === selected?.id}
+								changed={factChanged(story, factsById)}
 							/>
-						) : (
-							selected && <StoryReader story={selected} facts={factsById} onEdit={() => open(selected.id, true)} />
+						))}
+					</AnimatePresence>
+					<Link
+						to="/dashboard/career/knowledge/stories/{-$storyId}"
+						params={{ storyId: undefined }}
+						search={{ edit: true }}
+						className={cn(
+							"touch-target relative flex h-9 items-center justify-center gap-1.5 rounded-lg border border-dashed border-line-2 text-[13px] font-medium text-ink-2 transition-colors duration-quick hover:bg-hover hover:text-ink",
+							editing && !selected && "border-accent text-ink",
 						)}
-					</Swap>
-				</div>
-			) : (
-				<div className="grid justify-items-center gap-2 rounded-xl border border-dashed border-line-2 p-7 text-center">
-					<h2 className="font-display text-[22px] leading-7 font-medium">
-						<Trans>No stories yet</Trans>
-					</h2>
-					<p className="max-w-[300px] text-sm text-ink-2">
+					>
+						<Icon name="plus" size={18} />
+						<Trans>Add a story</Trans>
+					</Link>
+					<p className="px-0.5 py-1 text-xs leading-[17px] text-ink-3">
 						<Trans>
-							Write one about something you did, in five parts. Leave a part blank until you can support it.
+							Situation, Task, Action, Result, Reflection. Link each story to facts you can support; leave unknown
+							outcomes blank.
 						</Trans>
 					</p>
 				</div>
-			)}
+
+				{storyId && !selected ? (
+					<div role="status" className="grid gap-2 rounded-xl border border-line p-6">
+						<h2 className="text-lg font-semibold">
+							<Trans>Story not found</Trans>
+						</h2>
+						<p className="text-sm text-ink-2">
+							<Trans>It may have been deleted. Choose another story or add a new one.</Trans>
+						</p>
+						<Button variant="secondary" onClick={() => open(undefined)}>
+							<Trans>Back to stories</Trans>
+						</Button>
+					</div>
+				) : selected || editing ? (
+					<div className="relative rounded-xl border border-line bg-surface px-4 py-5 sm:px-6 sm:py-[22px]">
+						<Swap id={editing ? "edit" : "read"}>
+							{editing ? (
+								<StoryEditor
+									key={selected?.id ?? "new"}
+									story={selected}
+									facts={facts ?? []}
+									onSaved={(id) => open(id)}
+									onCancel={() => open(selected?.id)}
+									onDelete={selected ? () => remove(selected) : undefined}
+								/>
+							) : (
+								selected && <StoryReader story={selected} facts={factsById} onEdit={() => open(selected.id, true)} />
+							)}
+						</Swap>
+					</div>
+				) : (
+					<div className="grid justify-items-center gap-2 rounded-xl border border-dashed border-line-2 p-7 text-center">
+						<h2 className="font-display text-[22px] leading-7 font-medium">
+							<Trans>No stories yet</Trans>
+						</h2>
+						<p className="max-w-[300px] text-sm text-ink-2">
+							<Trans>
+								Write one about something you did, in five parts. Leave a part blank until you can support it.
+							</Trans>
+						</p>
+					</div>
+				)}
+			</div>
 		</div>
 	);
 }

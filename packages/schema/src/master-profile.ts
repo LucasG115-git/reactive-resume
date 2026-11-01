@@ -237,3 +237,49 @@ export const profileFileSchema = z
 	})
 	.strict();
 export type ProfileFile = z.infer<typeof profileFileSchema>;
+
+// ---- Story file: STARR stories an AI assistant drafts with the user, citing facts by short id ----
+
+/** A fact's short id in exported catalogs and story files: "F-" and the last 8 characters of its id. */
+export const FACT_REF_PATTERN = /^F-[0-9a-z]{8}$/i;
+export const factRef = (id: string) => `F-${id.replaceAll("-", "").slice(-8).toLowerCase()}`;
+
+const storyTextSchema = (max: number) =>
+	z
+		.union([z.string(), z.null()])
+		.optional()
+		.transform((value) => (value ?? "").trim())
+		.pipe(z.string().max(max));
+
+export const storyFileEntrySchema = z.object({
+	title: z.string().trim().min(1).max(200),
+	tags: z
+		.union([z.array(z.string()), z.string(), z.null()])
+		.optional()
+		.transform((value) => {
+			const items = typeof value === "string" ? value.split(",") : (value ?? []);
+			return [...new Set(items.map((item) => item.trim()).filter(Boolean))].slice(0, 20);
+		}),
+	situation: storyTextSchema(4000).pipe(z.string().min(1, "Situation is required")),
+	task: storyTextSchema(4000).pipe(z.string().min(1, "Task is required")),
+	action: storyTextSchema(6000).pipe(z.string().min(1, "Action is required")),
+	result: storyTextSchema(4000),
+	reflection: storyTextSchema(4000),
+	/** Short ids (F-xxxxxxxx) of the facts that back the story. */
+	facts: z
+		.union([z.array(z.string()), z.string(), z.null()])
+		.optional()
+		.transform((value) => {
+			const items = typeof value === "string" ? value.split(",") : (value ?? []);
+			return [...new Set(items.map((item) => item.trim()).filter(Boolean))];
+		})
+		.pipe(z.array(z.string().regex(FACT_REF_PATTERN, "Fact ids look like F-1a2b3c4d")).max(30)),
+});
+
+export const storyFileSchema = z
+	.object({
+		version: z.literal(1).optional(),
+		stories: z.array(storyFileEntrySchema).min(1, "The file has no stories").max(100),
+	})
+	.strict();
+export type StoryFile = z.infer<typeof storyFileSchema>;
