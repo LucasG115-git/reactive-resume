@@ -19,6 +19,8 @@ export const careerSourceSchema = z.object({
 		"attachment",
 		"manual",
 		"debrief",
+		/** Synced from the master profile; `id` names the profile record, `quote` is the text last synced. */
+		"profile",
 	]),
 	id: z.string().max(255),
 	quote: z.string().max(4000),

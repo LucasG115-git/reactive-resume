@@ -26,3 +26,26 @@ describe("pasted employer messages", () => {
 		expect(stripQuoted(message)).toBe("Can you do Tuesday?");
 	});
 });
+
+describe("fact relevance", () => {
+	it("puts facts sharing the most terms with the request first, keeping ties in order", async () => {
+		const { rankByRelevance, terms } = await import("./generate");
+		expect([...terms("Managing WordPress sites and the PHP services")]).toEqual([
+			"manag",
+			"wordpress",
+			"site",
+			"php",
+			"service",
+		]);
+		const facts = [
+			{ id: "a", text: "Ran a bakery shift" },
+			{ id: "b", text: "Built WordPress membership sites" },
+			{ id: "c", text: "Wrote PHP for WordPress membership services" },
+			{ id: "d", text: "Organized events" },
+		];
+		expect(
+			rankByRelevance(facts, "We need a WordPress developer for membership services in PHP").map((fact) => fact.id),
+		).toEqual(["c", "b", "a", "d"]);
+		expect(rankByRelevance(facts, "").map((fact) => fact.id)).toEqual(["a", "b", "c", "d"]);
+	});
+});

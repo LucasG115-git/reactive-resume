@@ -357,6 +357,26 @@ msgstr "{0} बंद हो गया"
 msgid "{0} edits applied"
 msgstr "{0} संपादन लागू किये गये"
 
+#. placeholder {0}: result.switchedOff
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
+msgid "{0} facts switched off because their profile item is hidden or deleted"
+msgstr ""
+
+#. placeholder {0}: result.updated
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
+msgid "{0} facts updated from profile edits (old text kept in each fact's history)"
+msgstr ""
+
+#. placeholder {0}: result.keptCorrections
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
+msgid "{0} facts you corrected in Knowledge, left as you wrote them"
+msgstr ""
+
+#. placeholder {0}: result.keptOff
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
+msgid "{0} facts you switched off or forgot, left that way"
+msgstr ""
+
 #. placeholder {0}: semantics.dates.length
 #: src/features/resume/editor/check/parser-view.tsx
 msgid "{0} found"
@@ -397,6 +417,11 @@ msgstr "{0} मिनट"
 #: src/features/career/offers.tsx
 msgid "{0} more"
 msgstr "{0} ज़्यादा"
+
+#. placeholder {0}: result.added
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
+msgid "{0} new facts"
+msgstr ""
 
 #. placeholder {0}: report.passedChecks
 #. placeholder {1}: report.applicableChecks
@@ -2643,6 +2668,7 @@ msgstr "क्या सॉफ़्टवेयर आपका बायोड
 #: src/features/applications/components/manage-lanes-sheet.tsx
 #: src/features/career/knowledge/facts.tsx
 #: src/features/career/knowledge/profile-file.tsx
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
 #: src/features/career/knowledge/profile.tsx
 #: src/features/career/knowledge/stories.tsx
 #: src/features/career/schedule-sheet.tsx
@@ -3562,6 +3588,10 @@ msgstr "यह शेड्यूल बदला नहीं जा सका�
 msgid "Couldn't change your password. Check your current password and try again."
 msgstr "आपका पासवर्ड बदला नहीं जा सका। अपना वर्तमान पासवर्ड जाँचें और पुनः प्रयास करें।"
 
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
+msgid "Couldn't check your Knowledge. Try again."
+msgstr ""
+
 #: src/features/auth/pages/consent.tsx
 msgid "Couldn't complete this connection. Restart the connection from your client and try again."
 msgstr "इस कनेक्शन को पूरा नहीं किया जा सका। अपने क्लाइंट से कनेक्शन को पुनः आरंभ करें और फिर से प्रयास करें।"
@@ -4037,6 +4067,10 @@ msgstr "कनेक्शन बदला नहीं जा सका। प�
 #: src/features/assistant/assistant-panel.tsx
 msgid "Couldn't switch models. Try again."
 msgstr "मॉडल स्विच नहीं किया जा सका। पुनः प्रयास करें।"
+
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
+msgid "Couldn't sync your Knowledge. Try again."
+msgstr ""
 
 #: src/features/career/workspace/practise.tsx
 msgid "Couldn't transcribe. Your recording is still here."
@@ -4976,6 +5010,10 @@ msgstr "पोस्टिंग की हर आवश्यकता को �
 msgid "Each send starts fresh with this message and selected files. Previous conversation history stays here."
 msgstr "प्रत्येक प्रेषण इस संदेश और चयनित फ़ाइलों के साथ नए सिरे से शुरू होता है। पिछली बातचीत का इतिहास यहां रहता है."
 
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
+msgid "Each visible entry, achievement and skill group becomes a fact marked \"From your profile\". Edit them here in your profile; sync again after changes."
+msgstr ""
+
 #: src/features/career/coach.tsx
 msgid "earlier messages in this chat"
 msgstr "इस चैट के पिछले संदेश"
@@ -5454,6 +5492,10 @@ msgstr "तथ्य का प्रकार"
 msgid "Facts"
 msgstr "तथ्य"
 
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
+msgid "Facts are shared with your AI connection when you use coaching tools. You can still correct, switch off or forget any of them in <0>Facts</0>, and syncing won't undo that."
+msgstr ""
+
 #: src/features/career/coach.tsx
 msgid "Facts, stories and preferences that are switched on in Knowledge"
 msgstr "ज्ञानकोश में चालू तथ्य, कहानियाँ और प्राथमिकताएँ"
@@ -5837,6 +5879,10 @@ msgstr "आपके अनुभव प्रविष्टियों से
 #: src/features/career/knowledge/facts.tsx
 msgid "From your message"
 msgstr "आपके संदेश से"
+
+#: src/features/career/knowledge/facts.tsx
+msgid "From your profile"
+msgstr ""
 
 #: src/features/career/knowledge/facts.tsx
 msgid "From your resume"
@@ -6840,6 +6886,13 @@ msgstr "ज्ञानकोश लोड नहीं हो सका। फ�
 #: src/features/homepage/prepare.tsx
 msgid "Knowledge doesn’t mention mentoring."
 msgstr "ज्ञानकोश में मेंटरिंग का ज़िक्र नहीं है।"
+
+#. placeholder {0}: result.added
+#. placeholder {1}: result.updated
+#. placeholder {2}: result.switchedOff
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
+msgid "Knowledge synced: {0} added, {1} updated, {2} switched off."
+msgstr ""
 
 #: src/libs/locale.ts
 msgid "Korean"
@@ -8452,6 +8505,10 @@ msgstr "जानकारी"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/notes.tsx
 msgid "Notes"
 msgstr "टिप्पणियाँ"
+
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
+msgid "Nothing else to change."
+msgstr ""
 
 #: src/features/ats-checker/checker.tsx
 msgid "Nothing here should cost you a match."
@@ -12101,6 +12158,14 @@ msgstr "एक कॉलम पर स्विच करें"
 msgid "Switched to one column"
 msgstr "एक कॉलम पर स्विच किया गया"
 
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
+msgid "Sync"
+msgstr ""
+
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
+msgid "Sync to Knowledge"
+msgstr ""
+
 #: src/features/resume/builder/draft.ts
 msgid "Synced changes made in another tab."
 msgstr "दूसरे टैब में किए गए बदलाव सिंक्रनाइज़ हो गए।"
@@ -13597,6 +13662,10 @@ msgstr "ये जवाब उपयोग करें"
 msgid "Use this device's timezone ({device})"
 msgstr "इस डिवाइस का समय क्षेत्र उपयोग करें ({device})"
 
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
+msgid "Use this profile in Fit, Apply, Prepare and the coach by syncing it to your Facts"
+msgstr ""
+
 #: src/features/settings/ai/providers.tsx
 msgid "Use this provider"
 msgstr "इस प्रदाता का उपयोग करें"
@@ -14517,6 +14586,10 @@ msgstr "जब आप कोचिंग टूल या शेड्यूल 
 #: src/features/career/workspace/fit.tsx
 msgid "Your evidence"
 msgstr "आपके प्रमाण"
+
+#: src/features/career/knowledge/profile-knowledge-sync.tsx
+msgid "Your Facts already match your profile."
+msgstr ""
 
 #: src/features/ats-checker/checker.tsx
 msgid "Your file"

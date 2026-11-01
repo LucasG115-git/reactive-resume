@@ -97,6 +97,44 @@ type GenerateInput = {
 };
 
 /** One structured AI write for a workspace tab. Saves the result, except a drafted or tightened answer. */
+/** Characters of facts sent with one request, after any facts a selected story relies on. */
+const FACT_BUDGET = 16_000;
+
+const STOP_WORDS = new Set(
+	"about above after again also among and any are because been before being both but can could did does doing during each from have having into its more most must not only other our over own same should some such than that the their them then there these they this those through under until very was were what when where which while who whom why will with within would you your role team work able experience skills strong using used".split(
+		" ",
+	),
+);
+
+/** Lowercase word stems worth matching on: three characters or more, not a stop word, trimmed of common endings. */
+export function terms(text: string): Set<string> {
+	const found = new Set<string>();
+	for (const word of text.toLocaleLowerCase().match(/[\p{L}\p{N}][\p{L}\p{N}+#.-]*/gu) ?? []) {
+		const clean = word.replace(/[.-]+$/, "");
+		if (clean.length < 3 || STOP_WORDS.has(clean)) continue;
+		const stem = clean.length > 5 ? clean.replace(/(ing|ed)$/, "") : clean;
+		found.add(stem.length > 3 && /[^s]s$/.test(stem) ? stem.slice(0, -1) : stem);
+	}
+	return found;
+}
+
+/**
+ * Facts most relevant to the request first, so the ones that fit the budget are the ones that matter: a fact
+ * scores one point per distinct term it shares with the posting, requirements and task. Ties keep their order.
+ */
+export function rankByRelevance<T extends { text: string }>(facts: T[], about: string): T[] {
+	const wanted = terms(about);
+	if (wanted.size === 0) return facts;
+	return facts
+		.map((fact, index) => {
+			let score = 0;
+			for (const term of terms(fact.text)) if (wanted.has(term)) score++;
+			return { fact, index, score };
+		})
+		.toSorted((a, b) => b.score - a.score || a.index - b.index)
+		.map(({ fact }) => fact);
+}
+
 export async function generateCareer(input: GenerateInput) {
 	const { task } = input;
 	const interviewId = "interviewId" in task ? task.interviewId : null;
@@ -165,11 +203,17 @@ export async function generateCareer(input: GenerateInput) {
 				text: excerpt(text, Math.floor(9000 / selectedFacts.length) - 100),
 				category,
 			})),
-			...context.facts
-				.filter((fact) => !supporting.has(fact.id))
-				.map(({ id, text, category }) => ({ id, text, category })),
+			...rankByRelevance(
+				context.facts.filter((fact) => !supporting.has(fact.id)),
+				[
+					application.role,
+					application.jobDescription ?? "",
+					...(application.requirements ?? []),
+					JSON.stringify(taskInput),
+				].join(" "),
+			).map(({ id, text, category }) => ({ id, text, category })),
 		],
-		10_000,
+		FACT_BUDGET,
 	);
 	const includedFacts = new Set(promptFacts.map((fact) => fact.id));
 	const preferredStory = selectedStory

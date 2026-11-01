@@ -13,6 +13,7 @@ import * as tables from "@reactive-resume/db/schema";
 import { lockUser } from "../documents/ownership";
 import { resumeService } from "../resume/service";
 import { profileFileToRecords, resumeToProfile } from "./import";
+import { syncProfileKnowledge } from "./knowledge";
 
 type Entry = typeof tables.profileEntry.$inferSelect;
 type Achievement = typeof tables.profileAchievement.$inferSelect;
@@ -215,6 +216,10 @@ export const masterProfileService = {
 		const resume = await resumeService.getById({ id: resumeId, userId });
 		return (await importRecords(userId, resumeToProfile(resume.data), false)).counts;
 	},
+
+	/** Brings Career Knowledge facts in line with the profile, or with `dryRun` reports what would change. */
+	syncKnowledge: async (userId: string, dryRun: boolean) =>
+		syncProfileKnowledge(userId, await masterProfileService.get(userId), dryRun),
 
 	/** Adds a profile file's records, or with `dryRun` only reports what would be added. */
 	importFile: (userId: string, file: ProfileFile, dryRun: boolean) =>
