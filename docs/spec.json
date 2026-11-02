@@ -62922,6 +62922,4772 @@
 				]
 			}
 		},
+		"/master-profile/selections/{applicationId}": {
+			"get": {
+				"operationId": "getResumeSelection",
+				"summary": "Get an application's Resume Selection Plan",
+				"description": "The posting's job analysis (ranked requirements), the proposed plan and the user's reviewed plan, with flags when the posting or profile changed since. Null before a plan is proposed.",
+				"tags": [
+					"Master profile"
+				],
+				"parameters": [
+					{
+						"name": "applicationId",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"minLength": 1
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"anyOf": [
+										{
+											"type": "object",
+											"properties": {
+												"analysis": {
+													"type": "object",
+													"properties": {
+														"version": {
+															"const": 1,
+															"default": 1
+														},
+														"title": {
+															"type": "string",
+															"maxLength": 200
+														},
+														"employer": {
+															"type": "string",
+															"maxLength": 200
+														},
+														"seniority": {
+															"enum": [
+																"entry",
+																"junior",
+																"intermediate",
+																"senior",
+																"lead",
+																"manager",
+																"executive",
+																"unknown"
+															],
+															"type": "string"
+														},
+														"summary": {
+															"type": "string",
+															"maxLength": 600,
+															"default": ""
+														},
+														"responsibilities": {
+															"type": "array",
+															"maxItems": 15,
+															"items": {
+																"type": "string",
+																"maxLength": 300
+															},
+															"default": []
+														},
+														"requirements": {
+															"type": "array",
+															"maxItems": 30,
+															"items": {
+																"type": "object",
+																"properties": {
+																	"id": {
+																		"type": "string",
+																		"pattern": "^R\\d+$"
+																	},
+																	"text": {
+																		"type": "string",
+																		"minLength": 1,
+																		"maxLength": 300
+																	},
+																	"kind": {
+																		"enum": [
+																			"responsibility",
+																			"qualification",
+																			"skill",
+																			"domain",
+																			"competency"
+																		],
+																		"type": "string"
+																	},
+																	"necessity": {
+																		"enum": [
+																			"mandatory",
+																			"preferred"
+																		],
+																		"type": "string"
+																	},
+																	"origin": {
+																		"enum": [
+																			"explicit",
+																			"inferred"
+																		],
+																		"type": "string"
+																	},
+																	"importance": {
+																		"type": "integer",
+																		"minimum": 1,
+																		"maximum": 5
+																	},
+																	"terms": {
+																		"type": "array",
+																		"maxItems": 15,
+																		"items": {
+																			"type": "string",
+																			"minLength": 1,
+																			"maxLength": 80
+																		},
+																		"default": []
+																	}
+																},
+																"required": [
+																	"id",
+																	"text",
+																	"kind",
+																	"necessity",
+																	"origin",
+																	"importance"
+																]
+															}
+														},
+														"domain": {
+															"type": "array",
+															"maxItems": 10,
+															"items": {
+																"type": "string",
+																"maxLength": 120
+															},
+															"default": []
+														},
+														"postingHash": {
+															"type": "string"
+														},
+														"analyzedAt": {
+															"type": "string",
+															"format": "date-time"
+														},
+														"model": {
+															"type": "string",
+															"default": ""
+														}
+													},
+													"required": [
+														"title",
+														"employer",
+														"seniority",
+														"requirements",
+														"postingHash",
+														"analyzedAt"
+													]
+												},
+												"plan": {
+													"type": "object",
+													"properties": {
+														"version": {
+															"const": 1,
+															"default": 1
+														},
+														"applicationId": {
+															"type": "string"
+														},
+														"createdAt": {
+															"type": "string",
+															"format": "date-time"
+														},
+														"source": {
+															"enum": [
+																"ai",
+																"ranking"
+															],
+															"type": "string"
+														},
+														"positioning": {
+															"type": "string",
+															"default": ""
+														},
+														"sections": {
+															"type": "array",
+															"items": {
+																"enum": [
+																	"summary",
+																	"skills",
+																	"experience",
+																	"projects",
+																	"volunteer",
+																	"education",
+																	"certifications",
+																	"awards"
+																],
+																"type": "string"
+															}
+														},
+														"entries": {
+															"type": "array",
+															"items": {
+																"type": "object",
+																"properties": {
+																	"entryId": {
+																		"type": "string"
+																	},
+																	"kind": {
+																		"enum": [
+																			"position",
+																			"project",
+																			"education",
+																			"volunteer",
+																			"certification",
+																			"award"
+																		],
+																		"type": "string"
+																	},
+																	"title": {
+																		"type": "string"
+																	},
+																	"organization": {
+																		"type": "string"
+																	},
+																	"startDate": {
+																		"anyOf": [
+																			{
+																				"type": "string"
+																			},
+																			{
+																				"type": "null"
+																			}
+																		]
+																	},
+																	"endDate": {
+																		"anyOf": [
+																			{
+																				"type": "string"
+																			},
+																			{
+																				"type": "null"
+																			}
+																		]
+																	},
+																	"include": {
+																		"type": "boolean"
+																	},
+																	"reason": {
+																		"type": "string"
+																	},
+																	"bulletTarget": {
+																		"type": "integer",
+																		"minimum": 0,
+																		"maximum": 100
+																	},
+																	"requirementIds": {
+																		"type": "array",
+																		"items": {
+																			"type": "string"
+																		},
+																		"default": []
+																	},
+																	"achievements": {
+																		"type": "array",
+																		"items": {
+																			"type": "object",
+																			"properties": {
+																				"achievementId": {
+																					"type": "string"
+																				},
+																				"text": {
+																					"type": "string"
+																				},
+																				"include": {
+																					"type": "boolean"
+																				},
+																				"requirementIds": {
+																					"type": "array",
+																					"items": {
+																						"type": "string"
+																					}
+																				},
+																				"reason": {
+																					"type": "string"
+																				},
+																				"score": {
+																					"type": "object",
+																					"properties": {
+																						"total": {
+																							"type": "number"
+																						},
+																						"alignment": {
+																							"type": "number"
+																						},
+																						"strength": {
+																							"type": "number"
+																						},
+																						"recency": {
+																							"type": "number"
+																						},
+																						"aiRelevance": {
+																							"anyOf": [
+																								{
+																									"type": "number"
+																								},
+																								{
+																									"type": "null"
+																								}
+																							]
+																						}
+																					},
+																					"required": [
+																						"total",
+																						"alignment",
+																						"strength",
+																						"recency",
+																						"aiRelevance"
+																					]
+																				},
+																				"userEdited": {
+																					"type": "boolean",
+																					"default": false
+																				},
+																				"core": {
+																					"type": "boolean",
+																					"default": false
+																				}
+																			},
+																			"required": [
+																				"achievementId",
+																				"text",
+																				"include",
+																				"requirementIds",
+																				"reason",
+																				"score"
+																			]
+																		}
+																	},
+																	"userEdited": {
+																		"type": "boolean",
+																		"default": false
+																	}
+																},
+																"required": [
+																	"entryId",
+																	"kind",
+																	"title",
+																	"organization",
+																	"startDate",
+																	"endDate",
+																	"include",
+																	"reason",
+																	"bulletTarget",
+																	"achievements"
+																]
+															}
+														},
+														"standalone": {
+															"type": "array",
+															"items": {
+																"type": "object",
+																"properties": {
+																	"achievementId": {
+																		"type": "string"
+																	},
+																	"text": {
+																		"type": "string"
+																	},
+																	"include": {
+																		"type": "boolean"
+																	},
+																	"requirementIds": {
+																		"type": "array",
+																		"items": {
+																			"type": "string"
+																		}
+																	},
+																	"reason": {
+																		"type": "string"
+																	},
+																	"score": {
+																		"type": "object",
+																		"properties": {
+																			"total": {
+																				"type": "number"
+																			},
+																			"alignment": {
+																				"type": "number"
+																			},
+																			"strength": {
+																				"type": "number"
+																			},
+																			"recency": {
+																				"type": "number"
+																			},
+																			"aiRelevance": {
+																				"anyOf": [
+																					{
+																						"type": "number"
+																					},
+																					{
+																						"type": "null"
+																					}
+																				]
+																			}
+																		},
+																		"required": [
+																			"total",
+																			"alignment",
+																			"strength",
+																			"recency",
+																			"aiRelevance"
+																		]
+																	},
+																	"userEdited": {
+																		"type": "boolean",
+																		"default": false
+																	},
+																	"core": {
+																		"type": "boolean",
+																		"default": false
+																	}
+																},
+																"required": [
+																	"achievementId",
+																	"text",
+																	"include",
+																	"requirementIds",
+																	"reason",
+																	"score"
+																]
+															}
+														},
+														"skills": {
+															"type": "array",
+															"items": {
+																"type": "object",
+																"properties": {
+																	"skillId": {
+																		"type": "string"
+																	},
+																	"name": {
+																		"type": "string"
+																	},
+																	"category": {
+																		"type": "string"
+																	},
+																	"include": {
+																		"type": "boolean"
+																	},
+																	"requirementIds": {
+																		"type": "array",
+																		"items": {
+																			"type": "string"
+																		}
+																	},
+																	"evidenced": {
+																		"type": "boolean"
+																	},
+																	"reason": {
+																		"type": "string"
+																	},
+																	"userEdited": {
+																		"type": "boolean",
+																		"default": false
+																	}
+																},
+																"required": [
+																	"skillId",
+																	"name",
+																	"category",
+																	"include",
+																	"requirementIds",
+																	"evidenced",
+																	"reason"
+																]
+															}
+														},
+														"coverage": {
+															"type": "array",
+															"items": {
+																"type": "object",
+																"properties": {
+																	"requirementId": {
+																		"type": "string"
+																	},
+																	"status": {
+																		"enum": [
+																			"supported",
+																			"partial",
+																			"gap"
+																		],
+																		"type": "string"
+																	},
+																	"achievementIds": {
+																		"type": "array",
+																		"items": {
+																			"type": "string"
+																		}
+																	},
+																	"skillIds": {
+																		"type": "array",
+																		"items": {
+																			"type": "string"
+																		}
+																	},
+																	"entryIds": {
+																		"type": "array",
+																		"items": {
+																			"type": "string"
+																		},
+																		"default": []
+																	},
+																	"available": {
+																		"type": "array",
+																		"items": {
+																			"type": "string"
+																		}
+																	}
+																},
+																"required": [
+																	"requirementId",
+																	"status",
+																	"achievementIds",
+																	"skillIds",
+																	"available"
+																]
+															}
+														},
+														"unavailable": {
+															"type": "array",
+															"items": {
+																"type": "object",
+																"properties": {
+																	"id": {
+																		"type": "string"
+																	},
+																	"kind": {
+																		"enum": [
+																			"entry",
+																			"achievement",
+																			"skill"
+																		],
+																		"type": "string"
+																	},
+																	"reason": {
+																		"type": "string"
+																	}
+																},
+																"required": [
+																	"id",
+																	"kind",
+																	"reason"
+																]
+															}
+														},
+														"warnings": {
+															"type": "array",
+															"items": {
+																"type": "string"
+															}
+														},
+														"totals": {
+															"type": "object",
+															"properties": {
+																"entries": {
+																	"type": "number"
+																},
+																"achievements": {
+																	"type": "number"
+																},
+																"skills": {
+																	"type": "number"
+																},
+																"includedEntries": {
+																	"type": "number"
+																},
+																"includedAchievements": {
+																	"type": "number"
+																},
+																"includedSkills": {
+																	"type": "number"
+																}
+															},
+															"required": [
+																"entries",
+																"achievements",
+																"skills",
+																"includedEntries",
+																"includedAchievements",
+																"includedSkills"
+															]
+														}
+													},
+													"required": [
+														"applicationId",
+														"createdAt",
+														"source",
+														"sections",
+														"entries",
+														"standalone",
+														"skills",
+														"coverage",
+														"unavailable",
+														"warnings",
+														"totals"
+													]
+												},
+												"proposed": {
+													"type": "object",
+													"properties": {
+														"version": {
+															"const": 1,
+															"default": 1
+														},
+														"applicationId": {
+															"type": "string"
+														},
+														"createdAt": {
+															"type": "string",
+															"format": "date-time"
+														},
+														"source": {
+															"enum": [
+																"ai",
+																"ranking"
+															],
+															"type": "string"
+														},
+														"positioning": {
+															"type": "string",
+															"default": ""
+														},
+														"sections": {
+															"type": "array",
+															"items": {
+																"enum": [
+																	"summary",
+																	"skills",
+																	"experience",
+																	"projects",
+																	"volunteer",
+																	"education",
+																	"certifications",
+																	"awards"
+																],
+																"type": "string"
+															}
+														},
+														"entries": {
+															"type": "array",
+															"items": {
+																"type": "object",
+																"properties": {
+																	"entryId": {
+																		"type": "string"
+																	},
+																	"kind": {
+																		"enum": [
+																			"position",
+																			"project",
+																			"education",
+																			"volunteer",
+																			"certification",
+																			"award"
+																		],
+																		"type": "string"
+																	},
+																	"title": {
+																		"type": "string"
+																	},
+																	"organization": {
+																		"type": "string"
+																	},
+																	"startDate": {
+																		"anyOf": [
+																			{
+																				"type": "string"
+																			},
+																			{
+																				"type": "null"
+																			}
+																		]
+																	},
+																	"endDate": {
+																		"anyOf": [
+																			{
+																				"type": "string"
+																			},
+																			{
+																				"type": "null"
+																			}
+																		]
+																	},
+																	"include": {
+																		"type": "boolean"
+																	},
+																	"reason": {
+																		"type": "string"
+																	},
+																	"bulletTarget": {
+																		"type": "integer",
+																		"minimum": 0,
+																		"maximum": 100
+																	},
+																	"requirementIds": {
+																		"type": "array",
+																		"items": {
+																			"type": "string"
+																		},
+																		"default": []
+																	},
+																	"achievements": {
+																		"type": "array",
+																		"items": {
+																			"type": "object",
+																			"properties": {
+																				"achievementId": {
+																					"type": "string"
+																				},
+																				"text": {
+																					"type": "string"
+																				},
+																				"include": {
+																					"type": "boolean"
+																				},
+																				"requirementIds": {
+																					"type": "array",
+																					"items": {
+																						"type": "string"
+																					}
+																				},
+																				"reason": {
+																					"type": "string"
+																				},
+																				"score": {
+																					"type": "object",
+																					"properties": {
+																						"total": {
+																							"type": "number"
+																						},
+																						"alignment": {
+																							"type": "number"
+																						},
+																						"strength": {
+																							"type": "number"
+																						},
+																						"recency": {
+																							"type": "number"
+																						},
+																						"aiRelevance": {
+																							"anyOf": [
+																								{
+																									"type": "number"
+																								},
+																								{
+																									"type": "null"
+																								}
+																							]
+																						}
+																					},
+																					"required": [
+																						"total",
+																						"alignment",
+																						"strength",
+																						"recency",
+																						"aiRelevance"
+																					]
+																				},
+																				"userEdited": {
+																					"type": "boolean",
+																					"default": false
+																				},
+																				"core": {
+																					"type": "boolean",
+																					"default": false
+																				}
+																			},
+																			"required": [
+																				"achievementId",
+																				"text",
+																				"include",
+																				"requirementIds",
+																				"reason",
+																				"score"
+																			]
+																		}
+																	},
+																	"userEdited": {
+																		"type": "boolean",
+																		"default": false
+																	}
+																},
+																"required": [
+																	"entryId",
+																	"kind",
+																	"title",
+																	"organization",
+																	"startDate",
+																	"endDate",
+																	"include",
+																	"reason",
+																	"bulletTarget",
+																	"achievements"
+																]
+															}
+														},
+														"standalone": {
+															"type": "array",
+															"items": {
+																"type": "object",
+																"properties": {
+																	"achievementId": {
+																		"type": "string"
+																	},
+																	"text": {
+																		"type": "string"
+																	},
+																	"include": {
+																		"type": "boolean"
+																	},
+																	"requirementIds": {
+																		"type": "array",
+																		"items": {
+																			"type": "string"
+																		}
+																	},
+																	"reason": {
+																		"type": "string"
+																	},
+																	"score": {
+																		"type": "object",
+																		"properties": {
+																			"total": {
+																				"type": "number"
+																			},
+																			"alignment": {
+																				"type": "number"
+																			},
+																			"strength": {
+																				"type": "number"
+																			},
+																			"recency": {
+																				"type": "number"
+																			},
+																			"aiRelevance": {
+																				"anyOf": [
+																					{
+																						"type": "number"
+																					},
+																					{
+																						"type": "null"
+																					}
+																				]
+																			}
+																		},
+																		"required": [
+																			"total",
+																			"alignment",
+																			"strength",
+																			"recency",
+																			"aiRelevance"
+																		]
+																	},
+																	"userEdited": {
+																		"type": "boolean",
+																		"default": false
+																	},
+																	"core": {
+																		"type": "boolean",
+																		"default": false
+																	}
+																},
+																"required": [
+																	"achievementId",
+																	"text",
+																	"include",
+																	"requirementIds",
+																	"reason",
+																	"score"
+																]
+															}
+														},
+														"skills": {
+															"type": "array",
+															"items": {
+																"type": "object",
+																"properties": {
+																	"skillId": {
+																		"type": "string"
+																	},
+																	"name": {
+																		"type": "string"
+																	},
+																	"category": {
+																		"type": "string"
+																	},
+																	"include": {
+																		"type": "boolean"
+																	},
+																	"requirementIds": {
+																		"type": "array",
+																		"items": {
+																			"type": "string"
+																		}
+																	},
+																	"evidenced": {
+																		"type": "boolean"
+																	},
+																	"reason": {
+																		"type": "string"
+																	},
+																	"userEdited": {
+																		"type": "boolean",
+																		"default": false
+																	}
+																},
+																"required": [
+																	"skillId",
+																	"name",
+																	"category",
+																	"include",
+																	"requirementIds",
+																	"evidenced",
+																	"reason"
+																]
+															}
+														},
+														"coverage": {
+															"type": "array",
+															"items": {
+																"type": "object",
+																"properties": {
+																	"requirementId": {
+																		"type": "string"
+																	},
+																	"status": {
+																		"enum": [
+																			"supported",
+																			"partial",
+																			"gap"
+																		],
+																		"type": "string"
+																	},
+																	"achievementIds": {
+																		"type": "array",
+																		"items": {
+																			"type": "string"
+																		}
+																	},
+																	"skillIds": {
+																		"type": "array",
+																		"items": {
+																			"type": "string"
+																		}
+																	},
+																	"entryIds": {
+																		"type": "array",
+																		"items": {
+																			"type": "string"
+																		},
+																		"default": []
+																	},
+																	"available": {
+																		"type": "array",
+																		"items": {
+																			"type": "string"
+																		}
+																	}
+																},
+																"required": [
+																	"requirementId",
+																	"status",
+																	"achievementIds",
+																	"skillIds",
+																	"available"
+																]
+															}
+														},
+														"unavailable": {
+															"type": "array",
+															"items": {
+																"type": "object",
+																"properties": {
+																	"id": {
+																		"type": "string"
+																	},
+																	"kind": {
+																		"enum": [
+																			"entry",
+																			"achievement",
+																			"skill"
+																		],
+																		"type": "string"
+																	},
+																	"reason": {
+																		"type": "string"
+																	}
+																},
+																"required": [
+																	"id",
+																	"kind",
+																	"reason"
+																]
+															}
+														},
+														"warnings": {
+															"type": "array",
+															"items": {
+																"type": "string"
+															}
+														},
+														"totals": {
+															"type": "object",
+															"properties": {
+																"entries": {
+																	"type": "number"
+																},
+																"achievements": {
+																	"type": "number"
+																},
+																"skills": {
+																	"type": "number"
+																},
+																"includedEntries": {
+																	"type": "number"
+																},
+																"includedAchievements": {
+																	"type": "number"
+																},
+																"includedSkills": {
+																	"type": "number"
+																}
+															},
+															"required": [
+																"entries",
+																"achievements",
+																"skills",
+																"includedEntries",
+																"includedAchievements",
+																"includedSkills"
+															]
+														}
+													},
+													"required": [
+														"applicationId",
+														"createdAt",
+														"source",
+														"sections",
+														"entries",
+														"standalone",
+														"skills",
+														"coverage",
+														"unavailable",
+														"warnings",
+														"totals"
+													]
+												},
+												"postingText": {
+													"type": "string"
+												},
+												"model": {
+													"type": "string"
+												},
+												"updatedAt": {
+													"type": "string",
+													"format": "date-time",
+													"x-native-type": "date"
+												},
+												"postingChanged": {
+													"type": "boolean"
+												},
+												"profileChanged": {
+													"type": "boolean"
+												}
+											},
+											"required": [
+												"analysis",
+												"plan",
+												"proposed",
+												"postingText",
+												"model",
+												"updatedAt",
+												"postingChanged",
+												"profileChanged"
+											]
+										},
+										{
+											"type": "null"
+										}
+									]
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Structured API error. See status and code; do not branch on message text.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"required": [
+										"defined",
+										"code",
+										"status",
+										"message"
+									],
+									"properties": {
+										"defined": {
+											"type": "boolean"
+										},
+										"code": {
+											"type": "string"
+										},
+										"status": {
+											"type": "integer"
+										},
+										"message": {
+											"type": "string"
+										},
+										"data": {}
+									}
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"apiKey": []
+					},
+					{
+						"bearerAuth": []
+					},
+					{
+						"cookieAuth": []
+					}
+				],
+				"x-codeSamples": [
+					{
+						"lang": "bash",
+						"label": "cURL",
+						"source": "curl \"https://rxresu.me/api/openapi/master-profile/selections/<applicationId>\" --header \"x-api-key: <api-key>\""
+					}
+				]
+			},
+			"put": {
+				"operationId": "updateResumeSelection",
+				"summary": "Save the user's review of a Resume Selection Plan",
+				"description": "Sets which entries, achievements and skills are included and the order of achievements within each entry. Coverage is recomputed; profile records are never changed.",
+				"tags": [
+					"Master profile"
+				],
+				"parameters": [
+					{
+						"name": "applicationId",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"minLength": 1
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"entries": {
+										"type": "array",
+										"maxItems": 300,
+										"items": {
+											"type": "object",
+											"properties": {
+												"entryId": {
+													"type": "string"
+												},
+												"include": {
+													"type": "boolean"
+												},
+												"achievements": {
+													"type": "array",
+													"maxItems": 200,
+													"items": {
+														"type": "object",
+														"properties": {
+															"achievementId": {
+																"type": "string"
+															},
+															"include": {
+																"type": "boolean"
+															}
+														},
+														"required": [
+															"achievementId",
+															"include"
+														]
+													}
+												}
+											},
+											"required": [
+												"entryId",
+												"include",
+												"achievements"
+											]
+										}
+									},
+									"skills": {
+										"type": "array",
+										"maxItems": 500,
+										"items": {
+											"type": "object",
+											"properties": {
+												"skillId": {
+													"type": "string"
+												},
+												"include": {
+													"type": "boolean"
+												}
+											},
+											"required": [
+												"skillId",
+												"include"
+											]
+										}
+									}
+								},
+								"required": [
+									"entries",
+									"skills"
+								]
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"anyOf": [
+										{
+											"type": "object",
+											"properties": {
+												"analysis": {
+													"type": "object",
+													"properties": {
+														"version": {
+															"const": 1,
+															"default": 1
+														},
+														"title": {
+															"type": "string",
+															"maxLength": 200
+														},
+														"employer": {
+															"type": "string",
+															"maxLength": 200
+														},
+														"seniority": {
+															"enum": [
+																"entry",
+																"junior",
+																"intermediate",
+																"senior",
+																"lead",
+																"manager",
+																"executive",
+																"unknown"
+															],
+															"type": "string"
+														},
+														"summary": {
+															"type": "string",
+															"maxLength": 600,
+															"default": ""
+														},
+														"responsibilities": {
+															"type": "array",
+															"maxItems": 15,
+															"items": {
+																"type": "string",
+																"maxLength": 300
+															},
+															"default": []
+														},
+														"requirements": {
+															"type": "array",
+															"maxItems": 30,
+															"items": {
+																"type": "object",
+																"properties": {
+																	"id": {
+																		"type": "string",
+																		"pattern": "^R\\d+$"
+																	},
+																	"text": {
+																		"type": "string",
+																		"minLength": 1,
+																		"maxLength": 300
+																	},
+																	"kind": {
+																		"enum": [
+																			"responsibility",
+																			"qualification",
+																			"skill",
+																			"domain",
+																			"competency"
+																		],
+																		"type": "string"
+																	},
+																	"necessity": {
+																		"enum": [
+																			"mandatory",
+																			"preferred"
+																		],
+																		"type": "string"
+																	},
+																	"origin": {
+																		"enum": [
+																			"explicit",
+																			"inferred"
+																		],
+																		"type": "string"
+																	},
+																	"importance": {
+																		"type": "integer",
+																		"minimum": 1,
+																		"maximum": 5
+																	},
+																	"terms": {
+																		"type": "array",
+																		"maxItems": 15,
+																		"items": {
+																			"type": "string",
+																			"minLength": 1,
+																			"maxLength": 80
+																		},
+																		"default": []
+																	}
+																},
+																"required": [
+																	"id",
+																	"text",
+																	"kind",
+																	"necessity",
+																	"origin",
+																	"importance"
+																]
+															}
+														},
+														"domain": {
+															"type": "array",
+															"maxItems": 10,
+															"items": {
+																"type": "string",
+																"maxLength": 120
+															},
+															"default": []
+														},
+														"postingHash": {
+															"type": "string"
+														},
+														"analyzedAt": {
+															"type": "string",
+															"format": "date-time"
+														},
+														"model": {
+															"type": "string",
+															"default": ""
+														}
+													},
+													"required": [
+														"title",
+														"employer",
+														"seniority",
+														"requirements",
+														"postingHash",
+														"analyzedAt"
+													]
+												},
+												"plan": {
+													"type": "object",
+													"properties": {
+														"version": {
+															"const": 1,
+															"default": 1
+														},
+														"applicationId": {
+															"type": "string"
+														},
+														"createdAt": {
+															"type": "string",
+															"format": "date-time"
+														},
+														"source": {
+															"enum": [
+																"ai",
+																"ranking"
+															],
+															"type": "string"
+														},
+														"positioning": {
+															"type": "string",
+															"default": ""
+														},
+														"sections": {
+															"type": "array",
+															"items": {
+																"enum": [
+																	"summary",
+																	"skills",
+																	"experience",
+																	"projects",
+																	"volunteer",
+																	"education",
+																	"certifications",
+																	"awards"
+																],
+																"type": "string"
+															}
+														},
+														"entries": {
+															"type": "array",
+															"items": {
+																"type": "object",
+																"properties": {
+																	"entryId": {
+																		"type": "string"
+																	},
+																	"kind": {
+																		"enum": [
+																			"position",
+																			"project",
+																			"education",
+																			"volunteer",
+																			"certification",
+																			"award"
+																		],
+																		"type": "string"
+																	},
+																	"title": {
+																		"type": "string"
+																	},
+																	"organization": {
+																		"type": "string"
+																	},
+																	"startDate": {
+																		"anyOf": [
+																			{
+																				"type": "string"
+																			},
+																			{
+																				"type": "null"
+																			}
+																		]
+																	},
+																	"endDate": {
+																		"anyOf": [
+																			{
+																				"type": "string"
+																			},
+																			{
+																				"type": "null"
+																			}
+																		]
+																	},
+																	"include": {
+																		"type": "boolean"
+																	},
+																	"reason": {
+																		"type": "string"
+																	},
+																	"bulletTarget": {
+																		"type": "integer",
+																		"minimum": 0,
+																		"maximum": 100
+																	},
+																	"requirementIds": {
+																		"type": "array",
+																		"items": {
+																			"type": "string"
+																		},
+																		"default": []
+																	},
+																	"achievements": {
+																		"type": "array",
+																		"items": {
+																			"type": "object",
+																			"properties": {
+																				"achievementId": {
+																					"type": "string"
+																				},
+																				"text": {
+																					"type": "string"
+																				},
+																				"include": {
+																					"type": "boolean"
+																				},
+																				"requirementIds": {
+																					"type": "array",
+																					"items": {
+																						"type": "string"
+																					}
+																				},
+																				"reason": {
+																					"type": "string"
+																				},
+																				"score": {
+																					"type": "object",
+																					"properties": {
+																						"total": {
+																							"type": "number"
+																						},
+																						"alignment": {
+																							"type": "number"
+																						},
+																						"strength": {
+																							"type": "number"
+																						},
+																						"recency": {
+																							"type": "number"
+																						},
+																						"aiRelevance": {
+																							"anyOf": [
+																								{
+																									"type": "number"
+																								},
+																								{
+																									"type": "null"
+																								}
+																							]
+																						}
+																					},
+																					"required": [
+																						"total",
+																						"alignment",
+																						"strength",
+																						"recency",
+																						"aiRelevance"
+																					]
+																				},
+																				"userEdited": {
+																					"type": "boolean",
+																					"default": false
+																				},
+																				"core": {
+																					"type": "boolean",
+																					"default": false
+																				}
+																			},
+																			"required": [
+																				"achievementId",
+																				"text",
+																				"include",
+																				"requirementIds",
+																				"reason",
+																				"score"
+																			]
+																		}
+																	},
+																	"userEdited": {
+																		"type": "boolean",
+																		"default": false
+																	}
+																},
+																"required": [
+																	"entryId",
+																	"kind",
+																	"title",
+																	"organization",
+																	"startDate",
+																	"endDate",
+																	"include",
+																	"reason",
+																	"bulletTarget",
+																	"achievements"
+																]
+															}
+														},
+														"standalone": {
+															"type": "array",
+															"items": {
+																"type": "object",
+																"properties": {
+																	"achievementId": {
+																		"type": "string"
+																	},
+																	"text": {
+																		"type": "string"
+																	},
+																	"include": {
+																		"type": "boolean"
+																	},
+																	"requirementIds": {
+																		"type": "array",
+																		"items": {
+																			"type": "string"
+																		}
+																	},
+																	"reason": {
+																		"type": "string"
+																	},
+																	"score": {
+																		"type": "object",
+																		"properties": {
+																			"total": {
+																				"type": "number"
+																			},
+																			"alignment": {
+																				"type": "number"
+																			},
+																			"strength": {
+																				"type": "number"
+																			},
+																			"recency": {
+																				"type": "number"
+																			},
+																			"aiRelevance": {
+																				"anyOf": [
+																					{
+																						"type": "number"
+																					},
+																					{
+																						"type": "null"
+																					}
+																				]
+																			}
+																		},
+																		"required": [
+																			"total",
+																			"alignment",
+																			"strength",
+																			"recency",
+																			"aiRelevance"
+																		]
+																	},
+																	"userEdited": {
+																		"type": "boolean",
+																		"default": false
+																	},
+																	"core": {
+																		"type": "boolean",
+																		"default": false
+																	}
+																},
+																"required": [
+																	"achievementId",
+																	"text",
+																	"include",
+																	"requirementIds",
+																	"reason",
+																	"score"
+																]
+															}
+														},
+														"skills": {
+															"type": "array",
+															"items": {
+																"type": "object",
+																"properties": {
+																	"skillId": {
+																		"type": "string"
+																	},
+																	"name": {
+																		"type": "string"
+																	},
+																	"category": {
+																		"type": "string"
+																	},
+																	"include": {
+																		"type": "boolean"
+																	},
+																	"requirementIds": {
+																		"type": "array",
+																		"items": {
+																			"type": "string"
+																		}
+																	},
+																	"evidenced": {
+																		"type": "boolean"
+																	},
+																	"reason": {
+																		"type": "string"
+																	},
+																	"userEdited": {
+																		"type": "boolean",
+																		"default": false
+																	}
+																},
+																"required": [
+																	"skillId",
+																	"name",
+																	"category",
+																	"include",
+																	"requirementIds",
+																	"evidenced",
+																	"reason"
+																]
+															}
+														},
+														"coverage": {
+															"type": "array",
+															"items": {
+																"type": "object",
+																"properties": {
+																	"requirementId": {
+																		"type": "string"
+																	},
+																	"status": {
+																		"enum": [
+																			"supported",
+																			"partial",
+																			"gap"
+																		],
+																		"type": "string"
+																	},
+																	"achievementIds": {
+																		"type": "array",
+																		"items": {
+																			"type": "string"
+																		}
+																	},
+																	"skillIds": {
+																		"type": "array",
+																		"items": {
+																			"type": "string"
+																		}
+																	},
+																	"entryIds": {
+																		"type": "array",
+																		"items": {
+																			"type": "string"
+																		},
+																		"default": []
+																	},
+																	"available": {
+																		"type": "array",
+																		"items": {
+																			"type": "string"
+																		}
+																	}
+																},
+																"required": [
+																	"requirementId",
+																	"status",
+																	"achievementIds",
+																	"skillIds",
+																	"available"
+																]
+															}
+														},
+														"unavailable": {
+															"type": "array",
+															"items": {
+																"type": "object",
+																"properties": {
+																	"id": {
+																		"type": "string"
+																	},
+																	"kind": {
+																		"enum": [
+																			"entry",
+																			"achievement",
+																			"skill"
+																		],
+																		"type": "string"
+																	},
+																	"reason": {
+																		"type": "string"
+																	}
+																},
+																"required": [
+																	"id",
+																	"kind",
+																	"reason"
+																]
+															}
+														},
+														"warnings": {
+															"type": "array",
+															"items": {
+																"type": "string"
+															}
+														},
+														"totals": {
+															"type": "object",
+															"properties": {
+																"entries": {
+																	"type": "number"
+																},
+																"achievements": {
+																	"type": "number"
+																},
+																"skills": {
+																	"type": "number"
+																},
+																"includedEntries": {
+																	"type": "number"
+																},
+																"includedAchievements": {
+																	"type": "number"
+																},
+																"includedSkills": {
+																	"type": "number"
+																}
+															},
+															"required": [
+																"entries",
+																"achievements",
+																"skills",
+																"includedEntries",
+																"includedAchievements",
+																"includedSkills"
+															]
+														}
+													},
+													"required": [
+														"applicationId",
+														"createdAt",
+														"source",
+														"sections",
+														"entries",
+														"standalone",
+														"skills",
+														"coverage",
+														"unavailable",
+														"warnings",
+														"totals"
+													]
+												},
+												"proposed": {
+													"type": "object",
+													"properties": {
+														"version": {
+															"const": 1,
+															"default": 1
+														},
+														"applicationId": {
+															"type": "string"
+														},
+														"createdAt": {
+															"type": "string",
+															"format": "date-time"
+														},
+														"source": {
+															"enum": [
+																"ai",
+																"ranking"
+															],
+															"type": "string"
+														},
+														"positioning": {
+															"type": "string",
+															"default": ""
+														},
+														"sections": {
+															"type": "array",
+															"items": {
+																"enum": [
+																	"summary",
+																	"skills",
+																	"experience",
+																	"projects",
+																	"volunteer",
+																	"education",
+																	"certifications",
+																	"awards"
+																],
+																"type": "string"
+															}
+														},
+														"entries": {
+															"type": "array",
+															"items": {
+																"type": "object",
+																"properties": {
+																	"entryId": {
+																		"type": "string"
+																	},
+																	"kind": {
+																		"enum": [
+																			"position",
+																			"project",
+																			"education",
+																			"volunteer",
+																			"certification",
+																			"award"
+																		],
+																		"type": "string"
+																	},
+																	"title": {
+																		"type": "string"
+																	},
+																	"organization": {
+																		"type": "string"
+																	},
+																	"startDate": {
+																		"anyOf": [
+																			{
+																				"type": "string"
+																			},
+																			{
+																				"type": "null"
+																			}
+																		]
+																	},
+																	"endDate": {
+																		"anyOf": [
+																			{
+																				"type": "string"
+																			},
+																			{
+																				"type": "null"
+																			}
+																		]
+																	},
+																	"include": {
+																		"type": "boolean"
+																	},
+																	"reason": {
+																		"type": "string"
+																	},
+																	"bulletTarget": {
+																		"type": "integer",
+																		"minimum": 0,
+																		"maximum": 100
+																	},
+																	"requirementIds": {
+																		"type": "array",
+																		"items": {
+																			"type": "string"
+																		},
+																		"default": []
+																	},
+																	"achievements": {
+																		"type": "array",
+																		"items": {
+																			"type": "object",
+																			"properties": {
+																				"achievementId": {
+																					"type": "string"
+																				},
+																				"text": {
+																					"type": "string"
+																				},
+																				"include": {
+																					"type": "boolean"
+																				},
+																				"requirementIds": {
+																					"type": "array",
+																					"items": {
+																						"type": "string"
+																					}
+																				},
+																				"reason": {
+																					"type": "string"
+																				},
+																				"score": {
+																					"type": "object",
+																					"properties": {
+																						"total": {
+																							"type": "number"
+																						},
+																						"alignment": {
+																							"type": "number"
+																						},
+																						"strength": {
+																							"type": "number"
+																						},
+																						"recency": {
+																							"type": "number"
+																						},
+																						"aiRelevance": {
+																							"anyOf": [
+																								{
+																									"type": "number"
+																								},
+																								{
+																									"type": "null"
+																								}
+																							]
+																						}
+																					},
+																					"required": [
+																						"total",
+																						"alignment",
+																						"strength",
+																						"recency",
+																						"aiRelevance"
+																					]
+																				},
+																				"userEdited": {
+																					"type": "boolean",
+																					"default": false
+																				},
+																				"core": {
+																					"type": "boolean",
+																					"default": false
+																				}
+																			},
+																			"required": [
+																				"achievementId",
+																				"text",
+																				"include",
+																				"requirementIds",
+																				"reason",
+																				"score"
+																			]
+																		}
+																	},
+																	"userEdited": {
+																		"type": "boolean",
+																		"default": false
+																	}
+																},
+																"required": [
+																	"entryId",
+																	"kind",
+																	"title",
+																	"organization",
+																	"startDate",
+																	"endDate",
+																	"include",
+																	"reason",
+																	"bulletTarget",
+																	"achievements"
+																]
+															}
+														},
+														"standalone": {
+															"type": "array",
+															"items": {
+																"type": "object",
+																"properties": {
+																	"achievementId": {
+																		"type": "string"
+																	},
+																	"text": {
+																		"type": "string"
+																	},
+																	"include": {
+																		"type": "boolean"
+																	},
+																	"requirementIds": {
+																		"type": "array",
+																		"items": {
+																			"type": "string"
+																		}
+																	},
+																	"reason": {
+																		"type": "string"
+																	},
+																	"score": {
+																		"type": "object",
+																		"properties": {
+																			"total": {
+																				"type": "number"
+																			},
+																			"alignment": {
+																				"type": "number"
+																			},
+																			"strength": {
+																				"type": "number"
+																			},
+																			"recency": {
+																				"type": "number"
+																			},
+																			"aiRelevance": {
+																				"anyOf": [
+																					{
+																						"type": "number"
+																					},
+																					{
+																						"type": "null"
+																					}
+																				]
+																			}
+																		},
+																		"required": [
+																			"total",
+																			"alignment",
+																			"strength",
+																			"recency",
+																			"aiRelevance"
+																		]
+																	},
+																	"userEdited": {
+																		"type": "boolean",
+																		"default": false
+																	},
+																	"core": {
+																		"type": "boolean",
+																		"default": false
+																	}
+																},
+																"required": [
+																	"achievementId",
+																	"text",
+																	"include",
+																	"requirementIds",
+																	"reason",
+																	"score"
+																]
+															}
+														},
+														"skills": {
+															"type": "array",
+															"items": {
+																"type": "object",
+																"properties": {
+																	"skillId": {
+																		"type": "string"
+																	},
+																	"name": {
+																		"type": "string"
+																	},
+																	"category": {
+																		"type": "string"
+																	},
+																	"include": {
+																		"type": "boolean"
+																	},
+																	"requirementIds": {
+																		"type": "array",
+																		"items": {
+																			"type": "string"
+																		}
+																	},
+																	"evidenced": {
+																		"type": "boolean"
+																	},
+																	"reason": {
+																		"type": "string"
+																	},
+																	"userEdited": {
+																		"type": "boolean",
+																		"default": false
+																	}
+																},
+																"required": [
+																	"skillId",
+																	"name",
+																	"category",
+																	"include",
+																	"requirementIds",
+																	"evidenced",
+																	"reason"
+																]
+															}
+														},
+														"coverage": {
+															"type": "array",
+															"items": {
+																"type": "object",
+																"properties": {
+																	"requirementId": {
+																		"type": "string"
+																	},
+																	"status": {
+																		"enum": [
+																			"supported",
+																			"partial",
+																			"gap"
+																		],
+																		"type": "string"
+																	},
+																	"achievementIds": {
+																		"type": "array",
+																		"items": {
+																			"type": "string"
+																		}
+																	},
+																	"skillIds": {
+																		"type": "array",
+																		"items": {
+																			"type": "string"
+																		}
+																	},
+																	"entryIds": {
+																		"type": "array",
+																		"items": {
+																			"type": "string"
+																		},
+																		"default": []
+																	},
+																	"available": {
+																		"type": "array",
+																		"items": {
+																			"type": "string"
+																		}
+																	}
+																},
+																"required": [
+																	"requirementId",
+																	"status",
+																	"achievementIds",
+																	"skillIds",
+																	"available"
+																]
+															}
+														},
+														"unavailable": {
+															"type": "array",
+															"items": {
+																"type": "object",
+																"properties": {
+																	"id": {
+																		"type": "string"
+																	},
+																	"kind": {
+																		"enum": [
+																			"entry",
+																			"achievement",
+																			"skill"
+																		],
+																		"type": "string"
+																	},
+																	"reason": {
+																		"type": "string"
+																	}
+																},
+																"required": [
+																	"id",
+																	"kind",
+																	"reason"
+																]
+															}
+														},
+														"warnings": {
+															"type": "array",
+															"items": {
+																"type": "string"
+															}
+														},
+														"totals": {
+															"type": "object",
+															"properties": {
+																"entries": {
+																	"type": "number"
+																},
+																"achievements": {
+																	"type": "number"
+																},
+																"skills": {
+																	"type": "number"
+																},
+																"includedEntries": {
+																	"type": "number"
+																},
+																"includedAchievements": {
+																	"type": "number"
+																},
+																"includedSkills": {
+																	"type": "number"
+																}
+															},
+															"required": [
+																"entries",
+																"achievements",
+																"skills",
+																"includedEntries",
+																"includedAchievements",
+																"includedSkills"
+															]
+														}
+													},
+													"required": [
+														"applicationId",
+														"createdAt",
+														"source",
+														"sections",
+														"entries",
+														"standalone",
+														"skills",
+														"coverage",
+														"unavailable",
+														"warnings",
+														"totals"
+													]
+												},
+												"postingText": {
+													"type": "string"
+												},
+												"model": {
+													"type": "string"
+												},
+												"updatedAt": {
+													"type": "string",
+													"format": "date-time",
+													"x-native-type": "date"
+												},
+												"postingChanged": {
+													"type": "boolean"
+												},
+												"profileChanged": {
+													"type": "boolean"
+												}
+											},
+											"required": [
+												"analysis",
+												"plan",
+												"proposed",
+												"postingText",
+												"model",
+												"updatedAt",
+												"postingChanged",
+												"profileChanged"
+											]
+										},
+										{
+											"type": "null"
+										}
+									]
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Structured API error. See status and code; do not branch on message text.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"required": [
+										"defined",
+										"code",
+										"status",
+										"message"
+									],
+									"properties": {
+										"defined": {
+											"type": "boolean"
+										},
+										"code": {
+											"type": "string"
+										},
+										"status": {
+											"type": "integer"
+										},
+										"message": {
+											"type": "string"
+										},
+										"data": {}
+									}
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"apiKey": []
+					},
+					{
+						"bearerAuth": []
+					},
+					{
+						"cookieAuth": []
+					}
+				],
+				"x-codeSamples": [
+					{
+						"lang": "bash",
+						"label": "cURL",
+						"source": "curl --request PUT \"https://rxresu.me/api/openapi/master-profile/selections/<applicationId>\" --header \"x-api-key: <api-key>\" --header \"Content-Type: application/json\" --data '{\n  \"entries\": [\n    {\n      \"entryId\": \"<string>\",\n      \"include\": true,\n      \"achievements\": [\n        {\n          \"achievementId\": \"<string>\",\n          \"include\": true\n        }\n      ]\n    }\n  ],\n  \"skills\": [\n    {\n      \"skillId\": \"<string>\",\n      \"include\": true\n    }\n  ]\n}'"
+					}
+				]
+			}
+		},
+		"/master-profile/selections/{applicationId}/proposals": {
+			"post": {
+				"operationId": "proposeResumeSelection",
+				"summary": "Analyse the posting and propose which profile records to use",
+				"description": "Analyses the application's posting into ranked requirements (reused while the posting is unchanged unless reanalyze is set), ranks every eligible master-profile record against them, has the default AI connection review the strongest, and saves a Resume Selection Plan. The user's earlier include/exclude choices carry over. The profile is never changed.",
+				"tags": [
+					"Master profile"
+				],
+				"parameters": [
+					{
+						"name": "applicationId",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"minLength": 1
+						}
+					}
+				],
+				"requestBody": {
+					"required": false,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"reanalyze": {
+										"type": "boolean"
+									}
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"anyOf": [
+										{
+											"type": "object",
+											"properties": {
+												"analysis": {
+													"type": "object",
+													"properties": {
+														"version": {
+															"const": 1,
+															"default": 1
+														},
+														"title": {
+															"type": "string",
+															"maxLength": 200
+														},
+														"employer": {
+															"type": "string",
+															"maxLength": 200
+														},
+														"seniority": {
+															"enum": [
+																"entry",
+																"junior",
+																"intermediate",
+																"senior",
+																"lead",
+																"manager",
+																"executive",
+																"unknown"
+															],
+															"type": "string"
+														},
+														"summary": {
+															"type": "string",
+															"maxLength": 600,
+															"default": ""
+														},
+														"responsibilities": {
+															"type": "array",
+															"maxItems": 15,
+															"items": {
+																"type": "string",
+																"maxLength": 300
+															},
+															"default": []
+														},
+														"requirements": {
+															"type": "array",
+															"maxItems": 30,
+															"items": {
+																"type": "object",
+																"properties": {
+																	"id": {
+																		"type": "string",
+																		"pattern": "^R\\d+$"
+																	},
+																	"text": {
+																		"type": "string",
+																		"minLength": 1,
+																		"maxLength": 300
+																	},
+																	"kind": {
+																		"enum": [
+																			"responsibility",
+																			"qualification",
+																			"skill",
+																			"domain",
+																			"competency"
+																		],
+																		"type": "string"
+																	},
+																	"necessity": {
+																		"enum": [
+																			"mandatory",
+																			"preferred"
+																		],
+																		"type": "string"
+																	},
+																	"origin": {
+																		"enum": [
+																			"explicit",
+																			"inferred"
+																		],
+																		"type": "string"
+																	},
+																	"importance": {
+																		"type": "integer",
+																		"minimum": 1,
+																		"maximum": 5
+																	},
+																	"terms": {
+																		"type": "array",
+																		"maxItems": 15,
+																		"items": {
+																			"type": "string",
+																			"minLength": 1,
+																			"maxLength": 80
+																		},
+																		"default": []
+																	}
+																},
+																"required": [
+																	"id",
+																	"text",
+																	"kind",
+																	"necessity",
+																	"origin",
+																	"importance"
+																]
+															}
+														},
+														"domain": {
+															"type": "array",
+															"maxItems": 10,
+															"items": {
+																"type": "string",
+																"maxLength": 120
+															},
+															"default": []
+														},
+														"postingHash": {
+															"type": "string"
+														},
+														"analyzedAt": {
+															"type": "string",
+															"format": "date-time"
+														},
+														"model": {
+															"type": "string",
+															"default": ""
+														}
+													},
+													"required": [
+														"title",
+														"employer",
+														"seniority",
+														"requirements",
+														"postingHash",
+														"analyzedAt"
+													]
+												},
+												"plan": {
+													"type": "object",
+													"properties": {
+														"version": {
+															"const": 1,
+															"default": 1
+														},
+														"applicationId": {
+															"type": "string"
+														},
+														"createdAt": {
+															"type": "string",
+															"format": "date-time"
+														},
+														"source": {
+															"enum": [
+																"ai",
+																"ranking"
+															],
+															"type": "string"
+														},
+														"positioning": {
+															"type": "string",
+															"default": ""
+														},
+														"sections": {
+															"type": "array",
+															"items": {
+																"enum": [
+																	"summary",
+																	"skills",
+																	"experience",
+																	"projects",
+																	"volunteer",
+																	"education",
+																	"certifications",
+																	"awards"
+																],
+																"type": "string"
+															}
+														},
+														"entries": {
+															"type": "array",
+															"items": {
+																"type": "object",
+																"properties": {
+																	"entryId": {
+																		"type": "string"
+																	},
+																	"kind": {
+																		"enum": [
+																			"position",
+																			"project",
+																			"education",
+																			"volunteer",
+																			"certification",
+																			"award"
+																		],
+																		"type": "string"
+																	},
+																	"title": {
+																		"type": "string"
+																	},
+																	"organization": {
+																		"type": "string"
+																	},
+																	"startDate": {
+																		"anyOf": [
+																			{
+																				"type": "string"
+																			},
+																			{
+																				"type": "null"
+																			}
+																		]
+																	},
+																	"endDate": {
+																		"anyOf": [
+																			{
+																				"type": "string"
+																			},
+																			{
+																				"type": "null"
+																			}
+																		]
+																	},
+																	"include": {
+																		"type": "boolean"
+																	},
+																	"reason": {
+																		"type": "string"
+																	},
+																	"bulletTarget": {
+																		"type": "integer",
+																		"minimum": 0,
+																		"maximum": 100
+																	},
+																	"requirementIds": {
+																		"type": "array",
+																		"items": {
+																			"type": "string"
+																		},
+																		"default": []
+																	},
+																	"achievements": {
+																		"type": "array",
+																		"items": {
+																			"type": "object",
+																			"properties": {
+																				"achievementId": {
+																					"type": "string"
+																				},
+																				"text": {
+																					"type": "string"
+																				},
+																				"include": {
+																					"type": "boolean"
+																				},
+																				"requirementIds": {
+																					"type": "array",
+																					"items": {
+																						"type": "string"
+																					}
+																				},
+																				"reason": {
+																					"type": "string"
+																				},
+																				"score": {
+																					"type": "object",
+																					"properties": {
+																						"total": {
+																							"type": "number"
+																						},
+																						"alignment": {
+																							"type": "number"
+																						},
+																						"strength": {
+																							"type": "number"
+																						},
+																						"recency": {
+																							"type": "number"
+																						},
+																						"aiRelevance": {
+																							"anyOf": [
+																								{
+																									"type": "number"
+																								},
+																								{
+																									"type": "null"
+																								}
+																							]
+																						}
+																					},
+																					"required": [
+																						"total",
+																						"alignment",
+																						"strength",
+																						"recency",
+																						"aiRelevance"
+																					]
+																				},
+																				"userEdited": {
+																					"type": "boolean",
+																					"default": false
+																				},
+																				"core": {
+																					"type": "boolean",
+																					"default": false
+																				}
+																			},
+																			"required": [
+																				"achievementId",
+																				"text",
+																				"include",
+																				"requirementIds",
+																				"reason",
+																				"score"
+																			]
+																		}
+																	},
+																	"userEdited": {
+																		"type": "boolean",
+																		"default": false
+																	}
+																},
+																"required": [
+																	"entryId",
+																	"kind",
+																	"title",
+																	"organization",
+																	"startDate",
+																	"endDate",
+																	"include",
+																	"reason",
+																	"bulletTarget",
+																	"achievements"
+																]
+															}
+														},
+														"standalone": {
+															"type": "array",
+															"items": {
+																"type": "object",
+																"properties": {
+																	"achievementId": {
+																		"type": "string"
+																	},
+																	"text": {
+																		"type": "string"
+																	},
+																	"include": {
+																		"type": "boolean"
+																	},
+																	"requirementIds": {
+																		"type": "array",
+																		"items": {
+																			"type": "string"
+																		}
+																	},
+																	"reason": {
+																		"type": "string"
+																	},
+																	"score": {
+																		"type": "object",
+																		"properties": {
+																			"total": {
+																				"type": "number"
+																			},
+																			"alignment": {
+																				"type": "number"
+																			},
+																			"strength": {
+																				"type": "number"
+																			},
+																			"recency": {
+																				"type": "number"
+																			},
+																			"aiRelevance": {
+																				"anyOf": [
+																					{
+																						"type": "number"
+																					},
+																					{
+																						"type": "null"
+																					}
+																				]
+																			}
+																		},
+																		"required": [
+																			"total",
+																			"alignment",
+																			"strength",
+																			"recency",
+																			"aiRelevance"
+																		]
+																	},
+																	"userEdited": {
+																		"type": "boolean",
+																		"default": false
+																	},
+																	"core": {
+																		"type": "boolean",
+																		"default": false
+																	}
+																},
+																"required": [
+																	"achievementId",
+																	"text",
+																	"include",
+																	"requirementIds",
+																	"reason",
+																	"score"
+																]
+															}
+														},
+														"skills": {
+															"type": "array",
+															"items": {
+																"type": "object",
+																"properties": {
+																	"skillId": {
+																		"type": "string"
+																	},
+																	"name": {
+																		"type": "string"
+																	},
+																	"category": {
+																		"type": "string"
+																	},
+																	"include": {
+																		"type": "boolean"
+																	},
+																	"requirementIds": {
+																		"type": "array",
+																		"items": {
+																			"type": "string"
+																		}
+																	},
+																	"evidenced": {
+																		"type": "boolean"
+																	},
+																	"reason": {
+																		"type": "string"
+																	},
+																	"userEdited": {
+																		"type": "boolean",
+																		"default": false
+																	}
+																},
+																"required": [
+																	"skillId",
+																	"name",
+																	"category",
+																	"include",
+																	"requirementIds",
+																	"evidenced",
+																	"reason"
+																]
+															}
+														},
+														"coverage": {
+															"type": "array",
+															"items": {
+																"type": "object",
+																"properties": {
+																	"requirementId": {
+																		"type": "string"
+																	},
+																	"status": {
+																		"enum": [
+																			"supported",
+																			"partial",
+																			"gap"
+																		],
+																		"type": "string"
+																	},
+																	"achievementIds": {
+																		"type": "array",
+																		"items": {
+																			"type": "string"
+																		}
+																	},
+																	"skillIds": {
+																		"type": "array",
+																		"items": {
+																			"type": "string"
+																		}
+																	},
+																	"entryIds": {
+																		"type": "array",
+																		"items": {
+																			"type": "string"
+																		},
+																		"default": []
+																	},
+																	"available": {
+																		"type": "array",
+																		"items": {
+																			"type": "string"
+																		}
+																	}
+																},
+																"required": [
+																	"requirementId",
+																	"status",
+																	"achievementIds",
+																	"skillIds",
+																	"available"
+																]
+															}
+														},
+														"unavailable": {
+															"type": "array",
+															"items": {
+																"type": "object",
+																"properties": {
+																	"id": {
+																		"type": "string"
+																	},
+																	"kind": {
+																		"enum": [
+																			"entry",
+																			"achievement",
+																			"skill"
+																		],
+																		"type": "string"
+																	},
+																	"reason": {
+																		"type": "string"
+																	}
+																},
+																"required": [
+																	"id",
+																	"kind",
+																	"reason"
+																]
+															}
+														},
+														"warnings": {
+															"type": "array",
+															"items": {
+																"type": "string"
+															}
+														},
+														"totals": {
+															"type": "object",
+															"properties": {
+																"entries": {
+																	"type": "number"
+																},
+																"achievements": {
+																	"type": "number"
+																},
+																"skills": {
+																	"type": "number"
+																},
+																"includedEntries": {
+																	"type": "number"
+																},
+																"includedAchievements": {
+																	"type": "number"
+																},
+																"includedSkills": {
+																	"type": "number"
+																}
+															},
+															"required": [
+																"entries",
+																"achievements",
+																"skills",
+																"includedEntries",
+																"includedAchievements",
+																"includedSkills"
+															]
+														}
+													},
+													"required": [
+														"applicationId",
+														"createdAt",
+														"source",
+														"sections",
+														"entries",
+														"standalone",
+														"skills",
+														"coverage",
+														"unavailable",
+														"warnings",
+														"totals"
+													]
+												},
+												"proposed": {
+													"type": "object",
+													"properties": {
+														"version": {
+															"const": 1,
+															"default": 1
+														},
+														"applicationId": {
+															"type": "string"
+														},
+														"createdAt": {
+															"type": "string",
+															"format": "date-time"
+														},
+														"source": {
+															"enum": [
+																"ai",
+																"ranking"
+															],
+															"type": "string"
+														},
+														"positioning": {
+															"type": "string",
+															"default": ""
+														},
+														"sections": {
+															"type": "array",
+															"items": {
+																"enum": [
+																	"summary",
+																	"skills",
+																	"experience",
+																	"projects",
+																	"volunteer",
+																	"education",
+																	"certifications",
+																	"awards"
+																],
+																"type": "string"
+															}
+														},
+														"entries": {
+															"type": "array",
+															"items": {
+																"type": "object",
+																"properties": {
+																	"entryId": {
+																		"type": "string"
+																	},
+																	"kind": {
+																		"enum": [
+																			"position",
+																			"project",
+																			"education",
+																			"volunteer",
+																			"certification",
+																			"award"
+																		],
+																		"type": "string"
+																	},
+																	"title": {
+																		"type": "string"
+																	},
+																	"organization": {
+																		"type": "string"
+																	},
+																	"startDate": {
+																		"anyOf": [
+																			{
+																				"type": "string"
+																			},
+																			{
+																				"type": "null"
+																			}
+																		]
+																	},
+																	"endDate": {
+																		"anyOf": [
+																			{
+																				"type": "string"
+																			},
+																			{
+																				"type": "null"
+																			}
+																		]
+																	},
+																	"include": {
+																		"type": "boolean"
+																	},
+																	"reason": {
+																		"type": "string"
+																	},
+																	"bulletTarget": {
+																		"type": "integer",
+																		"minimum": 0,
+																		"maximum": 100
+																	},
+																	"requirementIds": {
+																		"type": "array",
+																		"items": {
+																			"type": "string"
+																		},
+																		"default": []
+																	},
+																	"achievements": {
+																		"type": "array",
+																		"items": {
+																			"type": "object",
+																			"properties": {
+																				"achievementId": {
+																					"type": "string"
+																				},
+																				"text": {
+																					"type": "string"
+																				},
+																				"include": {
+																					"type": "boolean"
+																				},
+																				"requirementIds": {
+																					"type": "array",
+																					"items": {
+																						"type": "string"
+																					}
+																				},
+																				"reason": {
+																					"type": "string"
+																				},
+																				"score": {
+																					"type": "object",
+																					"properties": {
+																						"total": {
+																							"type": "number"
+																						},
+																						"alignment": {
+																							"type": "number"
+																						},
+																						"strength": {
+																							"type": "number"
+																						},
+																						"recency": {
+																							"type": "number"
+																						},
+																						"aiRelevance": {
+																							"anyOf": [
+																								{
+																									"type": "number"
+																								},
+																								{
+																									"type": "null"
+																								}
+																							]
+																						}
+																					},
+																					"required": [
+																						"total",
+																						"alignment",
+																						"strength",
+																						"recency",
+																						"aiRelevance"
+																					]
+																				},
+																				"userEdited": {
+																					"type": "boolean",
+																					"default": false
+																				},
+																				"core": {
+																					"type": "boolean",
+																					"default": false
+																				}
+																			},
+																			"required": [
+																				"achievementId",
+																				"text",
+																				"include",
+																				"requirementIds",
+																				"reason",
+																				"score"
+																			]
+																		}
+																	},
+																	"userEdited": {
+																		"type": "boolean",
+																		"default": false
+																	}
+																},
+																"required": [
+																	"entryId",
+																	"kind",
+																	"title",
+																	"organization",
+																	"startDate",
+																	"endDate",
+																	"include",
+																	"reason",
+																	"bulletTarget",
+																	"achievements"
+																]
+															}
+														},
+														"standalone": {
+															"type": "array",
+															"items": {
+																"type": "object",
+																"properties": {
+																	"achievementId": {
+																		"type": "string"
+																	},
+																	"text": {
+																		"type": "string"
+																	},
+																	"include": {
+																		"type": "boolean"
+																	},
+																	"requirementIds": {
+																		"type": "array",
+																		"items": {
+																			"type": "string"
+																		}
+																	},
+																	"reason": {
+																		"type": "string"
+																	},
+																	"score": {
+																		"type": "object",
+																		"properties": {
+																			"total": {
+																				"type": "number"
+																			},
+																			"alignment": {
+																				"type": "number"
+																			},
+																			"strength": {
+																				"type": "number"
+																			},
+																			"recency": {
+																				"type": "number"
+																			},
+																			"aiRelevance": {
+																				"anyOf": [
+																					{
+																						"type": "number"
+																					},
+																					{
+																						"type": "null"
+																					}
+																				]
+																			}
+																		},
+																		"required": [
+																			"total",
+																			"alignment",
+																			"strength",
+																			"recency",
+																			"aiRelevance"
+																		]
+																	},
+																	"userEdited": {
+																		"type": "boolean",
+																		"default": false
+																	},
+																	"core": {
+																		"type": "boolean",
+																		"default": false
+																	}
+																},
+																"required": [
+																	"achievementId",
+																	"text",
+																	"include",
+																	"requirementIds",
+																	"reason",
+																	"score"
+																]
+															}
+														},
+														"skills": {
+															"type": "array",
+															"items": {
+																"type": "object",
+																"properties": {
+																	"skillId": {
+																		"type": "string"
+																	},
+																	"name": {
+																		"type": "string"
+																	},
+																	"category": {
+																		"type": "string"
+																	},
+																	"include": {
+																		"type": "boolean"
+																	},
+																	"requirementIds": {
+																		"type": "array",
+																		"items": {
+																			"type": "string"
+																		}
+																	},
+																	"evidenced": {
+																		"type": "boolean"
+																	},
+																	"reason": {
+																		"type": "string"
+																	},
+																	"userEdited": {
+																		"type": "boolean",
+																		"default": false
+																	}
+																},
+																"required": [
+																	"skillId",
+																	"name",
+																	"category",
+																	"include",
+																	"requirementIds",
+																	"evidenced",
+																	"reason"
+																]
+															}
+														},
+														"coverage": {
+															"type": "array",
+															"items": {
+																"type": "object",
+																"properties": {
+																	"requirementId": {
+																		"type": "string"
+																	},
+																	"status": {
+																		"enum": [
+																			"supported",
+																			"partial",
+																			"gap"
+																		],
+																		"type": "string"
+																	},
+																	"achievementIds": {
+																		"type": "array",
+																		"items": {
+																			"type": "string"
+																		}
+																	},
+																	"skillIds": {
+																		"type": "array",
+																		"items": {
+																			"type": "string"
+																		}
+																	},
+																	"entryIds": {
+																		"type": "array",
+																		"items": {
+																			"type": "string"
+																		},
+																		"default": []
+																	},
+																	"available": {
+																		"type": "array",
+																		"items": {
+																			"type": "string"
+																		}
+																	}
+																},
+																"required": [
+																	"requirementId",
+																	"status",
+																	"achievementIds",
+																	"skillIds",
+																	"available"
+																]
+															}
+														},
+														"unavailable": {
+															"type": "array",
+															"items": {
+																"type": "object",
+																"properties": {
+																	"id": {
+																		"type": "string"
+																	},
+																	"kind": {
+																		"enum": [
+																			"entry",
+																			"achievement",
+																			"skill"
+																		],
+																		"type": "string"
+																	},
+																	"reason": {
+																		"type": "string"
+																	}
+																},
+																"required": [
+																	"id",
+																	"kind",
+																	"reason"
+																]
+															}
+														},
+														"warnings": {
+															"type": "array",
+															"items": {
+																"type": "string"
+															}
+														},
+														"totals": {
+															"type": "object",
+															"properties": {
+																"entries": {
+																	"type": "number"
+																},
+																"achievements": {
+																	"type": "number"
+																},
+																"skills": {
+																	"type": "number"
+																},
+																"includedEntries": {
+																	"type": "number"
+																},
+																"includedAchievements": {
+																	"type": "number"
+																},
+																"includedSkills": {
+																	"type": "number"
+																}
+															},
+															"required": [
+																"entries",
+																"achievements",
+																"skills",
+																"includedEntries",
+																"includedAchievements",
+																"includedSkills"
+															]
+														}
+													},
+													"required": [
+														"applicationId",
+														"createdAt",
+														"source",
+														"sections",
+														"entries",
+														"standalone",
+														"skills",
+														"coverage",
+														"unavailable",
+														"warnings",
+														"totals"
+													]
+												},
+												"postingText": {
+													"type": "string"
+												},
+												"model": {
+													"type": "string"
+												},
+												"updatedAt": {
+													"type": "string",
+													"format": "date-time",
+													"x-native-type": "date"
+												},
+												"postingChanged": {
+													"type": "boolean"
+												},
+												"profileChanged": {
+													"type": "boolean"
+												}
+											},
+											"required": [
+												"analysis",
+												"plan",
+												"proposed",
+												"postingText",
+												"model",
+												"updatedAt",
+												"postingChanged",
+												"profileChanged"
+											]
+										},
+										{
+											"type": "null"
+										}
+									]
+								}
+							}
+						}
+					},
+					"502": {
+						"description": "502",
+						"content": {
+							"application/json": {
+								"schema": {
+									"oneOf": [
+										{
+											"type": "object",
+											"properties": {
+												"defined": {
+													"const": true
+												},
+												"code": {
+													"const": "BAD_GATEWAY"
+												},
+												"status": {
+													"const": 502
+												},
+												"message": {
+													"type": "string",
+													"default": "The AI provider returned an error or couldn't be reached."
+												},
+												"data": {}
+											},
+											"required": [
+												"defined",
+												"code",
+												"status",
+												"message"
+											]
+										},
+										{
+											"type": "object",
+											"properties": {
+												"defined": {
+													"const": false
+												},
+												"code": {
+													"type": "string"
+												},
+												"status": {
+													"type": "number"
+												},
+												"message": {
+													"type": "string"
+												},
+												"data": {}
+											},
+											"required": [
+												"defined",
+												"code",
+												"status",
+												"message"
+											]
+										}
+									]
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Structured API error. See status and code; do not branch on message text.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"required": [
+										"defined",
+										"code",
+										"status",
+										"message"
+									],
+									"properties": {
+										"defined": {
+											"type": "boolean"
+										},
+										"code": {
+											"type": "string"
+										},
+										"status": {
+											"type": "integer"
+										},
+										"message": {
+											"type": "string"
+										},
+										"data": {}
+									}
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"apiKey": []
+					},
+					{
+						"bearerAuth": []
+					},
+					{
+						"cookieAuth": []
+					}
+				],
+				"x-codeSamples": [
+					{
+						"lang": "bash",
+						"label": "cURL",
+						"source": "curl --request POST \"https://rxresu.me/api/openapi/master-profile/selections/<applicationId>/proposals\" --header \"x-api-key: <api-key>\" --header \"Content-Type: application/json\" --data '{}'"
+					}
+				]
+			}
+		},
+		"/master-profile/selections/{applicationId}/reset": {
+			"post": {
+				"operationId": "resetResumeSelection",
+				"summary": "Discard edits and return to the proposed plan",
+				"tags": [
+					"Master profile"
+				],
+				"parameters": [
+					{
+						"name": "applicationId",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"minLength": 1
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"anyOf": [
+										{
+											"type": "object",
+											"properties": {
+												"analysis": {
+													"type": "object",
+													"properties": {
+														"version": {
+															"const": 1,
+															"default": 1
+														},
+														"title": {
+															"type": "string",
+															"maxLength": 200
+														},
+														"employer": {
+															"type": "string",
+															"maxLength": 200
+														},
+														"seniority": {
+															"enum": [
+																"entry",
+																"junior",
+																"intermediate",
+																"senior",
+																"lead",
+																"manager",
+																"executive",
+																"unknown"
+															],
+															"type": "string"
+														},
+														"summary": {
+															"type": "string",
+															"maxLength": 600,
+															"default": ""
+														},
+														"responsibilities": {
+															"type": "array",
+															"maxItems": 15,
+															"items": {
+																"type": "string",
+																"maxLength": 300
+															},
+															"default": []
+														},
+														"requirements": {
+															"type": "array",
+															"maxItems": 30,
+															"items": {
+																"type": "object",
+																"properties": {
+																	"id": {
+																		"type": "string",
+																		"pattern": "^R\\d+$"
+																	},
+																	"text": {
+																		"type": "string",
+																		"minLength": 1,
+																		"maxLength": 300
+																	},
+																	"kind": {
+																		"enum": [
+																			"responsibility",
+																			"qualification",
+																			"skill",
+																			"domain",
+																			"competency"
+																		],
+																		"type": "string"
+																	},
+																	"necessity": {
+																		"enum": [
+																			"mandatory",
+																			"preferred"
+																		],
+																		"type": "string"
+																	},
+																	"origin": {
+																		"enum": [
+																			"explicit",
+																			"inferred"
+																		],
+																		"type": "string"
+																	},
+																	"importance": {
+																		"type": "integer",
+																		"minimum": 1,
+																		"maximum": 5
+																	},
+																	"terms": {
+																		"type": "array",
+																		"maxItems": 15,
+																		"items": {
+																			"type": "string",
+																			"minLength": 1,
+																			"maxLength": 80
+																		},
+																		"default": []
+																	}
+																},
+																"required": [
+																	"id",
+																	"text",
+																	"kind",
+																	"necessity",
+																	"origin",
+																	"importance"
+																]
+															}
+														},
+														"domain": {
+															"type": "array",
+															"maxItems": 10,
+															"items": {
+																"type": "string",
+																"maxLength": 120
+															},
+															"default": []
+														},
+														"postingHash": {
+															"type": "string"
+														},
+														"analyzedAt": {
+															"type": "string",
+															"format": "date-time"
+														},
+														"model": {
+															"type": "string",
+															"default": ""
+														}
+													},
+													"required": [
+														"title",
+														"employer",
+														"seniority",
+														"requirements",
+														"postingHash",
+														"analyzedAt"
+													]
+												},
+												"plan": {
+													"type": "object",
+													"properties": {
+														"version": {
+															"const": 1,
+															"default": 1
+														},
+														"applicationId": {
+															"type": "string"
+														},
+														"createdAt": {
+															"type": "string",
+															"format": "date-time"
+														},
+														"source": {
+															"enum": [
+																"ai",
+																"ranking"
+															],
+															"type": "string"
+														},
+														"positioning": {
+															"type": "string",
+															"default": ""
+														},
+														"sections": {
+															"type": "array",
+															"items": {
+																"enum": [
+																	"summary",
+																	"skills",
+																	"experience",
+																	"projects",
+																	"volunteer",
+																	"education",
+																	"certifications",
+																	"awards"
+																],
+																"type": "string"
+															}
+														},
+														"entries": {
+															"type": "array",
+															"items": {
+																"type": "object",
+																"properties": {
+																	"entryId": {
+																		"type": "string"
+																	},
+																	"kind": {
+																		"enum": [
+																			"position",
+																			"project",
+																			"education",
+																			"volunteer",
+																			"certification",
+																			"award"
+																		],
+																		"type": "string"
+																	},
+																	"title": {
+																		"type": "string"
+																	},
+																	"organization": {
+																		"type": "string"
+																	},
+																	"startDate": {
+																		"anyOf": [
+																			{
+																				"type": "string"
+																			},
+																			{
+																				"type": "null"
+																			}
+																		]
+																	},
+																	"endDate": {
+																		"anyOf": [
+																			{
+																				"type": "string"
+																			},
+																			{
+																				"type": "null"
+																			}
+																		]
+																	},
+																	"include": {
+																		"type": "boolean"
+																	},
+																	"reason": {
+																		"type": "string"
+																	},
+																	"bulletTarget": {
+																		"type": "integer",
+																		"minimum": 0,
+																		"maximum": 100
+																	},
+																	"requirementIds": {
+																		"type": "array",
+																		"items": {
+																			"type": "string"
+																		},
+																		"default": []
+																	},
+																	"achievements": {
+																		"type": "array",
+																		"items": {
+																			"type": "object",
+																			"properties": {
+																				"achievementId": {
+																					"type": "string"
+																				},
+																				"text": {
+																					"type": "string"
+																				},
+																				"include": {
+																					"type": "boolean"
+																				},
+																				"requirementIds": {
+																					"type": "array",
+																					"items": {
+																						"type": "string"
+																					}
+																				},
+																				"reason": {
+																					"type": "string"
+																				},
+																				"score": {
+																					"type": "object",
+																					"properties": {
+																						"total": {
+																							"type": "number"
+																						},
+																						"alignment": {
+																							"type": "number"
+																						},
+																						"strength": {
+																							"type": "number"
+																						},
+																						"recency": {
+																							"type": "number"
+																						},
+																						"aiRelevance": {
+																							"anyOf": [
+																								{
+																									"type": "number"
+																								},
+																								{
+																									"type": "null"
+																								}
+																							]
+																						}
+																					},
+																					"required": [
+																						"total",
+																						"alignment",
+																						"strength",
+																						"recency",
+																						"aiRelevance"
+																					]
+																				},
+																				"userEdited": {
+																					"type": "boolean",
+																					"default": false
+																				},
+																				"core": {
+																					"type": "boolean",
+																					"default": false
+																				}
+																			},
+																			"required": [
+																				"achievementId",
+																				"text",
+																				"include",
+																				"requirementIds",
+																				"reason",
+																				"score"
+																			]
+																		}
+																	},
+																	"userEdited": {
+																		"type": "boolean",
+																		"default": false
+																	}
+																},
+																"required": [
+																	"entryId",
+																	"kind",
+																	"title",
+																	"organization",
+																	"startDate",
+																	"endDate",
+																	"include",
+																	"reason",
+																	"bulletTarget",
+																	"achievements"
+																]
+															}
+														},
+														"standalone": {
+															"type": "array",
+															"items": {
+																"type": "object",
+																"properties": {
+																	"achievementId": {
+																		"type": "string"
+																	},
+																	"text": {
+																		"type": "string"
+																	},
+																	"include": {
+																		"type": "boolean"
+																	},
+																	"requirementIds": {
+																		"type": "array",
+																		"items": {
+																			"type": "string"
+																		}
+																	},
+																	"reason": {
+																		"type": "string"
+																	},
+																	"score": {
+																		"type": "object",
+																		"properties": {
+																			"total": {
+																				"type": "number"
+																			},
+																			"alignment": {
+																				"type": "number"
+																			},
+																			"strength": {
+																				"type": "number"
+																			},
+																			"recency": {
+																				"type": "number"
+																			},
+																			"aiRelevance": {
+																				"anyOf": [
+																					{
+																						"type": "number"
+																					},
+																					{
+																						"type": "null"
+																					}
+																				]
+																			}
+																		},
+																		"required": [
+																			"total",
+																			"alignment",
+																			"strength",
+																			"recency",
+																			"aiRelevance"
+																		]
+																	},
+																	"userEdited": {
+																		"type": "boolean",
+																		"default": false
+																	},
+																	"core": {
+																		"type": "boolean",
+																		"default": false
+																	}
+																},
+																"required": [
+																	"achievementId",
+																	"text",
+																	"include",
+																	"requirementIds",
+																	"reason",
+																	"score"
+																]
+															}
+														},
+														"skills": {
+															"type": "array",
+															"items": {
+																"type": "object",
+																"properties": {
+																	"skillId": {
+																		"type": "string"
+																	},
+																	"name": {
+																		"type": "string"
+																	},
+																	"category": {
+																		"type": "string"
+																	},
+																	"include": {
+																		"type": "boolean"
+																	},
+																	"requirementIds": {
+																		"type": "array",
+																		"items": {
+																			"type": "string"
+																		}
+																	},
+																	"evidenced": {
+																		"type": "boolean"
+																	},
+																	"reason": {
+																		"type": "string"
+																	},
+																	"userEdited": {
+																		"type": "boolean",
+																		"default": false
+																	}
+																},
+																"required": [
+																	"skillId",
+																	"name",
+																	"category",
+																	"include",
+																	"requirementIds",
+																	"evidenced",
+																	"reason"
+																]
+															}
+														},
+														"coverage": {
+															"type": "array",
+															"items": {
+																"type": "object",
+																"properties": {
+																	"requirementId": {
+																		"type": "string"
+																	},
+																	"status": {
+																		"enum": [
+																			"supported",
+																			"partial",
+																			"gap"
+																		],
+																		"type": "string"
+																	},
+																	"achievementIds": {
+																		"type": "array",
+																		"items": {
+																			"type": "string"
+																		}
+																	},
+																	"skillIds": {
+																		"type": "array",
+																		"items": {
+																			"type": "string"
+																		}
+																	},
+																	"entryIds": {
+																		"type": "array",
+																		"items": {
+																			"type": "string"
+																		},
+																		"default": []
+																	},
+																	"available": {
+																		"type": "array",
+																		"items": {
+																			"type": "string"
+																		}
+																	}
+																},
+																"required": [
+																	"requirementId",
+																	"status",
+																	"achievementIds",
+																	"skillIds",
+																	"available"
+																]
+															}
+														},
+														"unavailable": {
+															"type": "array",
+															"items": {
+																"type": "object",
+																"properties": {
+																	"id": {
+																		"type": "string"
+																	},
+																	"kind": {
+																		"enum": [
+																			"entry",
+																			"achievement",
+																			"skill"
+																		],
+																		"type": "string"
+																	},
+																	"reason": {
+																		"type": "string"
+																	}
+																},
+																"required": [
+																	"id",
+																	"kind",
+																	"reason"
+																]
+															}
+														},
+														"warnings": {
+															"type": "array",
+															"items": {
+																"type": "string"
+															}
+														},
+														"totals": {
+															"type": "object",
+															"properties": {
+																"entries": {
+																	"type": "number"
+																},
+																"achievements": {
+																	"type": "number"
+																},
+																"skills": {
+																	"type": "number"
+																},
+																"includedEntries": {
+																	"type": "number"
+																},
+																"includedAchievements": {
+																	"type": "number"
+																},
+																"includedSkills": {
+																	"type": "number"
+																}
+															},
+															"required": [
+																"entries",
+																"achievements",
+																"skills",
+																"includedEntries",
+																"includedAchievements",
+																"includedSkills"
+															]
+														}
+													},
+													"required": [
+														"applicationId",
+														"createdAt",
+														"source",
+														"sections",
+														"entries",
+														"standalone",
+														"skills",
+														"coverage",
+														"unavailable",
+														"warnings",
+														"totals"
+													]
+												},
+												"proposed": {
+													"type": "object",
+													"properties": {
+														"version": {
+															"const": 1,
+															"default": 1
+														},
+														"applicationId": {
+															"type": "string"
+														},
+														"createdAt": {
+															"type": "string",
+															"format": "date-time"
+														},
+														"source": {
+															"enum": [
+																"ai",
+																"ranking"
+															],
+															"type": "string"
+														},
+														"positioning": {
+															"type": "string",
+															"default": ""
+														},
+														"sections": {
+															"type": "array",
+															"items": {
+																"enum": [
+																	"summary",
+																	"skills",
+																	"experience",
+																	"projects",
+																	"volunteer",
+																	"education",
+																	"certifications",
+																	"awards"
+																],
+																"type": "string"
+															}
+														},
+														"entries": {
+															"type": "array",
+															"items": {
+																"type": "object",
+																"properties": {
+																	"entryId": {
+																		"type": "string"
+																	},
+																	"kind": {
+																		"enum": [
+																			"position",
+																			"project",
+																			"education",
+																			"volunteer",
+																			"certification",
+																			"award"
+																		],
+																		"type": "string"
+																	},
+																	"title": {
+																		"type": "string"
+																	},
+																	"organization": {
+																		"type": "string"
+																	},
+																	"startDate": {
+																		"anyOf": [
+																			{
+																				"type": "string"
+																			},
+																			{
+																				"type": "null"
+																			}
+																		]
+																	},
+																	"endDate": {
+																		"anyOf": [
+																			{
+																				"type": "string"
+																			},
+																			{
+																				"type": "null"
+																			}
+																		]
+																	},
+																	"include": {
+																		"type": "boolean"
+																	},
+																	"reason": {
+																		"type": "string"
+																	},
+																	"bulletTarget": {
+																		"type": "integer",
+																		"minimum": 0,
+																		"maximum": 100
+																	},
+																	"requirementIds": {
+																		"type": "array",
+																		"items": {
+																			"type": "string"
+																		},
+																		"default": []
+																	},
+																	"achievements": {
+																		"type": "array",
+																		"items": {
+																			"type": "object",
+																			"properties": {
+																				"achievementId": {
+																					"type": "string"
+																				},
+																				"text": {
+																					"type": "string"
+																				},
+																				"include": {
+																					"type": "boolean"
+																				},
+																				"requirementIds": {
+																					"type": "array",
+																					"items": {
+																						"type": "string"
+																					}
+																				},
+																				"reason": {
+																					"type": "string"
+																				},
+																				"score": {
+																					"type": "object",
+																					"properties": {
+																						"total": {
+																							"type": "number"
+																						},
+																						"alignment": {
+																							"type": "number"
+																						},
+																						"strength": {
+																							"type": "number"
+																						},
+																						"recency": {
+																							"type": "number"
+																						},
+																						"aiRelevance": {
+																							"anyOf": [
+																								{
+																									"type": "number"
+																								},
+																								{
+																									"type": "null"
+																								}
+																							]
+																						}
+																					},
+																					"required": [
+																						"total",
+																						"alignment",
+																						"strength",
+																						"recency",
+																						"aiRelevance"
+																					]
+																				},
+																				"userEdited": {
+																					"type": "boolean",
+																					"default": false
+																				},
+																				"core": {
+																					"type": "boolean",
+																					"default": false
+																				}
+																			},
+																			"required": [
+																				"achievementId",
+																				"text",
+																				"include",
+																				"requirementIds",
+																				"reason",
+																				"score"
+																			]
+																		}
+																	},
+																	"userEdited": {
+																		"type": "boolean",
+																		"default": false
+																	}
+																},
+																"required": [
+																	"entryId",
+																	"kind",
+																	"title",
+																	"organization",
+																	"startDate",
+																	"endDate",
+																	"include",
+																	"reason",
+																	"bulletTarget",
+																	"achievements"
+																]
+															}
+														},
+														"standalone": {
+															"type": "array",
+															"items": {
+																"type": "object",
+																"properties": {
+																	"achievementId": {
+																		"type": "string"
+																	},
+																	"text": {
+																		"type": "string"
+																	},
+																	"include": {
+																		"type": "boolean"
+																	},
+																	"requirementIds": {
+																		"type": "array",
+																		"items": {
+																			"type": "string"
+																		}
+																	},
+																	"reason": {
+																		"type": "string"
+																	},
+																	"score": {
+																		"type": "object",
+																		"properties": {
+																			"total": {
+																				"type": "number"
+																			},
+																			"alignment": {
+																				"type": "number"
+																			},
+																			"strength": {
+																				"type": "number"
+																			},
+																			"recency": {
+																				"type": "number"
+																			},
+																			"aiRelevance": {
+																				"anyOf": [
+																					{
+																						"type": "number"
+																					},
+																					{
+																						"type": "null"
+																					}
+																				]
+																			}
+																		},
+																		"required": [
+																			"total",
+																			"alignment",
+																			"strength",
+																			"recency",
+																			"aiRelevance"
+																		]
+																	},
+																	"userEdited": {
+																		"type": "boolean",
+																		"default": false
+																	},
+																	"core": {
+																		"type": "boolean",
+																		"default": false
+																	}
+																},
+																"required": [
+																	"achievementId",
+																	"text",
+																	"include",
+																	"requirementIds",
+																	"reason",
+																	"score"
+																]
+															}
+														},
+														"skills": {
+															"type": "array",
+															"items": {
+																"type": "object",
+																"properties": {
+																	"skillId": {
+																		"type": "string"
+																	},
+																	"name": {
+																		"type": "string"
+																	},
+																	"category": {
+																		"type": "string"
+																	},
+																	"include": {
+																		"type": "boolean"
+																	},
+																	"requirementIds": {
+																		"type": "array",
+																		"items": {
+																			"type": "string"
+																		}
+																	},
+																	"evidenced": {
+																		"type": "boolean"
+																	},
+																	"reason": {
+																		"type": "string"
+																	},
+																	"userEdited": {
+																		"type": "boolean",
+																		"default": false
+																	}
+																},
+																"required": [
+																	"skillId",
+																	"name",
+																	"category",
+																	"include",
+																	"requirementIds",
+																	"evidenced",
+																	"reason"
+																]
+															}
+														},
+														"coverage": {
+															"type": "array",
+															"items": {
+																"type": "object",
+																"properties": {
+																	"requirementId": {
+																		"type": "string"
+																	},
+																	"status": {
+																		"enum": [
+																			"supported",
+																			"partial",
+																			"gap"
+																		],
+																		"type": "string"
+																	},
+																	"achievementIds": {
+																		"type": "array",
+																		"items": {
+																			"type": "string"
+																		}
+																	},
+																	"skillIds": {
+																		"type": "array",
+																		"items": {
+																			"type": "string"
+																		}
+																	},
+																	"entryIds": {
+																		"type": "array",
+																		"items": {
+																			"type": "string"
+																		},
+																		"default": []
+																	},
+																	"available": {
+																		"type": "array",
+																		"items": {
+																			"type": "string"
+																		}
+																	}
+																},
+																"required": [
+																	"requirementId",
+																	"status",
+																	"achievementIds",
+																	"skillIds",
+																	"available"
+																]
+															}
+														},
+														"unavailable": {
+															"type": "array",
+															"items": {
+																"type": "object",
+																"properties": {
+																	"id": {
+																		"type": "string"
+																	},
+																	"kind": {
+																		"enum": [
+																			"entry",
+																			"achievement",
+																			"skill"
+																		],
+																		"type": "string"
+																	},
+																	"reason": {
+																		"type": "string"
+																	}
+																},
+																"required": [
+																	"id",
+																	"kind",
+																	"reason"
+																]
+															}
+														},
+														"warnings": {
+															"type": "array",
+															"items": {
+																"type": "string"
+															}
+														},
+														"totals": {
+															"type": "object",
+															"properties": {
+																"entries": {
+																	"type": "number"
+																},
+																"achievements": {
+																	"type": "number"
+																},
+																"skills": {
+																	"type": "number"
+																},
+																"includedEntries": {
+																	"type": "number"
+																},
+																"includedAchievements": {
+																	"type": "number"
+																},
+																"includedSkills": {
+																	"type": "number"
+																}
+															},
+															"required": [
+																"entries",
+																"achievements",
+																"skills",
+																"includedEntries",
+																"includedAchievements",
+																"includedSkills"
+															]
+														}
+													},
+													"required": [
+														"applicationId",
+														"createdAt",
+														"source",
+														"sections",
+														"entries",
+														"standalone",
+														"skills",
+														"coverage",
+														"unavailable",
+														"warnings",
+														"totals"
+													]
+												},
+												"postingText": {
+													"type": "string"
+												},
+												"model": {
+													"type": "string"
+												},
+												"updatedAt": {
+													"type": "string",
+													"format": "date-time",
+													"x-native-type": "date"
+												},
+												"postingChanged": {
+													"type": "boolean"
+												},
+												"profileChanged": {
+													"type": "boolean"
+												}
+											},
+											"required": [
+												"analysis",
+												"plan",
+												"proposed",
+												"postingText",
+												"model",
+												"updatedAt",
+												"postingChanged",
+												"profileChanged"
+											]
+										},
+										{
+											"type": "null"
+										}
+									]
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Structured API error. See status and code; do not branch on message text.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"required": [
+										"defined",
+										"code",
+										"status",
+										"message"
+									],
+									"properties": {
+										"defined": {
+											"type": "boolean"
+										},
+										"code": {
+											"type": "string"
+										},
+										"status": {
+											"type": "integer"
+										},
+										"message": {
+											"type": "string"
+										},
+										"data": {}
+									}
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"apiKey": []
+					},
+					{
+						"bearerAuth": []
+					},
+					{
+						"cookieAuth": []
+					}
+				],
+				"x-codeSamples": [
+					{
+						"lang": "bash",
+						"label": "cURL",
+						"source": "curl --request POST \"https://rxresu.me/api/openapi/master-profile/selections/<applicationId>/reset\" --header \"x-api-key: <api-key>\""
+					}
+				]
+			}
+		},
 		"/master-profile/assemble": {
 			"post": {
 				"operationId": "assembleResumeFromProfile",
@@ -62957,6 +67723,9 @@
 										"type": "string",
 										"minLength": 1,
 										"maxLength": 200
+									},
+									"usePlan": {
+										"type": "boolean"
 									}
 								},
 								"required": [

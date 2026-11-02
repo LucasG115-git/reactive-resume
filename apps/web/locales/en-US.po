@@ -223,6 +223,11 @@ msgstr "{0, plural, one {# new story} other {# new stories}}"
 msgid "{0, plural, one {# proposed edit} other {# proposed edits}}"
 msgstr "{0, plural, one {# proposed edit} other {# proposed edits}}"
 
+#. placeholder {0}: plan.unavailable.length
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "{0, plural, one {# record is hidden, switched off in Knowledge, or private to another application, so it wasn't considered.} other {# records are hidden, switched off in Knowledge, or private to another application, so they weren't considered.}}"
+msgstr "{0, plural, one {# record is hidden, switched off in Knowledge, or private to another application, so it wasn't considered.} other {# records are hidden, switched off in Knowledge, or private to another application, so they weren't considered.}}"
+
 #. placeholder {0}: result.skipped
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "{0, plural, one {# row has no company or role and will be skipped.} other {# rows have no company or role and will be skipped.}}"
@@ -433,6 +438,12 @@ msgstr "{0} more"
 #: src/features/career/knowledge/profile-knowledge-sync.tsx
 msgid "{0} new facts"
 msgstr "{0} new facts"
+
+#. placeholder {0}: included.length
+#. placeholder {1}: entry.achievements.length
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "{0} of {1} achievements"
+msgstr "{0} of {1} achievements"
 
 #. placeholder {0}: report.passedChecks
 #. placeholder {1}: report.applicableChecks
@@ -676,6 +687,10 @@ msgstr "{failing, plural, one {# to review} other {# to review}}"
 #: src/features/career/knowledge/stories.tsx
 msgid "{filled} of 5 parts"
 msgstr "{filled} of 5 parts"
+
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "{hiddenCount, plural, one {Show # more achievement} other {Show # more achievements}}"
+msgstr "{hiddenCount, plural, one {Show # more achievement} other {Show # more achievements}}"
 
 #: src/features/ats-checker/checker.tsx
 msgid "{issues, plural, one {# issue could cost you a match.} other {# issues could cost you a match.}}"
@@ -1112,6 +1127,11 @@ msgstr "A must-have rules a role out only when the posting confirms it isn't met
 #: src/features/settings/account/security.tsx
 msgid "A name helps you tell passkeys apart, like “Work laptop”."
 msgstr "A name helps you tell passkeys apart, like “Work laptop”."
+
+#. placeholder {0}: application.company
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "A new resume for {0} is built from the selection you reviewed. With \"Adjust to the posting\", your AI connection words the bullets and writes a summary; the selected records and the posting are sent to it."
+msgstr "A new resume for {0} is built from the selection you reviewed. With \"Adjust to the posting\", your AI connection words the bullets and writes a summary; the selected records and the posting are sent to it."
 
 #: src/features/ats-checker/messages.ts
 msgid "A numeric date reads differently in different countries."
@@ -1964,6 +1984,18 @@ msgstr "an error"
 msgid "An unexpected error stopped this page from loading. Try again, or go to the dashboard."
 msgstr "An unexpected error stopped this page from loading. Try again, or go to the dashboard."
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Analyse again"
+msgstr "Analyse again"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Analyse the posting"
+msgstr "Analyse the posting"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Analysing the posting and reviewing your profile…"
+msgstr "Analysing the posting and reviewing your profile…"
+
 #. Hero headline, line 3 of 4: A free, open-source / resume builder / and / career manager.
 #: src/features/homepage/hero.tsx
 msgctxt "hero headline"
@@ -2344,10 +2376,6 @@ msgid "Assemble from profile"
 msgstr "Assemble from profile"
 
 #: src/features/applications/components/detail/assemble-dialog.tsx
-msgid "Assemble from your profile"
-msgstr "Assemble from your profile"
-
-#: src/features/applications/components/detail/assemble-dialog.tsx
 msgid "Assemble resume"
 msgstr "Assemble resume"
 
@@ -2464,6 +2492,7 @@ msgstr "Awarded by"
 msgid "Awarder"
 msgstr "Awarder"
 
+#: src/features/applications/components/detail/selection-review.tsx
 #: src/libs/resume/section.tsx
 msgid "Awards"
 msgstr "Awards"
@@ -2516,6 +2545,10 @@ msgstr "Back to sign in"
 #: src/features/career/knowledge/stories.tsx
 msgid "Back to stories"
 msgstr "Back to stories"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Back to the selection"
+msgstr "Back to the selection"
 
 #: src/features/applications/components/detail/assemble-dialog.tsx
 msgid "Backed"
@@ -2686,6 +2719,10 @@ msgstr "Build a professional resume, download it as PDF or Word, and manage your
 msgid "Build a resume for a job"
 msgstr "Build a resume for a job"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Build the resume"
+msgstr "Build the resume"
+
 #: src/features/homepage/ui.tsx
 #: src/features/templates/gallery.tsx
 msgid "Build your resume"
@@ -2808,6 +2845,7 @@ msgstr "Category"
 msgid "Certification"
 msgstr "Certification"
 
+#: src/features/applications/components/detail/selection-review.tsx
 #: src/libs/resume/section.tsx
 msgid "Certifications"
 msgstr "Certifications"
@@ -3102,6 +3140,10 @@ msgstr "Choose another file"
 #: src/components/input/color-picker.tsx
 msgid "Choose color"
 msgstr "Choose color"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Choose what to include"
+msgstr "Choose what to include"
 
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Choose where each stage named in the file goes, or add it as a new stage."
@@ -3680,6 +3722,10 @@ msgid "Couldn't add the passkey. Try again."
 msgstr "Couldn't add the passkey. Try again."
 
 #: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Couldn't analyse the posting. Try again."
+msgstr "Couldn't analyse the posting. Try again."
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
 msgid "Couldn't assemble the resume. Try again."
 msgstr "Couldn't assemble the resume. Try again."
 
@@ -4027,6 +4073,10 @@ msgstr "Couldn't reset your password. Try again."
 msgid "Couldn't restore the document. Try again."
 msgstr "Couldn't restore the document. Try again."
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Couldn't restore the proposal. Try again."
+msgstr "Couldn't restore the proposal. Try again."
+
 #: src/features/settings/ai/api-keys.tsx
 msgid "Couldn't revoke the key. Try again."
 msgstr "Couldn't revoke the key. Try again."
@@ -4125,6 +4175,10 @@ msgstr "Couldn't save your changes. Try again."
 #: src/features/career/knowledge/preferences.tsx
 msgid "Couldn't save your preferences. Try again."
 msgstr "Couldn't save your preferences. Try again."
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Couldn't save your selection. Try again."
+msgstr "Couldn't save your selection. Try again."
 
 #: src/features/applications/components/manage-lanes-sheet.tsx
 msgid "Couldn't save your stages. Try again."
@@ -5310,6 +5364,7 @@ msgstr "Editor views"
 msgid "Editorial"
 msgstr "Editorial"
 
+#: src/features/applications/components/detail/selection-review.tsx
 #: src/features/career/knowledge/profile.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
@@ -6055,6 +6110,14 @@ msgstr "from your earlier settings"
 msgid "From your experience entries"
 msgstr "From your experience entries"
 
+#. placeholder {0}: plan.totals.entries
+#. placeholder {1}: plan.totals.achievements
+#. placeholder {2}: plan.totals.includedEntries
+#. placeholder {3}: plan.totals.includedAchievements
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "From your full record of {0, plural, one {# entry} other {# entries}} and {1, plural, one {# achievement} other {# achievements}}, this resume uses {2, plural, one {# entry} other {# entries}} and {3, plural, one {# achievement} other {# achievements}}."
+msgstr "From your full record of {0, plural, one {# entry} other {# entries}} and {1, plural, one {# achievement} other {# achievements}}, this resume uses {2, plural, one {# entry} other {# entries}} and {3, plural, one {# achievement} other {# achievements}}."
+
 #: src/features/career/knowledge/facts.tsx
 msgid "From your message"
 msgstr "From your message"
@@ -6608,6 +6671,11 @@ msgstr "Import this file into a free Reactive Resume. Every issue is waiting for
 msgid "Import your current resume and we'll lay out every section for you to refine. Or start fresh. Start with your name. Build from there."
 msgstr "Import your current resume and we'll lay out every section for you to refine. Or start fresh. Start with your name. Build from there."
 
+#. placeholder {0}: requirement.importance
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "importance {0} of 5"
+msgstr "importance {0} of 5"
+
 #: src/features/documents/new-document-dialog.tsx
 #: src/features/resume/share/format.ts
 msgid "Imported"
@@ -6664,6 +6732,10 @@ msgstr "Industry, organization type, mission, size, benefits, employment type…
 #: src/features/career/workspace/fit.tsx
 msgid "Inferred"
 msgstr "Inferred"
+
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "inferred from the duties"
+msgstr "inferred from the duties"
 
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Inline"
@@ -7242,6 +7314,10 @@ msgstr "Leave it empty to use the original title."
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Leave out"
 msgstr "Leave out"
+
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "Leaving a position off this resume doesn't change your dates or your profile. When an application form asks for your full employment history, list every position."
+msgstr "Leaving a position off this resume doesn't change your dates or your profile. When an application form asks for your full employment history, list every position."
 
 #: src/features/homepage/sheet.tsx
 msgid "Led <0>user research</0> for the onboarding redesign; activation rose from 31% to 44%."
@@ -8035,6 +8111,7 @@ msgstr "Move {label} up"
 msgid "Move all content inside the page boundaries and re-export."
 msgstr "Move all content inside the page boundaries and re-export."
 
+#: src/features/applications/components/detail/selection-review.tsx
 #: src/features/career/knowledge/structured-preferences.tsx
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Move down"
@@ -8098,6 +8175,7 @@ msgstr "Move to Trash"
 msgid "Move to…"
 msgstr "Move to…"
 
+#: src/features/applications/components/detail/selection-review.tsx
 #: src/features/career/knowledge/structured-preferences.tsx
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Move up"
@@ -8376,6 +8454,10 @@ msgstr "Next step: {0}. Adds a reminder to Today."
 msgid "Next time, I’d agree how to measure success before the first prototype."
 msgstr "Next time, I’d agree how to measure success before the first prototype."
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Next: build the resume"
+msgstr "Next: build the resume"
+
 #: src/features/career/knowledge/structured-preferences.tsx
 #: src/features/career/preference-check.tsx
 msgid "Nice to have"
@@ -8443,6 +8525,10 @@ msgstr "No corrections"
 #: src/features/career/knowledge/search-regions-field.tsx
 msgid "No country matches."
 msgstr "No country matches."
+
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "No dates"
+msgstr "No dates"
 
 #: src/features/ats-checker/messages.ts
 msgid "No dates were found."
@@ -8629,6 +8715,10 @@ msgstr "No text could be read from this file."
 #: src/features/settings/preferences.tsx
 msgid "No timezone matches."
 msgstr "No timezone matches."
+
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "No verified evidence"
+msgstr "No verified evidence"
 
 #: src/features/resume/editor/check/issues.ts
 msgid "No work experience shows"
@@ -8840,6 +8930,10 @@ msgstr "Nothing is applied for or created until you choose."
 #: src/features/career/knowledge/profile-file.tsx
 msgid "Nothing is saved until you choose Add to profile. Anything already in your profile is skipped."
 msgstr "Nothing is saved until you choose Add to profile. Anything already in your profile is skipped."
+
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "Nothing is written for a requirement without evidence. If you have done it, add it to your profile and propose again."
+msgstr "Nothing is written for a requirement without evidence. If you have done it, add it to your profile and propose again."
 
 #: src/features/ats-checker/messages.ts
 msgid "Nothing marks a role as ongoing."
@@ -9368,6 +9462,7 @@ msgstr "Parcel & Co. · Porto"
 msgid "Partly backed"
 msgstr "Partly backed"
 
+#: src/features/applications/components/detail/selection-review.tsx
 #: src/features/career/shared.tsx
 #: src/features/homepage/prepare.tsx
 msgid "Partly supported"
@@ -9773,6 +9868,7 @@ msgctxt "Career preferences: the roles, places, pay and ways of working you want
 msgid "Preferences"
 msgstr "Preferences"
 
+#: src/features/applications/components/detail/selection-review.tsx
 #: src/features/career/knowledge/structured-preferences.tsx
 msgid "Preferred"
 msgstr "Preferred"
@@ -9820,6 +9916,10 @@ msgstr "Preparing resume for printing…"
 #: src/features/resume/editor/chrome/bar.tsx
 msgid "Preparing…"
 msgstr "Preparing…"
+
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "present"
+msgstr "present"
 
 #: src/features/career/knowledge/profile.tsx
 #: src/features/resume/editor/write/dates-field.tsx
@@ -9956,6 +10056,7 @@ msgstr "Progress bar"
 msgid "Project name"
 msgstr "Project name"
 
+#: src/features/applications/components/detail/selection-review.tsx
 #: src/libs/resume/section.tsx
 msgid "Projects"
 msgstr "Projects"
@@ -9973,6 +10074,10 @@ msgstr "Prompt copied with {0} facts. Paste it into Claude or ChatGPT."
 msgid "Prompt copied. Paste it into Claude or ChatGPT."
 msgstr "Prompt copied. Paste it into Claude or ChatGPT."
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Propose again"
+msgstr "Propose again"
+
 #: src/features/career/workspace/messages.tsx
 msgid "Proposed changes"
 msgstr "Proposed changes"
@@ -9980,6 +10085,10 @@ msgstr "Proposed changes"
 #: src/features/resume/editor/proposals/proposal-list.tsx
 msgid "Proposed edits"
 msgstr "Proposed edits"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Proposed from your whole profile for this posting. Include or leave out entries and achievements, and reorder bullets. Your profile itself doesn't change."
+msgstr "Proposed from your whole profile for this posting. Include or leave out entries and achievements, and reorder bullets. Your profile itself doesn't change."
 
 #: src/features/resume/builder/password-dialog.tsx
 msgid "Protect your resume with a password"
@@ -10712,6 +10821,10 @@ msgstr "Report a bug"
 msgid "Require a password"
 msgstr "Require a password"
 
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "Required"
+msgstr "Required"
+
 #: src/features/career/workspace/fit.tsx
 msgid "Requirement"
 msgstr "Requirement"
@@ -10760,6 +10873,10 @@ msgstr "Responsible for the design system and helping other teams with their des
 #: src/features/documents/document-actions.tsx
 msgid "Restore"
 msgstr "Restore"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Restore the proposal"
+msgstr "Restore the proposal"
 
 #: src/features/resume/share/history-tab.tsx
 msgid "Restore this version"
@@ -11856,6 +11973,10 @@ msgstr "Show link in title"
 msgid "Show on page"
 msgstr "Show on page"
 
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "Show only the included achievements"
+msgstr "Show only the included achievements"
+
 #: src/features/resume/editor/chrome.tsx
 msgid "Show panel"
 msgstr "Show panel"
@@ -12054,6 +12175,10 @@ msgstr "Skills"
 #: src/features/career/knowledge/profile.tsx
 msgid "Skills shown, comma separated"
 msgstr "Skills shown, comma separated"
+
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "Skills to list"
+msgstr "Skills to list"
 
 #: src/features/assistant/tool-approvals.tsx
 #: src/features/career/workspace/apply.tsx
@@ -12548,6 +12673,7 @@ msgstr "Summary (scope, team size, what the role was for)"
 msgid "Support"
 msgstr "Support"
 
+#: src/features/applications/components/detail/selection-review.tsx
 #: src/features/career/shared.tsx
 #: src/features/career/workspace/debrief.tsx
 #: src/features/homepage/prepare.tsx
@@ -13097,6 +13223,10 @@ msgstr "The pages are pictures, with no text behind them."
 msgid "The posting asks for “{label}”. If it's true for me, work it into my resume where it fits. Ask me first."
 msgstr "The posting asks for “{label}”. If it's true for me, work it into my resume where it fits. Ask me first."
 
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "The posting changed since this was analysed. Analyse it again to update the requirements."
+msgstr "The posting changed since this was analysed. Analyse it again to update the requirements."
+
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "The posting couldn't be read. Fill in the role and company."
 msgstr "The posting couldn't be read. Fill in the role and company."
@@ -13268,8 +13398,8 @@ msgid "This application has no posting saved yet. Paste it to match against it."
 msgstr "This application has no posting saved yet. Paste it to match against it."
 
 #: src/features/applications/components/detail/assemble-dialog.tsx
-msgid "This application has no posting text saved, so there's little to match against. Add the posting to the application first for a better result."
-msgstr "This application has no posting text saved, so there's little to match against. Add the posting to the application first for a better result."
+msgid "This application has no posting saved. Add the posting to the application first."
+msgstr "This application has no posting saved. Add the posting to the application first."
 
 #: src/features/career/knowledge/structured-preferences.tsx
 msgid "this area"
@@ -13451,6 +13581,10 @@ msgstr "This resume was updated by an AI agent."
 #: src/features/resume/builder/draft.ts
 msgid "This resume's sharing settings changed elsewhere."
 msgstr "This resume's sharing settings changed elsewhere."
+
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "This role"
+msgstr "This role"
 
 #: src/features/career/knowledge/structured-preferences.tsx
 msgid "This rule isn't saved until then."
@@ -14413,6 +14547,10 @@ msgstr "Voice settings"
 msgid "Volunteer"
 msgstr "Volunteer"
 
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "Volunteer work"
+msgstr "Volunteer work"
+
 #: src/features/career/workspace/messages.tsx
 msgid "Waiting for you"
 msgstr "Waiting for you"
@@ -14609,6 +14747,10 @@ msgstr "What the file-level check found in the PDF you'd send. It ran in this ta
 msgid "What the posting asks for"
 msgstr "What the posting asks for"
 
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "What the posting needs, most important first"
+msgstr "What the posting needs, most important first"
+
 #: src/features/applications/components/interview-dialog.tsx
 msgid "What they asked you to prepare"
 msgstr "What they asked you to prepare"
@@ -14795,6 +14937,10 @@ msgstr "Wording"
 #: src/features/ats-checker/messages.ts
 msgid "Words run together when the text is extracted."
 msgstr "Words run together when the text is extracted."
+
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "Work experience"
+msgstr "Work experience"
 
 #: src/features/career/workspace/prepare.tsx
 msgid "Works without AI or new research"
@@ -15058,10 +15204,9 @@ msgstr "your AI connection"
 msgid "Your AI connection"
 msgstr "Your AI connection"
 
-#. placeholder {0}: application.company
 #: src/features/applications/components/detail/assemble-dialog.tsx
-msgid "Your AI connection picks the achievements and skills from your master profile that best match this posting, and builds a new resume for {0} from them. Your profile, the posting and the base resume's text are sent to that connection."
-msgstr "Your AI connection picks the achievements and skills from your master profile that best match this posting, and builds a new resume for {0} from them. Your profile, the posting and the base resume's text are sent to that connection."
+msgid "Your AI connection analyses the posting into ranked requirements, then reviews the strongest evidence from your whole master profile. You check the selection before anything is written. The posting and your profile are sent to that connection."
+msgstr "Your AI connection analyses the posting into ranked requirements, then reviews the strongest evidence from your whole master profile. You check the selection before anything is written. The posting and your profile are sent to that connection."
 
 #: src/features/career/workspace/practise.tsx
 msgid "Your answer"
@@ -15112,6 +15257,10 @@ msgstr "Your bullets are drawn with unusual characters."
 #: src/routes/builder/letter/-components/letter-shell.tsx
 msgid "Your changes are saved automatically."
 msgstr "Your changes are saved automatically."
+
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "your choice"
+msgstr "your choice"
 
 #: src/features/ats-checker/messages.ts
 msgid "Your contact details are not on the first page."
@@ -15248,6 +15397,14 @@ msgstr "Your phone number is written in an unusual shape."
 #: src/features/career/coach.tsx
 msgid "your preferences"
 msgstr "your preferences"
+
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "Your profile changed since this was proposed. Propose again to consider new records."
+msgstr "Your profile changed since this was proposed. Propose again to consider new records."
+
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "your profile has evidence that isn't included"
+msgstr "your profile has evidence that isn't included"
 
 #: src/features/assistant/assistant-panel.tsx
 msgid "your provider"

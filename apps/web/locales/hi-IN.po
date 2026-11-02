@@ -228,6 +228,11 @@ msgstr ""
 msgid "{0, plural, one {# proposed edit} other {# proposed edits}}"
 msgstr "{0, plural, one {# प्रस्तावित संपादन} other {# प्रस्तावित संपादन}}"
 
+#. placeholder {0}: plan.unavailable.length
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "{0, plural, one {# record is hidden, switched off in Knowledge, or private to another application, so it wasn't considered.} other {# records are hidden, switched off in Knowledge, or private to another application, so they weren't considered.}}"
+msgstr ""
+
 #. placeholder {0}: result.skipped
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "{0, plural, one {# row has no company or role and will be skipped.} other {# rows have no company or role and will be skipped.}}"
@@ -437,6 +442,12 @@ msgstr "{0} ज़्यादा"
 #. placeholder {0}: result.added
 #: src/features/career/knowledge/profile-knowledge-sync.tsx
 msgid "{0} new facts"
+msgstr ""
+
+#. placeholder {0}: included.length
+#. placeholder {1}: entry.achievements.length
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "{0} of {1} achievements"
 msgstr ""
 
 #. placeholder {0}: report.passedChecks
@@ -681,6 +692,10 @@ msgstr "{failing, plural, one {# समीक्षा करने के ल�
 #: src/features/career/knowledge/stories.tsx
 msgid "{filled} of 5 parts"
 msgstr "5 में से {filled} हिस्से"
+
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "{hiddenCount, plural, one {Show # more achievement} other {Show # more achievements}}"
+msgstr ""
 
 #: src/features/ats-checker/checker.tsx
 msgid "{issues, plural, one {# issue could cost you a match.} other {# issues could cost you a match.}}"
@@ -1117,6 +1132,11 @@ msgstr ""
 #: src/features/settings/account/security.tsx
 msgid "A name helps you tell passkeys apart, like “Work laptop”."
 msgstr "नाम से आप पासकीज़ में अंतर कर पाते हैं, जैसे “कार्य लैपटॉप”।"
+
+#. placeholder {0}: application.company
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "A new resume for {0} is built from the selection you reviewed. With \"Adjust to the posting\", your AI connection words the bullets and writes a summary; the selected records and the posting are sent to it."
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "A numeric date reads differently in different countries."
@@ -1969,6 +1989,18 @@ msgstr "एक गलती"
 msgid "An unexpected error stopped this page from loading. Try again, or go to the dashboard."
 msgstr "एक अप्रत्याशित त्रुटि के कारण यह पृष्ठ लोड नहीं हो सका। पुनः प्रयास करें, या डैशबोर्ड पर जाएँ।"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Analyse again"
+msgstr ""
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Analyse the posting"
+msgstr ""
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Analysing the posting and reviewing your profile…"
+msgstr ""
+
 #. Hero headline, line 3 of 4: A free, open-source / resume builder / and / career manager.
 #: src/features/homepage/hero.tsx
 msgctxt "hero headline"
@@ -2349,10 +2381,6 @@ msgid "Assemble from profile"
 msgstr ""
 
 #: src/features/applications/components/detail/assemble-dialog.tsx
-msgid "Assemble from your profile"
-msgstr ""
-
-#: src/features/applications/components/detail/assemble-dialog.tsx
 msgid "Assemble resume"
 msgstr ""
 
@@ -2469,6 +2497,7 @@ msgstr ""
 msgid "Awarder"
 msgstr "पुरस्कार देने वाला"
 
+#: src/features/applications/components/detail/selection-review.tsx
 #: src/libs/resume/section.tsx
 msgid "Awards"
 msgstr "पुरस्कार"
@@ -2521,6 +2550,10 @@ msgstr "साइन इन पर वापस जाएँ"
 #: src/features/career/knowledge/stories.tsx
 msgid "Back to stories"
 msgstr "कहानियों पर वापस जाएँ"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Back to the selection"
+msgstr ""
 
 #: src/features/applications/components/detail/assemble-dialog.tsx
 msgid "Backed"
@@ -2691,6 +2724,10 @@ msgstr "एक पेशेवर सीवी बनाएं, इसे PDF �
 msgid "Build a resume for a job"
 msgstr ""
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Build the resume"
+msgstr ""
+
 #: src/features/homepage/ui.tsx
 #: src/features/templates/gallery.tsx
 msgid "Build your resume"
@@ -2813,6 +2850,7 @@ msgstr ""
 msgid "Certification"
 msgstr ""
 
+#: src/features/applications/components/detail/selection-review.tsx
 #: src/libs/resume/section.tsx
 msgid "Certifications"
 msgstr "प्रमाणपत्र"
@@ -3107,6 +3145,10 @@ msgstr "कोई अन्य फ़ाइल चुनें"
 #: src/components/input/color-picker.tsx
 msgid "Choose color"
 msgstr "रंग पसंद करो"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Choose what to include"
+msgstr ""
 
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Choose where each stage named in the file goes, or add it as a new stage."
@@ -3685,6 +3727,10 @@ msgid "Couldn't add the passkey. Try again."
 msgstr "पासकी नहीं जोड़ा जा सका. पुनः प्रयास करें।"
 
 #: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Couldn't analyse the posting. Try again."
+msgstr ""
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
 msgid "Couldn't assemble the resume. Try again."
 msgstr ""
 
@@ -4032,6 +4078,10 @@ msgstr "आपका पासवर्ड रीसेट नहीं हो �
 msgid "Couldn't restore the document. Try again."
 msgstr "दस्तावेज़ पुनर्स्थापित नहीं किया जा सका। पुनः प्रयास करें।"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Couldn't restore the proposal. Try again."
+msgstr ""
+
 #: src/features/settings/ai/api-keys.tsx
 msgid "Couldn't revoke the key. Try again."
 msgstr "कुंजी रद्द नहीं की जा सकी। पुनः प्रयास करें।"
@@ -4130,6 +4180,10 @@ msgstr "आपके बदलाव सहेजे नहीं जा सक�
 #: src/features/career/knowledge/preferences.tsx
 msgid "Couldn't save your preferences. Try again."
 msgstr "आपकी प्राथमिकताएँ सहेजी नहीं जा सकीं। पुनः प्रयास करें।"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Couldn't save your selection. Try again."
+msgstr ""
 
 #: src/features/applications/components/manage-lanes-sheet.tsx
 msgid "Couldn't save your stages. Try again."
@@ -5315,6 +5369,7 @@ msgstr "संपादक के विचार"
 msgid "Editorial"
 msgstr "संपादकीय"
 
+#: src/features/applications/components/detail/selection-review.tsx
 #: src/features/career/knowledge/profile.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
@@ -6060,6 +6115,14 @@ msgstr ""
 msgid "From your experience entries"
 msgstr "आपके अनुभव प्रविष्टियों से"
 
+#. placeholder {0}: plan.totals.entries
+#. placeholder {1}: plan.totals.achievements
+#. placeholder {2}: plan.totals.includedEntries
+#. placeholder {3}: plan.totals.includedAchievements
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "From your full record of {0, plural, one {# entry} other {# entries}} and {1, plural, one {# achievement} other {# achievements}}, this resume uses {2, plural, one {# entry} other {# entries}} and {3, plural, one {# achievement} other {# achievements}}."
+msgstr ""
+
 #: src/features/career/knowledge/facts.tsx
 msgid "From your message"
 msgstr "आपके संदेश से"
@@ -6613,6 +6676,11 @@ msgstr "इस फ़ाइल को निःशुल्क Reactive Resume �
 msgid "Import your current resume and we'll lay out every section for you to refine. Or start fresh. Start with your name. Build from there."
 msgstr "अपना वर्तमान बायोडाटा आयात करें और हम आपके लिए प्रत्येक अनुभाग को परिष्कृत करेंगे। या फिर नए सिरे से शुरुआत करें. अपने नाम से शुरू करें. वहां से निर्माण करें."
 
+#. placeholder {0}: requirement.importance
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "importance {0} of 5"
+msgstr ""
+
 #: src/features/documents/new-document-dialog.tsx
 #: src/features/resume/share/format.ts
 msgid "Imported"
@@ -6669,6 +6737,10 @@ msgstr ""
 #: src/features/career/workspace/fit.tsx
 msgid "Inferred"
 msgstr "अनुमानित"
+
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "inferred from the duties"
+msgstr ""
 
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Inline"
@@ -7247,6 +7319,10 @@ msgstr "मूल शीर्षक इस्तेमाल करने क�
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Leave out"
 msgstr "चोर दिया"
+
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "Leaving a position off this resume doesn't change your dates or your profile. When an application form asks for your full employment history, list every position."
+msgstr ""
 
 #: src/features/homepage/sheet.tsx
 msgid "Led <0>user research</0> for the onboarding redesign; activation rose from 31% to 44%."
@@ -8040,6 +8116,7 @@ msgstr "{label} को ऊपर ले जाएँ"
 msgid "Move all content inside the page boundaries and re-export."
 msgstr "सारी सामग्री पेज की सीमाओं के भीतर लाएँ और दोबारा एक्सपोर्ट करें।"
 
+#: src/features/applications/components/detail/selection-review.tsx
 #: src/features/career/knowledge/structured-preferences.tsx
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Move down"
@@ -8103,6 +8180,7 @@ msgstr "ट्रैश में ले जाएं"
 msgid "Move to…"
 msgstr "करने के लिए कदम…"
 
+#: src/features/applications/components/detail/selection-review.tsx
 #: src/features/career/knowledge/structured-preferences.tsx
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Move up"
@@ -8381,6 +8459,10 @@ msgstr "अगला कदम: {0}। \"आज\" में एक रिमा�
 msgid "Next time, I’d agree how to measure success before the first prototype."
 msgstr "अगली बार, मैं पहले प्रोटोटाइप से पहले तय कर लेता कि सफलता कैसे मापनी है।"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Next: build the resume"
+msgstr ""
+
 #: src/features/career/knowledge/structured-preferences.tsx
 #: src/features/career/preference-check.tsx
 msgid "Nice to have"
@@ -8448,6 +8530,10 @@ msgstr "कोई सुधार नहीं"
 #: src/features/career/knowledge/search-regions-field.tsx
 msgid "No country matches."
 msgstr "कोई देश नहीं मिला."
+
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "No dates"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "No dates were found."
@@ -8634,6 +8720,10 @@ msgstr "इस फ़ाइल से कोई टेक्स्ट पढ़�
 #: src/features/settings/preferences.tsx
 msgid "No timezone matches."
 msgstr "कोई समय क्षेत्र मेल नहीं खाता।"
+
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "No verified evidence"
+msgstr ""
 
 #: src/features/resume/editor/check/issues.ts
 msgid "No work experience shows"
@@ -8844,6 +8934,10 @@ msgstr "जब तक आप न चुनें, न कोई आवेदन 
 
 #: src/features/career/knowledge/profile-file.tsx
 msgid "Nothing is saved until you choose Add to profile. Anything already in your profile is skipped."
+msgstr ""
+
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "Nothing is written for a requirement without evidence. If you have done it, add it to your profile and propose again."
 msgstr ""
 
 #: src/features/ats-checker/messages.ts
@@ -9373,6 +9467,7 @@ msgstr "Parcel & Co. · Porto"
 msgid "Partly backed"
 msgstr ""
 
+#: src/features/applications/components/detail/selection-review.tsx
 #: src/features/career/shared.tsx
 #: src/features/homepage/prepare.tsx
 msgid "Partly supported"
@@ -9778,6 +9873,7 @@ msgctxt "Career preferences: the roles, places, pay and ways of working you want
 msgid "Preferences"
 msgstr "प्राथमिकताएँ"
 
+#: src/features/applications/components/detail/selection-review.tsx
 #: src/features/career/knowledge/structured-preferences.tsx
 msgid "Preferred"
 msgstr ""
@@ -9825,6 +9921,10 @@ msgstr "रेज़्यूमे प्रिंट करने के ल�
 #: src/features/resume/editor/chrome/bar.tsx
 msgid "Preparing…"
 msgstr "तैयारी हो रही है..."
+
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "present"
+msgstr ""
 
 #: src/features/career/knowledge/profile.tsx
 #: src/features/resume/editor/write/dates-field.tsx
@@ -9961,6 +10061,7 @@ msgstr "प्रगति पट्टी"
 msgid "Project name"
 msgstr ""
 
+#: src/features/applications/components/detail/selection-review.tsx
 #: src/libs/resume/section.tsx
 msgid "Projects"
 msgstr "प्रोजेक्ट्स"
@@ -9978,6 +10079,10 @@ msgstr ""
 msgid "Prompt copied. Paste it into Claude or ChatGPT."
 msgstr ""
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Propose again"
+msgstr ""
+
 #: src/features/career/workspace/messages.tsx
 msgid "Proposed changes"
 msgstr "प्रस्तावित बदलाव"
@@ -9985,6 +10090,10 @@ msgstr "प्रस्तावित बदलाव"
 #: src/features/resume/editor/proposals/proposal-list.tsx
 msgid "Proposed edits"
 msgstr "प्रस्तावित संपादन"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Proposed from your whole profile for this posting. Include or leave out entries and achievements, and reorder bullets. Your profile itself doesn't change."
+msgstr ""
 
 #: src/features/resume/builder/password-dialog.tsx
 msgid "Protect your resume with a password"
@@ -10717,6 +10826,10 @@ msgstr "बग रिपोर्ट करें"
 msgid "Require a password"
 msgstr "पासवर्ड की आवश्यकता है"
 
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "Required"
+msgstr ""
+
 #: src/features/career/workspace/fit.tsx
 msgid "Requirement"
 msgstr "आवश्यकता"
@@ -10765,6 +10878,10 @@ msgstr "डिज़ाइन प्रणाली के लिए ज़ि�
 #: src/features/documents/document-actions.tsx
 msgid "Restore"
 msgstr "पुनर्स्थापित करना"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Restore the proposal"
+msgstr ""
 
 #: src/features/resume/share/history-tab.tsx
 msgid "Restore this version"
@@ -11861,6 +11978,10 @@ msgstr "शीर्षक में लिंक दिखाएं"
 msgid "Show on page"
 msgstr "पृष्ठ पर दिखाएँ"
 
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "Show only the included achievements"
+msgstr ""
+
 #: src/features/resume/editor/chrome.tsx
 msgid "Show panel"
 msgstr "पैनल दिखाएँ"
@@ -12058,6 +12179,10 @@ msgstr "कौशल"
 
 #: src/features/career/knowledge/profile.tsx
 msgid "Skills shown, comma separated"
+msgstr ""
+
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "Skills to list"
 msgstr ""
 
 #: src/features/assistant/tool-approvals.tsx
@@ -12553,6 +12678,7 @@ msgstr ""
 msgid "Support"
 msgstr "सहायता"
 
+#: src/features/applications/components/detail/selection-review.tsx
 #: src/features/career/shared.tsx
 #: src/features/career/workspace/debrief.tsx
 #: src/features/homepage/prepare.tsx
@@ -13102,6 +13228,10 @@ msgstr "पेज तस्वीरें हैं, जिनके पीछ�
 msgid "The posting asks for “{label}”. If it's true for me, work it into my resume where it fits. Ask me first."
 msgstr "नौकरी की पोस्टिंग में \"{label}\" पूछा जाता है। यदि यह मेरे लिए सच है, तो इसे मेरे बायोडाटा में शामिल करें जहां यह फिट बैठता है। पहले मुझसे पूछो."
 
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "The posting changed since this was analysed. Analyse it again to update the requirements."
+msgstr ""
+
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "The posting couldn't be read. Fill in the role and company."
 msgstr "नौकरी की पोस्टिंग पढ़ी नहीं जा सकी. भूमिका और कंपनी भरें."
@@ -13273,7 +13403,7 @@ msgid "This application has no posting saved yet. Paste it to match against it."
 msgstr "इस नौकरी आवेदन में अभी तक कोई नौकरी पोस्टिंग सहेजी नहीं गई है। इसे इसके साथ मिलान करने के लिए चिपकाएँ।"
 
 #: src/features/applications/components/detail/assemble-dialog.tsx
-msgid "This application has no posting text saved, so there's little to match against. Add the posting to the application first for a better result."
+msgid "This application has no posting saved. Add the posting to the application first."
 msgstr ""
 
 #: src/features/career/knowledge/structured-preferences.tsx
@@ -13456,6 +13586,10 @@ msgstr "इस रिज्यूमे को एआई एजेंट द्�
 #: src/features/resume/builder/draft.ts
 msgid "This resume's sharing settings changed elsewhere."
 msgstr "इस रिज्यूम की शेयरिंग सेटिंग्स कहीं और बदल गई हैं।"
+
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "This role"
+msgstr ""
 
 #: src/features/career/knowledge/structured-preferences.tsx
 msgid "This rule isn't saved until then."
@@ -14418,6 +14552,10 @@ msgstr "आवाज़ सेटिंग्स"
 msgid "Volunteer"
 msgstr "स्वयंसेवा"
 
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "Volunteer work"
+msgstr ""
+
 #: src/features/career/workspace/messages.tsx
 msgid "Waiting for you"
 msgstr "आपका इंतज़ार है"
@@ -14614,6 +14752,10 @@ msgstr "आपके द्वारा भेजे गए PDF में फ़
 msgid "What the posting asks for"
 msgstr ""
 
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "What the posting needs, most important first"
+msgstr ""
+
 #: src/features/applications/components/interview-dialog.tsx
 msgid "What they asked you to prepare"
 msgstr "उन्होंने आपसे क्या तैयार करने को कहा"
@@ -14800,6 +14942,10 @@ msgstr ""
 #: src/features/ats-checker/messages.ts
 msgid "Words run together when the text is extracted."
 msgstr "टेक्स्ट निकाले जाने पर शब्द आपस में मिल जाते हैं।"
+
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "Work experience"
+msgstr ""
 
 #: src/features/career/workspace/prepare.tsx
 msgid "Works without AI or new research"
@@ -15063,9 +15209,8 @@ msgstr "आपका AI कनेक्शन"
 msgid "Your AI connection"
 msgstr "आपका AI कनेक्शन"
 
-#. placeholder {0}: application.company
 #: src/features/applications/components/detail/assemble-dialog.tsx
-msgid "Your AI connection picks the achievements and skills from your master profile that best match this posting, and builds a new resume for {0} from them. Your profile, the posting and the base resume's text are sent to that connection."
+msgid "Your AI connection analyses the posting into ranked requirements, then reviews the strongest evidence from your whole master profile. You check the selection before anything is written. The posting and your profile are sent to that connection."
 msgstr ""
 
 #: src/features/career/workspace/practise.tsx
@@ -15117,6 +15262,10 @@ msgstr "आपके बुलेट असामान्य अक्षरो
 #: src/routes/builder/letter/-components/letter-shell.tsx
 msgid "Your changes are saved automatically."
 msgstr "आपके बदलाव अपने आप सेव हो जाते हैं।"
+
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "your choice"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Your contact details are not on the first page."
@@ -15253,6 +15402,14 @@ msgstr "आपका फ़ोन नंबर असामान्य रू�
 #: src/features/career/coach.tsx
 msgid "your preferences"
 msgstr "आपकी प्राथमिकताएँ"
+
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "Your profile changed since this was proposed. Propose again to consider new records."
+msgstr ""
+
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "your profile has evidence that isn't included"
+msgstr ""
 
 #: src/features/assistant/assistant-panel.tsx
 msgid "your provider"

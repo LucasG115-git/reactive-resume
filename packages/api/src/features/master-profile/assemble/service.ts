@@ -1,4 +1,5 @@
-import type { ModelOutput } from "./prompt";
+import type { Selection } from "./build";
+import type { Coverage, ModelOutput } from "./prompt";
 import type { AssembleInput, ProfileAssemblyResult } from "@reactive-resume/schema/master-profile";
 import type { ResumeData } from "@reactive-resume/schema/resume/data";
 import { ORPCError } from "@orpc/client";
@@ -14,9 +15,19 @@ import { getModel } from "../../ai/service";
 import { applicationService } from "../../applications/service";
 import { documentsService } from "../../documents/service";
 import { resumeService } from "../../resume/service";
+import { selectionService } from "../selection/service";
 import { masterProfileService } from "../service";
 import { buildResume } from "./build";
-import { buildCatalog, buildPrompt, modelOutputSchema, resolveOutput, SYSTEM_PROMPT } from "./prompt";
+import {
+	buildCatalog,
+	buildPrompt,
+	buildWritePrompt,
+	modelOutputSchema,
+	plannedProfile,
+	resolveOutput,
+	SYSTEM_PROMPT,
+	WRITE_SYSTEM_PROMPT,
+} from "./prompt";
 
 /** Asks a model for a selection. Swappable so tests can run the whole flow without a provider. */
 export type SelectEvidence = (input: {
@@ -89,22 +100,63 @@ export const assembleService = {
 		}
 
 		const select = options.select ?? selectWithDefaultProvider;
-		const { output, model } = await select({
-			userId,
-			system: SYSTEM_PROMPT,
-			prompt: buildPrompt({
-				catalog,
-				mode: input.mode,
-				company: application.company,
-				role: application.role,
-				requirements: application.requirements ?? [],
-				jobDescription: application.jobDescription ?? "",
-			}),
-			signal: options.signal,
-		});
-
-		const { selection, coverage } = resolveOutput(output, catalog);
+		// With a reviewed Resume Selection Plan, the plan decides what goes in; the AI only words it.
+		const stored = input.usePlan === false ? null : await selectionService.get(userId, application.id);
+		const plan = stored?.plan ?? null;
+		let selection: Selection;
+		let coverage: Coverage;
+		let model = "";
+		if (plan) {
+			const planned = plannedProfile(profile, plan);
+			const plannedCatalog = buildCatalog(planned);
+			if (plannedCatalog.achievementIds.size === 0)
+				throw new ORPCError("BAD_REQUEST", {
+					message: "The selection for this application has no achievements included. Include some, then try again.",
+				});
+			if (input.mode === "verbatim") selection = { achievements: [], skills: [], summary: "" };
+			else {
+				const answer = await select({
+					userId,
+					system: WRITE_SYSTEM_PROMPT,
+					prompt: buildWritePrompt({
+						catalog: plannedCatalog,
+						company: application.company,
+						role: application.role,
+						requirements: stored?.analysis.requirements.map((requirement) => requirement.text) ?? [],
+						positioning: plan.positioning,
+					}),
+					signal: options.signal,
+				});
+				selection = resolveOutput(answer.output, plannedCatalog).selection;
+				model = answer.model;
+			}
+			coverage = plan.coverage.map((item) => ({
+				requirement:
+					stored?.analysis.requirements.find((requirement) => requirement.id === item.requirementId)?.text ??
+					item.requirementId,
+				strength: item.status === "supported" ? "strong" : item.status === "partial" ? "partial" : "none",
+				achievementIds: item.achievementIds,
+				skillIds: item.skillIds,
+			}));
+		} else {
+			const answer = await select({
+				userId,
+				system: SYSTEM_PROMPT,
+				prompt: buildPrompt({
+					catalog,
+					mode: input.mode,
+					company: application.company,
+					role: application.role,
+					requirements: application.requirements ?? [],
+					jobDescription: application.jobDescription ?? "",
+				}),
+				signal: options.signal,
+			});
+			({ selection, coverage } = resolveOutput(answer.output, catalog));
+			model = answer.model;
+		}
 		const built = buildResume({
+			plan,
 			base: base?.data ?? (await starterResume(userId)),
 			profile,
 			selection,
