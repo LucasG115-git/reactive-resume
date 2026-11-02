@@ -1021,6 +1021,10 @@ msgstr "A chấp nhận và R từ chối chỉnh sửa tập trung. ↑ và ↓
 msgid "A backup of this letter. Imports back into Reactive Resume as a letter."
 msgstr "Bản sao lưu của bức thư này. Nhập lại vào Reactive Resume dưới dạng một lá thư."
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "A blank template, with your account's name and email"
+msgstr ""
+
 #: src/features/resume/editor/check/issues.ts
 msgid "A city and country let roles be matched to where you are."
 msgstr "Thành phố và quốc gia cho phép các vai trò được khớp với vị trí của bạn."
@@ -1633,6 +1637,10 @@ msgstr "Hãy mô tả điều đã xảy ra trước khi lưu."
 #: src/features/resume/editor/check/issues.ts
 msgid "Add your name"
 msgstr "Thêm tên của bạn"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Add your phone, location and links in the editor afterwards."
+msgstr ""
 
 #: src/features/career/knowledge/profile.tsx
 msgid "Add…"
@@ -2616,6 +2624,10 @@ msgstr "Duyệt qua các mẫu CV miễn phí, so sánh bố cục một cột v
 #: src/features/homepage/hero.tsx
 msgid "Build a professional resume, download it as PDF or Word, and manage your job search in one place. Free templates, no ads, no paywall."
 msgstr "Xây dựng một CV chuyên nghiệp, tải xuống dưới dạng PDF hoặc Microsoft Word và quản lý tìm kiếm việc làm của bạn ở một nơi. Mẫu miễn phí, không có quảng cáo, không có tường phí."
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Build a resume for a job"
+msgstr ""
 
 #: src/features/homepage/ui.tsx
 #: src/features/templates/gallery.tsx
@@ -4309,10 +4321,6 @@ msgstr "Tạo khóa"
 #: src/features/auth/pages/login.tsx
 msgid "Create one now"
 msgstr "Tạo ngay bây giờ"
-
-#: src/features/applications/components/detail/assemble-dialog.tsx
-msgid "Create or import a resume first. It provides your name, contact details and design."
-msgstr ""
 
 #: src/features/documents/documents-page.tsx
 #: src/features/resume/share/format.ts
@@ -9147,6 +9155,10 @@ msgstr "Dán tin tuyển dụng một lần. Nó tạo ra bản sơ yếu lý l�
 msgid "Paste a job posting…"
 msgstr "Dán tin tuyển dụng…"
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Paste a link or the posting, or upload it as a PDF or Word file. It's saved for Check, the assistant, your resume and your letter."
+msgstr ""
+
 #. placeholder {0}: application.company
 #: src/features/career/workspace/messages.tsx
 msgid "Paste a message from {0}"
@@ -9845,6 +9857,10 @@ msgstr "Đã đọc là “{0}”. Hãy chọn một tháng để nó được s
 msgid "Read briefing"
 msgstr "Đọc bản tóm tắt"
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Read from an uploaded file"
+msgstr ""
+
 #: src/features/career/workspace/messages.tsx
 #: src/features/homepage/prepare.tsx
 msgid "Read it for me"
@@ -9923,6 +9939,10 @@ msgstr "Điểm dễ đọc: {0}/100"
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "Readability score: {score} out of 100"
 msgstr "Điểm dễ đọc: {score}/100"
+
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Reading {fileName}…"
+msgstr ""
 
 #: src/features/assistant/conversation.tsx
 msgid "Reading page…"
@@ -10774,13 +10794,17 @@ msgstr ""
 msgid "Save an unprotected copy, with no password and no permissions restrictions."
 msgstr "Lưu một bản không bảo vệ, không mật khẩu và không hạn chế quyền."
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Save and adapt a resume"
+msgstr ""
+
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Save and build resume"
+msgstr ""
+
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Save and link"
 msgstr "Lưu và liên kết"
-
-#: src/features/applications/components/add-application-dialog.tsx
-msgid "Save and prepare resume"
-msgstr "Lưu và chuẩn bị sơ yếu lý lịch"
 
 #: src/features/settings/ai/providers.tsx
 msgid "Save and test"
@@ -12494,6 +12518,10 @@ msgstr "Cảm ơn Sam. Đây là một ví dụ: tại Northwind Labs, tôi dẫ
 msgid "That file couldn't be read as a PDF. Choose a PDF file and try again."
 msgstr "Không thể đọc tệp đó dưới dạng PDF. Hãy chọn tệp PDF và thử lại."
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "That file couldn't be read. Upload a PDF with selectable text or a Word (.docx) file, or paste the posting."
+msgstr ""
+
 #: src/features/career/knowledge/profile-file.tsx
 msgid "That file is too large for a profile file (over 1 MB)."
 msgstr ""
@@ -13595,6 +13623,10 @@ msgstr "Tải PDF lên và xem văn bản mà hệ thống theo dõi người n�
 msgid "Upload or paste"
 msgstr ""
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Upload PDF or Word file"
+msgstr ""
+
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Upload photo"
 msgstr "Tải ảnh lên"
@@ -13988,10 +14020,6 @@ msgstr "Cảnh báo"
 #: src/features/homepage/hero.tsx
 msgid "WCAG 2.1 AA"
 msgstr "WCAG 2.1 AA"
-
-#: src/features/applications/components/add-application-dialog.tsx
-msgid "We read the page and save the posting for Check, the assistant and your letter."
-msgstr "Chúng tôi đọc trang và lưu tin tuyển dụng cho Check, trợ lý và thư của bạn."
 
 #: src/features/settings/account/profile.tsx
 msgid "We sent a confirmation link to {email}. Open it to finish the change."

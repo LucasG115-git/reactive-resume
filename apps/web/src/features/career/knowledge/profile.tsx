@@ -5,9 +5,10 @@ import type { ReactNode } from "react";
 import { plural, t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { Link } from "@tanstack/react-router";
 import { useId, useState } from "react";
 import { PROFILE_ENTRY_KINDS } from "@reactive-resume/schema/master-profile";
-import { Button } from "@reactive-resume/ui/components/button";
+import { Button, buttonVariants } from "@reactive-resume/ui/components/button";
 import { Icon } from "@reactive-resume/ui/components/icon";
 import { Input } from "@reactive-resume/ui/components/input";
 import { NativeSelect } from "@reactive-resume/ui/components/native-select";
@@ -104,6 +105,12 @@ export function ProfilePage() {
 					{plural(achievementCount, { one: "# achievement", other: "# achievements" })} ·{" "}
 					{plural(profile.skills.length, { one: "# skill", other: "# skills" })}
 				</p>
+				{profile.entries.length + profile.standalone.length > 0 && (
+					<Link to="/dashboard/applications" search={{ create: true }} className={buttonVariants({ size: "sm" })}>
+						<Icon name="magic-wand" size={16} />
+						<Trans>Build a resume for a job</Trans>
+					</Link>
+				)}
 			</div>
 
 			<ProfileKnowledgeSync />

@@ -1021,6 +1021,10 @@ msgstr "A स्वीकारतो आणि R फोकस केलेल�
 msgid "A backup of this letter. Imports back into Reactive Resume as a letter."
 msgstr "या पत्राचा बॅकअप. Reactive Resume मध्ये परत अक्षर म्हणून आयात करते."
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "A blank template, with your account's name and email"
+msgstr ""
+
 #: src/features/resume/editor/check/issues.ts
 msgid "A city and country let roles be matched to where you are."
 msgstr "एक शहर आणि देश तुम्ही जिथे आहात त्या भूमिकेशी जुळू द्या."
@@ -1633,6 +1637,10 @@ msgstr "जतन करण्यापूर्वी काय घडले �
 #: src/features/resume/editor/check/issues.ts
 msgid "Add your name"
 msgstr "तुमचे नाव जोडा"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Add your phone, location and links in the editor afterwards."
+msgstr ""
 
 #: src/features/career/knowledge/profile.tsx
 msgid "Add…"
@@ -2616,6 +2624,10 @@ msgstr "विनामूल्य CV टेम्पलेट ब्राउ�
 #: src/features/homepage/hero.tsx
 msgid "Build a professional resume, download it as PDF or Word, and manage your job search in one place. Free templates, no ads, no paywall."
 msgstr "व्यावसायिक CV तयार करा, PDF किंवा Microsoft Word म्हणून डाउनलोड करा आणि तुमचा नोकरी शोध एकाच ठिकाणी व्यवस्थापित करा. विनामूल्य टेम्पलेट, जाहिराती नाहीत, पेवॉल नाही."
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Build a resume for a job"
+msgstr ""
 
 #: src/features/homepage/ui.tsx
 #: src/features/templates/gallery.tsx
@@ -4309,10 +4321,6 @@ msgstr "की तयार करा"
 #: src/features/auth/pages/login.tsx
 msgid "Create one now"
 msgstr "आता एक तयार करा"
-
-#: src/features/applications/components/detail/assemble-dialog.tsx
-msgid "Create or import a resume first. It provides your name, contact details and design."
-msgstr ""
 
 #: src/features/documents/documents-page.tsx
 #: src/features/resume/share/format.ts
@@ -9147,6 +9155,10 @@ msgstr "जॉब पोस्टिंग एकदाच पेस्ट क�
 msgid "Paste a job posting…"
 msgstr "नोकरीचे पोस्टिंग पेस्ट करा..."
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Paste a link or the posting, or upload it as a PDF or Word file. It's saved for Check, the assistant, your resume and your letter."
+msgstr ""
+
 #. placeholder {0}: application.company
 #: src/features/career/workspace/messages.tsx
 msgid "Paste a message from {0}"
@@ -9845,6 +9857,10 @@ msgstr "“{0}” असे वाचले. महिना निवडा ज
 msgid "Read briefing"
 msgstr "ब्रीफिंग वाचा"
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Read from an uploaded file"
+msgstr ""
+
 #: src/features/career/workspace/messages.tsx
 #: src/features/homepage/prepare.tsx
 msgid "Read it for me"
@@ -9923,6 +9939,10 @@ msgstr "वाचनीयता स्कोअर: 100 पैकी {0}"
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "Readability score: {score} out of 100"
 msgstr "वाचनीयता स्कोअर: 100 पैकी {score}"
+
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Reading {fileName}…"
+msgstr ""
 
 #: src/features/assistant/conversation.tsx
 msgid "Reading page…"
@@ -10774,13 +10794,17 @@ msgstr ""
 msgid "Save an unprotected copy, with no password and no permissions restrictions."
 msgstr "पासवर्ड आणि परवानगी निर्बंधांशिवाय असुरक्षित प्रत सेव्ह करा."
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Save and adapt a resume"
+msgstr ""
+
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Save and build resume"
+msgstr ""
+
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Save and link"
 msgstr "सेव्ह करा आणि लिंक करा"
-
-#: src/features/applications/components/add-application-dialog.tsx
-msgid "Save and prepare resume"
-msgstr "सेव्ह करा आणि रेझ्युमे तयार करा"
 
 #: src/features/settings/ai/providers.tsx
 msgid "Save and test"
@@ -12494,6 +12518,10 @@ msgstr "धन्यवाद, Sam. हे एक उदाहरण: Northwind 
 msgid "That file couldn't be read as a PDF. Choose a PDF file and try again."
 msgstr "ती फाइल PDF म्हणून वाचता आली नाही. PDF फाइल निवडा आणि पुन्हा प्रयत्न करा."
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "That file couldn't be read. Upload a PDF with selectable text or a Word (.docx) file, or paste the posting."
+msgstr ""
+
 #: src/features/career/knowledge/profile-file.tsx
 msgid "That file is too large for a profile file (over 1 MB)."
 msgstr ""
@@ -13595,6 +13623,10 @@ msgstr "एक PDF अपलोड करा आणि अर्जदार ट
 msgid "Upload or paste"
 msgstr ""
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Upload PDF or Word file"
+msgstr ""
+
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Upload photo"
 msgstr "फोटो अपलोड करा"
@@ -13988,10 +14020,6 @@ msgstr "चेतावणी"
 #: src/features/homepage/hero.tsx
 msgid "WCAG 2.1 AA"
 msgstr "WCAG 2.1 AA"
-
-#: src/features/applications/components/add-application-dialog.tsx
-msgid "We read the page and save the posting for Check, the assistant and your letter."
-msgstr "आम्ही पृष्ठ वाचतो आणि चेक, सहाय्यक आणि तुमचे पत्र यासाठी जॉब पोस्टिंग जतन करतो."
 
 #: src/features/settings/account/profile.tsx
 msgid "We sent a confirmation link to {email}. Open it to finish the change."

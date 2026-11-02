@@ -1,4 +1,5 @@
 import type { DocumentSummary } from "../../dto/documents";
+import type { ResumeData } from "@reactive-resume/schema/resume/data";
 import { ORPCError } from "@orpc/client";
 import { and, asc, count, eq, isNotNull, isNull, lt, sql } from "drizzle-orm";
 import { db } from "@reactive-resume/db/client";
@@ -152,6 +153,16 @@ async function purgeExpiredTrash(limit = 50) {
 		...resumes.map(({ id, userId }) => deleteForGood({ userId, type: "resume", id }, cutoff)),
 		...letters.map(({ id, userId }) => deleteForGood({ userId, type: "letter", id }, cutoff)),
 	]);
+}
+
+async function linkResumeToApplication(
+	userId: string,
+	id: string,
+	application: Awaited<ReturnType<typeof assertOwnedApplication>>,
+) {
+	await update({ userId, type: "resume", id }, { applicationId: application.id });
+	if (!application.sentResumeVersionId && (!application.resumeId || application.status === "saved"))
+		await applicationService.update({ userId, id: application.id, resumeId: id });
 }
 
 export const documentsService = {
@@ -322,12 +333,21 @@ export const documentsService = {
 			data: source.data,
 		});
 
-		if (application) {
-			await update({ userId: input.userId, type: "resume", id }, { applicationId: application.id });
-			if (!application.sentResumeVersionId && (!application.resumeId || application.status === "saved"))
-				await applicationService.update({ userId: input.userId, id: application.id, resumeId: id });
-		}
+		if (application) await linkResumeToApplication(input.userId, id, application);
+		return id;
+	},
 
+	/** A new resume made for a job from the given data, linked to the application like "Copy for a job". */
+	createForJob: async (input: { userId: string; applicationId: string; name: string; data: ResumeData }) => {
+		const application = await assertOwnedApplication(input.userId, input.applicationId);
+		const id = await resumeService.create({
+			userId: input.userId,
+			name: input.name,
+			tags: [],
+			locale: input.data.metadata.page.locale as never,
+			data: input.data,
+		});
+		await linkResumeToApplication(input.userId, id, application);
 		return id;
 	},
 };

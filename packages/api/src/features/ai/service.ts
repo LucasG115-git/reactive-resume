@@ -346,14 +346,10 @@ type ParseDocxInput = z.infer<typeof aiCredentialsSchema> & {
 	mediaType: "application/msword" | "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
 };
 
-function readDocumentXml(data: string): string {
+function readDocumentXml(data: Uint8Array): string {
 	let entries: Record<string, Uint8Array>;
 	try {
-		entries = unzipEntries(
-			Buffer.from(data, "base64"),
-			(name) => name === DOCX_DOCUMENT_XML_PATH,
-			MAX_DOCX_DOCUMENT_XML_BYTES,
-		);
+		entries = unzipEntries(data, (name) => name === DOCX_DOCUMENT_XML_PATH, MAX_DOCX_DOCUMENT_XML_BYTES);
 	} catch (error) {
 		if (error instanceof ZipEntryTooLargeError) throw new Error("DOCX document content is too large.");
 		throw new Error("Invalid DOCX archive.");
@@ -364,7 +360,12 @@ function readDocumentXml(data: string): string {
 }
 
 function extractDocxText(file: z.infer<typeof fileInputSchema>): string {
-	const documentXml = readDocumentXml(file.data);
+	return docxText(Buffer.from(file.data, "base64"));
+}
+
+/** Body text of a .docx (paragraphs, tabs and line breaks), without formatting. Throws on an invalid or empty file. */
+export function docxText(data: Uint8Array): string {
+	const documentXml = readDocumentXml(data);
 	// ponytail: minimal OOXML body-text extraction; add a DOCX parser dependency if tracked changes matter.
 	const text = decodeEntities(
 		// `[^<>]` keeps each match from scanning past the next tag, so malformed markup costs linear time.

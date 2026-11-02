@@ -52,13 +52,15 @@ type DetailSheetProps = {
 	application: ApplicationSummary | null;
 	onOpenChange: (open: boolean) => void;
 	onEditDetails: (application: Application) => void;
+	/** Open "Assemble from profile" as soon as the application shows (after Save and build resume). */
+	assemble?: boolean | undefined;
 };
 
 /**
  * One application, 480px from the right (full screen on phones): the stage stepper with Move to next, the next
  * step, what was sent, the key facts, notes and activity. Close application… takes a reason; Delete is in ⋯.
  */
-export function ApplicationDetailSheet({ application, onOpenChange, onEditDetails }: DetailSheetProps) {
+export function ApplicationDetailSheet({ application, onOpenChange, onEditDetails, assemble }: DetailSheetProps) {
 	const phone = useBreakpoint() === "mobile";
 	// Closing keeps the last application on screen until the sheet has slid away.
 	const [shown, onOpenChangeComplete] = useClosingValue(application);
@@ -85,6 +87,7 @@ export function ApplicationDetailSheet({ application, onOpenChange, onEditDetail
 						application={current}
 						onEditDetails={onEditDetails}
 						onDeleted={() => onOpenChange(false)}
+						assemble={assemble}
 					/>
 				) : (
 					<div className="grid gap-2 p-5">
@@ -108,9 +111,10 @@ type DetailProps = {
 	application: Application;
 	onEditDetails: (application: Application) => void;
 	onDeleted: () => void;
+	assemble?: boolean | undefined;
 };
 
-function Detail({ application, onEditDetails, onDeleted }: DetailProps) {
+function Detail({ application, onEditDetails, onDeleted, assemble }: DetailProps) {
 	const { i18n } = useLingui();
 	const confirm = useConfirm();
 	const { moveTo, close, remove } = useApplicationActions();
@@ -274,7 +278,7 @@ function Detail({ application, onEditDetails, onDeleted }: DetailProps) {
 						application={application}
 						onScheduleInterview={(entry) => setInterview({ open: true, entry })}
 					/>
-					<SentDocuments application={application} disabled={remove.isPending} />
+					<SentDocuments application={application} disabled={remove.isPending} assemble={assemble} />
 					<Facts application={application} locale={i18n.locale} />
 					<Tags application={application} />
 					<ApplicationNotes application={application} />
@@ -646,6 +650,8 @@ function PostingDialog({ application, open, onOpenChange }: PostingDialogProps) 
 					<p className="text-xs text-ink-3">
 						{application.postingSource.method === "paste" ? (
 							<Trans>Pasted description</Trans>
+						) : application.postingSource.method === "upload" ? (
+							<Trans>Read from an uploaded file</Trans>
 						) : (
 							<Trans>
 								Retrieved {application.postingSource.retrievedAt} using {application.postingSource.method}. Retrieval

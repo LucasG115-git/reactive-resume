@@ -523,6 +523,8 @@ const { AddApplicationSheet } = load("features/applications/add-sheet.tsx", {
 	react: { ...react, useEffect: () => {} },
 	"@orpc/client": { ORPCError: class extends Error {} },
 	"@tanstack/react-query": { useQuery: () => ({ data: [] }) },
+	"expo-document-picker": { getDocumentAsync: async () => ({ canceled: true, assets: null }) },
+	"expo-file-system": { File: class {} },
 	"./date": { parseDateOnly: () => new Date() },
 	"./error": { applicationError: String },
 	"./lane-notice": { LaneNotice: "LaneNotice" },
@@ -542,6 +544,7 @@ const { AddApplicationSheet } = load("features/applications/add-sheet.tsx", {
 	"./stages": stages,
 	"@/api/client": {
 		client: {},
+		rest: async () => new Response(null, { status: 500 }),
 		orpc: {
 			documents: { list: { queryOptions: () => ({ queryKey: ["documents"] }) } },
 			webAccess: { status: { queryOptions: () => ({ queryKey: ["web"] }) } },

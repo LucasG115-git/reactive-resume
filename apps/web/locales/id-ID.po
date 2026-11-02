@@ -1021,6 +1021,10 @@ msgstr "A menerima dan R menolak pengeditan terfokus. ↑ dan ↓ berpindah anta
 msgid "A backup of this letter. Imports back into Reactive Resume as a letter."
 msgstr "Cadangan surat ini. Impor kembali ke Reactive Resume sebagai surat."
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "A blank template, with your account's name and email"
+msgstr ""
+
 #: src/features/resume/editor/check/issues.ts
 msgid "A city and country let roles be matched to where you are."
 msgstr "Kota dan negara memungkinkan peran disesuaikan dengan tempat Anda berada."
@@ -1633,6 +1637,10 @@ msgstr "Tambahkan apa yang terjadi sebelum menyimpan."
 #: src/features/resume/editor/check/issues.ts
 msgid "Add your name"
 msgstr "Tambahkan nama Anda"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Add your phone, location and links in the editor afterwards."
+msgstr ""
 
 #: src/features/career/knowledge/profile.tsx
 msgid "Add…"
@@ -2616,6 +2624,10 @@ msgstr "Telusuri templat CV gratis, bandingkan tata letak satu kolom dan dua kol
 #: src/features/homepage/hero.tsx
 msgid "Build a professional resume, download it as PDF or Word, and manage your job search in one place. Free templates, no ads, no paywall."
 msgstr "Buat CV profesional, unduh sebagai PDF atau Microsoft Word, dan kelola pencarian kerja Anda di satu tempat. Templat gratis, tanpa iklan, tanpa paywall."
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Build a resume for a job"
+msgstr ""
 
 #: src/features/homepage/ui.tsx
 #: src/features/templates/gallery.tsx
@@ -4309,10 +4321,6 @@ msgstr "Buat kunci"
 #: src/features/auth/pages/login.tsx
 msgid "Create one now"
 msgstr "Buat satu sekarang"
-
-#: src/features/applications/components/detail/assemble-dialog.tsx
-msgid "Create or import a resume first. It provides your name, contact details and design."
-msgstr ""
 
 #: src/features/documents/documents-page.tsx
 #: src/features/resume/share/format.ts
@@ -9147,6 +9155,10 @@ msgstr "Tempel lowongan kerja sekali saja. Dari situ tersedia salinan CV yang di
 msgid "Paste a job posting…"
 msgstr "Tempelkan postingan pekerjaan…"
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Paste a link or the posting, or upload it as a PDF or Word file. It's saved for Check, the assistant, your resume and your letter."
+msgstr ""
+
 #. placeholder {0}: application.company
 #: src/features/career/workspace/messages.tsx
 msgid "Paste a message from {0}"
@@ -9845,6 +9857,10 @@ msgstr "Terbaca sebagai “{0}”. Pilih bulan agar terurut dan dicetak secara k
 msgid "Read briefing"
 msgstr "Baca briefing"
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Read from an uploaded file"
+msgstr ""
+
 #: src/features/career/workspace/messages.tsx
 #: src/features/homepage/prepare.tsx
 msgid "Read it for me"
@@ -9923,6 +9939,10 @@ msgstr "Skor keterbacaan: {0} dari 100"
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "Readability score: {score} out of 100"
 msgstr "Skor keterbacaan: {score} dari 100"
+
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Reading {fileName}…"
+msgstr ""
 
 #: src/features/assistant/conversation.tsx
 msgid "Reading page…"
@@ -10774,13 +10794,17 @@ msgstr ""
 msgid "Save an unprotected copy, with no password and no permissions restrictions."
 msgstr "Simpan salinan yang tidak dilindungi, tanpa kata sandi dan tanpa pembatasan izin."
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Save and adapt a resume"
+msgstr ""
+
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Save and build resume"
+msgstr ""
+
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Save and link"
 msgstr "Simpan dan tautkan"
-
-#: src/features/applications/components/add-application-dialog.tsx
-msgid "Save and prepare resume"
-msgstr "Simpan dan siapkan resume"
 
 #: src/features/settings/ai/providers.tsx
 msgid "Save and test"
@@ -12494,6 +12518,10 @@ msgstr "Terima kasih, Sam. Ini salah satunya: di Northwind Labs saya memimpin de
 msgid "That file couldn't be read as a PDF. Choose a PDF file and try again."
 msgstr "File itu tidak dapat dibaca sebagai PDF. Pilih file PDF dan coba lagi."
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "That file couldn't be read. Upload a PDF with selectable text or a Word (.docx) file, or paste the posting."
+msgstr ""
+
 #: src/features/career/knowledge/profile-file.tsx
 msgid "That file is too large for a profile file (over 1 MB)."
 msgstr ""
@@ -13595,6 +13623,10 @@ msgstr "Unggah PDF dan lihat teks yang diekstraksi oleh sistem pelacakan pelamar
 msgid "Upload or paste"
 msgstr ""
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Upload PDF or Word file"
+msgstr ""
+
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Upload photo"
 msgstr "Unggah foto"
@@ -13988,10 +14020,6 @@ msgstr "Peringatan"
 #: src/features/homepage/hero.tsx
 msgid "WCAG 2.1 AA"
 msgstr "WCAG 2.1 AA"
-
-#: src/features/applications/components/add-application-dialog.tsx
-msgid "We read the page and save the posting for Check, the assistant and your letter."
-msgstr "Kami membaca halaman dan menyimpan lowongan pekerjaan untuk Check, asisten dan surat Anda."
 
 #: src/features/settings/account/profile.tsx
 msgid "We sent a confirmation link to {email}. Open it to finish the change."

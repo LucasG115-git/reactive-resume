@@ -88,8 +88,11 @@ export type AssembleMode = z.infer<typeof assembleModeSchema>;
 
 export const assembleInputSchema = z.object({
 	applicationId: z.string().min(1),
-	/** The resume whose contact details, design and other sections are kept. */
-	baseResumeId: z.string().min(1),
+	/**
+	 * The resume whose contact details, design and other sections are kept. Without one, the resume starts from the
+	 * default template with the account's name and email.
+	 */
+	baseResumeId: z.string().min(1).optional(),
 	mode: assembleModeSchema.default("rephrase"),
 	name: z.string().trim().min(1).max(200).optional(),
 });

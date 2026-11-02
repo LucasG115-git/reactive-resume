@@ -1021,6 +1021,10 @@ msgstr "A מקבל ו-R דוחה את העריכה הממוקדת. ↑ ו-↓ מ
 msgid "A backup of this letter. Imports back into Reactive Resume as a letter."
 msgstr "גיבוי למכתב זה. מייבא חזרה אל Reactive Resume כמכתב."
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "A blank template, with your account's name and email"
+msgstr ""
+
 #: src/features/resume/editor/check/issues.ts
 msgid "A city and country let roles be matched to where you are."
 msgstr "עיר ומדינה מאפשרות להתאים לתפקידים למקום שבו אתה נמצא."
@@ -1633,6 +1637,10 @@ msgstr "תאר מה קרה כדי שתוכל לשמור."
 #: src/features/resume/editor/check/issues.ts
 msgid "Add your name"
 msgstr "הוסף את שמך"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Add your phone, location and links in the editor afterwards."
+msgstr ""
 
 #: src/features/career/knowledge/profile.tsx
 msgid "Add…"
@@ -2616,6 +2624,10 @@ msgstr "עיין בתבניות קורות חיים בחינם, השווה פר�
 #: src/features/homepage/hero.tsx
 msgid "Build a professional resume, download it as PDF or Word, and manage your job search in one place. Free templates, no ads, no paywall."
 msgstr "בנו קורות חיים מקצועיים, הורידו אותו כ-PDF או Microsoft Word, ונהל את חיפוש העבודה שלך במקום אחד. תבניות בחינם, ללא מודעות, ללא חומת תשלום."
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Build a resume for a job"
+msgstr ""
 
 #: src/features/homepage/ui.tsx
 #: src/features/templates/gallery.tsx
@@ -4309,10 +4321,6 @@ msgstr "צור מפתח"
 #: src/features/auth/pages/login.tsx
 msgid "Create one now"
 msgstr "צור אחד עכשיו"
-
-#: src/features/applications/components/detail/assemble-dialog.tsx
-msgid "Create or import a resume first. It provides your name, contact details and design."
-msgstr ""
 
 #: src/features/documents/documents-page.tsx
 #: src/features/resume/share/format.ts
@@ -9147,6 +9155,10 @@ msgstr "הדבק מודעת דרושים פעם אחת. היא מזינה עות
 msgid "Paste a job posting…"
 msgstr "הדבק פרסום משרה..."
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Paste a link or the posting, or upload it as a PDF or Word file. It's saved for Check, the assistant, your resume and your letter."
+msgstr ""
+
 #. placeholder {0}: application.company
 #: src/features/career/workspace/messages.tsx
 msgid "Paste a message from {0}"
@@ -9845,6 +9857,10 @@ msgstr "נקרא כ-\"{0}\". בחר חודש כדי שימוין ויודפס ב
 msgid "Read briefing"
 msgstr "קרא את התדריך"
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Read from an uploaded file"
+msgstr ""
+
 #: src/features/career/workspace/messages.tsx
 #: src/features/homepage/prepare.tsx
 msgid "Read it for me"
@@ -9923,6 +9939,10 @@ msgstr "ציון קריאה: {0} מתוך 100"
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "Readability score: {score} out of 100"
 msgstr "ציון קריאה: {score} מתוך 100"
+
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Reading {fileName}…"
+msgstr ""
 
 #: src/features/assistant/conversation.tsx
 msgid "Reading page…"
@@ -10774,13 +10794,17 @@ msgstr ""
 msgid "Save an unprotected copy, with no password and no permissions restrictions."
 msgstr "שמור עותק לא מוגן, ללא סיסמה וללא הגבלות הרשאה."
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Save and adapt a resume"
+msgstr ""
+
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Save and build resume"
+msgstr ""
+
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Save and link"
 msgstr "שמור וקשר"
-
-#: src/features/applications/components/add-application-dialog.tsx
-msgid "Save and prepare resume"
-msgstr "שמור והכין קורות חיים"
 
 #: src/features/settings/ai/providers.tsx
 msgid "Save and test"
@@ -12494,6 +12518,10 @@ msgstr "תודה, Sam. הנה דוגמה: ב-Northwind Labs הובלתי את ה
 msgid "That file couldn't be read as a PDF. Choose a PDF file and try again."
 msgstr "לא ניתן היה לקרוא את הקובץ כ-PDF. בחר קובץ PDF ונסה שוב."
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "That file couldn't be read. Upload a PDF with selectable text or a Word (.docx) file, or paste the posting."
+msgstr ""
+
 #: src/features/career/knowledge/profile-file.tsx
 msgid "That file is too large for a profile file (over 1 MB)."
 msgstr ""
@@ -13595,6 +13623,10 @@ msgstr "העלה PDF וראה את הטקסט שמערכת המעקב של המ�
 msgid "Upload or paste"
 msgstr ""
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Upload PDF or Word file"
+msgstr ""
+
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Upload photo"
 msgstr "העלאת תמונה"
@@ -13988,10 +14020,6 @@ msgstr "אזהרה"
 #: src/features/homepage/hero.tsx
 msgid "WCAG 2.1 AA"
 msgstr "WCAG 2.1 AA"
-
-#: src/features/applications/components/add-application-dialog.tsx
-msgid "We read the page and save the posting for Check, the assistant and your letter."
-msgstr "אנו קוראים את העמוד ושומרים את מודעת הדרושים עבור צ'ק, הסייעת והמכתב שלך."
 
 #: src/features/settings/account/profile.tsx
 msgid "We sent a confirmation link to {email}. Open it to finish the change."

@@ -1021,6 +1021,10 @@ msgstr "Fokuslanmış redaktəni A qəbul edir, R isə rədd edir. ↑ və ↓ r
 msgid "A backup of this letter. Imports back into Reactive Resume as a letter."
 msgstr "Bu məktubun ehtiyat nüsxəsi. Reactive Resume-yə məktub kimi yenidən idxal edir."
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "A blank template, with your account's name and email"
+msgstr ""
+
 #: src/features/resume/editor/check/issues.ts
 msgid "A city and country let roles be matched to where you are."
 msgstr "Şəhər və ölkə rolları olduğunuz yerə uyğunlaşdırmağa imkan verir."
@@ -1633,6 +1637,10 @@ msgstr "Yadda saxlamazdan əvvəl nə baş verdiyini əlavə edin."
 #: src/features/resume/editor/check/issues.ts
 msgid "Add your name"
 msgstr "Adınızı əlavə edin"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Add your phone, location and links in the editor afterwards."
+msgstr ""
 
 #: src/features/career/knowledge/profile.tsx
 msgid "Add…"
@@ -2616,6 +2624,10 @@ msgstr "Pulsuz CV şablonlarını nəzərdən keçirin, bir sütunlu və iki sü
 #: src/features/homepage/hero.tsx
 msgid "Build a professional resume, download it as PDF or Word, and manage your job search in one place. Free templates, no ads, no paywall."
 msgstr "Peşəkar CV yaradın, onu PDF və ya Microsoft Word formatında endirin və iş axtarışınızı bir yerdən idarə edin. Pulsuz şablonlar, reklam yoxdur, ödəniş divarı yoxdur."
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Build a resume for a job"
+msgstr ""
 
 #: src/features/homepage/ui.tsx
 #: src/features/templates/gallery.tsx
@@ -4309,10 +4321,6 @@ msgstr "Açar yaradın"
 #: src/features/auth/pages/login.tsx
 msgid "Create one now"
 msgstr "İndi birini yaradın"
-
-#: src/features/applications/components/detail/assemble-dialog.tsx
-msgid "Create or import a resume first. It provides your name, contact details and design."
-msgstr ""
 
 #: src/features/documents/documents-page.tsx
 #: src/features/resume/share/format.ts
@@ -9147,6 +9155,10 @@ msgstr "İş elanını bir dəfə yapışdırın. O, CV-nizin uyğunlaşdırılm
 msgid "Paste a job posting…"
 msgstr "İş elanını yerləşdirin..."
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Paste a link or the posting, or upload it as a PDF or Word file. It's saved for Check, the assistant, your resume and your letter."
+msgstr ""
+
 #. placeholder {0}: application.company
 #: src/features/career/workspace/messages.tsx
 msgid "Paste a message from {0}"
@@ -9845,6 +9857,10 @@ msgstr "“{0}” kimi oxundu. Ardıcıl sıralanması və çap olunması üçü
 msgid "Read briefing"
 msgstr "Brifinqi oxu"
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Read from an uploaded file"
+msgstr ""
+
 #: src/features/career/workspace/messages.tsx
 #: src/features/homepage/prepare.tsx
 msgid "Read it for me"
@@ -9923,6 +9939,10 @@ msgstr "Oxunma balı: 100-dən {0}"
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "Readability score: {score} out of 100"
 msgstr "Oxunma balı: 100-dən {score}"
+
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Reading {fileName}…"
+msgstr ""
 
 #: src/features/assistant/conversation.tsx
 msgid "Reading page…"
@@ -10774,13 +10794,17 @@ msgstr ""
 msgid "Save an unprotected copy, with no password and no permissions restrictions."
 msgstr "Parolsuz və icazə məhdudiyyəti olmayan qorunmamış nüsxə saxlayın."
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Save and adapt a resume"
+msgstr ""
+
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Save and build resume"
+msgstr ""
+
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Save and link"
 msgstr "Yadda saxlayın və əlaqə saxlayın"
-
-#: src/features/applications/components/add-application-dialog.tsx
-msgid "Save and prepare resume"
-msgstr "CV-ni yadda saxlayın və hazırlayın"
 
 #: src/features/settings/ai/providers.tsx
 msgid "Save and test"
@@ -12494,6 +12518,10 @@ msgstr "Təşəkkürlər, Sam. Budur bir nümunə: Northwind Labs-da onboarding-
 msgid "That file couldn't be read as a PDF. Choose a PDF file and try again."
 msgstr "Həmin faylı PDF kimi oxumaq mümkün olmadı. PDF faylı seçin və yenidən cəhd edin."
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "That file couldn't be read. Upload a PDF with selectable text or a Word (.docx) file, or paste the posting."
+msgstr ""
+
 #: src/features/career/knowledge/profile-file.tsx
 msgid "That file is too large for a profile file (over 1 MB)."
 msgstr ""
@@ -13595,6 +13623,10 @@ msgstr "PDF yükləyin və ərizəçinin izləmə sisteminin çıxardığı mət
 msgid "Upload or paste"
 msgstr ""
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Upload PDF or Word file"
+msgstr ""
+
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Upload photo"
 msgstr "Şəkil yüklə"
@@ -13988,10 +14020,6 @@ msgstr "Xəbərdarlıq"
 #: src/features/homepage/hero.tsx
 msgid "WCAG 2.1 AA"
 msgstr "WCAG 2.1 AA"
-
-#: src/features/applications/components/add-application-dialog.tsx
-msgid "We read the page and save the posting for Check, the assistant and your letter."
-msgstr "Biz səhifəni oxuyuruq və iş elanını Check, assistent və sizin məktubunuz üçün saxlayırıq."
 
 #: src/features/settings/account/profile.tsx
 msgid "We sent a confirmation link to {email}. Open it to finish the change."

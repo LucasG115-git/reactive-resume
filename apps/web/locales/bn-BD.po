@@ -1021,6 +1021,10 @@ msgstr "A গ্রহণ করে এবং R ফোকাস করা সম
 msgid "A backup of this letter. Imports back into Reactive Resume as a letter."
 msgstr "এই চিঠির একটি ব্যাকআপ. একটি চিঠি হিসাবে Reactive Resume এ আবার আমদানি করে।"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "A blank template, with your account's name and email"
+msgstr ""
+
 #: src/features/resume/editor/check/issues.ts
 msgid "A city and country let roles be matched to where you are."
 msgstr "একটি শহর এবং দেশ আপনি যেখানে আছেন তার সাথে ভূমিকা মেলে।"
@@ -1633,6 +1637,10 @@ msgstr "সংরক্ষণ করার আগে কী ঘটেছিল �
 #: src/features/resume/editor/check/issues.ts
 msgid "Add your name"
 msgstr "আপনার নাম যোগ করুন"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Add your phone, location and links in the editor afterwards."
+msgstr ""
 
 #: src/features/career/knowledge/profile.tsx
 msgid "Add…"
@@ -2616,6 +2624,10 @@ msgstr "ফ্রি সিভি টেমপ্লেট ব্রাউজ �
 #: src/features/homepage/hero.tsx
 msgid "Build a professional resume, download it as PDF or Word, and manage your job search in one place. Free templates, no ads, no paywall."
 msgstr "একটি পেশাদার সিভি তৈরি করুন, এটি PDF বা Microsoft Word হিসাবে ডাউনলোড করুন এবং এক জায়গায় আপনার কাজের সন্ধান পরিচালনা করুন। বিনামূল্যে টেমপ্লেট, কোন বিজ্ঞাপন, কোন paywall."
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Build a resume for a job"
+msgstr ""
 
 #: src/features/homepage/ui.tsx
 #: src/features/templates/gallery.tsx
@@ -4309,10 +4321,6 @@ msgstr "কী তৈরি করুন"
 #: src/features/auth/pages/login.tsx
 msgid "Create one now"
 msgstr "এখনই একটি তৈরি করুন"
-
-#: src/features/applications/components/detail/assemble-dialog.tsx
-msgid "Create or import a resume first. It provides your name, contact details and design."
-msgstr ""
 
 #: src/features/documents/documents-page.tsx
 #: src/features/resume/share/format.ts
@@ -9147,6 +9155,10 @@ msgstr "একবার একটি চাকরির বিজ্ঞপ্ত
 msgid "Paste a job posting…"
 msgstr "একটি চাকরির পোস্টিং পেস্ট করুন..."
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Paste a link or the posting, or upload it as a PDF or Word file. It's saved for Check, the assistant, your resume and your letter."
+msgstr ""
+
 #. placeholder {0}: application.company
 #: src/features/career/workspace/messages.tsx
 msgid "Paste a message from {0}"
@@ -9845,6 +9857,10 @@ msgstr "“{0}” হিসেবে পড়া হয়েছে। এক�
 msgid "Read briefing"
 msgstr "ব্রিফিং পড়ুন"
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Read from an uploaded file"
+msgstr ""
+
 #: src/features/career/workspace/messages.tsx
 #: src/features/homepage/prepare.tsx
 msgid "Read it for me"
@@ -9923,6 +9939,10 @@ msgstr "পঠনযোগ্যতার স্কোর: 100টির মধ�
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "Readability score: {score} out of 100"
 msgstr "পঠনযোগ্যতার স্কোর: 100টির মধ্যে {score}"
+
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Reading {fileName}…"
+msgstr ""
 
 #: src/features/assistant/conversation.tsx
 msgid "Reading page…"
@@ -10774,13 +10794,17 @@ msgstr ""
 msgid "Save an unprotected copy, with no password and no permissions restrictions."
 msgstr "কোনো পাসওয়ার্ড বা অনুমতি সীমাবদ্ধতা ছাড়াই একটি অসুরক্ষিত কপি সংরক্ষণ করুন।"
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Save and adapt a resume"
+msgstr ""
+
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Save and build resume"
+msgstr ""
+
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Save and link"
 msgstr "সংরক্ষণ করুন এবং লিঙ্ক করুন"
-
-#: src/features/applications/components/add-application-dialog.tsx
-msgid "Save and prepare resume"
-msgstr "সংরক্ষণ করুন এবং জীবনবৃত্তান্ত প্রস্তুত করুন"
 
 #: src/features/settings/ai/providers.tsx
 msgid "Save and test"
@@ -12494,6 +12518,10 @@ msgstr "ধন্যবাদ, Sam। এই যে একটি: Northwind Labs
 msgid "That file couldn't be read as a PDF. Choose a PDF file and try again."
 msgstr "ফাইলটি PDF হিসেবে পড়া যায়নি। একটি PDF ফাইল বেছে নিয়ে আবার চেষ্টা করুন।"
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "That file couldn't be read. Upload a PDF with selectable text or a Word (.docx) file, or paste the posting."
+msgstr ""
+
 #: src/features/career/knowledge/profile-file.tsx
 msgid "That file is too large for a profile file (over 1 MB)."
 msgstr ""
@@ -13595,6 +13623,10 @@ msgstr "একটি PDF আপলোড করুন এবং একটি আ
 msgid "Upload or paste"
 msgstr ""
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Upload PDF or Word file"
+msgstr ""
+
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Upload photo"
 msgstr "ছবি আপলোড করুন"
@@ -13988,10 +14020,6 @@ msgstr "সতর্কতা"
 #: src/features/homepage/hero.tsx
 msgid "WCAG 2.1 AA"
 msgstr "WCAG 2.1 AA"
-
-#: src/features/applications/components/add-application-dialog.tsx
-msgid "We read the page and save the posting for Check, the assistant and your letter."
-msgstr "আমরা পৃষ্ঠাটি পড়ি এবং চেক, সহকারী এবং আপনার চিঠির জন্য চাকরির পোস্টিং সংরক্ষণ করি।"
 
 #: src/features/settings/account/profile.tsx
 msgid "We sent a confirmation link to {email}. Open it to finish the change."

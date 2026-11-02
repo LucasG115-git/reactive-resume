@@ -1021,6 +1021,10 @@ msgstr "A는 수락하고 R은 집중된 편집을 거부합니다. ↑ 및 ↓�
 msgid "A backup of this letter. Imports back into Reactive Resume as a letter."
 msgstr "이 편지의 백업본입니다. 문자로 Reactive Resume에 다시 가져옵니다."
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "A blank template, with your account's name and email"
+msgstr ""
+
 #: src/features/resume/editor/check/issues.ts
 msgid "A city and country let roles be matched to where you are."
 msgstr "도시와 국가는 귀하가 있는 곳에 역할을 배정합니다."
@@ -1633,6 +1637,10 @@ msgstr "저장하려면 무슨 일이 있었는지 추가하세요."
 #: src/features/resume/editor/check/issues.ts
 msgid "Add your name"
 msgstr "이름을 추가하세요"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Add your phone, location and links in the editor afterwards."
+msgstr ""
 
 #: src/features/career/knowledge/profile.tsx
 msgid "Add…"
@@ -2616,6 +2624,10 @@ msgstr "무료 CV 템플릿을 찾아보고, 1열과 2열 레이아웃을 비교
 #: src/features/homepage/hero.tsx
 msgid "Build a professional resume, download it as PDF or Word, and manage your job search in one place. Free templates, no ads, no paywall."
 msgstr "전문적인 이력서를 작성하고 PDF 또는 Microsoft Word로 다운로드하고 한 곳에서 구직 활동을 관리하세요. 무료 템플릿, 광고 없음, 페이월 없음."
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Build a resume for a job"
+msgstr ""
 
 #: src/features/homepage/ui.tsx
 #: src/features/templates/gallery.tsx
@@ -4309,10 +4321,6 @@ msgstr "키 생성"
 #: src/features/auth/pages/login.tsx
 msgid "Create one now"
 msgstr "지금 만들기"
-
-#: src/features/applications/components/detail/assemble-dialog.tsx
-msgid "Create or import a resume first. It provides your name, contact details and design."
-msgstr ""
 
 #: src/features/documents/documents-page.tsx
 #: src/features/resume/share/format.ts
@@ -9147,6 +9155,10 @@ msgstr "채용 공고를 한 번만 붙여넣으세요. 맞춤 이력서 사본,
 msgid "Paste a job posting…"
 msgstr "채용 공고 붙여넣기…"
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Paste a link or the posting, or upload it as a PDF or Word file. It's saved for Check, the assistant, your resume and your letter."
+msgstr ""
+
 #. placeholder {0}: application.company
 #: src/features/career/workspace/messages.tsx
 msgid "Paste a message from {0}"
@@ -9845,6 +9857,10 @@ msgstr "“{0}”(으)로 읽었습니다. 일관되게 정렬되고 인쇄되�
 msgid "Read briefing"
 msgstr "브리핑 읽기"
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Read from an uploaded file"
+msgstr ""
+
 #: src/features/career/workspace/messages.tsx
 #: src/features/homepage/prepare.tsx
 msgid "Read it for me"
@@ -9923,6 +9939,10 @@ msgstr "가독성 점수: 100점 만점에 {0}"
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "Readability score: {score} out of 100"
 msgstr "가독성 점수: 100점 만점에 {score}"
+
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Reading {fileName}…"
+msgstr ""
 
 #: src/features/assistant/conversation.tsx
 msgid "Reading page…"
@@ -10774,13 +10794,17 @@ msgstr ""
 msgid "Save an unprotected copy, with no password and no permissions restrictions."
 msgstr "비밀번호와 권한 제한이 없는 보호되지 않은 사본으로 저장하세요."
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Save and adapt a resume"
+msgstr ""
+
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Save and build resume"
+msgstr ""
+
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Save and link"
 msgstr "저장 및 연결"
-
-#: src/features/applications/components/add-application-dialog.tsx
-msgid "Save and prepare resume"
-msgstr "이력서 저장 및 준비"
 
 #: src/features/settings/ai/providers.tsx
 msgid "Save and test"
@@ -12494,6 +12518,10 @@ msgstr "감사합니다, Sam 님. 사례 하나를 말씀드리면, Northwind La
 msgid "That file couldn't be read as a PDF. Choose a PDF file and try again."
 msgstr "해당 파일을 PDF로 읽을 수 없습니다. PDF 파일을 선택하고 다시 시도해 보세요."
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "That file couldn't be read. Upload a PDF with selectable text or a Word (.docx) file, or paste the posting."
+msgstr ""
+
 #: src/features/career/knowledge/profile-file.tsx
 msgid "That file is too large for a profile file (over 1 MB)."
 msgstr ""
@@ -13595,6 +13623,10 @@ msgstr "PDF를 업로드하고 지원자 추적 시스템에서 추출한 텍스
 msgid "Upload or paste"
 msgstr ""
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Upload PDF or Word file"
+msgstr ""
+
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Upload photo"
 msgstr "사진 업로드"
@@ -13988,10 +14020,6 @@ msgstr "경고"
 #: src/features/homepage/hero.tsx
 msgid "WCAG 2.1 AA"
 msgstr "WCAG 2.1 AA"
-
-#: src/features/applications/components/add-application-dialog.tsx
-msgid "We read the page and save the posting for Check, the assistant and your letter."
-msgstr "우리는 페이지를 읽고 수표, 조수 및 귀하의 편지에 대한 채용 공고를 저장합니다."
 
 #: src/features/settings/account/profile.tsx
 msgid "We sent a confirmation link to {email}. Open it to finish the change."

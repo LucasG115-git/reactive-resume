@@ -1021,6 +1021,10 @@ msgstr "A akceptuje a R odmietne zameranú úpravu. ↑ a ↓ sa pohybujú medzi
 msgid "A backup of this letter. Imports back into Reactive Resume as a letter."
 msgstr "Záloha tohto listu. Importuje sa späť do Reactive Resume ako list."
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "A blank template, with your account's name and email"
+msgstr ""
+
 #: src/features/resume/editor/check/issues.ts
 msgid "A city and country let roles be matched to where you are."
 msgstr "Mesto a krajina umožňujú priradiť roly k tomu, kde sa práve nachádzate."
@@ -1633,6 +1637,10 @@ msgstr "Pred uložením doplňte, čo sa stalo."
 #: src/features/resume/editor/check/issues.ts
 msgid "Add your name"
 msgstr "Pridajte svoje meno"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Add your phone, location and links in the editor afterwards."
+msgstr ""
 
 #: src/features/career/knowledge/profile.tsx
 msgid "Add…"
@@ -2616,6 +2624,10 @@ msgstr "Prezrite si bezplatné šablóny životopisov, porovnajte rozloženia v 
 #: src/features/homepage/hero.tsx
 msgid "Build a professional resume, download it as PDF or Word, and manage your job search in one place. Free templates, no ads, no paywall."
 msgstr "Vytvorte si profesionálny životopis, stiahnite si ho vo formáte PDF alebo Microsoft Word a spravujte svoje hľadanie zamestnania na jednom mieste. Bezplatné šablóny, žiadne reklamy, žiadne paywall."
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Build a resume for a job"
+msgstr ""
 
 #: src/features/homepage/ui.tsx
 #: src/features/templates/gallery.tsx
@@ -4309,10 +4321,6 @@ msgstr "Vytvoriť kľúč"
 #: src/features/auth/pages/login.tsx
 msgid "Create one now"
 msgstr "Vytvorte si ho teraz"
-
-#: src/features/applications/components/detail/assemble-dialog.tsx
-msgid "Create or import a resume first. It provides your name, contact details and design."
-msgstr ""
 
 #: src/features/documents/documents-page.tsx
 #: src/features/resume/share/format.ts
@@ -9147,6 +9155,10 @@ msgstr "Vložte inzerát raz. Vznikne z neho prispôsobená kópia životopisu, 
 msgid "Paste a job posting…"
 msgstr "Prilepiť pracovný inzerát…"
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Paste a link or the posting, or upload it as a PDF or Word file. It's saved for Check, the assistant, your resume and your letter."
+msgstr ""
+
 #. placeholder {0}: application.company
 #: src/features/career/workspace/messages.tsx
 msgid "Paste a message from {0}"
@@ -9845,6 +9857,10 @@ msgstr "Prečítané ako „{0}“. Vyberte mesiac, aby sa dátum jednotne zora�
 msgid "Read briefing"
 msgstr "Prečítať brífing"
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Read from an uploaded file"
+msgstr ""
+
 #: src/features/career/workspace/messages.tsx
 #: src/features/homepage/prepare.tsx
 msgid "Read it for me"
@@ -9923,6 +9939,10 @@ msgstr "Skóre čitateľnosti: {0} zo 100"
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "Readability score: {score} out of 100"
 msgstr "Skóre čitateľnosti: {score} zo 100"
+
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Reading {fileName}…"
+msgstr ""
 
 #: src/features/assistant/conversation.tsx
 msgid "Reading page…"
@@ -10774,13 +10794,17 @@ msgstr ""
 msgid "Save an unprotected copy, with no password and no permissions restrictions."
 msgstr "Uložte nechránenú kópiu bez hesla a bez obmedzení oprávnení."
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Save and adapt a resume"
+msgstr ""
+
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Save and build resume"
+msgstr ""
+
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Save and link"
 msgstr "Uložiť a prepojiť"
-
-#: src/features/applications/components/add-application-dialog.tsx
-msgid "Save and prepare resume"
-msgstr "Uložte a pripravte si životopis"
 
 #: src/features/settings/ai/providers.tsx
 msgid "Save and test"
@@ -12494,6 +12518,10 @@ msgstr "Ďakujem, Sam. Tu je jeden: v Northwind Labs som viedol redizajn onboard
 msgid "That file couldn't be read as a PDF. Choose a PDF file and try again."
 msgstr "Tento súbor sa nepodarilo prečítať ako PDF. Vyberte súbor PDF a skúste to znova."
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "That file couldn't be read. Upload a PDF with selectable text or a Word (.docx) file, or paste the posting."
+msgstr ""
+
 #: src/features/career/knowledge/profile-file.tsx
 msgid "That file is too large for a profile file (over 1 MB)."
 msgstr ""
@@ -13595,6 +13623,10 @@ msgstr "Nahrajte PDF a pozrite si text, ktorý vytiahne systém sledovania žiad
 msgid "Upload or paste"
 msgstr ""
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Upload PDF or Word file"
+msgstr ""
+
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Upload photo"
 msgstr "Nahrať fotografiu"
@@ -13988,10 +14020,6 @@ msgstr "Upozornenie"
 #: src/features/homepage/hero.tsx
 msgid "WCAG 2.1 AA"
 msgstr "WCAG 2.1 AA"
-
-#: src/features/applications/components/add-application-dialog.tsx
-msgid "We read the page and save the posting for Check, the assistant and your letter."
-msgstr "Prečítame si stránku a uložíme pracovnú ponuku pre kontrolu, asistenta a váš list."
 
 #: src/features/settings/account/profile.tsx
 msgid "We sent a confirmation link to {email}. Open it to finish the change."

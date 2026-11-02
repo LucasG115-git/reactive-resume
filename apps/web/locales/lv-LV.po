@@ -1021,6 +1021,10 @@ msgstr "A pieņem un R noraida fokusēto labojumu. ↑ un ↓ pāriet starp labo
 msgid "A backup of this letter. Imports back into Reactive Resume as a letter."
 msgstr "Šīs vēstules dublējums. Importē atpakaļ Reactive Resume kā vēstuli."
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "A blank template, with your account's name and email"
+msgstr ""
+
 #: src/features/resume/editor/check/issues.ts
 msgid "A city and country let roles be matched to where you are."
 msgstr "Pilsēta un valsts ļauj lomām pielāgoties jūsu atrašanās vietai."
@@ -1633,6 +1637,10 @@ msgstr "Lai saglabātu, aprakstiet, kas notika."
 #: src/features/resume/editor/check/issues.ts
 msgid "Add your name"
 msgstr "Pievienojiet savu vārdu"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Add your phone, location and links in the editor afterwards."
+msgstr ""
 
 #: src/features/career/knowledge/profile.tsx
 msgid "Add…"
@@ -2616,6 +2624,10 @@ msgstr "Pārlūkojiet bezmaksas CV veidnes, salīdziniet vienas un divu sleju iz
 #: src/features/homepage/hero.tsx
 msgid "Build a professional resume, download it as PDF or Word, and manage your job search in one place. Free templates, no ads, no paywall."
 msgstr "Izveidojiet profesionālu CV, lejupielādējiet to PDF vai Microsoft Word formātā un pārvaldiet savu darba meklēšanu vienuviet. Bezmaksas veidnes, bez reklāmām, bez maksas sienas."
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Build a resume for a job"
+msgstr ""
 
 #: src/features/homepage/ui.tsx
 #: src/features/templates/gallery.tsx
@@ -4309,10 +4321,6 @@ msgstr "Izveidot atslēgu"
 #: src/features/auth/pages/login.tsx
 msgid "Create one now"
 msgstr "Izveidojiet to tagad"
-
-#: src/features/applications/components/detail/assemble-dialog.tsx
-msgid "Create or import a resume first. It provides your name, contact details and design."
-msgstr ""
 
 #: src/features/documents/documents-page.tsx
 #: src/features/resume/share/format.ts
@@ -9147,6 +9155,10 @@ msgstr "Ielīmējiet darba sludinājumu vienreiz. No tā tiek izveidota pielāgo
 msgid "Paste a job posting…"
 msgstr "Ielīmējiet darba sludinājumu…"
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Paste a link or the posting, or upload it as a PDF or Word file. It's saved for Check, the assistant, your resume and your letter."
+msgstr ""
+
 #. placeholder {0}: application.company
 #: src/features/career/workspace/messages.tsx
 msgid "Paste a message from {0}"
@@ -9845,6 +9857,10 @@ msgstr "Nolasīts kā “{0}”. Izvēlieties mēnesi, lai tas tiktu kārtots un
 msgid "Read briefing"
 msgstr "Lasīt atgādni"
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Read from an uploaded file"
+msgstr ""
+
 #: src/features/career/workspace/messages.tsx
 #: src/features/homepage/prepare.tsx
 msgid "Read it for me"
@@ -9923,6 +9939,10 @@ msgstr "Lasāmības rādītājs: {0} no 100"
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "Readability score: {score} out of 100"
 msgstr "Lasāmības rādītājs: {score} no 100"
+
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Reading {fileName}…"
+msgstr ""
 
 #: src/features/assistant/conversation.tsx
 msgid "Reading page…"
@@ -10774,13 +10794,17 @@ msgstr ""
 msgid "Save an unprotected copy, with no password and no permissions restrictions."
 msgstr "Saglabājiet neaizsargātu kopiju bez paroles un bez atļauju ierobežojumiem."
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Save and adapt a resume"
+msgstr ""
+
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Save and build resume"
+msgstr ""
+
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Save and link"
 msgstr "Saglabāt un izveidot saiti"
-
-#: src/features/applications/components/add-application-dialog.tsx
-msgid "Save and prepare resume"
-msgstr "Saglabājiet un sagatavojiet CV"
 
 #: src/features/settings/ai/providers.tsx
 msgid "Save and test"
@@ -12494,6 +12518,10 @@ msgstr "Paldies, Sam! Lūk, viens piemērs: uzņēmumā Northwind Labs es vadīj
 msgid "That file couldn't be read as a PDF. Choose a PDF file and try again."
 msgstr "Šo failu nevarēja nolasīt kā PDF. Izvēlieties PDF failu un mēģiniet vēlreiz."
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "That file couldn't be read. Upload a PDF with selectable text or a Word (.docx) file, or paste the posting."
+msgstr ""
+
 #: src/features/career/knowledge/profile-file.tsx
 msgid "That file is too large for a profile file (over 1 MB)."
 msgstr ""
@@ -13595,6 +13623,10 @@ msgstr "Augšupielādējiet PDF un skatiet tekstu, ko izvilk pieteikuma iesniedz
 msgid "Upload or paste"
 msgstr ""
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Upload PDF or Word file"
+msgstr ""
+
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Upload photo"
 msgstr "Augšupielādēt fotoattēlu"
@@ -13988,10 +14020,6 @@ msgstr "Brīdinājums"
 #: src/features/homepage/hero.tsx
 msgid "WCAG 2.1 AA"
 msgstr "WCAG 2.1 AA"
-
-#: src/features/applications/components/add-application-dialog.tsx
-msgid "We read the page and save the posting for Check, the assistant and your letter."
-msgstr "Mēs lasām lapu un saglabājam darba sludinājumu Čekam, asistentam un jūsu vēstulei."
 
 #: src/features/settings/account/profile.tsx
 msgid "We sent a confirmation link to {email}. Open it to finish the change."

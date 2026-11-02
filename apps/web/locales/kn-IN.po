@@ -1021,6 +1021,10 @@ msgstr "ಕೇಂದ್ರೀಕೃತ ಸಂಪಾದನೆಯನ್ನು A �
 msgid "A backup of this letter. Imports back into Reactive Resume as a letter."
 msgstr "ಈ ಪತ್ರದ ಬ್ಯಾಕಪ್. ಅಕ್ಷರದಂತೆ Reactive Resume ಗೆ ಮರಳಿ ಆಮದು ಮಾಡಿಕೊಳ್ಳುತ್ತದೆ."
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "A blank template, with your account's name and email"
+msgstr ""
+
 #: src/features/resume/editor/check/issues.ts
 msgid "A city and country let roles be matched to where you are."
 msgstr "ನಗರ ಮತ್ತು ದೇಶವು ನೀವು ಇರುವ ಸ್ಥಳಕ್ಕೆ ಪಾತ್ರಗಳನ್ನು ಹೊಂದಿಸಲು ಅವಕಾಶ ಮಾಡಿಕೊಡಿ."
@@ -1633,6 +1637,10 @@ msgstr "ಉಳಿಸುವ ಮೊದಲು ಏನಾಯಿತು ಎಂಬುದ
 #: src/features/resume/editor/check/issues.ts
 msgid "Add your name"
 msgstr "ನಿಮ್ಮ ಹೆಸರನ್ನು ಸೇರಿಸಿ"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Add your phone, location and links in the editor afterwards."
+msgstr ""
 
 #: src/features/career/knowledge/profile.tsx
 msgid "Add…"
@@ -2616,6 +2624,10 @@ msgstr "ಉಚಿತ CV ಟೆಂಪ್ಲೇಟ್‌ಗಳನ್ನು ಬ್�
 #: src/features/homepage/hero.tsx
 msgid "Build a professional resume, download it as PDF or Word, and manage your job search in one place. Free templates, no ads, no paywall."
 msgstr "ವೃತ್ತಿಪರ CV ಅನ್ನು ನಿರ್ಮಿಸಿ, ಅದನ್ನು PDF ಅಥವಾ Microsoft Word ಎಂದು ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ ಮತ್ತು ನಿಮ್ಮ ಉದ್ಯೋಗ ಹುಡುಕಾಟವನ್ನು ಒಂದೇ ಸ್ಥಳದಲ್ಲಿ ನಿರ್ವಹಿಸಿ. ಉಚಿತ ಟೆಂಪ್ಲೇಟ್‌ಗಳು, ಜಾಹೀರಾತುಗಳಿಲ್ಲ, ಪೇವಾಲ್ ಇಲ್ಲ."
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Build a resume for a job"
+msgstr ""
 
 #: src/features/homepage/ui.tsx
 #: src/features/templates/gallery.tsx
@@ -4309,10 +4321,6 @@ msgstr "ಕೀಲಿಯನ್ನು ರಚಿಸಿ"
 #: src/features/auth/pages/login.tsx
 msgid "Create one now"
 msgstr "ಇದೀಗ ಒಂದನ್ನು ರಚಿಸಿ"
-
-#: src/features/applications/components/detail/assemble-dialog.tsx
-msgid "Create or import a resume first. It provides your name, contact details and design."
-msgstr ""
 
 #: src/features/documents/documents-page.tsx
 #: src/features/resume/share/format.ts
@@ -9147,6 +9155,10 @@ msgstr "ಉದ್ಯೋಗ ಜಾಹೀರಾತನ್ನು ಒಮ್ಮೆ ಅ
 msgid "Paste a job posting…"
 msgstr "ಉದ್ಯೋಗ ಪೋಸ್ಟ್ ಅನ್ನು ಅಂಟಿಸಿ..."
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Paste a link or the posting, or upload it as a PDF or Word file. It's saved for Check, the assistant, your resume and your letter."
+msgstr ""
+
 #. placeholder {0}: application.company
 #: src/features/career/workspace/messages.tsx
 msgid "Paste a message from {0}"
@@ -9845,6 +9857,10 @@ msgstr "“{0}” ಎಂದು ಓದಲಾಗಿದೆ. ಸ್ಥಿರವಾ�
 msgid "Read briefing"
 msgstr "ಬ್ರೀಫಿಂಗ್ ಓದಿ"
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Read from an uploaded file"
+msgstr ""
+
 #: src/features/career/workspace/messages.tsx
 #: src/features/homepage/prepare.tsx
 msgid "Read it for me"
@@ -9923,6 +9939,10 @@ msgstr "ಓದಬಲ್ಲ ಸ್ಕೋರ್: 100 ರಲ್ಲಿ {0}"
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "Readability score: {score} out of 100"
 msgstr "ಓದಬಲ್ಲ ಸ್ಕೋರ್: 100 ರಲ್ಲಿ {score}"
+
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Reading {fileName}…"
+msgstr ""
 
 #: src/features/assistant/conversation.tsx
 msgid "Reading page…"
@@ -10774,13 +10794,17 @@ msgstr ""
 msgid "Save an unprotected copy, with no password and no permissions restrictions."
 msgstr "ಪಾಸ್‌ವರ್ಡ್ ಇಲ್ಲದ ಮತ್ತು ಅನುಮತಿ ನಿರ್ಬಂಧಗಳಿಲ್ಲದ ಅಸಂರಕ್ಷಿತ ಪ್ರತಿಯನ್ನು ಉಳಿಸಿ."
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Save and adapt a resume"
+msgstr ""
+
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Save and build resume"
+msgstr ""
+
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Save and link"
 msgstr "ಉಳಿಸಿ ಮತ್ತು ಲಿಂಕ್ ಮಾಡಿ"
-
-#: src/features/applications/components/add-application-dialog.tsx
-msgid "Save and prepare resume"
-msgstr "ರೆಸ್ಯೂಮೆಯನ್ನು ಉಳಿಸಿ ಮತ್ತು ತಯಾರಿಸಿ"
 
 #: src/features/settings/ai/providers.tsx
 msgid "Save and test"
@@ -12494,6 +12518,10 @@ msgstr "ಧನ್ಯವಾದಗಳು, Sam. ಇಲ್ಲಿದೆ ಒಂದು:
 msgid "That file couldn't be read as a PDF. Choose a PDF file and try again."
 msgstr "ಆ ಫೈಲ್ ಅನ್ನು PDF ಆಗಿ ಓದಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. PDF ಫೈಲ್ ಆಯ್ಕೆಮಾಡಿ ಮತ್ತು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ."
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "That file couldn't be read. Upload a PDF with selectable text or a Word (.docx) file, or paste the posting."
+msgstr ""
+
 #: src/features/career/knowledge/profile-file.tsx
 msgid "That file is too large for a profile file (over 1 MB)."
 msgstr ""
@@ -13595,6 +13623,10 @@ msgstr "PDF ಅನ್ನು ಅಪ್‌ಲೋಡ್ ಮಾಡಿ ಮತ್ತ�
 msgid "Upload or paste"
 msgstr ""
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Upload PDF or Word file"
+msgstr ""
+
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Upload photo"
 msgstr "ಫೋಟೋ ಅಪ್‌ಲೋಡ್ ಮಾಡಿ"
@@ -13988,10 +14020,6 @@ msgstr "ಎಚ್ಚರಿಕೆ"
 #: src/features/homepage/hero.tsx
 msgid "WCAG 2.1 AA"
 msgstr "WCAG 2.1 AA"
-
-#: src/features/applications/components/add-application-dialog.tsx
-msgid "We read the page and save the posting for Check, the assistant and your letter."
-msgstr "ನಾವು ಪುಟವನ್ನು ಓದುತ್ತೇವೆ ಮತ್ತು ಚೆಕ್, ಸಹಾಯಕ ಮತ್ತು ನಿಮ್ಮ ಪತ್ರಕ್ಕಾಗಿ ಪೋಸ್ಟ್ ಮಾಡುವ ಉದ್ಯೋಗವನ್ನು ಉಳಿಸುತ್ತೇವೆ."
 
 #: src/features/settings/account/profile.tsx
 msgid "We sent a confirmation link to {email}. Open it to finish the change."

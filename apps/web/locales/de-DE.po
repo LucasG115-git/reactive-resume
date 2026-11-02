@@ -1021,6 +1021,10 @@ msgstr "A akzeptiert und R lehnt die fokussierte Bearbeitung ab. ↑ und ↓ bew
 msgid "A backup of this letter. Imports back into Reactive Resume as a letter."
 msgstr "Eine Sicherungskopie dieses Briefes. Wird als Brief zurück in Reactive Resume importiert."
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "A blank template, with your account's name and email"
+msgstr ""
+
 #: src/features/resume/editor/check/issues.ts
 msgid "A city and country let roles be matched to where you are."
 msgstr "In einer Stadt und einem Land können die Rollen an Ihren Standort angepasst werden."
@@ -1633,6 +1637,10 @@ msgstr "Beschreiben Sie, was passiert ist, damit Sie speichern können."
 #: src/features/resume/editor/check/issues.ts
 msgid "Add your name"
 msgstr "Fügen Sie Ihren Namen hinzu"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Add your phone, location and links in the editor afterwards."
+msgstr ""
 
 #: src/features/career/knowledge/profile.tsx
 msgid "Add…"
@@ -2616,6 +2624,10 @@ msgstr "Durchsuchen Sie kostenlose Lebenslaufvorlagen, vergleichen Sie ein- und 
 #: src/features/homepage/hero.tsx
 msgid "Build a professional resume, download it as PDF or Word, and manage your job search in one place. Free templates, no ads, no paywall."
 msgstr "Erstellen Sie einen professionellen Lebenslauf, laden Sie ihn als PDF oder Microsoft Word herunter und verwalten Sie Ihre Jobsuche an einem Ort. Kostenlose Vorlagen, keine Werbung, keine Paywall."
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Build a resume for a job"
+msgstr ""
 
 #: src/features/homepage/ui.tsx
 #: src/features/templates/gallery.tsx
@@ -4309,10 +4321,6 @@ msgstr "Schlüssel erstellen"
 #: src/features/auth/pages/login.tsx
 msgid "Create one now"
 msgstr "Jetzt einen erstellen"
-
-#: src/features/applications/components/detail/assemble-dialog.tsx
-msgid "Create or import a resume first. It provides your name, contact details and design."
-msgstr ""
 
 #: src/features/documents/documents-page.tsx
 #: src/features/resume/share/format.ts
@@ -9147,6 +9155,10 @@ msgstr "Fügen Sie eine Stellenanzeige einmal ein. Daraus entstehen eine angepas
 msgid "Paste a job posting…"
 msgstr "Stellenanzeige einfügen…"
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Paste a link or the posting, or upload it as a PDF or Word file. It's saved for Check, the assistant, your resume and your letter."
+msgstr ""
+
 #. placeholder {0}: application.company
 #: src/features/career/workspace/messages.tsx
 msgid "Paste a message from {0}"
@@ -9845,6 +9857,10 @@ msgstr "Gelesen als „{0}“. Wählen Sie einen Monat, damit es einheitlich sor
 msgid "Read briefing"
 msgstr "Briefing lesen"
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Read from an uploaded file"
+msgstr ""
+
 #: src/features/career/workspace/messages.tsx
 #: src/features/homepage/prepare.tsx
 msgid "Read it for me"
@@ -9923,6 +9939,10 @@ msgstr "Lesbarkeitsbewertung: {0} von 100"
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "Readability score: {score} out of 100"
 msgstr "Lesbarkeitsbewertung: {score} von 100"
+
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Reading {fileName}…"
+msgstr ""
 
 #: src/features/assistant/conversation.tsx
 msgid "Reading page…"
@@ -10774,13 +10794,17 @@ msgstr ""
 msgid "Save an unprotected copy, with no password and no permissions restrictions."
 msgstr "Speichern Sie eine ungeschützte Kopie ohne Passwort und ohne Berechtigungseinschränkungen."
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Save and adapt a resume"
+msgstr ""
+
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Save and build resume"
+msgstr ""
+
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Save and link"
 msgstr "Speichern und verlinken"
-
-#: src/features/applications/components/add-application-dialog.tsx
-msgid "Save and prepare resume"
-msgstr "Lebenslauf speichern und vorbereiten"
 
 #: src/features/settings/ai/providers.tsx
 msgid "Save and test"
@@ -12494,6 +12518,10 @@ msgstr "Danke, Sam. Hier ist eines: Bei Northwind Labs habe ich das Onboarding-R
 msgid "That file couldn't be read as a PDF. Choose a PDF file and try again."
 msgstr "Diese Datei konnte nicht als PDF gelesen werden. Wählen Sie eine PDF-Datei und versuchen Sie es erneut."
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "That file couldn't be read. Upload a PDF with selectable text or a Word (.docx) file, or paste the posting."
+msgstr ""
+
 #: src/features/career/knowledge/profile-file.tsx
 msgid "That file is too large for a profile file (over 1 MB)."
 msgstr ""
@@ -13595,6 +13623,10 @@ msgstr "Laden Sie einen PDF hoch und sehen Sie sich den Text an, den ein Bewerbe
 msgid "Upload or paste"
 msgstr ""
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Upload PDF or Word file"
+msgstr ""
+
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Upload photo"
 msgstr "Foto hochladen"
@@ -13988,10 +14020,6 @@ msgstr "Warnung"
 #: src/features/homepage/hero.tsx
 msgid "WCAG 2.1 AA"
 msgstr "WCAG 2.1 AA"
-
-#: src/features/applications/components/add-application-dialog.tsx
-msgid "We read the page and save the posting for Check, the assistant and your letter."
-msgstr "Wir lesen die Seite und speichern die Stellenausschreibung für Check, den Assistenten und Ihr Anschreiben."
 
 #: src/features/settings/account/profile.tsx
 msgid "We sent a confirmation link to {email}. Open it to finish the change."

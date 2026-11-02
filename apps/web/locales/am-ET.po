@@ -1021,6 +1021,10 @@ msgstr "ሀ ይቀበላል እና R ያተኮረ አርትዖትን ውድቅ �
 msgid "A backup of this letter. Imports back into Reactive Resume as a letter."
 msgstr "የዚህ ደብዳቤ ምትኬ። ወደ Reactive Resume እንደ ደብዳቤ ተመልሶ ይመጣል።"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "A blank template, with your account's name and email"
+msgstr ""
+
 #: src/features/resume/editor/check/issues.ts
 msgid "A city and country let roles be matched to where you are."
 msgstr "ከተማ እና ሀገር ሚናዎች እርስዎ ካሉበት ጋር እንዲዛመድ ፍቀድ።"
@@ -1633,6 +1637,10 @@ msgstr "ከማስቀመጥዎ በፊት የሆነውን ያክሉ።"
 #: src/features/resume/editor/check/issues.ts
 msgid "Add your name"
 msgstr "ስምህን ጨምር"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Add your phone, location and links in the editor afterwards."
+msgstr ""
 
 #: src/features/career/knowledge/profile.tsx
 msgid "Add…"
@@ -2616,6 +2624,10 @@ msgstr "ነፃ የሲቪ አብነቶችን ያስሱ፣ አንድ-አምድ እ
 #: src/features/homepage/hero.tsx
 msgid "Build a professional resume, download it as PDF or Word, and manage your job search in one place. Free templates, no ads, no paywall."
 msgstr "ፕሮፌሽናል ሲቪ ይገንቡ፣ እንደ PDF ወይም Microsoft Word ያውርዱት፣ እና የስራ ፍለጋዎን በአንድ ቦታ ያስተዳድሩ። ነጻ አብነቶች፣ ምንም ማስታወቂያዎች፣ ምንም የክፍያ ግድግዳ የለም።"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Build a resume for a job"
+msgstr ""
 
 #: src/features/homepage/ui.tsx
 #: src/features/templates/gallery.tsx
@@ -4309,10 +4321,6 @@ msgstr "ቁልፍ ፍጠር"
 #: src/features/auth/pages/login.tsx
 msgid "Create one now"
 msgstr "አሁን አንድ ይፍጠሩ"
-
-#: src/features/applications/components/detail/assemble-dialog.tsx
-msgid "Create or import a resume first. It provides your name, contact details and design."
-msgstr ""
 
 #: src/features/documents/documents-page.tsx
 #: src/features/resume/share/format.ts
@@ -9147,6 +9155,10 @@ msgstr "የሥራ ማስታወቂያን አንድ ጊዜ ይለጥፉ። ለተ�
 msgid "Paste a job posting…"
 msgstr "የሥራ ማስታወቂያ ይለጥፉ…"
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Paste a link or the posting, or upload it as a PDF or Word file. It's saved for Check, the assistant, your resume and your letter."
+msgstr ""
+
 #. placeholder {0}: application.company
 #: src/features/career/workspace/messages.tsx
 msgid "Paste a message from {0}"
@@ -9845,6 +9857,10 @@ msgstr "“{0}” ተብሎ ተነቧል። በወጥነት እንዲደረደ�
 msgid "Read briefing"
 msgstr "አጭር መግለጫውን አንብብ"
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Read from an uploaded file"
+msgstr ""
+
 #: src/features/career/workspace/messages.tsx
 #: src/features/homepage/prepare.tsx
 msgid "Read it for me"
@@ -9923,6 +9939,10 @@ msgstr "የተነበበ ውጤት፡ {0} ከ100"
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "Readability score: {score} out of 100"
 msgstr "የተነበበ ውጤት፡ {score} ከ100"
+
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Reading {fileName}…"
+msgstr ""
 
 #: src/features/assistant/conversation.tsx
 msgid "Reading page…"
@@ -10774,13 +10794,17 @@ msgstr ""
 msgid "Save an unprotected copy, with no password and no permissions restrictions."
 msgstr "ያለ የይለፍ ቃል እና ያለ ፈቃድ ገደቦች ያልተጠበቀ ቅጂ ያስቀምጡ።"
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Save and adapt a resume"
+msgstr ""
+
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Save and build resume"
+msgstr ""
+
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Save and link"
 msgstr "ያስቀምጡ እና ያገናኙ"
-
-#: src/features/applications/components/add-application-dialog.tsx
-msgid "Save and prepare resume"
-msgstr "የትምህርት ማስረጃዎችን ያስቀምጡ እና ያዘጋጁ"
 
 #: src/features/settings/ai/providers.tsx
 msgid "Save and test"
@@ -12494,6 +12518,10 @@ msgstr "አመሰግናለሁ Sam። አንድ ምሳሌ ይኸውና፦ በNort
 msgid "That file couldn't be read as a PDF. Choose a PDF file and try again."
 msgstr "ያ ፋይል እንደ PDF ሊነበብ አልቻለም። የPDF ፋይል ይምረጡ እና እንደገና ይሞክሩ።"
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "That file couldn't be read. Upload a PDF with selectable text or a Word (.docx) file, or paste the posting."
+msgstr ""
+
 #: src/features/career/knowledge/profile-file.tsx
 msgid "That file is too large for a profile file (over 1 MB)."
 msgstr ""
@@ -13595,6 +13623,10 @@ msgstr "PDF ይስቀሉ እና አመልካች የሚከታተል ስርዓት 
 msgid "Upload or paste"
 msgstr ""
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Upload PDF or Word file"
+msgstr ""
+
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Upload photo"
 msgstr "ፎቶ ስቀል"
@@ -13988,10 +14020,6 @@ msgstr "ማስጠንቀቂያ"
 #: src/features/homepage/hero.tsx
 msgid "WCAG 2.1 AA"
 msgstr "WCAG 2.1 AA"
-
-#: src/features/applications/components/add-application-dialog.tsx
-msgid "We read the page and save the posting for Check, the assistant and your letter."
-msgstr "ገጹን እናነባለን እና የሥራ ማስታወቂያውን ለቼክ፣ ለረዳቱ እና ለደብዳቤዎ እናስቀምጣለን።"
 
 #: src/features/settings/account/profile.tsx
 msgid "We sent a confirmation link to {email}. Open it to finish the change."

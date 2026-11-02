@@ -11,6 +11,8 @@ const api = vi.hoisted(() => ({
 	bulkDelete: vi.fn(),
 	bulkUpdate: vi.fn(),
 	parsePosting: vi.fn(),
+	readPostingFile: vi.fn(),
+	masterProfile: vi.fn(async () => ({ entries: [], standalone: [] }) as { entries: unknown[]; standalone: unknown[] }),
 	create: vi.fn(),
 	moveTo: vi.fn(),
 	close: vi.fn(),
@@ -35,7 +37,11 @@ vi.mock("@/libs/orpc/client", () => ({
 			ai: {
 				parsePosting: { mutationOptions: () => ({ mutationFn: api.parsePosting }) },
 				searchPostings: { mutationOptions: () => ({ mutationFn: async () => [] }) },
+				readPostingFile: { mutationOptions: () => ({ mutationFn: api.readPostingFile }) },
 			},
+		},
+		masterProfile: {
+			get: { queryOptions: () => ({ queryKey: ["master-profile"], queryFn: api.masterProfile }) },
 		},
 		webAccess: {
 			status: { queryOptions: () => ({ queryKey: ["web-access"], queryFn: async () => ({ search: false }) }) },
@@ -174,3 +180,38 @@ it.each(["ai", "page"])(
 		expect((screen.getByRole("button", { name: "Save job" }) as HTMLButtonElement).disabled).toBe(false);
 	},
 );
+
+it("reads a posting file and saves the job straight into building a resume from the profile", async () => {
+	api.masterProfile.mockResolvedValueOnce({ entries: [{ id: "role" }], standalone: [] });
+	api.readPostingFile.mockResolvedValueOnce({
+		role: "Web Developer",
+		company: "Contoso",
+		location: "Peterborough, ON",
+		salary: "",
+		requirements: ["WordPress", "Accessibility"],
+		jobDescription: "Web Developer at Contoso. WordPress and accessibility.",
+		sourceUrl: null,
+		postingSource: { method: "upload", format: "text", truncated: false, completeness: "unknown" },
+		enrichmentWarning: null,
+		filledBy: "ai",
+	});
+	api.create.mockResolvedValueOnce("new-application");
+	const onAdded = vi.fn();
+	mount(<AddApplicationDialog open onOpenChange={vi.fn()} onAdded={onAdded} />);
+	await screen.findByRole("button", { name: "Upload PDF or Word file" });
+	const input = document.querySelector<HTMLInputElement>('input[type="file"]');
+	if (!input) throw new Error("No file input.");
+	const file = new File(["%PDF"], "posting.pdf", { type: "application/pdf" });
+	fireEvent.change(input, { target: { files: [file] } });
+	await screen.findByText(/Found role, company and 2 requirements/);
+	expect(api.readPostingFile.mock.calls[0]?.[0]).toEqual({ file });
+	expect((screen.getByRole("textbox", { name: "Role" }) as HTMLInputElement).value).toBe("Web Developer");
+	fireEvent.click(await screen.findByRole("button", { name: "Save and build resume" }));
+	await waitFor(() => expect(onAdded).toHaveBeenCalledWith("new-application", { assemble: true }));
+	expect(api.create.mock.calls[0]?.[0]).toMatchObject({
+		role: "Web Developer",
+		company: "Contoso",
+		jobDescription: "Web Developer at Contoso. WordPress and accessibility.",
+		postingSource: { method: "upload" },
+	});
+});
