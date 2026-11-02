@@ -1033,6 +1033,10 @@ msgstr "সাইন-ইন করার সময় একটি প্রম�
 msgid "A comfortable length, and it fits on one page."
 msgstr "একটি আরামদায়ক দৈর্ঘ্য, এবং এটি এক পৃষ্ঠায় ফিট করে।"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "A country"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "A date is in the future."
 msgstr "একটি তারিখ ভবিষ্যতে রয়েছে।"
@@ -1102,6 +1106,10 @@ msgstr "একটি লিঙ্ক তার প্রদর্শিত ঠ�
 msgid "A model's opinion, not a verdict. It can be wrong."
 msgstr "একজন মডেলের মতামত, রায় নয়। এটা ভুল হতে পারে."
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "A must-have rules a role out only when the posting confirms it isn't met; if the posting doesn't say, the role is marked to check. Strong preferences and nice-to-haves only change the order. You can still save and track any role."
+msgstr ""
+
 #: src/features/settings/account/security.tsx
 msgid "A name helps you tell passkeys apart, like “Work laptop”."
 msgstr "একটি নাম আপনাকে পাসকিগুলো আলাদা করে চিনতে সাহায্য করে, যেমন “অফিসের ল্যাপটপ”।"
@@ -1158,6 +1166,10 @@ msgstr "সময় ধরে পরিকল্পনা, আপনার স�
 msgid "A web address is written without https://."
 msgstr "একটি ওয়েব ঠিকানা https:// ছাড়া লেখা হয়েছে।"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "a week"
+msgstr ""
+
 #: src/features/homepage/footer.tsx
 msgid "About"
 msgstr "এই অ্যাপ সম্পর্কে"
@@ -1165,6 +1177,14 @@ msgstr "এই অ্যাপ সম্পর্কে"
 #: src/features/career/workspace/practise.tsx
 msgid "About 90 seconds when spoken"
 msgstr "বলতে প্রায় 90 সেকেন্ড লাগে"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Absolute minimum"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Absolute minimum pay here ({currency})"
+msgstr ""
 
 #: src/features/resume/editor/design/entries-group.tsx
 msgid "Accent"
@@ -1282,6 +1302,10 @@ msgstr "\"{0}\" যোগ করুন"
 msgid "Add “{0}” as a new stage"
 msgstr "“{0}” নতুন পর্যায় হিসেবে যোগ করুন"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Add a city or region, then Enter"
+msgstr ""
+
 #: src/features/career/knowledge/search-regions-field.tsx
 msgid "Add a country"
 msgstr "একটি দেশ যোগ করুন"
@@ -1329,6 +1353,10 @@ msgstr "একটি স্থান লিখে Enter চাপুন"
 
 #: src/features/career/knowledge/profile.tsx
 msgid "Add a position"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Add a preference"
 msgstr ""
 
 #: src/features/career/workspace/apply.tsx
@@ -1394,6 +1422,10 @@ msgstr "একটি ঠিকানা যোগ করুন."
 #: src/features/career/schedule-sheet.tsx
 msgid "Add an application first"
 msgstr "আগে একটি আবেদন যোগ করুন"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Add an area"
+msgstr ""
 
 #: src/features/resume/editor/check/issues.ts
 msgid "Add an email"
@@ -1747,6 +1779,10 @@ msgstr "টেকনিক্যাল ইন্টারভিউয়ের �
 msgid "After your first review, a light plan for this week appears here."
 msgstr "আপনার প্রথম পর্যালোচনার পরে এই সপ্তাহের একটি হালকা পরিকল্পনা এখানে দেখা যাবে।"
 
+#: src/features/career/preference-check.tsx
+msgid "Against your preferences"
+msgstr ""
+
 #: src/features/career/workspace/fit.tsx
 msgid "Against your requirements"
 msgstr "আপনার প্রয়োজনীয়তার তুলনায়"
@@ -1998,8 +2034,13 @@ msgid "Anything to remember about this job"
 msgstr "এই কাজ সম্পর্কে কিছু মনে রাখা"
 
 #: src/features/career/knowledge/search-regions-field.tsx
+#: src/features/career/knowledge/structured-preferences.tsx
 msgid "Anywhere"
 msgstr "যে কোন জায়গায়"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Anywhere else"
+msgstr ""
 
 #: src/features/assistant/provider-setup.tsx
 #: src/features/settings/ai/providers.tsx
@@ -2201,6 +2242,10 @@ msgstr "আরবি"
 msgid "Archived (closes it)"
 msgstr "সংরক্ষণাগারভুক্ত (এটি বন্ধ করে)"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Area name"
+msgstr ""
+
 #: src/features/resume/editor/write/entries.tsx
 msgid "Area of study"
 msgstr "অধ্যয়নের এলাকা"
@@ -2323,6 +2368,11 @@ msgstr "সহকারী কথোপকথন"
 msgid "Assistant."
 msgstr "সহকারী।"
 
+#. placeholder {0}: money(salary.floor, salary.currency)
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "at least {0}"
+msgstr ""
+
 #: src/features/homepage/prepare.tsx
 msgid "At Northwind Labs I led research for our onboarding redesign. I interviewed 14 customers, found three drop-off points, and we shipped a shorter setup. Activation rose from 31% to 44%."
 msgstr "Northwind Labs-এ আমি আমাদের অনবোর্ডিং রিডিজাইনের গবেষণায় নেতৃত্ব দিয়েছি। আমি 14 জন গ্রাহকের সাক্ষাৎকার নিয়েছি, তিনটি ড্রপ-অফ পয়েন্ট খুঁজে পেয়েছি, এবং আমরা একটি ছোট সেটআপ চালু করেছি। অ্যাক্টিভেশন 31% থেকে বেড়ে 44% হয়েছে।"
@@ -2375,6 +2425,10 @@ msgstr "সংযুক্তি"
 msgid "Automatically"
 msgstr "স্বয়ংক্রিয়ভাবে"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Autonomy"
+msgstr ""
+
 #: src/features/resume/share/format.ts
 msgid "autosaved"
 msgstr "স্বয়ংক্রিয় সংরক্ষিত"
@@ -2386,6 +2440,10 @@ msgstr "অটোসেভগুলি সেশন অনুসারে গো
 #: src/features/resume/share/cv-domain-card.tsx
 msgid "Available"
 msgstr "উপলব্ধ"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Avoid"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Avoid heavy letter-spacing effects, then re-export."
@@ -2521,6 +2579,10 @@ msgstr "জমা দেওয়ার আগে"
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Behavioral"
 msgstr "আচরণগত"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Benefits"
+msgstr ""
 
 #: src/libs/locale.ts
 msgid "Bengali"
@@ -2855,6 +2917,10 @@ msgstr "অন্য ফাইল চেক করুন"
 msgid "Check any PDF, no account needed"
 msgstr "যেকোনো PDF চেক করুন, কোনো অ্যাকাউন্টের প্রয়োজন নেই"
 
+#: src/features/career/preference-check.tsx
+msgid "Check before applying"
+msgstr ""
+
 #: src/features/resume/share/custom-domain-field.tsx
 #: src/features/resume/share/dns-records-dialog.tsx
 msgid "Check DNS"
@@ -2927,6 +2993,10 @@ msgstr "আপনার অ্যাকাউন্ট যাচাই করা
 msgid "Check your resume’s ATS readability"
 msgstr "আপনার CV এর ATS পাঠযোগ্যতা পরীক্ষা করুন"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Checked by whether the posting mentions it, so use the words a posting would: \"nonprofit\", \"permanent\", \"pension\". Anything subtler is left for the coach to read."
+msgstr ""
+
 #. placeholder {0}: file.name
 #: src/features/ats-checker/checker.tsx
 msgid "Checking {0}"
@@ -2971,6 +3041,10 @@ msgstr "চীনা (সরলীকৃত)"
 #: src/libs/locale.ts
 msgid "Chinese (Traditional)"
 msgstr "চীনা (প্রচলিত)"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Choose a country"
+msgstr ""
 
 #: src/features/documents/documents-page.tsx
 msgid "Choose a file"
@@ -3199,6 +3273,10 @@ msgstr "কমান্ড প্যালেট: {currentPage}"
 #: src/features/homepage/footer.tsx
 msgid "Community"
 msgstr "কমিউনিটি"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Commute, at most"
+msgstr ""
 
 #: src/features/resume/editor/design/fit.ts
 #: src/features/resume/editor/design/style-groups.tsx
@@ -4179,6 +4257,10 @@ msgstr "টাইমলাইন আপডেট করা যায়নি।
 msgid "Couldn't update this letter's versions. Try again."
 msgstr "এই চিঠির সংস্করণগুলো আপডেট করা যায়নি। আবার চেষ্টা করুন।"
 
+#: src/features/career/preference-check.tsx
+msgid "Couldn't update this preference. Try again."
+msgstr ""
+
 #. Fallback toast when uploading profile picture for resume fails
 #: src/features/resume/editor/write/picture-settings.tsx
 #: src/features/settings/account/profile.tsx
@@ -4208,6 +4290,10 @@ msgstr "উৎস অনুযায়ী গণনা করুন"
 msgid "Count characters"
 msgstr "অক্ষর গণনা"
 
+#: src/features/career/preference-check.tsx
+msgid "Count it again"
+msgstr ""
+
 #: src/features/career/workspace/apply.tsx
 msgid "Count words"
 msgstr "শব্দ গণনা"
@@ -4219,6 +4305,10 @@ msgstr "এটি পার্স স্কোর থেকে আলাদা�
 #: src/features/career/knowledge/search-regions-field.tsx
 msgid "Countries"
 msgstr "দেশগুলো"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Country"
+msgstr ""
 
 #: src/features/applications/components/manage-lanes-sheet.tsx
 msgid "Counts as"
@@ -4268,6 +4358,10 @@ msgstr "কভার লেটার জমা দেওয়া (ঐচ্ছ�
 #: src/features/homepage/sections.tsx
 msgid "Cover letters"
 msgstr "কভার লেটার"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Covers"
+msgstr ""
 
 #: src/features/command-palette/pages/navigation.tsx
 msgid "Create"
@@ -4347,8 +4441,13 @@ msgid "CSV data"
 msgstr "CSV ডেটা"
 
 #: src/features/career/knowledge/preferences.tsx
+#: src/features/career/knowledge/structured-preferences.tsx
 msgid "Currency"
 msgstr "মুদ্রা"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Currency set; no amounts yet."
+msgstr ""
 
 #: src/features/applications/components/export-applications-sheet.tsx
 msgid "Current filters"
@@ -4794,6 +4893,10 @@ msgstr "আপনি এখানে যে নথিগুলো সরান �
 msgid "Does it use AI?"
 msgstr "এটা কি AI ব্যবহার করে?"
 
+#: src/features/career/preference-check.tsx
+msgid "Doesn't matter here"
+msgstr ""
+
 #: src/features/resume/share/custom-domain-field.tsx
 msgid "Domain connected"
 msgstr "ডোমেইন সংযুক্ত হয়েছে"
@@ -5050,6 +5153,10 @@ msgstr "যে উত্তরগুলোর ওপর আপনি মতা�
 msgid "Each requirement in the posting is checked against the facts and stories in your Knowledge. Gaps show as missing evidence, never missing ability."
 msgstr "চাকরির বিজ্ঞপ্তির প্রতিটি প্রয়োজনীয়তা আপনার জ্ঞানভান্ডারের তথ্য ও গল্পের সাথে মিলিয়ে দেখা হয়। ঘাটতিগুলো দেখানো হয় প্রমাণের অভাব হিসেবে, কখনও দক্ষতার অভাব হিসেবে নয়।"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Each rule covers an area. A rule naming places is used before a country rule, and a country rule before an \"anywhere\" rule; among rules of the same kind, the higher one wins. Radius and commute time are shared with the coach but can't be checked against a posting."
+msgstr ""
+
 #: src/features/assistant/conversation.tsx
 msgid "Each send starts fresh with this message and selected files. Previous conversation history stays here."
 msgstr "প্রতিটি প্রেরণ এই বার্তা এবং নির্বাচিত ফাইলগুলির সাথে তাজা শুরু হয়। পূর্ববর্তী কথোপকথনের ইতিহাস এখানে থাকে।"
@@ -5250,6 +5357,10 @@ msgstr "এক্সপোর্ট করার সময় সব ফন্�
 msgid "Employer"
 msgstr ""
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Employment type"
+msgstr ""
+
 #: src/features/resume/editor/write/dates-field.tsx
 msgid "End"
 msgstr "শেষ"
@@ -5290,6 +5401,10 @@ msgstr "Reactive Resume ভালো লাগছে?"
 #: src/features/auth/pages/verify-2fa.tsx
 msgid "Enter a backup code."
 msgstr "একটি ব্যাকআপ কোড লিখুন।"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Enter a full amount, such as 95000."
+msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
 msgid "Enter a full amount, such as 95000. Your previous amount is unchanged."
@@ -5681,6 +5796,10 @@ msgstr "উপযুক্ততা যাচাই, ব্রিফিং, অ�
 msgid "Fit page to width"
 msgstr "প্রস্থে পৃষ্ঠা ফিট করুন"
 
+#: src/features/career/preference-check.tsx
+msgid "Fits your must-haves"
+msgstr ""
+
 #: src/features/resume/editor/check/issues.ts
 msgid "Fix the date"
 msgstr "তারিখ ঠিক করুন"
@@ -5713,6 +5832,10 @@ msgstr "Northwind Labs-এ অনবোর্ডিংয়ে ড্রপ-অ
 #: src/features/ats-checker/messages.ts
 msgid "Flatten the form so the text is part of the page."
 msgstr "ফর্মটি ফ্ল্যাটেন করুন, যাতে টেক্সট পৃষ্ঠার অংশ হয়ে যায়।"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Flexibility"
+msgstr ""
 
 #: src/features/resume/editor/write/entries.tsx
 msgid "Fluency"
@@ -5921,6 +6044,10 @@ msgstr "সহকারী বা API থেকে"
 msgid "From your cover letter"
 msgstr "আপনার কভার লেটার থেকে"
 
+#: src/features/career/preference-check.tsx
+msgid "from your earlier settings"
+msgstr ""
+
 #: src/features/assistant/assistant-panel.tsx
 msgid "From your experience entries"
 msgstr "আপনার অভিজ্ঞতা এন্ট্রি থেকে"
@@ -6061,6 +6188,10 @@ msgstr "গ্রেড"
 msgid "Gray"
 msgstr "ধূসর"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Greater Toronto Area"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Greek"
 msgstr "গ্রিক"
@@ -6076,6 +6207,14 @@ msgstr "সম্ভাষণ"
 #: src/features/documents/documents-page.tsx
 msgid "Grid"
 msgstr "গ্রিড"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Growth"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Growth and learning"
+msgstr ""
 
 #: src/features/homepage/remember.tsx
 msgid "Happy to walk you through it on our call."
@@ -6296,9 +6435,26 @@ msgstr "সপ্তাহে কত দিন অফিসে থাকতে �
 msgid "How many days of leave come with it?"
 msgstr "এর সাথে কত দিনের ছুটি পাওয়া যায়?"
 
+#. placeholder {0}: item.value || kinds[item.kind]
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "How much {0} matters"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "How much {name} matters"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "How much this rule matters"
+msgstr ""
+
 #: src/features/career/schedule-sheet.tsx
 msgid "How often"
 msgstr "কত ঘন ঘন"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "How roles are checked"
+msgstr ""
 
 #: src/features/templates/gallery.tsx
 msgid "How to choose a template"
@@ -6315,6 +6471,10 @@ msgstr "আমি এই ভূমিকায় কতটা উপযুক�
 #: src/libs/locale.ts
 msgid "Hungarian"
 msgstr "হাঙ্গেরিয়ান"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Hybrid"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/typography.tsx
 msgid "Hyphenation"
@@ -6353,6 +6513,11 @@ msgstr "আইকন..."
 #: src/features/resume/editor/design/style-groups.tsx
 msgid "Icons in contact line"
 msgstr "যোগাযোগ লাইনে আইকন"
+
+#. placeholder {0}: money(salary.preferred, salary.currency)
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "ideally {0}+"
+msgstr ""
 
 #: src/features/homepage/remember.tsx
 msgid "If I did it again, I’d agree on the measure before the first prototype."
@@ -6484,6 +6649,14 @@ msgstr "ইন্ডেন্ট বাড়ান"
 #: src/libs/locale.ts
 msgid "Indonesian"
 msgstr "ইন্দোনেশিয়ান"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Industry"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Industry, organization type, mission, size, benefits, employment type…"
+msgstr ""
 
 #: src/features/career/workspace/fit.tsx
 msgid "Inferred"
@@ -6917,6 +7090,10 @@ msgstr "কীওয়ার্ডসমূহ"
 #: src/libs/locale.ts
 msgid "Khmer"
 msgstr "খেমার"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Kind"
+msgstr ""
 
 #: src/features/letters/compose.ts
 msgid "Kind regards,"
@@ -7567,6 +7744,10 @@ msgstr "সার্ভার দ্বারা পরিচালিত"
 msgid "Managed by your server"
 msgstr "আপনার সার্ভার দ্বারা পরিচালিত"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Management"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Many bullets start with the same phrase."
 msgstr "অনেক বুলেট একই বাক্যাংশ দিয়ে শুরু হয়।"
@@ -7706,6 +7887,10 @@ msgstr "বার্তা · আপনার ইমেইল থেকে প�
 msgid "Messages · Reply to Sam at Fieldnote"
 msgstr "বার্তা · Fieldnote-এর Sam-কে জবাব"
 
+#: src/features/career/preference-check.tsx
+msgid "Met"
+msgstr ""
+
 #: src/features/career/knowledge/profile.tsx
 msgid "Metrics (only numbers you can back up)"
 msgstr ""
@@ -7714,9 +7899,21 @@ msgstr ""
 msgid "Microphone blocked. Allow it in your browser settings, or type your answer."
 msgstr "মাইক্রোফোন ব্লক করা আছে। ব্রাউজারের সেটিংসে অনুমতি দিন, অথবা আপনার উত্তর টাইপ করুন।"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "min"
+msgstr ""
+
 #: src/features/career/knowledge/preferences.tsx
 msgid "Minimum base salary"
 msgstr "ন্যূনতম মূল বেতন"
+
+#: src/features/career/knowledge/preferences.tsx
+msgid "Minimum pay is set under Pay, below."
+msgstr ""
+
+#: src/features/career/preference-check.tsx
+msgid "Misses a must-have"
+msgstr ""
 
 #: src/features/applications/components/detail/assemble-dialog.tsx
 msgid "Missing evidence isn't missing ability. If you have done it, add it to your profile and assemble again."
@@ -7725,6 +7922,10 @@ msgstr ""
 #: src/features/homepage/prepare.tsx
 msgid "Missing evidence means your notes don’t show it yet, not that you lack it."
 msgstr "প্রমাণ নেই মানে আপনার নোটে এখনও তা দেখা যাচ্ছে না, আপনার তা নেই এমন নয়।"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Mission"
+msgstr ""
 
 #: src/features/homepage/footer.tsx
 msgid "MIT License"
@@ -7831,6 +8032,7 @@ msgstr "{label} উপরে সরান"
 msgid "Move all content inside the page boundaries and re-export."
 msgstr "সব কনটেন্ট পৃষ্ঠার সীমানার মধ্যে নিয়ে এসে পুনরায় এক্সপোর্ট করুন।"
 
+#: src/features/career/knowledge/structured-preferences.tsx
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Move down"
 msgstr "নিচে সরান"
@@ -7893,6 +8095,7 @@ msgstr "ট্র্যাশে সরান"
 msgid "Move to…"
 msgstr "এ যান..."
 
+#: src/features/career/knowledge/structured-preferences.tsx
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Move up"
 msgstr "উপরে সরান"
@@ -7916,6 +8119,15 @@ msgstr "{label}-এ সরানো হয়েছে"
 #: src/features/career/workspace/messages.tsx
 msgid "Moves the application from {0}."
 msgstr "আবেদনটিকে {0} থেকে সরিয়ে নেয়।"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+#: src/features/career/preference-check.tsx
+msgid "Must have"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Must have: lower pay rules a role out, unless an exception below applies."
+msgstr ""
 
 #: src/features/homepage/remember.tsx
 msgid "My job was to find out why, without adding support work."
@@ -7989,6 +8201,10 @@ msgstr "নাম, ইমেল, ফোন এবং অবস্থান প�
 msgid "named"
 msgstr "নাম"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Named places"
+msgstr ""
+
 #: src/features/resume/share/format.ts
 msgid "Named version"
 msgstr "নামকৃত সংস্করণ"
@@ -8045,6 +8261,10 @@ msgstr "নতুন API কী"
 #: src/features/command-palette/pages/resumes.tsx
 msgid "New application"
 msgstr "নতুন আবেদন"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "New area"
+msgstr ""
 
 #: src/features/assistant/assistant-panel.tsx
 #: src/features/career/coach-thread.tsx
@@ -8152,6 +8372,15 @@ msgstr "পরবর্তী ধাপ: {0}। আজ বিভাগে এক
 #: src/features/homepage/remember.tsx
 msgid "Next time, I’d agree how to measure success before the first prototype."
 msgstr "পরের বার, প্রথম প্রোটোটাইপের আগেই সাফল্য কীভাবে মাপব তা নিয়ে একমত হতাম।"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+#: src/features/career/preference-check.tsx
+msgid "Nice to have"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Nice to have."
+msgstr ""
 
 #: src/features/applications/components/interview-dialog.tsx
 msgid "No active applications."
@@ -8271,6 +8500,10 @@ msgstr "কোনো লাইনকে চাকরির পদবি ও ন�
 msgid "No location"
 msgstr "অবস্থান নেই"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "No location rules yet."
+msgstr ""
+
 #: src/features/career/today.tsx
 msgid "No new roles. Discovery is paused."
 msgstr "নতুন কোনো পদ নেই। অনুসন্ধান বিরতিতে আছে।"
@@ -8301,6 +8534,10 @@ msgstr "কোন খোলা সমস্যা"
 msgid "No other stage counts as {0}. Add one first, so its applications have somewhere to go."
 msgstr "অন্য কোনো পর্যায় {0} হিসেবে গণ্য হয় না। আবেদনগুলো সরানোর জায়গা রাখতে আগে এমন একটি পর্যায় যোগ করুন।"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "No pay preferences yet."
+msgstr ""
+
 #: src/features/resume/editor/check/issues.ts
 msgid "No phone number"
 msgstr "ফোন নম্বর নেই"
@@ -8316,6 +8553,14 @@ msgstr "ছবি নেই। বেশিরভাগ ATS ফটোগুল�
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "No postings found. Try different keywords."
 msgstr "কোন কাজের পোস্টিং পাওয়া যায়নি. বিভিন্ন কীওয়ার্ড চেষ্টা করুন।"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "No preference"
+msgstr ""
+
+#: src/features/career/preference-check.tsx
+msgid "No preferences to check yet. <0>Set them in Preferences</0>"
+msgstr ""
 
 #: src/features/applications/stages.ts
 msgid "No response"
@@ -8410,6 +8655,10 @@ msgctxt "Entry header accent"
 msgid "None"
 msgstr "কোনোটিই নয়"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Nonprofit"
+msgstr ""
+
 #: src/features/career/knowledge/profile.tsx
 msgid "nonprofit, wordpress, leadership"
 msgstr ""
@@ -8435,6 +8684,11 @@ msgstr "Northwind Labs · Lisbon"
 #: src/libs/locale.ts
 msgid "Norwegian"
 msgstr "নরওয়েজিয়ান"
+
+#. placeholder {0}: item.value
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "not {0}"
+msgstr ""
 
 #: src/features/career/workspace/messages.tsx
 msgid "Not applied"
@@ -8485,6 +8739,10 @@ msgstr "আপনার জীবনবৃত্তান্তে নেই"
 msgid "Not in your resume · add only if true"
 msgstr "আপনার জীবনবৃত্তান্তে নেই · সত্য হলেই যোগ করুন"
 
+#: src/features/career/preference-check.tsx
+msgid "Not met"
+msgstr ""
+
 #: src/features/career/shared.tsx
 msgid "Not now"
 msgstr "এখন নয়"
@@ -8522,6 +8780,10 @@ msgstr ""
 #: src/features/settings/root.tsx
 msgid "Not set up"
 msgstr "সেট আপ করা হয়নি"
+
+#: src/features/career/preference-check.tsx
+msgid "Not stated"
+msgstr ""
 
 #: src/features/resume/stylesheet/editor.tsx
 msgid "Not sure what to write?"
@@ -8657,6 +8919,10 @@ msgstr "ওড়িয়া"
 msgid "Off"
 msgstr "বন্ধ"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Off: roles that require relocating to {name} don't meet this rule."
+msgstr ""
+
 #: src/features/homepage/remember.tsx
 msgid "Off: the coach won’t see it or claim it."
 msgstr "বন্ধ: কোচ এটি দেখবে না, আপনার হয়ে দাবিও করবে না।"
@@ -8688,9 +8954,21 @@ msgstr "সপ্তাহে সর্বোচ্চ অফিস দিন"
 msgid "Office days not stated"
 msgstr "অফিস দিনের উল্লেখ নেই"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Office days, at most"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Office days, ideally"
+msgstr ""
+
 #: src/features/resume/editor/save-status.tsx
 msgid "Offline · saved on this device"
 msgstr "অফলাইন · এই ডিভাইসে সংরক্ষিত"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "On-site"
+msgstr ""
 
 #: src/features/resume/share/share-panel.tsx
 msgid "On. Anyone with the link can see your web page."
@@ -8859,6 +9137,10 @@ msgstr ""
 msgid "Open the schedule"
 msgstr "সময়সূচি খুলুন"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Open to relocating here"
+msgstr ""
+
 #: src/features/resume/share/share-panel.tsx
 msgid "Open web page"
 msgstr "ওয়েব পেজ খুলুন"
@@ -8900,6 +9182,10 @@ msgstr "ঐচ্ছিক"
 #: src/features/settings/ai/providers.tsx
 msgid "Optional for local Ollama"
 msgstr "স্থানীয় Ollama এর জন্য ঐচ্ছিক"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Optional; replaces the general minimum in this area."
+msgstr ""
 
 #: src/components/ui/combobox.tsx
 #: src/features/documents/documents-page.tsx
@@ -8963,6 +9249,7 @@ msgid "Original table formatting is preserved. This content is read-only because
 msgstr "মূল টেবিল বিন্যাস সংরক্ষিত হয়. এই বিষয়বস্তু শুধুমাত্র পঠনযোগ্য কারণ এটি নিরাপদে সম্পাদনা করা যাবে না।"
 
 #: src/features/applications/components/interview-dialog.tsx
+#: src/features/career/knowledge/structured-preferences.tsx
 msgid "Other"
 msgstr "অন্যান্য"
 
@@ -9209,7 +9496,20 @@ msgstr "বিরতিতে · {line}"
 msgid "Paused schedules keep their settings."
 msgstr "বিরতিতে থাকা সময়সূচির সেটিংস অপরিবর্তিত থাকে।"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Pay"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Pay changes aren't saved until then."
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Pay is compared only when a posting states it in the same currency and period; otherwise it's marked unknown, never converted or guessed. Hourly, contract and commission pay is flagged to check."
+msgstr ""
+
 #: src/features/career/knowledge/preferences.tsx
+#: src/features/career/knowledge/structured-preferences.tsx
 msgid "Pay period"
 msgstr "বেতনের মেয়াদ"
 
@@ -9228,6 +9528,18 @@ msgstr "PDF, Word বা JSON। আমরা এটি থেকে একট�
 #: src/features/homepage/sections.tsx
 msgid "People using it"
 msgstr "লোকেরা এটি ব্যবহার করে"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "per hour"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "per month"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "per year"
+msgstr ""
 
 #: src/features/settings/account/data.tsx
 msgid "Permanently removes everything. Export first if you want a copy."
@@ -9291,6 +9603,10 @@ msgstr "ছবি"
 #: src/features/applications/components/insights-view.tsx
 msgid "Pipeline flow"
 msgstr "পাইপলাইন প্রবাহ"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Places that identify it in a posting"
+msgstr ""
 
 #: src/features/career/workspace/apply.tsx
 msgid "Plain text (.txt)"
@@ -9449,6 +9765,18 @@ msgstr "পছন্দসমূহ"
 msgctxt "Career preferences: the roles, places, pay and ways of working you want"
 msgid "Preferences"
 msgstr "পছন্দসমূহ"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Preferred"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Preferred minimum"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Preferred minimum here ({currency})"
+msgstr ""
 
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/shared.tsx
@@ -9778,6 +10106,10 @@ msgstr "যে প্রশ্নগুলো করবেন"
 #: src/features/homepage/remember.tsx
 msgid "R"
 msgstr "R"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Radius"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 msgid "Raise the design sheet"
@@ -10174,6 +10506,7 @@ msgid "Reminders appear here. Email copies are optional and need a verified addr
 msgstr "রিমাইন্ডার এখানে দেখা যায়। ইমেইল কপি ঐচ্ছিক এবং এর জন্য যাচাই করা ঠিকানা লাগে।"
 
 #: src/features/career/knowledge/preferences.tsx
+#: src/features/career/knowledge/structured-preferences.tsx
 #: src/features/career/offers.tsx
 msgid "Remote"
 msgstr "রিমোট"
@@ -10197,17 +10530,18 @@ msgstr "“{name}” সরাবেন?"
 
 #. placeholder {0}: attachment.filename
 #. placeholder {0}: contact.name
-#. placeholder {0}: passkey.name || t`Unnamed passkey`
+#. placeholder {0}: item.value || kinds[item.kind]
 #: src/features/applications/components/detail/contacts.tsx
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
+#: src/features/career/knowledge/structured-preferences.tsx
 #: src/features/settings/account/security.tsx
 msgid "Remove {0}"
 msgstr "{0} সরান"
 
 #. Screen reader label for button that removes a keyword chip. Variable is the current keyword text.
 #: src/components/input/chip-input.tsx
-#: src/features/career/knowledge/preferences.tsx
+#: src/features/career/knowledge/fields.tsx
 msgid "Remove {chip}"
 msgstr "সরান {chip}"
 
@@ -10218,6 +10552,10 @@ msgstr "সরান {country}"
 #: src/features/applications/components/manage-lanes-sheet.tsx
 msgid "Remove {label}…"
 msgstr "{label} সরান…"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Remove {name}"
+msgstr ""
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Remove {value}"
@@ -10670,6 +11008,14 @@ msgstr "ভূমিকা, কোম্পানি বা অবস্থা�
 #: src/features/career/coach-chat.tsx
 msgid "Roles"
 msgstr "পদ"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Roles are checked against your office-day limit and places as strong preferences, never as must-haves."
+msgstr ""
+
+#: src/features/career/knowledge/preferences.tsx
+msgid "Roles are checked with your location rules below; this limit is used when comparing offers."
+msgstr ""
 
 #: src/features/career/schedule-sheet.tsx
 msgid "Roles, places and companies. Starts from your preferences."
@@ -11322,6 +11668,10 @@ msgstr "একটি ফলো-আপ সেট করুন..."
 msgid "Set a password"
 msgstr "একটি পাসওয়ার্ড সেট করুন"
 
+#: src/features/career/preference-check.tsx
+msgid "Set aside for this role"
+msgstr ""
+
 #: src/features/resume/builder/password-dialog.tsx
 msgid "Set password"
 msgstr "পাসওয়ার্ড সেট করুন"
@@ -11665,6 +12015,7 @@ msgstr "পরিস্থিতি, কাজ, পদক্ষেপ, ফলা
 msgid "Six product teams"
 msgstr "ছয়টি পণ্য দল"
 
+#: src/features/career/knowledge/structured-preferences.tsx
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Size"
 msgstr "আকার"
@@ -11770,6 +12121,10 @@ msgstr "কিছু টেক্সট পৃষ্ঠার বাইরে �
 #: src/features/ats-checker/messages.ts
 msgid "Some text is rotated."
 msgstr "কিছু টেক্সট ঘোরানো আছে।"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Something else"
+msgstr ""
 
 #: src/libs/error-message.ts
 msgid "Something went wrong. Please try again."
@@ -12090,6 +12445,19 @@ msgstr "জোরদার করুন"
 msgid "Strikethrough"
 msgstr "স্ট্রাইকথ্রু"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Strong benefits"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+#: src/features/career/preference-check.tsx
+msgid "Strong preference"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Strong preference."
+msgstr ""
+
 #: src/features/resume/editor/write/improve.tsx
 msgid "Stronger verb"
 msgstr "শক্তিশালী ক্রিয়া"
@@ -12314,6 +12682,14 @@ msgstr "বাড়িতে করার কাজ"
 #: src/libs/locale.ts
 msgid "Tamil"
 msgstr "তামিল"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Target range, from"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Target range, to"
+msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
 msgid "Target roles"
@@ -12666,6 +13042,10 @@ msgstr "তুলনার জন্য আপনার বেছে নেও�
 msgid "The order the text is stored in disagrees badly with the order it reads in."
 msgstr "টেক্সট যে ক্রমে সংরক্ষিত আছে তা যে ক্রমে পড়া যায় তার সঙ্গে ব্যাপকভাবে অমিল।"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "The organization and the role"
+msgstr ""
+
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "The original link stays with this job."
 msgstr "মূল লিঙ্ক এই কাজের সাথে থাকে।"
@@ -12868,6 +13248,10 @@ msgstr "এই চাকরির আবেদনে এখনও কোনো �
 msgid "This application has no posting text saved, so there's little to match against. Add the posting to the application first for a better result."
 msgstr ""
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "this area"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "This browser can't record here. Choose an audio file, or type your answer."
 msgstr "এই ব্রাউজার এখানে রেকর্ড করতে পারে না। একটি অডিও ফাইল বেছে নিন, অথবা আপনার উত্তর টাইপ করুন।"
@@ -13044,6 +13428,10 @@ msgstr "এই জীবনবৃত্তান্তটি একটি এআ
 #: src/features/resume/builder/draft.ts
 msgid "This resume's sharing settings changed elsewhere."
 msgstr "এই জীবনবৃত্তান্তের শেয়ার করার সেটিংস অন্য কোথাও পরিবর্তিত হয়েছে।"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "This rule isn't saved until then."
+msgstr ""
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "This saved description is clipped or incomplete. Review before preparing documents."
@@ -13300,6 +13688,10 @@ msgstr "একটি নমুনা জীবনবৃত্তান্ত দ
 msgid "Turkish"
 msgstr "তুর্কি"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Turn into a rule"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Turn off discretionary ligatures when exporting."
 msgstr "এক্সপোর্ট করার সময় ঐচ্ছিক লিগেচার বন্ধ করুন।"
@@ -13422,6 +13814,10 @@ msgstr "কমান্ড টাইপ করুন অথবা অনুস�
 msgid "Type instead"
 msgstr "বরং টাইপ করুন"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Type of organization"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "typed"
 msgstr "টাইপ করা"
@@ -13529,6 +13925,10 @@ msgstr "অনামকৃত পাসকি"
 #: src/features/resume/stylesheet/targets.ts
 msgid "Untitled"
 msgstr "শিরোনামহীন"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Untitled area"
+msgstr ""
 
 #: src/features/documents/use-start-document.ts
 msgid "Untitled letter"
@@ -13822,6 +14222,19 @@ msgstr "যেখানে সমর্থিত আপনার AI প্রদ
 msgid "Uses your browser’s voice"
 msgstr "আপনার ব্রাউজারের কণ্ঠ ব্যবহার করে"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Using your minimum base salary as a strong preference."
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Using your office-day limit and places, as strong preferences."
+msgstr ""
+
+#. placeholder {0}: evaluation.rule.label
+#: src/features/career/preference-check.tsx
+msgid "Using your rule for {0}."
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Uzbek"
 msgstr "উজবেক"
@@ -13981,9 +14394,21 @@ msgstr "আপনার অপেক্ষায়"
 msgid "Waiting to hear back"
 msgstr "ফিরে শোনার অপেক্ষায়"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Want"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Want or avoid"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Warning"
 msgstr "সতর্কতা"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Ways you'd work here"
+msgstr ""
 
 #: src/features/homepage/hero.tsx
 msgid "WCAG 2.1 AA"
@@ -14059,6 +14484,10 @@ msgstr "প্রতিটি প্রয়োজনীয়তা যাচ�
 #: src/features/homepage/prepare.tsx
 msgid "Went well"
 msgstr "ভালো গেছে"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "What"
+msgstr ""
 
 #: src/features/resume/editor/check/page-layer.tsx
 msgid "What a parser reads"
@@ -14181,6 +14610,14 @@ msgstr "আপনার দায়িত্ব কী ছিল?"
 msgid "What works"
 msgstr "যা কাজ করে"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "What would make it worth it"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "What would make it worth it? (optional)"
+msgstr ""
+
 #: src/features/career/knowledge/stories.tsx
 msgid "What would you do differently?"
 msgstr "আপনি ভিন্নভাবে কী করতেন?"
@@ -14222,6 +14659,10 @@ msgstr "কখন তাদের আপনার উত্তর প্রয�
 #: src/features/career/coach.tsx
 msgid "When you press send, {shared} go to {connection}."
 msgstr "আপনি পাঠান চাপলে {shared} {connection}-এ যায়।"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Where and how you'll work"
+msgstr ""
 
 #: src/features/applications/components/insights-view.tsx
 msgid "Where applications come from"
@@ -14288,6 +14729,10 @@ msgstr "এখন ডিজাইন সিস্টেমের দায়ি
 msgid "Who you'll meet"
 msgstr "যাদের সাথে দেখা হবে"
 
+#: src/features/career/preference-check.tsx
+msgid "Why"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "Why do you want this role at {company}?"
 msgstr "{company}-এ এই পদটি কেন চান?"
@@ -14307,6 +14752,10 @@ msgstr "প্রস্থ"
 #: src/features/homepage/faq.tsx
 msgid "Will my resume get past applicant tracking systems?"
 msgstr "আমার জীবনবৃত্তান্ত কি অতীতের আবেদনকারী ট্র্যাকিং সিস্টেম পাবে?"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "With an exception, pay below the absolute minimum counts against a role but doesn't rule it out."
+msgstr ""
 
 #: src/features/homepage/remember.tsx
 msgid "Within a quarter, activation went from 31% to 44%."
@@ -14336,6 +14785,10 @@ msgstr "জিজ্ঞাসা করা দরকার"
 #: src/features/career/workspace/fit.tsx
 msgid "Worth asking {0}"
 msgstr "{0}-কে জিজ্ঞাসা করা দরকার"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Would consider less for"
+msgstr ""
 
 #: src/features/homepage/footer.tsx
 #: src/features/homepage/header.tsx

@@ -13,6 +13,7 @@ import { Textarea } from "@reactive-resume/ui/components/textarea";
 import { toast } from "@reactive-resume/ui/components/toast";
 import { cn } from "@reactive-resume/utils/style";
 import { latest, useDefaultProvider, useGenerate, useSavedItems, useWorkspace } from "../hooks";
+import { PreferencesPanel } from "../preference-check";
 import { PrivacyLine, StatusPill, Swap, Working, workingSteps } from "../shared";
 import { AiProviderLoadState } from "@/features/settings/integrations/ai-provider-load-state";
 import { toastError } from "@/libs/error-message";
@@ -75,25 +76,29 @@ export function FitTab({ application, version }: WorkspaceTabProps) {
 
 	if (!item)
 		return (
-			<div className="grid justify-items-center gap-3 rounded-xl border border-dashed border-line-2 p-7 text-center">
-				<h2 className="font-display text-[22px] leading-7 font-medium">
-					<Trans>Check this role against your evidence</Trans>
-				</h2>
-				<p className="max-w-[420px] text-sm text-ink-2">
-					<Trans>
-						Each requirement in the posting is checked against the facts and stories in your Knowledge. Gaps show as
-						missing evidence, never missing ability.
-					</Trans>
-				</p>
-				<AiNotice className="max-w-[420px] text-start" />
-				{provider && (
-					<Button loading={generate.isPending} onClick={check}>
-						<Icon name="list-checks" size={18} />
-						{generate.isPending ? <Working steps={workingSteps("fit")} /> : <Trans>Check fit</Trans>}
-					</Button>
-				)}
+			<div className="grid gap-4">
+				<div className="grid justify-items-center gap-3 rounded-xl border border-dashed border-line-2 p-7 text-center">
+					<h2 className="font-display text-[22px] leading-7 font-medium">
+						<Trans>Check this role against your evidence</Trans>
+					</h2>
+					<p className="max-w-[420px] text-sm text-ink-2">
+						<Trans>
+							Each requirement in the posting is checked against the facts and stories in your Knowledge. Gaps show as
+							missing evidence, never missing ability.
+						</Trans>
+					</p>
+					<AiNotice className="max-w-[420px] text-start" />
+					{provider && (
+						<Button loading={generate.isPending} onClick={check}>
+							<Icon name="list-checks" size={18} />
+							{generate.isPending ? <Working steps={workingSteps("fit")} /> : <Trans>Check fit</Trans>}
+						</Button>
+					)}
+				</div>
+				{!readOnly && <PreferencesPanel applicationId={application.id} />}
 			</div>
 		);
+	const preferences = !readOnly && <PreferencesPanel applicationId={application.id} />;
 
 	const evidence = readOnly ? {} : workspace.data.evidence;
 	const factText = (id: string) => facts?.find((fact) => fact.id === id)?.text;
@@ -193,9 +198,10 @@ export function FitTab({ application, version }: WorkspaceTabProps) {
 				})}
 			</div>
 
-			{(item.data.checks.length > 0 || item.data.ask) && (
+			{(preferences || item.data.checks.length > 0 || item.data.ask) && (
 				<div className="grid items-start gap-4 @xl:grid-cols-2">
-					{item.data.checks.length > 0 && (
+					{preferences}
+					{readOnly && item.data.checks.length > 0 && (
 						<section className="grid gap-2.5 rounded-xl border border-line bg-surface p-4">
 							<h3 className="text-sm font-semibold">
 								<Trans>Against your requirements</Trans>

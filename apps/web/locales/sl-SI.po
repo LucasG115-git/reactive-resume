@@ -1033,6 +1033,10 @@ msgstr "Koda iz aplikacije za preverjanje pristnosti ob prijavi"
 msgid "A comfortable length, and it fits on one page."
 msgstr "Udobne dolžine in se prilega eni strani."
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "A country"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "A date is in the future."
 msgstr "Datum je v prihodnosti."
@@ -1102,6 +1106,10 @@ msgstr "Povezava vodi drugam, kot kaže prikazani naslov."
 msgid "A model's opinion, not a verdict. It can be wrong."
 msgstr "Mnenje modela, ne razsodba. Lahko je narobe."
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "A must-have rules a role out only when the posting confirms it isn't met; if the posting doesn't say, the role is marked to check. Strong preferences and nice-to-haves only change the order. You can still save and track any role."
+msgstr ""
+
 #: src/features/settings/account/security.tsx
 msgid "A name helps you tell passkeys apart, like “Work laptop”."
 msgstr "Ime vam pomaga ločiti ključe passkey, na primer »Službeni prenosnik«."
@@ -1158,6 +1166,10 @@ msgstr "Časovno razporejen načrt, vaš uvod, zgodbe, ki jih pripravite, in vpr
 msgid "A web address is written without https://."
 msgstr "Spletni naslov je zapisan brez https://."
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "a week"
+msgstr ""
+
 #: src/features/homepage/footer.tsx
 msgid "About"
 msgstr "O tej aplikaciji"
@@ -1165,6 +1177,14 @@ msgstr "O tej aplikaciji"
 #: src/features/career/workspace/practise.tsx
 msgid "About 90 seconds when spoken"
 msgstr "Približno 90 sekund, ko ga izgovorite"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Absolute minimum"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Absolute minimum pay here ({currency})"
+msgstr ""
 
 #: src/features/resume/editor/design/entries-group.tsx
 msgid "Accent"
@@ -1282,6 +1302,10 @@ msgstr "Dodajte »{0}«"
 msgid "Add “{0}” as a new stage"
 msgstr "Dodaj »{0}« kot novo stopnjo"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Add a city or region, then Enter"
+msgstr ""
+
 #: src/features/career/knowledge/search-regions-field.tsx
 msgid "Add a country"
 msgstr "Dodajte državo"
@@ -1329,6 +1353,10 @@ msgstr "Dodajte kraj in pritisnite Enter"
 
 #: src/features/career/knowledge/profile.tsx
 msgid "Add a position"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Add a preference"
 msgstr ""
 
 #: src/features/career/workspace/apply.tsx
@@ -1394,6 +1422,10 @@ msgstr "Dodajte naslov."
 #: src/features/career/schedule-sheet.tsx
 msgid "Add an application first"
 msgstr "Najprej dodajte prijavo"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Add an area"
+msgstr ""
 
 #: src/features/resume/editor/check/issues.ts
 msgid "Add an email"
@@ -1747,6 +1779,10 @@ msgstr "Po tehničnem intervjuju"
 msgid "After your first review, a light plan for this week appears here."
 msgstr "Po vašem prvem pregledu se tukaj prikaže lahek načrt za ta teden."
 
+#: src/features/career/preference-check.tsx
+msgid "Against your preferences"
+msgstr ""
+
 #: src/features/career/workspace/fit.tsx
 msgid "Against your requirements"
 msgstr "Glede na vaše zahteve"
@@ -1998,8 +2034,13 @@ msgid "Anything to remember about this job"
 msgstr "Karkoli si zapomniti o tej službi"
 
 #: src/features/career/knowledge/search-regions-field.tsx
+#: src/features/career/knowledge/structured-preferences.tsx
 msgid "Anywhere"
 msgstr "Kjerkoli"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Anywhere else"
+msgstr ""
 
 #: src/features/assistant/provider-setup.tsx
 #: src/features/settings/ai/providers.tsx
@@ -2201,6 +2242,10 @@ msgstr "Arabščina"
 msgid "Archived (closes it)"
 msgstr "Arhivirano (zapre)"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Area name"
+msgstr ""
+
 #: src/features/resume/editor/write/entries.tsx
 msgid "Area of study"
 msgstr "Področje študija"
@@ -2323,6 +2368,11 @@ msgstr "Pogovori s pomočnikom"
 msgid "Assistant."
 msgstr "Pomočnik."
 
+#. placeholder {0}: money(salary.floor, salary.currency)
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "at least {0}"
+msgstr ""
+
 #: src/features/homepage/prepare.tsx
 msgid "At Northwind Labs I led research for our onboarding redesign. I interviewed 14 customers, found three drop-off points, and we shipped a shorter setup. Activation rose from 31% to 44%."
 msgstr "V podjetju Northwind Labs sem vodil raziskavo za prenovo uvajanja. Opravil sem intervjuje s 14 strankami, odkril tri točke osipa in uvedli smo krajšo nastavitev. Aktivacija se je dvignila z 31 % na 44 %."
@@ -2375,6 +2425,10 @@ msgstr "Priloga"
 msgid "Automatically"
 msgstr "Samodejno"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Autonomy"
+msgstr ""
+
 #: src/features/resume/share/format.ts
 msgid "autosaved"
 msgstr "samodejno shranjeno"
@@ -2386,6 +2440,10 @@ msgstr "Samodejno shranjevanje je razvrščeno po seji in se hrani 90 dni. Poime
 #: src/features/resume/share/cv-domain-card.tsx
 msgid "Available"
 msgstr "Prosta"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Avoid"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Avoid heavy letter-spacing effects, then re-export."
@@ -2521,6 +2579,10 @@ msgstr "Preden oddate"
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Behavioral"
 msgstr "Vedenjski"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Benefits"
+msgstr ""
 
 #: src/libs/locale.ts
 msgid "Bengali"
@@ -2855,6 +2917,10 @@ msgstr "Preverite drugo datoteko"
 msgid "Check any PDF, no account needed"
 msgstr "Preverite kateri koli PDF, račun ni potreben"
 
+#: src/features/career/preference-check.tsx
+msgid "Check before applying"
+msgstr ""
+
 #: src/features/resume/share/custom-domain-field.tsx
 #: src/features/resume/share/dns-records-dialog.tsx
 msgid "Check DNS"
@@ -2927,6 +2993,10 @@ msgstr "Preverite svoj e-poštni naslov za povezavo za potrditev računa."
 msgid "Check your resume’s ATS readability"
 msgstr "Preverite ATS berljivost svojega življenjepisa"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Checked by whether the posting mentions it, so use the words a posting would: \"nonprofit\", \"permanent\", \"pension\". Anything subtler is left for the coach to read."
+msgstr ""
+
 #. placeholder {0}: file.name
 #: src/features/ats-checker/checker.tsx
 msgid "Checking {0}"
@@ -2971,6 +3041,10 @@ msgstr "Kitajščina (poenostavljena)"
 #: src/libs/locale.ts
 msgid "Chinese (Traditional)"
 msgstr "Kitajščina (tradicionalna)"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Choose a country"
+msgstr ""
 
 #: src/features/documents/documents-page.tsx
 msgid "Choose a file"
@@ -3199,6 +3273,10 @@ msgstr "Paleta ukazov: {currentPage}"
 #: src/features/homepage/footer.tsx
 msgid "Community"
 msgstr "Skupnost"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Commute, at most"
+msgstr ""
 
 #: src/features/resume/editor/design/fit.ts
 #: src/features/resume/editor/design/style-groups.tsx
@@ -4179,6 +4257,10 @@ msgstr "Časovnice ni bilo mogoče posodobiti. poskusi ponovno"
 msgid "Couldn't update this letter's versions. Try again."
 msgstr "Različic tega pisma ni bilo mogoče posodobiti. Poskusite znova."
 
+#: src/features/career/preference-check.tsx
+msgid "Couldn't update this preference. Try again."
+msgstr ""
+
 #. Fallback toast when uploading profile picture for resume fails
 #: src/features/resume/editor/write/picture-settings.tsx
 #: src/features/settings/account/profile.tsx
@@ -4208,6 +4290,10 @@ msgstr "Štej po viru"
 msgid "Count characters"
 msgstr "Štej znake"
 
+#: src/features/career/preference-check.tsx
+msgid "Count it again"
+msgstr ""
+
 #: src/features/career/workspace/apply.tsx
 msgid "Count words"
 msgstr "Štej besede"
@@ -4219,6 +4305,10 @@ msgstr "Šteje se ločeno od ocene razčlenjevanja. Pokritost ne napoveduje nič
 #: src/features/career/knowledge/search-regions-field.tsx
 msgid "Countries"
 msgstr "Države"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Country"
+msgstr ""
 
 #: src/features/applications/components/manage-lanes-sheet.tsx
 msgid "Counts as"
@@ -4268,6 +4358,10 @@ msgstr "Poslano spremno pismo (neobvezno)"
 #: src/features/homepage/sections.tsx
 msgid "Cover letters"
 msgstr "Spremna pisma"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Covers"
+msgstr ""
 
 #: src/features/command-palette/pages/navigation.tsx
 msgid "Create"
@@ -4347,8 +4441,13 @@ msgid "CSV data"
 msgstr "podatki CSV"
 
 #: src/features/career/knowledge/preferences.tsx
+#: src/features/career/knowledge/structured-preferences.tsx
 msgid "Currency"
 msgstr "Valuta"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Currency set; no amounts yet."
+msgstr ""
 
 #: src/features/applications/components/export-applications-sheet.tsx
 msgid "Current filters"
@@ -4794,6 +4893,10 @@ msgstr "Dokumenti, ki jih premaknete sem, ostanejo 30 dni."
 msgid "Does it use AI?"
 msgstr "Ali uporablja AI?"
 
+#: src/features/career/preference-check.tsx
+msgid "Doesn't matter here"
+msgstr ""
+
 #: src/features/resume/share/custom-domain-field.tsx
 msgid "Domain connected"
 msgstr "Domena je povezana"
@@ -5050,6 +5153,10 @@ msgstr "Vsak odgovor, za katerega dobite povratne informacije, se hrani tukaj, n
 msgid "Each requirement in the posting is checked against the facts and stories in your Knowledge. Gaps show as missing evidence, never missing ability."
 msgstr "Vsaka zahteva v oglasu se preveri glede na dejstva in zgodbe v vašem Znanju. Vrzeli so prikazane kot manjkajoči dokazi, nikoli kot manjkajoča sposobnost."
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Each rule covers an area. A rule naming places is used before a country rule, and a country rule before an \"anywhere\" rule; among rules of the same kind, the higher one wins. Radius and commute time are shared with the coach but can't be checked against a posting."
+msgstr ""
+
 #: src/features/assistant/conversation.tsx
 msgid "Each send starts fresh with this message and selected files. Previous conversation history stays here."
 msgstr "Vsako pošiljanje se začne na novo s tem sporočilom in izbranimi datotekami. Zgodovina prejšnjega pogovora ostane tukaj."
@@ -5250,6 +5357,10 @@ msgstr "Pri izvozu vdelajte vse pisave, da se znaki prikažejo tako, kot ste nam
 msgid "Employer"
 msgstr ""
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Employment type"
+msgstr ""
+
 #: src/features/resume/editor/write/dates-field.tsx
 msgid "End"
 msgstr "Konec"
@@ -5290,6 +5401,10 @@ msgstr "Vam je Reactive Resume všeč?"
 #: src/features/auth/pages/verify-2fa.tsx
 msgid "Enter a backup code."
 msgstr "Vnesite rezervno kodo."
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Enter a full amount, such as 95000."
+msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
 msgid "Enter a full amount, such as 95000. Your previous amount is unchanged."
@@ -5681,6 +5796,10 @@ msgstr "Preverjanja ujemanja, povzetki, povratne informacije o vadbi, analize, o
 msgid "Fit page to width"
 msgstr "Prilagodi stran širini"
 
+#: src/features/career/preference-check.tsx
+msgid "Fits your must-haves"
+msgstr ""
+
 #: src/features/resume/editor/check/issues.ts
 msgid "Fix the date"
 msgstr "Popravi datum"
@@ -5713,6 +5832,10 @@ msgstr "Odpravljanje osipa pri uvajanju v podjetju Northwind Labs"
 #: src/features/ats-checker/messages.ts
 msgid "Flatten the form so the text is part of the page."
 msgstr "Sploščite obrazec, da besedilo postane del strani."
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Flexibility"
+msgstr ""
 
 #: src/features/resume/editor/write/entries.tsx
 msgid "Fluency"
@@ -5921,6 +6044,10 @@ msgstr "od pomočnika ali API"
 msgid "From your cover letter"
 msgstr "Iz vašega spremnega pisma"
 
+#: src/features/career/preference-check.tsx
+msgid "from your earlier settings"
+msgstr ""
+
 #: src/features/assistant/assistant-panel.tsx
 msgid "From your experience entries"
 msgstr "Iz vaših vnosov izkušenj"
@@ -6061,6 +6188,10 @@ msgstr "Ocena"
 msgid "Gray"
 msgstr "Siva"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Greater Toronto Area"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Greek"
 msgstr "Grščina"
@@ -6076,6 +6207,14 @@ msgstr "Nagovor"
 #: src/features/documents/documents-page.tsx
 msgid "Grid"
 msgstr "Mreža"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Growth"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Growth and learning"
+msgstr ""
 
 #: src/features/homepage/remember.tsx
 msgid "Happy to walk you through it on our call."
@@ -6296,9 +6435,26 @@ msgstr "Koliko dni na teden se pričakuje prisotnost v pisarni?"
 msgid "How many days of leave come with it?"
 msgstr "Koliko dni dopusta pripada?"
 
+#. placeholder {0}: item.value || kinds[item.kind]
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "How much {0} matters"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "How much {name} matters"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "How much this rule matters"
+msgstr ""
+
 #: src/features/career/schedule-sheet.tsx
 msgid "How often"
 msgstr "Kako pogosto"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "How roles are checked"
+msgstr ""
 
 #: src/features/templates/gallery.tsx
 msgid "How to choose a template"
@@ -6315,6 +6471,10 @@ msgstr "Kako dobro ustrezam tej vlogi?"
 #: src/libs/locale.ts
 msgid "Hungarian"
 msgstr "Madžarščina"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Hybrid"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/typography.tsx
 msgid "Hyphenation"
@@ -6353,6 +6513,11 @@ msgstr "Ikona ..."
 #: src/features/resume/editor/design/style-groups.tsx
 msgid "Icons in contact line"
 msgstr "Ikone v kontaktni vrstici"
+
+#. placeholder {0}: money(salary.preferred, salary.currency)
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "ideally {0}+"
+msgstr ""
 
 #: src/features/homepage/remember.tsx
 msgid "If I did it again, I’d agree on the measure before the first prototype."
@@ -6484,6 +6649,14 @@ msgstr "Povečaj zamik"
 #: src/libs/locale.ts
 msgid "Indonesian"
 msgstr "Indonezijščina"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Industry"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Industry, organization type, mission, size, benefits, employment type…"
+msgstr ""
 
 #: src/features/career/workspace/fit.tsx
 msgid "Inferred"
@@ -6917,6 +7090,10 @@ msgstr "Ključne besede"
 #: src/libs/locale.ts
 msgid "Khmer"
 msgstr "Kmerščina"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Kind"
+msgstr ""
 
 #: src/features/letters/compose.ts
 msgid "Kind regards,"
@@ -7567,6 +7744,10 @@ msgstr "Upravlja strežnik"
 msgid "Managed by your server"
 msgstr "Upravlja ga vaš strežnik"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Management"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Many bullets start with the same phrase."
 msgstr "Mnoge alineje se začnejo z isto besedno zvezo."
@@ -7706,6 +7887,10 @@ msgstr "Sporočila · Prilepljeno iz vaše e-pošte"
 msgid "Messages · Reply to Sam at Fieldnote"
 msgstr "Sporočila · Odgovor Samu v podjetju Fieldnote"
 
+#: src/features/career/preference-check.tsx
+msgid "Met"
+msgstr ""
+
 #: src/features/career/knowledge/profile.tsx
 msgid "Metrics (only numbers you can back up)"
 msgstr ""
@@ -7714,9 +7899,21 @@ msgstr ""
 msgid "Microphone blocked. Allow it in your browser settings, or type your answer."
 msgstr "Mikrofon je blokiran. Dovolite ga v nastavitvah brskalnika ali vtipkajte odgovor."
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "min"
+msgstr ""
+
 #: src/features/career/knowledge/preferences.tsx
 msgid "Minimum base salary"
 msgstr "Najnižja osnovna plača"
+
+#: src/features/career/knowledge/preferences.tsx
+msgid "Minimum pay is set under Pay, below."
+msgstr ""
+
+#: src/features/career/preference-check.tsx
+msgid "Misses a must-have"
+msgstr ""
 
 #: src/features/applications/components/detail/assemble-dialog.tsx
 msgid "Missing evidence isn't missing ability. If you have done it, add it to your profile and assemble again."
@@ -7725,6 +7922,10 @@ msgstr ""
 #: src/features/homepage/prepare.tsx
 msgid "Missing evidence means your notes don’t show it yet, not that you lack it."
 msgstr "Manjkajoči dokazi pomenijo, da vaše opombe tega še ne kažejo, ne pa, da vam tega manjka."
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Mission"
+msgstr ""
 
 #: src/features/homepage/footer.tsx
 msgid "MIT License"
@@ -7831,6 +8032,7 @@ msgstr "Premakni {label} navzgor"
 msgid "Move all content inside the page boundaries and re-export."
 msgstr "Premaknite vso vsebino znotraj meja strani in izvozite znova."
 
+#: src/features/career/knowledge/structured-preferences.tsx
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Move down"
 msgstr "Premakni se navzdol"
@@ -7893,6 +8095,7 @@ msgstr "Premakni v smetnjak"
 msgid "Move to…"
 msgstr "Premakni se v ..."
 
+#: src/features/career/knowledge/structured-preferences.tsx
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Move up"
 msgstr "Premakni se navzgor"
@@ -7916,6 +8119,15 @@ msgstr "Premaknjeno v {label}"
 #: src/features/career/workspace/messages.tsx
 msgid "Moves the application from {0}."
 msgstr "Premakne prijavo s stopnje {0}."
+
+#: src/features/career/knowledge/structured-preferences.tsx
+#: src/features/career/preference-check.tsx
+msgid "Must have"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Must have: lower pay rules a role out, unless an exception below applies."
+msgstr ""
 
 #: src/features/homepage/remember.tsx
 msgid "My job was to find out why, without adding support work."
@@ -7989,6 +8201,10 @@ msgstr "Ime, e-pošta, telefon in lokacija so najdeni, povezave pa so polni nasl
 msgid "named"
 msgstr "imenovan"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Named places"
+msgstr ""
+
 #: src/features/resume/share/format.ts
 msgid "Named version"
 msgstr "Imenovana različica"
@@ -8045,6 +8261,10 @@ msgstr "Nov ključ API"
 #: src/features/command-palette/pages/resumes.tsx
 msgid "New application"
 msgstr "Nova prijava"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "New area"
+msgstr ""
 
 #: src/features/assistant/assistant-panel.tsx
 #: src/features/career/coach-thread.tsx
@@ -8152,6 +8372,15 @@ msgstr "Naslednji korak: {0}. Doda opomnik v Danes."
 #: src/features/homepage/remember.tsx
 msgid "Next time, I’d agree how to measure success before the first prototype."
 msgstr "Naslednjič bi se o merjenju uspeha dogovoril pred prvim prototipom."
+
+#: src/features/career/knowledge/structured-preferences.tsx
+#: src/features/career/preference-check.tsx
+msgid "Nice to have"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Nice to have."
+msgstr ""
 
 #: src/features/applications/components/interview-dialog.tsx
 msgid "No active applications."
@@ -8271,6 +8500,10 @@ msgstr "Nobena vrstica ni videti kot naziv delovnega mesta v paru z delodajalcem
 msgid "No location"
 msgstr "Brez lokacije"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "No location rules yet."
+msgstr ""
+
 #: src/features/career/today.tsx
 msgid "No new roles. Discovery is paused."
 msgstr "Ni novih vlog. Odkrivanje je zaustavljeno."
@@ -8301,6 +8534,10 @@ msgstr "Ni odprtih vprašanj"
 msgid "No other stage counts as {0}. Add one first, so its applications have somewhere to go."
 msgstr "Nobena druga stopnja ne šteje kot {0}. Najprej jo dodajte, da boste imeli kam premakniti prijave."
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "No pay preferences yet."
+msgstr ""
+
 #: src/features/resume/editor/check/issues.ts
 msgid "No phone number"
 msgstr "Brez telefonske številke"
@@ -8316,6 +8553,14 @@ msgstr "Brez fotografije. Večina ATS ignorira fotografije; nekatere regije ga p
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "No postings found. Try different keywords."
 msgstr "Ni oglasov za delo. Poskusite z različnimi ključnimi besedami."
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "No preference"
+msgstr ""
+
+#: src/features/career/preference-check.tsx
+msgid "No preferences to check yet. <0>Set them in Preferences</0>"
+msgstr ""
 
 #: src/features/applications/stages.ts
 msgid "No response"
@@ -8410,6 +8655,10 @@ msgctxt "Entry header accent"
 msgid "None"
 msgstr "Brez"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Nonprofit"
+msgstr ""
+
 #: src/features/career/knowledge/profile.tsx
 msgid "nonprofit, wordpress, leadership"
 msgstr ""
@@ -8435,6 +8684,11 @@ msgstr "Northwind Labs · Lisbon"
 #: src/libs/locale.ts
 msgid "Norwegian"
 msgstr "norveščina"
+
+#. placeholder {0}: item.value
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "not {0}"
+msgstr ""
 
 #: src/features/career/workspace/messages.tsx
 msgid "Not applied"
@@ -8485,6 +8739,10 @@ msgstr "Ni v vašem življenjepisu"
 msgid "Not in your resume · add only if true"
 msgstr "Ni v vašem življenjepisu · dodajte samo, če je res"
 
+#: src/features/career/preference-check.tsx
+msgid "Not met"
+msgstr ""
+
 #: src/features/career/shared.tsx
 msgid "Not now"
 msgstr "Ne zdaj"
@@ -8522,6 +8780,10 @@ msgstr ""
 #: src/features/settings/root.tsx
 msgid "Not set up"
 msgstr "Ni nastavljeno"
+
+#: src/features/career/preference-check.tsx
+msgid "Not stated"
+msgstr ""
 
 #: src/features/resume/stylesheet/editor.tsx
 msgid "Not sure what to write?"
@@ -8657,6 +8919,10 @@ msgstr "odijščina"
 msgid "Off"
 msgstr "Izključeno"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Off: roles that require relocating to {name} don't meet this rule."
+msgstr ""
+
 #: src/features/homepage/remember.tsx
 msgid "Off: the coach won’t see it or claim it."
 msgstr "Izklopljeno: svetovalec tega ne bo videl in ne bo trdil."
@@ -8688,9 +8954,21 @@ msgstr "Največ dni v pisarni na teden"
 msgid "Office days not stated"
 msgstr "Dnevi v pisarni niso navedeni"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Office days, at most"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Office days, ideally"
+msgstr ""
+
 #: src/features/resume/editor/save-status.tsx
 msgid "Offline · saved on this device"
 msgstr "Brez povezave · shranjeno v tej napravi"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "On-site"
+msgstr ""
 
 #: src/features/resume/share/share-panel.tsx
 msgid "On. Anyone with the link can see your web page."
@@ -8859,6 +9137,10 @@ msgstr ""
 msgid "Open the schedule"
 msgstr "Odpri urnik"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Open to relocating here"
+msgstr ""
+
 #: src/features/resume/share/share-panel.tsx
 msgid "Open web page"
 msgstr "Odpri spletno stran"
@@ -8900,6 +9182,10 @@ msgstr "Neobvezno"
 #: src/features/settings/ai/providers.tsx
 msgid "Optional for local Ollama"
 msgstr "Izbirno za lokalni Ollama"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Optional; replaces the general minimum in this area."
+msgstr ""
 
 #: src/components/ui/combobox.tsx
 #: src/features/documents/documents-page.tsx
@@ -8963,6 +9249,7 @@ msgid "Original table formatting is preserved. This content is read-only because
 msgstr "Prvotno oblikovanje tabele je ohranjeno. Ta vsebina je samo za branje, ker je ni mogoče varno urejati."
 
 #: src/features/applications/components/interview-dialog.tsx
+#: src/features/career/knowledge/structured-preferences.tsx
 msgid "Other"
 msgstr "Drugo"
 
@@ -9209,7 +9496,20 @@ msgstr "Zaustavljeno · {line}"
 msgid "Paused schedules keep their settings."
 msgstr "Zaustavljeni urniki ohranijo svoje nastavitve."
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Pay"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Pay changes aren't saved until then."
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Pay is compared only when a posting states it in the same currency and period; otherwise it's marked unknown, never converted or guessed. Hourly, contract and commission pay is flagged to check."
+msgstr ""
+
 #: src/features/career/knowledge/preferences.tsx
+#: src/features/career/knowledge/structured-preferences.tsx
 msgid "Pay period"
 msgstr "Obdobje plačila"
 
@@ -9228,6 +9528,18 @@ msgstr "PDF, Word ali JSON. Iz tega bomo sestavili življenjepis."
 #: src/features/homepage/sections.tsx
 msgid "People using it"
 msgstr "Ljudje ga uporabljajo"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "per hour"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "per month"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "per year"
+msgstr ""
 
 #: src/features/settings/account/data.tsx
 msgid "Permanently removes everything. Export first if you want a copy."
@@ -9291,6 +9603,10 @@ msgstr "Slika"
 #: src/features/applications/components/insights-view.tsx
 msgid "Pipeline flow"
 msgstr "Potek postopka"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Places that identify it in a posting"
+msgstr ""
 
 #: src/features/career/workspace/apply.tsx
 msgid "Plain text (.txt)"
@@ -9449,6 +9765,18 @@ msgstr "Možnosti"
 msgctxt "Career preferences: the roles, places, pay and ways of working you want"
 msgid "Preferences"
 msgstr "Želje"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Preferred"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Preferred minimum"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Preferred minimum here ({currency})"
+msgstr ""
 
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/shared.tsx
@@ -9778,6 +10106,10 @@ msgstr "Vprašanja, ki jih zastavite"
 #: src/features/homepage/remember.tsx
 msgid "R"
 msgstr "R"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Radius"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 msgid "Raise the design sheet"
@@ -10174,6 +10506,7 @@ msgid "Reminders appear here. Email copies are optional and need a verified addr
 msgstr "Opomniki se prikažejo tukaj. Kopije po e-pošti so neobvezne in zahtevajo potrjen naslov."
 
 #: src/features/career/knowledge/preferences.tsx
+#: src/features/career/knowledge/structured-preferences.tsx
 #: src/features/career/offers.tsx
 msgid "Remote"
 msgstr "Na daljavo"
@@ -10197,17 +10530,18 @@ msgstr "Odstranim »{name}«?"
 
 #. placeholder {0}: attachment.filename
 #. placeholder {0}: contact.name
-#. placeholder {0}: passkey.name || t`Unnamed passkey`
+#. placeholder {0}: item.value || kinds[item.kind]
 #: src/features/applications/components/detail/contacts.tsx
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
+#: src/features/career/knowledge/structured-preferences.tsx
 #: src/features/settings/account/security.tsx
 msgid "Remove {0}"
 msgstr "Odstranite {0}"
 
 #. Screen reader label for button that removes a keyword chip. Variable is the current keyword text.
 #: src/components/input/chip-input.tsx
-#: src/features/career/knowledge/preferences.tsx
+#: src/features/career/knowledge/fields.tsx
 msgid "Remove {chip}"
 msgstr "Odstranite {chip}"
 
@@ -10218,6 +10552,10 @@ msgstr "Odstrani {country}"
 #: src/features/applications/components/manage-lanes-sheet.tsx
 msgid "Remove {label}…"
 msgstr "Odstrani {label}…"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Remove {name}"
+msgstr ""
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Remove {value}"
@@ -10670,6 +11008,14 @@ msgstr "Vloga, podjetje ali lokacija"
 #: src/features/career/coach-chat.tsx
 msgid "Roles"
 msgstr "Vloge"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Roles are checked against your office-day limit and places as strong preferences, never as must-haves."
+msgstr ""
+
+#: src/features/career/knowledge/preferences.tsx
+msgid "Roles are checked with your location rules below; this limit is used when comparing offers."
+msgstr ""
 
 #: src/features/career/schedule-sheet.tsx
 msgid "Roles, places and companies. Starts from your preferences."
@@ -11322,6 +11668,10 @@ msgstr "Nastavite spremljanje ..."
 msgid "Set a password"
 msgstr "Nastavite geslo"
 
+#: src/features/career/preference-check.tsx
+msgid "Set aside for this role"
+msgstr ""
+
 #: src/features/resume/builder/password-dialog.tsx
 msgid "Set password"
 msgstr "Nastavi geslo"
@@ -11665,6 +12015,7 @@ msgstr "Situacija, naloga, dejanje, rezultat, refleksija. Vsako zgodbo povežite
 msgid "Six product teams"
 msgstr "Šest proizvodnih skupin"
 
+#: src/features/career/knowledge/structured-preferences.tsx
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Size"
 msgstr "Velikost"
@@ -11770,6 +12121,10 @@ msgstr "Del besedila sega zunaj strani."
 #: src/features/ats-checker/messages.ts
 msgid "Some text is rotated."
 msgstr "Del besedila je zasukan."
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Something else"
+msgstr ""
 
 #: src/libs/error-message.ts
 msgid "Something went wrong. Please try again."
@@ -12090,6 +12445,19 @@ msgstr "Za okrepitev"
 msgid "Strikethrough"
 msgstr "Prečrtano"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Strong benefits"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+#: src/features/career/preference-check.tsx
+msgid "Strong preference"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Strong preference."
+msgstr ""
+
 #: src/features/resume/editor/write/improve.tsx
 msgid "Stronger verb"
 msgstr "Močnejši glagol"
@@ -12314,6 +12682,14 @@ msgstr "Domača naloga"
 #: src/libs/locale.ts
 msgid "Tamil"
 msgstr "tamilščina"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Target range, from"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Target range, to"
+msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
 msgid "Target roles"
@@ -12666,6 +13042,10 @@ msgstr "Ponudbe, ki ste jih izbrali za primerjavo, z njihovimi pogoji"
 msgid "The order the text is stored in disagrees badly with the order it reads in."
 msgstr "Vrstni red, v katerem je besedilo shranjeno, se močno razlikuje od vrstnega reda branja."
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "The organization and the role"
+msgstr ""
+
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "The original link stays with this job."
 msgstr "Prvotna povezava ostane pri tem delovnem mestu."
@@ -12868,6 +13248,10 @@ msgstr "Ta prijava še nima shranjenega oglasa. Prilepite ga, da ga primerjate z
 msgid "This application has no posting text saved, so there's little to match against. Add the posting to the application first for a better result."
 msgstr ""
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "this area"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "This browser can't record here. Choose an audio file, or type your answer."
 msgstr "Ta brskalnik tukaj ne more snemati. Izberite zvočno datoteko ali vtipkajte odgovor."
@@ -13044,6 +13428,10 @@ msgstr "Ta življenjepis je posodobil agent umetne inteligence."
 #: src/features/resume/builder/draft.ts
 msgid "This resume's sharing settings changed elsewhere."
 msgstr "Nastavitve deljenja tega življenjepisa so se spremenile drugje."
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "This rule isn't saved until then."
+msgstr ""
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "This saved description is clipped or incomplete. Review before preparing documents."
@@ -13300,6 +13688,10 @@ msgstr "Poskusite z vzorcem življenjepisa"
 msgid "Turkish"
 msgstr "turščina"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Turn into a rule"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Turn off discretionary ligatures when exporting."
 msgstr "Pri izvozu izklopite neobvezne ligature."
@@ -13422,6 +13814,10 @@ msgstr "Vnesite ukaz ali poiščite…"
 msgid "Type instead"
 msgstr "Raje vtipkaj"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Type of organization"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "typed"
 msgstr "vtipkano"
@@ -13529,6 +13925,10 @@ msgstr "Neimenovani ključ passkey"
 #: src/features/resume/stylesheet/targets.ts
 msgid "Untitled"
 msgstr "Brez naslova"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Untitled area"
+msgstr ""
 
 #: src/features/documents/use-start-document.ts
 msgid "Untitled letter"
@@ -13822,6 +14222,19 @@ msgstr "Uporablja lastno spletno iskanje vašega ponudnika AI, kjer je podprto, 
 msgid "Uses your browser’s voice"
 msgstr "Uporablja glas vašega brskalnika"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Using your minimum base salary as a strong preference."
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Using your office-day limit and places, as strong preferences."
+msgstr ""
+
+#. placeholder {0}: evaluation.rule.label
+#: src/features/career/preference-check.tsx
+msgid "Using your rule for {0}."
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Uzbek"
 msgstr "uzbeščina"
@@ -13981,9 +14394,21 @@ msgstr "Čaka na vas"
 msgid "Waiting to hear back"
 msgstr "Čakam na odgovor"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Want"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Want or avoid"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Warning"
 msgstr "Opozorilo"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Ways you'd work here"
+msgstr ""
 
 #: src/features/homepage/hero.tsx
 msgid "WCAG 2.1 AA"
@@ -14059,6 +14484,10 @@ msgstr "Tehtanje vsake zahteve"
 #: src/features/homepage/prepare.tsx
 msgid "Went well"
 msgstr "Šlo je dobro"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "What"
+msgstr ""
 
 #: src/features/resume/editor/check/page-layer.tsx
 msgid "What a parser reads"
@@ -14181,6 +14610,14 @@ msgstr "Za kaj ste bili odgovorni?"
 msgid "What works"
 msgstr "Kaj deluje"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "What would make it worth it"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "What would make it worth it? (optional)"
+msgstr ""
+
 #: src/features/career/knowledge/stories.tsx
 msgid "What would you do differently?"
 msgstr "Kaj bi naredili drugače?"
@@ -14222,6 +14659,10 @@ msgstr "Do kdaj potrebujejo vaš odgovor?"
 #: src/features/career/coach.tsx
 msgid "When you press send, {shared} go to {connection}."
 msgstr "Ko pritisnete Pošlji, {connection} prejme: {shared}."
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Where and how you'll work"
+msgstr ""
 
 #: src/features/applications/components/insights-view.tsx
 msgid "Where applications come from"
@@ -14288,6 +14729,10 @@ msgstr "Kdo je danes odgovoren za sistem oblikovanja? Kako je videti uspeh po 90
 msgid "Who you'll meet"
 msgstr "S kom se boste srečali"
 
+#: src/features/career/preference-check.tsx
+msgid "Why"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "Why do you want this role at {company}?"
 msgstr "Zakaj želite to vlogo v podjetju {company}?"
@@ -14307,6 +14752,10 @@ msgstr "širina"
 #: src/features/homepage/faq.tsx
 msgid "Will my resume get past applicant tracking systems?"
 msgstr "Ali bo moj življenjepis presegel sisteme za sledenje kandidatom?"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "With an exception, pay below the absolute minimum counts against a role but doesn't rule it out."
+msgstr ""
 
 #: src/features/homepage/remember.tsx
 msgid "Within a quarter, activation went from 31% to 44%."
@@ -14336,6 +14785,10 @@ msgstr "Vredno vprašati"
 #: src/features/career/workspace/fit.tsx
 msgid "Worth asking {0}"
 msgstr "Vredno vprašati: {0}"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Would consider less for"
+msgstr ""
 
 #: src/features/homepage/footer.tsx
 #: src/features/homepage/header.tsx

@@ -185,3 +185,29 @@ export const careerTranscript = pg.pgTable(
 	},
 	(t) => [pg.index().on(t.userId, t.applicationId)],
 );
+
+/**
+ * A preference the user set aside for one application ("this one's worth it despite the commute"). The key names
+ * the preference as the evaluator reports it, so the override survives edits to the posting.
+ */
+export const careerPreferenceOverride = pg.pgTable(
+	"career_preference_override",
+	{
+		id: pg
+			.text("id")
+			.primaryKey()
+			.$defaultFn(() => generateId()),
+		userId: pg
+			.text("user_id")
+			.notNull()
+			.references(() => user.id, { onDelete: "cascade" }),
+		applicationId: pg
+			.text("application_id")
+			.notNull()
+			.references(() => application.id, { onDelete: "cascade" }),
+		key: pg.text("key").notNull(),
+		note: pg.text("note").notNull().default(""),
+		createdAt: pg.timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+	},
+	(t) => [pg.uniqueIndex().on(t.userId, t.applicationId, t.key)],
+);
