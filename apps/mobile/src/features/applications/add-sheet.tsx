@@ -3,6 +3,8 @@ import type { ApplicationClosedReason } from "@reactive-resume/schema/applicatio
 import { useLingui } from "@lingui/react/macro";
 import { ORPCError } from "@orpc/client";
 import { useQuery } from "@tanstack/react-query";
+import * as DocumentPicker from "expo-document-picker";
+import { File } from "expo-file-system";
 import { useRouter } from "expo-router";
 import { useEffect, useRef, useState } from "react";
 import { View } from "react-native";
@@ -14,7 +16,7 @@ import { getLaneLabel, laneInput, resolveLane } from "./lanes";
 import { PriorNoResponse } from "./prior-no-response";
 import { useApplicationMutations } from "./queries";
 import { CLOSED_REASONS, getClosedReasonLabel } from "./stages";
-import { client, orpc } from "@/api/client";
+import { client, orpc, rest } from "@/api/client";
 import { getServer, useSession } from "@/auth/session";
 import { AIProviderSetupSheet, useHasAIProvider } from "@/features/ai/providers";
 import { WallClockField } from "@/features/application-detail/date-field";
@@ -146,6 +148,36 @@ export function AddApplicationSheet({ onClose }: AddApplicationSheetProps) {
 			setLocation((value) => value || result.location);
 			setSalary((value) => value || result.salary);
 			setSourceUrl(result.sourceUrl ?? (mode === "link" ? input.trim() : sourceUrl));
+			setDescription(result.jobDescription);
+			setReview(true);
+		});
+	// A posting saved as a PDF, Word or text file: read on the server like a paste.
+	const readFile = () =>
+		void run("read", async (signal) => {
+			const picked = await DocumentPicker.getDocumentAsync({
+				type: [
+					"application/pdf",
+					"application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+					"text/plain",
+				],
+				copyToCacheDirectory: true,
+			});
+			const asset = picked.canceled ? undefined : picked.assets[0];
+			if (!asset || !current(signal)) return;
+			const body = new FormData();
+			body.append("file", new File(asset.uri), asset.name);
+			const response = await rest("/applications/ai/posting-file-reads", { method: "POST", body, signal });
+			if (!response.ok)
+				throw new ORPCError(response.status === 429 ? "RATE_LIMIT_EXCEEDED" : "POSTING_FILE_UNREADABLE");
+			const result = (await response.json()) as ParsedPosting;
+			if (!current(signal)) return;
+			setMode("text");
+			setInput(result.jobDescription);
+			setParsed(result);
+			setCompany((value) => value || result.company);
+			setRole((value) => value || result.role);
+			setLocation((value) => value || result.location);
+			setSalary((value) => value || result.salary);
 			setDescription(result.jobDescription);
 			setReview(true);
 		});
@@ -326,6 +358,14 @@ export function AddApplicationSheet({ onClose }: AddApplicationSheetProps) {
 								loading={busy === "read"}
 								disabled={!!busy || !input.trim() || (mode === "link" ? !isLink(input) : !providers.hasAIProvider)}
 								onPress={read}
+							/>
+							<Button
+								label={t`Upload PDF or Word file`}
+								variant="secondary"
+								icon="file-arrow-up"
+								loading={busy === "read" && !input.trim()}
+								disabled={!!busy}
+								onPress={readFile}
 							/>
 							<Button
 								label={t`Fill details manually`}

@@ -39,13 +39,16 @@ const isLink = (value: string) => /^https?:\/\/\S+$/i.test(value.trim());
 type AddApplicationDialogProps = {
 	open: boolean;
 	onOpenChange: (open: boolean) => void;
-	onAdded: (id: string) => void;
+	onAdded: (id: string, options?: { assemble?: boolean }) => void;
 };
 
+type AddMode = "save" | "assemble" | "adapt";
+
 /**
- * Add an application from a pasted link or posting. The posting is read (the page's own job data, or the AI
+ * Add an application from a pasted link or posting, or a posting saved as a PDF, Word or text file. The posting is read (the page's own job data, or the AI
  * provider when one is set up) into role and company, which stay editable; the posting itself is saved with the
- * application for Check, the assistant and letters. Add, or Add and tailor a resume.
+ * application for Check, the assistant and letters. Save; save and build a resume from the master profile; or save
+ * and adapt an existing resume.
  */
 export function AddApplicationDialog({ open, onOpenChange, onAdded }: AddApplicationDialogProps) {
 	// A fresh form for every open, kept in place while the dialog animates closed.
@@ -65,7 +68,7 @@ export function AddApplicationDialog({ open, onOpenChange, onAdded }: AddApplica
 	);
 }
 
-type AddApplicationFormProps = { onClose: () => void; onAdded: (id: string) => void };
+type AddApplicationFormProps = { onClose: () => void; onAdded: AddApplicationDialogProps["onAdded"] };
 
 function AddApplicationForm({ onClose, onAdded }: AddApplicationFormProps) {
 	const id = useId();
@@ -108,6 +111,35 @@ function AddApplicationForm({ onClose, onAdded }: AddApplicationFormProps) {
 		setReading(null);
 	};
 	const create = useMutation(orpc.applications.create.mutationOptions());
+	const fileInput = useRef<HTMLInputElement>(null);
+	const [fileName, setFileName] = useState<string | null>(null);
+	const readFile = useMutation(orpc.applications.ai.readPostingFile.mutationOptions());
+	const { data: masterProfile } = useQuery(orpc.masterProfile.get.queryOptions());
+	const hasProfile = Boolean(
+		masterProfile && (masterProfile.entries.length > 0 || masterProfile.standalone.length > 0),
+	);
+	// A posting file's text goes into the box, read like a paste; the saved source says it came from a file.
+	const readPostingFile = (file: File) => {
+		if (readFile.isPending) return;
+		resetRead();
+		setPasteOpen(false);
+		setFileName(file.name);
+		readFile.mutate(
+			{ file },
+			{
+				onSuccess: (result) => {
+					const posting = result.jobDescription.trim();
+					setInput(posting);
+					setReading({ text: posting, result });
+					setRole((current) => current || result.role);
+					setCompany((current) => current || result.company);
+					setLocation((current) => current || result.location);
+					setSalary((current) => current || result.salary);
+					setDescription(null);
+				},
+			},
+		);
+	};
 
 	const text = (pasteOpen ? pastedText : input).trim();
 	const sourceLink = isLink(input.trim()) ? input.trim() : null;
@@ -145,7 +177,7 @@ function AddApplicationForm({ onClose, onAdded }: AddApplicationFormProps) {
 		!read.isPending &&
 		!create.isPending;
 
-	const add = async (tailor: boolean) => {
+	const add = async (next: AddMode) => {
 		if (!ready) return;
 		const posting = {
 			company: company.trim(),
@@ -175,9 +207,9 @@ function AddApplicationForm({ onClose, onAdded }: AddApplicationFormProps) {
 			invalidate();
 			toast.add({ description: t`Added ${role.trim()} at ${company.trim()}` });
 			onClose();
-			if (tailor)
+			if (next === "adapt")
 				openDialog("document.new", { step: "copy", applicationId, ...(resumeId ? { sourceResumeId: resumeId } : {}) });
-			else onAdded(applicationId);
+			else onAdded(applicationId, { assemble: next === "assemble" });
 		} catch (error) {
 			toastError(error, t`Couldn't add the application. Try again.`);
 		}
@@ -188,7 +220,7 @@ function AddApplicationForm({ onClose, onAdded }: AddApplicationFormProps) {
 			className="grid gap-4"
 			onSubmit={(event) => {
 				event.preventDefault();
-				void add(false);
+				void add("save");
 			}}
 		>
 			<DialogHeader>
@@ -291,10 +323,42 @@ function AddApplicationForm({ onClose, onAdded }: AddApplicationFormProps) {
 			)}
 
 			<div className="grid gap-1.5">
-				<Label htmlFor={`${id}-posting`}>
-					<Trans>Job link or posting text</Trans>
-				</Label>
+				<div className="flex items-center justify-between gap-2">
+					<Label htmlFor={`${id}-posting`}>
+						<Trans>Job link or posting text</Trans>
+					</Label>
+					<Button
+						type="button"
+						variant="ghost"
+						size="sm"
+						loading={readFile.isPending}
+						onClick={() => fileInput.current?.click()}
+					>
+						{!readFile.isPending && <Icon name="file-arrow-up" size={16} />}
+						<Trans>Upload PDF or Word file</Trans>
+					</Button>
+					<input
+						ref={fileInput}
+						type="file"
+						hidden
+						accept=".pdf,.docx,.txt,.md,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document,text/plain"
+						onChange={(event) => {
+							const file = event.target.files?.[0];
+							event.target.value = "";
+							if (file) readPostingFile(file);
+						}}
+					/>
+				</div>
 				<Textarea
+					onDragOver={(event) => {
+						if (event.dataTransfer.types.includes("Files")) event.preventDefault();
+					}}
+					onDrop={(event) => {
+						const file = event.dataTransfer.files[0];
+						if (!file) return;
+						event.preventDefault();
+						readPostingFile(file);
+					}}
 					id={`${id}-posting`}
 					rows={4}
 					value={input}
@@ -304,6 +368,8 @@ function AddApplicationForm({ onClose, onAdded }: AddApplicationFormProps) {
 						setInput(event.target.value);
 						setDescription(null);
 						setPasteOpen(false);
+						setFileName(null);
+						readFile.reset();
 						resetRead();
 					}}
 					autoFocus
@@ -393,8 +459,9 @@ function AddApplicationForm({ onClose, onAdded }: AddApplicationFormProps) {
 						text={text}
 						link={link}
 						readable={readable}
-						pending={read.isPending}
-						error={read.error}
+						pending={read.isPending || readFile.isPending}
+						error={read.error ?? readFile.error}
+						fileName={fileName}
 						parsed={parsed}
 						ai={hasUsableProvider}
 					/>
@@ -520,12 +587,18 @@ function AddApplicationForm({ onClose, onAdded }: AddApplicationFormProps) {
 				</div>
 			)}
 			<DialogFooter>
-				<Button type="button" variant="secondary" disabled={!ready} onClick={() => void add(false)}>
+				<Button type="button" variant="ghost" disabled={!ready} onClick={() => void add("adapt")}>
+					<Trans>Save and adapt a resume</Trans>
+				</Button>
+				<Button type="button" variant="secondary" disabled={!ready} onClick={() => void add("save")}>
 					{stage === "saved" ? <Trans>Save job</Trans> : <Trans>Record application</Trans>}
 				</Button>
-				<Button type="button" disabled={!ready} onClick={() => void add(true)}>
-					<Trans>Save and prepare resume</Trans>
-				</Button>
+				{hasProfile && (
+					<Button type="button" disabled={!ready} onClick={() => void add("assemble")}>
+						<Icon name="magic-wand" size={16} />
+						<Trans>Save and build resume</Trans>
+					</Button>
+				)}
 			</DialogFooter>
 		</form>
 	);
@@ -539,23 +612,33 @@ type ReadStatusProps = {
 	error: unknown;
 	parsed: Parsed | null;
 	ai: boolean;
+	fileName?: string | null | undefined;
 };
 
 /** What reading the posting found, or why the fields need filling in by hand. */
-function ReadStatus({ text, link, readable, pending, error, parsed, ai }: ReadStatusProps) {
+function ReadStatus({ text, link, readable, pending, error, parsed, ai, fileName }: ReadStatusProps) {
 	const base = "flex items-start gap-1.5 text-xs leading-[17px]";
 
-	if (!text) {
-		return (
-			<p className={cn(base, "text-ink-3")}>
-				<Trans>We read the page and save the posting for Check, the assistant and your letter.</Trans>
-			</p>
-		);
-	}
 	if (pending) {
 		return (
 			<p className={cn(base, "text-ink-2")} role="status">
-				{link ? <Trans>Reading the link…</Trans> : <Trans>Reading the posting…</Trans>}
+				{link ? (
+					<Trans>Reading the link…</Trans>
+				) : fileName ? (
+					<Trans>Reading {fileName}…</Trans>
+				) : (
+					<Trans>Reading the posting…</Trans>
+				)}
+			</p>
+		);
+	}
+	if (!text) {
+		return (
+			<p className={cn(base, "text-ink-3")}>
+				<Trans>
+					Paste a link or the posting, or upload it as a PDF or Word file. It's saved for Check, the assistant, your
+					resume and your letter.
+				</Trans>
 			</p>
 		);
 	}
@@ -565,7 +648,9 @@ function ReadStatus({ text, link, readable, pending, error, parsed, ai }: ReadSt
 				<Icon name="warning-circle" size={16} className="shrink-0" />
 				{getOrpcErrorMessage(error, {
 					byCode: { POSTING_UNREADABLE: t`That link couldn't be read. Paste the posting text instead.` },
-					fallback: t`The posting couldn't be read. Fill in the role and company.`,
+					fallback: fileName
+						? t`That file couldn't be read. Upload a PDF with selectable text or a Word (.docx) file, or paste the posting.`
+						: t`The posting couldn't be read. Fill in the role and company.`,
 				})}
 			</p>
 		);

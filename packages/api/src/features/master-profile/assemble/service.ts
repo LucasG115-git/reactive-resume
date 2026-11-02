@@ -1,10 +1,12 @@
 import type { ModelOutput } from "./prompt";
 import type { AssembleInput, ProfileAssemblyResult } from "@reactive-resume/schema/master-profile";
+import type { ResumeData } from "@reactive-resume/schema/resume/data";
 import { ORPCError } from "@orpc/client";
 import { APICallError, RetryError } from "ai";
 import { and, desc, eq } from "drizzle-orm";
 import { db } from "@reactive-resume/db/client";
 import * as tables from "@reactive-resume/db/schema";
+import { defaultResumeData } from "@reactive-resume/schema/resume/default";
 import { parseResumeDataForWrite } from "@reactive-resume/schema/resume/write";
 import { aiProvidersService } from "../../ai-providers/service";
 import { generateJson } from "../../ai/generate-json";
@@ -57,6 +59,18 @@ export type AssembleResponse = {
 	result: ProfileAssemblyResult;
 };
 
+/** The default template with the account's name and email, for a resume assembled without a base. */
+async function starterResume(userId: string): Promise<ResumeData> {
+	const [owner] = await db
+		.select({ name: tables.user.name, email: tables.user.email })
+		.from(tables.user)
+		.where(eq(tables.user.id, userId));
+	const data = structuredClone(defaultResumeData);
+	data.basics.name = owner?.name ?? "";
+	data.basics.email = owner?.email ?? "";
+	return data;
+}
+
 export const assembleService = {
 	assemble: async (
 		userId: string,
@@ -64,7 +78,7 @@ export const assembleService = {
 		options: { select?: SelectEvidence; signal?: AbortSignal | undefined; now?: Date } = {},
 	): Promise<AssembleResponse> => {
 		const application = await applicationService.getById({ id: input.applicationId, userId });
-		const base = await resumeService.getById({ id: input.baseResumeId, userId });
+		const base = input.baseResumeId ? await resumeService.getById({ id: input.baseResumeId, userId }) : null;
 		const profile = await masterProfileService.get(userId);
 
 		const catalog = buildCatalog(profile);
@@ -91,7 +105,7 @@ export const assembleService = {
 
 		const { selection, coverage } = resolveOutput(output, catalog);
 		const built = buildResume({
-			base: base.data,
+			base: base?.data ?? (await starterResume(userId)),
 			profile,
 			selection,
 			mode: input.mode,
@@ -105,13 +119,13 @@ export const assembleService = {
 		}
 
 		// Copy the base for this job (linking it like "Copy for a job" does), then write the assembled content.
-		const resumeId = await documentsService.copyForJob({
-			userId,
-			resumeId: base.id,
-			applicationId: application.id,
-			name: input.name ?? `${application.role || "Resume"} — ${application.company || "Tailored"}`,
-		});
-		await resumeService.update({ id: resumeId, userId, data: parseResumeDataForWrite(built.data) });
+		const name = input.name ?? `${application.role || "Resume"} — ${application.company || "Tailored"}`;
+		const data = parseResumeDataForWrite(built.data);
+		let resumeId: string;
+		if (base) {
+			resumeId = await documentsService.copyForJob({ userId, resumeId: base.id, applicationId: application.id, name });
+			await resumeService.update({ id: resumeId, userId, data });
+		} else resumeId = await documentsService.createForJob({ userId, applicationId: application.id, name, data });
 
 		const result: ProfileAssemblyResult = {
 			coverage,

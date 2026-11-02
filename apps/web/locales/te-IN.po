@@ -1021,6 +1021,10 @@ msgstr "A ఆమోదిస్తుంది మరియు R కేంద్
 msgid "A backup of this letter. Imports back into Reactive Resume as a letter."
 msgstr "ఈ లేఖ యొక్క బ్యాకప్. అక్షరం వలె Reactive Resumeకి తిరిగి దిగుమతి అవుతుంది."
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "A blank template, with your account's name and email"
+msgstr ""
+
 #: src/features/resume/editor/check/issues.ts
 msgid "A city and country let roles be matched to where you are."
 msgstr "ఒక నగరం మరియు దేశం పాత్రలను మీరు ఉన్న ప్రదేశానికి సరిపోల్చండి."
@@ -1665,6 +1669,10 @@ msgstr "సేవ్ చేసే ముందు ఏమి జరిగిం�
 #: src/features/resume/editor/check/issues.ts
 msgid "Add your name"
 msgstr "మీ పేరును జోడించండి"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Add your phone, location and links in the editor afterwards."
+msgstr ""
 
 #: src/features/career/knowledge/profile.tsx
 msgid "Add…"
@@ -2678,6 +2686,10 @@ msgstr "ఉచిత CV టెంప్లేట్‌లను బ్రౌజ�
 #: src/features/homepage/hero.tsx
 msgid "Build a professional resume, download it as PDF or Word, and manage your job search in one place. Free templates, no ads, no paywall."
 msgstr "వృత్తిపరమైన CVని రూపొందించండి, దానిని PDF లేదా Microsoft Word వలె డౌన్‌లోడ్ చేసుకోండి మరియు మీ ఉద్యోగ శోధనను ఒకే చోట నిర్వహించండి. ఉచిత టెంప్లేట్లు, ప్రకటనలు లేవు, పేవాల్ లేదు."
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Build a resume for a job"
+msgstr ""
 
 #: src/features/homepage/ui.tsx
 #: src/features/templates/gallery.tsx
@@ -4403,10 +4415,6 @@ msgstr "కీని సృష్టించండి"
 #: src/features/auth/pages/login.tsx
 msgid "Create one now"
 msgstr "ఇప్పుడే సృష్టించండి"
-
-#: src/features/applications/components/detail/assemble-dialog.tsx
-msgid "Create or import a resume first. It provides your name, contact details and design."
-msgstr ""
 
 #: src/features/documents/documents-page.tsx
 #: src/features/resume/share/format.ts
@@ -9434,6 +9442,10 @@ msgstr "ఉద్యోగ ప్రకటనను ఒకసారి అతి
 msgid "Paste a job posting…"
 msgstr "ఉద్యోగ పోస్టింగ్‌ను అతికించండి..."
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Paste a link or the posting, or upload it as a PDF or Word file. It's saved for Check, the assistant, your resume and your letter."
+msgstr ""
+
 #. placeholder {0}: application.company
 #: src/features/career/workspace/messages.tsx
 msgid "Paste a message from {0}"
@@ -10177,6 +10189,10 @@ msgstr "“{0}”గా చదవబడింది. స్థిరంగా �
 msgid "Read briefing"
 msgstr "బ్రీఫింగ్ చదువు"
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Read from an uploaded file"
+msgstr ""
+
 #: src/features/career/workspace/messages.tsx
 #: src/features/homepage/prepare.tsx
 msgid "Read it for me"
@@ -10255,6 +10271,10 @@ msgstr "రీడబిలిటీ స్కోర్: 100లో {0}"
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "Readability score: {score} out of 100"
 msgstr "రీడబిలిటీ స్కోర్: 100లో {score}"
+
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Reading {fileName}…"
+msgstr ""
 
 #: src/features/assistant/conversation.tsx
 msgid "Reading page…"
@@ -11120,13 +11140,17 @@ msgstr ""
 msgid "Save an unprotected copy, with no password and no permissions restrictions."
 msgstr "పాస్‌వర్డ్ లేకుండా, అనుమతుల పరిమితులు లేకుండా రక్షణ లేని కాపీని సేవ్ చేయండి."
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Save and adapt a resume"
+msgstr ""
+
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Save and build resume"
+msgstr ""
+
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Save and link"
 msgstr "సేవ్ చేసి లింక్ చేయండి"
-
-#: src/features/applications/components/add-application-dialog.tsx
-msgid "Save and prepare resume"
-msgstr "రెజ్యూమేని సేవ్ చేసి సిద్ధం చేయండి"
 
 #: src/features/settings/ai/providers.tsx
 msgid "Save and test"
@@ -12870,6 +12894,10 @@ msgstr "ధన్యవాదాలు, Sam. ఇదిగో ఒకటి: North
 msgid "That file couldn't be read as a PDF. Choose a PDF file and try again."
 msgstr "ఆ ఫైల్‌ని PDFగా చదవడం సాధ్యపడలేదు. PDF ఫైల్‌ను ఎంచుకుని మళ్ళీ ప్రయత్నించండి."
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "That file couldn't be read. Upload a PDF with selectable text or a Word (.docx) file, or paste the posting."
+msgstr ""
+
 #: src/features/career/knowledge/profile-file.tsx
 msgid "That file is too large for a profile file (over 1 MB)."
 msgstr ""
@@ -13995,6 +14023,10 @@ msgstr "PDFని అప్‌లోడ్ చేయండి మరియు �
 msgid "Upload or paste"
 msgstr ""
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Upload PDF or Word file"
+msgstr ""
+
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Upload photo"
 msgstr "ఫోటోను అప్‌లోడ్ చేయండి"
@@ -14413,10 +14445,6 @@ msgstr ""
 #: src/features/homepage/hero.tsx
 msgid "WCAG 2.1 AA"
 msgstr "WCAG 2.1 AA"
-
-#: src/features/applications/components/add-application-dialog.tsx
-msgid "We read the page and save the posting for Check, the assistant and your letter."
-msgstr "మేము పేజీని చదివి, చెక్, అసిస్టెంట్ మరియు మీ లెటర్ కోసం జాబ్ పోస్టింగ్‌ను సేవ్ చేస్తాము."
 
 #: src/features/settings/account/profile.tsx
 msgid "We sent a confirmation link to {email}. Open it to finish the change."

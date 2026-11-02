@@ -407,7 +407,9 @@ function PostingBody({ application, onClose }: Omit<ApplicationContentSheetProps
 				<Text variant="callout" color="ink3">
 					{source.method === "paste"
 						? t`Pasted description`
-						: t`Retrieved ${source.retrievedAt} using ${source.method}. Retrieval time does not establish origin freshness.`}
+						: source.method === "upload"
+							? t`Read from an uploaded file`
+							: t`Retrieved ${source.retrievedAt} using ${source.method}. Retrieval time does not establish origin freshness.`}
 				</Text>
 			) : null}
 			{source?.truncated || source?.completeness === "incomplete" ? (

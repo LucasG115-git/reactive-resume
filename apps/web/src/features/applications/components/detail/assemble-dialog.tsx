@@ -47,6 +47,7 @@ export function AssembleDialog({ application, open, onOpenChange }: AssembleDial
 				new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime(),
 		);
 	const [baseResumeId, setBaseResumeId] = useState<string | null>(null);
+	// "" starts from the default template with the account's name and email.
 	const base = baseResumeId ?? resumes[0]?.id ?? "";
 	const [mode, setMode] = useState<AssembleMode>("rephrase");
 	const [result, setResult] = useState<AssembleResult | null>(null);
@@ -113,21 +114,21 @@ export function AssembleDialog({ application, open, onOpenChange }: AssembleDial
 							<label htmlFor={`${formId}-base`} className="text-xs font-medium text-ink-2">
 								<Trans>Start from (keeps its contact details, template and design)</Trans>
 							</label>
-							{resumes.length > 0 ? (
-								<NativeSelect
-									id={`${formId}-base`}
-									value={base}
-									onChange={(event) => setBaseResumeId(event.target.value)}
-								>
-									{resumes.map((resume) => (
-										<option key={resume.id} value={resume.id}>
-											{resume.application ? `${resume.name} (${resume.application.company})` : resume.name}
-										</option>
-									))}
-								</NativeSelect>
-							) : (
-								<p className="text-[13px] text-ink-3">
-									<Trans>Create or import a resume first. It provides your name, contact details and design.</Trans>
+							<NativeSelect
+								id={`${formId}-base`}
+								value={base}
+								onChange={(event) => setBaseResumeId(event.target.value)}
+							>
+								{resumes.map((resume) => (
+									<option key={resume.id} value={resume.id}>
+										{resume.application ? `${resume.name} (${resume.application.company})` : resume.name}
+									</option>
+								))}
+								<option value="">{t`A blank template, with your account's name and email`}</option>
+							</NativeSelect>
+							{!base && (
+								<p className="text-xs text-ink-3">
+									<Trans>Add your phone, location and links in the editor afterwards.</Trans>
 								</p>
 							)}
 						</div>
@@ -179,8 +180,10 @@ export function AssembleDialog({ application, open, onOpenChange }: AssembleDial
 							</Button>
 							<Button
 								loading={assemble.isPending}
-								disabled={!base || achievements === 0}
-								onClick={() => assemble.mutate({ applicationId: application.id, baseResumeId: base, mode })}
+								disabled={achievements === 0}
+								onClick={() =>
+									assemble.mutate({ applicationId: application.id, mode, ...(base ? { baseResumeId: base } : {}) })
+								}
 							>
 								<Icon name="magic-wand" size={16} />
 								<Trans>Assemble resume</Trans>

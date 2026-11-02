@@ -116,6 +116,10 @@ export const restAliases = {
 		path: "/applications/ai/posting-parses",
 		operationId: "createPostingParse",
 	}),
+	postingFileRead: router.applications.ai.readPostingFile.route({
+		path: "/applications/ai/posting-file-reads",
+		operationId: "createPostingFileRead",
+	}),
 	applicationAutofill: router.applications.ai.autofill.route({
 		path: "/applications/ai/autofills",
 		operationId: "createApplicationAutofill",

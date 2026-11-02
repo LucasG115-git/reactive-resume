@@ -11,7 +11,7 @@ export type ApplicationStatus = z.infer<typeof applicationStatusSchema>;
 
 /** How the bounded posting snapshot was obtained; retrieval time is not an origin freshness claim. */
 export const postingSourceSchema = z.object({
-	method: z.enum(["paste", "builtin", "firecrawl", "tavily", "exa"]),
+	method: z.enum(["paste", "upload", "builtin", "firecrawl", "tavily", "exa"]),
 	format: z.enum(["text", "markdown"]),
 	requestedUrl: z.url({ protocol: /^https?$/ }).optional(),
 	resolvedUrl: z.url({ protocol: /^https?$/ }).optional(),

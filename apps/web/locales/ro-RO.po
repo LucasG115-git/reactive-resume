@@ -1021,6 +1021,10 @@ msgstr "A acceptă și R respinge editarea focalizată. ↑ și ↓ se deplaseaz
 msgid "A backup of this letter. Imports back into Reactive Resume as a letter."
 msgstr "O copie de rezervă a acestei scrisori. Se importă înapoi în Reactive Resume sub formă de scrisoare."
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "A blank template, with your account's name and email"
+msgstr ""
+
 #: src/features/resume/editor/check/issues.ts
 msgid "A city and country let roles be matched to where you are."
 msgstr "Un oraș și o țară permit rolurilor să fie potrivite cu locul în care vă aflați."
@@ -1665,6 +1669,10 @@ msgstr "Adăugați ce s-a întâmplat înainte de a salva."
 #: src/features/resume/editor/check/issues.ts
 msgid "Add your name"
 msgstr "Adaugă numele tău"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Add your phone, location and links in the editor afterwards."
+msgstr ""
 
 #: src/features/career/knowledge/profile.tsx
 msgid "Add…"
@@ -2678,6 +2686,10 @@ msgstr "Răsfoiți șabloane gratuite de CV, comparați machetele cu o coloană 
 #: src/features/homepage/hero.tsx
 msgid "Build a professional resume, download it as PDF or Word, and manage your job search in one place. Free templates, no ads, no paywall."
 msgstr "Creați un CV profesional, descărcați-l ca PDF sau Microsoft Word și gestionați-vă căutarea unui loc de muncă într-un singur loc. Șabloane gratuite, fără reclame, fără paywall."
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Build a resume for a job"
+msgstr ""
 
 #: src/features/homepage/ui.tsx
 #: src/features/templates/gallery.tsx
@@ -4403,10 +4415,6 @@ msgstr "Creați cheia"
 #: src/features/auth/pages/login.tsx
 msgid "Create one now"
 msgstr "Creați unul acum"
-
-#: src/features/applications/components/detail/assemble-dialog.tsx
-msgid "Create or import a resume first. It provides your name, contact details and design."
-msgstr ""
 
 #: src/features/documents/documents-page.tsx
 #: src/features/resume/share/format.ts
@@ -9434,6 +9442,10 @@ msgstr "Lipiți o singură dată un anunț de angajare. Acesta alimentează o co
 msgid "Paste a job posting…"
 msgstr "Lipiți o postare de locuri de muncă..."
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Paste a link or the posting, or upload it as a PDF or Word file. It's saved for Check, the assistant, your resume and your letter."
+msgstr ""
+
 #. placeholder {0}: application.company
 #: src/features/career/workspace/messages.tsx
 msgid "Paste a message from {0}"
@@ -10177,6 +10189,10 @@ msgstr "Citit ca „{0}”. Alege o lună ca să fie sortată și tipărită con
 msgid "Read briefing"
 msgstr "Citiți briefingul"
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Read from an uploaded file"
+msgstr ""
+
 #: src/features/career/workspace/messages.tsx
 #: src/features/homepage/prepare.tsx
 msgid "Read it for me"
@@ -10255,6 +10271,10 @@ msgstr "Scor de lizibilitate: {0} din 100"
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "Readability score: {score} out of 100"
 msgstr "Scor de lizibilitate: {score} din 100"
+
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Reading {fileName}…"
+msgstr ""
 
 #: src/features/assistant/conversation.tsx
 msgid "Reading page…"
@@ -11120,13 +11140,17 @@ msgstr ""
 msgid "Save an unprotected copy, with no password and no permissions restrictions."
 msgstr "Salvați o copie neprotejată, fără parolă și fără restricții de permisiuni."
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Save and adapt a resume"
+msgstr ""
+
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Save and build resume"
+msgstr ""
+
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Save and link"
 msgstr "Salvați și conectați"
-
-#: src/features/applications/components/add-application-dialog.tsx
-msgid "Save and prepare resume"
-msgstr "Salvați și pregătiți CV-ul"
 
 #: src/features/settings/ai/providers.tsx
 msgid "Save and test"
@@ -12870,6 +12894,10 @@ msgstr "Mulțumesc, Sam. Iată unul: la Northwind Labs am condus reproiectarea o
 msgid "That file couldn't be read as a PDF. Choose a PDF file and try again."
 msgstr "Fișierul nu a putut fi citit ca PDF. Alege un fișier PDF și încearcă din nou."
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "That file couldn't be read. Upload a PDF with selectable text or a Word (.docx) file, or paste the posting."
+msgstr ""
+
 #: src/features/career/knowledge/profile-file.tsx
 msgid "That file is too large for a profile file (over 1 MB)."
 msgstr ""
@@ -13995,6 +14023,10 @@ msgstr "Încărcați un PDF și vedeți textul extras de un sistem de urmărire 
 msgid "Upload or paste"
 msgstr ""
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Upload PDF or Word file"
+msgstr ""
+
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Upload photo"
 msgstr "Încarcă fotografia"
@@ -14413,10 +14445,6 @@ msgstr ""
 #: src/features/homepage/hero.tsx
 msgid "WCAG 2.1 AA"
 msgstr "WCAG 2.1 AA"
-
-#: src/features/applications/components/add-application-dialog.tsx
-msgid "We read the page and save the posting for Check, the assistant and your letter."
-msgstr "Citim pagina și salvăm anunțul pentru Check, asistent și scrisoarea dvs."
 
 #: src/features/settings/account/profile.tsx
 msgid "We sent a confirmation link to {email}. Open it to finish the change."

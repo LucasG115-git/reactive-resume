@@ -1021,6 +1021,10 @@ msgstr "A はフォーカスされた編集を受け入れ、R は拒否しま�
 msgid "A backup of this letter. Imports back into Reactive Resume as a letter."
 msgstr "この手紙のバックアップ。 Reactive Resume にレターとしてインポートし直します。"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "A blank template, with your account's name and email"
+msgstr ""
+
 #: src/features/resume/editor/check/issues.ts
 msgid "A city and country let roles be matched to where you are."
 msgstr "都市や国では、自分のいる場所に応じた役割が与えられます。"
@@ -1665,6 +1669,10 @@ msgstr "保存するには、何が起きたかを入力してください。"
 #: src/features/resume/editor/check/issues.ts
 msgid "Add your name"
 msgstr "あなたの名前を追加してください"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Add your phone, location and links in the editor afterwards."
+msgstr ""
 
 #: src/features/career/knowledge/profile.tsx
 msgid "Add…"
@@ -2678,6 +2686,10 @@ msgstr "無料の履歴書テンプレートを参照し、1 列と 2 列のレ�
 #: src/features/homepage/hero.tsx
 msgid "Build a professional resume, download it as PDF or Word, and manage your job search in one place. Free templates, no ads, no paywall."
 msgstr "プロフェッショナルな履歴書を作成し、PDF または Microsoft Word としてダウンロードして、求職活動を 1 か所で管理します。無料のテンプレート、広告なし、ペイウォールなし。"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Build a resume for a job"
+msgstr ""
 
 #: src/features/homepage/ui.tsx
 #: src/features/templates/gallery.tsx
@@ -4403,10 +4415,6 @@ msgstr "キーの作成"
 #: src/features/auth/pages/login.tsx
 msgid "Create one now"
 msgstr "今すぐ作成する"
-
-#: src/features/applications/components/detail/assemble-dialog.tsx
-msgid "Create or import a resume first. It provides your name, contact details and design."
-msgstr ""
 
 #: src/features/documents/documents-page.tsx
 #: src/features/resume/share/format.ts
@@ -9434,6 +9442,10 @@ msgstr "求人情報は一度貼り付けるだけ。それをもとに、履歴
 msgid "Paste a job posting…"
 msgstr "求人情報を貼り付け…"
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Paste a link or the posting, or upload it as a PDF or Word file. It's saved for Check, the assistant, your resume and your letter."
+msgstr ""
+
 #. placeholder {0}: application.company
 #: src/features/career/workspace/messages.tsx
 msgid "Paste a message from {0}"
@@ -10177,6 +10189,10 @@ msgstr "「{0}」として読み取りました。並べ替えと印刷が一貫
 msgid "Read briefing"
 msgstr "ブリーフィングを読む"
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Read from an uploaded file"
+msgstr ""
+
 #: src/features/career/workspace/messages.tsx
 #: src/features/homepage/prepare.tsx
 msgid "Read it for me"
@@ -10255,6 +10271,10 @@ msgstr "可読性スコア: {0} (100 点中)"
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "Readability score: {score} out of 100"
 msgstr "可読性スコア: {score} (100 点中)"
+
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Reading {fileName}…"
+msgstr ""
 
 #: src/features/assistant/conversation.tsx
 msgid "Reading page…"
@@ -11120,13 +11140,17 @@ msgstr ""
 msgid "Save an unprotected copy, with no password and no permissions restrictions."
 msgstr "パスワードや権限制限のない、保護されていないコピーを保存してください。"
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Save and adapt a resume"
+msgstr ""
+
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Save and build resume"
+msgstr ""
+
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Save and link"
 msgstr "保存してリンクする"
-
-#: src/features/applications/components/add-application-dialog.tsx
-msgid "Save and prepare resume"
-msgstr "履歴書を保存して準備する"
 
 #: src/features/settings/ai/providers.tsx
 msgid "Save and test"
@@ -12870,6 +12894,10 @@ msgstr "ありがとうございます、Samさん。一例として、Northwind
 msgid "That file couldn't be read as a PDF. Choose a PDF file and try again."
 msgstr "そのファイルは PDF として読み取れませんでした。PDF ファイルを選んで、もう一度お試しください。"
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "That file couldn't be read. Upload a PDF with selectable text or a Word (.docx) file, or paste the posting."
+msgstr ""
+
 #: src/features/career/knowledge/profile-file.tsx
 msgid "That file is too large for a profile file (over 1 MB)."
 msgstr ""
@@ -13995,6 +14023,10 @@ msgstr "PDF をアップロードすると、申請者追跡システムが抽�
 msgid "Upload or paste"
 msgstr ""
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Upload PDF or Word file"
+msgstr ""
+
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Upload photo"
 msgstr "写真をアップロード"
@@ -14413,10 +14445,6 @@ msgstr ""
 #: src/features/homepage/hero.tsx
 msgid "WCAG 2.1 AA"
 msgstr "WCAG 2.1 AA"
-
-#: src/features/applications/components/add-application-dialog.tsx
-msgid "We read the page and save the posting for Check, the assistant and your letter."
-msgstr "私たちはページを読み、Check、アシスタント、およびあなたの手紙の求人情報を保存します。"
 
 #: src/features/settings/account/profile.tsx
 msgid "We sent a confirmation link to {email}. Open it to finish the change."

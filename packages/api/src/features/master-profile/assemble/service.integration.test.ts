@@ -180,6 +180,22 @@ describe.skipIf(!databaseUrl)("assemble a resume from the master profile", () =>
 		expect(await assemble.latest("bob", "alice-app")).toBeNull();
 	});
 
+	it("starts from the default template with the account's name and email when no base resume is chosen", async () => {
+		await seedProfile();
+		const response = await assemble.assemble(
+			"alice",
+			{ applicationId: "alice-app", mode: "verbatim" },
+			{ select: stub, now: new Date("2026-10-29") },
+		);
+		const [created] = await getDb().select().from(tables.resume).where(eq(tables.resume.id, response.resumeId));
+		expect(created).toMatchObject({ userId: "alice", applicationId: "alice-app" });
+		const data = created?.data as typeof defaultResumeData;
+		expect(data.basics).toMatchObject({ name: "alice", email: "alice@example.test" });
+		expect(data.sections.experience.items[0]?.description).toContain("Delivered sites for 12 nonprofits");
+		const [app] = await getDb().select().from(tables.application).where(eq(tables.application.id, "alice-app"));
+		expect(app?.resumeId).toBe(response.resumeId);
+	});
+
 	it("refuses other users' applications and resumes, and an empty profile", async () => {
 		await expect(
 			assemble.assemble(

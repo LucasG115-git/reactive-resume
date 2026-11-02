@@ -5,6 +5,8 @@ export function applicationError(error: unknown) {
 	if (error instanceof ORPCError) {
 		if (error.code === "CONFLICT") return t`This changed elsewhere. Reload and try again.`;
 		if (error.code === "POSTING_UNREADABLE") return t`That link couldn't be read. Paste the posting text instead.`;
+		if (error.code === "POSTING_FILE_UNREADABLE")
+			return t`That file couldn't be read. Upload a PDF with selectable text or a Word (.docx) file, or paste the posting.`;
 		if (error.code === "SEARCH_FAILED") return t`Job search couldn't be reached. Try again or paste a posting link.`;
 		if (error.code === "SEARCH_UNAVAILABLE")
 			return t`Job search isn't configured on this server. Paste a posting link instead.`;

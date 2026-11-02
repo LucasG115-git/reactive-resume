@@ -46,20 +46,20 @@ function SentDocumentRow({ icon, name, status, children }: SentDocumentRowProps)
 	);
 }
 
-type SentDocumentsProps = { application: Application; disabled: boolean };
+type SentDocumentsProps = { application: Application; disabled: boolean; assemble?: boolean | undefined };
 
 /**
  * WHAT YOU SENT: the linked resume (opening the version that was sent, read-only, with a way back to the latest) and
  * the linked letter. Without them: Tailor a resume and Write a letter. Uploaded PDFs stay under "Attach a file".
  */
-export function SentDocuments({ application, disabled }: SentDocumentsProps) {
+export function SentDocuments({ application, disabled, assemble }: SentDocumentsProps) {
 	const { i18n } = useLingui();
 	const navigate = useNavigate();
 	const invalidate = useInvalidateApplications();
 	const openDialog = useDialogStore((state) => state.openDialog);
 	const { data: documents } = useQuery(orpc.documents.list.queryOptions({ input: { trashed: false } }));
 	const [attaching, setAttaching] = useState(Boolean(application.resumeFileUrl || application.coverLetterUrl));
-	const [assembling, setAssembling] = useState(false);
+	const [assembling, setAssembling] = useState(Boolean(assemble));
 
 	const update = useMutation({
 		...orpc.applications.update.mutationOptions(),

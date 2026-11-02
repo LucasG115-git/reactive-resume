@@ -89,6 +89,8 @@ function RouteComponent() {
 	const lanes = useApplicationLanes();
 	const [editing, setEditing] = useState<Application | null>(null);
 	const [selectedId, setSelectedId] = useState<string | null>(null);
+	// Set by "Save and build resume": the new application opens straight into Assemble from profile.
+	const [assembleId, setAssembleId] = useState<string | null>(null);
 	// Views animate in only after a switch, never on the page's first render.
 	const [viewSwitched, setViewSwitched] = useState(false);
 
@@ -388,7 +390,14 @@ function RouteComponent() {
 				</>
 			)}
 
-			<AddApplicationDialog open={adding} onOpenChange={setAdding} onAdded={setSelectedId} />
+			<AddApplicationDialog
+				open={adding}
+				onOpenChange={setAdding}
+				onAdded={(id, options) => {
+					setAssembleId(options?.assemble ? id : null);
+					setSelectedId(id);
+				}}
+			/>
 			<ApplicationFormSheet
 				open={Boolean(editing)}
 				application={editing}
@@ -404,7 +413,12 @@ function RouteComponent() {
 			/>
 			<ApplicationDetailSheet
 				application={selected}
-				onOpenChange={(open) => !open && setSelectedId(null)}
+				assemble={Boolean(selected && selected.id === assembleId)}
+				onOpenChange={(open) => {
+					if (open) return;
+					setSelectedId(null);
+					setAssembleId(null);
+				}}
 				onEditDetails={(application) => {
 					setSelectedId(null);
 					setEditing(application);

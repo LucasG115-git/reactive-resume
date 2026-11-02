@@ -1021,6 +1021,10 @@ msgstr "மையப்படுத்தப்பட்ட திருத்�
 msgid "A backup of this letter. Imports back into Reactive Resume as a letter."
 msgstr "இந்த கடிதத்தின் காப்புப்பிரதி. கடிதமாக Reactive Resume க்கு மீண்டும் இறக்குமதி செய்கிறது."
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "A blank template, with your account's name and email"
+msgstr ""
+
 #: src/features/resume/editor/check/issues.ts
 msgid "A city and country let roles be matched to where you are."
 msgstr "ஒரு நகரமும் நாடும் பாத்திரங்களை நீங்கள் இருக்கும் இடத்திற்குப் பொருத்த அனுமதிக்கவும்."
@@ -1665,6 +1669,10 @@ msgstr "சேமிப்பதற்கு முன் என்ன நடந
 #: src/features/resume/editor/check/issues.ts
 msgid "Add your name"
 msgstr "உங்கள் பெயரைச் சேர்க்கவும்"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Add your phone, location and links in the editor afterwards."
+msgstr ""
 
 #: src/features/career/knowledge/profile.tsx
 msgid "Add…"
@@ -2678,6 +2686,10 @@ msgstr "இலவச CV டெம்ப்ளேட்களை உலாவவ�
 #: src/features/homepage/hero.tsx
 msgid "Build a professional resume, download it as PDF or Word, and manage your job search in one place. Free templates, no ads, no paywall."
 msgstr "ஒரு தொழில்முறை CVயை உருவாக்கவும், அதை PDF அல்லது Microsoft Word ஆகப் பதிவிறக்கவும் மற்றும் உங்கள் வேலை தேடலை ஒரே இடத்தில் நிர்வகிக்கவும். இலவச டெம்ப்ளேட்டுகள், விளம்பரங்கள் இல்லை, பேவால் இல்லை."
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Build a resume for a job"
+msgstr ""
 
 #: src/features/homepage/ui.tsx
 #: src/features/templates/gallery.tsx
@@ -4403,10 +4415,6 @@ msgstr "விசையை உருவாக்கவும்"
 #: src/features/auth/pages/login.tsx
 msgid "Create one now"
 msgstr "இப்போதே உருவாக்குங்கள்"
-
-#: src/features/applications/components/detail/assemble-dialog.tsx
-msgid "Create or import a resume first. It provides your name, contact details and design."
-msgstr ""
 
 #: src/features/documents/documents-page.tsx
 #: src/features/resume/share/format.ts
@@ -9434,6 +9442,10 @@ msgstr "வேலை அறிவிப்பை ஒருமுறை ஒட்
 msgid "Paste a job posting…"
 msgstr "வேலை இடுகையை ஒட்டவும்…"
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Paste a link or the posting, or upload it as a PDF or Word file. It's saved for Check, the assistant, your resume and your letter."
+msgstr ""
+
 #. placeholder {0}: application.company
 #: src/features/career/workspace/messages.tsx
 msgid "Paste a message from {0}"
@@ -10177,6 +10189,10 @@ msgstr "“{0}” எனப் படிக்கப்பட்டது. ச�
 msgid "Read briefing"
 msgstr "சுருக்கக் குறிப்பைப் படி"
 
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Read from an uploaded file"
+msgstr ""
+
 #: src/features/career/workspace/messages.tsx
 #: src/features/homepage/prepare.tsx
 msgid "Read it for me"
@@ -10255,6 +10271,10 @@ msgstr "படிக்கக்கூடிய மதிப்பெண்: 100
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "Readability score: {score} out of 100"
 msgstr "படிக்கக்கூடிய மதிப்பெண்: 100க்கு {score}"
+
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Reading {fileName}…"
+msgstr ""
 
 #: src/features/assistant/conversation.tsx
 msgid "Reading page…"
@@ -11120,13 +11140,17 @@ msgstr ""
 msgid "Save an unprotected copy, with no password and no permissions restrictions."
 msgstr "கடவுச்சொல் இல்லாமல், அனுமதிக் கட்டுப்பாடுகள் இல்லாமல், பாதுகாக்கப்படாத நகலைச் சேமிக்கவும்."
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Save and adapt a resume"
+msgstr ""
+
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Save and build resume"
+msgstr ""
+
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Save and link"
 msgstr "சேமித்து இணைக்கவும்"
-
-#: src/features/applications/components/add-application-dialog.tsx
-msgid "Save and prepare resume"
-msgstr "சேமித்து ரெஸ்யூமே தயார் செய்யவும்"
 
 #: src/features/settings/ai/providers.tsx
 msgid "Save and test"
@@ -12870,6 +12894,10 @@ msgstr "நன்றி Sam. இதோ ஒன்று: Northwind Labs-இல்
 msgid "That file couldn't be read as a PDF. Choose a PDF file and try again."
 msgstr "அந்தக் கோப்பை PDF ஆகப் படிக்க முடியவில்லை. PDF கோப்பைத் தேர்வுசெய்து மீண்டும் முயற்சிக்கவும்."
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "That file couldn't be read. Upload a PDF with selectable text or a Word (.docx) file, or paste the posting."
+msgstr ""
+
 #: src/features/career/knowledge/profile-file.tsx
 msgid "That file is too large for a profile file (over 1 MB)."
 msgstr ""
@@ -13995,6 +14023,10 @@ msgstr "PDF ஐப் பதிவேற்றி, விண்ணப்பத�
 msgid "Upload or paste"
 msgstr ""
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Upload PDF or Word file"
+msgstr ""
+
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Upload photo"
 msgstr "புகைப்படத்தைப் பதிவேற்று"
@@ -14413,10 +14445,6 @@ msgstr ""
 #: src/features/homepage/hero.tsx
 msgid "WCAG 2.1 AA"
 msgstr "WCAG 2.1 AA"
-
-#: src/features/applications/components/add-application-dialog.tsx
-msgid "We read the page and save the posting for Check, the assistant and your letter."
-msgstr "நாங்கள் பக்கத்தைப் படித்து, சரிபார்ப்பு, உதவியாளர் மற்றும் உங்கள் கடிதத்திற்காக வேலை இடுகையைச் சேமிக்கிறோம்."
 
 #: src/features/settings/account/profile.tsx
 msgid "We sent a confirmation link to {email}. Open it to finish the change."

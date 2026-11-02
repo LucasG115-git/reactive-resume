@@ -10,7 +10,7 @@ test("fresh account prepares a linked blank resume and selects only submitted at
 	await save.getByLabel("Job link or posting text").fill("Write useful software for Fresh Company.");
 	await save.getByLabel("Role", { exact: true }).fill("Engineer");
 	await save.getByLabel("Company", { exact: true }).fill("Fresh Company");
-	await save.getByRole("button", { name: "Save and prepare resume", exact: true }).click();
+	await save.getByRole("button", { name: "Save and adapt a resume", exact: true }).click();
 	await page.getByRole("button", { name: "Import or create a resume" }).click();
 	await page.getByRole("button", { name: /^Start blank/ }).click();
 	await page.waitForURL(/\/builder\//);
@@ -53,7 +53,7 @@ test("save, manually prepare a copy, and confirm submitted documents without ser
 	await save.getByLabel("Role", { exact: true }).fill("Engineer");
 	await save.getByLabel("Company", { exact: true }).fill("Example");
 	await save.getByLabel("Resume (optional)").selectOption(baseId);
-	await save.getByRole("button", { name: "Save and prepare resume", exact: true }).click();
+	await save.getByRole("button", { name: "Save and adapt a resume", exact: true }).click();
 	const copy = page.getByRole("dialog", { name: "Copy a resume for a job", exact: true });
 	await expect(copy.getByText(baseName, { exact: true })).toBeVisible();
 	await copy.getByRole("button", { name: "Create and open" }).click();
