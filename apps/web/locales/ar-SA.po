@@ -19,6 +19,7 @@ msgstr ""
 "X-Crowdin-File-ID: 545\n"
 
 #: src/features/career/knowledge/profile-file.tsx
+#: src/features/career/knowledge/story-file.tsx
 msgid "…or paste YAML or JSON here"
 msgstr ""
 
@@ -111,6 +112,11 @@ msgstr ""
 #: src/features/applications/components/insights-view.tsx
 msgid "{0, plural, one {# active application} other {# active applications}}"
 msgstr "{0, plural, one {طلب نشط واحد} two {طلبان نشطان} few {# طلبات نشطة} many {# طلبًا نشطًا} other {# طلب نشط}}"
+
+#. placeholder {0}: checked.preview.skipped.length
+#: src/features/career/knowledge/story-file.tsx
+msgid "{0, plural, one {# already in Knowledge} other {# already in Knowledge}}"
+msgstr ""
 
 #. placeholder {0}: data.answers.length
 #: src/features/career/workspace/saved.tsx
@@ -211,6 +217,11 @@ msgstr "{0, plural, one {تم تجاهل مشكلة #.} other {يتم تجاهل
 msgid "{0, plural, one {# new entry} other {# new entries}}"
 msgstr ""
 
+#. placeholder {0}: checked.preview.added
+#: src/features/career/knowledge/story-file.tsx
+msgid "{0, plural, one {# new story} other {# new stories}}"
+msgstr ""
+
 #. placeholder {0}: proposals.length
 #: src/features/assistant/conversation.tsx
 #: src/features/resume/editor/proposals/proposal-list.tsx
@@ -256,6 +267,11 @@ msgstr "{0, plural, zero {لا قصص} one {قصة واحدة} two {قصتان} 
 #: src/features/career/coach-chat.tsx
 msgid "{0, plural, one {Added # fact to Knowledge.} other {Added # facts to Knowledge.}}"
 msgstr "{0, plural, zero {لم تُضف أي حقائق إلى المعرفة.} one {أُضيفت حقيقة واحدة إلى المعرفة.} two {أُضيفت حقيقتان إلى المعرفة.} few {أُضيفت # حقائق إلى المعرفة.} many {أُضيفت # حقيقة إلى المعرفة.} other {أُضيفت # حقيقة إلى المعرفة.}}"
+
+#. placeholder {0}: result.added
+#: src/features/career/knowledge/story-file.tsx
+msgid "{0, plural, one {Added # story.} other {Added # stories.}}"
+msgstr ""
 
 #. placeholder {0}: step.days
 #: src/features/applications/next-step.ts
@@ -1552,6 +1568,14 @@ msgstr "أضف بعض المسافات البيضاء بين الأقسام لت
 msgid "Add stage"
 msgstr "أضف مرحلة"
 
+#: src/features/career/knowledge/story-file.tsx
+msgid "Add stories"
+msgstr ""
+
+#: src/features/career/knowledge/story-file.tsx
+msgid "Add stories from a file"
+msgstr ""
+
 #: src/features/applications/components/list-view.tsx
 msgid "Add tag"
 msgstr "إضافة علامة"
@@ -1841,6 +1865,10 @@ msgstr "لديك حساب بالفعل؟ <0/>"
 
 #: src/features/career/knowledge/profile-file.tsx
 msgid "Already have:"
+msgstr ""
+
+#: src/features/career/knowledge/story-file.tsx
+msgid "Already in Knowledge"
 msgstr ""
 
 #: src/features/applications/components/add-application-dialog.tsx
@@ -2390,6 +2418,7 @@ msgid "BA, Communication Design"
 msgstr "بكالوريوس، تصميم الاتصالات"
 
 #: src/features/career/knowledge/profile-file.tsx
+#: src/features/career/knowledge/story-file.tsx
 #: src/features/documents/new-document-dialog.tsx
 msgid "Back"
 msgstr "خلف"
@@ -2671,6 +2700,7 @@ msgstr "هل يستطيع البرنامج قراءة سيرتك الذاتية�
 #: src/features/career/knowledge/profile-knowledge-sync.tsx
 #: src/features/career/knowledge/profile.tsx
 #: src/features/career/knowledge/stories.tsx
+#: src/features/career/knowledge/story-file.tsx
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/workspace/fit.tsx
 #: src/features/documents/new-document-dialog.tsx
@@ -2835,6 +2865,7 @@ msgid "Check every claim, date and result against your experience."
 msgstr "تحقّق من كل ادعاء وتاريخ ونتيجة مقابل خبرتك."
 
 #: src/features/career/knowledge/profile-file.tsx
+#: src/features/career/knowledge/story-file.tsx
 msgid "Check file"
 msgstr ""
 
@@ -2950,6 +2981,7 @@ msgid "Choose a file to import"
 msgstr "اختر ملفًا لاستيراده"
 
 #: src/features/career/knowledge/profile-file.tsx
+#: src/features/career/knowledge/story-file.tsx
 msgid "Choose a file, or drop it here"
 msgstr ""
 
@@ -3496,6 +3528,10 @@ msgstr "انسخه الآن. حرصًا على أمانك، لن يتم عرضه
 msgid "Copy link"
 msgstr "نسخ الوصلة"
 
+#: src/features/career/knowledge/story-file.tsx
+msgid "Copy prompt with my facts"
+msgstr ""
+
 #: src/features/documents/document-actions.tsx
 msgid "Copy public link"
 msgstr "نسخ الرابط العام"
@@ -3793,6 +3829,10 @@ msgstr "تعذر تحميل ملف العينة. حاول ثانية."
 #: src/routes/dashboard/applications/index.tsx
 msgid "Couldn't load this. Your saved data hasn't changed."
 msgstr "تعذّر تحميل هذا. لم تتغيّر بياناتك المحفوظة."
+
+#: src/features/career/knowledge/story-file.tsx
+msgid "Couldn't load your facts. Try again."
+msgstr ""
 
 #: src/routes/dashboard/applications/index.tsx
 msgid "Couldn't load your stages, so the standard ones are shown. Try again."
@@ -4896,6 +4936,10 @@ msgstr "مسودة من إعلان الوظيفة"
 msgid "Draft from your resume"
 msgstr "مسودة من سيرتك الذاتية"
 
+#: src/features/career/knowledge/story-file.tsx
+msgid "Draft interview stories from your facts with an AI assistant, then upload them here"
+msgstr ""
+
 #: src/features/homepage/remember.tsx
 msgid "Draft it as"
 msgstr "صُغها على شكل"
@@ -5009,6 +5053,10 @@ msgstr "يُطابَق كل متطلب في إعلان الوظيفة مع ال�
 #: src/features/assistant/conversation.tsx
 msgid "Each send starts fresh with this message and selected files. Previous conversation history stays here."
 msgstr "يبدأ كل إرسال جديدًا بهذه الرسالة والملفات المحددة. يبقى سجل المحادثات السابقة هنا."
+
+#: src/features/career/knowledge/story-file.tsx
+msgid "Each story will be linked to the facts it cites. Nothing is saved until you choose Add stories; titles you already have are skipped."
+msgstr ""
 
 #: src/features/career/knowledge/profile-knowledge-sync.tsx
 msgid "Each visible entry, achievement and skill group becomes a fact marked \"From your profile\". Edit them here in your profile; sync again after changes."
@@ -5654,6 +5702,7 @@ msgid "Fix these values in the CSV, or leave their columns out, before importing
 msgstr "أصلح هذه القيم في ملف CSV، أو احذف أعمدتها، قبل الاستيراد."
 
 #: src/features/career/knowledge/profile-file.tsx
+#: src/features/career/knowledge/story-file.tsx
 msgid "Fix these, then check again:"
 msgstr ""
 
@@ -7978,6 +8027,7 @@ msgid "Never"
 msgstr "أبداً"
 
 #: src/features/career/knowledge/profile-file.tsx
+#: src/features/career/knowledge/story-file.tsx
 #: src/features/documents/document-card.tsx
 #: src/routes/dashboard/-components/app-shell.tsx
 msgid "New"
@@ -8310,6 +8360,10 @@ msgstr "لا توجد اقتراحات لهذا المزود. أدخل أي مع
 #: src/features/career/knowledge/stories.tsx
 msgid "No supporting facts. Link one before using this story."
 msgstr "لا توجد حقائق داعمة. اربط واحدة قبل استخدام هذه القصة."
+
+#: src/features/career/knowledge/story-file.tsx
+msgid "No supporting facts. You can link some after adding it."
+msgstr ""
 
 #: src/features/career/knowledge/stories.tsx
 msgid "No tags yet"
@@ -9575,6 +9629,11 @@ msgstr "المشاريع"
 msgid "Promoted to lead, 2021"
 msgstr "تمت ترقيته إلى منصب قيادي عام 2021"
 
+#. placeholder {0}: catalog.length
+#: src/features/career/knowledge/story-file.tsx
+msgid "Prompt copied with {0} facts. Paste it into Claude or ChatGPT."
+msgstr ""
+
 #: src/features/career/knowledge/profile-file.tsx
 msgid "Prompt copied. Paste it into Claude or ChatGPT."
 msgstr ""
@@ -10531,6 +10590,10 @@ msgstr "يرسل “راجع إجابتي” السؤال وما قلته وإع
 #: src/features/career/workspace/apply.tsx
 msgid "Review required form answers and remove unsupported claims."
 msgstr "راجع إجابات النموذج المطلوبة وأزل الادعاءات غير المدعومة."
+
+#: src/features/career/knowledge/story-file.tsx
+msgid "Review stories before adding"
+msgstr ""
 
 #: src/features/career/workspace/apply.tsx
 msgid "Review the selected resume and cover letter in their editors."
@@ -12011,6 +12074,10 @@ msgstr "قصة · 5 من 5 أجزاء"
 msgid "Story deleted"
 msgstr "تم حذف القصة"
 
+#: src/features/career/knowledge/story-file.tsx
+msgid "Story file text"
+msgstr ""
+
 #: src/features/career/knowledge/stories.tsx
 msgid "Story not found"
 msgstr "القصة غير موجودة"
@@ -12287,6 +12354,7 @@ msgid "Telugu"
 msgstr "التيلوغوية"
 
 #: src/features/career/knowledge/profile-file.tsx
+#: src/features/career/knowledge/story-file.tsx
 #: src/libs/resume/section.tsx
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 #: src/routes/builder/$resumeId/-components/document-details.tsx
@@ -12430,6 +12498,10 @@ msgstr "تعذّرت قراءة هذا الملف كملف PDF. اختر ملف 
 msgid "That file is too large for a profile file (over 1 MB)."
 msgstr ""
 
+#: src/features/career/knowledge/story-file.tsx
+msgid "That file is too large for a story file (over 1 MB)."
+msgstr ""
+
 #: src/features/ats-checker/checker.tsx
 msgid "That file is too large to check. PDFs up to 25 MB work."
 msgstr "هذا الملف كبير جدًا بحيث لا يمكن التحقق منه. PDFs حتى 25 عمل MB."
@@ -12541,6 +12613,10 @@ msgstr "لا يمكن التحقق من PDF الذي تم تصديره. حاول
 #: src/features/documents/new-document-dialog.tsx
 msgid "The file couldn't be read as a resume."
 msgstr "لا يمكن قراءة الملف كسيرة ذاتية."
+
+#: src/features/career/knowledge/story-file.tsx
+msgid "The file should start with \"stories:\"."
+msgstr ""
 
 #: src/features/career/knowledge/profile-file.tsx
 msgid "The file should start with sections like \"experience:\" and \"skills:\"."
@@ -13411,8 +13487,9 @@ msgid "Unknown"
 msgstr "غير معروف"
 
 #. placeholder {0}: issue.keys.join('", "')
+#. placeholder {1}: hints.unknownKey
 #: src/features/career/knowledge/profile-file.tsx
-msgid "unknown key \"{0}\". Use experience, projects, education, volunteer, certifications, awards and skills."
+msgid "unknown key \"{0}\". {1}"
 msgstr ""
 
 #: src/features/documents/document-actions.tsx
@@ -13505,11 +13582,16 @@ msgstr "قم بتحميل ملف CSV"
 msgid "Upload a .yaml or .json profile file, or paste one (an AI assistant's answer is fine as it is)."
 msgstr ""
 
+#: src/features/career/knowledge/story-file.tsx
+msgid "Upload a .yaml or .json story file, or paste the assistant's answer as it is."
+msgstr ""
+
 #: src/features/ats-checker/checker.tsx
 msgid "Upload a PDF and see the text an applicant tracking system extracts: what's missing, what's out of order, and how to fix it. Free, no account needed."
 msgstr "قم بتحميل PDF وشاهد النص الذي يستخرجه نظام تتبع مقدم الطلب: ما هو مفقود، وما هو خارج الترتيب، وكيفية إصلاحه. مجاني، لا حاجة لحساب."
 
 #: src/features/career/knowledge/profile-file.tsx
+#: src/features/career/knowledge/story-file.tsx
 msgid "Upload or paste"
 msgstr ""
 
@@ -13610,6 +13692,10 @@ msgstr "استخدام الافتراضي"
 msgid "Use details from “{0}”"
 msgstr "استخدم التفاصيل من \"{0}\""
 
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Use experience, projects, education, volunteer, certifications, awards and skills."
+msgstr ""
+
 #: src/features/career/knowledge/facts.tsx
 msgid "Use for all applications"
 msgstr "استخدمها لكل الطلبات"
@@ -13669,6 +13755,10 @@ msgstr ""
 #: src/features/settings/ai/providers.tsx
 msgid "Use this provider"
 msgstr "استخدم هذا المزود"
+
+#: src/features/career/knowledge/story-file.tsx
+msgid "Use version and stories."
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Use your editor's normal bullet list, so stray glyphs do not land mid-sentence."
@@ -14417,6 +14507,10 @@ msgstr "ليس لديك سيرة ذاتية لنسخها بعد. قم باستي
 #: src/features/career/workspace/debrief.tsx
 msgid "You forgot this before, so it wasn't saved again."
 msgstr "نسيت هذا من قبل، لذا لم يُحفظ مرة أخرى."
+
+#: src/features/career/knowledge/story-file.tsx
+msgid "You have no switched-on facts yet. Sync your profile to Knowledge first."
+msgstr ""
 
 #: src/features/homepage/prepare.tsx
 msgid "You partnered with engineering. How you led the work isn’t described yet."

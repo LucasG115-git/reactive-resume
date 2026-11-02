@@ -1,5 +1,6 @@
 import type { RouterOutput } from "@/libs/orpc/client";
 import type { ProfileFile } from "@reactive-resume/schema/master-profile";
+import type z from "zod";
 import { plural, t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
 import { useMutation } from "@tanstack/react-query";
@@ -25,12 +26,19 @@ import { orpc } from "@/libs/orpc/client";
 type Preview = RouterOutput["masterProfile"]["importFile"];
 
 /** At most this much text is read, so a mistaken upload (a video, a whole drive export) fails fast. */
-const MAX_FILE_BYTES = 1_000_000;
+export const MAX_FILE_BYTES = 1_000_000;
 
-type ParseResult = { ok: true; file: ProfileFile } | { ok: false; problems: string[] };
+type ParseResult<T> = { ok: true; file: T } | { ok: false; problems: string[] };
 
-/** YAML or JSON text (JSON is valid YAML) to a profile file, with every structural problem located. */
-export function parseProfileFile(text: string): ParseResult {
+/**
+ * YAML or JSON text (JSON is valid YAML) to a validated file, with every structural problem located.
+ * `shapeHint` explains what the top level should look like; `unknownKeyHint` names the keys allowed there.
+ */
+export function parseYamlFile<T>(
+	text: string,
+	schema: z.ZodType<T>,
+	hints: { shape: string; unknownKey: string },
+): ParseResult<T> {
 	let data: unknown;
 	try {
 		// Strip a Markdown code fence, since assistants usually answer with one.
@@ -39,10 +47,9 @@ export function parseProfileFile(text: string): ParseResult {
 	} catch (error) {
 		return { ok: false, problems: [error instanceof Error ? (error.message.split("\n")[0] ?? "") : String(error)] };
 	}
-	if (data === null || typeof data !== "object" || Array.isArray(data))
-		return { ok: false, problems: [t`The file should start with sections like "experience:" and "skills:".`] };
+	if (data === null || typeof data !== "object" || Array.isArray(data)) return { ok: false, problems: [hints.shape] };
 
-	const result = profileFileSchema.safeParse(data);
+	const result = schema.safeParse(data);
 	if (result.success) return { ok: true, file: result.data };
 	return {
 		ok: false,
@@ -50,22 +57,28 @@ export function parseProfileFile(text: string): ParseResult {
 			const where = issue.path.map((part) => (typeof part === "number" ? `[${part}]` : `.${String(part)}`)).join("");
 			const message =
 				issue.code === "unrecognized_keys"
-					? t`unknown key "${issue.keys.join('", "')}". Use experience, projects, education, volunteer, certifications, awards and skills.`
+					? t`unknown key "${issue.keys.join('", "')}". ${hints.unknownKey}`
 					: issue.message;
 			return where ? `${where.replace(/^\./, "")}: ${message}` : message;
 		}),
 	};
 }
 
+export const parseProfileFile = (text: string): ParseResult<ProfileFile> =>
+	parseYamlFile(text, profileFileSchema, {
+		shape: t`The file should start with sections like "experience:" and "skills:".`,
+		unknownKey: t`Use experience, projects, education, volunteer, certifications, awards and skills.`,
+	});
+
 /** Problems from the server: the located list it sends, or its message split into lines. */
-function serverProblems(error: unknown): string[] {
+export function serverProblems(error: unknown): string[] {
 	const data = (error as { data?: { problems?: unknown } } | null)?.data;
 	if (Array.isArray(data?.problems)) return data.problems.map(String);
 	const message = error instanceof Error ? error.message : t`Something went wrong. Try again.`;
 	return message.split("\n").filter((line, index) => index > 0 || !line.endsWith(":"));
 }
 
-async function copy(text: string, done: string) {
+export async function copy(text: string, done: string) {
 	try {
 		await navigator.clipboard.writeText(text);
 		toast.add({ type: "success", description: done });
@@ -74,7 +87,7 @@ async function copy(text: string, done: string) {
 	}
 }
 
-function download(text: string, name: string) {
+export function download(text: string, name: string) {
 	const url = URL.createObjectURL(new Blob([text], { type: "text/yaml" }));
 	const link = document.createElement("a");
 	link.href = url;

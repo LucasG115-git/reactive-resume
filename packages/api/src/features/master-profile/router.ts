@@ -12,12 +12,14 @@ import {
 	profileMetricSchema,
 	profileReorderInputSchema,
 	profileSkillInputSchema,
+	storyFileSchema,
 } from "@reactive-resume/schema/master-profile";
 import { protectedProcedure } from "../../context";
 import { aiRequestRateLimit } from "../../middleware/rate-limit";
 import { assembleService } from "./assemble/service";
 import { ProfileFileError } from "./import";
 import { masterProfileService } from "./service";
+import { factCatalog, importStories } from "./stories";
 
 const tags = ["Master profile"];
 const stringList = z.array(z.string());
@@ -90,6 +92,52 @@ export const masterProfileRouter = {
 		.input(z.object({}).optional())
 		.output(masterProfileSchema)
 		.handler(({ context }) => masterProfileService.get(context.user.id)),
+
+	factCatalog: protectedProcedure
+		.route({
+			method: "GET",
+			path: "/master-profile/fact-catalog",
+			tags,
+			operationId: "getMasterProfileFactCatalog",
+			summary: "List citable facts with short ids",
+			description:
+				"Every switched-on fact shared across applications, with a short id (F-xxxxxxxx) that a story file can cite.",
+		})
+		.input(z.object({}).optional())
+		.output(z.array(z.object({ ref: z.string(), category: z.string(), text: z.string() })))
+		.handler(({ context }) => factCatalog(context.user.id)),
+
+	importStories: protectedProcedure
+		.route({
+			method: "POST",
+			path: "/master-profile/import-stories",
+			tags,
+			operationId: "importCareerStoriesFile",
+			summary: "Preview or import a story file",
+			description:
+				"Adds STARR stories from a story file, linking each to the facts it cites by short id. Stories whose title already exists are skipped. With dryRun, nothing is saved.",
+		})
+		.input(z.object({ file: storyFileSchema, dryRun: z.boolean().default(true) }))
+		.output(
+			z.object({
+				stories: z.array(z.object({ title: z.string(), isNew: z.boolean(), facts: z.array(z.string()) })),
+				added: z.number(),
+				skipped: z.array(z.string()),
+			}),
+		)
+		.errors({ BAD_REQUEST: { message: "The story file has problems.", status: 400 } })
+		.handler(async ({ context, input }) => {
+			try {
+				return await importStories(context.user.id, input.file, input.dryRun);
+			} catch (error) {
+				if (error instanceof ProfileFileError)
+					throw new ORPCError("BAD_REQUEST", {
+						message: `The story file has problems:\n${error.problems.join("\n")}`,
+						data: { problems: error.problems },
+					});
+				throw error;
+			}
+		}),
 
 	syncKnowledge: protectedProcedure
 		.route({

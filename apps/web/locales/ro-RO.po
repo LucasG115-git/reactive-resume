@@ -19,6 +19,7 @@ msgstr ""
 "X-Crowdin-File-ID: 545\n"
 
 #: src/features/career/knowledge/profile-file.tsx
+#: src/features/career/knowledge/story-file.tsx
 msgid "…or paste YAML or JSON here"
 msgstr ""
 
@@ -111,6 +112,11 @@ msgstr ""
 #: src/features/applications/components/insights-view.tsx
 msgid "{0, plural, one {# active application} other {# active applications}}"
 msgstr "{0, plural, one {# candidatură activă} few {# candidaturi active} other {# de candidaturi active}}"
+
+#. placeholder {0}: checked.preview.skipped.length
+#: src/features/career/knowledge/story-file.tsx
+msgid "{0, plural, one {# already in Knowledge} other {# already in Knowledge}}"
+msgstr ""
 
 #. placeholder {0}: data.answers.length
 #: src/features/career/workspace/saved.tsx
@@ -211,6 +217,11 @@ msgstr "{0, plural, one {Problema # este ignorată.} other {Problemele # sunt ig
 msgid "{0, plural, one {# new entry} other {# new entries}}"
 msgstr ""
 
+#. placeholder {0}: checked.preview.added
+#: src/features/career/knowledge/story-file.tsx
+msgid "{0, plural, one {# new story} other {# new stories}}"
+msgstr ""
+
 #. placeholder {0}: proposals.length
 #: src/features/assistant/conversation.tsx
 #: src/features/resume/editor/proposals/proposal-list.tsx
@@ -256,6 +267,11 @@ msgstr "{0, plural, one {# poveste} few {# povești} other {# de povești}}"
 #: src/features/career/coach-chat.tsx
 msgid "{0, plural, one {Added # fact to Knowledge.} other {Added # facts to Knowledge.}}"
 msgstr "{0, plural, one {S-a adăugat # fapt în Cunoștințe.} few {S-au adăugat # fapte în Cunoștințe.} other {S-au adăugat # de fapte în Cunoștințe.}}"
+
+#. placeholder {0}: result.added
+#: src/features/career/knowledge/story-file.tsx
+msgid "{0, plural, one {Added # story.} other {Added # stories.}}"
+msgstr ""
 
 #. placeholder {0}: step.days
 #: src/features/applications/next-step.ts
@@ -1552,6 +1568,14 @@ msgstr "Adăugați spațiu alb între secțiuni pentru ca o persoană să îl po
 msgid "Add stage"
 msgstr "Adăugați etapa"
 
+#: src/features/career/knowledge/story-file.tsx
+msgid "Add stories"
+msgstr ""
+
+#: src/features/career/knowledge/story-file.tsx
+msgid "Add stories from a file"
+msgstr ""
+
 #: src/features/applications/components/list-view.tsx
 msgid "Add tag"
 msgstr "Adăugați etichetă"
@@ -1841,6 +1865,10 @@ msgstr "Ai deja un cont? <0/>"
 
 #: src/features/career/knowledge/profile-file.tsx
 msgid "Already have:"
+msgstr ""
+
+#: src/features/career/knowledge/story-file.tsx
+msgid "Already in Knowledge"
 msgstr ""
 
 #: src/features/applications/components/add-application-dialog.tsx
@@ -2390,6 +2418,7 @@ msgid "BA, Communication Design"
 msgstr "BA, Design de comunicare"
 
 #: src/features/career/knowledge/profile-file.tsx
+#: src/features/career/knowledge/story-file.tsx
 #: src/features/documents/new-document-dialog.tsx
 msgid "Back"
 msgstr "Spate"
@@ -2671,6 +2700,7 @@ msgstr "Poate software-ul să vă citească CV-ul?"
 #: src/features/career/knowledge/profile-knowledge-sync.tsx
 #: src/features/career/knowledge/profile.tsx
 #: src/features/career/knowledge/stories.tsx
+#: src/features/career/knowledge/story-file.tsx
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/workspace/fit.tsx
 #: src/features/documents/new-document-dialog.tsx
@@ -2835,6 +2865,7 @@ msgid "Check every claim, date and result against your experience."
 msgstr "Verificați fiecare afirmație, dată și rezultat față de experiența dvs."
 
 #: src/features/career/knowledge/profile-file.tsx
+#: src/features/career/knowledge/story-file.tsx
 msgid "Check file"
 msgstr ""
 
@@ -2950,6 +2981,7 @@ msgid "Choose a file to import"
 msgstr "Alegeți un fișier de importat"
 
 #: src/features/career/knowledge/profile-file.tsx
+#: src/features/career/knowledge/story-file.tsx
 msgid "Choose a file, or drop it here"
 msgstr ""
 
@@ -3496,6 +3528,10 @@ msgstr "Copiați-l acum. Pentru securitatea dvs., nu va fi afișat din nou."
 msgid "Copy link"
 msgstr "Copiați linkul"
 
+#: src/features/career/knowledge/story-file.tsx
+msgid "Copy prompt with my facts"
+msgstr ""
+
 #: src/features/documents/document-actions.tsx
 msgid "Copy public link"
 msgstr "Copiați linkul public"
@@ -3793,6 +3829,10 @@ msgstr "Nu s-a putut încărca fișierul eșantion. Încearcă din nou."
 #: src/routes/dashboard/applications/index.tsx
 msgid "Couldn't load this. Your saved data hasn't changed."
 msgstr "Nu s-a putut încărca. Datele salvate nu s-au schimbat."
+
+#: src/features/career/knowledge/story-file.tsx
+msgid "Couldn't load your facts. Try again."
+msgstr ""
 
 #: src/routes/dashboard/applications/index.tsx
 msgid "Couldn't load your stages, so the standard ones are shown. Try again."
@@ -4896,6 +4936,10 @@ msgstr "Ciornă din anunțul de locuri de muncă"
 msgid "Draft from your resume"
 msgstr "Schiță din CV-ul dvs"
 
+#: src/features/career/knowledge/story-file.tsx
+msgid "Draft interview stories from your facts with an AI assistant, then upload them here"
+msgstr ""
+
 #: src/features/homepage/remember.tsx
 msgid "Draft it as"
 msgstr "Redactați ca"
@@ -5009,6 +5053,10 @@ msgstr "Fiecare cerință din anunț este verificată față de faptele și pove
 #: src/features/assistant/conversation.tsx
 msgid "Each send starts fresh with this message and selected files. Previous conversation history stays here."
 msgstr "Fiecare trimitere începe cu acest mesaj și fișierele selectate. Istoricul conversațiilor anterioare rămâne aici."
+
+#: src/features/career/knowledge/story-file.tsx
+msgid "Each story will be linked to the facts it cites. Nothing is saved until you choose Add stories; titles you already have are skipped."
+msgstr ""
 
 #: src/features/career/knowledge/profile-knowledge-sync.tsx
 msgid "Each visible entry, achievement and skill group becomes a fact marked \"From your profile\". Edit them here in your profile; sync again after changes."
@@ -5654,6 +5702,7 @@ msgid "Fix these values in the CSV, or leave their columns out, before importing
 msgstr "Corectați aceste valori în CSV sau omiteți coloanele lor înainte de import."
 
 #: src/features/career/knowledge/profile-file.tsx
+#: src/features/career/knowledge/story-file.tsx
 msgid "Fix these, then check again:"
 msgstr ""
 
@@ -7978,6 +8027,7 @@ msgid "Never"
 msgstr "Nu"
 
 #: src/features/career/knowledge/profile-file.tsx
+#: src/features/career/knowledge/story-file.tsx
 #: src/features/documents/document-card.tsx
 #: src/routes/dashboard/-components/app-shell.tsx
 msgid "New"
@@ -8310,6 +8360,10 @@ msgstr "Nu există sugestii pentru acest furnizor. Introduceți orice ID de mode
 #: src/features/career/knowledge/stories.tsx
 msgid "No supporting facts. Link one before using this story."
 msgstr "Niciun fapt de susținere. Asociați unul înainte de a folosi această poveste."
+
+#: src/features/career/knowledge/story-file.tsx
+msgid "No supporting facts. You can link some after adding it."
+msgstr ""
 
 #: src/features/career/knowledge/stories.tsx
 msgid "No tags yet"
@@ -9575,6 +9629,11 @@ msgstr "Proiecte"
 msgid "Promoted to lead, 2021"
 msgstr "Promovat la conducere, 2021"
 
+#. placeholder {0}: catalog.length
+#: src/features/career/knowledge/story-file.tsx
+msgid "Prompt copied with {0} facts. Paste it into Claude or ChatGPT."
+msgstr ""
+
 #: src/features/career/knowledge/profile-file.tsx
 msgid "Prompt copied. Paste it into Claude or ChatGPT."
 msgstr ""
@@ -10531,6 +10590,10 @@ msgstr "„Analizează-mi răspunsul” trimite întrebarea, ce ați spus, acest
 #: src/features/career/workspace/apply.tsx
 msgid "Review required form answers and remove unsupported claims."
 msgstr "Verificați răspunsurile obligatorii din formular și eliminați afirmațiile nesusținute."
+
+#: src/features/career/knowledge/story-file.tsx
+msgid "Review stories before adding"
+msgstr ""
 
 #: src/features/career/workspace/apply.tsx
 msgid "Review the selected resume and cover letter in their editors."
@@ -12011,6 +12074,10 @@ msgstr "Poveste · 5 din 5 părți"
 msgid "Story deleted"
 msgstr "Poveste ștearsă"
 
+#: src/features/career/knowledge/story-file.tsx
+msgid "Story file text"
+msgstr ""
+
 #: src/features/career/knowledge/stories.tsx
 msgid "Story not found"
 msgstr "Povestea nu a fost găsită"
@@ -12287,6 +12354,7 @@ msgid "Telugu"
 msgstr "Telugu"
 
 #: src/features/career/knowledge/profile-file.tsx
+#: src/features/career/knowledge/story-file.tsx
 #: src/libs/resume/section.tsx
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 #: src/routes/builder/$resumeId/-components/document-details.tsx
@@ -12430,6 +12498,10 @@ msgstr "Fișierul nu a putut fi citit ca PDF. Alege un fișier PDF și încearc�
 msgid "That file is too large for a profile file (over 1 MB)."
 msgstr ""
 
+#: src/features/career/knowledge/story-file.tsx
+msgid "That file is too large for a story file (over 1 MB)."
+msgstr ""
+
 #: src/features/ats-checker/checker.tsx
 msgid "That file is too large to check. PDFs up to 25 MB work."
 msgstr "Fișierul este prea mare pentru a fi verificat. PDFs până la 25 MB funcționează."
@@ -12541,6 +12613,10 @@ msgstr "PDF exportat nu a putut fi verificat. Încearcă din nou."
 #: src/features/documents/new-document-dialog.tsx
 msgid "The file couldn't be read as a resume."
 msgstr "Fișierul nu a putut fi citit ca un CV."
+
+#: src/features/career/knowledge/story-file.tsx
+msgid "The file should start with \"stories:\"."
+msgstr ""
 
 #: src/features/career/knowledge/profile-file.tsx
 msgid "The file should start with sections like \"experience:\" and \"skills:\"."
@@ -13411,8 +13487,9 @@ msgid "Unknown"
 msgstr "Necunoscut"
 
 #. placeholder {0}: issue.keys.join('", "')
+#. placeholder {1}: hints.unknownKey
 #: src/features/career/knowledge/profile-file.tsx
-msgid "unknown key \"{0}\". Use experience, projects, education, volunteer, certifications, awards and skills."
+msgid "unknown key \"{0}\". {1}"
 msgstr ""
 
 #: src/features/documents/document-actions.tsx
@@ -13505,11 +13582,16 @@ msgstr "Încărcați .csv"
 msgid "Upload a .yaml or .json profile file, or paste one (an AI assistant's answer is fine as it is)."
 msgstr ""
 
+#: src/features/career/knowledge/story-file.tsx
+msgid "Upload a .yaml or .json story file, or paste the assistant's answer as it is."
+msgstr ""
+
 #: src/features/ats-checker/checker.tsx
 msgid "Upload a PDF and see the text an applicant tracking system extracts: what's missing, what's out of order, and how to fix it. Free, no account needed."
 msgstr "Încărcați un PDF și vedeți textul extras de un sistem de urmărire a solicitantului: ce lipsește, ce este în neregulă și cum să îl remediați. Gratuit, nu este nevoie de cont."
 
 #: src/features/career/knowledge/profile-file.tsx
+#: src/features/career/knowledge/story-file.tsx
 msgid "Upload or paste"
 msgstr ""
 
@@ -13610,6 +13692,10 @@ msgstr "Folosește valoarea implicită"
 msgid "Use details from “{0}”"
 msgstr "Utilizați detaliile de la „{0}”"
 
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Use experience, projects, education, volunteer, certifications, awards and skills."
+msgstr ""
+
 #: src/features/career/knowledge/facts.tsx
 msgid "Use for all applications"
 msgstr "Folosiți pentru toate candidaturile"
@@ -13669,6 +13755,10 @@ msgstr ""
 #: src/features/settings/ai/providers.tsx
 msgid "Use this provider"
 msgstr "Utilizați acest furnizor"
+
+#: src/features/career/knowledge/story-file.tsx
+msgid "Use version and stories."
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Use your editor's normal bullet list, so stray glyphs do not land mid-sentence."
@@ -14417,6 +14507,10 @@ msgstr "Încă nu aveți un CV de copiat. Importați sau creați mai întâi un 
 #: src/features/career/workspace/debrief.tsx
 msgid "You forgot this before, so it wasn't saved again."
 msgstr "Ați cerut anterior să fie uitat, așa că nu a fost salvat din nou."
+
+#: src/features/career/knowledge/story-file.tsx
+msgid "You have no switched-on facts yet. Sync your profile to Knowledge first."
+msgstr ""
 
 #: src/features/homepage/prepare.tsx
 msgid "You partnered with engineering. How you led the work isn’t described yet."

@@ -14,6 +14,7 @@ msgstr ""
 "Plural-Forms: \n"
 
 #: src/features/career/knowledge/profile-file.tsx
+#: src/features/career/knowledge/story-file.tsx
 msgid "…or paste YAML or JSON here"
 msgstr "…or paste YAML or JSON here"
 
@@ -106,6 +107,11 @@ msgstr "{0, plural, one {# achievement} other {# achievements}}"
 #: src/features/applications/components/insights-view.tsx
 msgid "{0, plural, one {# active application} other {# active applications}}"
 msgstr "{0, plural, one {# active application} other {# active applications}}"
+
+#. placeholder {0}: checked.preview.skipped.length
+#: src/features/career/knowledge/story-file.tsx
+msgid "{0, plural, one {# already in Knowledge} other {# already in Knowledge}}"
+msgstr "{0, plural, one {# already in Knowledge} other {# already in Knowledge}}"
 
 #. placeholder {0}: data.answers.length
 #: src/features/career/workspace/saved.tsx
@@ -206,6 +212,11 @@ msgstr "{0, plural, one {# issue is ignored.} other {# issues are ignored.}}"
 msgid "{0, plural, one {# new entry} other {# new entries}}"
 msgstr "{0, plural, one {# new entry} other {# new entries}}"
 
+#. placeholder {0}: checked.preview.added
+#: src/features/career/knowledge/story-file.tsx
+msgid "{0, plural, one {# new story} other {# new stories}}"
+msgstr "{0, plural, one {# new story} other {# new stories}}"
+
 #. placeholder {0}: proposals.length
 #: src/features/assistant/conversation.tsx
 #: src/features/resume/editor/proposals/proposal-list.tsx
@@ -251,6 +262,11 @@ msgstr "{0, plural, one {# story} other {# stories}}"
 #: src/features/career/coach-chat.tsx
 msgid "{0, plural, one {Added # fact to Knowledge.} other {Added # facts to Knowledge.}}"
 msgstr "{0, plural, one {Added # fact to Knowledge.} other {Added # facts to Knowledge.}}"
+
+#. placeholder {0}: result.added
+#: src/features/career/knowledge/story-file.tsx
+msgid "{0, plural, one {Added # story.} other {Added # stories.}}"
+msgstr "{0, plural, one {Added # story.} other {Added # stories.}}"
 
 #. placeholder {0}: step.days
 #: src/features/applications/next-step.ts
@@ -1547,6 +1563,14 @@ msgstr "Add some whitespace between sections so a person can skim it."
 msgid "Add stage"
 msgstr "Add stage"
 
+#: src/features/career/knowledge/story-file.tsx
+msgid "Add stories"
+msgstr "Add stories"
+
+#: src/features/career/knowledge/story-file.tsx
+msgid "Add stories from a file"
+msgstr "Add stories from a file"
+
 #: src/features/applications/components/list-view.tsx
 msgid "Add tag"
 msgstr "Add tag"
@@ -1837,6 +1861,10 @@ msgstr "Already have an account? <0/>"
 #: src/features/career/knowledge/profile-file.tsx
 msgid "Already have:"
 msgstr "Already have:"
+
+#: src/features/career/knowledge/story-file.tsx
+msgid "Already in Knowledge"
+msgstr "Already in Knowledge"
 
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Already interviewing"
@@ -2385,6 +2413,7 @@ msgid "BA, Communication Design"
 msgstr "BA, Communication Design"
 
 #: src/features/career/knowledge/profile-file.tsx
+#: src/features/career/knowledge/story-file.tsx
 #: src/features/documents/new-document-dialog.tsx
 msgid "Back"
 msgstr "Back"
@@ -2666,6 +2695,7 @@ msgstr "Can software read your resume?"
 #: src/features/career/knowledge/profile-knowledge-sync.tsx
 #: src/features/career/knowledge/profile.tsx
 #: src/features/career/knowledge/stories.tsx
+#: src/features/career/knowledge/story-file.tsx
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/workspace/fit.tsx
 #: src/features/documents/new-document-dialog.tsx
@@ -2830,6 +2860,7 @@ msgid "Check every claim, date and result against your experience."
 msgstr "Check every claim, date and result against your experience."
 
 #: src/features/career/knowledge/profile-file.tsx
+#: src/features/career/knowledge/story-file.tsx
 msgid "Check file"
 msgstr "Check file"
 
@@ -2945,6 +2976,7 @@ msgid "Choose a file to import"
 msgstr "Choose a file to import"
 
 #: src/features/career/knowledge/profile-file.tsx
+#: src/features/career/knowledge/story-file.tsx
 msgid "Choose a file, or drop it here"
 msgstr "Choose a file, or drop it here"
 
@@ -3491,6 +3523,10 @@ msgstr "Copy it now. For your security, it won't be shown again."
 msgid "Copy link"
 msgstr "Copy link"
 
+#: src/features/career/knowledge/story-file.tsx
+msgid "Copy prompt with my facts"
+msgstr "Copy prompt with my facts"
+
 #: src/features/documents/document-actions.tsx
 msgid "Copy public link"
 msgstr "Copy public link"
@@ -3788,6 +3824,10 @@ msgstr "Couldn't load the sample file. Try again."
 #: src/routes/dashboard/applications/index.tsx
 msgid "Couldn't load this. Your saved data hasn't changed."
 msgstr "Couldn't load this. Your saved data hasn't changed."
+
+#: src/features/career/knowledge/story-file.tsx
+msgid "Couldn't load your facts. Try again."
+msgstr "Couldn't load your facts. Try again."
 
 #: src/routes/dashboard/applications/index.tsx
 msgid "Couldn't load your stages, so the standard ones are shown. Try again."
@@ -4891,6 +4931,10 @@ msgstr "Draft from the posting"
 msgid "Draft from your resume"
 msgstr "Draft from your resume"
 
+#: src/features/career/knowledge/story-file.tsx
+msgid "Draft interview stories from your facts with an AI assistant, then upload them here"
+msgstr "Draft interview stories from your facts with an AI assistant, then upload them here"
+
 #: src/features/homepage/remember.tsx
 msgid "Draft it as"
 msgstr "Draft it as"
@@ -5004,6 +5048,10 @@ msgstr "Each requirement in the posting is checked against the facts and stories
 #: src/features/assistant/conversation.tsx
 msgid "Each send starts fresh with this message and selected files. Previous conversation history stays here."
 msgstr "Each send starts fresh with this message and selected files. Previous conversation history stays here."
+
+#: src/features/career/knowledge/story-file.tsx
+msgid "Each story will be linked to the facts it cites. Nothing is saved until you choose Add stories; titles you already have are skipped."
+msgstr "Each story will be linked to the facts it cites. Nothing is saved until you choose Add stories; titles you already have are skipped."
 
 #: src/features/career/knowledge/profile-knowledge-sync.tsx
 msgid "Each visible entry, achievement and skill group becomes a fact marked \"From your profile\". Edit them here in your profile; sync again after changes."
@@ -5649,6 +5697,7 @@ msgid "Fix these values in the CSV, or leave their columns out, before importing
 msgstr "Fix these values in the CSV, or leave their columns out, before importing."
 
 #: src/features/career/knowledge/profile-file.tsx
+#: src/features/career/knowledge/story-file.tsx
 msgid "Fix these, then check again:"
 msgstr "Fix these, then check again:"
 
@@ -7973,6 +8022,7 @@ msgid "Never"
 msgstr "Never"
 
 #: src/features/career/knowledge/profile-file.tsx
+#: src/features/career/knowledge/story-file.tsx
 #: src/features/documents/document-card.tsx
 #: src/routes/dashboard/-components/app-shell.tsx
 msgid "New"
@@ -8305,6 +8355,10 @@ msgstr "No suggestions for this provider. Enter any model ID."
 #: src/features/career/knowledge/stories.tsx
 msgid "No supporting facts. Link one before using this story."
 msgstr "No supporting facts. Link one before using this story."
+
+#: src/features/career/knowledge/story-file.tsx
+msgid "No supporting facts. You can link some after adding it."
+msgstr "No supporting facts. You can link some after adding it."
 
 #: src/features/career/knowledge/stories.tsx
 msgid "No tags yet"
@@ -9570,6 +9624,11 @@ msgstr "Projects"
 msgid "Promoted to lead, 2021"
 msgstr "Promoted to lead, 2021"
 
+#. placeholder {0}: catalog.length
+#: src/features/career/knowledge/story-file.tsx
+msgid "Prompt copied with {0} facts. Paste it into Claude or ChatGPT."
+msgstr "Prompt copied with {0} facts. Paste it into Claude or ChatGPT."
+
 #: src/features/career/knowledge/profile-file.tsx
 msgid "Prompt copied. Paste it into Claude or ChatGPT."
 msgstr "Prompt copied. Paste it into Claude or ChatGPT."
@@ -10526,6 +10585,10 @@ msgstr "Review my answer sends the question, what you said, this posting and you
 #: src/features/career/workspace/apply.tsx
 msgid "Review required form answers and remove unsupported claims."
 msgstr "Review required form answers and remove unsupported claims."
+
+#: src/features/career/knowledge/story-file.tsx
+msgid "Review stories before adding"
+msgstr "Review stories before adding"
 
 #: src/features/career/workspace/apply.tsx
 msgid "Review the selected resume and cover letter in their editors."
@@ -12006,6 +12069,10 @@ msgstr "Story · 5 of 5 parts"
 msgid "Story deleted"
 msgstr "Story deleted"
 
+#: src/features/career/knowledge/story-file.tsx
+msgid "Story file text"
+msgstr "Story file text"
+
 #: src/features/career/knowledge/stories.tsx
 msgid "Story not found"
 msgstr "Story not found"
@@ -12282,6 +12349,7 @@ msgid "Telugu"
 msgstr "Telugu"
 
 #: src/features/career/knowledge/profile-file.tsx
+#: src/features/career/knowledge/story-file.tsx
 #: src/libs/resume/section.tsx
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 #: src/routes/builder/$resumeId/-components/document-details.tsx
@@ -12425,6 +12493,10 @@ msgstr "That file couldn't be read as a PDF. Choose a PDF file and try again."
 msgid "That file is too large for a profile file (over 1 MB)."
 msgstr "That file is too large for a profile file (over 1 MB)."
 
+#: src/features/career/knowledge/story-file.tsx
+msgid "That file is too large for a story file (over 1 MB)."
+msgstr "That file is too large for a story file (over 1 MB)."
+
 #: src/features/ats-checker/checker.tsx
 msgid "That file is too large to check. PDFs up to 25 MB work."
 msgstr "That file is too large to check. PDFs up to 25 MB work."
@@ -12536,6 +12608,10 @@ msgstr "The exported PDF couldn't be checked. Try again."
 #: src/features/documents/new-document-dialog.tsx
 msgid "The file couldn't be read as a resume."
 msgstr "The file couldn't be read as a resume."
+
+#: src/features/career/knowledge/story-file.tsx
+msgid "The file should start with \"stories:\"."
+msgstr "The file should start with \"stories:\"."
 
 #: src/features/career/knowledge/profile-file.tsx
 msgid "The file should start with sections like \"experience:\" and \"skills:\"."
@@ -13406,9 +13482,10 @@ msgid "Unknown"
 msgstr "Unknown"
 
 #. placeholder {0}: issue.keys.join('", "')
+#. placeholder {1}: hints.unknownKey
 #: src/features/career/knowledge/profile-file.tsx
-msgid "unknown key \"{0}\". Use experience, projects, education, volunteer, certifications, awards and skills."
-msgstr "unknown key \"{0}\". Use experience, projects, education, volunteer, certifications, awards and skills."
+msgid "unknown key \"{0}\". {1}"
+msgstr "unknown key \"{0}\". {1}"
 
 #: src/features/documents/document-actions.tsx
 msgid "Unlink"
@@ -13500,11 +13577,16 @@ msgstr "Upload .csv"
 msgid "Upload a .yaml or .json profile file, or paste one (an AI assistant's answer is fine as it is)."
 msgstr "Upload a .yaml or .json profile file, or paste one (an AI assistant's answer is fine as it is)."
 
+#: src/features/career/knowledge/story-file.tsx
+msgid "Upload a .yaml or .json story file, or paste the assistant's answer as it is."
+msgstr "Upload a .yaml or .json story file, or paste the assistant's answer as it is."
+
 #: src/features/ats-checker/checker.tsx
 msgid "Upload a PDF and see the text an applicant tracking system extracts: what's missing, what's out of order, and how to fix it. Free, no account needed."
 msgstr "Upload a PDF and see the text an applicant tracking system extracts: what's missing, what's out of order, and how to fix it. Free, no account needed."
 
 #: src/features/career/knowledge/profile-file.tsx
+#: src/features/career/knowledge/story-file.tsx
 msgid "Upload or paste"
 msgstr "Upload or paste"
 
@@ -13605,6 +13687,10 @@ msgstr "Use default"
 msgid "Use details from “{0}”"
 msgstr "Use details from “{0}”"
 
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Use experience, projects, education, volunteer, certifications, awards and skills."
+msgstr "Use experience, projects, education, volunteer, certifications, awards and skills."
+
 #: src/features/career/knowledge/facts.tsx
 msgid "Use for all applications"
 msgstr "Use for all applications"
@@ -13664,6 +13750,10 @@ msgstr "Use this profile in Fit, Apply, Prepare and the coach by syncing it to y
 #: src/features/settings/ai/providers.tsx
 msgid "Use this provider"
 msgstr "Use this provider"
+
+#: src/features/career/knowledge/story-file.tsx
+msgid "Use version and stories."
+msgstr "Use version and stories."
 
 #: src/features/ats-checker/messages.ts
 msgid "Use your editor's normal bullet list, so stray glyphs do not land mid-sentence."
@@ -14412,6 +14502,10 @@ msgstr "You don't have a resume to copy yet. Import or create a resume first, th
 #: src/features/career/workspace/debrief.tsx
 msgid "You forgot this before, so it wasn't saved again."
 msgstr "You forgot this before, so it wasn't saved again."
+
+#: src/features/career/knowledge/story-file.tsx
+msgid "You have no switched-on facts yet. Sync your profile to Knowledge first."
+msgstr "You have no switched-on facts yet. Sync your profile to Knowledge first."
 
 #: src/features/homepage/prepare.tsx
 msgid "You partnered with engineering. How you led the work isn’t described yet."

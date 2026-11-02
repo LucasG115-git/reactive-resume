@@ -19,6 +19,7 @@ msgstr ""
 "X-Crowdin-File-ID: 545\n"
 
 #: src/features/career/knowledge/profile-file.tsx
+#: src/features/career/knowledge/story-file.tsx
 msgid "…or paste YAML or JSON here"
 msgstr ""
 
@@ -111,6 +112,11 @@ msgstr ""
 #: src/features/applications/components/insights-view.tsx
 msgid "{0, plural, one {# active application} other {# active applications}}"
 msgstr "{0, plural, other {# 筆進行中的應徵紀錄}}"
+
+#. placeholder {0}: checked.preview.skipped.length
+#: src/features/career/knowledge/story-file.tsx
+msgid "{0, plural, one {# already in Knowledge} other {# already in Knowledge}}"
+msgstr ""
 
 #. placeholder {0}: data.answers.length
 #: src/features/career/workspace/saved.tsx
@@ -211,6 +217,11 @@ msgstr "{0, plural, one {# 問題被忽略。} other {# 問題將被忽略。}}"
 msgid "{0, plural, one {# new entry} other {# new entries}}"
 msgstr ""
 
+#. placeholder {0}: checked.preview.added
+#: src/features/career/knowledge/story-file.tsx
+msgid "{0, plural, one {# new story} other {# new stories}}"
+msgstr ""
+
 #. placeholder {0}: proposals.length
 #: src/features/assistant/conversation.tsx
 #: src/features/resume/editor/proposals/proposal-list.tsx
@@ -256,6 +267,11 @@ msgstr "{0, plural, other {# 個故事}}"
 #: src/features/career/coach-chat.tsx
 msgid "{0, plural, one {Added # fact to Knowledge.} other {Added # facts to Knowledge.}}"
 msgstr "{0, plural, other {已將 # 個事實加入知識庫。}}"
+
+#. placeholder {0}: result.added
+#: src/features/career/knowledge/story-file.tsx
+msgid "{0, plural, one {Added # story.} other {Added # stories.}}"
+msgstr ""
 
 #. placeholder {0}: step.days
 #: src/features/applications/next-step.ts
@@ -1552,6 +1568,14 @@ msgstr "在各部分之間加一些留白，方便讀者快速瀏覽。"
 msgid "Add stage"
 msgstr "新增階段"
 
+#: src/features/career/knowledge/story-file.tsx
+msgid "Add stories"
+msgstr ""
+
+#: src/features/career/knowledge/story-file.tsx
+msgid "Add stories from a file"
+msgstr ""
+
 #: src/features/applications/components/list-view.tsx
 msgid "Add tag"
 msgstr "新增標籤"
@@ -1841,6 +1865,10 @@ msgstr "已有帳戶？<0/>"
 
 #: src/features/career/knowledge/profile-file.tsx
 msgid "Already have:"
+msgstr ""
+
+#: src/features/career/knowledge/story-file.tsx
+msgid "Already in Knowledge"
 msgstr ""
 
 #: src/features/applications/components/add-application-dialog.tsx
@@ -2390,6 +2418,7 @@ msgid "BA, Communication Design"
 msgstr "傳播設計學士"
 
 #: src/features/career/knowledge/profile-file.tsx
+#: src/features/career/knowledge/story-file.tsx
 #: src/features/documents/new-document-dialog.tsx
 msgid "Back"
 msgstr "後退"
@@ -2671,6 +2700,7 @@ msgstr "軟體可以讀取您的履歷嗎？"
 #: src/features/career/knowledge/profile-knowledge-sync.tsx
 #: src/features/career/knowledge/profile.tsx
 #: src/features/career/knowledge/stories.tsx
+#: src/features/career/knowledge/story-file.tsx
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/workspace/fit.tsx
 #: src/features/documents/new-document-dialog.tsx
@@ -2835,6 +2865,7 @@ msgid "Check every claim, date and result against your experience."
 msgstr "對照您的經歷核實每一項陳述、日期和結果。"
 
 #: src/features/career/knowledge/profile-file.tsx
+#: src/features/career/knowledge/story-file.tsx
 msgid "Check file"
 msgstr ""
 
@@ -2950,6 +2981,7 @@ msgid "Choose a file to import"
 msgstr "選擇要匯入的文件"
 
 #: src/features/career/knowledge/profile-file.tsx
+#: src/features/career/knowledge/story-file.tsx
 msgid "Choose a file, or drop it here"
 msgstr ""
 
@@ -3496,6 +3528,10 @@ msgstr "現在複製它。為了您的安全，它不會再次顯示。"
 msgid "Copy link"
 msgstr "複製連結"
 
+#: src/features/career/knowledge/story-file.tsx
+msgid "Copy prompt with my facts"
+msgstr ""
+
 #: src/features/documents/document-actions.tsx
 msgid "Copy public link"
 msgstr "複製公共連結"
@@ -3793,6 +3829,10 @@ msgstr "無法載入範例檔案。再試一次。"
 #: src/routes/dashboard/applications/index.tsx
 msgid "Couldn't load this. Your saved data hasn't changed."
 msgstr "無法載入此內容。您已儲存的資料沒有變更。"
+
+#: src/features/career/knowledge/story-file.tsx
+msgid "Couldn't load your facts. Try again."
+msgstr ""
 
 #: src/routes/dashboard/applications/index.tsx
 msgid "Couldn't load your stages, so the standard ones are shown. Try again."
@@ -4896,6 +4936,10 @@ msgstr "根據職缺公告起草"
 msgid "Draft from your resume"
 msgstr "履歷草稿"
 
+#: src/features/career/knowledge/story-file.tsx
+msgid "Draft interview stories from your facts with an AI assistant, then upload them here"
+msgstr ""
+
 #: src/features/homepage/remember.tsx
 msgid "Draft it as"
 msgstr "擬稿為"
@@ -5009,6 +5053,10 @@ msgstr "職缺公告中的每項條件都會與您知識庫中的事實和故事
 #: src/features/assistant/conversation.tsx
 msgid "Each send starts fresh with this message and selected files. Previous conversation history stays here."
 msgstr "每次發送都會以該訊息和選定的文件重新開始。之前的對話歷史記錄保留在這裡。"
+
+#: src/features/career/knowledge/story-file.tsx
+msgid "Each story will be linked to the facts it cites. Nothing is saved until you choose Add stories; titles you already have are skipped."
+msgstr ""
 
 #: src/features/career/knowledge/profile-knowledge-sync.tsx
 msgid "Each visible entry, achievement and skill group becomes a fact marked \"From your profile\". Edit them here in your profile; sync again after changes."
@@ -5654,6 +5702,7 @@ msgid "Fix these values in the CSV, or leave their columns out, before importing
 msgstr "匯入前，請在 CSV 中修正這些值，或移除對應的欄位。"
 
 #: src/features/career/knowledge/profile-file.tsx
+#: src/features/career/knowledge/story-file.tsx
 msgid "Fix these, then check again:"
 msgstr ""
 
@@ -7978,6 +8027,7 @@ msgid "Never"
 msgstr "絕不"
 
 #: src/features/career/knowledge/profile-file.tsx
+#: src/features/career/knowledge/story-file.tsx
 #: src/features/documents/document-card.tsx
 #: src/routes/dashboard/-components/app-shell.tsx
 msgid "New"
@@ -8310,6 +8360,10 @@ msgstr "沒有對此提供者的建議。輸入任意型號 ID。"
 #: src/features/career/knowledge/stories.tsx
 msgid "No supporting facts. Link one before using this story."
 msgstr "沒有佐證事實。使用此故事前請先連結一個。"
+
+#: src/features/career/knowledge/story-file.tsx
+msgid "No supporting facts. You can link some after adding it."
+msgstr ""
 
 #: src/features/career/knowledge/stories.tsx
 msgid "No tags yet"
@@ -9575,6 +9629,11 @@ msgstr "專案"
 msgid "Promoted to lead, 2021"
 msgstr "2021 年晉升領導"
 
+#. placeholder {0}: catalog.length
+#: src/features/career/knowledge/story-file.tsx
+msgid "Prompt copied with {0} facts. Paste it into Claude or ChatGPT."
+msgstr ""
+
 #: src/features/career/knowledge/profile-file.tsx
 msgid "Prompt copied. Paste it into Claude or ChatGPT."
 msgstr ""
@@ -10531,6 +10590,10 @@ msgstr "「評論我的回答」會將問題、您說的內容、此職缺公告
 #: src/features/career/workspace/apply.tsx
 msgid "Review required form answers and remove unsupported claims."
 msgstr "檢查必填的表單回答，刪除沒有佐證的陳述。"
+
+#: src/features/career/knowledge/story-file.tsx
+msgid "Review stories before adding"
+msgstr ""
 
 #: src/features/career/workspace/apply.tsx
 msgid "Review the selected resume and cover letter in their editors."
@@ -12011,6 +12074,10 @@ msgstr "故事 · 5/5 部分"
 msgid "Story deleted"
 msgstr "已刪除故事"
 
+#: src/features/career/knowledge/story-file.tsx
+msgid "Story file text"
+msgstr ""
+
 #: src/features/career/knowledge/stories.tsx
 msgid "Story not found"
 msgstr "找不到故事"
@@ -12287,6 +12354,7 @@ msgid "Telugu"
 msgstr "泰盧固語"
 
 #: src/features/career/knowledge/profile-file.tsx
+#: src/features/career/knowledge/story-file.tsx
 #: src/libs/resume/section.tsx
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 #: src/routes/builder/$resumeId/-components/document-details.tsx
@@ -12430,6 +12498,10 @@ msgstr "無法將該檔案讀取為 PDF。請選擇 PDF 檔案後再試一次。
 msgid "That file is too large for a profile file (over 1 MB)."
 msgstr ""
 
+#: src/features/career/knowledge/story-file.tsx
+msgid "That file is too large for a story file (over 1 MB)."
+msgstr ""
+
 #: src/features/ats-checker/checker.tsx
 msgid "That file is too large to check. PDFs up to 25 MB work."
 msgstr "該文件太大，無法檢查。 PDFs 最多可與 25 個 MB 一起工作。"
@@ -12541,6 +12613,10 @@ msgstr "導出的PDF無法檢查。再試一次。"
 #: src/features/documents/new-document-dialog.tsx
 msgid "The file couldn't be read as a resume."
 msgstr "該文件無法作為簡歷讀取。"
+
+#: src/features/career/knowledge/story-file.tsx
+msgid "The file should start with \"stories:\"."
+msgstr ""
 
 #: src/features/career/knowledge/profile-file.tsx
 msgid "The file should start with sections like \"experience:\" and \"skills:\"."
@@ -13411,8 +13487,9 @@ msgid "Unknown"
 msgstr "未知"
 
 #. placeholder {0}: issue.keys.join('", "')
+#. placeholder {1}: hints.unknownKey
 #: src/features/career/knowledge/profile-file.tsx
-msgid "unknown key \"{0}\". Use experience, projects, education, volunteer, certifications, awards and skills."
+msgid "unknown key \"{0}\". {1}"
 msgstr ""
 
 #: src/features/documents/document-actions.tsx
@@ -13505,11 +13582,16 @@ msgstr "上傳 .csv"
 msgid "Upload a .yaml or .json profile file, or paste one (an AI assistant's answer is fine as it is)."
 msgstr ""
 
+#: src/features/career/knowledge/story-file.tsx
+msgid "Upload a .yaml or .json story file, or paste the assistant's answer as it is."
+msgstr ""
+
 #: src/features/ats-checker/checker.tsx
 msgid "Upload a PDF and see the text an applicant tracking system extracts: what's missing, what's out of order, and how to fix it. Free, no account needed."
 msgstr "上傳 PDF 並查看申請人追蹤系統提取的文字：缺少什麼、有什麼問題以及如何修復。免費，無需帳戶。"
 
 #: src/features/career/knowledge/profile-file.tsx
+#: src/features/career/knowledge/story-file.tsx
 msgid "Upload or paste"
 msgstr ""
 
@@ -13610,6 +13692,10 @@ msgstr "使用預設值"
 msgid "Use details from “{0}”"
 msgstr "使用“{0}”中的詳細信息"
 
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Use experience, projects, education, volunteer, certifications, awards and skills."
+msgstr ""
+
 #: src/features/career/knowledge/facts.tsx
 msgid "Use for all applications"
 msgstr "用於所有應徵"
@@ -13669,6 +13755,10 @@ msgstr ""
 #: src/features/settings/ai/providers.tsx
 msgid "Use this provider"
 msgstr "使用該提供者"
+
+#: src/features/career/knowledge/story-file.tsx
+msgid "Use version and stories."
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Use your editor's normal bullet list, so stray glyphs do not land mid-sentence."
@@ -14417,6 +14507,10 @@ msgstr "您還沒有可以複製的簡歷。首先匯入或建立一份簡歷，
 #: src/features/career/workspace/debrief.tsx
 msgid "You forgot this before, so it wasn't saved again."
 msgstr "您先前忘記過這項，所以沒有再次儲存。"
+
+#: src/features/career/knowledge/story-file.tsx
+msgid "You have no switched-on facts yet. Sync your profile to Knowledge first."
+msgstr ""
 
 #: src/features/homepage/prepare.tsx
 msgid "You partnered with engineering. How you led the work isn’t described yet."

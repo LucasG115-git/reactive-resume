@@ -19,6 +19,7 @@ msgstr ""
 "X-Crowdin-File-ID: 545\n"
 
 #: src/features/career/knowledge/profile-file.tsx
+#: src/features/career/knowledge/story-file.tsx
 msgid "…or paste YAML or JSON here"
 msgstr ""
 
@@ -111,6 +112,11 @@ msgstr ""
 #: src/features/applications/components/insights-view.tsx
 msgid "{0, plural, one {# active application} other {# active applications}}"
 msgstr "{0, plural, one {# aktiv søknad} other {# aktive søknader}}"
+
+#. placeholder {0}: checked.preview.skipped.length
+#: src/features/career/knowledge/story-file.tsx
+msgid "{0, plural, one {# already in Knowledge} other {# already in Knowledge}}"
+msgstr ""
 
 #. placeholder {0}: data.answers.length
 #: src/features/career/workspace/saved.tsx
@@ -211,6 +217,11 @@ msgstr "{0, plural, one {#-problemet ignoreres.} other {#-problemer ignoreres.}}
 msgid "{0, plural, one {# new entry} other {# new entries}}"
 msgstr ""
 
+#. placeholder {0}: checked.preview.added
+#: src/features/career/knowledge/story-file.tsx
+msgid "{0, plural, one {# new story} other {# new stories}}"
+msgstr ""
+
 #. placeholder {0}: proposals.length
 #: src/features/assistant/conversation.tsx
 #: src/features/resume/editor/proposals/proposal-list.tsx
@@ -256,6 +267,11 @@ msgstr "{0, plural, one {# historie} other {# historier}}"
 #: src/features/career/coach-chat.tsx
 msgid "{0, plural, one {Added # fact to Knowledge.} other {Added # facts to Knowledge.}}"
 msgstr "{0, plural, one {La til # faktum i Kunnskap.} other {La til # fakta i Kunnskap.}}"
+
+#. placeholder {0}: result.added
+#: src/features/career/knowledge/story-file.tsx
+msgid "{0, plural, one {Added # story.} other {Added # stories.}}"
+msgstr ""
 
 #. placeholder {0}: step.days
 #: src/features/applications/next-step.ts
@@ -1552,6 +1568,14 @@ msgstr "Legg til litt luft mellom seksjonene, slik at en person kan skumlese den
 msgid "Add stage"
 msgstr "Legg til trinn"
 
+#: src/features/career/knowledge/story-file.tsx
+msgid "Add stories"
+msgstr ""
+
+#: src/features/career/knowledge/story-file.tsx
+msgid "Add stories from a file"
+msgstr ""
+
 #: src/features/applications/components/list-view.tsx
 msgid "Add tag"
 msgstr "Legg til tag"
@@ -1841,6 +1865,10 @@ msgstr "Har du allerede en konto? <0/>"
 
 #: src/features/career/knowledge/profile-file.tsx
 msgid "Already have:"
+msgstr ""
+
+#: src/features/career/knowledge/story-file.tsx
+msgid "Already in Knowledge"
 msgstr ""
 
 #: src/features/applications/components/add-application-dialog.tsx
@@ -2390,6 +2418,7 @@ msgid "BA, Communication Design"
 msgstr "BA, kommunikasjonsdesign"
 
 #: src/features/career/knowledge/profile-file.tsx
+#: src/features/career/knowledge/story-file.tsx
 #: src/features/documents/new-document-dialog.tsx
 msgid "Back"
 msgstr "Tilbake"
@@ -2671,6 +2700,7 @@ msgstr "Kan programvare lese CV-en din?"
 #: src/features/career/knowledge/profile-knowledge-sync.tsx
 #: src/features/career/knowledge/profile.tsx
 #: src/features/career/knowledge/stories.tsx
+#: src/features/career/knowledge/story-file.tsx
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/workspace/fit.tsx
 #: src/features/documents/new-document-dialog.tsx
@@ -2835,6 +2865,7 @@ msgid "Check every claim, date and result against your experience."
 msgstr "Sjekk hver påstand, hver dato og hvert resultat mot erfaringen din."
 
 #: src/features/career/knowledge/profile-file.tsx
+#: src/features/career/knowledge/story-file.tsx
 msgid "Check file"
 msgstr ""
 
@@ -2950,6 +2981,7 @@ msgid "Choose a file to import"
 msgstr "Velg en fil du vil importere"
 
 #: src/features/career/knowledge/profile-file.tsx
+#: src/features/career/knowledge/story-file.tsx
 msgid "Choose a file, or drop it here"
 msgstr ""
 
@@ -3496,6 +3528,10 @@ msgstr "Kopier det nå. For din sikkerhet vil den ikke vises igjen."
 msgid "Copy link"
 msgstr "Kopier lenken"
 
+#: src/features/career/knowledge/story-file.tsx
+msgid "Copy prompt with my facts"
+msgstr ""
+
 #: src/features/documents/document-actions.tsx
 msgid "Copy public link"
 msgstr "Kopier offentlig lenke"
@@ -3793,6 +3829,10 @@ msgstr "Kunne ikke laste inn eksempelfilen. Prøv igjen."
 #: src/routes/dashboard/applications/index.tsx
 msgid "Couldn't load this. Your saved data hasn't changed."
 msgstr "Kunne ikke laste inn dette. De lagrede dataene dine er ikke endret."
+
+#: src/features/career/knowledge/story-file.tsx
+msgid "Couldn't load your facts. Try again."
+msgstr ""
 
 #: src/routes/dashboard/applications/index.tsx
 msgid "Couldn't load your stages, so the standard ones are shown. Try again."
@@ -4896,6 +4936,10 @@ msgstr "Utkast fra stillingsannonsen"
 msgid "Draft from your resume"
 msgstr "Utkast fra CV-en din"
 
+#: src/features/career/knowledge/story-file.tsx
+msgid "Draft interview stories from your facts with an AI assistant, then upload them here"
+msgstr ""
+
 #: src/features/homepage/remember.tsx
 msgid "Draft it as"
 msgstr "Lag utkast som"
@@ -5009,6 +5053,10 @@ msgstr "Hvert krav i stillingsannonsen sjekkes mot fakta og historier i Kunnskap
 #: src/features/assistant/conversation.tsx
 msgid "Each send starts fresh with this message and selected files. Previous conversation history stays here."
 msgstr "Hver sending starter på nytt med denne meldingen og valgte filer. Tidligere samtalehistorikk blir her."
+
+#: src/features/career/knowledge/story-file.tsx
+msgid "Each story will be linked to the facts it cites. Nothing is saved until you choose Add stories; titles you already have are skipped."
+msgstr ""
 
 #: src/features/career/knowledge/profile-knowledge-sync.tsx
 msgid "Each visible entry, achievement and skill group becomes a fact marked \"From your profile\". Edit them here in your profile; sync again after changes."
@@ -5654,6 +5702,7 @@ msgid "Fix these values in the CSV, or leave their columns out, before importing
 msgstr "Rett disse verdiene i CSV-filen, eller utelat kolonnene, før du importerer."
 
 #: src/features/career/knowledge/profile-file.tsx
+#: src/features/career/knowledge/story-file.tsx
 msgid "Fix these, then check again:"
 msgstr ""
 
@@ -7978,6 +8027,7 @@ msgid "Never"
 msgstr "Aldri"
 
 #: src/features/career/knowledge/profile-file.tsx
+#: src/features/career/knowledge/story-file.tsx
 #: src/features/documents/document-card.tsx
 #: src/routes/dashboard/-components/app-shell.tsx
 msgid "New"
@@ -8310,6 +8360,10 @@ msgstr "Ingen forslag til denne leverandøren. Skriv inn en modell-ID."
 #: src/features/career/knowledge/stories.tsx
 msgid "No supporting facts. Link one before using this story."
 msgstr "Ingen underbyggende fakta. Koble til ett før du bruker denne historien."
+
+#: src/features/career/knowledge/story-file.tsx
+msgid "No supporting facts. You can link some after adding it."
+msgstr ""
 
 #: src/features/career/knowledge/stories.tsx
 msgid "No tags yet"
@@ -9575,6 +9629,11 @@ msgstr "Prosjekter"
 msgid "Promoted to lead, 2021"
 msgstr "Forfremmet til leder, 2021"
 
+#. placeholder {0}: catalog.length
+#: src/features/career/knowledge/story-file.tsx
+msgid "Prompt copied with {0} facts. Paste it into Claude or ChatGPT."
+msgstr ""
+
 #: src/features/career/knowledge/profile-file.tsx
 msgid "Prompt copied. Paste it into Claude or ChatGPT."
 msgstr ""
@@ -10531,6 +10590,10 @@ msgstr "«Vurder svaret mitt» sender spørsmålet, det du sa, denne stillingsan
 #: src/features/career/workspace/apply.tsx
 msgid "Review required form answers and remove unsupported claims."
 msgstr "Se over obligatoriske skjemasvar og fjern påstander uten belegg."
+
+#: src/features/career/knowledge/story-file.tsx
+msgid "Review stories before adding"
+msgstr ""
 
 #: src/features/career/workspace/apply.tsx
 msgid "Review the selected resume and cover letter in their editors."
@@ -12011,6 +12074,10 @@ msgstr "Historie · 5 av 5 deler"
 msgid "Story deleted"
 msgstr "Historien er slettet"
 
+#: src/features/career/knowledge/story-file.tsx
+msgid "Story file text"
+msgstr ""
+
 #: src/features/career/knowledge/stories.tsx
 msgid "Story not found"
 msgstr "Fant ikke historien"
@@ -12287,6 +12354,7 @@ msgid "Telugu"
 msgstr "Telugu"
 
 #: src/features/career/knowledge/profile-file.tsx
+#: src/features/career/knowledge/story-file.tsx
 #: src/libs/resume/section.tsx
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 #: src/routes/builder/$resumeId/-components/document-details.tsx
@@ -12430,6 +12498,10 @@ msgstr "Filen kunne ikke leses som PDF. Velg en PDF-fil og prøv igjen."
 msgid "That file is too large for a profile file (over 1 MB)."
 msgstr ""
 
+#: src/features/career/knowledge/story-file.tsx
+msgid "That file is too large for a story file (over 1 MB)."
+msgstr ""
+
 #: src/features/ats-checker/checker.tsx
 msgid "That file is too large to check. PDFs up to 25 MB work."
 msgstr "Den filen er for stor til å sjekke. PDFs opptil 25 MB arbeid."
@@ -12541,6 +12613,10 @@ msgstr "Den eksporterte PDF kunne ikke sjekkes. Prøv igjen."
 #: src/features/documents/new-document-dialog.tsx
 msgid "The file couldn't be read as a resume."
 msgstr "Filen kunne ikke leses som en CV."
+
+#: src/features/career/knowledge/story-file.tsx
+msgid "The file should start with \"stories:\"."
+msgstr ""
 
 #: src/features/career/knowledge/profile-file.tsx
 msgid "The file should start with sections like \"experience:\" and \"skills:\"."
@@ -13411,8 +13487,9 @@ msgid "Unknown"
 msgstr "Ukjent"
 
 #. placeholder {0}: issue.keys.join('", "')
+#. placeholder {1}: hints.unknownKey
 #: src/features/career/knowledge/profile-file.tsx
-msgid "unknown key \"{0}\". Use experience, projects, education, volunteer, certifications, awards and skills."
+msgid "unknown key \"{0}\". {1}"
 msgstr ""
 
 #: src/features/documents/document-actions.tsx
@@ -13505,11 +13582,16 @@ msgstr "Last opp .csv"
 msgid "Upload a .yaml or .json profile file, or paste one (an AI assistant's answer is fine as it is)."
 msgstr ""
 
+#: src/features/career/knowledge/story-file.tsx
+msgid "Upload a .yaml or .json story file, or paste the assistant's answer as it is."
+msgstr ""
+
 #: src/features/ats-checker/checker.tsx
 msgid "Upload a PDF and see the text an applicant tracking system extracts: what's missing, what's out of order, and how to fix it. Free, no account needed."
 msgstr "Last opp en PDF og se teksten et søkersporingssystem trekker ut: hva som mangler, hva er ute av drift, og hvordan du fikser det. Gratis, ingen konto nødvendig."
 
 #: src/features/career/knowledge/profile-file.tsx
+#: src/features/career/knowledge/story-file.tsx
 msgid "Upload or paste"
 msgstr ""
 
@@ -13610,6 +13692,10 @@ msgstr "Bruk standard"
 msgid "Use details from “{0}”"
 msgstr "Bruk detaljer fra \"{0}\""
 
+#: src/features/career/knowledge/profile-file.tsx
+msgid "Use experience, projects, education, volunteer, certifications, awards and skills."
+msgstr ""
+
 #: src/features/career/knowledge/facts.tsx
 msgid "Use for all applications"
 msgstr "Bruk for alle søknader"
@@ -13669,6 +13755,10 @@ msgstr ""
 #: src/features/settings/ai/providers.tsx
 msgid "Use this provider"
 msgstr "Bruk denne leverandøren"
+
+#: src/features/career/knowledge/story-file.tsx
+msgid "Use version and stories."
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Use your editor's normal bullet list, so stray glyphs do not land mid-sentence."
@@ -14417,6 +14507,10 @@ msgstr "Du har ikke en CV å kopiere ennå. Importer eller opprett en CV først,
 #: src/features/career/workspace/debrief.tsx
 msgid "You forgot this before, so it wasn't saved again."
 msgstr "Du har glemt dette før, så det ble ikke lagret på nytt."
+
+#: src/features/career/knowledge/story-file.tsx
+msgid "You have no switched-on facts yet. Sync your profile to Knowledge first."
+msgstr ""
 
 #: src/features/homepage/prepare.tsx
 msgid "You partnered with engineering. How you led the work isn’t described yet."

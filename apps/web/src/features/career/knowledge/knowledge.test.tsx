@@ -39,8 +39,9 @@ vi.mock("@/libs/orpc/client", () => {
 					(name) => [name, endpoint(name)],
 				),
 			),
+			masterProfile: { importStories: endpoint("importStories") },
 		},
-		client: { career: { saveProfile: api.saveProfile } },
+		client: { career: { saveProfile: api.saveProfile }, masterProfile: { factCatalog: async () => [] } },
 	};
 });
 vi.mock("@tanstack/react-router", () => ({
