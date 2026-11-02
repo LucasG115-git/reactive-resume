@@ -3,6 +3,7 @@ import { aiProvidersRouter } from "../features/ai-providers/router";
 import { aiRouter } from "../features/ai/router";
 import { applicationsRouter } from "../features/applications/router";
 import { authRouter } from "../features/auth/router";
+import { careerPreferencesRouter } from "../features/career-preferences/router";
 import { careerRouter } from "../features/career/router";
 import { coverLettersRouter } from "../features/cover-letters/router";
 import { customDomainRouter } from "../features/custom-domain/router";
@@ -21,6 +22,7 @@ export default {
 	applications: applicationsRouter,
 	auth: authRouter,
 	career: careerRouter,
+	careerPreferences: careerPreferencesRouter,
 	coverLetters: coverLettersRouter,
 	customDomain: customDomainRouter,
 	documents: documentsRouter,

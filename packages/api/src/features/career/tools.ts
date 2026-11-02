@@ -6,6 +6,8 @@ import { careerSystemPromptTemplate } from "@reactive-resume/ai/prompts";
 import { db } from "@reactive-resume/db/client";
 import { application, applicationLane, careerArtifact } from "@reactive-resume/db/schema";
 import { careerStoryInputSchema, factCategorySchema } from "@reactive-resume/schema/career";
+import { evaluatePreferences } from "../career-preferences/evaluate";
+import { applicationPosting, overridesFor } from "../career-preferences/service";
 import { careerService, modelFact } from "./service";
 
 type CareerToolsInput = {
@@ -67,6 +69,10 @@ export function buildCareerInstructions(
 			: {}),
 		...(input.shareMemory
 			? { preferences: context.profile, facts: context.facts.slice(0, 30), stories: context.stories.slice(0, 8) }
+			: {}),
+		// Reading the posting against Preferences needs both.
+		...(input.shareApplication && input.shareMemory && context.preferenceCheck
+			? { preferenceCheck: context.preferenceCheck }
 			: {}),
 		// Saved offers the user chose to compare: terms in their own currency and pay period.
 		...(input.offers?.length
@@ -166,10 +172,11 @@ export function buildCareerTools(input: CareerToolsInput): ToolSet {
 	}
 	if (!scope.applicationId && input.shareApplication)
 		tools.list_opportunities = tool({
-			description: "Read summaries of the user's applications for comparisons across their search.",
+			description:
+				"Read summaries of the user's applications for comparisons across their search. With Knowledge shared, each includes preferenceCheck: how it reads against their Preferences (verdict, summary, and unmet or unknown checks).",
 			inputSchema: z.object({}),
-			execute: () =>
-				db
+			execute: async () => {
+				const rows = await db
 					.select({
 						id: application.id,
 						company: application.company,
@@ -181,6 +188,7 @@ export function buildCareerTools(input: CareerToolsInput): ToolSet {
 						location: application.location,
 						salary: application.salary,
 						requirements: application.requirements,
+						jobDescription: application.jobDescription,
 					})
 					.from(application)
 					.leftJoin(
@@ -189,7 +197,32 @@ export function buildCareerTools(input: CareerToolsInput): ToolSet {
 					)
 					.where(eq(application.userId, input.userId))
 					.orderBy(desc(application.updatedAt))
-					.limit(50),
+					.limit(50);
+				const overrides = input.shareMemory
+					? await overridesFor(
+							input.userId,
+							rows.map((row) => row.id),
+						)
+					: null;
+				return rows.map(({ jobDescription, ...row }) => {
+					if (!overrides) return row;
+					const check = evaluatePreferences(
+						input.context.profile,
+						applicationPosting({ ...row, jobDescription }),
+						overrides.get(row.id),
+					);
+					return {
+						...row,
+						preferenceCheck: {
+							verdict: check.verdict,
+							summary: check.summary,
+							open: check.checks
+								.filter((entry) => entry.status === "violated" || entry.status === "unknown")
+								.map(({ label, priority, status, detail }) => ({ label, priority, status, detail })),
+						},
+					};
+				});
+			},
 		});
 	return tools;
 }

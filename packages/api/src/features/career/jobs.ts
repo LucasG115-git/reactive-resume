@@ -10,6 +10,7 @@ import { generateId } from "@reactive-resume/utils/string";
 import { STALE_AGENT_RUN_TTL_MS } from "../agent/runs";
 import { aiProvidersService } from "../ai-providers/service";
 import { readOpenPosting, searchJobPostings } from "../applications/posting";
+import { compareEvaluations, evaluatePreferences } from "../career-preferences/evaluate";
 import { lockUser } from "../documents/ownership";
 import { documentsService } from "../documents/service";
 import { webAccessService } from "../web-access/credentials";
@@ -168,7 +169,18 @@ export const careerJobs = {
 				.orderBy(desc(tables.careerOpportunity.lastSeenAt)),
 			careerService.profile(userId),
 		]);
-		return rows.map(({ description, ...row }) => ({ ...row, ...matchPosting({ ...row, description }, profile) }));
+		// Ranked by preferences with reasons (see compareEvaluations); among equals, the most recently seen first.
+		return rows
+			.map(({ description, ...row }) => ({
+				...row,
+				...matchPosting({ ...row, description }, profile),
+				evaluation: evaluatePreferences(profile, {
+					role: row.role,
+					location: row.location,
+					text: description || row.snippet,
+				}),
+			}))
+			.toSorted((a, b) => compareEvaluations(a.evaluation, b.evaluation));
 	},
 	dismissOpportunity: async (userId: string, id: string) => {
 		await db

@@ -17,6 +17,7 @@ import { toast } from "@reactive-resume/ui/components/toast";
 import { getInitials } from "@reactive-resume/utils/string";
 import { cn } from "@reactive-resume/utils/style";
 import { CareerLoadError } from "./load-state";
+import { RoleVerdict } from "./preference-check";
 import { rollForward, ScheduleSheet, scheduleKind } from "./schedule-sheet";
 import { CollapseRow, Eyebrow, flash, InfoChip, Swap, useCareerTime, useNow, withUndo } from "./shared";
 import {
@@ -348,12 +349,10 @@ function NewRoles({ ref, now, deleted, onOpenSchedule, className }: NewRolesProp
 		},
 	});
 
-	const visible = (rows ?? [])
-		.filter((row) => !hidden.includes(row.id) && (!row.trackedApplicationId || tracked[row.id]))
-		.sort(
-			(a, b) =>
-				b.matches.length - a.matches.length || new Date(b.firstSeenAt).getTime() - new Date(a.firstSeenAt).getTime(),
-		);
+	// Kept in the server's order: ranked by Preferences (verdict, then strong and nice preferences met), newest first.
+	const visible = (rows ?? []).filter(
+		(row) => !hidden.includes(row.id) && (!row.trackedApplicationId || tracked[row.id]),
+	);
 	const shown = expanded ? visible : visible.slice(0, 5);
 	const discovery =
 		schedules?.filter((schedule) => schedule.kind === "discovery" && !deleted.includes(schedule.id)) ?? [];
@@ -484,7 +483,9 @@ type RoleCardProps = {
 const companyOf = (row: Opportunity) => row.company || new URL(row.url).hostname.replace(/^www\./, "");
 
 function RoleCard({ row, found, tracked, pending, onTrack, onUndo, onDismiss }: RoleCardProps) {
-	const { matches, unknowns } = row;
+	const { matches } = row;
+	// The preference check already names what the posting doesn't say.
+	const unknowns = row.evaluation.checks.length > 0 ? [] : row.unknowns;
 	const company = companyOf(row);
 	const unknownLabels = { salary: t`Salary not listed`, office: t`Office days not stated` };
 	return (
@@ -508,6 +509,7 @@ function RoleCard({ row, found, tracked, pending, onTrack, onUndo, onDismiss }: 
 				</div>
 			</div>
 			{row.snippet && <p className="text-sm leading-[21px] text-ink-2">{row.snippet}</p>}
+			<RoleVerdict evaluation={row.evaluation} />
 			{matches.length + unknowns.length > 0 && (
 				<div className="flex flex-wrap gap-1.5">
 					{matches.map((match) => (

@@ -1,0 +1,67 @@
+---
+title: "Structured preferences"
+description: "How Career preferences are stored, migrated, evaluated against postings and shared with the coach."
+---
+
+Structured preferences let a user say what they need, prefer or would enjoy in a job, and see every role checked against those preferences with reasons. Evaluation is deterministic and runs on the server without AI. The coach and Fit generation receive its result and explain it rather than re-deriving it.
+
+## Data model
+
+| Piece                                      | Where                                                                       |
+| ------------------------------------------ | --------------------------------------------------------------------------- |
+| Schema (priorities, rules, pay, org prefs) | `packages/schema/src/career-preferences.ts`                                 |
+| Storage                                    | `career_profile.data.structured` (JSONB, optional)                          |
+| Per-application overrides                  | `career_preference_override` table (`userId`, `applicationId`, `key`, note) |
+| Posting reader                             | `packages/api/src/features/career-preferences/posting.ts`                   |
+| Evaluator and ranking                      | `packages/api/src/features/career-preferences/evaluate.ts`                  |
+| API                                        | `careerPreferences.evaluateApplication`, `careerPreferences.setOverride`    |
+
+Every preference has a priority:
+
+- **Must have** rules a role out only when the posting _confirms_ it isn't met. When the posting doesn't say, the check is **unknown** and the role is marked _check before applying_, never rejected.
+- **Strong preference** and **nice to have** only affect order and explanations.
+
+### Location rules
+
+A rule covers an area: named places (matched against the posting's location, then the first 600 characters of its text), a country (ISO code, matched by name), or anywhere. Each rule lists accepted arrangements (on-site, hybrid, remote), an optional preferred arrangement, maximum and preferred office days, maximum commute, radius, whether relocation is acceptable, a priority, and optional area-specific pay floors.
+
+Precedence when several rules match one posting: **places → country → anywhere**; among rules of the same kind, the first in the list wins. A posting matching no rule gets a strong `location:none` check (violated when a location is stated, unknown otherwise).
+
+### Pay
+
+Absolute minimum (must have; becomes a strong preference when any exception such as benefits, flexibility or mission is chosen), preferred minimum (strong), target range (nice), currency and pay period. A rule's own floor or preferred minimum replaces the general one in that area. Pay is compared only when the posting states it in the same currency and period; otherwise the check is unknown with "It isn't converted." Hourly, contract, commission and per-project pay is flagged rather than compared. A bare `$` is read as the user's dollar currency and the detail says so.
+
+### Organization and role
+
+Kind (industry, organization type, mission, size, autonomy, management, growth, benefits, employment type, other), a value in the user's words, want/avoid, and priority. Checked by whether the posting mentions the value (with synonyms for organization types and exclusive employment types). Anything subtler is left to the coach.
+
+## Compatibility and migration
+
+- `structured` has no default, so a client that doesn't send it (older mobile builds, the mobile Preferences screen) keeps the stored value through `mergeCareerProfile`.
+- No existing data is rewritten. Without structured rules, the original `maxOfficeDays`, `locations` and `minBase` are evaluated as **strong** preferences marked "from your earlier settings", never as must-haves. The web form offers **Turn into a rule**, which copies them into a strong rule the user can then change.
+- Once location rules exist, they replace the original office-day and place checks. `maxOfficeDays` and `locations` stay as they are for offer comparison, discovery's default query and the mobile app.
+- Editing structured pay on the web keeps `minBase` in step (absolute minimum, else preferred minimum), so offer comparison and mobile agree.
+- The web form saves an unfinished rule (a place-based rule with no places, say) only once it's valid; until then the last saved version is sent, so one half-typed rule never blocks the rest of the profile.
+- Migration `20261102171726_preference_overrides` only creates the override table.
+
+## Where it's used
+
+- **Today / discovered roles**: `careerJobs.opportunities` attaches `evaluation` and sorts by `compareEvaluations` (fits → check → conflict, then fewer strong preferences missed, more strong met, more nice met, fewer strong unknown; newest among equals). Every role stays listed and can be tracked.
+- **Fit tab**: a live **Against your preferences** panel (web and mobile). **Doesn't matter here** sets a preference aside for that application only.
+- **Fit generation**: the prompt gets `preferenceCheck`; the AI restates its checks and is told never to turn unknown into no.
+- **Coach**: application-scoped chats get `preferenceCheck` when both the application and Knowledge are shared; `list_opportunities` includes each application's verdict, summary and open checks (with overrides). The system prompt explains priority semantics.
+- **Scheduled discovery**: results are ranked as above when shown. The search query itself is unchanged.
+
+## Limitations
+
+- No geocoding: radius and commute time are stored and shared with the coach but not checked. Place matching is by name, so list the names a posting would use.
+- Country matching uses English, French, German and Spanish country names plus common US/UK aliases.
+- No currency or pay-period conversion.
+- Explanations (`summary`, `detail`, labels) are generated in English on the server; verdict badges and controls are translated.
+- Editing location rules, pay tiers and organization preferences is web-only for now. The native app shows verdicts, the Fit panel with overrides, and a note on its Preferences screen; it preserves structured preferences when saving.
+- Overrides exist for tracked applications only; discovered roles can always be tracked first.
+- Postings are read with regular expressions. When a posting is ambiguous the check is unknown rather than guessed.
+
+## Tests
+
+`evaluate.test.ts` covers posting reading, rule precedence (overlapping places, head-office mentions), must-have conflicts versus unknowns, unlisted/hourly/foreign-currency pay, exceptions, area pay, legacy fields, organization preferences, overrides and ranking. `service.integration.test.ts` (real PostgreSQL, `INTEGRATIONS_TEST_DATABASE_URL`) covers persistence across older-client saves, legacy fields never becoming must-haves, rule choice with unknown pay, override isolation and ownership, and opportunity ranking with reasons.

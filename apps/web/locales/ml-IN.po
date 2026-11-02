@@ -1037,6 +1037,10 @@ msgstr "സൈൻ ഇൻ ചെയ്യുമ്പോൾ ഒരു ഓതൻ�
 msgid "A comfortable length, and it fits on one page."
 msgstr "ഒരു സുഖപ്രദമായ നീളം, അത് ഒരു പേജിൽ യോജിക്കുന്നു."
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "A country"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "A date is in the future."
 msgstr "ഒരു തീയതി ഭാവിയിലാണ്."
@@ -1106,6 +1110,10 @@ msgstr "ഒരു ലിങ്ക് കാണിക്കുന്ന വില
 msgid "A model's opinion, not a verdict. It can be wrong."
 msgstr "ഒരു മോഡലിൻ്റെ അഭിപ്രായം, ഒരു വിധിയല്ല. അത് തെറ്റായിരിക്കാം."
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "A must-have rules a role out only when the posting confirms it isn't met; if the posting doesn't say, the role is marked to check. Strong preferences and nice-to-haves only change the order. You can still save and track any role."
+msgstr ""
+
 #: src/features/settings/account/security.tsx
 msgid "A name helps you tell passkeys apart, like “Work laptop”."
 msgstr "“വർക്ക് ലാപ്‌ടോപ്പ്” പോലെ, പാസ്‌കീകൾ തമ്മിൽ വേർതിരിച്ചറിയാൻ ഒരു പേര് സഹായിക്കുന്നു."
@@ -1162,6 +1170,10 @@ msgstr "സമയബന്ധിതമായ പ്ലാൻ, നിങ്ങള
 msgid "A web address is written without https://."
 msgstr "ഒരു വെബ് വിലാസം https:// ഇല്ലാതെ എഴുതിയിരിക്കുന്നു."
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "a week"
+msgstr ""
+
 #: src/features/homepage/footer.tsx
 msgid "About"
 msgstr "ഈ ആപ്പിനെക്കുറിച്ച്"
@@ -1169,6 +1181,14 @@ msgstr "ഈ ആപ്പിനെക്കുറിച്ച്"
 #: src/features/career/workspace/practise.tsx
 msgid "About 90 seconds when spoken"
 msgstr "ഉറക്കെ പറയുമ്പോൾ ഏകദേശം 90 സെക്കൻഡ്"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Absolute minimum"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Absolute minimum pay here ({currency})"
+msgstr ""
 
 #: src/features/resume/editor/design/entries-group.tsx
 msgid "Accent"
@@ -1286,6 +1306,10 @@ msgstr "\"{0}\" ചേർക്കുക"
 msgid "Add “{0}” as a new stage"
 msgstr "“{0}” ഒരു പുതിയ ഘട്ടമായി ചേർക്കുക"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Add a city or region, then Enter"
+msgstr ""
+
 #: src/features/career/knowledge/search-regions-field.tsx
 msgid "Add a country"
 msgstr "ഒരു രാജ്യം ചേർക്കുക"
@@ -1333,6 +1357,10 @@ msgstr "ഒരു സ്ഥലം ചേർത്ത് Enter അമർത്ത
 
 #: src/features/career/knowledge/profile.tsx
 msgid "Add a position"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Add a preference"
 msgstr ""
 
 #: src/features/career/workspace/apply.tsx
@@ -1398,6 +1426,10 @@ msgstr "ഒരു വിലാസം ചേർക്കുക."
 #: src/features/career/schedule-sheet.tsx
 msgid "Add an application first"
 msgstr "ആദ്യം ഒരു അപേക്ഷ ചേർക്കുക"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Add an area"
+msgstr ""
 
 #: src/features/resume/editor/check/issues.ts
 msgid "Add an email"
@@ -1755,6 +1787,10 @@ msgstr "സാങ്കേതിക അഭിമുഖത്തിന് ശേ�
 msgid "After your first review, a light plan for this week appears here."
 msgstr "നിങ്ങളുടെ ആദ്യ റിവ്യൂവിന് ശേഷം, ഈ ആഴ്ചത്തേക്കുള്ള ഒരു ലഘു പ്ലാൻ ഇവിടെ കാണാം."
 
+#: src/features/career/preference-check.tsx
+msgid "Against your preferences"
+msgstr ""
+
 #: src/features/career/workspace/fit.tsx
 msgid "Against your requirements"
 msgstr "നിങ്ങളുടെ ആവശ്യകതകളുമായി താരതമ്യം"
@@ -2006,8 +2042,13 @@ msgid "Anything to remember about this job"
 msgstr "ഈ ജോലിയെക്കുറിച്ച് ഓർമ്മിക്കേണ്ടതെന്തും"
 
 #: src/features/career/knowledge/search-regions-field.tsx
+#: src/features/career/knowledge/structured-preferences.tsx
 msgid "Anywhere"
 msgstr "എവിടെയും"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Anywhere else"
+msgstr ""
 
 #: src/features/assistant/provider-setup.tsx
 #: src/features/settings/ai/providers.tsx
@@ -2209,6 +2250,10 @@ msgstr "അറബിക്"
 msgid "Archived (closes it)"
 msgstr "ആർക്കൈവ് ചെയ്‌തു (അടയ്ക്കുന്നു)"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Area name"
+msgstr ""
+
 #: src/features/resume/editor/write/entries.tsx
 msgid "Area of study"
 msgstr "പഠന മേഖല"
@@ -2331,6 +2376,11 @@ msgstr "അസിസ്റ്റൻ്റ് സംഭാഷണങ്ങൾ"
 msgid "Assistant."
 msgstr "അസിസ്റ്റൻ്റ്."
 
+#. placeholder {0}: money(salary.floor, salary.currency)
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "at least {0}"
+msgstr ""
+
 #: src/features/homepage/prepare.tsx
 msgid "At Northwind Labs I led research for our onboarding redesign. I interviewed 14 customers, found three drop-off points, and we shipped a shorter setup. Activation rose from 31% to 44%."
 msgstr "Northwind Labs-ൽ ഞങ്ങളുടെ ഓൺബോർഡിംഗ് പുനർരൂപകൽപ്പനയ്ക്കായുള്ള ഗവേഷണം ഞാൻ നയിച്ചു. 14 ഉപഭോക്താക്കളെ അഭിമുഖം ചെയ്തു, മൂന്ന് ഡ്രോപ്പ്-ഓഫ് പോയിന്റുകൾ കണ്ടെത്തി, ഞങ്ങൾ ചെറിയൊരു സെറ്റപ്പ് പുറത്തിറക്കി. ആക്റ്റിവേഷൻ 31%-ൽ നിന്ന് 44% ആയി ഉയർന്നു."
@@ -2383,6 +2433,10 @@ msgstr "അറ്റാച്ച്മെന്റ്"
 msgid "Automatically"
 msgstr "സ്വയമേവ"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Autonomy"
+msgstr ""
+
 #: src/features/resume/share/format.ts
 msgid "autosaved"
 msgstr "സ്വയമേവ സംരക്ഷിച്ചു"
@@ -2394,6 +2448,10 @@ msgstr "ഓട്ടോസേവുകൾ സെഷൻ പ്രകാരം ത
 #: src/features/resume/share/cv-domain-card.tsx
 msgid "Available"
 msgstr "ലഭ്യമാണ്"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Avoid"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Avoid heavy letter-spacing effects, then re-export."
@@ -2529,6 +2587,10 @@ msgstr "സമർപ്പിക്കുന്നതിന് മുമ്പ�
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Behavioral"
 msgstr "ബിഹേവിയറൽ"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Benefits"
+msgstr ""
 
 #: src/libs/locale.ts
 msgid "Bengali"
@@ -2867,6 +2929,10 @@ msgstr "മറ്റൊരു ഫയൽ പരിശോധിക്കുക"
 msgid "Check any PDF, no account needed"
 msgstr "ഏതെങ്കിലും PDF പരിശോധിക്കുക, അക്കൗണ്ട് ആവശ്യമില്ല"
 
+#: src/features/career/preference-check.tsx
+msgid "Check before applying"
+msgstr ""
+
 #: src/features/resume/share/custom-domain-field.tsx
 #: src/features/resume/share/dns-records-dialog.tsx
 msgid "Check DNS"
@@ -2939,6 +3005,10 @@ msgstr "നിങ്ങളുടെ അക്കൗണ്ട് സ്ഥിര�
 msgid "Check your resume’s ATS readability"
 msgstr "നിങ്ങളുടെ സിവിയുടെ ATS റീഡബിലിറ്റി പരിശോധിക്കുക"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Checked by whether the posting mentions it, so use the words a posting would: \"nonprofit\", \"permanent\", \"pension\". Anything subtler is left for the coach to read."
+msgstr ""
+
 #. placeholder {0}: file.name
 #: src/features/ats-checker/checker.tsx
 msgid "Checking {0}"
@@ -2983,6 +3053,10 @@ msgstr "ചൈനീസ് (സിംപ്ലിഫൈഡ്)"
 #: src/libs/locale.ts
 msgid "Chinese (Traditional)"
 msgstr "ചൈനീസ് (ട്രഡീഷണൽ)"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Choose a country"
+msgstr ""
 
 #: src/features/documents/documents-page.tsx
 msgid "Choose a file"
@@ -3211,6 +3285,10 @@ msgstr "കമാൻഡ് പാലറ്റ്: {currentPage}"
 #: src/features/homepage/footer.tsx
 msgid "Community"
 msgstr "കമ്മ്യൂണിറ്റി"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Commute, at most"
+msgstr ""
 
 #: src/features/resume/editor/design/fit.ts
 #: src/features/resume/editor/design/style-groups.tsx
@@ -4191,6 +4269,10 @@ msgstr "ടൈംലൈൻ അപ്ഡേറ്റ് ചെയ്യാനാ�
 msgid "Couldn't update this letter's versions. Try again."
 msgstr "ഈ കത്തിന്റെ പതിപ്പുകൾ അപ്‌ഡേറ്റ് ചെയ്യാനായില്ല. വീണ്ടും ശ്രമിക്കുക."
 
+#: src/features/career/preference-check.tsx
+msgid "Couldn't update this preference. Try again."
+msgstr ""
+
 #. Fallback toast when uploading profile picture for resume fails
 #: src/features/resume/editor/write/picture-settings.tsx
 #: src/features/settings/account/profile.tsx
@@ -4220,6 +4302,10 @@ msgstr "ഉറവിടം അനുസരിച്ച് എണ്ണുക"
 msgid "Count characters"
 msgstr "അക്ഷരങ്ങൾ എണ്ണുക"
 
+#: src/features/career/preference-check.tsx
+msgid "Count it again"
+msgstr ""
+
 #: src/features/career/workspace/apply.tsx
 msgid "Count words"
 msgstr "വാക്കുകൾ എണ്ണുക"
@@ -4231,6 +4317,10 @@ msgstr "പാഴ്സ് സ്കോറിൽ നിന്ന് വേറി
 #: src/features/career/knowledge/search-regions-field.tsx
 msgid "Countries"
 msgstr "രാജ്യങ്ങൾ"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Country"
+msgstr ""
 
 #: src/features/applications/components/manage-lanes-sheet.tsx
 msgid "Counts as"
@@ -4280,6 +4370,10 @@ msgstr "കവർ ലെറ്റർ സമർപ്പിച്ചു (ഓപ�
 #: src/features/homepage/sections.tsx
 msgid "Cover letters"
 msgstr "കവർ ലെറ്ററുകൾ"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Covers"
+msgstr ""
 
 #: src/features/command-palette/pages/navigation.tsx
 msgid "Create"
@@ -4355,8 +4449,13 @@ msgid "CSV data"
 msgstr "CSV ഡാറ്റ"
 
 #: src/features/career/knowledge/preferences.tsx
+#: src/features/career/knowledge/structured-preferences.tsx
 msgid "Currency"
 msgstr "കറൻസി"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Currency set; no amounts yet."
+msgstr ""
 
 #: src/features/applications/components/export-applications-sheet.tsx
 msgid "Current filters"
@@ -4802,6 +4901,10 @@ msgstr "നിങ്ങൾ ഇവിടേക്ക് നീക്കുന്�
 msgid "Does it use AI?"
 msgstr "ഇത് AI ഉപയോഗിക്കുന്നുണ്ടോ?"
 
+#: src/features/career/preference-check.tsx
+msgid "Doesn't matter here"
+msgstr ""
+
 #: src/features/resume/share/custom-domain-field.tsx
 msgid "Domain connected"
 msgstr "ഡൊമെയ്ൻ കണക്റ്റ് ചെയ്തു"
@@ -5058,6 +5161,10 @@ msgstr "ഫീഡ്‌ബാക്ക് ലഭിച്ച ഓരോ ഉത്
 msgid "Each requirement in the posting is checked against the facts and stories in your Knowledge. Gaps show as missing evidence, never missing ability."
 msgstr "പോസ്റ്റിംഗിലെ ഓരോ ആവശ്യകതയും നിങ്ങളുടെ അറിവിലെ വസ്തുതകളുമായും കഥകളുമായും ഒത്തുനോക്കുന്നു. വിടവുകൾ തെളിവിന്റെ അഭാവമായാണ് കാണിക്കുന്നത്, ഒരിക്കലും കഴിവിന്റെ അഭാവമായല്ല."
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Each rule covers an area. A rule naming places is used before a country rule, and a country rule before an \"anywhere\" rule; among rules of the same kind, the higher one wins. Radius and commute time are shared with the coach but can't be checked against a posting."
+msgstr ""
+
 #: src/features/assistant/conversation.tsx
 msgid "Each send starts fresh with this message and selected files. Previous conversation history stays here."
 msgstr "ഈ സന്ദേശവും തിരഞ്ഞെടുത്ത ഫയലുകളും ഉപയോഗിച്ച് ഓരോ അയക്കലും പുതുതായി ആരംഭിക്കുന്നു. മുമ്പത്തെ സംഭാഷണ ചരിത്രം ഇവിടെ നിലനിൽക്കും."
@@ -5258,6 +5365,10 @@ msgstr "എക്സ്പോർട്ട് ചെയ്യുമ്പോൾ �
 msgid "Employer"
 msgstr ""
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Employment type"
+msgstr ""
+
 #: src/features/resume/editor/write/dates-field.tsx
 msgid "End"
 msgstr "അവസാനിക്കുന്നു"
@@ -5298,6 +5409,10 @@ msgstr "Reactive Resume ഇഷ്ടമാകുന്നുണ്ടോ?"
 #: src/features/auth/pages/verify-2fa.tsx
 msgid "Enter a backup code."
 msgstr "ഒരു ബാക്കപ്പ് കോഡ് നൽകുക."
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Enter a full amount, such as 95000."
+msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
 msgid "Enter a full amount, such as 95000. Your previous amount is unchanged."
@@ -5689,6 +5804,10 @@ msgstr "മറ്റ് ടാബുകൾ സൃഷ്ടിക്കുന്�
 msgid "Fit page to width"
 msgstr "പേജ് വീതിയിൽ ക്രമീകരിക്കുക"
 
+#: src/features/career/preference-check.tsx
+msgid "Fits your must-haves"
+msgstr ""
+
 #: src/features/resume/editor/check/issues.ts
 msgid "Fix the date"
 msgstr "തീയതി നിശ്ചയിക്കുക"
@@ -5721,6 +5840,10 @@ msgstr "Northwind Labs-ലെ ഓൺബോർഡിംഗ് ഡ്രോപ്�
 #: src/features/ats-checker/messages.ts
 msgid "Flatten the form so the text is part of the page."
 msgstr "ടെക്സ്റ്റ് പേജിന്റെ ഭാഗമാകുന്ന വിധം ഫോം ഫ്ലാറ്റൻ ചെയ്യുക."
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Flexibility"
+msgstr ""
 
 #: src/features/resume/editor/write/entries.tsx
 msgid "Fluency"
@@ -5929,6 +6052,10 @@ msgstr "അസിസ്റ്റൻ്റിൽ നിന്നോ API-ൽ ന�
 msgid "From your cover letter"
 msgstr "നിങ്ങളുടെ കവർ ലെറ്ററിൽ നിന്ന്"
 
+#: src/features/career/preference-check.tsx
+msgid "from your earlier settings"
+msgstr ""
+
 #: src/features/assistant/assistant-panel.tsx
 msgid "From your experience entries"
 msgstr "നിങ്ങളുടെ അനുഭവക്കുറിപ്പുകളിൽ നിന്ന്"
@@ -6069,6 +6196,10 @@ msgstr "ഗ്രേഡ്"
 msgid "Gray"
 msgstr "ചാരനിറം"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Greater Toronto Area"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Greek"
 msgstr "ഗ്രീക്ക്"
@@ -6084,6 +6215,14 @@ msgstr "അഭിസംബോധന"
 #: src/features/documents/documents-page.tsx
 msgid "Grid"
 msgstr "ഗ്രിഡ്"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Growth"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Growth and learning"
+msgstr ""
 
 #: src/features/homepage/remember.tsx
 msgid "Happy to walk you through it on our call."
@@ -6304,9 +6443,26 @@ msgstr "ആഴ്ചയിൽ എത്ര ദിവസം ഓഫീസിൽ �
 msgid "How many days of leave come with it?"
 msgstr "എത്ര ദിവസത്തെ അവധി ലഭിക്കും?"
 
+#. placeholder {0}: item.value || kinds[item.kind]
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "How much {0} matters"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "How much {name} matters"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "How much this rule matters"
+msgstr ""
+
 #: src/features/career/schedule-sheet.tsx
 msgid "How often"
 msgstr "എത്ര തവണ"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "How roles are checked"
+msgstr ""
 
 #: src/features/templates/gallery.tsx
 msgid "How to choose a template"
@@ -6323,6 +6479,10 @@ msgstr "ഈ റോളിൽ ഞാൻ എത്രത്തോളം യോജ�
 #: src/libs/locale.ts
 msgid "Hungarian"
 msgstr "ഹംഗേറിയൻ"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Hybrid"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/typography.tsx
 msgid "Hyphenation"
@@ -6361,6 +6521,11 @@ msgstr "ഐക്കൺ..."
 #: src/features/resume/editor/design/style-groups.tsx
 msgid "Icons in contact line"
 msgstr "കോൺടാക്റ്റ് ലൈനിലെ ഐക്കണുകൾ"
+
+#. placeholder {0}: money(salary.preferred, salary.currency)
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "ideally {0}+"
+msgstr ""
 
 #: src/features/homepage/remember.tsx
 msgid "If I did it again, I’d agree on the measure before the first prototype."
@@ -6492,6 +6657,14 @@ msgstr "ഇൻഡന്റ് കൂട്ടുക"
 #: src/libs/locale.ts
 msgid "Indonesian"
 msgstr "ഇന്തോനേഷ്യൻ"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Industry"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Industry, organization type, mission, size, benefits, employment type…"
+msgstr ""
 
 #: src/features/career/workspace/fit.tsx
 msgid "Inferred"
@@ -6925,6 +7098,10 @@ msgstr "കീവേഡുകൾ"
 #: src/libs/locale.ts
 msgid "Khmer"
 msgstr "ഖെമർ"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Kind"
+msgstr ""
 
 #: src/features/letters/compose.ts
 msgid "Kind regards,"
@@ -7575,6 +7752,10 @@ msgstr "സെർവർ നിയന്ത്രിക്കുന്നത്"
 msgid "Managed by your server"
 msgstr "നിങ്ങളുടെ സെർവർ നിയന്ത്രിക്കുന്നത്"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Management"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Many bullets start with the same phrase."
 msgstr "പല ബുള്ളറ്റുകളും ഒരേ വാക്യശകലത്തിലാണ് തുടങ്ങുന്നത്."
@@ -7714,6 +7895,10 @@ msgstr "സന്ദേശങ്ങൾ · നിങ്ങളുടെ ഇമെ�
 msgid "Messages · Reply to Sam at Fieldnote"
 msgstr "സന്ദേശങ്ങൾ · Fieldnote-ലെ Sam-ന് മറുപടി"
 
+#: src/features/career/preference-check.tsx
+msgid "Met"
+msgstr ""
+
 #: src/features/career/knowledge/profile.tsx
 msgid "Metrics (only numbers you can back up)"
 msgstr ""
@@ -7722,9 +7907,21 @@ msgstr ""
 msgid "Microphone blocked. Allow it in your browser settings, or type your answer."
 msgstr "മൈക്രോഫോൺ തടഞ്ഞിരിക്കുന്നു. ബ്രൗസർ സെറ്റിംഗ്സിൽ അത് അനുവദിക്കുക, അല്ലെങ്കിൽ ഉത്തരം ടൈപ്പ് ചെയ്യുക."
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "min"
+msgstr ""
+
 #: src/features/career/knowledge/preferences.tsx
 msgid "Minimum base salary"
 msgstr "കുറഞ്ഞ അടിസ്ഥാന ശമ്പളം"
+
+#: src/features/career/knowledge/preferences.tsx
+msgid "Minimum pay is set under Pay, below."
+msgstr ""
+
+#: src/features/career/preference-check.tsx
+msgid "Misses a must-have"
+msgstr ""
 
 #: src/features/applications/components/detail/assemble-dialog.tsx
 msgid "Missing evidence isn't missing ability. If you have done it, add it to your profile and assemble again."
@@ -7733,6 +7930,10 @@ msgstr ""
 #: src/features/homepage/prepare.tsx
 msgid "Missing evidence means your notes don’t show it yet, not that you lack it."
 msgstr "തെളിവില്ല എന്നതിനർത്ഥം നിങ്ങളുടെ കുറിപ്പുകളിൽ അത് ഇതുവരെ കാണിക്കുന്നില്ല എന്നാണ്, നിങ്ങൾക്ക് അത് ഇല്ല എന്നല്ല."
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Mission"
+msgstr ""
 
 #: src/features/homepage/footer.tsx
 msgid "MIT License"
@@ -7839,6 +8040,7 @@ msgstr "{label} മുകളിലേക്ക് നീക്കുക"
 msgid "Move all content inside the page boundaries and re-export."
 msgstr "എല്ലാ ഉള്ളടക്കവും പേജ് അതിർത്തിക്കുള്ളിലേക്ക് നീക്കി വീണ്ടും എക്സ്പോർട്ട് ചെയ്യുക."
 
+#: src/features/career/knowledge/structured-preferences.tsx
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Move down"
 msgstr "താഴേക്ക് നീങ്ങുക"
@@ -7901,6 +8103,7 @@ msgstr "ട്രാഷിലേക്ക് നീക്കുക"
 msgid "Move to…"
 msgstr "ഇതിലേക്ക് നീക്കുക..."
 
+#: src/features/career/knowledge/structured-preferences.tsx
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Move up"
 msgstr "മുകളിലേക്ക് നീങ്ങുക"
@@ -7924,6 +8127,15 @@ msgstr "{label} എന്നതിലേക്ക് നീക്കി"
 #: src/features/career/workspace/messages.tsx
 msgid "Moves the application from {0}."
 msgstr "അപേക്ഷ “{0}” ഘട്ടത്തിൽ നിന്ന് മാറ്റുന്നു."
+
+#: src/features/career/knowledge/structured-preferences.tsx
+#: src/features/career/preference-check.tsx
+msgid "Must have"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Must have: lower pay rules a role out, unless an exception below applies."
+msgstr ""
 
 #: src/features/homepage/remember.tsx
 msgid "My job was to find out why, without adding support work."
@@ -7997,6 +8209,10 @@ msgstr "പേര്, ഇമെയിൽ, ഫോൺ, സ്ഥാനം എന�
 msgid "named"
 msgstr "പേരിട്ടു"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Named places"
+msgstr ""
+
 #: src/features/resume/share/format.ts
 msgid "Named version"
 msgstr "പേരിട്ട പതിപ്പ്"
@@ -8053,6 +8269,10 @@ msgstr "പുതിയ API കീ"
 #: src/features/command-palette/pages/resumes.tsx
 msgid "New application"
 msgstr "പുതിയ അപേക്ഷ"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "New area"
+msgstr ""
 
 #: src/features/assistant/assistant-panel.tsx
 #: src/features/career/coach-thread.tsx
@@ -8160,6 +8380,15 @@ msgstr "അടുത്ത ഘട്ടം: {0}. “ഇന്ന്” എന്
 #: src/features/homepage/remember.tsx
 msgid "Next time, I’d agree how to measure success before the first prototype."
 msgstr "അടുത്ത തവണ, ആദ്യ പ്രോട്ടോടൈപ്പിന് മുമ്പ് വിജയം എങ്ങനെ അളക്കണമെന്ന് ധാരണയിലെത്തും."
+
+#: src/features/career/knowledge/structured-preferences.tsx
+#: src/features/career/preference-check.tsx
+msgid "Nice to have"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Nice to have."
+msgstr ""
 
 #: src/features/applications/components/interview-dialog.tsx
 msgid "No active applications."
@@ -8279,6 +8508,10 @@ msgstr "ജോലി പേരും തൊഴിലുടമയും ചേർ
 msgid "No location"
 msgstr "സ്ഥാനമില്ല"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "No location rules yet."
+msgstr ""
+
 #: src/features/career/today.tsx
 msgid "No new roles. Discovery is paused."
 msgstr "പുതിയ റോളുകളില്ല. കണ്ടെത്തൽ താൽക്കാലികമായി നിർത്തിയിരിക്കുന്നു."
@@ -8309,6 +8542,10 @@ msgstr "തുറന്ന പ്രശ്നങ്ങളില്ല"
 msgid "No other stage counts as {0}. Add one first, so its applications have somewhere to go."
 msgstr "{0} ആയി കണക്കാക്കുന്ന മറ്റൊരു ഘട്ടമില്ല. അതിലെ അപേക്ഷകൾ നീക്കാൻ ആദ്യം അത്തരമൊരു ഘട്ടം ചേർക്കുക."
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "No pay preferences yet."
+msgstr ""
+
 #: src/features/resume/editor/check/issues.ts
 msgid "No phone number"
 msgstr "ഫോൺ നമ്പർ ഇല്ല"
@@ -8324,6 +8561,14 @@ msgstr "ഫോട്ടോ ഇല്ല. മിക്ക ATS ഫോട്ടോ�
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "No postings found. Try different keywords."
 msgstr "ജോലി പോസ്റ്റിംഗുകളൊന്നും കണ്ടെത്തിയില്ല. വ്യത്യസ്ത കീവേഡുകൾ പരീക്ഷിക്കുക."
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "No preference"
+msgstr ""
+
+#: src/features/career/preference-check.tsx
+msgid "No preferences to check yet. <0>Set them in Preferences</0>"
+msgstr ""
 
 #: src/features/applications/stages.ts
 msgid "No response"
@@ -8418,6 +8663,10 @@ msgctxt "Entry header accent"
 msgid "None"
 msgstr "ഒന്നുമില്ല"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Nonprofit"
+msgstr ""
+
 #: src/features/career/knowledge/profile.tsx
 msgid "nonprofit, wordpress, leadership"
 msgstr ""
@@ -8443,6 +8692,11 @@ msgstr "Northwind Labs · Lisbon"
 #: src/libs/locale.ts
 msgid "Norwegian"
 msgstr "നോർവീജിയൻ"
+
+#. placeholder {0}: item.value
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "not {0}"
+msgstr ""
 
 #: src/features/career/workspace/messages.tsx
 msgid "Not applied"
@@ -8493,6 +8747,10 @@ msgstr "നിങ്ങളുടെ റിസ്യൂമിൽ ഇല്ല"
 msgid "Not in your resume · add only if true"
 msgstr "നിങ്ങളുടെ റെസ്യൂമെയിൽ ഇല്ല · ശരിയാണെങ്കിൽ മാത്രം ചേർക്കുക"
 
+#: src/features/career/preference-check.tsx
+msgid "Not met"
+msgstr ""
+
 #: src/features/career/shared.tsx
 msgid "Not now"
 msgstr "ഇപ്പോൾ വേണ്ട"
@@ -8530,6 +8788,10 @@ msgstr ""
 #: src/features/settings/root.tsx
 msgid "Not set up"
 msgstr "സജ്ജീകരിച്ചിട്ടില്ല"
+
+#: src/features/career/preference-check.tsx
+msgid "Not stated"
+msgstr ""
 
 #: src/features/resume/stylesheet/editor.tsx
 msgid "Not sure what to write?"
@@ -8665,6 +8927,10 @@ msgstr "ഒഡിയ"
 msgid "Off"
 msgstr "ഓഫ്"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Off: roles that require relocating to {name} don't meet this rule."
+msgstr ""
+
 #: src/features/homepage/remember.tsx
 msgid "Off: the coach won’t see it or claim it."
 msgstr "ഓഫ്: കോച്ച് ഇത് കാണുകയോ അവകാശപ്പെടുകയോ ചെയ്യില്ല."
@@ -8696,9 +8962,21 @@ msgstr "ആഴ്ചയിൽ പരമാവധി ഓഫീസ് ദിവസ
 msgid "Office days not stated"
 msgstr "ഓഫീസ് ദിവസങ്ങൾ പറഞ്ഞിട്ടില്ല"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Office days, at most"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Office days, ideally"
+msgstr ""
+
 #: src/features/resume/editor/save-status.tsx
 msgid "Offline · saved on this device"
 msgstr "ഓഫ്‌ലൈൻ · ഈ ഉപകരണത്തിൽ സംരക്ഷിച്ചു"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "On-site"
+msgstr ""
 
 #: src/features/resume/share/share-panel.tsx
 msgid "On. Anyone with the link can see your web page."
@@ -8867,6 +9145,10 @@ msgstr ""
 msgid "Open the schedule"
 msgstr "ഷെഡ്യൂൾ തുറക്കുക"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Open to relocating here"
+msgstr ""
+
 #: src/features/resume/share/share-panel.tsx
 msgid "Open web page"
 msgstr "വെബ് പേജ് തുറക്കുക"
@@ -8908,6 +9190,10 @@ msgstr "ഓപ്ഷണൽ"
 #: src/features/settings/ai/providers.tsx
 msgid "Optional for local Ollama"
 msgstr "പ്രാദേശിക Ollama-ന് ഓപ്ഷണൽ"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Optional; replaces the general minimum in this area."
+msgstr ""
 
 #: src/components/ui/combobox.tsx
 #: src/features/documents/documents-page.tsx
@@ -8971,6 +9257,7 @@ msgid "Original table formatting is preserved. This content is read-only because
 msgstr "യഥാർത്ഥ പട്ടിക ഫോർമാറ്റിംഗ് സംരക്ഷിച്ചിരിക്കുന്നു. ഈ ഉള്ളടക്കം സുരക്ഷിതമായി എഡിറ്റ് ചെയ്യാൻ കഴിയാത്തതിനാൽ വായിക്കാൻ മാത്രമുള്ളതാണ്."
 
 #: src/features/applications/components/interview-dialog.tsx
+#: src/features/career/knowledge/structured-preferences.tsx
 msgid "Other"
 msgstr "മറ്റുള്ളവ"
 
@@ -9221,7 +9508,20 @@ msgstr "താൽക്കാലികമായി നിർത്തി · {lin
 msgid "Paused schedules keep their settings."
 msgstr "താൽക്കാലികമായി നിർത്തിയ ഷെഡ്യൂളുകൾ അവയുടെ സെറ്റിംഗ്സ് നിലനിർത്തും."
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Pay"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Pay changes aren't saved until then."
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Pay is compared only when a posting states it in the same currency and period; otherwise it's marked unknown, never converted or guessed. Hourly, contract and commission pay is flagged to check."
+msgstr ""
+
 #: src/features/career/knowledge/preferences.tsx
+#: src/features/career/knowledge/structured-preferences.tsx
 msgid "Pay period"
 msgstr "ശമ്പള കാലയളവ്"
 
@@ -9240,6 +9540,18 @@ msgstr "PDF, Word അല്ലെങ്കിൽ JSON. ഞങ്ങൾ അതി
 #: src/features/homepage/sections.tsx
 msgid "People using it"
 msgstr "അത് ഉപയോഗിക്കുന്ന ആളുകൾ"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "per hour"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "per month"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "per year"
+msgstr ""
 
 #: src/features/settings/account/data.tsx
 msgid "Permanently removes everything. Export first if you want a copy."
@@ -9303,6 +9615,10 @@ msgstr "ചിത്രം"
 #: src/features/applications/components/insights-view.tsx
 msgid "Pipeline flow"
 msgstr "പൈപ്പ്ലൈൻ ഒഴുക്ക്"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Places that identify it in a posting"
+msgstr ""
 
 #: src/features/career/workspace/apply.tsx
 msgid "Plain text (.txt)"
@@ -9461,6 +9777,18 @@ msgstr "പ്രിഫറൻസുകൾ"
 msgctxt "Career preferences: the roles, places, pay and ways of working you want"
 msgid "Preferences"
 msgstr "പ്രിഫറൻസുകൾ"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Preferred"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Preferred minimum"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Preferred minimum here ({currency})"
+msgstr ""
 
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/shared.tsx
@@ -9790,6 +10118,10 @@ msgstr "ചോദിക്കേണ്ട ചോദ്യങ്ങൾ"
 #: src/features/homepage/remember.tsx
 msgid "R"
 msgstr "R"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Radius"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 msgid "Raise the design sheet"
@@ -10194,6 +10526,7 @@ msgid "Reminders appear here. Email copies are optional and need a verified addr
 msgstr "ഓർമ്മപ്പെടുത്തലുകൾ ഇവിടെ കാണാം. ഇമെയിൽ പകർപ്പുകൾ ഓപ്ഷണലാണ്, അവയ്ക്ക് സ്ഥിരീകരിച്ച ഒരു വിലാസം ആവശ്യമാണ്."
 
 #: src/features/career/knowledge/preferences.tsx
+#: src/features/career/knowledge/structured-preferences.tsx
 #: src/features/career/offers.tsx
 msgid "Remote"
 msgstr "റിമോട്ട്"
@@ -10217,17 +10550,18 @@ msgstr "“{name}” നീക്കം ചെയ്യണോ?"
 
 #. placeholder {0}: attachment.filename
 #. placeholder {0}: contact.name
-#. placeholder {0}: passkey.name || t`Unnamed passkey`
+#. placeholder {0}: item.value || kinds[item.kind]
 #: src/features/applications/components/detail/contacts.tsx
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
+#: src/features/career/knowledge/structured-preferences.tsx
 #: src/features/settings/account/security.tsx
 msgid "Remove {0}"
 msgstr "{0} നീക്കം ചെയ്യുക"
 
 #. Screen reader label for button that removes a keyword chip. Variable is the current keyword text.
 #: src/components/input/chip-input.tsx
-#: src/features/career/knowledge/preferences.tsx
+#: src/features/career/knowledge/fields.tsx
 msgid "Remove {chip}"
 msgstr "നീക്കുക {chip}"
 
@@ -10238,6 +10572,10 @@ msgstr "നീക്കം ചെയ്യുക {country}"
 #: src/features/applications/components/manage-lanes-sheet.tsx
 msgid "Remove {label}…"
 msgstr "{label} നീക്കം ചെയ്യുക…"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Remove {name}"
+msgstr ""
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Remove {value}"
@@ -10690,6 +11028,14 @@ msgstr "റോൾ, കമ്പനി അല്ലെങ്കിൽ സ്ഥ�
 #: src/features/career/coach-chat.tsx
 msgid "Roles"
 msgstr "റോളുകൾ"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Roles are checked against your office-day limit and places as strong preferences, never as must-haves."
+msgstr ""
+
+#: src/features/career/knowledge/preferences.tsx
+msgid "Roles are checked with your location rules below; this limit is used when comparing offers."
+msgstr ""
 
 #: src/features/career/schedule-sheet.tsx
 msgid "Roles, places and companies. Starts from your preferences."
@@ -11346,6 +11692,10 @@ msgstr "ഒരു ഫോളോ-അപ്പ് സജ്ജമാക്കുക
 msgid "Set a password"
 msgstr "ഒരു രഹസ്യവാക്ക് സജ്ജമാക്കുക"
 
+#: src/features/career/preference-check.tsx
+msgid "Set aside for this role"
+msgstr ""
+
 #: src/features/resume/builder/password-dialog.tsx
 msgid "Set password"
 msgstr "പാസ്‌വേഡ് സജ്ജമാക്കുക"
@@ -11689,6 +12039,7 @@ msgstr "സാഹചര്യം, ചുമതല, പ്രവർത്തന�
 msgid "Six product teams"
 msgstr "ആറ് ഉൽപ്പന്ന ടീമുകൾ"
 
+#: src/features/career/knowledge/structured-preferences.tsx
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Size"
 msgstr "സൈസ്"
@@ -11794,6 +12145,10 @@ msgstr "ചില ടെക്സ്റ്റ് പേജിന് പുറത
 #: src/features/ats-checker/messages.ts
 msgid "Some text is rotated."
 msgstr "ചില ടെക്സ്റ്റ് തിരിഞ്ഞിരിക്കുന്നു."
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Something else"
+msgstr ""
 
 #: src/libs/error-message.ts
 msgid "Something went wrong. Please try again."
@@ -12114,6 +12469,19 @@ msgstr "ശക്തിപ്പെടുത്തേണ്ടത്"
 msgid "Strikethrough"
 msgstr "സ്ട്രൈക്ക്ത്രൂ"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Strong benefits"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+#: src/features/career/preference-check.tsx
+msgid "Strong preference"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Strong preference."
+msgstr ""
+
 #: src/features/resume/editor/write/improve.tsx
 msgid "Stronger verb"
 msgstr "ശക്തമായ ക്രിയ"
@@ -12338,6 +12706,14 @@ msgstr "വീട്ടിൽ ചെയ്ത് സമർപ്പിക്ക�
 #: src/libs/locale.ts
 msgid "Tamil"
 msgstr "തമിഴ്"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Target range, from"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Target range, to"
+msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
 msgid "Target roles"
@@ -12694,6 +13070,10 @@ msgstr "നിങ്ങൾ താരതമ്യം ചെയ്യാൻ തി
 msgid "The order the text is stored in disagrees badly with the order it reads in."
 msgstr "ടെക്സ്റ്റ് സംഭരിച്ചിരിക്കുന്ന ക്രമം അത് വായിക്കുന്ന ക്രമവുമായി വളരെയധികം വ്യത്യാസപ്പെട്ടിരിക്കുന്നു."
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "The organization and the role"
+msgstr ""
+
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "The original link stays with this job."
 msgstr "യഥാർത്ഥ ലിങ്ക് ഈ ജോലിയിൽ തുടരും."
@@ -12896,6 +13276,10 @@ msgstr "ഈ അപേക്ഷയിൽ ഇതുവരെ ജോലി പോ�
 msgid "This application has no posting text saved, so there's little to match against. Add the posting to the application first for a better result."
 msgstr ""
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "this area"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "This browser can't record here. Choose an audio file, or type your answer."
 msgstr "ഈ ബ്രൗസറിന് ഇവിടെ റെക്കോർഡ് ചെയ്യാനാവില്ല. ഒരു ഓഡിയോ ഫയൽ തിരഞ്ഞെടുക്കുക, അല്ലെങ്കിൽ ഉത്തരം ടൈപ്പ് ചെയ്യുക."
@@ -13072,6 +13456,10 @@ msgstr "ഈ റെസ്യൂമെ ഒരു AI ഏജന്റ് അപ്�
 #: src/features/resume/builder/draft.ts
 msgid "This resume's sharing settings changed elsewhere."
 msgstr "ഈ റെസ്യൂമെയുടെ പങ്കിടൽ ക്രമീകരണങ്ങൾ മറ്റെവിടെയെങ്കിലും മാറ്റി."
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "This rule isn't saved until then."
+msgstr ""
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "This saved description is clipped or incomplete. Review before preparing documents."
@@ -13328,6 +13716,10 @@ msgstr "ഒരു സാമ്പിൾ റെസ്യൂമെ ഉപയോഗ
 msgid "Turkish"
 msgstr "ടർക്കിഷ്"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Turn into a rule"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Turn off discretionary ligatures when exporting."
 msgstr "എക്സ്പോർട്ട് ചെയ്യുമ്പോൾ ഡിസ്ക്രീഷണറി ലിഗേച്ചറുകൾ ഓഫ് ചെയ്യുക."
@@ -13450,6 +13842,10 @@ msgstr "ഒരു കമാൻഡ് ടൈപ്പ് ചെയ്യുക �
 msgid "Type instead"
 msgstr "പകരം ടൈപ്പ് ചെയ്യുക"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Type of organization"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "typed"
 msgstr "ടൈപ്പ് ചെയ്തത്"
@@ -13557,6 +13953,10 @@ msgstr "പേരില്ലാത്ത പാസ്‌കീ"
 #: src/features/resume/stylesheet/targets.ts
 msgid "Untitled"
 msgstr "ശീർഷകമില്ലാത്തത്"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Untitled area"
+msgstr ""
 
 #: src/features/documents/use-start-document.ts
 msgid "Untitled letter"
@@ -13854,6 +14254,19 @@ msgstr "പിന്തുണയ്‌ക്കുന്നിടത്ത് �
 msgid "Uses your browser’s voice"
 msgstr "നിങ്ങളുടെ ബ്രൗസറിന്റെ ശബ്ദം ഉപയോഗിക്കുന്നു"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Using your minimum base salary as a strong preference."
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Using your office-day limit and places, as strong preferences."
+msgstr ""
+
+#. placeholder {0}: evaluation.rule.label
+#: src/features/career/preference-check.tsx
+msgid "Using your rule for {0}."
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Uzbek"
 msgstr "ഉസ്‌ബെക്ക്"
@@ -14013,9 +14426,21 @@ msgstr "നിങ്ങൾക്കായി കാത്തിരിക്ക�
 msgid "Waiting to hear back"
 msgstr "തിരിച്ചു കേൾക്കാൻ കാത്തിരിക്കുന്നു"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Want"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Want or avoid"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Warning"
 msgstr "മുന്നറിയിപ്പ്"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Ways you'd work here"
+msgstr ""
 
 #: src/features/homepage/hero.tsx
 msgid "WCAG 2.1 AA"
@@ -14087,6 +14512,10 @@ msgstr "ഓരോ ആവശ്യകതയും വിലയിരുത്ത�
 #: src/features/homepage/prepare.tsx
 msgid "Went well"
 msgstr "നന്നായി പോയി"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "What"
+msgstr ""
 
 #: src/features/resume/editor/check/page-layer.tsx
 msgid "What a parser reads"
@@ -14209,6 +14638,14 @@ msgstr "നിങ്ങളുടെ ഉത്തരവാദിത്തം എ�
 msgid "What works"
 msgstr "ഫലിക്കുന്നത്"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "What would make it worth it"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "What would make it worth it? (optional)"
+msgstr ""
+
 #: src/features/career/knowledge/stories.tsx
 msgid "What would you do differently?"
 msgstr "നിങ്ങൾ എന്ത് വ്യത്യസ്തമായി ചെയ്യും?"
@@ -14250,6 +14687,10 @@ msgstr "അവർക്ക് എപ്പോഴാണ് നിങ്ങളു�
 #: src/features/career/coach.tsx
 msgid "When you press send, {shared} go to {connection}."
 msgstr "നിങ്ങൾ അയയ്ക്കുക അമർത്തുമ്പോൾ, {shared} എന്നിവ {connection}-ലേക്ക് പോകും."
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Where and how you'll work"
+msgstr ""
 
 #: src/features/applications/components/insights-view.tsx
 msgid "Where applications come from"
@@ -14316,6 +14757,10 @@ msgstr "ഇന്ന് ഡിസൈൻ സിസ്റ്റത്തിന്�
 msgid "Who you'll meet"
 msgstr "നിങ്ങൾ കാണുന്നവർ"
 
+#: src/features/career/preference-check.tsx
+msgid "Why"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "Why do you want this role at {company}?"
 msgstr "{company}-ലെ ഈ റോൾ നിങ്ങൾക്ക് എന്തുകൊണ്ട് വേണം?"
@@ -14335,6 +14780,10 @@ msgstr "വീതി"
 #: src/features/homepage/faq.tsx
 msgid "Will my resume get past applicant tracking systems?"
 msgstr "എൻ്റെ റെസ്യൂമെയ്ക്ക് അപേക്ഷകൻ്റെ മുൻകാല ട്രാക്കിംഗ് സംവിധാനങ്ങൾ ലഭിക്കുമോ?"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "With an exception, pay below the absolute minimum counts against a role but doesn't rule it out."
+msgstr ""
 
 #: src/features/homepage/remember.tsx
 msgid "Within a quarter, activation went from 31% to 44%."
@@ -14364,6 +14813,10 @@ msgstr "ചോദിക്കേണ്ടത്"
 #: src/features/career/workspace/fit.tsx
 msgid "Worth asking {0}"
 msgstr "{0}-നോട് ചോദിക്കേണ്ടത്"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Would consider less for"
+msgstr ""
 
 #: src/features/homepage/footer.tsx
 #: src/features/homepage/header.tsx

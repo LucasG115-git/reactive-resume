@@ -1037,6 +1037,10 @@ msgstr "로그인 시 인증 앱의 코드"
 msgid "A comfortable length, and it fits on one page."
 msgstr "길이도 적당하고 한 페이지에 딱 맞습니다."
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "A country"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "A date is in the future."
 msgstr "날짜가 미래로 되어 있습니다."
@@ -1106,6 +1110,10 @@ msgstr "링크가 표시된 주소와 다른 곳을 가리키고 있습니다."
 msgid "A model's opinion, not a verdict. It can be wrong."
 msgstr "평결이 아닌 모델의 의견입니다. 틀릴 수도 있습니다."
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "A must-have rules a role out only when the posting confirms it isn't met; if the posting doesn't say, the role is marked to check. Strong preferences and nice-to-haves only change the order. You can still save and track any role."
+msgstr ""
+
 #: src/features/settings/account/security.tsx
 msgid "A name helps you tell passkeys apart, like “Work laptop”."
 msgstr "“업무용 노트북”처럼 이름을 붙이면 패스키를 구분하기 쉽습니다."
@@ -1162,6 +1170,10 @@ msgstr "시간별 계획, 오프닝, 가져갈 스토리와 물어볼 질문. �
 msgid "A web address is written without https://."
 msgstr "웹 주소가 https:// 없이 작성되어 있습니다."
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "a week"
+msgstr ""
+
 #: src/features/homepage/footer.tsx
 msgid "About"
 msgstr "이 앱 정보"
@@ -1169,6 +1181,14 @@ msgstr "이 앱 정보"
 #: src/features/career/workspace/practise.tsx
 msgid "About 90 seconds when spoken"
 msgstr "말하면 약 90초 분량"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Absolute minimum"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Absolute minimum pay here ({currency})"
+msgstr ""
 
 #: src/features/resume/editor/design/entries-group.tsx
 msgid "Accent"
@@ -1286,6 +1306,10 @@ msgstr "\"{0}\" 추가"
 msgid "Add “{0}” as a new stage"
 msgstr "“{0}”을 새 단계로 추가"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Add a city or region, then Enter"
+msgstr ""
+
 #: src/features/career/knowledge/search-regions-field.tsx
 msgid "Add a country"
 msgstr "국가 추가"
@@ -1333,6 +1357,10 @@ msgstr "장소 입력 후 Enter"
 
 #: src/features/career/knowledge/profile.tsx
 msgid "Add a position"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Add a preference"
 msgstr ""
 
 #: src/features/career/workspace/apply.tsx
@@ -1398,6 +1426,10 @@ msgstr "주소를 추가하세요."
 #: src/features/career/schedule-sheet.tsx
 msgid "Add an application first"
 msgstr "먼저 지원 내역을 추가하세요"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Add an area"
+msgstr ""
 
 #: src/features/resume/editor/check/issues.ts
 msgid "Add an email"
@@ -1755,6 +1787,10 @@ msgstr "기술 면접 후"
 msgid "After your first review, a light plan for this week appears here."
 msgstr "첫 검토를 마치면 이번 주를 위한 가벼운 계획이 여기에 표시됩니다."
 
+#: src/features/career/preference-check.tsx
+msgid "Against your preferences"
+msgstr ""
+
 #: src/features/career/workspace/fit.tsx
 msgid "Against your requirements"
 msgstr "내 요건과 비교"
@@ -2006,8 +2042,13 @@ msgid "Anything to remember about this job"
 msgstr "이 직업에 대해 기억에 남는 것이 있다면"
 
 #: src/features/career/knowledge/search-regions-field.tsx
+#: src/features/career/knowledge/structured-preferences.tsx
 msgid "Anywhere"
 msgstr "어딘가에"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Anywhere else"
+msgstr ""
 
 #: src/features/assistant/provider-setup.tsx
 #: src/features/settings/ai/providers.tsx
@@ -2209,6 +2250,10 @@ msgstr "아랍어"
 msgid "Archived (closes it)"
 msgstr "보관됨(닫음)"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Area name"
+msgstr ""
+
 #: src/features/resume/editor/write/entries.tsx
 msgid "Area of study"
 msgstr "연구분야"
@@ -2331,6 +2376,11 @@ msgstr "어시스턴트 대화"
 msgid "Assistant."
 msgstr "어시스턴트."
 
+#. placeholder {0}: money(salary.floor, salary.currency)
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "at least {0}"
+msgstr ""
+
 #: src/features/homepage/prepare.tsx
 msgid "At Northwind Labs I led research for our onboarding redesign. I interviewed 14 customers, found three drop-off points, and we shipped a shorter setup. Activation rose from 31% to 44%."
 msgstr "Northwind Labs에서 온보딩 리디자인 리서치를 이끌었습니다. 고객 14명을 인터뷰해 이탈 지점 세 곳을 찾았고, 더 짧은 설정 과정을 출시했습니다. 활성화율은 31%에서 44%로 올랐습니다."
@@ -2383,6 +2433,10 @@ msgstr "부착"
 msgid "Automatically"
 msgstr "자동으로"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Autonomy"
+msgstr ""
+
 #: src/features/resume/share/format.ts
 msgid "autosaved"
 msgstr "자동 저장됨"
@@ -2394,6 +2448,10 @@ msgstr "자동 저장은 세션별로 그룹화되어 90일 동안 보관됩니�
 #: src/features/resume/share/cv-domain-card.tsx
 msgid "Available"
 msgstr "등록 가능"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Avoid"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Avoid heavy letter-spacing effects, then re-export."
@@ -2529,6 +2587,10 @@ msgstr "제출하기 전에"
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Behavioral"
 msgstr "인성"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Benefits"
+msgstr ""
 
 #: src/libs/locale.ts
 msgid "Bengali"
@@ -2867,6 +2929,10 @@ msgstr "다른 파일 확인"
 msgid "Check any PDF, no account needed"
 msgstr "PDF를 확인하세요. 계정이 필요하지 않습니다."
 
+#: src/features/career/preference-check.tsx
+msgid "Check before applying"
+msgstr ""
+
 #: src/features/resume/share/custom-domain-field.tsx
 #: src/features/resume/share/dns-records-dialog.tsx
 msgid "Check DNS"
@@ -2939,6 +3005,10 @@ msgstr "계정을 인증할 수 있는 링크가 이메일로 전송되었습니
 msgid "Check your resume’s ATS readability"
 msgstr "이력서의 ATS 가독성을 확인하세요"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Checked by whether the posting mentions it, so use the words a posting would: \"nonprofit\", \"permanent\", \"pension\". Anything subtler is left for the coach to read."
+msgstr ""
+
 #. placeholder {0}: file.name
 #: src/features/ats-checker/checker.tsx
 msgid "Checking {0}"
@@ -2983,6 +3053,10 @@ msgstr "중국어(간체)"
 #: src/libs/locale.ts
 msgid "Chinese (Traditional)"
 msgstr "중국어(번체)"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Choose a country"
+msgstr ""
 
 #: src/features/documents/documents-page.tsx
 msgid "Choose a file"
@@ -3211,6 +3285,10 @@ msgstr "명령 팔레트: {currentPage}"
 #: src/features/homepage/footer.tsx
 msgid "Community"
 msgstr "커뮤니티"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Commute, at most"
+msgstr ""
 
 #: src/features/resume/editor/design/fit.ts
 #: src/features/resume/editor/design/style-groups.tsx
@@ -4191,6 +4269,10 @@ msgstr "타임라인을 업데이트할 수 없습니다. 다시 시도해 보�
 msgid "Couldn't update this letter's versions. Try again."
 msgstr "이 레터의 버전을 업데이트할 수 없습니다. 다시 시도해 보세요."
 
+#: src/features/career/preference-check.tsx
+msgid "Couldn't update this preference. Try again."
+msgstr ""
+
 #. Fallback toast when uploading profile picture for resume fails
 #: src/features/resume/editor/write/picture-settings.tsx
 #: src/features/settings/account/profile.tsx
@@ -4220,6 +4302,10 @@ msgstr "출처별 개수"
 msgid "Count characters"
 msgstr "글자 수 세기"
 
+#: src/features/career/preference-check.tsx
+msgid "Count it again"
+msgstr ""
+
 #: src/features/career/workspace/apply.tsx
 msgid "Count words"
 msgstr "단어 수 세기"
@@ -4231,6 +4317,10 @@ msgstr "파싱 점수와는 별도로 계산됩니다. 커버리지는 아무것
 #: src/features/career/knowledge/search-regions-field.tsx
 msgid "Countries"
 msgstr "국가"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Country"
+msgstr ""
 
 #: src/features/applications/components/manage-lanes-sheet.tsx
 msgid "Counts as"
@@ -4280,6 +4370,10 @@ msgstr "자기 소개서 제출됨(선택 사항)"
 #: src/features/homepage/sections.tsx
 msgid "Cover letters"
 msgstr "커버레터"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Covers"
+msgstr ""
 
 #: src/features/command-palette/pages/navigation.tsx
 msgid "Create"
@@ -4355,8 +4449,13 @@ msgid "CSV data"
 msgstr "CSV 데이터"
 
 #: src/features/career/knowledge/preferences.tsx
+#: src/features/career/knowledge/structured-preferences.tsx
 msgid "Currency"
 msgstr "통화"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Currency set; no amounts yet."
+msgstr ""
 
 #: src/features/applications/components/export-applications-sheet.tsx
 msgid "Current filters"
@@ -4802,6 +4901,10 @@ msgstr "여기로 옮긴 서류는 30일 동안 보관됩니다."
 msgid "Does it use AI?"
 msgstr "AI를 사용하나요?"
 
+#: src/features/career/preference-check.tsx
+msgid "Doesn't matter here"
+msgstr ""
+
 #: src/features/resume/share/custom-domain-field.tsx
 msgid "Domain connected"
 msgstr "도메인 연결됨"
@@ -5058,6 +5161,10 @@ msgstr "피드백을 받은 답변은 모두 최신순으로 여기에 보관됩
 msgid "Each requirement in the posting is checked against the facts and stories in your Knowledge. Gaps show as missing evidence, never missing ability."
 msgstr "채용 공고의 각 요건을 지식에 있는 사실 및 스토리와 대조합니다. 빈 부분은 능력이 아니라 근거가 부족하다는 뜻으로만 표시됩니다."
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Each rule covers an area. A rule naming places is used before a country rule, and a country rule before an \"anywhere\" rule; among rules of the same kind, the higher one wins. Radius and commute time are shared with the coach but can't be checked against a posting."
+msgstr ""
+
 #: src/features/assistant/conversation.tsx
 msgid "Each send starts fresh with this message and selected files. Previous conversation history stays here."
 msgstr "각 전송은 이 메시지와 선택한 파일로 새로 시작됩니다. 이전 대화 기록은 여기에 유지됩니다."
@@ -5258,6 +5365,10 @@ msgstr "내보낼 때 모든 폰트를 임베드하여 문자가 의도한 대�
 msgid "Employer"
 msgstr ""
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Employment type"
+msgstr ""
+
 #: src/features/resume/editor/write/dates-field.tsx
 msgid "End"
 msgstr "끝"
@@ -5298,6 +5409,10 @@ msgstr "Reactive Resume가 마음에 드시나요?"
 #: src/features/auth/pages/verify-2fa.tsx
 msgid "Enter a backup code."
 msgstr "백업 코드를 입력하세요."
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Enter a full amount, such as 95000."
+msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
 msgid "Enter a full amount, such as 95000. Your previous amount is unchanged."
@@ -5689,6 +5804,10 @@ msgstr "적합도 확인, 브리핑, 연습 피드백, 회고, 답변, 답장은
 msgid "Fit page to width"
 msgstr "페이지를 너비에 맞추기"
 
+#: src/features/career/preference-check.tsx
+msgid "Fits your must-haves"
+msgstr ""
+
 #: src/features/resume/editor/check/issues.ts
 msgid "Fix the date"
 msgstr "날짜를 수정하세요"
@@ -5721,6 +5840,10 @@ msgstr "Northwind Labs의 온보딩 이탈 문제 해결"
 #: src/features/ats-checker/messages.ts
 msgid "Flatten the form so the text is part of the page."
 msgstr "양식을 평면화하여 텍스트가 페이지의 일부가 되게 하세요."
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Flexibility"
+msgstr ""
 
 #: src/features/resume/editor/write/entries.tsx
 msgid "Fluency"
@@ -5929,6 +6052,10 @@ msgstr "보조자 또는 API에서"
 msgid "From your cover letter"
 msgstr "커버레터에서"
 
+#: src/features/career/preference-check.tsx
+msgid "from your earlier settings"
+msgstr ""
+
 #: src/features/assistant/assistant-panel.tsx
 msgid "From your experience entries"
 msgstr "귀하의 경험 항목에서"
@@ -6069,6 +6196,10 @@ msgstr "성적"
 msgid "Gray"
 msgstr "회색"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Greater Toronto Area"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Greek"
 msgstr "그리스어"
@@ -6084,6 +6215,14 @@ msgstr "인사말"
 #: src/features/documents/documents-page.tsx
 msgid "Grid"
 msgstr "그리드"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Growth"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Growth and learning"
+msgstr ""
 
 #: src/features/homepage/remember.tsx
 msgid "Happy to walk you through it on our call."
@@ -6304,9 +6443,26 @@ msgstr "주에 며칠 사무실 출근이 필요한가요?"
 msgid "How many days of leave come with it?"
 msgstr "휴가는 며칠인가요?"
 
+#. placeholder {0}: item.value || kinds[item.kind]
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "How much {0} matters"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "How much {name} matters"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "How much this rule matters"
+msgstr ""
+
 #: src/features/career/schedule-sheet.tsx
 msgid "How often"
 msgstr "빈도"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "How roles are checked"
+msgstr ""
 
 #: src/features/templates/gallery.tsx
 msgid "How to choose a template"
@@ -6323,6 +6479,10 @@ msgstr "나는 이 역할에 얼마나 잘 맞는가?"
 #: src/libs/locale.ts
 msgid "Hungarian"
 msgstr "헝가리어"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Hybrid"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/typography.tsx
 msgid "Hyphenation"
@@ -6361,6 +6521,11 @@ msgstr "상…"
 #: src/features/resume/editor/design/style-groups.tsx
 msgid "Icons in contact line"
 msgstr "접촉선의 아이콘"
+
+#. placeholder {0}: money(salary.preferred, salary.currency)
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "ideally {0}+"
+msgstr ""
 
 #: src/features/homepage/remember.tsx
 msgid "If I did it again, I’d agree on the measure before the first prototype."
@@ -6492,6 +6657,14 @@ msgstr "들여쓰기"
 #: src/libs/locale.ts
 msgid "Indonesian"
 msgstr "인도네시아어"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Industry"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Industry, organization type, mission, size, benefits, employment type…"
+msgstr ""
 
 #: src/features/career/workspace/fit.tsx
 msgid "Inferred"
@@ -6925,6 +7098,10 @@ msgstr "키워드"
 #: src/libs/locale.ts
 msgid "Khmer"
 msgstr "크메르어"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Kind"
+msgstr ""
 
 #: src/features/letters/compose.ts
 msgid "Kind regards,"
@@ -7575,6 +7752,10 @@ msgstr "서버에서 관리"
 msgid "Managed by your server"
 msgstr "서버에서 관리"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Management"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Many bullets start with the same phrase."
 msgstr "많은 항목이 같은 문구로 시작합니다."
@@ -7714,6 +7895,10 @@ msgstr "메시지 · 이메일에서 붙여넣음"
 msgid "Messages · Reply to Sam at Fieldnote"
 msgstr "메시지 · Fieldnote의 Sam에게 답장"
 
+#: src/features/career/preference-check.tsx
+msgid "Met"
+msgstr ""
+
 #: src/features/career/knowledge/profile.tsx
 msgid "Metrics (only numbers you can back up)"
 msgstr ""
@@ -7722,9 +7907,21 @@ msgstr ""
 msgid "Microphone blocked. Allow it in your browser settings, or type your answer."
 msgstr "마이크가 차단되었습니다. 브라우저 설정에서 허용하거나 답변을 입력하세요."
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "min"
+msgstr ""
+
 #: src/features/career/knowledge/preferences.tsx
 msgid "Minimum base salary"
 msgstr "최소 기본급"
+
+#: src/features/career/knowledge/preferences.tsx
+msgid "Minimum pay is set under Pay, below."
+msgstr ""
+
+#: src/features/career/preference-check.tsx
+msgid "Misses a must-have"
+msgstr ""
 
 #: src/features/applications/components/detail/assemble-dialog.tsx
 msgid "Missing evidence isn't missing ability. If you have done it, add it to your profile and assemble again."
@@ -7733,6 +7930,10 @@ msgstr ""
 #: src/features/homepage/prepare.tsx
 msgid "Missing evidence means your notes don’t show it yet, not that you lack it."
 msgstr "근거가 없다는 것은 아직 노트에 나타나지 않았다는 뜻이지, 그 역량이 없다는 뜻이 아닙니다."
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Mission"
+msgstr ""
 
 #: src/features/homepage/footer.tsx
 msgid "MIT License"
@@ -7839,6 +8040,7 @@ msgstr "{label} 위로 이동"
 msgid "Move all content inside the page boundaries and re-export."
 msgstr "모든 내용을 페이지 경계 안으로 옮긴 뒤 다시 내보내세요."
 
+#: src/features/career/knowledge/structured-preferences.tsx
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Move down"
 msgstr "아래로 이동"
@@ -7901,6 +8103,7 @@ msgstr "휴지통으로 이동"
 msgid "Move to…"
 msgstr "다음으로 이동…"
 
+#: src/features/career/knowledge/structured-preferences.tsx
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Move up"
 msgstr "위로 이동"
@@ -7924,6 +8127,15 @@ msgstr "{label}(으)로 이동함"
 #: src/features/career/workspace/messages.tsx
 msgid "Moves the application from {0}."
 msgstr "지원 내역을 {0} 단계에서 이동합니다."
+
+#: src/features/career/knowledge/structured-preferences.tsx
+#: src/features/career/preference-check.tsx
+msgid "Must have"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Must have: lower pay rules a role out, unless an exception below applies."
+msgstr ""
 
 #: src/features/homepage/remember.tsx
 msgid "My job was to find out why, without adding support work."
@@ -7997,6 +8209,10 @@ msgstr "이름, 이메일, 전화번호, 위치가 검색되며, 링크는 전�
 msgid "named"
 msgstr "명명된"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Named places"
+msgstr ""
+
 #: src/features/resume/share/format.ts
 msgid "Named version"
 msgstr "명명된 버전"
@@ -8053,6 +8269,10 @@ msgstr "새로운 API 키"
 #: src/features/command-palette/pages/resumes.tsx
 msgid "New application"
 msgstr "새 지원"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "New area"
+msgstr ""
 
 #: src/features/assistant/assistant-panel.tsx
 #: src/features/career/coach-thread.tsx
@@ -8160,6 +8380,15 @@ msgstr "다음 단계: {0}. 오늘에 알림을 추가합니다."
 #: src/features/homepage/remember.tsx
 msgid "Next time, I’d agree how to measure success before the first prototype."
 msgstr "다음에는 첫 프로토타입 전에 성공 측정 방법부터 합의하겠습니다."
+
+#: src/features/career/knowledge/structured-preferences.tsx
+#: src/features/career/preference-check.tsx
+msgid "Nice to have"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Nice to have."
+msgstr ""
 
 #: src/features/applications/components/interview-dialog.tsx
 msgid "No active applications."
@@ -8279,6 +8508,10 @@ msgstr "직함과 회사명이 함께 있는 줄을 찾을 수 없습니다."
 msgid "No location"
 msgstr "위치 없음"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "No location rules yet."
+msgstr ""
+
 #: src/features/career/today.tsx
 msgid "No new roles. Discovery is paused."
 msgstr "새 직무가 없습니다. 탐색이 일시 중지되었습니다."
@@ -8309,6 +8542,10 @@ msgstr "미해결 문제 없음"
 msgid "No other stage counts as {0}. Add one first, so its applications have somewhere to go."
 msgstr "{0}에 해당하는 다른 단계가 없습니다. 지원서를 옮길 수 있도록 먼저 단계를 추가하세요."
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "No pay preferences yet."
+msgstr ""
+
 #: src/features/resume/editor/check/issues.ts
 msgid "No phone number"
 msgstr "전화번호 없음"
@@ -8324,6 +8561,14 @@ msgstr "사진이 없습니다. 대부분의 ATS는 사진을 무시합니다. �
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "No postings found. Try different keywords."
 msgstr "채용공고를 찾을 수 없습니다. 다른 키워드를 사용해 보세요."
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "No preference"
+msgstr ""
+
+#: src/features/career/preference-check.tsx
+msgid "No preferences to check yet. <0>Set them in Preferences</0>"
+msgstr ""
 
 #: src/features/applications/stages.ts
 msgid "No response"
@@ -8418,6 +8663,10 @@ msgctxt "Entry header accent"
 msgid "None"
 msgstr "없음"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Nonprofit"
+msgstr ""
+
 #: src/features/career/knowledge/profile.tsx
 msgid "nonprofit, wordpress, leadership"
 msgstr ""
@@ -8443,6 +8692,11 @@ msgstr "Northwind Labs · Lisbon"
 #: src/libs/locale.ts
 msgid "Norwegian"
 msgstr "노르웨이어"
+
+#. placeholder {0}: item.value
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "not {0}"
+msgstr ""
 
 #: src/features/career/workspace/messages.tsx
 msgid "Not applied"
@@ -8493,6 +8747,10 @@ msgstr "이력서에 없음"
 msgid "Not in your resume · add only if true"
 msgstr "이력서에 없음 · 사실인 경우에만 추가하세요"
 
+#: src/features/career/preference-check.tsx
+msgid "Not met"
+msgstr ""
+
 #: src/features/career/shared.tsx
 msgid "Not now"
 msgstr "나중에"
@@ -8530,6 +8788,10 @@ msgstr ""
 #: src/features/settings/root.tsx
 msgid "Not set up"
 msgstr "설정되지 않음"
+
+#: src/features/career/preference-check.tsx
+msgid "Not stated"
+msgstr ""
 
 #: src/features/resume/stylesheet/editor.tsx
 msgid "Not sure what to write?"
@@ -8665,6 +8927,10 @@ msgstr "오디아어"
 msgid "Off"
 msgstr "끄다"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Off: roles that require relocating to {name} don't meet this rule."
+msgstr ""
+
 #: src/features/homepage/remember.tsx
 msgid "Off: the coach won’t see it or claim it."
 msgstr "꺼짐: 코치가 이 내용을 보지 않으며 주장하지도 않습니다."
@@ -8696,9 +8962,21 @@ msgstr "주당 최대 출근일"
 msgid "Office days not stated"
 msgstr "출근일 명시 안 됨"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Office days, at most"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Office days, ideally"
+msgstr ""
+
 #: src/features/resume/editor/save-status.tsx
 msgid "Offline · saved on this device"
 msgstr "오프라인 · 이 기기에 저장됨"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "On-site"
+msgstr ""
 
 #: src/features/resume/share/share-panel.tsx
 msgid "On. Anyone with the link can see your web page."
@@ -8867,6 +9145,10 @@ msgstr ""
 msgid "Open the schedule"
 msgstr "스케줄 열기"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Open to relocating here"
+msgstr ""
+
 #: src/features/resume/share/share-panel.tsx
 msgid "Open web page"
 msgstr "웹 페이지 열기"
@@ -8908,6 +9190,10 @@ msgstr "선택 과목"
 #: src/features/settings/ai/providers.tsx
 msgid "Optional for local Ollama"
 msgstr "로컬 Ollama의 경우 선택 사항"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Optional; replaces the general minimum in this area."
+msgstr ""
 
 #: src/components/ui/combobox.tsx
 #: src/features/documents/documents-page.tsx
@@ -8971,6 +9257,7 @@ msgid "Original table formatting is preserved. This content is read-only because
 msgstr "원본 표 서식이 유지됩니다. 안전하게 편집할 수 없어 이 콘텐츠는 읽기 전용입니다."
 
 #: src/features/applications/components/interview-dialog.tsx
+#: src/features/career/knowledge/structured-preferences.tsx
 msgid "Other"
 msgstr "기타"
 
@@ -9221,7 +9508,20 @@ msgstr "일시 중지됨 · {line}"
 msgid "Paused schedules keep their settings."
 msgstr "일시 중지된 스케줄도 설정은 유지됩니다."
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Pay"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Pay changes aren't saved until then."
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Pay is compared only when a posting states it in the same currency and period; otherwise it's marked unknown, never converted or guessed. Hourly, contract and commission pay is flagged to check."
+msgstr ""
+
 #: src/features/career/knowledge/preferences.tsx
+#: src/features/career/knowledge/structured-preferences.tsx
 msgid "Pay period"
 msgstr "지급 주기"
 
@@ -9240,6 +9540,18 @@ msgstr "PDF, Word 또는 JSON. 우리는 그것으로부터 이력서를 작성�
 #: src/features/homepage/sections.tsx
 msgid "People using it"
 msgstr "그것을 사용하는 사람들"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "per hour"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "per month"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "per year"
+msgstr ""
 
 #: src/features/settings/account/data.tsx
 msgid "Permanently removes everything. Export first if you want a copy."
@@ -9303,6 +9615,10 @@ msgstr "사진"
 #: src/features/applications/components/insights-view.tsx
 msgid "Pipeline flow"
 msgstr "파이프라인 흐름"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Places that identify it in a posting"
+msgstr ""
 
 #: src/features/career/workspace/apply.tsx
 msgid "Plain text (.txt)"
@@ -9461,6 +9777,18 @@ msgstr "환경 설정"
 msgctxt "Career preferences: the roles, places, pay and ways of working you want"
 msgid "Preferences"
 msgstr "선호 사항"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Preferred"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Preferred minimum"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Preferred minimum here ({currency})"
+msgstr ""
 
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/shared.tsx
@@ -9790,6 +10118,10 @@ msgstr "물어볼 질문"
 #: src/features/homepage/remember.tsx
 msgid "R"
 msgstr "R"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Radius"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 msgid "Raise the design sheet"
@@ -10194,6 +10526,7 @@ msgid "Reminders appear here. Email copies are optional and need a verified addr
 msgstr "알림은 여기에 표시됩니다. 이메일 사본은 선택 사항이며 인증된 주소가 필요합니다."
 
 #: src/features/career/knowledge/preferences.tsx
+#: src/features/career/knowledge/structured-preferences.tsx
 #: src/features/career/offers.tsx
 msgid "Remote"
 msgstr "원격"
@@ -10217,17 +10550,18 @@ msgstr "“{name}”을(를) 제거할까요?"
 
 #. placeholder {0}: attachment.filename
 #. placeholder {0}: contact.name
-#. placeholder {0}: passkey.name || t`Unnamed passkey`
+#. placeholder {0}: item.value || kinds[item.kind]
 #: src/features/applications/components/detail/contacts.tsx
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
+#: src/features/career/knowledge/structured-preferences.tsx
 #: src/features/settings/account/security.tsx
 msgid "Remove {0}"
 msgstr "{0} 제거"
 
 #. Screen reader label for button that removes a keyword chip. Variable is the current keyword text.
 #: src/components/input/chip-input.tsx
-#: src/features/career/knowledge/preferences.tsx
+#: src/features/career/knowledge/fields.tsx
 msgid "Remove {chip}"
 msgstr "{chip} 제거"
 
@@ -10238,6 +10572,10 @@ msgstr "{country} 제거"
 #: src/features/applications/components/manage-lanes-sheet.tsx
 msgid "Remove {label}…"
 msgstr "{label} 삭제…"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Remove {name}"
+msgstr ""
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Remove {value}"
@@ -10690,6 +11028,14 @@ msgstr "역할, 회사 또는 위치"
 #: src/features/career/coach-chat.tsx
 msgid "Roles"
 msgstr "직무"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Roles are checked against your office-day limit and places as strong preferences, never as must-haves."
+msgstr ""
+
+#: src/features/career/knowledge/preferences.tsx
+msgid "Roles are checked with your location rules below; this limit is used when comparing offers."
+msgstr ""
 
 #: src/features/career/schedule-sheet.tsx
 msgid "Roles, places and companies. Starts from your preferences."
@@ -11346,6 +11692,10 @@ msgstr "후속 조치 설정…"
 msgid "Set a password"
 msgstr "비밀번호를 설정하세요"
 
+#: src/features/career/preference-check.tsx
+msgid "Set aside for this role"
+msgstr ""
+
 #: src/features/resume/builder/password-dialog.tsx
 msgid "Set password"
 msgstr "비밀번호 설정"
@@ -11689,6 +12039,7 @@ msgstr "상황, 과제, 행동, 결과, 성찰. 각 스토리를 뒷받침할 �
 msgid "Six product teams"
 msgstr "6개 제품팀"
 
+#: src/features/career/knowledge/structured-preferences.tsx
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Size"
 msgstr "크기"
@@ -11794,6 +12145,10 @@ msgstr "일부 텍스트가 페이지 밖으로 벗어나 있습니다."
 #: src/features/ats-checker/messages.ts
 msgid "Some text is rotated."
 msgstr "일부 텍스트가 회전되어 있습니다."
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Something else"
+msgstr ""
 
 #: src/libs/error-message.ts
 msgid "Something went wrong. Please try again."
@@ -12114,6 +12469,19 @@ msgstr "보완할 점"
 msgid "Strikethrough"
 msgstr "취소선"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Strong benefits"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+#: src/features/career/preference-check.tsx
+msgid "Strong preference"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Strong preference."
+msgstr ""
+
 #: src/features/resume/editor/write/improve.tsx
 msgid "Stronger verb"
 msgstr "더 강한 동사"
@@ -12338,6 +12706,14 @@ msgstr "과제 전형"
 #: src/libs/locale.ts
 msgid "Tamil"
 msgstr "타밀어"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Target range, from"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Target range, to"
+msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
 msgid "Target roles"
@@ -12694,6 +13070,10 @@ msgstr "비교하도록 선택한 오퍼와 그 조건"
 msgid "The order the text is stored in disagrees badly with the order it reads in."
 msgstr "텍스트가 저장된 순서가 실제로 읽히는 순서와 크게 다릅니다."
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "The organization and the role"
+msgstr ""
+
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "The original link stays with this job."
 msgstr "원래 링크는 이 작업에 유지됩니다."
@@ -12896,6 +13276,10 @@ msgstr "이 채용 지원서에는 아직 저장된 채용 공고가 없습니�
 msgid "This application has no posting text saved, so there's little to match against. Add the posting to the application first for a better result."
 msgstr ""
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "this area"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "This browser can't record here. Choose an audio file, or type your answer."
 msgstr "이 브라우저에서는 녹음할 수 없습니다. 오디오 파일을 선택하거나 답변을 입력하세요."
@@ -13072,6 +13456,10 @@ msgstr "이력서는 AI 에이전트에 의해 업데이트되었습니다."
 #: src/features/resume/builder/draft.ts
 msgid "This resume's sharing settings changed elsewhere."
 msgstr "이력서의 공유 설정이 다른 곳에서 변경되었습니다."
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "This rule isn't saved until then."
+msgstr ""
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "This saved description is clipped or incomplete. Review before preparing documents."
@@ -13328,6 +13716,10 @@ msgstr "샘플 이력서를 사용해 보세요"
 msgid "Turkish"
 msgstr "터키어"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Turn into a rule"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Turn off discretionary ligatures when exporting."
 msgstr "내보낼 때 임의 합자(리게이처)를 비활성화하세요."
@@ -13450,6 +13842,10 @@ msgstr "명령어를 입력하거나…를 검색하세요."
 msgid "Type instead"
 msgstr "대신 입력하기"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Type of organization"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "typed"
 msgstr "입력"
@@ -13557,6 +13953,10 @@ msgstr "이름 없는 패스키"
 #: src/features/resume/stylesheet/targets.ts
 msgid "Untitled"
 msgstr "제목 없음"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Untitled area"
+msgstr ""
 
 #: src/features/documents/use-start-document.ts
 msgid "Untitled letter"
@@ -13854,6 +14254,19 @@ msgstr "지원되는 경우 AI 제공업체의 자체 웹 검색을 사용하고
 msgid "Uses your browser’s voice"
 msgstr "브라우저 음성 사용"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Using your minimum base salary as a strong preference."
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Using your office-day limit and places, as strong preferences."
+msgstr ""
+
+#. placeholder {0}: evaluation.rule.label
+#: src/features/career/preference-check.tsx
+msgid "Using your rule for {0}."
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Uzbek"
 msgstr "우즈베크어"
@@ -14013,9 +14426,21 @@ msgstr "확인 대기 중"
 msgid "Waiting to hear back"
 msgstr "답장을 기다리는 중"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Want"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Want or avoid"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Warning"
 msgstr "경고"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Ways you'd work here"
+msgstr ""
 
 #: src/features/homepage/hero.tsx
 msgid "WCAG 2.1 AA"
@@ -14087,6 +14512,10 @@ msgstr "각 요건 따져 보는 중"
 #: src/features/homepage/prepare.tsx
 msgid "Went well"
 msgstr "잘됨"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "What"
+msgstr ""
 
 #: src/features/resume/editor/check/page-layer.tsx
 msgid "What a parser reads"
@@ -14209,6 +14638,14 @@ msgstr "무엇을 책임졌나요?"
 msgid "What works"
 msgstr "잘된 점"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "What would make it worth it"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "What would make it worth it? (optional)"
+msgstr ""
+
 #: src/features/career/knowledge/stories.tsx
 msgid "What would you do differently?"
 msgstr "무엇을 다르게 하겠나요?"
@@ -14250,6 +14687,10 @@ msgstr "언제까지 답해야 하나요?"
 #: src/features/career/coach.tsx
 msgid "When you press send, {shared} go to {connection}."
 msgstr "보내기를 누르면 {connection}에 다음 내용이 전송됩니다: {shared}."
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Where and how you'll work"
+msgstr ""
 
 #: src/features/applications/components/insights-view.tsx
 msgid "Where applications come from"
@@ -14316,6 +14757,10 @@ msgstr "현재 디자인 시스템은 누가 담당하나요? 90일 후 성공�
 msgid "Who you'll meet"
 msgstr "만날 사람"
 
+#: src/features/career/preference-check.tsx
+msgid "Why"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "Why do you want this role at {company}?"
 msgstr "{company}의 이 직무를 원하는 이유는 무엇인가요?"
@@ -14335,6 +14780,10 @@ msgstr "너비"
 #: src/features/homepage/faq.tsx
 msgid "Will my resume get past applicant tracking systems?"
 msgstr "내 이력서가 지원자 추적 시스템을 통과합니까?"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "With an exception, pay below the absolute minimum counts against a role but doesn't rule it out."
+msgstr ""
 
 #: src/features/homepage/remember.tsx
 msgid "Within a quarter, activation went from 31% to 44%."
@@ -14364,6 +14813,10 @@ msgstr "물어볼 만한 것"
 #: src/features/career/workspace/fit.tsx
 msgid "Worth asking {0}"
 msgstr "{0}에게 물어볼 만한 것"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Would consider less for"
+msgstr ""
 
 #: src/features/homepage/footer.tsx
 #: src/features/homepage/header.tsx

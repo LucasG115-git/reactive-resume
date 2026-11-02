@@ -38598,6 +38598,349 @@
 																	"type": "null"
 																}
 															]
+														},
+														"structured": {
+															"type": "object",
+															"properties": {
+																"version": {
+																	"const": 1,
+																	"default": 1
+																},
+																"locationRules": {
+																	"type": "array",
+																	"maxItems": 20,
+																	"items": {
+																		"type": "object",
+																		"properties": {
+																			"id": {
+																				"type": "string",
+																				"minLength": 1,
+																				"maxLength": 64
+																			},
+																			"label": {
+																				"type": "string",
+																				"minLength": 1,
+																				"maxLength": 100
+																			},
+																			"scope": {
+																				"enum": [
+																					"places",
+																					"country",
+																					"anywhere"
+																				],
+																				"type": "string"
+																			},
+																			"places": {
+																				"type": "array",
+																				"maxItems": 40,
+																				"items": {
+																					"type": "string",
+																					"minLength": 1,
+																					"maxLength": 100
+																				},
+																				"default": []
+																			},
+																			"country": {
+																				"anyOf": [
+																					{
+																						"type": "string",
+																						"pattern": "^[A-Z]{2}$"
+																					},
+																					{
+																						"type": "null"
+																					}
+																				],
+																				"default": null
+																			},
+																			"radiusKm": {
+																				"anyOf": [
+																					{
+																						"type": "integer",
+																						"minimum": 1,
+																						"maximum": 1000
+																					},
+																					{
+																						"type": "null"
+																					}
+																				],
+																				"default": null
+																			},
+																			"arrangements": {
+																				"type": "array",
+																				"minItems": 1,
+																				"maxItems": 3,
+																				"items": {
+																					"enum": [
+																						"onsite",
+																						"hybrid",
+																						"remote"
+																					],
+																					"type": "string"
+																				}
+																			},
+																			"preferredArrangement": {
+																				"anyOf": [
+																					{
+																						"enum": [
+																							"onsite",
+																							"hybrid",
+																							"remote"
+																						],
+																						"type": "string"
+																					},
+																					{
+																						"type": "null"
+																					}
+																				],
+																				"default": null
+																			},
+																			"preferredOfficeDays": {
+																				"anyOf": [
+																					{
+																						"type": "integer",
+																						"minimum": 0,
+																						"maximum": 5
+																					},
+																					{
+																						"type": "null"
+																					}
+																				],
+																				"default": null
+																			},
+																			"maxOfficeDays": {
+																				"anyOf": [
+																					{
+																						"type": "integer",
+																						"minimum": 0,
+																						"maximum": 5
+																					},
+																					{
+																						"type": "null"
+																					}
+																				],
+																				"default": null
+																			},
+																			"maxCommuteMinutes": {
+																				"anyOf": [
+																					{
+																						"type": "integer",
+																						"minimum": 0,
+																						"maximum": 300
+																					},
+																					{
+																						"type": "null"
+																					}
+																				],
+																				"default": null
+																			},
+																			"relocation": {
+																				"type": "boolean",
+																				"default": false
+																			},
+																			"priority": {
+																				"enum": [
+																					"must",
+																					"strong",
+																					"nice"
+																				],
+																				"type": "string",
+																				"default": "strong"
+																			},
+																			"salaryFloor": {
+																				"anyOf": [
+																					{
+																						"type": "number",
+																						"minimum": 0,
+																						"maximum": 100000000
+																					},
+																					{
+																						"type": "null"
+																					}
+																				],
+																				"default": null
+																			},
+																			"salaryPreferred": {
+																				"anyOf": [
+																					{
+																						"type": "number",
+																						"minimum": 0,
+																						"maximum": 100000000
+																					},
+																					{
+																						"type": "null"
+																					}
+																				],
+																				"default": null
+																			}
+																		},
+																		"required": [
+																			"id",
+																			"label",
+																			"scope",
+																			"arrangements"
+																		]
+																	},
+																	"default": []
+																},
+																"salary": {
+																	"anyOf": [
+																		{
+																			"type": "object",
+																			"properties": {
+																				"currency": {
+																					"type": "string",
+																					"pattern": "^[A-Z]{3}$"
+																				},
+																				"period": {
+																					"enum": [
+																						"hour",
+																						"month",
+																						"year"
+																					],
+																					"type": "string"
+																				},
+																				"floor": {
+																					"anyOf": [
+																						{
+																							"type": "number",
+																							"minimum": 0,
+																							"maximum": 100000000
+																						},
+																						{
+																							"type": "null"
+																						}
+																					],
+																					"default": null
+																				},
+																				"preferred": {
+																					"anyOf": [
+																						{
+																							"type": "number",
+																							"minimum": 0,
+																							"maximum": 100000000
+																						},
+																						{
+																							"type": "null"
+																						}
+																					],
+																					"default": null
+																				},
+																				"targetMin": {
+																					"anyOf": [
+																						{
+																							"type": "number",
+																							"minimum": 0,
+																							"maximum": 100000000
+																						},
+																						{
+																							"type": "null"
+																						}
+																					],
+																					"default": null
+																				},
+																				"targetMax": {
+																					"anyOf": [
+																						{
+																							"type": "number",
+																							"minimum": 0,
+																							"maximum": 100000000
+																						},
+																						{
+																							"type": "null"
+																						}
+																					],
+																					"default": null
+																				},
+																				"exceptions": {
+																					"type": "array",
+																					"maxItems": 5,
+																					"items": {
+																						"enum": [
+																							"benefits",
+																							"flexibility",
+																							"mission",
+																							"development",
+																							"other"
+																						],
+																						"type": "string"
+																					},
+																					"default": []
+																				},
+																				"exceptionNote": {
+																					"type": "string",
+																					"maxLength": 500,
+																					"default": ""
+																				}
+																			},
+																			"required": [
+																				"currency",
+																				"period"
+																			]
+																		},
+																		{
+																			"type": "null"
+																		}
+																	],
+																	"default": null
+																},
+																"organization": {
+																	"type": "array",
+																	"maxItems": 40,
+																	"items": {
+																		"type": "object",
+																		"properties": {
+																			"id": {
+																				"type": "string",
+																				"minLength": 1,
+																				"maxLength": 64
+																			},
+																			"kind": {
+																				"enum": [
+																					"industry",
+																					"organizationType",
+																					"mission",
+																					"size",
+																					"autonomy",
+																					"management",
+																					"development",
+																					"benefits",
+																					"employmentType",
+																					"other"
+																				],
+																				"type": "string"
+																			},
+																			"value": {
+																				"type": "string",
+																				"minLength": 1,
+																				"maxLength": 200
+																			},
+																			"stance": {
+																				"enum": [
+																					"want",
+																					"avoid"
+																				],
+																				"type": "string",
+																				"default": "want"
+																			},
+																			"priority": {
+																				"enum": [
+																					"must",
+																					"strong",
+																					"nice"
+																				],
+																				"type": "string",
+																				"default": "nice"
+																			}
+																		},
+																		"required": [
+																			"id",
+																			"kind",
+																			"value"
+																		]
+																	},
+																	"default": []
+																}
+															}
 														}
 													}
 												},
@@ -42538,6 +42881,95 @@
 													],
 													"type": "string"
 												}
+											},
+											"evaluation": {
+												"type": "object",
+												"properties": {
+													"verdict": {
+														"enum": [
+															"fits",
+															"check",
+															"conflict"
+														],
+														"type": "string"
+													},
+													"summary": {
+														"type": "string"
+													},
+													"checks": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"key": {
+																	"type": "string"
+																},
+																"label": {
+																	"type": "string"
+																},
+																"priority": {
+																	"enum": [
+																		"must",
+																		"strong",
+																		"nice"
+																	],
+																	"type": "string"
+																},
+																"status": {
+																	"enum": [
+																		"met",
+																		"violated",
+																		"unknown",
+																		"overridden"
+																	],
+																	"type": "string"
+																},
+																"detail": {
+																	"type": "string"
+																},
+																"legacy": {
+																	"type": "boolean",
+																	"default": false
+																}
+															},
+															"required": [
+																"key",
+																"label",
+																"priority",
+																"status",
+																"detail"
+															]
+														}
+													},
+													"rule": {
+														"anyOf": [
+															{
+																"type": "object",
+																"properties": {
+																	"id": {
+																		"type": "string"
+																	},
+																	"label": {
+																		"type": "string"
+																	}
+																},
+																"required": [
+																	"id",
+																	"label"
+																]
+															},
+															{
+																"type": "null"
+															}
+														]
+													}
+												},
+												"required": [
+													"verdict",
+													"summary",
+													"checks",
+													"rule"
+												]
 											}
 										},
 										"required": [
@@ -42555,7 +42987,8 @@
 											"dismissedAt",
 											"trackedApplicationId",
 											"matches",
-											"unknowns"
+											"unknowns",
+											"evaluation"
 										]
 									}
 								}
@@ -42908,6 +43341,349 @@
 													"type": "null"
 												}
 											]
+										},
+										"structured": {
+											"type": "object",
+											"properties": {
+												"version": {
+													"const": 1,
+													"default": 1
+												},
+												"locationRules": {
+													"type": "array",
+													"maxItems": 20,
+													"items": {
+														"type": "object",
+														"properties": {
+															"id": {
+																"type": "string",
+																"minLength": 1,
+																"maxLength": 64
+															},
+															"label": {
+																"type": "string",
+																"minLength": 1,
+																"maxLength": 100
+															},
+															"scope": {
+																"enum": [
+																	"places",
+																	"country",
+																	"anywhere"
+																],
+																"type": "string"
+															},
+															"places": {
+																"type": "array",
+																"maxItems": 40,
+																"items": {
+																	"type": "string",
+																	"minLength": 1,
+																	"maxLength": 100
+																},
+																"default": []
+															},
+															"country": {
+																"anyOf": [
+																	{
+																		"type": "string",
+																		"pattern": "^[A-Z]{2}$"
+																	},
+																	{
+																		"type": "null"
+																	}
+																],
+																"default": null
+															},
+															"radiusKm": {
+																"anyOf": [
+																	{
+																		"type": "integer",
+																		"minimum": 1,
+																		"maximum": 1000
+																	},
+																	{
+																		"type": "null"
+																	}
+																],
+																"default": null
+															},
+															"arrangements": {
+																"type": "array",
+																"minItems": 1,
+																"maxItems": 3,
+																"items": {
+																	"enum": [
+																		"onsite",
+																		"hybrid",
+																		"remote"
+																	],
+																	"type": "string"
+																}
+															},
+															"preferredArrangement": {
+																"anyOf": [
+																	{
+																		"enum": [
+																			"onsite",
+																			"hybrid",
+																			"remote"
+																		],
+																		"type": "string"
+																	},
+																	{
+																		"type": "null"
+																	}
+																],
+																"default": null
+															},
+															"preferredOfficeDays": {
+																"anyOf": [
+																	{
+																		"type": "integer",
+																		"minimum": 0,
+																		"maximum": 5
+																	},
+																	{
+																		"type": "null"
+																	}
+																],
+																"default": null
+															},
+															"maxOfficeDays": {
+																"anyOf": [
+																	{
+																		"type": "integer",
+																		"minimum": 0,
+																		"maximum": 5
+																	},
+																	{
+																		"type": "null"
+																	}
+																],
+																"default": null
+															},
+															"maxCommuteMinutes": {
+																"anyOf": [
+																	{
+																		"type": "integer",
+																		"minimum": 0,
+																		"maximum": 300
+																	},
+																	{
+																		"type": "null"
+																	}
+																],
+																"default": null
+															},
+															"relocation": {
+																"type": "boolean",
+																"default": false
+															},
+															"priority": {
+																"enum": [
+																	"must",
+																	"strong",
+																	"nice"
+																],
+																"type": "string",
+																"default": "strong"
+															},
+															"salaryFloor": {
+																"anyOf": [
+																	{
+																		"type": "number",
+																		"minimum": 0,
+																		"maximum": 100000000
+																	},
+																	{
+																		"type": "null"
+																	}
+																],
+																"default": null
+															},
+															"salaryPreferred": {
+																"anyOf": [
+																	{
+																		"type": "number",
+																		"minimum": 0,
+																		"maximum": 100000000
+																	},
+																	{
+																		"type": "null"
+																	}
+																],
+																"default": null
+															}
+														},
+														"required": [
+															"id",
+															"label",
+															"scope",
+															"arrangements"
+														]
+													},
+													"default": []
+												},
+												"salary": {
+													"anyOf": [
+														{
+															"type": "object",
+															"properties": {
+																"currency": {
+																	"type": "string",
+																	"pattern": "^[A-Z]{3}$"
+																},
+																"period": {
+																	"enum": [
+																		"hour",
+																		"month",
+																		"year"
+																	],
+																	"type": "string"
+																},
+																"floor": {
+																	"anyOf": [
+																		{
+																			"type": "number",
+																			"minimum": 0,
+																			"maximum": 100000000
+																		},
+																		{
+																			"type": "null"
+																		}
+																	],
+																	"default": null
+																},
+																"preferred": {
+																	"anyOf": [
+																		{
+																			"type": "number",
+																			"minimum": 0,
+																			"maximum": 100000000
+																		},
+																		{
+																			"type": "null"
+																		}
+																	],
+																	"default": null
+																},
+																"targetMin": {
+																	"anyOf": [
+																		{
+																			"type": "number",
+																			"minimum": 0,
+																			"maximum": 100000000
+																		},
+																		{
+																			"type": "null"
+																		}
+																	],
+																	"default": null
+																},
+																"targetMax": {
+																	"anyOf": [
+																		{
+																			"type": "number",
+																			"minimum": 0,
+																			"maximum": 100000000
+																		},
+																		{
+																			"type": "null"
+																		}
+																	],
+																	"default": null
+																},
+																"exceptions": {
+																	"type": "array",
+																	"maxItems": 5,
+																	"items": {
+																		"enum": [
+																			"benefits",
+																			"flexibility",
+																			"mission",
+																			"development",
+																			"other"
+																		],
+																		"type": "string"
+																	},
+																	"default": []
+																},
+																"exceptionNote": {
+																	"type": "string",
+																	"maxLength": 500,
+																	"default": ""
+																}
+															},
+															"required": [
+																"currency",
+																"period"
+															]
+														},
+														{
+															"type": "null"
+														}
+													],
+													"default": null
+												},
+												"organization": {
+													"type": "array",
+													"maxItems": 40,
+													"items": {
+														"type": "object",
+														"properties": {
+															"id": {
+																"type": "string",
+																"minLength": 1,
+																"maxLength": 64
+															},
+															"kind": {
+																"enum": [
+																	"industry",
+																	"organizationType",
+																	"mission",
+																	"size",
+																	"autonomy",
+																	"management",
+																	"development",
+																	"benefits",
+																	"employmentType",
+																	"other"
+																],
+																"type": "string"
+															},
+															"value": {
+																"type": "string",
+																"minLength": 1,
+																"maxLength": 200
+															},
+															"stance": {
+																"enum": [
+																	"want",
+																	"avoid"
+																],
+																"type": "string",
+																"default": "want"
+															},
+															"priority": {
+																"enum": [
+																	"must",
+																	"strong",
+																	"nice"
+																],
+																"type": "string",
+																"default": "nice"
+															}
+														},
+														"required": [
+															"id",
+															"kind",
+															"value"
+														]
+													},
+													"default": []
+												}
+											}
 										}
 									}
 								}
@@ -43091,6 +43867,349 @@
 												"type": "null"
 											}
 										]
+									},
+									"structured": {
+										"type": "object",
+										"properties": {
+											"version": {
+												"const": 1,
+												"default": 1
+											},
+											"locationRules": {
+												"type": "array",
+												"maxItems": 20,
+												"items": {
+													"type": "object",
+													"properties": {
+														"id": {
+															"type": "string",
+															"minLength": 1,
+															"maxLength": 64
+														},
+														"label": {
+															"type": "string",
+															"minLength": 1,
+															"maxLength": 100
+														},
+														"scope": {
+															"enum": [
+																"places",
+																"country",
+																"anywhere"
+															],
+															"type": "string"
+														},
+														"places": {
+															"type": "array",
+															"maxItems": 40,
+															"items": {
+																"type": "string",
+																"minLength": 1,
+																"maxLength": 100
+															},
+															"default": []
+														},
+														"country": {
+															"anyOf": [
+																{
+																	"type": "string",
+																	"pattern": "^[A-Z]{2}$"
+																},
+																{
+																	"type": "null"
+																}
+															],
+															"default": null
+														},
+														"radiusKm": {
+															"anyOf": [
+																{
+																	"type": "integer",
+																	"minimum": 1,
+																	"maximum": 1000
+																},
+																{
+																	"type": "null"
+																}
+															],
+															"default": null
+														},
+														"arrangements": {
+															"type": "array",
+															"minItems": 1,
+															"maxItems": 3,
+															"items": {
+																"enum": [
+																	"onsite",
+																	"hybrid",
+																	"remote"
+																],
+																"type": "string"
+															}
+														},
+														"preferredArrangement": {
+															"anyOf": [
+																{
+																	"enum": [
+																		"onsite",
+																		"hybrid",
+																		"remote"
+																	],
+																	"type": "string"
+																},
+																{
+																	"type": "null"
+																}
+															],
+															"default": null
+														},
+														"preferredOfficeDays": {
+															"anyOf": [
+																{
+																	"type": "integer",
+																	"minimum": 0,
+																	"maximum": 5
+																},
+																{
+																	"type": "null"
+																}
+															],
+															"default": null
+														},
+														"maxOfficeDays": {
+															"anyOf": [
+																{
+																	"type": "integer",
+																	"minimum": 0,
+																	"maximum": 5
+																},
+																{
+																	"type": "null"
+																}
+															],
+															"default": null
+														},
+														"maxCommuteMinutes": {
+															"anyOf": [
+																{
+																	"type": "integer",
+																	"minimum": 0,
+																	"maximum": 300
+																},
+																{
+																	"type": "null"
+																}
+															],
+															"default": null
+														},
+														"relocation": {
+															"type": "boolean",
+															"default": false
+														},
+														"priority": {
+															"enum": [
+																"must",
+																"strong",
+																"nice"
+															],
+															"type": "string",
+															"default": "strong"
+														},
+														"salaryFloor": {
+															"anyOf": [
+																{
+																	"type": "number",
+																	"minimum": 0,
+																	"maximum": 100000000
+																},
+																{
+																	"type": "null"
+																}
+															],
+															"default": null
+														},
+														"salaryPreferred": {
+															"anyOf": [
+																{
+																	"type": "number",
+																	"minimum": 0,
+																	"maximum": 100000000
+																},
+																{
+																	"type": "null"
+																}
+															],
+															"default": null
+														}
+													},
+													"required": [
+														"id",
+														"label",
+														"scope",
+														"arrangements"
+													]
+												},
+												"default": []
+											},
+											"salary": {
+												"anyOf": [
+													{
+														"type": "object",
+														"properties": {
+															"currency": {
+																"type": "string",
+																"pattern": "^[A-Z]{3}$"
+															},
+															"period": {
+																"enum": [
+																	"hour",
+																	"month",
+																	"year"
+																],
+																"type": "string"
+															},
+															"floor": {
+																"anyOf": [
+																	{
+																		"type": "number",
+																		"minimum": 0,
+																		"maximum": 100000000
+																	},
+																	{
+																		"type": "null"
+																	}
+																],
+																"default": null
+															},
+															"preferred": {
+																"anyOf": [
+																	{
+																		"type": "number",
+																		"minimum": 0,
+																		"maximum": 100000000
+																	},
+																	{
+																		"type": "null"
+																	}
+																],
+																"default": null
+															},
+															"targetMin": {
+																"anyOf": [
+																	{
+																		"type": "number",
+																		"minimum": 0,
+																		"maximum": 100000000
+																	},
+																	{
+																		"type": "null"
+																	}
+																],
+																"default": null
+															},
+															"targetMax": {
+																"anyOf": [
+																	{
+																		"type": "number",
+																		"minimum": 0,
+																		"maximum": 100000000
+																	},
+																	{
+																		"type": "null"
+																	}
+																],
+																"default": null
+															},
+															"exceptions": {
+																"type": "array",
+																"maxItems": 5,
+																"items": {
+																	"enum": [
+																		"benefits",
+																		"flexibility",
+																		"mission",
+																		"development",
+																		"other"
+																	],
+																	"type": "string"
+																},
+																"default": []
+															},
+															"exceptionNote": {
+																"type": "string",
+																"maxLength": 500,
+																"default": ""
+															}
+														},
+														"required": [
+															"currency",
+															"period"
+														]
+													},
+													{
+														"type": "null"
+													}
+												],
+												"default": null
+											},
+											"organization": {
+												"type": "array",
+												"maxItems": 40,
+												"items": {
+													"type": "object",
+													"properties": {
+														"id": {
+															"type": "string",
+															"minLength": 1,
+															"maxLength": 64
+														},
+														"kind": {
+															"enum": [
+																"industry",
+																"organizationType",
+																"mission",
+																"size",
+																"autonomy",
+																"management",
+																"development",
+																"benefits",
+																"employmentType",
+																"other"
+															],
+															"type": "string"
+														},
+														"value": {
+															"type": "string",
+															"minLength": 1,
+															"maxLength": 200
+														},
+														"stance": {
+															"enum": [
+																"want",
+																"avoid"
+															],
+															"type": "string",
+															"default": "want"
+														},
+														"priority": {
+															"enum": [
+																"must",
+																"strong",
+																"nice"
+															],
+															"type": "string",
+															"default": "nice"
+														}
+													},
+													"required": [
+														"id",
+														"kind",
+														"value"
+													]
+												},
+												"default": []
+											}
+										}
 									}
 								}
 							}
@@ -43218,6 +44337,349 @@
 													"type": "null"
 												}
 											]
+										},
+										"structured": {
+											"type": "object",
+											"properties": {
+												"version": {
+													"const": 1,
+													"default": 1
+												},
+												"locationRules": {
+													"type": "array",
+													"maxItems": 20,
+													"items": {
+														"type": "object",
+														"properties": {
+															"id": {
+																"type": "string",
+																"minLength": 1,
+																"maxLength": 64
+															},
+															"label": {
+																"type": "string",
+																"minLength": 1,
+																"maxLength": 100
+															},
+															"scope": {
+																"enum": [
+																	"places",
+																	"country",
+																	"anywhere"
+																],
+																"type": "string"
+															},
+															"places": {
+																"type": "array",
+																"maxItems": 40,
+																"items": {
+																	"type": "string",
+																	"minLength": 1,
+																	"maxLength": 100
+																},
+																"default": []
+															},
+															"country": {
+																"anyOf": [
+																	{
+																		"type": "string",
+																		"pattern": "^[A-Z]{2}$"
+																	},
+																	{
+																		"type": "null"
+																	}
+																],
+																"default": null
+															},
+															"radiusKm": {
+																"anyOf": [
+																	{
+																		"type": "integer",
+																		"minimum": 1,
+																		"maximum": 1000
+																	},
+																	{
+																		"type": "null"
+																	}
+																],
+																"default": null
+															},
+															"arrangements": {
+																"type": "array",
+																"minItems": 1,
+																"maxItems": 3,
+																"items": {
+																	"enum": [
+																		"onsite",
+																		"hybrid",
+																		"remote"
+																	],
+																	"type": "string"
+																}
+															},
+															"preferredArrangement": {
+																"anyOf": [
+																	{
+																		"enum": [
+																			"onsite",
+																			"hybrid",
+																			"remote"
+																		],
+																		"type": "string"
+																	},
+																	{
+																		"type": "null"
+																	}
+																],
+																"default": null
+															},
+															"preferredOfficeDays": {
+																"anyOf": [
+																	{
+																		"type": "integer",
+																		"minimum": 0,
+																		"maximum": 5
+																	},
+																	{
+																		"type": "null"
+																	}
+																],
+																"default": null
+															},
+															"maxOfficeDays": {
+																"anyOf": [
+																	{
+																		"type": "integer",
+																		"minimum": 0,
+																		"maximum": 5
+																	},
+																	{
+																		"type": "null"
+																	}
+																],
+																"default": null
+															},
+															"maxCommuteMinutes": {
+																"anyOf": [
+																	{
+																		"type": "integer",
+																		"minimum": 0,
+																		"maximum": 300
+																	},
+																	{
+																		"type": "null"
+																	}
+																],
+																"default": null
+															},
+															"relocation": {
+																"type": "boolean",
+																"default": false
+															},
+															"priority": {
+																"enum": [
+																	"must",
+																	"strong",
+																	"nice"
+																],
+																"type": "string",
+																"default": "strong"
+															},
+															"salaryFloor": {
+																"anyOf": [
+																	{
+																		"type": "number",
+																		"minimum": 0,
+																		"maximum": 100000000
+																	},
+																	{
+																		"type": "null"
+																	}
+																],
+																"default": null
+															},
+															"salaryPreferred": {
+																"anyOf": [
+																	{
+																		"type": "number",
+																		"minimum": 0,
+																		"maximum": 100000000
+																	},
+																	{
+																		"type": "null"
+																	}
+																],
+																"default": null
+															}
+														},
+														"required": [
+															"id",
+															"label",
+															"scope",
+															"arrangements"
+														]
+													},
+													"default": []
+												},
+												"salary": {
+													"anyOf": [
+														{
+															"type": "object",
+															"properties": {
+																"currency": {
+																	"type": "string",
+																	"pattern": "^[A-Z]{3}$"
+																},
+																"period": {
+																	"enum": [
+																		"hour",
+																		"month",
+																		"year"
+																	],
+																	"type": "string"
+																},
+																"floor": {
+																	"anyOf": [
+																		{
+																			"type": "number",
+																			"minimum": 0,
+																			"maximum": 100000000
+																		},
+																		{
+																			"type": "null"
+																		}
+																	],
+																	"default": null
+																},
+																"preferred": {
+																	"anyOf": [
+																		{
+																			"type": "number",
+																			"minimum": 0,
+																			"maximum": 100000000
+																		},
+																		{
+																			"type": "null"
+																		}
+																	],
+																	"default": null
+																},
+																"targetMin": {
+																	"anyOf": [
+																		{
+																			"type": "number",
+																			"minimum": 0,
+																			"maximum": 100000000
+																		},
+																		{
+																			"type": "null"
+																		}
+																	],
+																	"default": null
+																},
+																"targetMax": {
+																	"anyOf": [
+																		{
+																			"type": "number",
+																			"minimum": 0,
+																			"maximum": 100000000
+																		},
+																		{
+																			"type": "null"
+																		}
+																	],
+																	"default": null
+																},
+																"exceptions": {
+																	"type": "array",
+																	"maxItems": 5,
+																	"items": {
+																		"enum": [
+																			"benefits",
+																			"flexibility",
+																			"mission",
+																			"development",
+																			"other"
+																		],
+																		"type": "string"
+																	},
+																	"default": []
+																},
+																"exceptionNote": {
+																	"type": "string",
+																	"maxLength": 500,
+																	"default": ""
+																}
+															},
+															"required": [
+																"currency",
+																"period"
+															]
+														},
+														{
+															"type": "null"
+														}
+													],
+													"default": null
+												},
+												"organization": {
+													"type": "array",
+													"maxItems": 40,
+													"items": {
+														"type": "object",
+														"properties": {
+															"id": {
+																"type": "string",
+																"minLength": 1,
+																"maxLength": 64
+															},
+															"kind": {
+																"enum": [
+																	"industry",
+																	"organizationType",
+																	"mission",
+																	"size",
+																	"autonomy",
+																	"management",
+																	"development",
+																	"benefits",
+																	"employmentType",
+																	"other"
+																],
+																"type": "string"
+															},
+															"value": {
+																"type": "string",
+																"minLength": 1,
+																"maxLength": 200
+															},
+															"stance": {
+																"enum": [
+																	"want",
+																	"avoid"
+																],
+																"type": "string",
+																"default": "want"
+															},
+															"priority": {
+																"enum": [
+																	"must",
+																	"strong",
+																	"nice"
+																],
+																"type": "string",
+																"default": "nice"
+															}
+														},
+														"required": [
+															"id",
+															"kind",
+															"value"
+														]
+													},
+													"default": []
+												}
+											}
 										}
 									}
 								}
@@ -47829,6 +49291,374 @@
 						"lang": "bash",
 						"label": "cURL",
 						"source": "curl --request POST \"https://rxresu.me/api/openapi/career/workspace/<applicationId>/answers\" --header \"x-api-key: <api-key>\""
+					}
+				]
+			}
+		},
+		"/career/applications/{applicationId}/preferences": {
+			"get": {
+				"operationId": "evaluateApplicationPreferences",
+				"summary": "Check an application against Preferences",
+				"description": "Each preference as met, unmet, unknown or set aside for this application, with a reason, and an overall verdict: fits, check (a must-have is unconfirmed) or conflict (a must-have is confirmed unmet). No AI is used.",
+				"tags": [
+					"Career"
+				],
+				"parameters": [
+					{
+						"name": "applicationId",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"minLength": 1
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"verdict": {
+											"enum": [
+												"fits",
+												"check",
+												"conflict"
+											],
+											"type": "string"
+										},
+										"summary": {
+											"type": "string"
+										},
+										"checks": {
+											"type": "array",
+											"items": {
+												"type": "object",
+												"properties": {
+													"key": {
+														"type": "string"
+													},
+													"label": {
+														"type": "string"
+													},
+													"priority": {
+														"enum": [
+															"must",
+															"strong",
+															"nice"
+														],
+														"type": "string"
+													},
+													"status": {
+														"enum": [
+															"met",
+															"violated",
+															"unknown",
+															"overridden"
+														],
+														"type": "string"
+													},
+													"detail": {
+														"type": "string"
+													},
+													"legacy": {
+														"type": "boolean",
+														"default": false
+													}
+												},
+												"required": [
+													"key",
+													"label",
+													"priority",
+													"status",
+													"detail"
+												]
+											}
+										},
+										"rule": {
+											"anyOf": [
+												{
+													"type": "object",
+													"properties": {
+														"id": {
+															"type": "string"
+														},
+														"label": {
+															"type": "string"
+														}
+													},
+													"required": [
+														"id",
+														"label"
+													]
+												},
+												{
+													"type": "null"
+												}
+											]
+										}
+									},
+									"required": [
+										"verdict",
+										"summary",
+										"checks",
+										"rule"
+									]
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Structured API error. See status and code; do not branch on message text.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"required": [
+										"defined",
+										"code",
+										"status",
+										"message"
+									],
+									"properties": {
+										"defined": {
+											"type": "boolean"
+										},
+										"code": {
+											"type": "string"
+										},
+										"status": {
+											"type": "integer"
+										},
+										"message": {
+											"type": "string"
+										},
+										"data": {}
+									}
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"apiKey": []
+					},
+					{
+						"bearerAuth": []
+					},
+					{
+						"cookieAuth": []
+					}
+				],
+				"x-codeSamples": [
+					{
+						"lang": "bash",
+						"label": "cURL",
+						"source": "curl \"https://rxresu.me/api/openapi/career/applications/<applicationId>/preferences\" --header \"x-api-key: <api-key>\""
+					}
+				]
+			}
+		},
+		"/career/applications/{applicationId}/preferences/{key}": {
+			"put": {
+				"operationId": "setApplicationPreferenceOverride",
+				"summary": "Set a preference aside for one application",
+				"description": "Marks one preference (by its check key) as not mattering for this application, or restores it.",
+				"tags": [
+					"Career"
+				],
+				"parameters": [
+					{
+						"name": "applicationId",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"minLength": 1
+						}
+					},
+					{
+						"name": "key",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"minLength": 1,
+							"maxLength": 200
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"overridden": {
+										"type": "boolean"
+									},
+									"note": {
+										"type": "string",
+										"maxLength": 500
+									}
+								},
+								"required": [
+									"overridden"
+								]
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"verdict": {
+											"enum": [
+												"fits",
+												"check",
+												"conflict"
+											],
+											"type": "string"
+										},
+										"summary": {
+											"type": "string"
+										},
+										"checks": {
+											"type": "array",
+											"items": {
+												"type": "object",
+												"properties": {
+													"key": {
+														"type": "string"
+													},
+													"label": {
+														"type": "string"
+													},
+													"priority": {
+														"enum": [
+															"must",
+															"strong",
+															"nice"
+														],
+														"type": "string"
+													},
+													"status": {
+														"enum": [
+															"met",
+															"violated",
+															"unknown",
+															"overridden"
+														],
+														"type": "string"
+													},
+													"detail": {
+														"type": "string"
+													},
+													"legacy": {
+														"type": "boolean",
+														"default": false
+													}
+												},
+												"required": [
+													"key",
+													"label",
+													"priority",
+													"status",
+													"detail"
+												]
+											}
+										},
+										"rule": {
+											"anyOf": [
+												{
+													"type": "object",
+													"properties": {
+														"id": {
+															"type": "string"
+														},
+														"label": {
+															"type": "string"
+														}
+													},
+													"required": [
+														"id",
+														"label"
+													]
+												},
+												{
+													"type": "null"
+												}
+											]
+										}
+									},
+									"required": [
+										"verdict",
+										"summary",
+										"checks",
+										"rule"
+									]
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Structured API error. See status and code; do not branch on message text.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"required": [
+										"defined",
+										"code",
+										"status",
+										"message"
+									],
+									"properties": {
+										"defined": {
+											"type": "boolean"
+										},
+										"code": {
+											"type": "string"
+										},
+										"status": {
+											"type": "integer"
+										},
+										"message": {
+											"type": "string"
+										},
+										"data": {}
+									}
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"apiKey": []
+					},
+					{
+						"bearerAuth": []
+					},
+					{
+						"cookieAuth": []
+					}
+				],
+				"x-codeSamples": [
+					{
+						"lang": "bash",
+						"label": "cURL",
+						"source": "curl --request PUT \"https://rxresu.me/api/openapi/career/applications/<applicationId>/preferences/<key>\" --header \"x-api-key: <api-key>\" --header \"Content-Type: application/json\" --data '{\n  \"overridden\": true\n}'"
 					}
 				]
 			}
