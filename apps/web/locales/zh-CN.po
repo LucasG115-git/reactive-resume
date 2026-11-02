@@ -1033,6 +1033,10 @@ msgstr "登录时来自身份验证器应用的代码"
 msgid "A comfortable length, and it fits on one page."
 msgstr "长度舒适，适合一页纸。"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "A country"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "A date is in the future."
 msgstr "有一个日期在未来。"
@@ -1102,6 +1106,10 @@ msgstr "有一个链接指向的地址和它显示的地址不一致。"
 msgid "A model's opinion, not a verdict. It can be wrong."
 msgstr "模型的意见，而不是判决。这可能是错误的。"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "A must-have rules a role out only when the posting confirms it isn't met; if the posting doesn't say, the role is marked to check. Strong preferences and nice-to-haves only change the order. You can still save and track any role."
+msgstr ""
+
 #: src/features/settings/account/security.tsx
 msgid "A name helps you tell passkeys apart, like “Work laptop”."
 msgstr "名称可以帮助你区分通行密钥，例如“工作笔记本电脑”。"
@@ -1158,6 +1166,10 @@ msgstr "按时间分配的计划、您的开场白、要准备的故事和要提
 msgid "A web address is written without https://."
 msgstr "有一个网址没有写 https://。"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "a week"
+msgstr ""
+
 #: src/features/homepage/footer.tsx
 msgid "About"
 msgstr "关于"
@@ -1165,6 +1177,14 @@ msgstr "关于"
 #: src/features/career/workspace/practise.tsx
 msgid "About 90 seconds when spoken"
 msgstr "说出来大约 90 秒"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Absolute minimum"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Absolute minimum pay here ({currency})"
+msgstr ""
 
 #: src/features/resume/editor/design/entries-group.tsx
 msgid "Accent"
@@ -1282,6 +1302,10 @@ msgstr "添加“{0}”"
 msgid "Add “{0}” as a new stage"
 msgstr "将“{0}”添加为新阶段"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Add a city or region, then Enter"
+msgstr ""
+
 #: src/features/career/knowledge/search-regions-field.tsx
 msgid "Add a country"
 msgstr "添加国家"
@@ -1329,6 +1353,10 @@ msgstr "添加地点，然后按 Enter"
 
 #: src/features/career/knowledge/profile.tsx
 msgid "Add a position"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Add a preference"
 msgstr ""
 
 #: src/features/career/workspace/apply.tsx
@@ -1394,6 +1422,10 @@ msgstr "添加地址。"
 #: src/features/career/schedule-sheet.tsx
 msgid "Add an application first"
 msgstr "请先添加一个申请"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Add an area"
+msgstr ""
 
 #: src/features/resume/editor/check/issues.ts
 msgid "Add an email"
@@ -1747,6 +1779,10 @@ msgstr "技术面试之后"
 msgid "After your first review, a light plan for this week appears here."
 msgstr "完成第一次复盘后，本周的轻量计划会显示在这里。"
 
+#: src/features/career/preference-check.tsx
+msgid "Against your preferences"
+msgstr ""
+
 #: src/features/career/workspace/fit.tsx
 msgid "Against your requirements"
 msgstr "对照您的要求"
@@ -1998,8 +2034,13 @@ msgid "Anything to remember about this job"
 msgstr "关于这份工作有什么需要记住的"
 
 #: src/features/career/knowledge/search-regions-field.tsx
+#: src/features/career/knowledge/structured-preferences.tsx
 msgid "Anywhere"
 msgstr "任何地方"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Anywhere else"
+msgstr ""
 
 #: src/features/assistant/provider-setup.tsx
 #: src/features/settings/ai/providers.tsx
@@ -2201,6 +2242,10 @@ msgstr "阿拉伯语"
 msgid "Archived (closes it)"
 msgstr "已存档（关闭）"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Area name"
+msgstr ""
+
 #: src/features/resume/editor/write/entries.tsx
 msgid "Area of study"
 msgstr "研究领域"
@@ -2323,6 +2368,11 @@ msgstr "助理对话"
 msgid "Assistant."
 msgstr "助手。"
 
+#. placeholder {0}: money(salary.floor, salary.currency)
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "at least {0}"
+msgstr ""
+
 #: src/features/homepage/prepare.tsx
 msgid "At Northwind Labs I led research for our onboarding redesign. I interviewed 14 customers, found three drop-off points, and we shipped a shorter setup. Activation rose from 31% to 44%."
 msgstr "在 Northwind Labs，我主导了新手引导改版的用户研究。我访谈了 14 位客户，找到三个流失点，我们上线了更短的设置流程。激活率从 31% 升至 44%。"
@@ -2375,6 +2425,10 @@ msgstr "依恋"
 msgid "Automatically"
 msgstr "自动"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Autonomy"
+msgstr ""
+
 #: src/features/resume/share/format.ts
 msgid "autosaved"
 msgstr "自动保存"
@@ -2386,6 +2440,10 @@ msgstr "自动保存按会话分组并保留 90 天。命名版本将一直保�
 #: src/features/resume/share/cv-domain-card.tsx
 msgid "Available"
 msgstr "可注册"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Avoid"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Avoid heavy letter-spacing effects, then re-export."
@@ -2521,6 +2579,10 @@ msgstr "提交之前"
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Behavioral"
 msgstr "行为面试"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Benefits"
+msgstr ""
 
 #: src/libs/locale.ts
 msgid "Bengali"
@@ -2855,6 +2917,10 @@ msgstr "检查另一个文件"
 msgid "Check any PDF, no account needed"
 msgstr "查询任意PDF，无需账户"
 
+#: src/features/career/preference-check.tsx
+msgid "Check before applying"
+msgstr ""
+
 #: src/features/resume/share/custom-domain-field.tsx
 #: src/features/resume/share/dns-records-dialog.tsx
 msgid "Check DNS"
@@ -2927,6 +2993,10 @@ msgstr "请检查你的电子邮件，点击邮件中的链接验证账号。"
 msgid "Check your resume’s ATS readability"
 msgstr "检查您的简历的 ATS 可读性"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Checked by whether the posting mentions it, so use the words a posting would: \"nonprofit\", \"permanent\", \"pension\". Anything subtler is left for the coach to read."
+msgstr ""
+
 #. placeholder {0}: file.name
 #: src/features/ats-checker/checker.tsx
 msgid "Checking {0}"
@@ -2971,6 +3041,10 @@ msgstr "中文（简体）"
 #: src/libs/locale.ts
 msgid "Chinese (Traditional)"
 msgstr "中文（繁体）"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Choose a country"
+msgstr ""
 
 #: src/features/documents/documents-page.tsx
 msgid "Choose a file"
@@ -3199,6 +3273,10 @@ msgstr "命令面板：{currentPage}"
 #: src/features/homepage/footer.tsx
 msgid "Community"
 msgstr "社区"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Commute, at most"
+msgstr ""
 
 #: src/features/resume/editor/design/fit.ts
 #: src/features/resume/editor/design/style-groups.tsx
@@ -4179,6 +4257,10 @@ msgstr "无法更新时间表。再试一次。"
 msgid "Couldn't update this letter's versions. Try again."
 msgstr "无法更新这封信的版本。请重试。"
 
+#: src/features/career/preference-check.tsx
+msgid "Couldn't update this preference. Try again."
+msgstr ""
+
 #. Fallback toast when uploading profile picture for resume fails
 #: src/features/resume/editor/write/picture-settings.tsx
 #: src/features/settings/account/profile.tsx
@@ -4208,6 +4290,10 @@ msgstr "按来源统计"
 msgid "Count characters"
 msgstr "统计字符"
 
+#: src/features/career/preference-check.tsx
+msgid "Count it again"
+msgstr ""
+
 #: src/features/career/workspace/apply.tsx
 msgid "Count words"
 msgstr "统计字数"
@@ -4219,6 +4305,10 @@ msgstr "与解析得分分开计算。覆盖率并不能预测任何事情。"
 #: src/features/career/knowledge/search-regions-field.tsx
 msgid "Countries"
 msgstr "国家"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Country"
+msgstr ""
 
 #: src/features/applications/components/manage-lanes-sheet.tsx
 msgid "Counts as"
@@ -4268,6 +4358,10 @@ msgstr "提交求职信（可选）"
 #: src/features/homepage/sections.tsx
 msgid "Cover letters"
 msgstr "求职信"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Covers"
+msgstr ""
 
 #: src/features/command-palette/pages/navigation.tsx
 msgid "Create"
@@ -4347,8 +4441,13 @@ msgid "CSV data"
 msgstr "CSV 数据"
 
 #: src/features/career/knowledge/preferences.tsx
+#: src/features/career/knowledge/structured-preferences.tsx
 msgid "Currency"
 msgstr "币种"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Currency set; no amounts yet."
+msgstr ""
 
 #: src/features/applications/components/export-applications-sheet.tsx
 msgid "Current filters"
@@ -4794,6 +4893,10 @@ msgstr "你移至此处的文档会保留 30 天。"
 msgid "Does it use AI?"
 msgstr "它使用人工智能吗？"
 
+#: src/features/career/preference-check.tsx
+msgid "Doesn't matter here"
+msgstr ""
+
 #: src/features/resume/share/custom-domain-field.tsx
 msgid "Domain connected"
 msgstr "域名已连接"
@@ -5050,6 +5153,10 @@ msgstr "每个获得反馈的回答都保存在这里，最新的在前。"
 msgid "Each requirement in the posting is checked against the facts and stories in your Knowledge. Gaps show as missing evidence, never missing ability."
 msgstr "职位公告中的每项要求都会与您知识库中的事实和故事对照。差距显示为缺少证据，而绝不是缺少能力。"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Each rule covers an area. A rule naming places is used before a country rule, and a country rule before an \"anywhere\" rule; among rules of the same kind, the higher one wins. Radius and commute time are shared with the coach but can't be checked against a posting."
+msgstr ""
+
 #: src/features/assistant/conversation.tsx
 msgid "Each send starts fresh with this message and selected files. Previous conversation history stays here."
 msgstr "每次发送都会以该消息和选定的文件重新开始。之前的对话历史记录保留在这里。"
@@ -5250,6 +5357,10 @@ msgstr "导出时嵌入所有字体，确保字符按你的预期显示。"
 msgid "Employer"
 msgstr ""
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Employment type"
+msgstr ""
+
 #: src/features/resume/editor/write/dates-field.tsx
 msgid "End"
 msgstr "结尾"
@@ -5290,6 +5401,10 @@ msgstr "喜欢 Reactive Resume 吗？"
 #: src/features/auth/pages/verify-2fa.tsx
 msgid "Enter a backup code."
 msgstr "请输入备份码。"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Enter a full amount, such as 95000."
+msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
 msgid "Enter a full amount, such as 95000. Your previous amount is unchanged."
@@ -5681,6 +5796,10 @@ msgstr "匹配度检查、简报、练习反馈、复盘、回答和回复会在
 msgid "Fit page to width"
 msgstr "使页面适合宽度"
 
+#: src/features/career/preference-check.tsx
+msgid "Fits your must-haves"
+msgstr ""
+
 #: src/features/resume/editor/check/issues.ts
 msgid "Fix the date"
 msgstr "确定日期"
@@ -5713,6 +5832,10 @@ msgstr "解决 Northwind Labs 的新手引导流失问题"
 #: src/features/ats-checker/messages.ts
 msgid "Flatten the form so the text is part of the page."
 msgstr "将表单扁平化，使文字成为页面的一部分。"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Flexibility"
+msgstr ""
 
 #: src/features/resume/editor/write/entries.tsx
 msgid "Fluency"
@@ -5921,6 +6044,10 @@ msgstr "来自助理或 API"
 msgid "From your cover letter"
 msgstr "来自您的求职信"
 
+#: src/features/career/preference-check.tsx
+msgid "from your earlier settings"
+msgstr ""
+
 #: src/features/assistant/assistant-panel.tsx
 msgid "From your experience entries"
 msgstr "根据您的经验条目"
@@ -6061,6 +6188,10 @@ msgstr "成绩"
 msgid "Gray"
 msgstr "灰色"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Greater Toronto Area"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Greek"
 msgstr "希腊语"
@@ -6076,6 +6207,14 @@ msgstr "称呼"
 #: src/features/documents/documents-page.tsx
 msgid "Grid"
 msgstr "网格"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Growth"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Growth and learning"
+msgstr ""
 
 #: src/features/homepage/remember.tsx
 msgid "Happy to walk you through it on our call."
@@ -6296,9 +6435,26 @@ msgstr "每周需要到办公室几天？"
 msgid "How many days of leave come with it?"
 msgstr "有多少天假期？"
 
+#. placeholder {0}: item.value || kinds[item.kind]
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "How much {0} matters"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "How much {name} matters"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "How much this rule matters"
+msgstr ""
+
 #: src/features/career/schedule-sheet.tsx
 msgid "How often"
 msgstr "频率"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "How roles are checked"
+msgstr ""
 
 #: src/features/templates/gallery.tsx
 msgid "How to choose a template"
@@ -6315,6 +6471,10 @@ msgstr "我有多适合这个角色？"
 #: src/libs/locale.ts
 msgid "Hungarian"
 msgstr "匈牙利语"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Hybrid"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/typography.tsx
 msgid "Hyphenation"
@@ -6353,6 +6513,11 @@ msgstr "图标…"
 #: src/features/resume/editor/design/style-groups.tsx
 msgid "Icons in contact line"
 msgstr "联系线中的图标"
+
+#. placeholder {0}: money(salary.preferred, salary.currency)
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "ideally {0}+"
+msgstr ""
 
 #: src/features/homepage/remember.tsx
 msgid "If I did it again, I’d agree on the measure before the first prototype."
@@ -6484,6 +6649,14 @@ msgstr "增加缩进"
 #: src/libs/locale.ts
 msgid "Indonesian"
 msgstr "印尼语"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Industry"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Industry, organization type, mission, size, benefits, employment type…"
+msgstr ""
 
 #: src/features/career/workspace/fit.tsx
 msgid "Inferred"
@@ -6917,6 +7090,10 @@ msgstr "关键词"
 #: src/libs/locale.ts
 msgid "Khmer"
 msgstr "高棉语"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Kind"
+msgstr ""
 
 #: src/features/letters/compose.ts
 msgid "Kind regards,"
@@ -7567,6 +7744,10 @@ msgstr "由服务器管理"
 msgid "Managed by your server"
 msgstr "由您的服务器管理"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Management"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Many bullets start with the same phrase."
 msgstr "很多要点都以相同的短语开头。"
@@ -7706,6 +7887,10 @@ msgstr "消息 · 从您的邮件粘贴"
 msgid "Messages · Reply to Sam at Fieldnote"
 msgstr "消息 · 回复 Fieldnote 的 Sam"
 
+#: src/features/career/preference-check.tsx
+msgid "Met"
+msgstr ""
+
 #: src/features/career/knowledge/profile.tsx
 msgid "Metrics (only numbers you can back up)"
 msgstr ""
@@ -7714,9 +7899,21 @@ msgstr ""
 msgid "Microphone blocked. Allow it in your browser settings, or type your answer."
 msgstr "麦克风已被阻止。请在浏览器设置中允许，或输入您的回答。"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "min"
+msgstr ""
+
 #: src/features/career/knowledge/preferences.tsx
 msgid "Minimum base salary"
 msgstr "最低基本工资"
+
+#: src/features/career/knowledge/preferences.tsx
+msgid "Minimum pay is set under Pay, below."
+msgstr ""
+
+#: src/features/career/preference-check.tsx
+msgid "Misses a must-have"
+msgstr ""
 
 #: src/features/applications/components/detail/assemble-dialog.tsx
 msgid "Missing evidence isn't missing ability. If you have done it, add it to your profile and assemble again."
@@ -7725,6 +7922,10 @@ msgstr ""
 #: src/features/homepage/prepare.tsx
 msgid "Missing evidence means your notes don’t show it yet, not that you lack it."
 msgstr "缺少证据只表示您的笔记中尚未体现，并不代表您不具备。"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Mission"
+msgstr ""
 
 #: src/features/homepage/footer.tsx
 msgid "MIT License"
@@ -7831,6 +8032,7 @@ msgstr "上移{label}"
 msgid "Move all content inside the page boundaries and re-export."
 msgstr "把所有内容移到页面边界之内，然后重新导出。"
 
+#: src/features/career/knowledge/structured-preferences.tsx
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Move down"
 msgstr "下移"
@@ -7893,6 +8095,7 @@ msgstr "移至垃圾箱"
 msgid "Move to…"
 msgstr "移至…"
 
+#: src/features/career/knowledge/structured-preferences.tsx
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Move up"
 msgstr "向上移动"
@@ -7916,6 +8119,15 @@ msgstr "已移至{label}"
 #: src/features/career/workspace/messages.tsx
 msgid "Moves the application from {0}."
 msgstr "将申请从“{0}”移出。"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+#: src/features/career/preference-check.tsx
+msgid "Must have"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Must have: lower pay rules a role out, unless an exception below applies."
+msgstr ""
 
 #: src/features/homepage/remember.tsx
 msgid "My job was to find out why, without adding support work."
@@ -7989,6 +8201,10 @@ msgstr "找到姓名、电子邮件、电话和位置，链接是完整地址。
 msgid "named"
 msgstr "命名的"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Named places"
+msgstr ""
+
 #: src/features/resume/share/format.ts
 msgid "Named version"
 msgstr "命名版本"
@@ -8045,6 +8261,10 @@ msgstr "全新 API 钥匙"
 #: src/features/command-palette/pages/resumes.tsx
 msgid "New application"
 msgstr "新申请"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "New area"
+msgstr ""
 
 #: src/features/assistant/assistant-panel.tsx
 #: src/features/career/coach-thread.tsx
@@ -8152,6 +8372,15 @@ msgstr "下一步：{0}。会在“今天”中添加提醒。"
 #: src/features/homepage/remember.tsx
 msgid "Next time, I’d agree how to measure success before the first prototype."
 msgstr "下次，我会在第一个原型之前就先商定如何衡量成功。"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+#: src/features/career/preference-check.tsx
+msgid "Nice to have"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Nice to have."
+msgstr ""
 
 #: src/features/applications/components/interview-dialog.tsx
 msgid "No active applications."
@@ -8271,6 +8500,10 @@ msgstr "没有看起来像“职位 + 雇主”这种搭配的行。"
 msgid "No location"
 msgstr "没有位置"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "No location rules yet."
+msgstr ""
+
 #: src/features/career/today.tsx
 msgid "No new roles. Discovery is paused."
 msgstr "没有新职位。职位发现已暂停。"
@@ -8301,6 +8534,10 @@ msgstr "没有未解决的问题"
 msgid "No other stage counts as {0}. Add one first, so its applications have somewhere to go."
 msgstr "没有其他阶段归类为{0}。请先添加一个，以便转移该阶段中的申请。"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "No pay preferences yet."
+msgstr ""
+
 #: src/features/resume/editor/check/issues.ts
 msgid "No phone number"
 msgstr "没有电话号码"
@@ -8316,6 +8553,14 @@ msgstr "没有照片。大多数ATS忽略照片；一些地区预计会出现这
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "No postings found. Try different keywords."
 msgstr "没有找到招聘信息。尝试不同的关键词。"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "No preference"
+msgstr ""
+
+#: src/features/career/preference-check.tsx
+msgid "No preferences to check yet. <0>Set them in Preferences</0>"
+msgstr ""
 
 #: src/features/applications/stages.ts
 msgid "No response"
@@ -8410,6 +8655,10 @@ msgctxt "Entry header accent"
 msgid "None"
 msgstr "无"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Nonprofit"
+msgstr ""
+
 #: src/features/career/knowledge/profile.tsx
 msgid "nonprofit, wordpress, leadership"
 msgstr ""
@@ -8435,6 +8684,11 @@ msgstr "Northwind Labs · Lisbon"
 #: src/libs/locale.ts
 msgid "Norwegian"
 msgstr "挪威语"
+
+#. placeholder {0}: item.value
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "not {0}"
+msgstr ""
 
 #: src/features/career/workspace/messages.tsx
 msgid "Not applied"
@@ -8485,6 +8739,10 @@ msgstr "不在你的简历中"
 msgid "Not in your resume · add only if true"
 msgstr "不在您的简历中·仅在属实时添加"
 
+#: src/features/career/preference-check.tsx
+msgid "Not met"
+msgstr ""
+
 #: src/features/career/shared.tsx
 msgid "Not now"
 msgstr "暂不"
@@ -8522,6 +8780,10 @@ msgstr ""
 #: src/features/settings/root.tsx
 msgid "Not set up"
 msgstr "未设置"
+
+#: src/features/career/preference-check.tsx
+msgid "Not stated"
+msgstr ""
 
 #: src/features/resume/stylesheet/editor.tsx
 msgid "Not sure what to write?"
@@ -8657,6 +8919,10 @@ msgstr "奥里亚语"
 msgid "Off"
 msgstr "离开"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Off: roles that require relocating to {name} don't meet this rule."
+msgstr ""
+
 #: src/features/homepage/remember.tsx
 msgid "Off: the coach won’t see it or claim it."
 msgstr "关闭：教练不会看到，也不会据此作出陈述。"
@@ -8688,9 +8954,21 @@ msgstr "每周到办公室天数上限"
 msgid "Office days not stated"
 msgstr "未注明到办公室天数"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Office days, at most"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Office days, ideally"
+msgstr ""
+
 #: src/features/resume/editor/save-status.tsx
 msgid "Offline · saved on this device"
 msgstr "离线 · 已保存在此设备上"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "On-site"
+msgstr ""
 
 #: src/features/resume/share/share-panel.tsx
 msgid "On. Anyone with the link can see your web page."
@@ -8859,6 +9137,10 @@ msgstr ""
 msgid "Open the schedule"
 msgstr "打开定时任务"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Open to relocating here"
+msgstr ""
+
 #: src/features/resume/share/share-panel.tsx
 msgid "Open web page"
 msgstr "打开网页"
@@ -8900,6 +9182,10 @@ msgstr "选修的"
 #: src/features/settings/ai/providers.tsx
 msgid "Optional for local Ollama"
 msgstr "本地可选 Ollama"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Optional; replaces the general minimum in this area."
+msgstr ""
 
 #: src/components/ui/combobox.tsx
 #: src/features/documents/documents-page.tsx
@@ -8963,6 +9249,7 @@ msgid "Original table formatting is preserved. This content is read-only because
 msgstr "原始表格格式已保留。由于无法安全编辑，此内容为只读。"
 
 #: src/features/applications/components/interview-dialog.tsx
+#: src/features/career/knowledge/structured-preferences.tsx
 msgid "Other"
 msgstr "其他"
 
@@ -9209,7 +9496,20 @@ msgstr "已暂停 · {line}"
 msgid "Paused schedules keep their settings."
 msgstr "暂停的定时任务会保留其设置。"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Pay"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Pay changes aren't saved until then."
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Pay is compared only when a posting states it in the same currency and period; otherwise it's marked unknown, never converted or guessed. Hourly, contract and commission pay is flagged to check."
+msgstr ""
+
 #: src/features/career/knowledge/preferences.tsx
+#: src/features/career/knowledge/structured-preferences.tsx
 msgid "Pay period"
 msgstr "发薪周期"
 
@@ -9228,6 +9528,18 @@ msgstr "PDF、Word 或 JSON。我们将根据它构建一份简历。"
 #: src/features/homepage/sections.tsx
 msgid "People using it"
 msgstr "使用它的人"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "per hour"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "per month"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "per year"
+msgstr ""
 
 #: src/features/settings/account/data.tsx
 msgid "Permanently removes everything. Export first if you want a copy."
@@ -9291,6 +9603,10 @@ msgstr "图片"
 #: src/features/applications/components/insights-view.tsx
 msgid "Pipeline flow"
 msgstr "流程流向"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Places that identify it in a posting"
+msgstr ""
 
 #: src/features/career/workspace/apply.tsx
 msgid "Plain text (.txt)"
@@ -9449,6 +9765,18 @@ msgstr "偏好设置"
 msgctxt "Career preferences: the roles, places, pay and ways of working you want"
 msgid "Preferences"
 msgstr "偏好"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Preferred"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Preferred minimum"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Preferred minimum here ({currency})"
+msgstr ""
 
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/shared.tsx
@@ -9778,6 +10106,10 @@ msgstr "要提的问题"
 #: src/features/homepage/remember.tsx
 msgid "R"
 msgstr "R"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Radius"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 msgid "Raise the design sheet"
@@ -10174,6 +10506,7 @@ msgid "Reminders appear here. Email copies are optional and need a verified addr
 msgstr "提醒会显示在这里。邮件副本为可选项，需要已验证的邮箱地址。"
 
 #: src/features/career/knowledge/preferences.tsx
+#: src/features/career/knowledge/structured-preferences.tsx
 #: src/features/career/offers.tsx
 msgid "Remote"
 msgstr "远程"
@@ -10197,17 +10530,18 @@ msgstr "移除“{name}”？"
 
 #. placeholder {0}: attachment.filename
 #. placeholder {0}: contact.name
-#. placeholder {0}: passkey.name || t`Unnamed passkey`
+#. placeholder {0}: item.value || kinds[item.kind]
 #: src/features/applications/components/detail/contacts.tsx
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
+#: src/features/career/knowledge/structured-preferences.tsx
 #: src/features/settings/account/security.tsx
 msgid "Remove {0}"
 msgstr "删除 {0}"
 
 #. Screen reader label for button that removes a keyword chip. Variable is the current keyword text.
 #: src/components/input/chip-input.tsx
-#: src/features/career/knowledge/preferences.tsx
+#: src/features/career/knowledge/fields.tsx
 msgid "Remove {chip}"
 msgstr "移除 {chip}"
 
@@ -10218,6 +10552,10 @@ msgstr "删除 {country}"
 #: src/features/applications/components/manage-lanes-sheet.tsx
 msgid "Remove {label}…"
 msgstr "移除{label}…"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Remove {name}"
+msgstr ""
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Remove {value}"
@@ -10670,6 +11008,14 @@ msgstr "角色、公司或地点"
 #: src/features/career/coach-chat.tsx
 msgid "Roles"
 msgstr "职位"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Roles are checked against your office-day limit and places as strong preferences, never as must-haves."
+msgstr ""
+
+#: src/features/career/knowledge/preferences.tsx
+msgid "Roles are checked with your location rules below; this limit is used when comparing offers."
+msgstr ""
 
 #: src/features/career/schedule-sheet.tsx
 msgid "Roles, places and companies. Starts from your preferences."
@@ -11322,6 +11668,10 @@ msgstr "设置后续..."
 msgid "Set a password"
 msgstr "设置密码"
 
+#: src/features/career/preference-check.tsx
+msgid "Set aside for this role"
+msgstr ""
+
 #: src/features/resume/builder/password-dialog.tsx
 msgid "Set password"
 msgstr "设置密码"
@@ -11665,6 +12015,7 @@ msgstr "情境、任务、行动、结果、反思。将每个故事关联到您
 msgid "Six product teams"
 msgstr "六大产品团队"
 
+#: src/features/career/knowledge/structured-preferences.tsx
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Size"
 msgstr "大小"
@@ -11770,6 +12121,10 @@ msgstr "有些文字落在页面之外。"
 #: src/features/ats-checker/messages.ts
 msgid "Some text is rotated."
 msgstr "有些文字被旋转了。"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Something else"
+msgstr ""
 
 #: src/libs/error-message.ts
 msgid "Something went wrong. Please try again."
@@ -12090,6 +12445,19 @@ msgstr "可加强"
 msgid "Strikethrough"
 msgstr "删除线"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Strong benefits"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+#: src/features/career/preference-check.tsx
+msgid "Strong preference"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Strong preference."
+msgstr ""
+
 #: src/features/resume/editor/write/improve.tsx
 msgid "Stronger verb"
 msgstr "更强的动词"
@@ -12314,6 +12682,14 @@ msgstr "居家作业"
 #: src/libs/locale.ts
 msgid "Tamil"
 msgstr "泰米尔语"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Target range, from"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Target range, to"
+msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
 msgid "Target roles"
@@ -12666,6 +13042,10 @@ msgstr "您选择比较的录用通知及其条件"
 msgid "The order the text is stored in disagrees badly with the order it reads in."
 msgstr "文字的存储顺序与阅读顺序严重不一致。"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "The organization and the role"
+msgstr ""
+
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "The original link stays with this job."
 msgstr "原始链接保留在该作业中。"
@@ -12868,6 +13248,10 @@ msgstr "此职位申请尚未保存职位发布。粘贴它以匹配它。"
 msgid "This application has no posting text saved, so there's little to match against. Add the posting to the application first for a better result."
 msgstr ""
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "this area"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "This browser can't record here. Choose an audio file, or type your answer."
 msgstr "此浏览器无法在此处录音。请选择音频文件，或输入您的回答。"
@@ -13044,6 +13428,10 @@ msgstr "这份简历由人工智能代理更新。"
 #: src/features/resume/builder/draft.ts
 msgid "This resume's sharing settings changed elsewhere."
 msgstr "此简历的共享设置已在其他地方更改。"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "This rule isn't saved until then."
+msgstr ""
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "This saved description is clipped or incomplete. Review before preparing documents."
@@ -13300,6 +13688,10 @@ msgstr "尝试使用简历样本"
 msgid "Turkish"
 msgstr "土耳其语"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Turn into a rule"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Turn off discretionary ligatures when exporting."
 msgstr "导出时关闭可选连字（discretionary ligatures）。"
@@ -13422,6 +13814,10 @@ msgstr "输入命令或搜索…"
 msgid "Type instead"
 msgstr "改为输入"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Type of organization"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "typed"
 msgstr "文字"
@@ -13529,6 +13925,10 @@ msgstr "未命名通行密钥"
 #: src/features/resume/stylesheet/targets.ts
 msgid "Untitled"
 msgstr "无题"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Untitled area"
+msgstr ""
 
 #: src/features/documents/use-start-document.ts
 msgid "Untitled letter"
@@ -13822,6 +14222,19 @@ msgstr "在支持的情况下使用人工智能提供商自己的网络搜索，
 msgid "Uses your browser’s voice"
 msgstr "使用浏览器语音"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Using your minimum base salary as a strong preference."
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Using your office-day limit and places, as strong preferences."
+msgstr ""
+
+#. placeholder {0}: evaluation.rule.label
+#: src/features/career/preference-check.tsx
+msgid "Using your rule for {0}."
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Uzbek"
 msgstr "乌兹别克语"
@@ -13981,9 +14394,21 @@ msgstr "等待您处理"
 msgid "Waiting to hear back"
 msgstr "等待回音"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Want"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Want or avoid"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Warning"
 msgstr "警告”"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Ways you'd work here"
+msgstr ""
 
 #: src/features/homepage/hero.tsx
 msgid "WCAG 2.1 AA"
@@ -14059,6 +14484,10 @@ msgstr "正在权衡每项要求"
 #: src/features/homepage/prepare.tsx
 msgid "Went well"
 msgstr "顺利"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "What"
+msgstr ""
 
 #: src/features/resume/editor/check/page-layer.tsx
 msgid "What a parser reads"
@@ -14181,6 +14610,14 @@ msgstr "您负责什么？"
 msgid "What works"
 msgstr "亮点"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "What would make it worth it"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "What would make it worth it? (optional)"
+msgstr ""
+
 #: src/features/career/knowledge/stories.tsx
 msgid "What would you do differently?"
 msgstr "如果重来，您会怎么做？"
@@ -14222,6 +14659,10 @@ msgstr "对方何时需要您的答复？"
 #: src/features/career/coach.tsx
 msgid "When you press send, {shared} go to {connection}."
 msgstr "点击发送后，{shared}将发送给 {connection}。"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Where and how you'll work"
+msgstr ""
 
 #: src/features/applications/components/insights-view.tsx
 msgid "Where applications come from"
@@ -14288,6 +14729,10 @@ msgstr "目前谁负责设计系统？90 天内的成功是什么样子？"
 msgid "Who you'll meet"
 msgstr "面试官"
 
+#: src/features/career/preference-check.tsx
+msgid "Why"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "Why do you want this role at {company}?"
 msgstr "您为什么想在 {company} 担任这个职位？"
@@ -14307,6 +14752,10 @@ msgstr "宽度"
 #: src/features/homepage/faq.tsx
 msgid "Will my resume get past applicant tracking systems?"
 msgstr "我的简历会通过申请人跟踪系统吗？"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "With an exception, pay below the absolute minimum counts against a role but doesn't rule it out."
+msgstr ""
 
 #: src/features/homepage/remember.tsx
 msgid "Within a quarter, activation went from 31% to 44%."
@@ -14336,6 +14785,10 @@ msgstr "值得一问"
 #: src/features/career/workspace/fit.tsx
 msgid "Worth asking {0}"
 msgstr "值得问问 {0}"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Would consider less for"
+msgstr ""
 
 #: src/features/homepage/footer.tsx
 #: src/features/homepage/header.tsx

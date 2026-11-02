@@ -1,5 +1,4 @@
 import type { CareerProfileData } from "@reactive-resume/schema/career";
-import type { KeyboardEvent } from "react";
 import { t } from "@lingui/core/macro";
 import { useLingui } from "@lingui/react";
 import { Trans } from "@lingui/react/macro";
@@ -15,7 +14,9 @@ import { useDebouncedSave } from "../hooks";
 import { CareerLoadError, CareerLoading } from "../load-state";
 import { useCareerTime, useNow } from "../shared";
 import { parseAmount } from "./amount";
+import { bareSelect, ChipField, fieldShell } from "./fields";
 import { SearchRegionsField } from "./search-regions-field";
+import { savableStructured, StructuredPreferencesEditor } from "./structured-preferences";
 import { toastError } from "@/libs/error-message";
 import { D2, EASE } from "@/libs/motion";
 import { client, orpc } from "@/libs/orpc/client";
@@ -75,13 +76,18 @@ function PreferencesForm({ initial }: PreferencesFormProps) {
 	};
 
 	// Called directly (not through a mutation hook) so the flush on unmount still saves.
+	// The last structured preferences the server accepted, so an unfinished rule falls back to it.
+	const sent = useRef(initial.structured);
 	const flush = useDebouncedSave(JSON.stringify(draft), JSON.stringify(saved), (json) => {
 		const next = JSON.parse(json) as CareerProfileData;
+		const structured = savableStructured(next.structured, sent.current);
+		const body = structured === undefined ? next : { ...next, structured };
 		setStatus((current) => ({ ...current, saving: true, failed: false }));
-		const operation = saves.current.then(() => client.career.saveProfile(next));
+		const operation = saves.current.then(() => client.career.saveProfile(body));
 		saves.current = operation.catch(() => undefined);
 		operation
 			.then(() => {
+				sent.current = body.structured;
 				setSaved(next);
 				setStatus({ saving: false, failed: false, at: Date.now() });
 			})
@@ -172,12 +178,18 @@ function PreferencesForm({ initial }: PreferencesFormProps) {
 				</div>
 
 				<div className="mt-1 grid gap-3.5 sm:grid-cols-2 lg:grid-cols-4">
-					<SalaryField
-						id={`${id}-salary`}
-						locale={i18n.locale}
-						value={draft.minBase}
-						onChange={(minBase) => change({ minBase })}
-					/>
+					{draft.structured?.salary ? (
+						<p className="text-xs text-ink-3">
+							<Trans>Minimum pay is set under Pay, below.</Trans>
+						</p>
+					) : (
+						<SalaryField
+							id={`${id}-salary`}
+							locale={i18n.locale}
+							value={draft.minBase}
+							onChange={(minBase) => change({ minBase })}
+						/>
+					)}
 
 					<div className="grid gap-1.5 sm:col-span-2">
 						<span id={`${id}-office`} className="text-xs font-medium text-ink-2">
@@ -209,6 +221,13 @@ function PreferencesForm({ initial }: PreferencesFormProps) {
 								</SegmentedControlItem>
 							))}
 						</SegmentedControl>
+						{(draft.structured?.locationRules.length ?? 0) > 0 && (
+							<p className="text-xs text-ink-3">
+								<Trans>
+									Roles are checked with your location rules below; this limit is used when comparing offers.
+								</Trans>
+							</p>
+						)}
 					</div>
 
 					<div className="grid gap-1.5">
@@ -245,72 +264,8 @@ function PreferencesForm({ initial }: PreferencesFormProps) {
 					</p>
 				</div>
 			</section>
-		</div>
-	);
-}
 
-/** An input-like box holding a prefix/suffix and a bare input; focus rings the whole box. */
-const fieldShell =
-	"flex h-9 items-center gap-1.5 rounded-md border border-line-2 bg-raised px-2.5 transition-[border-color,box-shadow] duration-quick focus-within:border-accent focus-within:shadow-[0_0_0_3px_var(--accent-soft)] pointer-coarse:h-11";
-
-const bareSelect =
-	"field-sizing-content cursor-pointer appearance-none bg-transparent text-ink-3 outline-none hover:text-ink focus-visible:text-ink";
-
-type ChipFieldProps = { label: string; placeholder: string; value: string[]; onChange: (value: string[]) => void };
-
-/** Enter or comma adds a chip, Backspace in an empty input removes the last one, × removes one. */
-function ChipField({ label, placeholder, value, onChange }: ChipFieldProps) {
-	const id = useId();
-	const [input, setInput] = useState("");
-
-	const add = () => {
-		const chip = input.trim().slice(0, 200);
-		if (chip && !value.includes(chip) && value.length < 20) onChange([...value, chip]);
-		setInput("");
-	};
-
-	const onKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
-		if (event.nativeEvent.isComposing) return;
-		if (event.key === "Enter" || event.key === ",") {
-			event.preventDefault();
-			add();
-		} else if (event.key === "Backspace" && input === "" && value.length > 0) {
-			onChange(value.slice(0, -1));
-		}
-	};
-
-	return (
-		<div className="grid content-start gap-1.5">
-			<label htmlFor={id} className="text-xs font-medium text-ink-2">
-				{label}
-			</label>
-			<div className="flex min-h-10 flex-wrap items-center gap-[5px] rounded-md border border-line-2 bg-raised p-[5px] transition-[border-color,box-shadow] duration-quick focus-within:border-accent focus-within:shadow-[0_0_0_3px_var(--accent-soft)]">
-				{value.map((chip) => (
-					<span
-						key={chip}
-						className="flex h-7 items-center gap-0.5 rounded-sm bg-sunken ps-2.5 pe-1 text-[13px] font-medium"
-					>
-						{chip}
-						<button
-							type="button"
-							aria-label={t`Remove ${chip}`}
-							onClick={() => onChange(value.filter((item) => item !== chip))}
-							className="touch-target relative flex size-[22px] items-center justify-center rounded-md text-ink-3 transition-colors duration-quick hover:bg-hover hover:text-ink"
-						>
-							<Icon name="x" size={16} />
-						</button>
-					</span>
-				))}
-				<input
-					id={id}
-					value={input}
-					placeholder={placeholder}
-					onChange={(event) => setInput(event.target.value)}
-					onKeyDown={onKeyDown}
-					onBlur={add}
-					className="h-7 min-w-40 flex-1 bg-transparent px-1.5 text-[13px] outline-none placeholder:text-ink-3"
-				/>
-			</div>
+			<StructuredPreferencesEditor profile={draft} onChange={change} />
 		</div>
 	);
 }

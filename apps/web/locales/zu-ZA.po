@@ -1028,6 +1028,10 @@ msgstr ""
 msgid "A comfortable length, and it fits on one page."
 msgstr ""
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "A country"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "A date is in the future."
 msgstr ""
@@ -1097,6 +1101,10 @@ msgstr ""
 msgid "A model's opinion, not a verdict. It can be wrong."
 msgstr ""
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "A must-have rules a role out only when the posting confirms it isn't met; if the posting doesn't say, the role is marked to check. Strong preferences and nice-to-haves only change the order. You can still save and track any role."
+msgstr ""
+
 #: src/features/settings/account/security.tsx
 msgid "A name helps you tell passkeys apart, like “Work laptop”."
 msgstr ""
@@ -1153,12 +1161,24 @@ msgstr ""
 msgid "A web address is written without https://."
 msgstr ""
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "a week"
+msgstr ""
+
 #: src/features/homepage/footer.tsx
 msgid "About"
 msgstr ""
 
 #: src/features/career/workspace/practise.tsx
 msgid "About 90 seconds when spoken"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Absolute minimum"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Absolute minimum pay here ({currency})"
 msgstr ""
 
 #: src/features/resume/editor/design/entries-group.tsx
@@ -1277,6 +1297,10 @@ msgstr ""
 msgid "Add “{0}” as a new stage"
 msgstr ""
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Add a city or region, then Enter"
+msgstr ""
+
 #: src/features/career/knowledge/search-regions-field.tsx
 msgid "Add a country"
 msgstr ""
@@ -1324,6 +1348,10 @@ msgstr ""
 
 #: src/features/career/knowledge/profile.tsx
 msgid "Add a position"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Add a preference"
 msgstr ""
 
 #: src/features/career/workspace/apply.tsx
@@ -1388,6 +1416,10 @@ msgstr ""
 
 #: src/features/career/schedule-sheet.tsx
 msgid "Add an application first"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Add an area"
 msgstr ""
 
 #: src/features/resume/editor/check/issues.ts
@@ -1742,6 +1774,10 @@ msgstr ""
 msgid "After your first review, a light plan for this week appears here."
 msgstr ""
 
+#: src/features/career/preference-check.tsx
+msgid "Against your preferences"
+msgstr ""
+
 #: src/features/career/workspace/fit.tsx
 msgid "Against your requirements"
 msgstr ""
@@ -1993,7 +2029,12 @@ msgid "Anything to remember about this job"
 msgstr ""
 
 #: src/features/career/knowledge/search-regions-field.tsx
+#: src/features/career/knowledge/structured-preferences.tsx
 msgid "Anywhere"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Anywhere else"
 msgstr ""
 
 #: src/features/assistant/provider-setup.tsx
@@ -2196,6 +2237,10 @@ msgstr ""
 msgid "Archived (closes it)"
 msgstr ""
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Area name"
+msgstr ""
+
 #: src/features/resume/editor/write/entries.tsx
 msgid "Area of study"
 msgstr ""
@@ -2318,6 +2363,11 @@ msgstr ""
 msgid "Assistant."
 msgstr ""
 
+#. placeholder {0}: money(salary.floor, salary.currency)
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "at least {0}"
+msgstr ""
+
 #: src/features/homepage/prepare.tsx
 msgid "At Northwind Labs I led research for our onboarding redesign. I interviewed 14 customers, found three drop-off points, and we shipped a shorter setup. Activation rose from 31% to 44%."
 msgstr ""
@@ -2370,6 +2420,10 @@ msgstr ""
 msgid "Automatically"
 msgstr ""
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Autonomy"
+msgstr ""
+
 #: src/features/resume/share/format.ts
 msgid "autosaved"
 msgstr ""
@@ -2380,6 +2434,10 @@ msgstr ""
 
 #: src/features/resume/share/cv-domain-card.tsx
 msgid "Available"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Avoid"
 msgstr ""
 
 #: src/features/ats-checker/messages.ts
@@ -2515,6 +2573,10 @@ msgstr ""
 
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Behavioral"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Benefits"
 msgstr ""
 
 #: src/libs/locale.ts
@@ -2850,6 +2912,10 @@ msgstr ""
 msgid "Check any PDF, no account needed"
 msgstr ""
 
+#: src/features/career/preference-check.tsx
+msgid "Check before applying"
+msgstr ""
+
 #: src/features/resume/share/custom-domain-field.tsx
 #: src/features/resume/share/dns-records-dialog.tsx
 msgid "Check DNS"
@@ -2922,6 +2988,10 @@ msgstr ""
 msgid "Check your resume’s ATS readability"
 msgstr ""
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Checked by whether the posting mentions it, so use the words a posting would: \"nonprofit\", \"permanent\", \"pension\". Anything subtler is left for the coach to read."
+msgstr ""
+
 #. placeholder {0}: file.name
 #: src/features/ats-checker/checker.tsx
 msgid "Checking {0}"
@@ -2965,6 +3035,10 @@ msgstr ""
 
 #: src/libs/locale.ts
 msgid "Chinese (Traditional)"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Choose a country"
 msgstr ""
 
 #: src/features/documents/documents-page.tsx
@@ -3193,6 +3267,10 @@ msgstr ""
 
 #: src/features/homepage/footer.tsx
 msgid "Community"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Commute, at most"
 msgstr ""
 
 #: src/features/resume/editor/design/fit.ts
@@ -4174,6 +4252,10 @@ msgstr ""
 msgid "Couldn't update this letter's versions. Try again."
 msgstr ""
 
+#: src/features/career/preference-check.tsx
+msgid "Couldn't update this preference. Try again."
+msgstr ""
+
 #. Fallback toast when uploading profile picture for resume fails
 #: src/features/resume/editor/write/picture-settings.tsx
 #: src/features/settings/account/profile.tsx
@@ -4203,6 +4285,10 @@ msgstr ""
 msgid "Count characters"
 msgstr ""
 
+#: src/features/career/preference-check.tsx
+msgid "Count it again"
+msgstr ""
+
 #: src/features/career/workspace/apply.tsx
 msgid "Count words"
 msgstr ""
@@ -4213,6 +4299,10 @@ msgstr ""
 
 #: src/features/career/knowledge/search-regions-field.tsx
 msgid "Countries"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Country"
 msgstr ""
 
 #: src/features/applications/components/manage-lanes-sheet.tsx
@@ -4262,6 +4352,10 @@ msgstr ""
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/homepage/sections.tsx
 msgid "Cover letters"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Covers"
 msgstr ""
 
 #: src/features/command-palette/pages/navigation.tsx
@@ -4342,7 +4436,12 @@ msgid "CSV data"
 msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
+#: src/features/career/knowledge/structured-preferences.tsx
 msgid "Currency"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Currency set; no amounts yet."
 msgstr ""
 
 #: src/features/applications/components/export-applications-sheet.tsx
@@ -4789,6 +4888,10 @@ msgstr ""
 msgid "Does it use AI?"
 msgstr ""
 
+#: src/features/career/preference-check.tsx
+msgid "Doesn't matter here"
+msgstr ""
+
 #: src/features/resume/share/custom-domain-field.tsx
 msgid "Domain connected"
 msgstr ""
@@ -5045,6 +5148,10 @@ msgstr ""
 msgid "Each requirement in the posting is checked against the facts and stories in your Knowledge. Gaps show as missing evidence, never missing ability."
 msgstr ""
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Each rule covers an area. A rule naming places is used before a country rule, and a country rule before an \"anywhere\" rule; among rules of the same kind, the higher one wins. Radius and commute time are shared with the coach but can't be checked against a posting."
+msgstr ""
+
 #: src/features/assistant/conversation.tsx
 msgid "Each send starts fresh with this message and selected files. Previous conversation history stays here."
 msgstr ""
@@ -5245,6 +5352,10 @@ msgstr ""
 msgid "Employer"
 msgstr ""
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Employment type"
+msgstr ""
+
 #: src/features/resume/editor/write/dates-field.tsx
 msgid "End"
 msgstr ""
@@ -5284,6 +5395,10 @@ msgstr ""
 
 #: src/features/auth/pages/verify-2fa.tsx
 msgid "Enter a backup code."
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Enter a full amount, such as 95000."
 msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
@@ -5676,6 +5791,10 @@ msgstr ""
 msgid "Fit page to width"
 msgstr ""
 
+#: src/features/career/preference-check.tsx
+msgid "Fits your must-haves"
+msgstr ""
+
 #: src/features/resume/editor/check/issues.ts
 msgid "Fix the date"
 msgstr ""
@@ -5707,6 +5826,10 @@ msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Flatten the form so the text is part of the page."
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Flexibility"
 msgstr ""
 
 #: src/features/resume/editor/write/entries.tsx
@@ -5916,6 +6039,10 @@ msgstr ""
 msgid "From your cover letter"
 msgstr ""
 
+#: src/features/career/preference-check.tsx
+msgid "from your earlier settings"
+msgstr ""
+
 #: src/features/assistant/assistant-panel.tsx
 msgid "From your experience entries"
 msgstr ""
@@ -6056,6 +6183,10 @@ msgstr ""
 msgid "Gray"
 msgstr ""
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Greater Toronto Area"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Greek"
 msgstr ""
@@ -6070,6 +6201,14 @@ msgstr ""
 
 #: src/features/documents/documents-page.tsx
 msgid "Grid"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Growth"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Growth and learning"
 msgstr ""
 
 #: src/features/homepage/remember.tsx
@@ -6291,8 +6430,25 @@ msgstr ""
 msgid "How many days of leave come with it?"
 msgstr ""
 
+#. placeholder {0}: item.value || kinds[item.kind]
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "How much {0} matters"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "How much {name} matters"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "How much this rule matters"
+msgstr ""
+
 #: src/features/career/schedule-sheet.tsx
 msgid "How often"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "How roles are checked"
 msgstr ""
 
 #: src/features/templates/gallery.tsx
@@ -6309,6 +6465,10 @@ msgstr ""
 
 #: src/libs/locale.ts
 msgid "Hungarian"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Hybrid"
 msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/typography.tsx
@@ -6347,6 +6507,11 @@ msgstr ""
 
 #: src/features/resume/editor/design/style-groups.tsx
 msgid "Icons in contact line"
+msgstr ""
+
+#. placeholder {0}: money(salary.preferred, salary.currency)
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "ideally {0}+"
 msgstr ""
 
 #: src/features/homepage/remember.tsx
@@ -6478,6 +6643,14 @@ msgstr ""
 
 #: src/libs/locale.ts
 msgid "Indonesian"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Industry"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Industry, organization type, mission, size, benefits, employment type…"
 msgstr ""
 
 #: src/features/career/workspace/fit.tsx
@@ -6911,6 +7084,10 @@ msgstr ""
 
 #: src/libs/locale.ts
 msgid "Khmer"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Kind"
 msgstr ""
 
 #: src/features/letters/compose.ts
@@ -7562,6 +7739,10 @@ msgstr ""
 msgid "Managed by your server"
 msgstr ""
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Management"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Many bullets start with the same phrase."
 msgstr ""
@@ -7701,6 +7882,10 @@ msgstr ""
 msgid "Messages · Reply to Sam at Fieldnote"
 msgstr ""
 
+#: src/features/career/preference-check.tsx
+msgid "Met"
+msgstr ""
+
 #: src/features/career/knowledge/profile.tsx
 msgid "Metrics (only numbers you can back up)"
 msgstr ""
@@ -7709,8 +7894,20 @@ msgstr ""
 msgid "Microphone blocked. Allow it in your browser settings, or type your answer."
 msgstr ""
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "min"
+msgstr ""
+
 #: src/features/career/knowledge/preferences.tsx
 msgid "Minimum base salary"
+msgstr ""
+
+#: src/features/career/knowledge/preferences.tsx
+msgid "Minimum pay is set under Pay, below."
+msgstr ""
+
+#: src/features/career/preference-check.tsx
+msgid "Misses a must-have"
 msgstr ""
 
 #: src/features/applications/components/detail/assemble-dialog.tsx
@@ -7719,6 +7916,10 @@ msgstr ""
 
 #: src/features/homepage/prepare.tsx
 msgid "Missing evidence means your notes don’t show it yet, not that you lack it."
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Mission"
 msgstr ""
 
 #: src/features/homepage/footer.tsx
@@ -7826,6 +8027,7 @@ msgstr ""
 msgid "Move all content inside the page boundaries and re-export."
 msgstr ""
 
+#: src/features/career/knowledge/structured-preferences.tsx
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Move down"
 msgstr ""
@@ -7888,6 +8090,7 @@ msgstr ""
 msgid "Move to…"
 msgstr ""
 
+#: src/features/career/knowledge/structured-preferences.tsx
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Move up"
 msgstr ""
@@ -7910,6 +8113,15 @@ msgstr ""
 #. placeholder {0}: getLaneLabel(getDisplayLane(lanes, application))
 #: src/features/career/workspace/messages.tsx
 msgid "Moves the application from {0}."
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+#: src/features/career/preference-check.tsx
+msgid "Must have"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Must have: lower pay rules a role out, unless an exception below applies."
 msgstr ""
 
 #: src/features/homepage/remember.tsx
@@ -7984,6 +8196,10 @@ msgstr ""
 msgid "named"
 msgstr ""
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Named places"
+msgstr ""
+
 #: src/features/resume/share/format.ts
 msgid "Named version"
 msgstr ""
@@ -8039,6 +8255,10 @@ msgstr ""
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/command-palette/pages/resumes.tsx
 msgid "New application"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "New area"
 msgstr ""
 
 #: src/features/assistant/assistant-panel.tsx
@@ -8146,6 +8366,15 @@ msgstr ""
 
 #: src/features/homepage/remember.tsx
 msgid "Next time, I’d agree how to measure success before the first prototype."
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+#: src/features/career/preference-check.tsx
+msgid "Nice to have"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Nice to have."
 msgstr ""
 
 #: src/features/applications/components/interview-dialog.tsx
@@ -8266,6 +8495,10 @@ msgstr ""
 msgid "No location"
 msgstr ""
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "No location rules yet."
+msgstr ""
+
 #: src/features/career/today.tsx
 msgid "No new roles. Discovery is paused."
 msgstr ""
@@ -8296,6 +8529,10 @@ msgstr ""
 msgid "No other stage counts as {0}. Add one first, so its applications have somewhere to go."
 msgstr ""
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "No pay preferences yet."
+msgstr ""
+
 #: src/features/resume/editor/check/issues.ts
 msgid "No phone number"
 msgstr ""
@@ -8310,6 +8547,14 @@ msgstr ""
 
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "No postings found. Try different keywords."
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "No preference"
+msgstr ""
+
+#: src/features/career/preference-check.tsx
+msgid "No preferences to check yet. <0>Set them in Preferences</0>"
 msgstr ""
 
 #: src/features/applications/stages.ts
@@ -8405,6 +8650,10 @@ msgctxt "Entry header accent"
 msgid "None"
 msgstr ""
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Nonprofit"
+msgstr ""
+
 #: src/features/career/knowledge/profile.tsx
 msgid "nonprofit, wordpress, leadership"
 msgstr ""
@@ -8429,6 +8678,11 @@ msgstr ""
 
 #: src/libs/locale.ts
 msgid "Norwegian"
+msgstr ""
+
+#. placeholder {0}: item.value
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "not {0}"
 msgstr ""
 
 #: src/features/career/workspace/messages.tsx
@@ -8480,6 +8734,10 @@ msgstr ""
 msgid "Not in your resume · add only if true"
 msgstr ""
 
+#: src/features/career/preference-check.tsx
+msgid "Not met"
+msgstr ""
+
 #: src/features/career/shared.tsx
 msgid "Not now"
 msgstr ""
@@ -8516,6 +8774,10 @@ msgstr ""
 
 #: src/features/settings/root.tsx
 msgid "Not set up"
+msgstr ""
+
+#: src/features/career/preference-check.tsx
+msgid "Not stated"
 msgstr ""
 
 #: src/features/resume/stylesheet/editor.tsx
@@ -8652,6 +8914,10 @@ msgstr ""
 msgid "Off"
 msgstr ""
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Off: roles that require relocating to {name} don't meet this rule."
+msgstr ""
+
 #: src/features/homepage/remember.tsx
 msgid "Off: the coach won’t see it or claim it."
 msgstr ""
@@ -8683,8 +8949,20 @@ msgstr ""
 msgid "Office days not stated"
 msgstr ""
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Office days, at most"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Office days, ideally"
+msgstr ""
+
 #: src/features/resume/editor/save-status.tsx
 msgid "Offline · saved on this device"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "On-site"
 msgstr ""
 
 #: src/features/resume/share/share-panel.tsx
@@ -8854,6 +9132,10 @@ msgstr ""
 msgid "Open the schedule"
 msgstr ""
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Open to relocating here"
+msgstr ""
+
 #: src/features/resume/share/share-panel.tsx
 msgid "Open web page"
 msgstr ""
@@ -8894,6 +9176,10 @@ msgstr ""
 
 #: src/features/settings/ai/providers.tsx
 msgid "Optional for local Ollama"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Optional; replaces the general minimum in this area."
 msgstr ""
 
 #: src/components/ui/combobox.tsx
@@ -8958,6 +9244,7 @@ msgid "Original table formatting is preserved. This content is read-only because
 msgstr ""
 
 #: src/features/applications/components/interview-dialog.tsx
+#: src/features/career/knowledge/structured-preferences.tsx
 msgid "Other"
 msgstr ""
 
@@ -9204,7 +9491,20 @@ msgstr ""
 msgid "Paused schedules keep their settings."
 msgstr ""
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Pay"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Pay changes aren't saved until then."
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Pay is compared only when a posting states it in the same currency and period; otherwise it's marked unknown, never converted or guessed. Hourly, contract and commission pay is flagged to check."
+msgstr ""
+
 #: src/features/career/knowledge/preferences.tsx
+#: src/features/career/knowledge/structured-preferences.tsx
 msgid "Pay period"
 msgstr ""
 
@@ -9222,6 +9522,18 @@ msgstr ""
 
 #: src/features/homepage/sections.tsx
 msgid "People using it"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "per hour"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "per month"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "per year"
 msgstr ""
 
 #: src/features/settings/account/data.tsx
@@ -9285,6 +9597,10 @@ msgstr ""
 
 #: src/features/applications/components/insights-view.tsx
 msgid "Pipeline flow"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Places that identify it in a posting"
 msgstr ""
 
 #: src/features/career/workspace/apply.tsx
@@ -9443,6 +9759,18 @@ msgstr ""
 #: src/routes/dashboard/career/knowledge/route.tsx
 msgctxt "Career preferences: the roles, places, pay and ways of working you want"
 msgid "Preferences"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Preferred"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Preferred minimum"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Preferred minimum here ({currency})"
 msgstr ""
 
 #: src/features/career/schedule-sheet.tsx
@@ -9772,6 +10100,10 @@ msgstr ""
 
 #: src/features/homepage/remember.tsx
 msgid "R"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Radius"
 msgstr ""
 
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
@@ -10169,6 +10501,7 @@ msgid "Reminders appear here. Email copies are optional and need a verified addr
 msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
+#: src/features/career/knowledge/structured-preferences.tsx
 #: src/features/career/offers.tsx
 msgid "Remote"
 msgstr ""
@@ -10192,17 +10525,18 @@ msgstr ""
 
 #. placeholder {0}: attachment.filename
 #. placeholder {0}: contact.name
-#. placeholder {0}: passkey.name || t`Unnamed passkey`
+#. placeholder {0}: item.value || kinds[item.kind]
 #: src/features/applications/components/detail/contacts.tsx
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
+#: src/features/career/knowledge/structured-preferences.tsx
 #: src/features/settings/account/security.tsx
 msgid "Remove {0}"
 msgstr ""
 
 #. Screen reader label for button that removes a keyword chip. Variable is the current keyword text.
 #: src/components/input/chip-input.tsx
-#: src/features/career/knowledge/preferences.tsx
+#: src/features/career/knowledge/fields.tsx
 msgid "Remove {chip}"
 msgstr ""
 
@@ -10212,6 +10546,10 @@ msgstr ""
 
 #: src/features/applications/components/manage-lanes-sheet.tsx
 msgid "Remove {label}…"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Remove {name}"
 msgstr ""
 
 #: src/features/applications/components/application-detail-sheet.tsx
@@ -10664,6 +11002,14 @@ msgstr ""
 
 #: src/features/career/coach-chat.tsx
 msgid "Roles"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Roles are checked against your office-day limit and places as strong preferences, never as must-haves."
+msgstr ""
+
+#: src/features/career/knowledge/preferences.tsx
+msgid "Roles are checked with your location rules below; this limit is used when comparing offers."
 msgstr ""
 
 #: src/features/career/schedule-sheet.tsx
@@ -11317,6 +11663,10 @@ msgstr ""
 msgid "Set a password"
 msgstr ""
 
+#: src/features/career/preference-check.tsx
+msgid "Set aside for this role"
+msgstr ""
+
 #: src/features/resume/builder/password-dialog.tsx
 msgid "Set password"
 msgstr ""
@@ -11660,6 +12010,7 @@ msgstr ""
 msgid "Six product teams"
 msgstr ""
 
+#: src/features/career/knowledge/structured-preferences.tsx
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Size"
 msgstr ""
@@ -11764,6 +12115,10 @@ msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Some text is rotated."
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Something else"
 msgstr ""
 
 #: src/libs/error-message.ts
@@ -12085,6 +12440,19 @@ msgstr ""
 msgid "Strikethrough"
 msgstr ""
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Strong benefits"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+#: src/features/career/preference-check.tsx
+msgid "Strong preference"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Strong preference."
+msgstr ""
+
 #: src/features/resume/editor/write/improve.tsx
 msgid "Stronger verb"
 msgstr ""
@@ -12308,6 +12676,14 @@ msgstr ""
 
 #: src/libs/locale.ts
 msgid "Tamil"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Target range, from"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Target range, to"
 msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
@@ -12661,6 +13037,10 @@ msgstr ""
 msgid "The order the text is stored in disagrees badly with the order it reads in."
 msgstr ""
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "The organization and the role"
+msgstr ""
+
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "The original link stays with this job."
 msgstr ""
@@ -12863,6 +13243,10 @@ msgstr ""
 msgid "This application has no posting text saved, so there's little to match against. Add the posting to the application first for a better result."
 msgstr ""
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "this area"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "This browser can't record here. Choose an audio file, or type your answer."
 msgstr ""
@@ -13038,6 +13422,10 @@ msgstr ""
 
 #: src/features/resume/builder/draft.ts
 msgid "This resume's sharing settings changed elsewhere."
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "This rule isn't saved until then."
 msgstr ""
 
 #: src/features/applications/components/application-detail-sheet.tsx
@@ -13295,6 +13683,10 @@ msgstr ""
 msgid "Turkish"
 msgstr ""
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Turn into a rule"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Turn off discretionary ligatures when exporting."
 msgstr ""
@@ -13417,6 +13809,10 @@ msgstr ""
 msgid "Type instead"
 msgstr ""
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Type of organization"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "typed"
 msgstr ""
@@ -13523,6 +13919,10 @@ msgstr ""
 #: src/features/resume/editor/write/entry-card.tsx
 #: src/features/resume/stylesheet/targets.ts
 msgid "Untitled"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Untitled area"
 msgstr ""
 
 #: src/features/documents/use-start-document.ts
@@ -13817,6 +14217,19 @@ msgstr ""
 msgid "Uses your browser’s voice"
 msgstr ""
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Using your minimum base salary as a strong preference."
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Using your office-day limit and places, as strong preferences."
+msgstr ""
+
+#. placeholder {0}: evaluation.rule.label
+#: src/features/career/preference-check.tsx
+msgid "Using your rule for {0}."
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Uzbek"
 msgstr ""
@@ -13976,8 +14389,20 @@ msgstr ""
 msgid "Waiting to hear back"
 msgstr ""
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Want"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Want or avoid"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Warning"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Ways you'd work here"
 msgstr ""
 
 #: src/features/homepage/hero.tsx
@@ -14053,6 +14478,10 @@ msgstr ""
 #: src/features/career/workspace/debrief.tsx
 #: src/features/homepage/prepare.tsx
 msgid "Went well"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "What"
 msgstr ""
 
 #: src/features/resume/editor/check/page-layer.tsx
@@ -14176,6 +14605,14 @@ msgstr ""
 msgid "What works"
 msgstr ""
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "What would make it worth it"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "What would make it worth it? (optional)"
+msgstr ""
+
 #: src/features/career/knowledge/stories.tsx
 msgid "What would you do differently?"
 msgstr ""
@@ -14216,6 +14653,10 @@ msgstr ""
 
 #: src/features/career/coach.tsx
 msgid "When you press send, {shared} go to {connection}."
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Where and how you'll work"
 msgstr ""
 
 #: src/features/applications/components/insights-view.tsx
@@ -14283,6 +14724,10 @@ msgstr ""
 msgid "Who you'll meet"
 msgstr ""
 
+#: src/features/career/preference-check.tsx
+msgid "Why"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "Why do you want this role at {company}?"
 msgstr ""
@@ -14301,6 +14746,10 @@ msgstr ""
 
 #: src/features/homepage/faq.tsx
 msgid "Will my resume get past applicant tracking systems?"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "With an exception, pay below the absolute minimum counts against a role but doesn't rule it out."
 msgstr ""
 
 #: src/features/homepage/remember.tsx
@@ -14330,6 +14779,10 @@ msgstr ""
 #. placeholder {0}: ask.person
 #: src/features/career/workspace/fit.tsx
 msgid "Worth asking {0}"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Would consider less for"
 msgstr ""
 
 #: src/features/homepage/footer.tsx

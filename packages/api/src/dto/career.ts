@@ -7,6 +7,7 @@ import {
 	careerStoryInputSchema,
 	savedItemDataSchema,
 } from "@reactive-resume/schema/career";
+import { preferenceEvaluationSchema } from "@reactive-resume/schema/career-preferences";
 
 export const careerFactSchema = createSelectSchema(tables.careerFact, {
 	source: careerSourceSchema,
@@ -37,4 +38,6 @@ export const careerOpportunitySchema = createSelectSchema(tables.careerOpportuni
 		matches: z.array(z.string()),
 		/** What the posting doesn't say. */
 		unknowns: z.array(z.enum(["salary", "office"])),
+		/** How the role reads against structured preferences, with reasons. Roles come ranked by it. */
+		evaluation: preferenceEvaluationSchema,
 	});

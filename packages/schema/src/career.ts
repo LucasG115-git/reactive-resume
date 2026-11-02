@@ -1,6 +1,7 @@
 import z from "zod";
 import { searchRegionsSchema } from "@reactive-resume/utils/region";
 import { timezoneSchema } from "@reactive-resume/utils/timezone";
+import { structuredPreferencesSchema } from "./career-preferences";
 
 /** The workspace tabs of one application, in the order a search happens. */
 export const WORKSPACE_TABS = ["fit", "apply", "prepare", "practise", "debrief", "messages", "saved"] as const;
@@ -54,6 +55,12 @@ export const careerProfileDataSchema = z.object({
 	 * time zone), [] is anywhere. No default, so a save that leaves it out keeps the stored value.
 	 */
 	searchRegions: searchRegionsSchema,
+	/**
+	 * Priorities, location rules, salary tiers and organization preferences. No default, so a save from a client
+	 * that doesn't know it (an older mobile build) keeps the stored value, as with searchRegions. Absent means the
+	 * original fields above are evaluated as strong preferences, never as must-haves.
+	 */
+	structured: structuredPreferencesSchema.optional(),
 });
 export type CareerProfileData = z.infer<typeof careerProfileDataSchema>;
 

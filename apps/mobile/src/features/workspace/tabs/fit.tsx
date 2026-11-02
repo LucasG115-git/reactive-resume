@@ -14,6 +14,7 @@ import { Actions, AiNotice, Block, EmptyNotice, StatusPill, useWorking, workingS
 import { WorkspaceScreen } from "../shell";
 import { orpc } from "@/api/client";
 import { useHasAIProvider } from "@/features/ai/providers";
+import { PreferencesBlock } from "@/features/career/preference-check";
 import { Button, Icon, Skeleton, Text, TextArea, showToast, useTheme } from "@/ui";
 
 type FitItem = SavedItem & { data: SavedData<"fit"> };
@@ -44,15 +45,22 @@ function Fit({ application, version }: WorkspaceTabProps) {
 
 	if (!item)
 		return (
-			<EmptyNotice
-				title={t`Check this role against your evidence`}
-				message={t`Each requirement in the posting is checked against the facts and stories in your Knowledge. Gaps show as missing evidence, never missing ability.`}
-			>
-				<AiNotice centered />
-				{provider ? (
-					<Button icon="list-checks" label={checkLabel} loading={generate.isPending} onPress={check} />
-				) : null}
-			</EmptyNotice>
+			<View style={{ gap: space.s4 }}>
+				<EmptyNotice
+					title={t`Check this role against your evidence`}
+					message={t`Each requirement in the posting is checked against the facts and stories in your Knowledge. Gaps show as missing evidence, never missing ability.`}
+				>
+					<AiNotice centered />
+					{provider ? (
+						<Button icon="list-checks" label={checkLabel} loading={generate.isPending} onPress={check} />
+					) : null}
+				</EmptyNotice>
+				{readOnly ? null : (
+					<Block>
+						<PreferencesBlock applicationId={application.id} />
+					</Block>
+				)}
+			</View>
 		);
 
 	const evidence = readOnly ? {} : workspace.data.evidence;
@@ -124,7 +132,12 @@ function Fit({ application, version }: WorkspaceTabProps) {
 				})}
 			</View>
 
-			{item.data.checks.length > 0 ? (
+			{readOnly ? null : (
+				<Block>
+					<PreferencesBlock applicationId={application.id} />
+				</Block>
+			)}
+			{readOnly && item.data.checks.length > 0 ? (
 				<Block title={t`Against your requirements`}>
 					{item.data.checks.map((entry) => (
 						<CheckLine key={entry.label} met={entry.met} label={entry.label} text={entry.text} />

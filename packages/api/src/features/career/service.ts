@@ -23,6 +23,8 @@ import { generateId } from "@reactive-resume/utils/string";
 import { requestRunCancellation } from "../agent/cancellation";
 import { applicationTransitionValues, ensureApplicationPipeline } from "../applications/lanes";
 import { applicationService, recordSentResume } from "../applications/service";
+import { evaluatePreferences } from "../career-preferences/evaluate";
+import { applicationPosting, overridesFor } from "../career-preferences/service";
 import { lockUser } from "../documents/ownership";
 import { matchPosting } from "./matching";
 import { noticeText } from "./notices";
@@ -38,10 +40,15 @@ const ownedFact = (id: string, userId: string) =>
 
 /**
  * A profile save is a whole-object PUT, and older clients drop fields they don't know. A save that
- * leaves searchRegions out keeps the stored value; an explicit [] or null replaces it.
+ * leaves searchRegions or structured out keeps the stored value; an explicit [] or null replaces searchRegions.
  */
 export function mergeCareerProfile(stored: CareerProfileData, input: CareerProfileData): CareerProfileData {
-	return input.searchRegions === undefined ? { ...input, searchRegions: stored.searchRegions } : input;
+	return {
+		...input,
+		...(input.searchRegions === undefined ? { searchRegions: stored.searchRegions } : {}),
+		// Structured preferences follow the same rule: only a client that sends them can change them.
+		...(input.structured === undefined && stored.structured !== undefined ? { structured: stored.structured } : {}),
+	};
 }
 
 export async function requireCareerApplication(input: Owned & { interviewId?: string | null | undefined }) {
@@ -655,10 +662,19 @@ export const careerService = {
 				letter?.version,
 			]),
 		);
+		// The deterministic preference check (with this application's set-aside preferences) the AI explains, never re-derives.
+		const preferenceCheck = application
+			? evaluatePreferences(
+					preferences,
+					applicationPosting(application),
+					(await overridesFor(input.userId, [application.id])).get(application.id),
+				)
+			: null;
 		return {
 			application,
 			interview,
 			profile,
+			preferenceCheck,
 			facts: activeFacts,
 			stories: usableStories,
 			resume,

@@ -194,6 +194,15 @@ export function Preferences({ initial }: PreferencesProps) {
 				onBlur={() => flush()}
 				error={noticeValue === undefined ? t`Enter a whole number from 0 to 52, or leave blank.` : undefined}
 			/>
+			{draft.structured &&
+			(draft.structured.locationRules.length > 0 ||
+				draft.structured.salary ||
+				draft.structured.organization.length > 0) ? (
+				<Banner
+					tone="info"
+					message={t`Roles are also checked against your location rules, pay tiers and organization preferences. They're kept as they are here; edit them in Preferences on the web.`}
+				/>
+			) : null}
 			{!valid?.success ? (
 				<Banner tone="warn" message={t`Check your preferences. Invalid changes are not saved.`} />
 			) : null}

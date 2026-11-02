@@ -7,6 +7,7 @@ import { type ComponentRef, useRef, useState } from "react";
 import { RefreshControl, ScrollView, View } from "react-native";
 import Animated from "react-native-reanimated";
 import { client, useCareerAction, useCareerTime, useNow, useTodayQueries, useUndoRows } from "./hooks";
+import { RoleVerdict } from "./preference-check";
 import { ScheduleSheet, scheduleTitle } from "./schedule-sheet";
 import { collectInterviews, rollForward } from "./scheduling";
 import { Actions, LoadState, Section, SwitchRow } from "./shared";
@@ -60,12 +61,10 @@ export function TodayScreen() {
 	const discovery =
 		schedules.find((row) => row.kind === "discovery" && row.enabled) ??
 		schedules.find((row) => row.kind === "discovery");
-	const roles = (queries.opportunities.data ?? [])
-		.filter((row) => !row.trackedApplicationId && !undo.hidden.includes(row.id))
-		.sort(
-			(a, b) =>
-				b.matches.length - a.matches.length || new Date(b.firstSeenAt).getTime() - new Date(a.firstSeenAt).getTime(),
-		);
+	// Kept in the server's order: ranked by Preferences (verdict, then strong and nice preferences met), newest first.
+	const roles = (queries.opportunities.data ?? []).filter(
+		(row) => !row.trackedApplicationId && !undo.hidden.includes(row.id),
+	);
 	const notes = (queries.notifications.data ?? []).filter(
 		(row) => showRead || (!row.readAt && !undo.hidden.includes(row.id)),
 	);
@@ -274,11 +273,12 @@ export function TodayScreen() {
 										<Text color="ink2">{[row.company, row.location].filter(Boolean).join(" · ")}</Text>
 										<Text variant="caption" color="ink3">{t`Found ${time.when(row.firstSeenAt)}`}</Text>
 										<Text>{row.snippet}</Text>
+										<RoleVerdict evaluation={row.evaluation} />
 										<Actions>
 											{row.matches.map((match) => (
 												<Chip key={match} label={match} />
 											))}
-											{row.unknowns.map((unknown) => (
+											{(row.evaluation.checks.length > 0 ? [] : row.unknowns).map((unknown) => (
 												<Chip
 													key={unknown}
 													label={unknown === "salary" ? t`Salary not listed` : t`Office days not stated`}

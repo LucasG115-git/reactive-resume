@@ -1033,6 +1033,10 @@ msgstr "Код із програми автентифікації під час 
 msgid "A comfortable length, and it fits on one page."
 msgstr "Зручна довжина, і вона поміщається на одній сторінці."
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "A country"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "A date is in the future."
 msgstr "Дата вказана в майбутньому."
@@ -1102,6 +1106,10 @@ msgstr "Посилання веде не туди, куди вказує пок�
 msgid "A model's opinion, not a verdict. It can be wrong."
 msgstr "Думка моделі, а не вирок. Це може бути неправильно."
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "A must-have rules a role out only when the posting confirms it isn't met; if the posting doesn't say, the role is marked to check. Strong preferences and nice-to-haves only change the order. You can still save and track any role."
+msgstr ""
+
 #: src/features/settings/account/security.tsx
 msgid "A name helps you tell passkeys apart, like “Work laptop”."
 msgstr "Назва допомагає розрізняти ключі доступу, як-от «Робочий ноутбук»."
@@ -1158,6 +1166,10 @@ msgstr "План за часом, ваш вступ, розповіді, які 
 msgid "A web address is written without https://."
 msgstr "Веб-адреса записана без https://."
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "a week"
+msgstr ""
+
 #: src/features/homepage/footer.tsx
 msgid "About"
 msgstr "Про цю програму"
@@ -1165,6 +1177,14 @@ msgstr "Про цю програму"
 #: src/features/career/workspace/practise.tsx
 msgid "About 90 seconds when spoken"
 msgstr "Приблизно 90 секунд уголос"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Absolute minimum"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Absolute minimum pay here ({currency})"
+msgstr ""
 
 #: src/features/resume/editor/design/entries-group.tsx
 msgid "Accent"
@@ -1282,6 +1302,10 @@ msgstr "Додати «{0}»"
 msgid "Add “{0}” as a new stage"
 msgstr "Додати «{0}» як новий етап"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Add a city or region, then Enter"
+msgstr ""
+
 #: src/features/career/knowledge/search-regions-field.tsx
 msgid "Add a country"
 msgstr "Додайте країну"
@@ -1329,6 +1353,10 @@ msgstr "Додайте місце й натисніть Enter"
 
 #: src/features/career/knowledge/profile.tsx
 msgid "Add a position"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Add a preference"
 msgstr ""
 
 #: src/features/career/workspace/apply.tsx
@@ -1394,6 +1422,10 @@ msgstr "Додайте адресу."
 #: src/features/career/schedule-sheet.tsx
 msgid "Add an application first"
 msgstr "Спершу додайте заявку"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Add an area"
+msgstr ""
 
 #: src/features/resume/editor/check/issues.ts
 msgid "Add an email"
@@ -1747,6 +1779,10 @@ msgstr "Після технічної співбесіди"
 msgid "After your first review, a light plan for this week appears here."
 msgstr "Після першого розбору тут з’явиться легкий план на цей тиждень."
 
+#: src/features/career/preference-check.tsx
+msgid "Against your preferences"
+msgstr ""
+
 #: src/features/career/workspace/fit.tsx
 msgid "Against your requirements"
 msgstr "Порівняно з вашими вимогами"
@@ -1998,8 +2034,13 @@ msgid "Anything to remember about this job"
 msgstr "Усе, що варто згадати про цю роботу"
 
 #: src/features/career/knowledge/search-regions-field.tsx
+#: src/features/career/knowledge/structured-preferences.tsx
 msgid "Anywhere"
 msgstr "Де завгодно"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Anywhere else"
+msgstr ""
 
 #: src/features/assistant/provider-setup.tsx
 #: src/features/settings/ai/providers.tsx
@@ -2201,6 +2242,10 @@ msgstr "Арабська"
 msgid "Archived (closes it)"
 msgstr "Архівовано (закриває)"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Area name"
+msgstr ""
+
 #: src/features/resume/editor/write/entries.tsx
 msgid "Area of study"
 msgstr "Сфера навчання"
@@ -2323,6 +2368,11 @@ msgstr "Розмови помічника"
 msgid "Assistant."
 msgstr "помічник."
 
+#. placeholder {0}: money(salary.floor, salary.currency)
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "at least {0}"
+msgstr ""
+
 #: src/features/homepage/prepare.tsx
 msgid "At Northwind Labs I led research for our onboarding redesign. I interviewed 14 customers, found three drop-off points, and we shipped a shorter setup. Activation rose from 31% to 44%."
 msgstr "У Northwind Labs я керував дослідженням для редизайну онбордингу. Я провів інтерв’ю з 14 клієнтами, знайшов три точки відтоку, і ми випустили коротше налаштування. Активація зросла з 31% до 44%."
@@ -2375,6 +2425,10 @@ msgstr "Вкладення"
 msgid "Automatically"
 msgstr "Автоматично"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Autonomy"
+msgstr ""
+
 #: src/features/resume/share/format.ts
 msgid "autosaved"
 msgstr "автозбережено"
@@ -2386,6 +2440,10 @@ msgstr "Автозбереження групуються за сеансами 
 #: src/features/resume/share/cv-domain-card.tsx
 msgid "Available"
 msgstr "Вільний"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Avoid"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Avoid heavy letter-spacing effects, then re-export."
@@ -2521,6 +2579,10 @@ msgstr "Перед поданням"
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Behavioral"
 msgstr "Поведінкова"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Benefits"
+msgstr ""
 
 #: src/libs/locale.ts
 msgid "Bengali"
@@ -2855,6 +2917,10 @@ msgstr "Перевірте інший файл"
 msgid "Check any PDF, no account needed"
 msgstr "Перевірте будь-який PDF, обліковий запис не потрібен"
 
+#: src/features/career/preference-check.tsx
+msgid "Check before applying"
+msgstr ""
+
 #: src/features/resume/share/custom-domain-field.tsx
 #: src/features/resume/share/dns-records-dialog.tsx
 msgid "Check DNS"
@@ -2927,6 +2993,10 @@ msgstr "Перевірте свою електронну пошту для пі�
 msgid "Check your resume’s ATS readability"
 msgstr "Перевірте читабельність ATS свого резюме"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Checked by whether the posting mentions it, so use the words a posting would: \"nonprofit\", \"permanent\", \"pension\". Anything subtler is left for the coach to read."
+msgstr ""
+
 #. placeholder {0}: file.name
 #: src/features/ats-checker/checker.tsx
 msgid "Checking {0}"
@@ -2971,6 +3041,10 @@ msgstr "Китайська (спрощена)"
 #: src/libs/locale.ts
 msgid "Chinese (Traditional)"
 msgstr "Китайська (традиційна)"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Choose a country"
+msgstr ""
 
 #: src/features/documents/documents-page.tsx
 msgid "Choose a file"
@@ -3199,6 +3273,10 @@ msgstr "Палітра команд: {currentPage}"
 #: src/features/homepage/footer.tsx
 msgid "Community"
 msgstr "Спільнота"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Commute, at most"
+msgstr ""
 
 #: src/features/resume/editor/design/fit.ts
 #: src/features/resume/editor/design/style-groups.tsx
@@ -4179,6 +4257,10 @@ msgstr "Не вдалося оновити хронологію. Спробуй�
 msgid "Couldn't update this letter's versions. Try again."
 msgstr "Не вдалося оновити версії цього листа. Спробуйте ще раз."
 
+#: src/features/career/preference-check.tsx
+msgid "Couldn't update this preference. Try again."
+msgstr ""
+
 #. Fallback toast when uploading profile picture for resume fails
 #: src/features/resume/editor/write/picture-settings.tsx
 #: src/features/settings/account/profile.tsx
@@ -4208,6 +4290,10 @@ msgstr "Кількість за джерелом"
 msgid "Count characters"
 msgstr "Рахувати символи"
 
+#: src/features/career/preference-check.tsx
+msgid "Count it again"
+msgstr ""
+
 #: src/features/career/workspace/apply.tsx
 msgid "Count words"
 msgstr "Рахувати слова"
@@ -4219,6 +4305,10 @@ msgstr "Рахується окремо від оцінки розпізнава
 #: src/features/career/knowledge/search-regions-field.tsx
 msgid "Countries"
 msgstr "Країни"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Country"
+msgstr ""
 
 #: src/features/applications/components/manage-lanes-sheet.tsx
 msgid "Counts as"
@@ -4268,6 +4358,10 @@ msgstr "Надіслано супровідний лист (необов’яз�
 #: src/features/homepage/sections.tsx
 msgid "Cover letters"
 msgstr "Супровідні листи"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Covers"
+msgstr ""
 
 #: src/features/command-palette/pages/navigation.tsx
 msgid "Create"
@@ -4347,8 +4441,13 @@ msgid "CSV data"
 msgstr "Дані CSV"
 
 #: src/features/career/knowledge/preferences.tsx
+#: src/features/career/knowledge/structured-preferences.tsx
 msgid "Currency"
 msgstr "Валюта"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Currency set; no amounts yet."
+msgstr ""
 
 #: src/features/applications/components/export-applications-sheet.tsx
 msgid "Current filters"
@@ -4794,6 +4893,10 @@ msgstr "Документи, які ви переміщуєте сюди, збе�
 msgid "Does it use AI?"
 msgstr "Чи використовує він AI?"
 
+#: src/features/career/preference-check.tsx
+msgid "Doesn't matter here"
+msgstr ""
+
 #: src/features/resume/share/custom-domain-field.tsx
 msgid "Domain connected"
 msgstr "Домен підключено"
@@ -5050,6 +5153,10 @@ msgstr "Кожна відповідь, на яку ви отримали від�
 msgid "Each requirement in the posting is checked against the facts and stories in your Knowledge. Gaps show as missing evidence, never missing ability."
 msgstr "Кожну вимогу з оголошення звіряємо з фактами й розповідями у ваших Знаннях. Прогалини показуються як брак доказів, а не брак здібностей."
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Each rule covers an area. A rule naming places is used before a country rule, and a country rule before an \"anywhere\" rule; among rules of the same kind, the higher one wins. Radius and commute time are shared with the coach but can't be checked against a posting."
+msgstr ""
+
 #: src/features/assistant/conversation.tsx
 msgid "Each send starts fresh with this message and selected files. Previous conversation history stays here."
 msgstr "Кожне надсилання починається заново з цього повідомлення та вибраних файлів. Історія попередніх розмов залишається тут."
@@ -5250,6 +5357,10 @@ msgstr "Вбудовуйте всі шрифти під час експорту,
 msgid "Employer"
 msgstr ""
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Employment type"
+msgstr ""
+
 #: src/features/resume/editor/write/dates-field.tsx
 msgid "End"
 msgstr "Кінець"
@@ -5290,6 +5401,10 @@ msgstr "Подобається Reactive Resume?"
 #: src/features/auth/pages/verify-2fa.tsx
 msgid "Enter a backup code."
 msgstr "Введіть резервний код."
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Enter a full amount, such as 95000."
+msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
 msgid "Enter a full amount, such as 95000. Your previous amount is unchanged."
@@ -5681,6 +5796,10 @@ msgstr "Перевірки відповідності, брифінги, від�
 msgid "Fit page to width"
 msgstr "Підігнати сторінку по ширині"
 
+#: src/features/career/preference-check.tsx
+msgid "Fits your must-haves"
+msgstr ""
+
 #: src/features/resume/editor/check/issues.ts
 msgid "Fix the date"
 msgstr "Зафіксуйте дату"
@@ -5713,6 +5832,10 @@ msgstr "Усунення відтоку під час онбордингу в No
 #: src/features/ats-checker/messages.ts
 msgid "Flatten the form so the text is part of the page."
 msgstr "Сплющіть форму, щоб текст став частиною сторінки."
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Flexibility"
+msgstr ""
 
 #: src/features/resume/editor/write/entries.tsx
 msgid "Fluency"
@@ -5921,6 +6044,10 @@ msgstr "від помічника або API"
 msgid "From your cover letter"
 msgstr "З вашого супровідного листа"
 
+#: src/features/career/preference-check.tsx
+msgid "from your earlier settings"
+msgstr ""
+
 #: src/features/assistant/assistant-panel.tsx
 msgid "From your experience entries"
 msgstr "З ваших записів про досвід"
@@ -6061,6 +6188,10 @@ msgstr "Оцінка"
 msgid "Gray"
 msgstr "Сірий"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Greater Toronto Area"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Greek"
 msgstr "Грецька"
@@ -6076,6 +6207,14 @@ msgstr "Звертання"
 #: src/features/documents/documents-page.tsx
 msgid "Grid"
 msgstr "Сітка"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Growth"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Growth and learning"
+msgstr ""
 
 #: src/features/homepage/remember.tsx
 msgid "Happy to walk you through it on our call."
@@ -6296,9 +6435,26 @@ msgstr "Скільки днів на тиждень потрібно бути в
 msgid "How many days of leave come with it?"
 msgstr "Скільки днів відпустки передбачено?"
 
+#. placeholder {0}: item.value || kinds[item.kind]
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "How much {0} matters"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "How much {name} matters"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "How much this rule matters"
+msgstr ""
+
 #: src/features/career/schedule-sheet.tsx
 msgid "How often"
 msgstr "Як часто"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "How roles are checked"
+msgstr ""
 
 #: src/features/templates/gallery.tsx
 msgid "How to choose a template"
@@ -6315,6 +6471,10 @@ msgstr "Наскільки я відповідаю цій ролі?"
 #: src/libs/locale.ts
 msgid "Hungarian"
 msgstr "Угорська"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Hybrid"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/typography.tsx
 msgid "Hyphenation"
@@ -6353,6 +6513,11 @@ msgstr "Значок…"
 #: src/features/resume/editor/design/style-groups.tsx
 msgid "Icons in contact line"
 msgstr "Значки в контактній лінії"
+
+#. placeholder {0}: money(salary.preferred, salary.currency)
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "ideally {0}+"
+msgstr ""
 
 #: src/features/homepage/remember.tsx
 msgid "If I did it again, I’d agree on the measure before the first prototype."
@@ -6484,6 +6649,14 @@ msgstr "Збільшити відступ"
 #: src/libs/locale.ts
 msgid "Indonesian"
 msgstr "Індонезійська"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Industry"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Industry, organization type, mission, size, benefits, employment type…"
+msgstr ""
 
 #: src/features/career/workspace/fit.tsx
 msgid "Inferred"
@@ -6917,6 +7090,10 @@ msgstr "Ключові слова"
 #: src/libs/locale.ts
 msgid "Khmer"
 msgstr "Кхмерська"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Kind"
+msgstr ""
 
 #: src/features/letters/compose.ts
 msgid "Kind regards,"
@@ -7567,6 +7744,10 @@ msgstr "Керується сервером"
 msgid "Managed by your server"
 msgstr "Керується вашим сервером"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Management"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Many bullets start with the same phrase."
 msgstr "Багато маркованих пунктів починаються з однієї й тієї ж фрази."
@@ -7706,6 +7887,10 @@ msgstr "Повідомлення · Вставлено з вашої пошти"
 msgid "Messages · Reply to Sam at Fieldnote"
 msgstr "Повідомлення · Відповідь Sam із Fieldnote"
 
+#: src/features/career/preference-check.tsx
+msgid "Met"
+msgstr ""
+
 #: src/features/career/knowledge/profile.tsx
 msgid "Metrics (only numbers you can back up)"
 msgstr ""
@@ -7714,9 +7899,21 @@ msgstr ""
 msgid "Microphone blocked. Allow it in your browser settings, or type your answer."
 msgstr "Мікрофон заблоковано. Дозвольте його в налаштуваннях браузера або введіть відповідь."
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "min"
+msgstr ""
+
 #: src/features/career/knowledge/preferences.tsx
 msgid "Minimum base salary"
 msgstr "Мінімальна базова зарплата"
+
+#: src/features/career/knowledge/preferences.tsx
+msgid "Minimum pay is set under Pay, below."
+msgstr ""
+
+#: src/features/career/preference-check.tsx
+msgid "Misses a must-have"
+msgstr ""
 
 #: src/features/applications/components/detail/assemble-dialog.tsx
 msgid "Missing evidence isn't missing ability. If you have done it, add it to your profile and assemble again."
@@ -7725,6 +7922,10 @@ msgstr ""
 #: src/features/homepage/prepare.tsx
 msgid "Missing evidence means your notes don’t show it yet, not that you lack it."
 msgstr "Брак доказів означає, що у ваших нотатках цього поки не видно, а не що у вас цього немає."
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Mission"
+msgstr ""
 
 #: src/features/homepage/footer.tsx
 msgid "MIT License"
@@ -7831,6 +8032,7 @@ msgstr "Перемістити «{label}» угору"
 msgid "Move all content inside the page boundaries and re-export."
 msgstr "Перемістіть весь вміст усередину меж сторінки та експортуйте знову."
 
+#: src/features/career/knowledge/structured-preferences.tsx
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Move down"
 msgstr "Рухатися вниз"
@@ -7893,6 +8095,7 @@ msgstr "Перемістити в кошик"
 msgid "Move to…"
 msgstr "Перейти до…"
 
+#: src/features/career/knowledge/structured-preferences.tsx
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Move up"
 msgstr "Рухатися вгору"
@@ -7916,6 +8119,15 @@ msgstr "Переміщено до «{label}»"
 #: src/features/career/workspace/messages.tsx
 msgid "Moves the application from {0}."
 msgstr "Переміщує заявку з етапу «{0}»."
+
+#: src/features/career/knowledge/structured-preferences.tsx
+#: src/features/career/preference-check.tsx
+msgid "Must have"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Must have: lower pay rules a role out, unless an exception below applies."
+msgstr ""
 
 #: src/features/homepage/remember.tsx
 msgid "My job was to find out why, without adding support work."
@@ -7989,6 +8201,10 @@ msgstr "Знайдено ім’я, електронну пошту, телеф�
 msgid "named"
 msgstr "названий"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Named places"
+msgstr ""
+
 #: src/features/resume/share/format.ts
 msgid "Named version"
 msgstr "Названа версія"
@@ -8045,6 +8261,10 @@ msgstr "Новий ключ API"
 #: src/features/command-palette/pages/resumes.tsx
 msgid "New application"
 msgstr "Нова заявка"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "New area"
+msgstr ""
 
 #: src/features/assistant/assistant-panel.tsx
 #: src/features/career/coach-thread.tsx
@@ -8152,6 +8372,15 @@ msgstr "Наступний крок: {0}. Додає нагадування в �
 #: src/features/homepage/remember.tsx
 msgid "Next time, I’d agree how to measure success before the first prototype."
 msgstr "Наступного разу я б узгодив, як вимірювати успіх, ще до першого прототипу."
+
+#: src/features/career/knowledge/structured-preferences.tsx
+#: src/features/career/preference-check.tsx
+msgid "Nice to have"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Nice to have."
+msgstr ""
 
 #: src/features/applications/components/interview-dialog.tsx
 msgid "No active applications."
@@ -8271,6 +8500,10 @@ msgstr "Жоден рядок не схожий на посаду в парі з
 msgid "No location"
 msgstr "Немає місцезнаходження"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "No location rules yet."
+msgstr ""
+
 #: src/features/career/today.tsx
 msgid "No new roles. Discovery is paused."
 msgstr "Нових вакансій немає. Пошук призупинено."
@@ -8301,6 +8534,10 @@ msgstr "Немає відкритих питань"
 msgid "No other stage counts as {0}. Add one first, so its applications have somewhere to go."
 msgstr "Жоден інший етап не зараховується як {0}. Спочатку додайте такий етап, щоб було куди перемістити заявки."
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "No pay preferences yet."
+msgstr ""
+
 #: src/features/resume/editor/check/issues.ts
 msgid "No phone number"
 msgstr "Немає номера телефону"
@@ -8316,6 +8553,14 @@ msgstr "Немає фото. Більшість ATS ігнорують фото�
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "No postings found. Try different keywords."
 msgstr "Оголошень про роботу не знайдено. Спробуйте різні ключові слова."
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "No preference"
+msgstr ""
+
+#: src/features/career/preference-check.tsx
+msgid "No preferences to check yet. <0>Set them in Preferences</0>"
+msgstr ""
 
 #: src/features/applications/stages.ts
 msgid "No response"
@@ -8410,6 +8655,10 @@ msgctxt "Entry header accent"
 msgid "None"
 msgstr "Немає"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Nonprofit"
+msgstr ""
+
 #: src/features/career/knowledge/profile.tsx
 msgid "nonprofit, wordpress, leadership"
 msgstr ""
@@ -8435,6 +8684,11 @@ msgstr "Northwind Labs · Lisbon"
 #: src/libs/locale.ts
 msgid "Norwegian"
 msgstr "Норвезька"
+
+#. placeholder {0}: item.value
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "not {0}"
+msgstr ""
 
 #: src/features/career/workspace/messages.tsx
 msgid "Not applied"
@@ -8485,6 +8739,10 @@ msgstr "Немає у вашому резюме"
 msgid "Not in your resume · add only if true"
 msgstr "Немає у вашому резюме · додавати, лише якщо вірно"
 
+#: src/features/career/preference-check.tsx
+msgid "Not met"
+msgstr ""
+
 #: src/features/career/shared.tsx
 msgid "Not now"
 msgstr "Не зараз"
@@ -8522,6 +8780,10 @@ msgstr ""
 #: src/features/settings/root.tsx
 msgid "Not set up"
 msgstr "Не налаштовано"
+
+#: src/features/career/preference-check.tsx
+msgid "Not stated"
+msgstr ""
 
 #: src/features/resume/stylesheet/editor.tsx
 msgid "Not sure what to write?"
@@ -8657,6 +8919,10 @@ msgstr "Одія"
 msgid "Off"
 msgstr "Вимкнено"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Off: roles that require relocating to {name} don't meet this rule."
+msgstr ""
+
 #: src/features/homepage/remember.tsx
 msgid "Off: the coach won’t see it or claim it."
 msgstr "Вимкнено: коуч не бачить цього й не подає як твердження."
@@ -8688,9 +8954,21 @@ msgstr "Максимум днів в офісі на тиждень"
 msgid "Office days not stated"
 msgstr "Дні в офісі не вказано"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Office days, at most"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Office days, ideally"
+msgstr ""
+
 #: src/features/resume/editor/save-status.tsx
 msgid "Offline · saved on this device"
 msgstr "Офлайн · збережено на цьому пристрої"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "On-site"
+msgstr ""
 
 #: src/features/resume/share/share-panel.tsx
 msgid "On. Anyone with the link can see your web page."
@@ -8859,6 +9137,10 @@ msgstr ""
 msgid "Open the schedule"
 msgstr "Відкрити розклад"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Open to relocating here"
+msgstr ""
+
 #: src/features/resume/share/share-panel.tsx
 msgid "Open web page"
 msgstr "Відкрити вебсторінку"
@@ -8900,6 +9182,10 @@ msgstr "Додатково"
 #: src/features/settings/ai/providers.tsx
 msgid "Optional for local Ollama"
 msgstr "Додатково для локального Ollama"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Optional; replaces the general minimum in this area."
+msgstr ""
 
 #: src/components/ui/combobox.tsx
 #: src/features/documents/documents-page.tsx
@@ -8963,6 +9249,7 @@ msgid "Original table formatting is preserved. This content is read-only because
 msgstr "Оригінальне форматування таблиці збережено. Цей вміст доступний лише для читання, оскільки його неможливо безпечно редагувати."
 
 #: src/features/applications/components/interview-dialog.tsx
+#: src/features/career/knowledge/structured-preferences.tsx
 msgid "Other"
 msgstr "Інше"
 
@@ -9209,7 +9496,20 @@ msgstr "Призупинено · {line}"
 msgid "Paused schedules keep their settings."
 msgstr "Призупинені розклади зберігають свої налаштування."
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Pay"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Pay changes aren't saved until then."
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Pay is compared only when a posting states it in the same currency and period; otherwise it's marked unknown, never converted or guessed. Hourly, contract and commission pay is flagged to check."
+msgstr ""
+
 #: src/features/career/knowledge/preferences.tsx
+#: src/features/career/knowledge/structured-preferences.tsx
 msgid "Pay period"
 msgstr "Період оплати"
 
@@ -9228,6 +9528,18 @@ msgstr "PDF, Word або JSON. З нього ми складемо резюме.
 #: src/features/homepage/sections.tsx
 msgid "People using it"
 msgstr "Люди використовують його"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "per hour"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "per month"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "per year"
+msgstr ""
 
 #: src/features/settings/account/data.tsx
 msgid "Permanently removes everything. Export first if you want a copy."
@@ -9291,6 +9603,10 @@ msgstr "Фото"
 #: src/features/applications/components/insights-view.tsx
 msgid "Pipeline flow"
 msgstr "Рух по воронці"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Places that identify it in a posting"
+msgstr ""
 
 #: src/features/career/workspace/apply.tsx
 msgid "Plain text (.txt)"
@@ -9449,6 +9765,18 @@ msgstr "Параметри"
 msgctxt "Career preferences: the roles, places, pay and ways of working you want"
 msgid "Preferences"
 msgstr "Побажання"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Preferred"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Preferred minimum"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Preferred minimum here ({currency})"
+msgstr ""
 
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/shared.tsx
@@ -9778,6 +10106,10 @@ msgstr "Запитання для роботодавця"
 #: src/features/homepage/remember.tsx
 msgid "R"
 msgstr "Р"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Radius"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 msgid "Raise the design sheet"
@@ -10174,6 +10506,7 @@ msgid "Reminders appear here. Email copies are optional and need a verified addr
 msgstr "Нагадування з’являються тут. Копії на пошту необов’язкові й потребують підтвердженої адреси."
 
 #: src/features/career/knowledge/preferences.tsx
+#: src/features/career/knowledge/structured-preferences.tsx
 #: src/features/career/offers.tsx
 msgid "Remote"
 msgstr "Віддалено"
@@ -10197,17 +10530,18 @@ msgstr "Видалити «{name}»?"
 
 #. placeholder {0}: attachment.filename
 #. placeholder {0}: contact.name
-#. placeholder {0}: passkey.name || t`Unnamed passkey`
+#. placeholder {0}: item.value || kinds[item.kind]
 #: src/features/applications/components/detail/contacts.tsx
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
+#: src/features/career/knowledge/structured-preferences.tsx
 #: src/features/settings/account/security.tsx
 msgid "Remove {0}"
 msgstr "Видаліть {0}"
 
 #. Screen reader label for button that removes a keyword chip. Variable is the current keyword text.
 #: src/components/input/chip-input.tsx
-#: src/features/career/knowledge/preferences.tsx
+#: src/features/career/knowledge/fields.tsx
 msgid "Remove {chip}"
 msgstr "Видаліть {chip}"
 
@@ -10218,6 +10552,10 @@ msgstr "Видалити {country}"
 #: src/features/applications/components/manage-lanes-sheet.tsx
 msgid "Remove {label}…"
 msgstr "Видалити «{label}»…"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Remove {name}"
+msgstr ""
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Remove {value}"
@@ -10670,6 +11008,14 @@ msgstr "Роль, компанія або місцезнаходження"
 #: src/features/career/coach-chat.tsx
 msgid "Roles"
 msgstr "Посади"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Roles are checked against your office-day limit and places as strong preferences, never as must-haves."
+msgstr ""
+
+#: src/features/career/knowledge/preferences.tsx
+msgid "Roles are checked with your location rules below; this limit is used when comparing offers."
+msgstr ""
 
 #: src/features/career/schedule-sheet.tsx
 msgid "Roles, places and companies. Starts from your preferences."
@@ -11322,6 +11668,10 @@ msgstr "Встановити наступні дії…"
 msgid "Set a password"
 msgstr "Встановіть пароль"
 
+#: src/features/career/preference-check.tsx
+msgid "Set aside for this role"
+msgstr ""
+
 #: src/features/resume/builder/password-dialog.tsx
 msgid "Set password"
 msgstr "Встановити пароль"
@@ -11665,6 +12015,7 @@ msgstr "Ситуація, завдання, дія, результат, рефл
 msgid "Six product teams"
 msgstr "Шість команд продуктів"
 
+#: src/features/career/knowledge/structured-preferences.tsx
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Size"
 msgstr "Розмір"
@@ -11770,6 +12121,10 @@ msgstr "Частина тексту виходить за межі сторін�
 #: src/features/ats-checker/messages.ts
 msgid "Some text is rotated."
 msgstr "Частина тексту повернута."
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Something else"
+msgstr ""
 
 #: src/libs/error-message.ts
 msgid "Something went wrong. Please try again."
@@ -12090,6 +12445,19 @@ msgstr "Що посилити"
 msgid "Strikethrough"
 msgstr "Закреслений"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Strong benefits"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+#: src/features/career/preference-check.tsx
+msgid "Strong preference"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Strong preference."
+msgstr ""
+
 #: src/features/resume/editor/write/improve.tsx
 msgid "Stronger verb"
 msgstr "Сильніше дієслово"
@@ -12314,6 +12682,14 @@ msgstr "Домашнє завдання"
 #: src/libs/locale.ts
 msgid "Tamil"
 msgstr "Тамільська"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Target range, from"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Target range, to"
+msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
 msgid "Target roles"
@@ -12666,6 +13042,10 @@ msgstr "Пропозиції, які ви вибрали для порівнян
 msgid "The order the text is stored in disagrees badly with the order it reads in."
 msgstr "Порядок зберігання тексту сильно розходиться з порядком його читання."
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "The organization and the role"
+msgstr ""
+
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "The original link stays with this job."
 msgstr "Оригінальне посилання залишається з цією роботою."
@@ -12868,6 +13248,10 @@ msgstr "У цій заявці ще немає збереженого оголо
 msgid "This application has no posting text saved, so there's little to match against. Add the posting to the application first for a better result."
 msgstr ""
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "this area"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "This browser can't record here. Choose an audio file, or type your answer."
 msgstr "Цей браузер не може записувати тут. Виберіть аудіофайл або введіть відповідь."
@@ -13044,6 +13428,10 @@ msgstr "Це резюме було оновлено агентом штучно�
 #: src/features/resume/builder/draft.ts
 msgid "This resume's sharing settings changed elsewhere."
 msgstr "Налаштування спільного доступу до цього резюме змінено в інших місцях."
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "This rule isn't saved until then."
+msgstr ""
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "This saved description is clipped or incomplete. Review before preparing documents."
@@ -13300,6 +13688,10 @@ msgstr "Спробуйте зі зразком резюме"
 msgid "Turkish"
 msgstr "Турецька"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Turn into a rule"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Turn off discretionary ligatures when exporting."
 msgstr "Вимкніть необов'язкові лігатури під час експорту."
@@ -13422,6 +13814,10 @@ msgstr "Введіть команду або здійсніть пошук…"
 msgid "Type instead"
 msgstr "Ввести текстом"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Type of organization"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "typed"
 msgstr "письмово"
@@ -13529,6 +13925,10 @@ msgstr "Безіменний ключ доступу"
 #: src/features/resume/stylesheet/targets.ts
 msgid "Untitled"
 msgstr "Без назви"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Untitled area"
+msgstr ""
 
 #: src/features/documents/use-start-document.ts
 msgid "Untitled letter"
@@ -13822,6 +14222,19 @@ msgstr "Використовує власний веб-пошук вашого �
 msgid "Uses your browser’s voice"
 msgstr "Використовує голос вашого браузера"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Using your minimum base salary as a strong preference."
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Using your office-day limit and places, as strong preferences."
+msgstr ""
+
+#. placeholder {0}: evaluation.rule.label
+#: src/features/career/preference-check.tsx
+msgid "Using your rule for {0}."
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Uzbek"
 msgstr "Узбецька"
@@ -13981,9 +14394,21 @@ msgstr "Чекає на вас"
 msgid "Waiting to hear back"
 msgstr "Чекаю на відповідь"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Want"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Want or avoid"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Warning"
 msgstr "Попередження"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Ways you'd work here"
+msgstr ""
 
 #: src/features/homepage/hero.tsx
 msgid "WCAG 2.1 AA"
@@ -14059,6 +14484,10 @@ msgstr "Зважую кожну вимогу"
 #: src/features/homepage/prepare.tsx
 msgid "Went well"
 msgstr "Пройшло добре"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "What"
+msgstr ""
 
 #: src/features/resume/editor/check/page-layer.tsx
 msgid "What a parser reads"
@@ -14181,6 +14610,14 @@ msgstr "За що ви відповідали?"
 msgid "What works"
 msgstr "Що вдалося"
 
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "What would make it worth it"
+msgstr ""
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "What would make it worth it? (optional)"
+msgstr ""
+
 #: src/features/career/knowledge/stories.tsx
 msgid "What would you do differently?"
 msgstr "Що б ви зробили інакше?"
@@ -14222,6 +14659,10 @@ msgstr "До коли потрібна ваша відповідь?"
 #: src/features/career/coach.tsx
 msgid "When you press send, {shared} go to {connection}."
 msgstr "Коли ви натиснете «Надіслати», до {connection} буде передано: {shared}."
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Where and how you'll work"
+msgstr ""
 
 #: src/features/applications/components/insights-view.tsx
 msgid "Where applications come from"
@@ -14288,6 +14729,10 @@ msgstr "Хто сьогодні відповідає за дизайн-сист�
 msgid "Who you'll meet"
 msgstr "З ким ви зустрінетеся"
 
+#: src/features/career/preference-check.tsx
+msgid "Why"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "Why do you want this role at {company}?"
 msgstr "Чому ви хочете отримати цю посаду в компанії {company}?"
@@ -14307,6 +14752,10 @@ msgstr "Ширина"
 #: src/features/homepage/faq.tsx
 msgid "Will my resume get past applicant tracking systems?"
 msgstr "Чи пройде моє резюме системи відстеження кандидатів?"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "With an exception, pay below the absolute minimum counts against a role but doesn't rule it out."
+msgstr ""
 
 #: src/features/homepage/remember.tsx
 msgid "Within a quarter, activation went from 31% to 44%."
@@ -14336,6 +14785,10 @@ msgstr "Варто запитати"
 #: src/features/career/workspace/fit.tsx
 msgid "Worth asking {0}"
 msgstr "Варто запитати: {0}"
+
+#: src/features/career/knowledge/structured-preferences.tsx
+msgid "Would consider less for"
+msgstr ""
 
 #: src/features/homepage/footer.tsx
 #: src/features/homepage/header.tsx
