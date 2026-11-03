@@ -1,0 +1,51 @@
+---
+title: "Resume writing"
+description: "How a reviewed Resume Selection Plan is written into a resume, how skills are chosen and grouped, and the quality checks run before it's shown."
+---
+
+This is step three of tailoring, after [job analysis and evidence selection](/contributing/resume-selection). It consumes the reviewed `ResumeSelectionPlan` and never decides on its own which experience to include.
+
+## Pipeline
+
+`packages/api/src/features/master-profile/writing/`:
+
+1. **Skills** (`skills.ts`, deterministic). Candidates come from the plan. Order: skills the user chose, then included skills an included achievement shows (as a skill tag or in its text), then other included skills, then — only until the minimum is reached — relevant and other evidenced skills. Overlapping names (shared name or alias, or one name contained in another, e.g. "WordPress" and "WordPress Development") keep the first. Generic soft skills ("Communication", "Leadership") are left to the accomplishments unless the user included one on purpose. The list stops at the maximum. Each left-out skill keeps its reason.
+2. **Wording** (`write.ts`). With _Adjust to the posting_, one AI call returns a headline, summary, a wording for each planned achievement and 2–4 skill groups. The prompt carries the ranked requirements, the plan's positioning, the region's spelling and the rules below. With _Use my exact wording_ no AI call is made.
+3. **Acceptance** (`write.ts`, `grounding.ts`). Every planned achievement gets a wording. A rewrite is used only if it adds no number (existing grounding check), keeps the record's qualifiers ("about", "nearly", "~", "up to"…), names no tool or skill the record doesn't, and stays within the length budget; otherwise the user's text is used and a warning says why. The summary is trimmed to the sentence limit (trimming only removes text) and must pass the same checks. A headline must be built only from words in the included titles, organizations, scope, achievements and listed skills; otherwise the latest included position's title is used. Skill groups must place every chosen skill exactly once in 2–4 specific groups (no "Skills" or "Other"); otherwise the profile's own categories are used.
+4. **Build** (`assemble/build.ts`). The plan's entries, its bullets in its order, the headline in `basics.headline`, skills in the accepted groups without proficiency levels, and the plan's section order applied within each layout column. Each resume item records which profile entry it came from.
+5. **Quality checks** (`checks.ts`, deterministic). Run on the built resume before it's shown; they change nothing. Findings are stored with the assembly (`profile_assembly.result.writing`) and listed in the dialog, most serious first.
+
+## Writing rules
+
+`DEFAULT_WRITING_RULES` in `@reactive-resume/schema/resume-writing`. Guidelines, not limits: the writer aims for them and the checks warn; nothing the user chose is cut, and length is never fixed by shrinking text.
+
+| Rule      | Default                                                                        |
+| --------- | ------------------------------------------------------------------------------ |
+| Region    | Canada: Canadian spelling, no photo, date of birth, age, marital status or SIN |
+| Pages     | 2 with 5+ years of experience, otherwise 1 (estimated at ~500 words a page)    |
+| Positions | usually 3–5                                                                    |
+| Bullets   | 3–5 for major recent roles, up to 3 for others, at most 35 words each          |
+| Summary   | 2–3 sentences, at most 75 words                                                |
+| Headline  | on                                                                             |
+| Skills    | 8–15, in 2–4 groups                                                            |
+
+Other regions (US, UK, Australia, other) change spelling, personal-detail guidance and page targets.
+
+## Quality checks
+
+| Severity                        | Codes                                                                                                                                                                                                                                                                                                                                                                          |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Error: not backed by the record | `missing-source` (a bullet with no source or outside the reviewed selection), `unsupported-bullet` (more bullets than records), `title-mismatch`, `date-mismatch`, `entry-not-in-profile` (including qualifications), `unsupported-skill`, `placeholder`                                                                                                                       |
+| Warning: worth improving        | `order` (not reverse chronological), `duplicate-bullet`, `duplicate-skill`, `skills-count` (over the maximum), `bullet-length`, `summary-length` (with a trimmed suggestion), `too-long` (over the page target, suggesting older bullets to drop), `cliche`, `keyword-repetition` (a posting term six or more times), `missing-section`, `missing-contact`, `personal-details` |
+| Note                            | fewer skills than the target, too many groups, soft skills, short bullets, positions outside 3–5, a photo, unconventional headings, a short resume, missing education or phone/location                                                                                                                                                                                        |
+
+## Tests
+
+`writing/writing.test.ts`: skill choice (evidence, overlaps, soft skills, user choices, the maximum), group validation and fallback, qualifier and tool checks, rejection of invented numbers, tools, headline words and summary facts, every planned achievement worded, communications / web development / project management resumes built from plans with no error findings, tampered resumes producing each error code, length warnings without cutting, and the fallback to the user's own wording when the AI's answer is unreadable. `selection/service.integration.test.ts` checks the report is stored with the assembly.
+
+## Limitations
+
+- Length is estimated from word count; the rendered PDF isn't measured yet (planned with rendering validation).
+- The AI reviewer for judgment-based checks (relevance, strength, tone, prioritization) isn't part of this step yet.
+- Rules are the defaults for everyone until the Resume Style Guide lets users set them.
+- Headline words are checked against the record word by word, so a good headline using a synonym falls back to the latest title.

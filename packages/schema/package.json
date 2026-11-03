@@ -7,6 +7,7 @@
 		"./career": "./src/career.ts",
 		"./career-preferences": "./src/career-preferences.ts",
 		"./resume-selection": "./src/resume-selection.ts",
+		"./resume-writing": "./src/resume-writing.ts",
 		"./master-profile": "./src/master-profile.ts",
 		"./cover-letter/data": "./src/cover-letter/data.ts",
 		"./applications/*": "./src/applications/*.ts",

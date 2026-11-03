@@ -229,6 +229,10 @@ describe.skipIf(!databaseUrl)("resume selection plans", () => {
 		expect(data.sections.experience.items[0]?.description).toContain("Delivered WordPress sites");
 		expect(data.sections.experience.items[0]?.description).not.toContain("volunteer portal");
 		expect(built.result.coverage.find((item) => item.requirement === "French fluency")?.strength).toBe("none");
+		// The writing report and quality checks are kept with the assembly.
+		expect(built.result.writing?.stats.positions).toBe(2);
+		expect(built.result.writing?.checks.filter((finding) => finding.severity === "error")).toEqual([]);
+		expect(built.result.writing?.rules.region).toBe("CA");
 
 		const reset = await selection.reset("alice", "alice-app");
 		expect(reset?.plan.totals.includedEntries).toBe(1);

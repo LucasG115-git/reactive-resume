@@ -1,3 +1,4 @@
+import type { AskModel } from "../selection/model";
 import type { Selection } from "./build";
 import type { Coverage, ModelOutput } from "./prompt";
 import type { AssembleInput, ProfileAssemblyResult } from "@reactive-resume/schema/master-profile";
@@ -7,6 +8,7 @@ import { APICallError, RetryError } from "ai";
 import { and, desc, eq } from "drizzle-orm";
 import { db } from "@reactive-resume/db/client";
 import * as tables from "@reactive-resume/db/schema";
+import { DEFAULT_WRITING_RULES } from "@reactive-resume/schema/resume-writing";
 import { defaultResumeData } from "@reactive-resume/schema/resume/default";
 import { parseResumeDataForWrite } from "@reactive-resume/schema/resume/write";
 import { aiProvidersService } from "../../ai-providers/service";
@@ -15,19 +17,13 @@ import { getModel } from "../../ai/service";
 import { applicationService } from "../../applications/service";
 import { documentsService } from "../../documents/service";
 import { resumeService } from "../../resume/service";
+import { askDefaultModel } from "../selection/model";
 import { selectionService } from "../selection/service";
 import { masterProfileService } from "../service";
+import { checkResume } from "../writing/checks";
+import { writeFromPlan } from "../writing/service";
 import { buildResume } from "./build";
-import {
-	buildCatalog,
-	buildPrompt,
-	buildWritePrompt,
-	modelOutputSchema,
-	plannedProfile,
-	resolveOutput,
-	SYSTEM_PROMPT,
-	WRITE_SYSTEM_PROMPT,
-} from "./prompt";
+import { buildCatalog, buildPrompt, modelOutputSchema, resolveOutput, SYSTEM_PROMPT } from "./prompt";
 
 /** Asks a model for a selection. Swappable so tests can run the whole flow without a provider. */
 export type SelectEvidence = (input: {
@@ -86,7 +82,7 @@ export const assembleService = {
 	assemble: async (
 		userId: string,
 		input: AssembleInput,
-		options: { select?: SelectEvidence; signal?: AbortSignal | undefined; now?: Date } = {},
+		options: { select?: SelectEvidence; ask?: AskModel; signal?: AbortSignal | undefined; now?: Date } = {},
 	): Promise<AssembleResponse> => {
 		const application = await applicationService.getById({ id: input.applicationId, userId });
 		const base = input.baseResumeId ? await resumeService.getById({ id: input.baseResumeId, userId }) : null;
@@ -106,30 +102,29 @@ export const assembleService = {
 		let selection: Selection;
 		let coverage: Coverage;
 		let model = "";
+		let written: Awaited<ReturnType<typeof writeFromPlan>> | null = null;
+		const rules = DEFAULT_WRITING_RULES;
 		if (plan) {
-			const planned = plannedProfile(profile, plan);
-			const plannedCatalog = buildCatalog(planned);
-			if (plannedCatalog.achievementIds.size === 0)
+			if (!plan.entries.some((entry) => entry.include && entry.achievements.some((item) => item.include)))
 				throw new ORPCError("BAD_REQUEST", {
 					message: "The selection for this application has no achievements included. Include some, then try again.",
 				});
-			if (input.mode === "verbatim") selection = { achievements: [], skills: [], summary: "" };
-			else {
-				const answer = await select({
-					userId,
-					system: WRITE_SYSTEM_PROMPT,
-					prompt: buildWritePrompt({
-						catalog: plannedCatalog,
-						company: application.company,
-						role: application.role,
-						requirements: stored?.analysis.requirements.map((requirement) => requirement.text) ?? [],
-						positioning: plan.positioning,
-					}),
-					signal: options.signal,
-				});
-				selection = resolveOutput(answer.output, plannedCatalog).selection;
-				model = answer.model;
-			}
+			written = await writeFromPlan({
+				userId,
+				plan,
+				analysis: stored?.analysis ?? null,
+				profile,
+				rules,
+				mode: input.mode,
+				ask: options.ask ?? askDefaultModel,
+				signal: options.signal,
+			});
+			selection = {
+				achievements: [...written.bullets].map(([id, bullet]) => ({ id, text: bullet.text })),
+				skills: written.skills.map((skill) => skill.id),
+				summary: written.summary,
+			};
+			model = written.model;
 			coverage = plan.coverage.map((item) => ({
 				requirement:
 					stored?.analysis.requirements.find((requirement) => requirement.id === item.requirementId)?.text ??
@@ -157,6 +152,7 @@ export const assembleService = {
 		}
 		const built = buildResume({
 			plan,
+			writing: written ? { headline: written.headline, skillGroups: written.skillGroups } : null,
 			base: base?.data ?? (await starterResume(userId)),
 			profile,
 			selection,
@@ -179,13 +175,40 @@ export const assembleService = {
 			await resumeService.update({ id: resumeId, userId, data });
 		} else resumeId = await documentsService.createForJob({ userId, applicationId: application.id, name, data });
 
+		// Quality checks run on what was built, before anyone sees it; nothing is changed by them.
+		const report =
+			plan && written
+				? (() => {
+						const { findings, stats } = checkResume({
+							data: built.data,
+							bullets: built.bullets,
+							placements: built.placements,
+							plan,
+							profile,
+							analysis: stored?.analysis ?? null,
+							rules,
+							headline: written.headline,
+							now: options.now ?? new Date(),
+						});
+						return {
+							headline: written.headline,
+							summary: built.summaryUsed ? written.summary : "",
+							skillGroups: written.skillGroups,
+							skillsLeftOut: written.skillsLeftOut,
+							checks: findings,
+							stats,
+							rules,
+						};
+					})()
+				: undefined;
 		const result: ProfileAssemblyResult = {
 			coverage,
 			bullets: built.bullets,
 			entryIds: built.entryIds,
 			skillIds: built.skillIds,
 			summaryUsed: built.summaryUsed,
-			warnings: built.warnings,
+			warnings: [...(written?.warnings ?? []), ...built.warnings],
+			...(report ? { writing: report } : {}),
 		};
 		const [assembly] = await db
 			.insert(tables.profileAssembly)

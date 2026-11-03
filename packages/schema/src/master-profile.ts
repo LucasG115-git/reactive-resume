@@ -1,4 +1,5 @@
 import z from "zod";
+import { writingReportSchema } from "./resume-writing";
 
 /**
  * Master Profile: a structured, user-verified record of a career (where you worked, what you achieved,
@@ -121,6 +122,8 @@ export const profileAssemblyResultSchema = z.object({
 	skillIds: z.array(z.string()),
 	summaryUsed: z.boolean(),
 	warnings: z.array(z.string()),
+	/** From the writing step (assemblies built from a reviewed selection): headline, skill groups and quality checks. */
+	writing: writingReportSchema.optional(),
 });
 export type ProfileAssemblyResult = z.infer<typeof profileAssemblyResultSchema>;
 

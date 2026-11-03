@@ -327,13 +327,19 @@ function AssembleReport({ result }: AssembleReportProps) {
 	const { coverage, bullets, warnings } = result.result;
 	const rephrased = bullets.filter((bullet) => bullet.source === "rephrased").length;
 
+	const writing = result.result.writing;
 	return (
 		<div className="grid gap-4">
 			<p className="font-mono text-xs text-ink-3">
 				{plural(bullets.length, { one: "# bullet placed", other: "# bullets placed" })} ·{" "}
 				{plural(rephrased, { one: "# reworded", other: "# reworded" })}
 				{result.result.summaryUsed ? ` · ${t`new summary`}` : ""}
+				{writing
+					? ` · ${t`about ${writing.stats.estimatedPages} of ${writing.stats.targetPages} pages`} · ${plural(writing.stats.skills, { one: "# skill", other: "# skills" })}`
+					: ""}
 			</p>
+
+			{writing && <QualityChecks writing={writing} />}
 
 			{coverage.length > 0 && (
 				<div className="grid gap-1.5">
@@ -377,6 +383,75 @@ function AssembleReport({ result }: AssembleReportProps) {
 							<li key={warning}>{warning}</li>
 						))}
 					</ul>
+				</div>
+			)}
+		</div>
+	);
+}
+
+type Writing = NonNullable<AssembleResult["result"]["writing"]>;
+type QualityChecksProps = { writing: Writing };
+
+const findingStyle = {
+	error: { icon: "x-circle", className: "text-danger-text", label: () => t`Fix before sending` },
+	warning: { icon: "warning-circle", className: "text-warn-text", label: () => t`Worth improving` },
+	info: { icon: "info", className: "text-ink-3", label: () => t`Note` },
+} as const;
+
+/** The checks run on the built resume, most serious first, and how its skills were grouped. Nothing is changed by them. */
+function QualityChecks({ writing }: QualityChecksProps) {
+	const errors = writing.checks.filter((finding) => finding.severity === "error").length;
+	return (
+		<div className="grid gap-3">
+			<div className="grid gap-1.5">
+				<h4 className="text-xs font-semibold text-ink-3">
+					<Trans>Quality checks</Trans>
+				</h4>
+				{writing.checks.length === 0 ? (
+					<p className="flex items-center gap-2 text-[13px] text-accent-text">
+						<Icon name="check-circle" size={16} />
+						<Trans>Everything is backed by your profile, and nothing needs attention.</Trans>
+					</p>
+				) : (
+					<ul className="grid gap-1">
+						{writing.checks.map((finding, index) => {
+							const style = findingStyle[finding.severity];
+							return (
+								<li key={`${finding.code}-${index}`} className="flex items-start gap-2 text-[13px]">
+									<Icon
+										name={style.icon}
+										size={16}
+										className={cn("mt-0.5 flex-none", style.className)}
+										aria-label={style.label()}
+									/>
+									<span className="flex-1">{finding.message}</span>
+								</li>
+							);
+						})}
+					</ul>
+				)}
+				{errors > 0 && (
+					<p className="text-xs text-danger-text">
+						<Trans>
+							Something on this resume isn't backed by your profile. Fix it in the editor before you send it.
+						</Trans>
+					</p>
+				)}
+			</div>
+			{writing.skillGroups.length > 0 && (
+				<div className="grid gap-1">
+					<h4 className="text-xs font-semibold text-ink-3">
+						<Trans>Skills, grouped</Trans>
+					</h4>
+					<p className="text-[13px] text-ink-2">{writing.skillGroups.map((group) => group.name).join(" · ")}</p>
+					{writing.skillsLeftOut.length > 0 && (
+						<p className="text-xs text-ink-3">
+							{t`Left out: ${writing.skillsLeftOut
+								.slice(0, 6)
+								.map((item) => `${item.name} (${item.reason.toLowerCase()})`)
+								.join("; ")}`}
+						</p>
+					)}
 				</div>
 			)}
 		</div>

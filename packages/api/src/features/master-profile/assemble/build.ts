@@ -1,5 +1,7 @@
 import type { MasterProfile } from "../service";
+import type { Placement } from "../writing/checks";
 import type { ResumeSelectionPlan } from "@reactive-resume/schema/resume-selection";
+import type { SkillGroup } from "@reactive-resume/schema/resume-writing";
 import type { ResumeData } from "@reactive-resume/schema/resume/data";
 import type { ResumeDates } from "@reactive-resume/schema/resume/dates";
 import { generateId } from "@reactive-resume/utils/string";
@@ -36,6 +38,8 @@ export type AssembleResult = {
 	skillIds: string[];
 	summaryUsed: boolean;
 	warnings: string[];
+	/** Which profile entry each resume item came from. */
+	placements: Placement[];
 };
 
 export const LIMITS = {
@@ -144,6 +148,8 @@ export function buildResume(input: {
 	 * and skills appear; the selection only supplies wording and the summary.
 	 */
 	plan?: ResumeSelectionPlan | null | undefined;
+	/** The writing step's headline and skill groups; with them, skills print in these groups only. */
+	writing?: { headline: string; skillGroups: SkillGroup[] } | null | undefined;
 }): AssembleResult {
 	const { base, profile, selection, mode, plan } = input;
 	const now = input.now ?? new Date();
@@ -225,6 +231,12 @@ export function buildResume(input: {
 	};
 
 	const ofKind = (kind: Entry["kind"]) => included.filter((entry) => entry.kind === kind).toSorted(byRecency);
+	const placements: Placement[] = [];
+	const place = (section: Placement["section"], entry: Entry) => {
+		const itemId = generateId();
+		placements.push({ section, itemId, entryId: entry.id });
+		return itemId;
+	};
 	const sections = structuredClone(base.sections);
 	const section = <K extends keyof typeof sections>(key: K, items: (typeof sections)[K]["items"]) => {
 		sections[key] = { ...sections[key], items, hidden: items.length === 0 ? sections[key].hidden : false } as never;
@@ -233,7 +245,7 @@ export function buildResume(input: {
 	section(
 		"experience",
 		ofKind("position").map((entry) => ({
-			id: generateId(),
+			id: place("experience", entry),
 			hidden: false,
 			company: entry.organization,
 			position: entry.title,
@@ -248,7 +260,7 @@ export function buildResume(input: {
 	section(
 		"projects",
 		ofKind("project").map((entry) => ({
-			id: generateId(),
+			id: place("projects", entry),
 			hidden: false,
 			name: entry.organization ? `${entry.title} — ${entry.organization}` : entry.title,
 			period: "",
@@ -260,7 +272,7 @@ export function buildResume(input: {
 	section(
 		"volunteer",
 		ofKind("volunteer").map((entry) => ({
-			id: generateId(),
+			id: place("volunteer", entry),
 			hidden: false,
 			organization: entry.organization ? `${entry.organization} — ${entry.title}` : entry.title,
 			location: entry.location,
@@ -273,7 +285,7 @@ export function buildResume(input: {
 	section(
 		"education",
 		ofKind("education").map((entry) => ({
-			id: generateId(),
+			id: place("education", entry),
 			hidden: false,
 			school: entry.organization || entry.title,
 			degree: entry.organization ? entry.title : "",
@@ -289,7 +301,7 @@ export function buildResume(input: {
 	section(
 		"certifications",
 		ofKind("certification").map((entry) => ({
-			id: generateId(),
+			id: place("certifications", entry),
 			hidden: false,
 			title: entry.title,
 			issuer: entry.organization,
@@ -302,7 +314,7 @@ export function buildResume(input: {
 	section(
 		"awards",
 		ofKind("award").map((entry) => ({
-			id: generateId(),
+			id: place("awards", entry),
 			hidden: false,
 			title: entry.title,
 			awarder: entry.organization,
@@ -334,7 +346,28 @@ export function buildResume(input: {
 		const key = skill.category || "Skills";
 		groups.set(key, [...(groups.get(key) ?? []), skill]);
 	}
-	if (orderedSkills.length > 0)
+	if (input.writing) {
+		const names = new Map(visibleSkills.map((skill) => [skill.id, skill.name]));
+		section(
+			"skills",
+			input.writing.skillGroups
+				.map((group) => ({
+					name: group.name,
+					keywords: group.skillIds.map((id) => names.get(id)).filter((name): name is string => Boolean(name)),
+				}))
+				.filter((group) => group.keywords.length > 0)
+				.map((group) => ({
+					id: generateId(),
+					hidden: false,
+					icon: "",
+					iconColor: "",
+					name: group.name,
+					proficiency: "",
+					level: 0,
+					keywords: group.keywords,
+				})) as never,
+		);
+	} else if (orderedSkills.length > 0)
 		section(
 			"skills",
 			[...groups].map(([category, list]) => ({
@@ -373,12 +406,47 @@ export function buildResume(input: {
 	const unknown = plan ? 0 : selection.achievements.filter((pick) => !visibleAchievements.has(pick.id)).length;
 	if (unknown > 0) warnings.push(`Ignored ${unknown} suggestion(s) that didn't match your profile.`);
 
+	const basics = input.writing?.headline ? { ...base.basics, headline: input.writing.headline } : base.basics;
+	const metadata = plan
+		? { ...base.metadata, layout: orderSections(base.metadata.layout, plan.sections) }
+		: base.metadata;
 	return {
-		data: { ...base, summary, sections, customSections: clearAssembledCustomSections(base.customSections) },
+		data: {
+			...base,
+			basics,
+			metadata,
+			summary,
+			sections,
+			customSections: clearAssembledCustomSections(base.customSections),
+		},
+		placements,
 		bullets,
 		entryIds: included.map((entry) => entry.id),
 		skillIds: orderedSkills.map((skill) => skill.id),
 		summaryUsed,
 		warnings,
+	};
+}
+
+/**
+ * Puts the plan's sections in its recommended order within the layout's main columns, keeping each column's
+ * other items and every section's column where the template put it.
+ */
+export function orderSections(
+	layout: ResumeData["metadata"]["layout"],
+	order: string[],
+): ResumeData["metadata"]["layout"] {
+	const rank = new Map(order.map((key, index) => [key, index]));
+	return {
+		...layout,
+		pages: layout.pages.map((page) => {
+			const slots = page.main.map((key, index) => ({ key, index })).filter(({ key }) => rank.has(key));
+			const sorted = slots.map(({ key }) => key).toSorted((a, b) => (rank.get(a) ?? 0) - (rank.get(b) ?? 0));
+			const main = [...page.main];
+			slots.forEach(({ index }, position) => {
+				main[index] = sorted[position] ?? main[index] ?? "";
+			});
+			return { ...page, main };
+		}),
 	};
 }
