@@ -1,6 +1,7 @@
 import type { AskModel } from "../selection/model";
 import type { Selection } from "./build";
 import type { Coverage, ModelOutput } from "./prompt";
+import type { exportRenderers } from "./rendering";
 import type { AssembleInput, ProfileAssemblyResult } from "@reactive-resume/schema/master-profile";
 import type { ResumeData } from "@reactive-resume/schema/resume/data";
 import { ORPCError } from "@orpc/client";
@@ -19,13 +20,17 @@ import { applicationService } from "../../applications/service";
 import { documentsService } from "../../documents/service";
 import { resumeStyleService } from "../../resume-style/service";
 import { resumeService } from "../../resume/service";
+import { feedbackService } from "../feedback";
+import { PROMPT_VERSIONS } from "../prompt-versions";
 import { askDefaultModel } from "../selection/model";
 import { selectionService } from "../selection/service";
 import { masterProfileService } from "../service";
 import { checkResume } from "../writing/checks";
+import { reviewDraft } from "../writing/review";
 import { writeFromPlan } from "../writing/service";
 import { buildResume } from "./build";
 import { buildCatalog, buildPrompt, modelOutputSchema, resolveOutput, SYSTEM_PROMPT } from "./prompt";
+import { validateRendering } from "./rendering";
 
 /** Asks a model for a selection. Swappable so tests can run the whole flow without a provider. */
 export type SelectEvidence = (input: {
@@ -84,7 +89,13 @@ export const assembleService = {
 	assemble: async (
 		userId: string,
 		input: AssembleInput,
-		options: { select?: SelectEvidence; ask?: AskModel; signal?: AbortSignal | undefined; now?: Date } = {},
+		options: {
+			select?: SelectEvidence;
+			ask?: AskModel;
+			signal?: AbortSignal | undefined;
+			now?: Date;
+			renderers?: typeof exportRenderers;
+		} = {},
 	): Promise<AssembleResponse> => {
 		const application = await applicationService.getById({ id: input.applicationId, userId });
 		const base = input.baseResumeId ? await resumeService.getById({ id: input.baseResumeId, userId }) : null;
@@ -105,6 +116,7 @@ export const assembleService = {
 		let coverage: Coverage;
 		let model = "";
 		let written: Awaited<ReturnType<typeof writeFromPlan>> | null = null;
+		let review: Awaited<ReturnType<typeof reviewDraft>>["review"] = null;
 		// The style preset: the one asked for, else the one matching the posting's title, else the default.
 		const guide = await resumeStyleService.get(userId);
 		const quality = input.quality ?? (await taskSettings(userId)).quality;
@@ -126,9 +138,28 @@ export const assembleService = {
 				ask: options.ask ?? askDefaultModel,
 				style,
 				quality,
+				feedback: input.mode === "rephrase" ? await feedbackService.forWriter(userId) : "",
 				signal: options.signal,
 				...(options.now ? { now: options.now } : {}),
 			});
+			// One AI review round over the draft; it may re-word lines but never adds facts (see writing/review.ts).
+			if (input.mode === "rephrase" && stored?.analysis && input.review !== false) {
+				const reviewed = await reviewDraft({
+					userId,
+					plan,
+					analysis: stored.analysis,
+					profile,
+					written,
+					rules,
+					ask: options.ask ?? askDefaultModel,
+					quality,
+					examples: style.examples.slice(0, 2).map((example) => example.text),
+					signal: options.signal,
+				});
+				review = reviewed.review;
+				written.usage.push(...reviewed.usage);
+				written.warnings.push(...reviewed.warnings);
+			}
 			selection = {
 				achievements: [...written.bullets].map(([id, bullet]) => ({ id, text: bullet.text })),
 				skills: written.skills.map((skill) => skill.id),
@@ -187,36 +218,50 @@ export const assembleService = {
 			await resumeService.update({ id: resumeId, userId, data });
 		} else resumeId = await documentsService.createForJob({ userId, applicationId: application.id, name, data });
 
-		// Quality checks run on what was built, before anyone sees it; nothing is changed by them.
-		const report =
-			plan && written
-				? (() => {
-						const { findings, stats } = checkResume({
-							data: built.data,
-							bullets: built.bullets,
-							placements: built.placements,
-							plan,
-							profile,
-							analysis: stored?.analysis ?? null,
-							rules,
-							headline: written.headline,
-							olderRoles: { mode: preset.olderRoles, recentYears: preset.recentYears },
-							now: options.now ?? new Date(),
-						});
-						return {
-							headline: written.headline,
-							summary: built.summaryUsed ? written.summary : "",
-							skillGroups: written.skillGroups,
-							skillsLeftOut: written.skillsLeftOut,
-							checks: findings,
-							stats,
-							rules,
-							style: { presetId: preset.id, name: preset.name },
-							usage: written.usage,
-							quality,
-						};
-					})()
-				: undefined;
+		// Quality checks run on what was built, before anyone sees it; nothing is changed by them. The exported
+		// files are read back too, so lost text or a blank page shows up here rather than in an ATS.
+		let report: ProfileAssemblyResult["writing"];
+		if (plan && written) {
+			const { findings, stats } = checkResume({
+				data: built.data,
+				bullets: built.bullets,
+				placements: built.placements,
+				plan,
+				profile,
+				analysis: stored?.analysis ?? null,
+				rules,
+				headline: written.headline,
+				olderRoles: { mode: preset.olderRoles, recentYears: preset.recentYears },
+				now: options.now ?? new Date(),
+			});
+			const rendering = await validateRendering({
+				data,
+				bullets: built.bullets.map((bullet) => bullet.text),
+				targetPages: stats.targetPages,
+				...(options.renderers ? { renderers: options.renderers } : {}),
+				...(options.now ? { now: options.now } : {}),
+			});
+			report = {
+				headline: written.headline,
+				summary: built.summaryUsed ? written.summary : "",
+				skillGroups: written.skillGroups,
+				skillsLeftOut: written.skillsLeftOut,
+				checks: [...findings, ...rendering.findings],
+				stats,
+				rules,
+				style: { presetId: preset.id, name: preset.name },
+				usage: written.usage,
+				quality,
+				...(review ? { review } : {}),
+				rendering: rendering.report,
+				promptVersions: {
+					analysis: PROMPT_VERSIONS.analysis,
+					evidence: PROMPT_VERSIONS.evidence,
+					...(input.mode === "rephrase" ? { writing: PROMPT_VERSIONS.writing } : {}),
+					...(review ? { review: PROMPT_VERSIONS.review } : {}),
+				},
+			};
+		}
 		const result: ProfileAssemblyResult = {
 			coverage,
 			bullets: built.bullets,

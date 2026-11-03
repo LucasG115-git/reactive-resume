@@ -86,6 +86,10 @@ msgstr "\"तपाईंले अनबोर्डिङ पुनःडि�
 msgid "(no header)"
 msgstr "(हेडर छैन)"
 
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "(no summary)"
+msgstr ""
+
 #. placeholder {0}: proposals.length
 #: src/features/resume/editor/proposals/proposals.ts
 msgid "{0, plural, =1 {Edit applied} other {# edits applied}}"
@@ -1317,6 +1321,10 @@ msgstr "उपलब्धि"
 msgid "Account"
 msgstr "खाता"
 
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Accuracy"
+msgstr ""
+
 #: src/features/career/knowledge/profile.tsx
 msgid "Achievement deleted"
 msgstr ""
@@ -1923,6 +1931,15 @@ msgstr "ENCRYPTION_SECRET सेट नभएसम्म AI प्रदाय�
 msgid "AI providers couldn't be loaded. Reload to try again."
 msgstr "AI प्रदायकहरू लोड गर्न सकिएन। पुन: प्रयास गर्न पुन: लोड गर्नुहोस्।"
 
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "AI review"
+msgstr ""
+
+#. placeholder {0}: review.score
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "AI review · {0} out of 10"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Albanian"
 msgstr "अल्बानियन"
@@ -2325,6 +2342,7 @@ msgstr "लागू गरियो। {0} का लागि फलो-अप
 msgid "Applied. The application is updated."
 msgstr "लागू गरियो। आवेदन अद्यावधिक भयो।"
 
+#: src/features/applications/components/detail/assembly-review.tsx
 #: src/features/career/shared.tsx
 #: src/features/homepage/prepare.tsx
 msgid "Apply"
@@ -2452,6 +2470,10 @@ msgstr ""
 msgid "Assemble resume"
 msgstr ""
 
+#: src/features/applications/components/detail/sent-documents.tsx
+msgid "Assembled from your profile · Rate it and learn from your edits"
+msgstr ""
+
 #: src/features/assistant/assistant-button.tsx
 #: src/features/assistant/assistant-panel.tsx
 #: src/features/assistant/conversation.tsx
@@ -2484,6 +2506,11 @@ msgstr "Northwind Labs मा मैले हाम्रो अनबोर्
 #: src/features/homepage/remember.tsx
 msgid "At Northwind Labs, most new teams stalled before they finished setup."
 msgstr "Northwind Labs मा, धेरैजसो नयाँ टोलीहरू सेटअप पूरा गर्नुअघि नै अड्किन्थे।"
+
+#. placeholder {0}: rendering.pdf.atsScore
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "ATS {0}"
+msgstr ""
 
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/homepage/footer.tsx
@@ -2705,6 +2732,11 @@ msgstr "बंगाली"
 #: src/features/resume/share/download-tab.tsx
 msgid "Best for applying"
 msgstr "आवेदनको लागि उत्तम"
+
+#. placeholder {0}: rendering.pdf.blankPages.join(", ")
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "blank page {0}"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Blocker"
@@ -3006,6 +3038,10 @@ msgstr "समय क्षेत्र परिवर्तन गर्नु
 msgid "Change your password"
 msgstr "तपाईंको पासवर्ड परिवर्तन गर्नुहोस्"
 
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Changed by the reviewer"
+msgstr ""
+
 #: src/routes/builder/letter/-components/letter-bar.tsx
 msgid "Changed elsewhere"
 msgstr "अन्यत्र परिवर्तन भयो"
@@ -3269,6 +3305,10 @@ msgstr "वृत्त"
 msgid "Clarify"
 msgstr "स्पष्ट गर्नुहोस्"
 
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Clarity"
+msgstr ""
+
 #: src/features/homepage/sheet.tsx
 msgid "Classic"
 msgstr "क्लासिक"
@@ -3483,6 +3523,10 @@ msgstr "तिनीहरूको मूल मुद्रा र भुक�
 #: src/features/career/workspace/practise.tsx
 msgid "Compared with your stories and the posting."
 msgstr "तपाईंका कथाहरू र जागिर पोस्टिङसँग तुलना गरिएको।"
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Compares the resume as it is now with what was generated. Used for wording only; your profile isn't changed."
+msgstr ""
 
 #: src/features/assistant/assistant-panel.tsx
 msgid "Compares your resume with the posting"
@@ -3866,6 +3910,10 @@ msgstr ""
 #: src/features/career/coach-thread.tsx
 msgid "Couldn't attach the file. Try again."
 msgstr "फाइल संलग्न गर्न सकिएन। पुन: प्रयास गर्नुहोस्।"
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Couldn't change that line. Try again."
+msgstr ""
 
 #: src/routes/builder/letter/-components/design-panel.tsx
 msgid "Couldn't change the design. Try again."
@@ -4324,6 +4372,10 @@ msgstr "तपाईंका परिवर्तनहरू सुरक्�
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Couldn't save your changes. Try again."
 msgstr "तपाईंका परिवर्तनहरू सुरक्षित गर्न सकिएन। पुन: प्रयास गर्नुहोस्।"
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Couldn't save your feedback. Try again."
+msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
 msgid "Couldn't save your preferences. Try again."
@@ -5084,11 +5136,16 @@ msgstr "विच्छेद गर्नुहोस्"
 msgid "Disconnecting your {providerName} account…"
 msgstr "तपाईंको {providerName} खाता विच्छेद हुँदैछ…"
 
+#: src/features/applications/components/detail/assembly-review.tsx
 #: src/features/resume/editor/write/write-panel.tsx
 #: src/routes/builder/letter/-components/write-panel.tsx
 #: src/routes/dashboard/applications/index.tsx
 msgid "Dismiss"
 msgstr "खारेज गर्नुहोस्"
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Dismissed"
+msgstr ""
 
 #: src/routes/dashboard/settings/route.tsx
 msgid "Docs"
@@ -5242,6 +5299,7 @@ msgstr "तपाईंको रिजुमे र यो पत्र डा�
 msgid "downloads"
 msgstr "डाउनलोडहरू"
 
+#: src/features/applications/components/detail/assembly-review.tsx
 #: src/features/career/workspace/apply.tsx
 #: src/features/resume/editor/write/entry-card.tsx
 msgid "Draft"
@@ -5871,6 +5929,10 @@ msgstr "बायोडाटालाई तस्बिर वा स्क्
 msgid "Export to CSV…"
 msgstr "CSV मा निर्यात गर्नुहोस्..."
 
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Exported files"
+msgstr ""
+
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "Exported PDF checked: {problems} more to look at."
 msgstr "निर्यात गरिएको PDF जाँच गरियो: {problems} थप हेर्नको लागि।"
@@ -6464,6 +6526,10 @@ msgstr "ड्यासबोर्डमा जानुहोस्"
 msgid "Go to…"
 msgstr "… मा जानुहोस्"
 
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Good"
+msgstr ""
+
 #: src/features/resume/share/download-tab.tsx
 msgid "Good luck out there. Reactive Resume stays free because people chip in."
 msgstr "त्यहाँ राम्रो भाग्य। Reactive Resume नि:शुल्क रहन्छ किनभने मानिसहरूले भित्र पाउँछन्।"
@@ -6726,6 +6792,10 @@ msgstr "कस्तो भयो?"
 msgid "How did it land?"
 msgstr "कस्तो प्रभाव पर्‍यो?"
 
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "How did this resume turn out?"
+msgstr ""
+
 #: src/features/applications/components/insights-view.tsx
 msgid "How far applications get"
 msgstr "रोजगारीका आवेदनहरू कति टाढा पुग्छन्"
@@ -6953,6 +7023,10 @@ msgstr "सुधार गर्दै…"
 #: src/features/homepage/sections.tsx
 msgid "In good company"
 msgstr "राम्रो संगत मा"
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "in your resume"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Increase line spacing so two lines are not merged into one."
@@ -7547,6 +7621,10 @@ msgstr "परिणामको साथ नेतृत्व गर्नु
 #: src/features/assistant/assistant-panel.tsx
 msgid "Leads with why you fit"
 msgstr "तपाईं किन फिट हुनुहुन्छ भनेर नेतृत्व गर्छ"
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Learn from my edits"
+msgstr ""
 
 #: src/features/career/offers.tsx
 msgid "Learning budget"
@@ -8624,6 +8702,10 @@ msgstr "साँघुरो मार्जिन"
 msgid "Needs attention"
 msgstr "ध्यान चाहिन्छ"
 
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Needs work"
+msgstr ""
+
 #: src/features/career/today.tsx
 msgid "Needs you"
 msgstr "तपाईंको ध्यान चाहिन्छ"
@@ -8814,6 +8896,10 @@ msgstr "कुनै बुलेट सूची फेला परेन।"
 #: src/features/career/workspace/messages.tsx
 msgid "No change needed. It's already at {stage}."
 msgstr "परिवर्तन आवश्यक छैन। यो पहिले नै {stage} मा छ।"
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "No changes suggested."
+msgstr ""
 
 #. Empty-state message when no command palette results match the search query
 #: src/features/command-palette/content.tsx
@@ -9449,6 +9535,10 @@ msgctxt "Entry header layout"
 msgid "One line"
 msgstr "एक पङ्क्ति"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "One more request, to your model for reviewing resumes. It may reword lines; changes to what a line says wait for you."
+msgstr ""
+
 #: src/features/settings/resume-style.tsx
 msgid "One tight line"
 msgstr ""
@@ -9980,6 +10070,12 @@ msgstr "PDF, Word (DOCX), Markdown र JSON। JSON निर्यातले 
 msgid "PDF, Word or JSON. We'll build a resume from it."
 msgstr "PDF, Word वा JSON। हामी त्यसबाट रिजुमे निर्माण गर्नेछौं।"
 
+#. placeholder {0}: rendering.pdf.pages
+#. placeholder {1}: percent(rendering.pdf.textCoverage)
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "PDF: {0, plural, one {# page} other {# pages}} · {1} of lines read back"
+msgstr ""
+
 #: src/features/homepage/sections.tsx
 msgid "People using it"
 msgstr "यसलाई प्रयोग गर्ने मानिसहरू"
@@ -10353,6 +10449,10 @@ msgstr "छाप्नुहोस्"
 msgid "Print or export the form to a flat PDF before sending it."
 msgstr "पठाउनुअघि फारामलाई फ्ल्याट PDF मा प्रिन्ट वा निर्यात गर्नुहोस्।"
 
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Priorities"
+msgstr ""
+
 #: src/features/resume/share/share-panel.tsx
 msgid "Privacy"
 msgstr "गोपनीयता"
@@ -10541,6 +10641,10 @@ msgstr "बैजनी"
 #: src/features/ats-checker/messages.ts
 msgid "Put a plain email address near the top of the first page. It is what most systems file you under."
 msgstr "पहिलो पृष्ठको माथि नजिकै सादा इमेल ठेगाना राख्नुहोस्। धेरैजसो प्रणालीले यसैअनुसार तपाईंलाई फाइल गर्छन्।"
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Put back to the draft wording"
+msgstr ""
 
 #: src/features/homepage/sections.tsx
 msgid "Put it all on <0>one page.</0>"
@@ -10763,6 +10867,10 @@ msgstr "पठनीयता स्कोर: 100 मध्ये {score}"
 
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Reading {fileName}…"
+msgstr ""
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "reading order differs"
 msgstr ""
 
 #: src/features/assistant/conversation.tsx
@@ -10995,6 +11103,10 @@ msgstr "अस्वीकार गर्नुहोस्"
 msgid "Rejected"
 msgstr "अस्वीकार गरियो"
 
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Relevance"
+msgstr ""
+
 #: src/routes/builder/letter/-components/letter-bar.tsx
 msgid "Reload"
 msgstr "पुन: लोड गर्नुहोस्"
@@ -11196,6 +11308,10 @@ msgstr "{title} पुन: क्रमबद्ध गर्नुहोस्"
 #: src/features/ats-checker/report/jd-coverage.tsx
 msgid "Repeated far more often than the posting itself uses them: {0}. Recruiters notice."
 msgstr "पोस्टिङले आफैँ प्रयोग गरेभन्दा धेरै पटक दोहोरिएको: {0}। भर्तीकर्ताले याद गर्छन्।"
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Repetition"
+msgstr ""
 
 #: src/features/resume/editor/write/improve.tsx
 msgid "Replace"
@@ -11491,6 +11607,10 @@ msgstr "आवश्यक फारम जवाफहरू समीक्ष
 msgid "Review stories before adding"
 msgstr ""
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Review the draft with AI"
+msgstr ""
+
 #: src/features/career/workspace/apply.tsx
 msgid "Review the selected resume and cover letter in their editors."
 msgstr "छानिएको बायोडाटा र आवरण पत्र तिनका सम्पादकहरूमा समीक्षा गर्नुहोस्।"
@@ -11498,6 +11618,10 @@ msgstr "छानिएको बायोडाटा र आवरण पत�
 #: src/features/resume/editor/check/writing-tab.tsx
 msgid "Review writing"
 msgstr "समीक्षा लेखन"
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Reviewer"
+msgstr ""
 
 #: src/features/career/workspace/debrief.tsx
 msgid "Reviewing needs an AI connection. <0>Add one in Settings</0>. What you write here stays in this browser until then."
@@ -12154,6 +12278,10 @@ msgstr "अर्थपूर्ण CSS शैली पाना"
 #: src/features/career/coach-thread.tsx
 msgid "Send"
 msgstr "पठाउनुहोस्"
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Send feedback"
+msgstr ""
 
 #. Primary action button label on forgot-password form
 #: src/features/auth/pages/forgot-password.tsx
@@ -13067,6 +13195,10 @@ msgstr ""
 msgid "Story not found"
 msgstr "कथा भेटिएन"
 
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Strength"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "Strengthen"
 msgstr "बलियो बनाउनुहोस्"
@@ -13130,6 +13262,11 @@ msgstr "90 दिनमा सफलता · अर्को कदम"
 msgid "Suggest again"
 msgstr "फेरि सुझाव दिनुहोस्"
 
+#. placeholder {0}: item.reason
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Suggested — needs your review: {0}"
+msgstr ""
+
 #: src/features/documents/new-document-dialog.tsx
 msgid "Suggested from the source and the job. Change it anytime."
 msgstr "स्रोत र कामबाट सुझाव। यसलाई जुनसुकै बेला परिवर्तन गर्नुहोस्।"
@@ -13141,6 +13278,10 @@ msgstr "सुझाव गरिएको प्रत्युत्तर · 
 #: src/features/settings/ai/providers.tsx
 msgid "Suggestions from <0>models.dev</0>. You can also enter any model ID."
 msgstr "<0>models.dev</0> बाट सुझावहरू। तपाईं कुनै पनि मोडेल आईडी पनि प्रविष्ट गर्न सक्नुहुन्छ।"
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Suggestions that would change what a line says wait for you. Apply one only if it's true; your master profile isn't changed either way."
+msgstr ""
 
 #: src/features/assistant/assistant-panel.tsx
 msgid "Suggests cuts, never deletes on its own"
@@ -13505,6 +13646,14 @@ msgstr "यसलाई मुक्त राख्नु भएकोमा �
 #: src/features/homepage/remember.tsx
 msgid "Thanks, Sam. Here’s one: at Northwind Labs I led the onboarding redesign, from 14 customer interviews to a shorter setup."
 msgstr "धन्यवाद, Sam। यस्तो एउटा छ: Northwind Labs मा मैले अनबोर्डिङ पुनःडिजाइनको नेतृत्व गरेँ, 14 ग्राहक अन्तर्वार्तादेखि छोटो सेटअपसम्म।"
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Thanks. Later resumes will follow your feedback and {learned} edited lines."
+msgstr ""
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Thanks. Later resumes will follow your feedback."
+msgstr ""
 
 #: src/features/ats-checker/checker.tsx
 msgid "That file couldn't be read as a PDF. Choose a PDF file and try again."
@@ -14236,6 +14385,7 @@ msgstr "आज, {hour}"
 msgid "Tomorrow"
 msgstr "भोलि"
 
+#: src/features/applications/components/detail/assembly-review.tsx
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/settings/resume-style.tsx
 msgid "Tone"
@@ -14845,6 +14995,14 @@ msgstr "जागिर पोस्टिङ प्रयोग गर्नु
 msgid "Use sample"
 msgstr "नमूना प्रयोग गर्नुहोस्"
 
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Use the draft wording"
+msgstr ""
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Use the reviewer's wording"
+msgstr ""
+
 #: src/features/resume/editor/check/issues.ts
 msgid "Use the standard heading"
 msgstr "मानक शीर्षक प्रयोग गर्नुहोस्"
@@ -15324,6 +15482,14 @@ msgstr "उनीहरूले तपाईंलाई के तयार �
 msgid "What to do"
 msgstr "के गर्ने"
 
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "What to do differently"
+msgstr ""
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "What to keep or do differently next time, e.g. \"Less formal\" or \"Lead with results\""
+msgstr ""
+
 #: src/features/career/knowledge/stories.tsx
 msgid "What was happening before you started?"
 msgstr "तपाईंले सुरु गर्नुअघि के भइरहेको थियो?"
@@ -15502,6 +15668,11 @@ msgstr "एक त्रैमासिकभित्र, एक्टिभे
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Without one, you fill in the recipient yourself and drafting uses only your resume."
 msgstr "एक बिना, तपाईले प्रापक आफैं भर्नुहुन्छ र ड्राफ्टिङले तपाईको रिजुमे मात्र प्रयोग गर्दछ।"
+
+#. placeholder {0}: percent(rendering.docx.textCoverage)
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Word: {0} of lines read back"
+msgstr ""
 
 #: src/features/applications/components/detail/assemble-dialog.tsx
 msgid "Wording"

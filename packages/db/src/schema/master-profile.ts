@@ -1,6 +1,7 @@
 import type { ProfileAssemblyResult, ProfileEntryKind, ProfileMetric } from "@reactive-resume/schema/master-profile";
 import type { JobAnalysis, ResumeSelectionPlan } from "@reactive-resume/schema/resume-selection";
 import type { ResumeStyleGuide } from "@reactive-resume/schema/resume-style";
+import type { ResumeCorrection } from "@reactive-resume/schema/resume-writing";
 import { sql } from "drizzle-orm";
 import * as pg from "drizzle-orm/pg-core";
 import { generateId } from "@reactive-resume/utils/string";
@@ -154,3 +155,31 @@ export const resumeStyleGuide = pg.pgTable("resume_style_guide", {
 		.defaultNow()
 		.$onUpdate(() => new Date()),
 });
+
+/**
+ * The user's feedback on a generated resume: a rating, a note, and the lines they changed. Informs the writer's
+ * style for later resumes; facts always come from the master profile, which feedback never changes.
+ */
+export const resumeFeedback = pg.pgTable(
+	"resume_feedback",
+	{
+		id: pg
+			.text("id")
+			.primaryKey()
+			.$defaultFn(() => generateId()),
+		userId: pg
+			.text("user_id")
+			.notNull()
+			.references(() => user.id, { onDelete: "cascade" }),
+		applicationId: pg
+			.text("application_id")
+			.notNull()
+			.references(() => application.id, { onDelete: "cascade" }),
+		assemblyId: pg.text("assembly_id").references(() => profileAssembly.id, { onDelete: "set null" }),
+		rating: pg.text("rating").$type<"good" | "needs-work">(),
+		note: pg.text("note").notNull().default(""),
+		corrections: pg.jsonb("corrections").notNull().$type<ResumeCorrection[]>().default([]),
+		createdAt: pg.timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+	},
+	(t) => [pg.index().on(t.userId, t.createdAt)],
+);

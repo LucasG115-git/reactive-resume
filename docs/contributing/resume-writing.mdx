@@ -60,10 +60,32 @@ Other regions (US, UK, Australia, other) change spelling, personal-detail guidan
 
 ## Tests
 
-`writing/writing.test.ts`: skill choice (evidence, overlaps, soft skills, user choices, the maximum), group validation and fallback, qualifier and tool checks, rejection of invented numbers, tools, headline words and summary facts, every planned achievement worded, communications / web development / project management resumes built from plans with no error findings, tampered resumes producing each error code, length warnings without cutting, and the fallback to the user's own wording when the AI's answer is unreadable. `selection/service.integration.test.ts` checks the report is stored with the assembly. `ai-tasks/resolve.test.ts`: Thorough applies only to its tasks and only when set, reasoning options per provider, unknown-model detection, default and chosen connections, and the fallback retry with usage.
+`writing/writing.test.ts`: skill choice (evidence, overlaps, soft skills, user choices, the maximum), group validation and fallback, qualifier and tool checks, rejection of invented numbers, tools, headline words and summary facts, every planned achievement worded, communications / web development / project management resumes built from plans with no error findings, tampered resumes producing each error code, length warnings without cutting, and the fallback to the user's own wording when the AI's answer is unreadable. `selection/service.integration.test.ts` checks the report is stored with the assembly. `writing/review.test.ts`: reviewer rewrites applied, held back (new number, changed claim, limit), unknown refs dropped, the draft kept when the review fails, edits paired as corrections and passed to the writer as preferences. `assemble/rendering.test.ts`: real PDF and DOCX of an assembled resume read back in full, and lost text and failed renders reported. `benchmark/benchmark.test.ts`: every case scored. The selection integration test covers revert/apply, feedback from edits, the profile staying unchanged, and the next writer prompt. `ai-tasks/resolve.test.ts`: Thorough applies only to its tasks and only when set, reasoning options per provider, unknown-model detection, default and chosen connections, and the fallback retry with usage.
+
+## AI review
+
+`writing/review.ts`, task `review`, prompt version `PROMPT_VERSIONS.review`. Runs once after writing, in rephrase mode with a plan, unless the request sets `review: false`.
+
+- The prompt shows each bullet (`B1`…) with its record text, plus the requirements, headline, summary and skill groups. The answer is `{ score, findings: [{ category, severity, message, ref, rewrite, changesClaim }] }`.
+- Rewrites of bullets and the summary go through the writer's checks (`bulletProblem`, `summaryProblem`). Passing, wording-only rewrites are applied up to `MAX_REVIEW_REVISIONS` (5); a rewrite flagged `changesClaim`, failing a check, or over the limit is `needs-review`. Unknown refs are dropped. One round only; the draft wording is kept as `before`.
+- `assemble/revisions.ts` (`masterProfile.revision`): `revert` (applied → reverted), `apply` (needs-review or reverted → applied), `dismiss`. It swaps the line's exact paragraph in the resume JSON and refuses when the user has edited it since. A failed review leaves the draft as it was with a warning.
+
+## Rendering validation
+
+`assemble/rendering.ts`, after the resume is saved. It renders the PDF (`@reactive-resume/pdf/server`) and DOCX (`@reactive-resume/docx`) as exports do, extracts the PDF text with the ATS checker's pipeline (`extractPdf`, `buildExtractedDocument`, `analyzePdfResume`) and the DOCX body with `fflate`, then checks that the name, headline and every bullet are found (`textCoverage`), positions read in order, no page is blank, and the page count meets the target. Findings: `render-blank-page`, `render-text-missing`, `render-reading-order`, `render-pages`, `render-ats` (ATS blockers), `docx-text-missing`, and `render-failed` (info) when a file couldn't be produced. The report is `writing.rendering`.
+
+## Feedback
+
+`feedback.ts`, table `resume_feedback` (migration `20261103185726_resume_feedback`), API `masterProfile.feedback.{submit, list, delete}`. `correctionsFrom` pairs each generated bullet missing from the current resume with the most similar new bullet (token overlap ≥ 0.35), and records summary and headline edits. `feedbackBlock` gives the writer up to six notes and six corrections as `USER_FEEDBACK`, framed as style only. Feedback never writes to the master profile, and the writer's record checks still reject anything a correction states that the record doesn't.
+
+## Benchmark
+
+`benchmark/`: `cases.ts` (communications, web development and project management postings for one fictional record, with gold relevant/off-target achievements and needed skills), `run.ts` (the full pipeline without a database: optional analysis, selection, writing, review, build, checks, optional rendering), `score.ts` (relevance, recall, off-target, coverage of mandatory requirements, accuracy, rejected rewrites, writing issues, review score, skill precision/recall, redundancy, pages over target, formatting, ATS score, tokens, cost, time) and a Markdown report per family.
+
+`pnpm benchmark:resumes` runs deterministic stand-in models as a regression gate. To compare real models, write a config file (format in `benchmark/live.ts`; API keys come from the environment variables it names) and run `RESUME_BENCHMARK_CONFIG=/path/to/config.json pnpm benchmark:resumes`; results go to `packages/api/reports/resume-benchmark.{md,json}`. To compare prompt versions, bump `PROMPT_VERSIONS` with the prompt change and compare the JSON from each version.
 
 ## Limitations
 
-- Length is estimated from word count; the rendered PDF isn't measured yet (planned with rendering validation).
-- The AI reviewer for judgment-based checks (relevance, strength, tone, prioritization) isn't part of this step yet.
+- Length is checked twice: estimated from word count (`too-long`) and, when the PDF renders, from its page count (`render-pages`).
+- Feedback corrections are matched by wording similarity; a heavily rewritten bullet may not be paired with its source.
 - Headline words are checked against the record word by word, so a good headline using a synonym falls back to the latest title.

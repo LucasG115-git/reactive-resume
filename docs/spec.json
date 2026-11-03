@@ -12321,6 +12321,2830 @@
 				]
 			}
 		},
+		"/ai-tasks": {
+			"get": {
+				"operationId": "getAiTaskSettings",
+				"summary": "Get the model used for each AI task",
+				"description": "Per-task connection and model, reasoning effort, the Thorough model and the default quality mode. Unset values use the default connection.",
+				"tags": [
+					"AI Providers"
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"version": {
+											"const": 1,
+											"default": 1
+										},
+										"quality": {
+											"enum": [
+												"standard",
+												"thorough"
+											],
+											"type": "string",
+											"default": "standard"
+										},
+										"tasks": {
+											"type": "object",
+											"properties": {
+												"extraction": {
+													"type": "object",
+													"properties": {
+														"providerId": {
+															"anyOf": [
+																{
+																	"type": "string",
+																	"minLength": 1
+																},
+																{
+																	"type": "null"
+																}
+															],
+															"default": null
+														},
+														"model": {
+															"anyOf": [
+																{
+																	"type": "string",
+																	"minLength": 1,
+																	"maxLength": 200
+																},
+																{
+																	"type": "null"
+																}
+															],
+															"default": null
+														},
+														"reasoningEffort": {
+															"enum": [
+																"default",
+																"low",
+																"medium",
+																"high"
+															],
+															"type": "string",
+															"default": "default"
+														},
+														"lastTest": {
+															"anyOf": [
+																{
+																	"type": "object",
+																	"properties": {
+																		"at": {
+																			"type": "string",
+																			"format": "date-time"
+																		},
+																		"model": {
+																			"type": "string"
+																		},
+																		"ok": {
+																			"type": "boolean"
+																		},
+																		"json": {
+																			"type": "boolean"
+																		},
+																		"tools": {
+																			"type": "boolean"
+																		},
+																		"reasoning": {
+																			"enum": [
+																				"accepted",
+																				"rejected",
+																				"not-sent"
+																			],
+																			"type": "string"
+																		},
+																		"latencyMs": {
+																			"type": "number"
+																		},
+																		"message": {
+																			"type": "string"
+																		}
+																	},
+																	"required": [
+																		"at",
+																		"model",
+																		"ok",
+																		"json",
+																		"tools",
+																		"reasoning",
+																		"latencyMs",
+																		"message"
+																	]
+																},
+																{
+																	"type": "null"
+																}
+															],
+															"default": null
+														}
+													},
+													"default": {
+														"providerId": null,
+														"model": null,
+														"reasoningEffort": "default",
+														"lastTest": null
+													}
+												},
+												"evidence": {
+													"type": "object",
+													"properties": {
+														"providerId": {
+															"anyOf": [
+																{
+																	"type": "string",
+																	"minLength": 1
+																},
+																{
+																	"type": "null"
+																}
+															],
+															"default": null
+														},
+														"model": {
+															"anyOf": [
+																{
+																	"type": "string",
+																	"minLength": 1,
+																	"maxLength": 200
+																},
+																{
+																	"type": "null"
+																}
+															],
+															"default": null
+														},
+														"reasoningEffort": {
+															"enum": [
+																"default",
+																"low",
+																"medium",
+																"high"
+															],
+															"type": "string",
+															"default": "default"
+														},
+														"lastTest": {
+															"anyOf": [
+																{
+																	"type": "object",
+																	"properties": {
+																		"at": {
+																			"type": "string",
+																			"format": "date-time"
+																		},
+																		"model": {
+																			"type": "string"
+																		},
+																		"ok": {
+																			"type": "boolean"
+																		},
+																		"json": {
+																			"type": "boolean"
+																		},
+																		"tools": {
+																			"type": "boolean"
+																		},
+																		"reasoning": {
+																			"enum": [
+																				"accepted",
+																				"rejected",
+																				"not-sent"
+																			],
+																			"type": "string"
+																		},
+																		"latencyMs": {
+																			"type": "number"
+																		},
+																		"message": {
+																			"type": "string"
+																		}
+																	},
+																	"required": [
+																		"at",
+																		"model",
+																		"ok",
+																		"json",
+																		"tools",
+																		"reasoning",
+																		"latencyMs",
+																		"message"
+																	]
+																},
+																{
+																	"type": "null"
+																}
+															],
+															"default": null
+														}
+													},
+													"default": {
+														"providerId": null,
+														"model": null,
+														"reasoningEffort": "default",
+														"lastTest": null
+													}
+												},
+												"writing": {
+													"type": "object",
+													"properties": {
+														"providerId": {
+															"anyOf": [
+																{
+																	"type": "string",
+																	"minLength": 1
+																},
+																{
+																	"type": "null"
+																}
+															],
+															"default": null
+														},
+														"model": {
+															"anyOf": [
+																{
+																	"type": "string",
+																	"minLength": 1,
+																	"maxLength": 200
+																},
+																{
+																	"type": "null"
+																}
+															],
+															"default": null
+														},
+														"reasoningEffort": {
+															"enum": [
+																"default",
+																"low",
+																"medium",
+																"high"
+															],
+															"type": "string",
+															"default": "default"
+														},
+														"lastTest": {
+															"anyOf": [
+																{
+																	"type": "object",
+																	"properties": {
+																		"at": {
+																			"type": "string",
+																			"format": "date-time"
+																		},
+																		"model": {
+																			"type": "string"
+																		},
+																		"ok": {
+																			"type": "boolean"
+																		},
+																		"json": {
+																			"type": "boolean"
+																		},
+																		"tools": {
+																			"type": "boolean"
+																		},
+																		"reasoning": {
+																			"enum": [
+																				"accepted",
+																				"rejected",
+																				"not-sent"
+																			],
+																			"type": "string"
+																		},
+																		"latencyMs": {
+																			"type": "number"
+																		},
+																		"message": {
+																			"type": "string"
+																		}
+																	},
+																	"required": [
+																		"at",
+																		"model",
+																		"ok",
+																		"json",
+																		"tools",
+																		"reasoning",
+																		"latencyMs",
+																		"message"
+																	]
+																},
+																{
+																	"type": "null"
+																}
+															],
+															"default": null
+														}
+													},
+													"default": {
+														"providerId": null,
+														"model": null,
+														"reasoningEffort": "default",
+														"lastTest": null
+													}
+												},
+												"polish": {
+													"type": "object",
+													"properties": {
+														"providerId": {
+															"anyOf": [
+																{
+																	"type": "string",
+																	"minLength": 1
+																},
+																{
+																	"type": "null"
+																}
+															],
+															"default": null
+														},
+														"model": {
+															"anyOf": [
+																{
+																	"type": "string",
+																	"minLength": 1,
+																	"maxLength": 200
+																},
+																{
+																	"type": "null"
+																}
+															],
+															"default": null
+														},
+														"reasoningEffort": {
+															"enum": [
+																"default",
+																"low",
+																"medium",
+																"high"
+															],
+															"type": "string",
+															"default": "default"
+														},
+														"lastTest": {
+															"anyOf": [
+																{
+																	"type": "object",
+																	"properties": {
+																		"at": {
+																			"type": "string",
+																			"format": "date-time"
+																		},
+																		"model": {
+																			"type": "string"
+																		},
+																		"ok": {
+																			"type": "boolean"
+																		},
+																		"json": {
+																			"type": "boolean"
+																		},
+																		"tools": {
+																			"type": "boolean"
+																		},
+																		"reasoning": {
+																			"enum": [
+																				"accepted",
+																				"rejected",
+																				"not-sent"
+																			],
+																			"type": "string"
+																		},
+																		"latencyMs": {
+																			"type": "number"
+																		},
+																		"message": {
+																			"type": "string"
+																		}
+																	},
+																	"required": [
+																		"at",
+																		"model",
+																		"ok",
+																		"json",
+																		"tools",
+																		"reasoning",
+																		"latencyMs",
+																		"message"
+																	]
+																},
+																{
+																	"type": "null"
+																}
+															],
+															"default": null
+														}
+													},
+													"default": {
+														"providerId": null,
+														"model": null,
+														"reasoningEffort": "default",
+														"lastTest": null
+													}
+												},
+												"review": {
+													"type": "object",
+													"properties": {
+														"providerId": {
+															"anyOf": [
+																{
+																	"type": "string",
+																	"minLength": 1
+																},
+																{
+																	"type": "null"
+																}
+															],
+															"default": null
+														},
+														"model": {
+															"anyOf": [
+																{
+																	"type": "string",
+																	"minLength": 1,
+																	"maxLength": 200
+																},
+																{
+																	"type": "null"
+																}
+															],
+															"default": null
+														},
+														"reasoningEffort": {
+															"enum": [
+																"default",
+																"low",
+																"medium",
+																"high"
+															],
+															"type": "string",
+															"default": "default"
+														},
+														"lastTest": {
+															"anyOf": [
+																{
+																	"type": "object",
+																	"properties": {
+																		"at": {
+																			"type": "string",
+																			"format": "date-time"
+																		},
+																		"model": {
+																			"type": "string"
+																		},
+																		"ok": {
+																			"type": "boolean"
+																		},
+																		"json": {
+																			"type": "boolean"
+																		},
+																		"tools": {
+																			"type": "boolean"
+																		},
+																		"reasoning": {
+																			"enum": [
+																				"accepted",
+																				"rejected",
+																				"not-sent"
+																			],
+																			"type": "string"
+																		},
+																		"latencyMs": {
+																			"type": "number"
+																		},
+																		"message": {
+																			"type": "string"
+																		}
+																	},
+																	"required": [
+																		"at",
+																		"model",
+																		"ok",
+																		"json",
+																		"tools",
+																		"reasoning",
+																		"latencyMs",
+																		"message"
+																	]
+																},
+																{
+																	"type": "null"
+																}
+															],
+															"default": null
+														}
+													},
+													"default": {
+														"providerId": null,
+														"model": null,
+														"reasoningEffort": "default",
+														"lastTest": null
+													}
+												}
+											},
+											"default": {
+												"extraction": {
+													"providerId": null,
+													"model": null,
+													"reasoningEffort": "default",
+													"lastTest": null
+												},
+												"evidence": {
+													"providerId": null,
+													"model": null,
+													"reasoningEffort": "default",
+													"lastTest": null
+												},
+												"writing": {
+													"providerId": null,
+													"model": null,
+													"reasoningEffort": "default",
+													"lastTest": null
+												},
+												"polish": {
+													"providerId": null,
+													"model": null,
+													"reasoningEffort": "default",
+													"lastTest": null
+												},
+												"review": {
+													"providerId": null,
+													"model": null,
+													"reasoningEffort": "default",
+													"lastTest": null
+												}
+											}
+										},
+										"thorough": {
+											"type": "object",
+											"properties": {
+												"providerId": {
+													"anyOf": [
+														{
+															"type": "string",
+															"minLength": 1
+														},
+														{
+															"type": "null"
+														}
+													],
+													"default": null
+												},
+												"model": {
+													"anyOf": [
+														{
+															"type": "string",
+															"minLength": 1,
+															"maxLength": 200
+														},
+														{
+															"type": "null"
+														}
+													],
+													"default": null
+												},
+												"reasoningEffort": {
+													"enum": [
+														"default",
+														"low",
+														"medium",
+														"high"
+													],
+													"type": "string",
+													"default": "default"
+												},
+												"lastTest": {
+													"anyOf": [
+														{
+															"type": "object",
+															"properties": {
+																"at": {
+																	"type": "string",
+																	"format": "date-time"
+																},
+																"model": {
+																	"type": "string"
+																},
+																"ok": {
+																	"type": "boolean"
+																},
+																"json": {
+																	"type": "boolean"
+																},
+																"tools": {
+																	"type": "boolean"
+																},
+																"reasoning": {
+																	"enum": [
+																		"accepted",
+																		"rejected",
+																		"not-sent"
+																	],
+																	"type": "string"
+																},
+																"latencyMs": {
+																	"type": "number"
+																},
+																"message": {
+																	"type": "string"
+																}
+															},
+															"required": [
+																"at",
+																"model",
+																"ok",
+																"json",
+																"tools",
+																"reasoning",
+																"latencyMs",
+																"message"
+															]
+														},
+														{
+															"type": "null"
+														}
+													],
+													"default": null
+												}
+											},
+											"default": {
+												"providerId": null,
+												"model": null,
+												"reasoningEffort": "default",
+												"lastTest": null
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Structured API error. See status and code; do not branch on message text.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"required": [
+										"defined",
+										"code",
+										"status",
+										"message"
+									],
+									"properties": {
+										"defined": {
+											"type": "boolean"
+										},
+										"code": {
+											"type": "string"
+										},
+										"status": {
+											"type": "integer"
+										},
+										"message": {
+											"type": "string"
+										},
+										"data": {}
+									}
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"apiKey": []
+					},
+					{
+						"bearerAuth": []
+					},
+					{
+						"cookieAuth": []
+					}
+				],
+				"x-codeSamples": [
+					{
+						"lang": "bash",
+						"label": "cURL",
+						"source": "curl \"https://rxresu.me/api/openapi/ai-tasks\" --header \"x-api-key: <api-key>\""
+					}
+				]
+			},
+			"put": {
+				"operationId": "saveAiTaskSettings",
+				"summary": "Save the model used for each AI task",
+				"tags": [
+					"AI Providers"
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"version": {
+										"const": 1,
+										"default": 1
+									},
+									"quality": {
+										"enum": [
+											"standard",
+											"thorough"
+										],
+										"type": "string",
+										"default": "standard"
+									},
+									"tasks": {
+										"type": "object",
+										"properties": {
+											"extraction": {
+												"type": "object",
+												"properties": {
+													"providerId": {
+														"anyOf": [
+															{
+																"type": "string",
+																"minLength": 1
+															},
+															{
+																"type": "null"
+															}
+														],
+														"default": null
+													},
+													"model": {
+														"anyOf": [
+															{
+																"type": "string",
+																"minLength": 1,
+																"maxLength": 200
+															},
+															{
+																"type": "null"
+															}
+														],
+														"default": null
+													},
+													"reasoningEffort": {
+														"enum": [
+															"default",
+															"low",
+															"medium",
+															"high"
+														],
+														"type": "string",
+														"default": "default"
+													},
+													"lastTest": {
+														"anyOf": [
+															{
+																"type": "object",
+																"properties": {
+																	"at": {
+																		"type": "string",
+																		"format": "date-time"
+																	},
+																	"model": {
+																		"type": "string"
+																	},
+																	"ok": {
+																		"type": "boolean"
+																	},
+																	"json": {
+																		"type": "boolean"
+																	},
+																	"tools": {
+																		"type": "boolean"
+																	},
+																	"reasoning": {
+																		"enum": [
+																			"accepted",
+																			"rejected",
+																			"not-sent"
+																		],
+																		"type": "string"
+																	},
+																	"latencyMs": {
+																		"type": "number"
+																	},
+																	"message": {
+																		"type": "string"
+																	}
+																},
+																"required": [
+																	"at",
+																	"model",
+																	"ok",
+																	"json",
+																	"tools",
+																	"reasoning",
+																	"latencyMs",
+																	"message"
+																]
+															},
+															{
+																"type": "null"
+															}
+														],
+														"default": null
+													}
+												},
+												"default": {
+													"providerId": null,
+													"model": null,
+													"reasoningEffort": "default",
+													"lastTest": null
+												}
+											},
+											"evidence": {
+												"type": "object",
+												"properties": {
+													"providerId": {
+														"anyOf": [
+															{
+																"type": "string",
+																"minLength": 1
+															},
+															{
+																"type": "null"
+															}
+														],
+														"default": null
+													},
+													"model": {
+														"anyOf": [
+															{
+																"type": "string",
+																"minLength": 1,
+																"maxLength": 200
+															},
+															{
+																"type": "null"
+															}
+														],
+														"default": null
+													},
+													"reasoningEffort": {
+														"enum": [
+															"default",
+															"low",
+															"medium",
+															"high"
+														],
+														"type": "string",
+														"default": "default"
+													},
+													"lastTest": {
+														"anyOf": [
+															{
+																"type": "object",
+																"properties": {
+																	"at": {
+																		"type": "string",
+																		"format": "date-time"
+																	},
+																	"model": {
+																		"type": "string"
+																	},
+																	"ok": {
+																		"type": "boolean"
+																	},
+																	"json": {
+																		"type": "boolean"
+																	},
+																	"tools": {
+																		"type": "boolean"
+																	},
+																	"reasoning": {
+																		"enum": [
+																			"accepted",
+																			"rejected",
+																			"not-sent"
+																		],
+																		"type": "string"
+																	},
+																	"latencyMs": {
+																		"type": "number"
+																	},
+																	"message": {
+																		"type": "string"
+																	}
+																},
+																"required": [
+																	"at",
+																	"model",
+																	"ok",
+																	"json",
+																	"tools",
+																	"reasoning",
+																	"latencyMs",
+																	"message"
+																]
+															},
+															{
+																"type": "null"
+															}
+														],
+														"default": null
+													}
+												},
+												"default": {
+													"providerId": null,
+													"model": null,
+													"reasoningEffort": "default",
+													"lastTest": null
+												}
+											},
+											"writing": {
+												"type": "object",
+												"properties": {
+													"providerId": {
+														"anyOf": [
+															{
+																"type": "string",
+																"minLength": 1
+															},
+															{
+																"type": "null"
+															}
+														],
+														"default": null
+													},
+													"model": {
+														"anyOf": [
+															{
+																"type": "string",
+																"minLength": 1,
+																"maxLength": 200
+															},
+															{
+																"type": "null"
+															}
+														],
+														"default": null
+													},
+													"reasoningEffort": {
+														"enum": [
+															"default",
+															"low",
+															"medium",
+															"high"
+														],
+														"type": "string",
+														"default": "default"
+													},
+													"lastTest": {
+														"anyOf": [
+															{
+																"type": "object",
+																"properties": {
+																	"at": {
+																		"type": "string",
+																		"format": "date-time"
+																	},
+																	"model": {
+																		"type": "string"
+																	},
+																	"ok": {
+																		"type": "boolean"
+																	},
+																	"json": {
+																		"type": "boolean"
+																	},
+																	"tools": {
+																		"type": "boolean"
+																	},
+																	"reasoning": {
+																		"enum": [
+																			"accepted",
+																			"rejected",
+																			"not-sent"
+																		],
+																		"type": "string"
+																	},
+																	"latencyMs": {
+																		"type": "number"
+																	},
+																	"message": {
+																		"type": "string"
+																	}
+																},
+																"required": [
+																	"at",
+																	"model",
+																	"ok",
+																	"json",
+																	"tools",
+																	"reasoning",
+																	"latencyMs",
+																	"message"
+																]
+															},
+															{
+																"type": "null"
+															}
+														],
+														"default": null
+													}
+												},
+												"default": {
+													"providerId": null,
+													"model": null,
+													"reasoningEffort": "default",
+													"lastTest": null
+												}
+											},
+											"polish": {
+												"type": "object",
+												"properties": {
+													"providerId": {
+														"anyOf": [
+															{
+																"type": "string",
+																"minLength": 1
+															},
+															{
+																"type": "null"
+															}
+														],
+														"default": null
+													},
+													"model": {
+														"anyOf": [
+															{
+																"type": "string",
+																"minLength": 1,
+																"maxLength": 200
+															},
+															{
+																"type": "null"
+															}
+														],
+														"default": null
+													},
+													"reasoningEffort": {
+														"enum": [
+															"default",
+															"low",
+															"medium",
+															"high"
+														],
+														"type": "string",
+														"default": "default"
+													},
+													"lastTest": {
+														"anyOf": [
+															{
+																"type": "object",
+																"properties": {
+																	"at": {
+																		"type": "string",
+																		"format": "date-time"
+																	},
+																	"model": {
+																		"type": "string"
+																	},
+																	"ok": {
+																		"type": "boolean"
+																	},
+																	"json": {
+																		"type": "boolean"
+																	},
+																	"tools": {
+																		"type": "boolean"
+																	},
+																	"reasoning": {
+																		"enum": [
+																			"accepted",
+																			"rejected",
+																			"not-sent"
+																		],
+																		"type": "string"
+																	},
+																	"latencyMs": {
+																		"type": "number"
+																	},
+																	"message": {
+																		"type": "string"
+																	}
+																},
+																"required": [
+																	"at",
+																	"model",
+																	"ok",
+																	"json",
+																	"tools",
+																	"reasoning",
+																	"latencyMs",
+																	"message"
+																]
+															},
+															{
+																"type": "null"
+															}
+														],
+														"default": null
+													}
+												},
+												"default": {
+													"providerId": null,
+													"model": null,
+													"reasoningEffort": "default",
+													"lastTest": null
+												}
+											},
+											"review": {
+												"type": "object",
+												"properties": {
+													"providerId": {
+														"anyOf": [
+															{
+																"type": "string",
+																"minLength": 1
+															},
+															{
+																"type": "null"
+															}
+														],
+														"default": null
+													},
+													"model": {
+														"anyOf": [
+															{
+																"type": "string",
+																"minLength": 1,
+																"maxLength": 200
+															},
+															{
+																"type": "null"
+															}
+														],
+														"default": null
+													},
+													"reasoningEffort": {
+														"enum": [
+															"default",
+															"low",
+															"medium",
+															"high"
+														],
+														"type": "string",
+														"default": "default"
+													},
+													"lastTest": {
+														"anyOf": [
+															{
+																"type": "object",
+																"properties": {
+																	"at": {
+																		"type": "string",
+																		"format": "date-time"
+																	},
+																	"model": {
+																		"type": "string"
+																	},
+																	"ok": {
+																		"type": "boolean"
+																	},
+																	"json": {
+																		"type": "boolean"
+																	},
+																	"tools": {
+																		"type": "boolean"
+																	},
+																	"reasoning": {
+																		"enum": [
+																			"accepted",
+																			"rejected",
+																			"not-sent"
+																		],
+																		"type": "string"
+																	},
+																	"latencyMs": {
+																		"type": "number"
+																	},
+																	"message": {
+																		"type": "string"
+																	}
+																},
+																"required": [
+																	"at",
+																	"model",
+																	"ok",
+																	"json",
+																	"tools",
+																	"reasoning",
+																	"latencyMs",
+																	"message"
+																]
+															},
+															{
+																"type": "null"
+															}
+														],
+														"default": null
+													}
+												},
+												"default": {
+													"providerId": null,
+													"model": null,
+													"reasoningEffort": "default",
+													"lastTest": null
+												}
+											}
+										},
+										"default": {
+											"extraction": {
+												"providerId": null,
+												"model": null,
+												"reasoningEffort": "default",
+												"lastTest": null
+											},
+											"evidence": {
+												"providerId": null,
+												"model": null,
+												"reasoningEffort": "default",
+												"lastTest": null
+											},
+											"writing": {
+												"providerId": null,
+												"model": null,
+												"reasoningEffort": "default",
+												"lastTest": null
+											},
+											"polish": {
+												"providerId": null,
+												"model": null,
+												"reasoningEffort": "default",
+												"lastTest": null
+											},
+											"review": {
+												"providerId": null,
+												"model": null,
+												"reasoningEffort": "default",
+												"lastTest": null
+											}
+										}
+									},
+									"thorough": {
+										"type": "object",
+										"properties": {
+											"providerId": {
+												"anyOf": [
+													{
+														"type": "string",
+														"minLength": 1
+													},
+													{
+														"type": "null"
+													}
+												],
+												"default": null
+											},
+											"model": {
+												"anyOf": [
+													{
+														"type": "string",
+														"minLength": 1,
+														"maxLength": 200
+													},
+													{
+														"type": "null"
+													}
+												],
+												"default": null
+											},
+											"reasoningEffort": {
+												"enum": [
+													"default",
+													"low",
+													"medium",
+													"high"
+												],
+												"type": "string",
+												"default": "default"
+											},
+											"lastTest": {
+												"anyOf": [
+													{
+														"type": "object",
+														"properties": {
+															"at": {
+																"type": "string",
+																"format": "date-time"
+															},
+															"model": {
+																"type": "string"
+															},
+															"ok": {
+																"type": "boolean"
+															},
+															"json": {
+																"type": "boolean"
+															},
+															"tools": {
+																"type": "boolean"
+															},
+															"reasoning": {
+																"enum": [
+																	"accepted",
+																	"rejected",
+																	"not-sent"
+																],
+																"type": "string"
+															},
+															"latencyMs": {
+																"type": "number"
+															},
+															"message": {
+																"type": "string"
+															}
+														},
+														"required": [
+															"at",
+															"model",
+															"ok",
+															"json",
+															"tools",
+															"reasoning",
+															"latencyMs",
+															"message"
+														]
+													},
+													{
+														"type": "null"
+													}
+												],
+												"default": null
+											}
+										},
+										"default": {
+											"providerId": null,
+											"model": null,
+											"reasoningEffort": "default",
+											"lastTest": null
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"version": {
+											"const": 1,
+											"default": 1
+										},
+										"quality": {
+											"enum": [
+												"standard",
+												"thorough"
+											],
+											"type": "string",
+											"default": "standard"
+										},
+										"tasks": {
+											"type": "object",
+											"properties": {
+												"extraction": {
+													"type": "object",
+													"properties": {
+														"providerId": {
+															"anyOf": [
+																{
+																	"type": "string",
+																	"minLength": 1
+																},
+																{
+																	"type": "null"
+																}
+															],
+															"default": null
+														},
+														"model": {
+															"anyOf": [
+																{
+																	"type": "string",
+																	"minLength": 1,
+																	"maxLength": 200
+																},
+																{
+																	"type": "null"
+																}
+															],
+															"default": null
+														},
+														"reasoningEffort": {
+															"enum": [
+																"default",
+																"low",
+																"medium",
+																"high"
+															],
+															"type": "string",
+															"default": "default"
+														},
+														"lastTest": {
+															"anyOf": [
+																{
+																	"type": "object",
+																	"properties": {
+																		"at": {
+																			"type": "string",
+																			"format": "date-time"
+																		},
+																		"model": {
+																			"type": "string"
+																		},
+																		"ok": {
+																			"type": "boolean"
+																		},
+																		"json": {
+																			"type": "boolean"
+																		},
+																		"tools": {
+																			"type": "boolean"
+																		},
+																		"reasoning": {
+																			"enum": [
+																				"accepted",
+																				"rejected",
+																				"not-sent"
+																			],
+																			"type": "string"
+																		},
+																		"latencyMs": {
+																			"type": "number"
+																		},
+																		"message": {
+																			"type": "string"
+																		}
+																	},
+																	"required": [
+																		"at",
+																		"model",
+																		"ok",
+																		"json",
+																		"tools",
+																		"reasoning",
+																		"latencyMs",
+																		"message"
+																	]
+																},
+																{
+																	"type": "null"
+																}
+															],
+															"default": null
+														}
+													},
+													"default": {
+														"providerId": null,
+														"model": null,
+														"reasoningEffort": "default",
+														"lastTest": null
+													}
+												},
+												"evidence": {
+													"type": "object",
+													"properties": {
+														"providerId": {
+															"anyOf": [
+																{
+																	"type": "string",
+																	"minLength": 1
+																},
+																{
+																	"type": "null"
+																}
+															],
+															"default": null
+														},
+														"model": {
+															"anyOf": [
+																{
+																	"type": "string",
+																	"minLength": 1,
+																	"maxLength": 200
+																},
+																{
+																	"type": "null"
+																}
+															],
+															"default": null
+														},
+														"reasoningEffort": {
+															"enum": [
+																"default",
+																"low",
+																"medium",
+																"high"
+															],
+															"type": "string",
+															"default": "default"
+														},
+														"lastTest": {
+															"anyOf": [
+																{
+																	"type": "object",
+																	"properties": {
+																		"at": {
+																			"type": "string",
+																			"format": "date-time"
+																		},
+																		"model": {
+																			"type": "string"
+																		},
+																		"ok": {
+																			"type": "boolean"
+																		},
+																		"json": {
+																			"type": "boolean"
+																		},
+																		"tools": {
+																			"type": "boolean"
+																		},
+																		"reasoning": {
+																			"enum": [
+																				"accepted",
+																				"rejected",
+																				"not-sent"
+																			],
+																			"type": "string"
+																		},
+																		"latencyMs": {
+																			"type": "number"
+																		},
+																		"message": {
+																			"type": "string"
+																		}
+																	},
+																	"required": [
+																		"at",
+																		"model",
+																		"ok",
+																		"json",
+																		"tools",
+																		"reasoning",
+																		"latencyMs",
+																		"message"
+																	]
+																},
+																{
+																	"type": "null"
+																}
+															],
+															"default": null
+														}
+													},
+													"default": {
+														"providerId": null,
+														"model": null,
+														"reasoningEffort": "default",
+														"lastTest": null
+													}
+												},
+												"writing": {
+													"type": "object",
+													"properties": {
+														"providerId": {
+															"anyOf": [
+																{
+																	"type": "string",
+																	"minLength": 1
+																},
+																{
+																	"type": "null"
+																}
+															],
+															"default": null
+														},
+														"model": {
+															"anyOf": [
+																{
+																	"type": "string",
+																	"minLength": 1,
+																	"maxLength": 200
+																},
+																{
+																	"type": "null"
+																}
+															],
+															"default": null
+														},
+														"reasoningEffort": {
+															"enum": [
+																"default",
+																"low",
+																"medium",
+																"high"
+															],
+															"type": "string",
+															"default": "default"
+														},
+														"lastTest": {
+															"anyOf": [
+																{
+																	"type": "object",
+																	"properties": {
+																		"at": {
+																			"type": "string",
+																			"format": "date-time"
+																		},
+																		"model": {
+																			"type": "string"
+																		},
+																		"ok": {
+																			"type": "boolean"
+																		},
+																		"json": {
+																			"type": "boolean"
+																		},
+																		"tools": {
+																			"type": "boolean"
+																		},
+																		"reasoning": {
+																			"enum": [
+																				"accepted",
+																				"rejected",
+																				"not-sent"
+																			],
+																			"type": "string"
+																		},
+																		"latencyMs": {
+																			"type": "number"
+																		},
+																		"message": {
+																			"type": "string"
+																		}
+																	},
+																	"required": [
+																		"at",
+																		"model",
+																		"ok",
+																		"json",
+																		"tools",
+																		"reasoning",
+																		"latencyMs",
+																		"message"
+																	]
+																},
+																{
+																	"type": "null"
+																}
+															],
+															"default": null
+														}
+													},
+													"default": {
+														"providerId": null,
+														"model": null,
+														"reasoningEffort": "default",
+														"lastTest": null
+													}
+												},
+												"polish": {
+													"type": "object",
+													"properties": {
+														"providerId": {
+															"anyOf": [
+																{
+																	"type": "string",
+																	"minLength": 1
+																},
+																{
+																	"type": "null"
+																}
+															],
+															"default": null
+														},
+														"model": {
+															"anyOf": [
+																{
+																	"type": "string",
+																	"minLength": 1,
+																	"maxLength": 200
+																},
+																{
+																	"type": "null"
+																}
+															],
+															"default": null
+														},
+														"reasoningEffort": {
+															"enum": [
+																"default",
+																"low",
+																"medium",
+																"high"
+															],
+															"type": "string",
+															"default": "default"
+														},
+														"lastTest": {
+															"anyOf": [
+																{
+																	"type": "object",
+																	"properties": {
+																		"at": {
+																			"type": "string",
+																			"format": "date-time"
+																		},
+																		"model": {
+																			"type": "string"
+																		},
+																		"ok": {
+																			"type": "boolean"
+																		},
+																		"json": {
+																			"type": "boolean"
+																		},
+																		"tools": {
+																			"type": "boolean"
+																		},
+																		"reasoning": {
+																			"enum": [
+																				"accepted",
+																				"rejected",
+																				"not-sent"
+																			],
+																			"type": "string"
+																		},
+																		"latencyMs": {
+																			"type": "number"
+																		},
+																		"message": {
+																			"type": "string"
+																		}
+																	},
+																	"required": [
+																		"at",
+																		"model",
+																		"ok",
+																		"json",
+																		"tools",
+																		"reasoning",
+																		"latencyMs",
+																		"message"
+																	]
+																},
+																{
+																	"type": "null"
+																}
+															],
+															"default": null
+														}
+													},
+													"default": {
+														"providerId": null,
+														"model": null,
+														"reasoningEffort": "default",
+														"lastTest": null
+													}
+												},
+												"review": {
+													"type": "object",
+													"properties": {
+														"providerId": {
+															"anyOf": [
+																{
+																	"type": "string",
+																	"minLength": 1
+																},
+																{
+																	"type": "null"
+																}
+															],
+															"default": null
+														},
+														"model": {
+															"anyOf": [
+																{
+																	"type": "string",
+																	"minLength": 1,
+																	"maxLength": 200
+																},
+																{
+																	"type": "null"
+																}
+															],
+															"default": null
+														},
+														"reasoningEffort": {
+															"enum": [
+																"default",
+																"low",
+																"medium",
+																"high"
+															],
+															"type": "string",
+															"default": "default"
+														},
+														"lastTest": {
+															"anyOf": [
+																{
+																	"type": "object",
+																	"properties": {
+																		"at": {
+																			"type": "string",
+																			"format": "date-time"
+																		},
+																		"model": {
+																			"type": "string"
+																		},
+																		"ok": {
+																			"type": "boolean"
+																		},
+																		"json": {
+																			"type": "boolean"
+																		},
+																		"tools": {
+																			"type": "boolean"
+																		},
+																		"reasoning": {
+																			"enum": [
+																				"accepted",
+																				"rejected",
+																				"not-sent"
+																			],
+																			"type": "string"
+																		},
+																		"latencyMs": {
+																			"type": "number"
+																		},
+																		"message": {
+																			"type": "string"
+																		}
+																	},
+																	"required": [
+																		"at",
+																		"model",
+																		"ok",
+																		"json",
+																		"tools",
+																		"reasoning",
+																		"latencyMs",
+																		"message"
+																	]
+																},
+																{
+																	"type": "null"
+																}
+															],
+															"default": null
+														}
+													},
+													"default": {
+														"providerId": null,
+														"model": null,
+														"reasoningEffort": "default",
+														"lastTest": null
+													}
+												}
+											},
+											"default": {
+												"extraction": {
+													"providerId": null,
+													"model": null,
+													"reasoningEffort": "default",
+													"lastTest": null
+												},
+												"evidence": {
+													"providerId": null,
+													"model": null,
+													"reasoningEffort": "default",
+													"lastTest": null
+												},
+												"writing": {
+													"providerId": null,
+													"model": null,
+													"reasoningEffort": "default",
+													"lastTest": null
+												},
+												"polish": {
+													"providerId": null,
+													"model": null,
+													"reasoningEffort": "default",
+													"lastTest": null
+												},
+												"review": {
+													"providerId": null,
+													"model": null,
+													"reasoningEffort": "default",
+													"lastTest": null
+												}
+											}
+										},
+										"thorough": {
+											"type": "object",
+											"properties": {
+												"providerId": {
+													"anyOf": [
+														{
+															"type": "string",
+															"minLength": 1
+														},
+														{
+															"type": "null"
+														}
+													],
+													"default": null
+												},
+												"model": {
+													"anyOf": [
+														{
+															"type": "string",
+															"minLength": 1,
+															"maxLength": 200
+														},
+														{
+															"type": "null"
+														}
+													],
+													"default": null
+												},
+												"reasoningEffort": {
+													"enum": [
+														"default",
+														"low",
+														"medium",
+														"high"
+													],
+													"type": "string",
+													"default": "default"
+												},
+												"lastTest": {
+													"anyOf": [
+														{
+															"type": "object",
+															"properties": {
+																"at": {
+																	"type": "string",
+																	"format": "date-time"
+																},
+																"model": {
+																	"type": "string"
+																},
+																"ok": {
+																	"type": "boolean"
+																},
+																"json": {
+																	"type": "boolean"
+																},
+																"tools": {
+																	"type": "boolean"
+																},
+																"reasoning": {
+																	"enum": [
+																		"accepted",
+																		"rejected",
+																		"not-sent"
+																	],
+																	"type": "string"
+																},
+																"latencyMs": {
+																	"type": "number"
+																},
+																"message": {
+																	"type": "string"
+																}
+															},
+															"required": [
+																"at",
+																"model",
+																"ok",
+																"json",
+																"tools",
+																"reasoning",
+																"latencyMs",
+																"message"
+															]
+														},
+														{
+															"type": "null"
+														}
+													],
+													"default": null
+												}
+											},
+											"default": {
+												"providerId": null,
+												"model": null,
+												"reasoningEffort": "default",
+												"lastTest": null
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Structured API error. See status and code; do not branch on message text.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"required": [
+										"defined",
+										"code",
+										"status",
+										"message"
+									],
+									"properties": {
+										"defined": {
+											"type": "boolean"
+										},
+										"code": {
+											"type": "string"
+										},
+										"status": {
+											"type": "integer"
+										},
+										"message": {
+											"type": "string"
+										},
+										"data": {}
+									}
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"apiKey": []
+					},
+					{
+						"bearerAuth": []
+					},
+					{
+						"cookieAuth": []
+					}
+				],
+				"x-codeSamples": [
+					{
+						"lang": "bash",
+						"label": "cURL",
+						"source": "curl --request PUT \"https://rxresu.me/api/openapi/ai-tasks\" --header \"x-api-key: <api-key>\" --header \"Content-Type: application/json\" --data '{}'"
+					}
+				]
+			}
+		},
+		"/ai-tasks/{task}/check": {
+			"post": {
+				"operationId": "checkAiTaskModel",
+				"summary": "Check a task's model",
+				"description": "Sends two tiny requests to the configured model: one for valid JSON (with the reasoning-effort setting, if any) and one tool call. Saves and returns the result.",
+				"tags": [
+					"AI Providers"
+				],
+				"parameters": [
+					{
+						"name": "task",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"anyOf": [
+								{
+									"enum": [
+										"extraction",
+										"evidence",
+										"writing",
+										"polish",
+										"review"
+									],
+									"type": "string"
+								},
+								{
+									"const": "thorough"
+								}
+							]
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"version": {
+											"const": 1,
+											"default": 1
+										},
+										"quality": {
+											"enum": [
+												"standard",
+												"thorough"
+											],
+											"type": "string",
+											"default": "standard"
+										},
+										"tasks": {
+											"type": "object",
+											"properties": {
+												"extraction": {
+													"type": "object",
+													"properties": {
+														"providerId": {
+															"anyOf": [
+																{
+																	"type": "string",
+																	"minLength": 1
+																},
+																{
+																	"type": "null"
+																}
+															],
+															"default": null
+														},
+														"model": {
+															"anyOf": [
+																{
+																	"type": "string",
+																	"minLength": 1,
+																	"maxLength": 200
+																},
+																{
+																	"type": "null"
+																}
+															],
+															"default": null
+														},
+														"reasoningEffort": {
+															"enum": [
+																"default",
+																"low",
+																"medium",
+																"high"
+															],
+															"type": "string",
+															"default": "default"
+														},
+														"lastTest": {
+															"anyOf": [
+																{
+																	"type": "object",
+																	"properties": {
+																		"at": {
+																			"type": "string",
+																			"format": "date-time"
+																		},
+																		"model": {
+																			"type": "string"
+																		},
+																		"ok": {
+																			"type": "boolean"
+																		},
+																		"json": {
+																			"type": "boolean"
+																		},
+																		"tools": {
+																			"type": "boolean"
+																		},
+																		"reasoning": {
+																			"enum": [
+																				"accepted",
+																				"rejected",
+																				"not-sent"
+																			],
+																			"type": "string"
+																		},
+																		"latencyMs": {
+																			"type": "number"
+																		},
+																		"message": {
+																			"type": "string"
+																		}
+																	},
+																	"required": [
+																		"at",
+																		"model",
+																		"ok",
+																		"json",
+																		"tools",
+																		"reasoning",
+																		"latencyMs",
+																		"message"
+																	]
+																},
+																{
+																	"type": "null"
+																}
+															],
+															"default": null
+														}
+													},
+													"default": {
+														"providerId": null,
+														"model": null,
+														"reasoningEffort": "default",
+														"lastTest": null
+													}
+												},
+												"evidence": {
+													"type": "object",
+													"properties": {
+														"providerId": {
+															"anyOf": [
+																{
+																	"type": "string",
+																	"minLength": 1
+																},
+																{
+																	"type": "null"
+																}
+															],
+															"default": null
+														},
+														"model": {
+															"anyOf": [
+																{
+																	"type": "string",
+																	"minLength": 1,
+																	"maxLength": 200
+																},
+																{
+																	"type": "null"
+																}
+															],
+															"default": null
+														},
+														"reasoningEffort": {
+															"enum": [
+																"default",
+																"low",
+																"medium",
+																"high"
+															],
+															"type": "string",
+															"default": "default"
+														},
+														"lastTest": {
+															"anyOf": [
+																{
+																	"type": "object",
+																	"properties": {
+																		"at": {
+																			"type": "string",
+																			"format": "date-time"
+																		},
+																		"model": {
+																			"type": "string"
+																		},
+																		"ok": {
+																			"type": "boolean"
+																		},
+																		"json": {
+																			"type": "boolean"
+																		},
+																		"tools": {
+																			"type": "boolean"
+																		},
+																		"reasoning": {
+																			"enum": [
+																				"accepted",
+																				"rejected",
+																				"not-sent"
+																			],
+																			"type": "string"
+																		},
+																		"latencyMs": {
+																			"type": "number"
+																		},
+																		"message": {
+																			"type": "string"
+																		}
+																	},
+																	"required": [
+																		"at",
+																		"model",
+																		"ok",
+																		"json",
+																		"tools",
+																		"reasoning",
+																		"latencyMs",
+																		"message"
+																	]
+																},
+																{
+																	"type": "null"
+																}
+															],
+															"default": null
+														}
+													},
+													"default": {
+														"providerId": null,
+														"model": null,
+														"reasoningEffort": "default",
+														"lastTest": null
+													}
+												},
+												"writing": {
+													"type": "object",
+													"properties": {
+														"providerId": {
+															"anyOf": [
+																{
+																	"type": "string",
+																	"minLength": 1
+																},
+																{
+																	"type": "null"
+																}
+															],
+															"default": null
+														},
+														"model": {
+															"anyOf": [
+																{
+																	"type": "string",
+																	"minLength": 1,
+																	"maxLength": 200
+																},
+																{
+																	"type": "null"
+																}
+															],
+															"default": null
+														},
+														"reasoningEffort": {
+															"enum": [
+																"default",
+																"low",
+																"medium",
+																"high"
+															],
+															"type": "string",
+															"default": "default"
+														},
+														"lastTest": {
+															"anyOf": [
+																{
+																	"type": "object",
+																	"properties": {
+																		"at": {
+																			"type": "string",
+																			"format": "date-time"
+																		},
+																		"model": {
+																			"type": "string"
+																		},
+																		"ok": {
+																			"type": "boolean"
+																		},
+																		"json": {
+																			"type": "boolean"
+																		},
+																		"tools": {
+																			"type": "boolean"
+																		},
+																		"reasoning": {
+																			"enum": [
+																				"accepted",
+																				"rejected",
+																				"not-sent"
+																			],
+																			"type": "string"
+																		},
+																		"latencyMs": {
+																			"type": "number"
+																		},
+																		"message": {
+																			"type": "string"
+																		}
+																	},
+																	"required": [
+																		"at",
+																		"model",
+																		"ok",
+																		"json",
+																		"tools",
+																		"reasoning",
+																		"latencyMs",
+																		"message"
+																	]
+																},
+																{
+																	"type": "null"
+																}
+															],
+															"default": null
+														}
+													},
+													"default": {
+														"providerId": null,
+														"model": null,
+														"reasoningEffort": "default",
+														"lastTest": null
+													}
+												},
+												"polish": {
+													"type": "object",
+													"properties": {
+														"providerId": {
+															"anyOf": [
+																{
+																	"type": "string",
+																	"minLength": 1
+																},
+																{
+																	"type": "null"
+																}
+															],
+															"default": null
+														},
+														"model": {
+															"anyOf": [
+																{
+																	"type": "string",
+																	"minLength": 1,
+																	"maxLength": 200
+																},
+																{
+																	"type": "null"
+																}
+															],
+															"default": null
+														},
+														"reasoningEffort": {
+															"enum": [
+																"default",
+																"low",
+																"medium",
+																"high"
+															],
+															"type": "string",
+															"default": "default"
+														},
+														"lastTest": {
+															"anyOf": [
+																{
+																	"type": "object",
+																	"properties": {
+																		"at": {
+																			"type": "string",
+																			"format": "date-time"
+																		},
+																		"model": {
+																			"type": "string"
+																		},
+																		"ok": {
+																			"type": "boolean"
+																		},
+																		"json": {
+																			"type": "boolean"
+																		},
+																		"tools": {
+																			"type": "boolean"
+																		},
+																		"reasoning": {
+																			"enum": [
+																				"accepted",
+																				"rejected",
+																				"not-sent"
+																			],
+																			"type": "string"
+																		},
+																		"latencyMs": {
+																			"type": "number"
+																		},
+																		"message": {
+																			"type": "string"
+																		}
+																	},
+																	"required": [
+																		"at",
+																		"model",
+																		"ok",
+																		"json",
+																		"tools",
+																		"reasoning",
+																		"latencyMs",
+																		"message"
+																	]
+																},
+																{
+																	"type": "null"
+																}
+															],
+															"default": null
+														}
+													},
+													"default": {
+														"providerId": null,
+														"model": null,
+														"reasoningEffort": "default",
+														"lastTest": null
+													}
+												},
+												"review": {
+													"type": "object",
+													"properties": {
+														"providerId": {
+															"anyOf": [
+																{
+																	"type": "string",
+																	"minLength": 1
+																},
+																{
+																	"type": "null"
+																}
+															],
+															"default": null
+														},
+														"model": {
+															"anyOf": [
+																{
+																	"type": "string",
+																	"minLength": 1,
+																	"maxLength": 200
+																},
+																{
+																	"type": "null"
+																}
+															],
+															"default": null
+														},
+														"reasoningEffort": {
+															"enum": [
+																"default",
+																"low",
+																"medium",
+																"high"
+															],
+															"type": "string",
+															"default": "default"
+														},
+														"lastTest": {
+															"anyOf": [
+																{
+																	"type": "object",
+																	"properties": {
+																		"at": {
+																			"type": "string",
+																			"format": "date-time"
+																		},
+																		"model": {
+																			"type": "string"
+																		},
+																		"ok": {
+																			"type": "boolean"
+																		},
+																		"json": {
+																			"type": "boolean"
+																		},
+																		"tools": {
+																			"type": "boolean"
+																		},
+																		"reasoning": {
+																			"enum": [
+																				"accepted",
+																				"rejected",
+																				"not-sent"
+																			],
+																			"type": "string"
+																		},
+																		"latencyMs": {
+																			"type": "number"
+																		},
+																		"message": {
+																			"type": "string"
+																		}
+																	},
+																	"required": [
+																		"at",
+																		"model",
+																		"ok",
+																		"json",
+																		"tools",
+																		"reasoning",
+																		"latencyMs",
+																		"message"
+																	]
+																},
+																{
+																	"type": "null"
+																}
+															],
+															"default": null
+														}
+													},
+													"default": {
+														"providerId": null,
+														"model": null,
+														"reasoningEffort": "default",
+														"lastTest": null
+													}
+												}
+											},
+											"default": {
+												"extraction": {
+													"providerId": null,
+													"model": null,
+													"reasoningEffort": "default",
+													"lastTest": null
+												},
+												"evidence": {
+													"providerId": null,
+													"model": null,
+													"reasoningEffort": "default",
+													"lastTest": null
+												},
+												"writing": {
+													"providerId": null,
+													"model": null,
+													"reasoningEffort": "default",
+													"lastTest": null
+												},
+												"polish": {
+													"providerId": null,
+													"model": null,
+													"reasoningEffort": "default",
+													"lastTest": null
+												},
+												"review": {
+													"providerId": null,
+													"model": null,
+													"reasoningEffort": "default",
+													"lastTest": null
+												}
+											}
+										},
+										"thorough": {
+											"type": "object",
+											"properties": {
+												"providerId": {
+													"anyOf": [
+														{
+															"type": "string",
+															"minLength": 1
+														},
+														{
+															"type": "null"
+														}
+													],
+													"default": null
+												},
+												"model": {
+													"anyOf": [
+														{
+															"type": "string",
+															"minLength": 1,
+															"maxLength": 200
+														},
+														{
+															"type": "null"
+														}
+													],
+													"default": null
+												},
+												"reasoningEffort": {
+													"enum": [
+														"default",
+														"low",
+														"medium",
+														"high"
+													],
+													"type": "string",
+													"default": "default"
+												},
+												"lastTest": {
+													"anyOf": [
+														{
+															"type": "object",
+															"properties": {
+																"at": {
+																	"type": "string",
+																	"format": "date-time"
+																},
+																"model": {
+																	"type": "string"
+																},
+																"ok": {
+																	"type": "boolean"
+																},
+																"json": {
+																	"type": "boolean"
+																},
+																"tools": {
+																	"type": "boolean"
+																},
+																"reasoning": {
+																	"enum": [
+																		"accepted",
+																		"rejected",
+																		"not-sent"
+																	],
+																	"type": "string"
+																},
+																"latencyMs": {
+																	"type": "number"
+																},
+																"message": {
+																	"type": "string"
+																}
+															},
+															"required": [
+																"at",
+																"model",
+																"ok",
+																"json",
+																"tools",
+																"reasoning",
+																"latencyMs",
+																"message"
+															]
+														},
+														{
+															"type": "null"
+														}
+													],
+													"default": null
+												}
+											},
+											"default": {
+												"providerId": null,
+												"model": null,
+												"reasoningEffort": "default",
+												"lastTest": null
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Structured API error. See status and code; do not branch on message text.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"required": [
+										"defined",
+										"code",
+										"status",
+										"message"
+									],
+									"properties": {
+										"defined": {
+											"type": "boolean"
+										},
+										"code": {
+											"type": "string"
+										},
+										"status": {
+											"type": "integer"
+										},
+										"message": {
+											"type": "string"
+										},
+										"data": {}
+									}
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"apiKey": []
+					},
+					{
+						"bearerAuth": []
+					},
+					{
+						"cookieAuth": []
+					}
+				],
+				"x-codeSamples": [
+					{
+						"lang": "bash",
+						"label": "cURL",
+						"source": "curl --request POST \"https://rxresu.me/api/openapi/ai-tasks/<task>/check\" --header \"x-api-key: <api-key>\""
+					}
+				]
+			}
+		},
 		"/agent/threads": {
 			"get": {
 				"operationId": "listAgentThreads",
@@ -63492,6 +66316,48 @@
 																"type": "string"
 															}
 														},
+														"usage": {
+															"type": "array",
+															"items": {
+																"type": "object",
+																"properties": {
+																	"step": {
+																		"type": "string"
+																	},
+																	"task": {
+																		"enum": [
+																			"extraction",
+																			"evidence",
+																			"writing",
+																			"polish",
+																			"review"
+																		],
+																		"type": "string"
+																	},
+																	"model": {
+																		"type": "string"
+																	},
+																	"inputTokens": {
+																		"type": "number"
+																	},
+																	"outputTokens": {
+																		"type": "number"
+																	},
+																	"fallback": {
+																		"type": "boolean",
+																		"default": false
+																	}
+																},
+																"required": [
+																	"step",
+																	"task",
+																	"model",
+																	"inputTokens",
+																	"outputTokens"
+																]
+															},
+															"default": []
+														},
 														"totals": {
 															"type": "object",
 															"properties": {
@@ -63941,6 +66807,48 @@
 															"items": {
 																"type": "string"
 															}
+														},
+														"usage": {
+															"type": "array",
+															"items": {
+																"type": "object",
+																"properties": {
+																	"step": {
+																		"type": "string"
+																	},
+																	"task": {
+																		"enum": [
+																			"extraction",
+																			"evidence",
+																			"writing",
+																			"polish",
+																			"review"
+																		],
+																		"type": "string"
+																	},
+																	"model": {
+																		"type": "string"
+																	},
+																	"inputTokens": {
+																		"type": "number"
+																	},
+																	"outputTokens": {
+																		"type": "number"
+																	},
+																	"fallback": {
+																		"type": "boolean",
+																		"default": false
+																	}
+																},
+																"required": [
+																	"step",
+																	"task",
+																	"model",
+																	"inputTokens",
+																	"outputTokens"
+																]
+															},
+															"default": []
 														},
 														"totals": {
 															"type": "object",
@@ -64719,6 +67627,48 @@
 																"type": "string"
 															}
 														},
+														"usage": {
+															"type": "array",
+															"items": {
+																"type": "object",
+																"properties": {
+																	"step": {
+																		"type": "string"
+																	},
+																	"task": {
+																		"enum": [
+																			"extraction",
+																			"evidence",
+																			"writing",
+																			"polish",
+																			"review"
+																		],
+																		"type": "string"
+																	},
+																	"model": {
+																		"type": "string"
+																	},
+																	"inputTokens": {
+																		"type": "number"
+																	},
+																	"outputTokens": {
+																		"type": "number"
+																	},
+																	"fallback": {
+																		"type": "boolean",
+																		"default": false
+																	}
+																},
+																"required": [
+																	"step",
+																	"task",
+																	"model",
+																	"inputTokens",
+																	"outputTokens"
+																]
+															},
+															"default": []
+														},
 														"totals": {
 															"type": "object",
 															"properties": {
@@ -65169,6 +68119,48 @@
 																"type": "string"
 															}
 														},
+														"usage": {
+															"type": "array",
+															"items": {
+																"type": "object",
+																"properties": {
+																	"step": {
+																		"type": "string"
+																	},
+																	"task": {
+																		"enum": [
+																			"extraction",
+																			"evidence",
+																			"writing",
+																			"polish",
+																			"review"
+																		],
+																		"type": "string"
+																	},
+																	"model": {
+																		"type": "string"
+																	},
+																	"inputTokens": {
+																		"type": "number"
+																	},
+																	"outputTokens": {
+																		"type": "number"
+																	},
+																	"fallback": {
+																		"type": "boolean",
+																		"default": false
+																	}
+																},
+																"required": [
+																	"step",
+																	"task",
+																	"model",
+																	"inputTokens",
+																	"outputTokens"
+																]
+															},
+															"default": []
+														},
 														"totals": {
 															"type": "object",
 															"properties": {
@@ -65332,6 +68324,13 @@
 								"properties": {
 									"reanalyze": {
 										"type": "boolean"
+									},
+									"quality": {
+										"enum": [
+											"standard",
+											"thorough"
+										],
+										"type": "string"
 									}
 								}
 							}
@@ -65889,6 +68888,48 @@
 																"type": "string"
 															}
 														},
+														"usage": {
+															"type": "array",
+															"items": {
+																"type": "object",
+																"properties": {
+																	"step": {
+																		"type": "string"
+																	},
+																	"task": {
+																		"enum": [
+																			"extraction",
+																			"evidence",
+																			"writing",
+																			"polish",
+																			"review"
+																		],
+																		"type": "string"
+																	},
+																	"model": {
+																		"type": "string"
+																	},
+																	"inputTokens": {
+																		"type": "number"
+																	},
+																	"outputTokens": {
+																		"type": "number"
+																	},
+																	"fallback": {
+																		"type": "boolean",
+																		"default": false
+																	}
+																},
+																"required": [
+																	"step",
+																	"task",
+																	"model",
+																	"inputTokens",
+																	"outputTokens"
+																]
+															},
+															"default": []
+														},
 														"totals": {
 															"type": "object",
 															"properties": {
@@ -66338,6 +69379,48 @@
 															"items": {
 																"type": "string"
 															}
+														},
+														"usage": {
+															"type": "array",
+															"items": {
+																"type": "object",
+																"properties": {
+																	"step": {
+																		"type": "string"
+																	},
+																	"task": {
+																		"enum": [
+																			"extraction",
+																			"evidence",
+																			"writing",
+																			"polish",
+																			"review"
+																		],
+																		"type": "string"
+																	},
+																	"model": {
+																		"type": "string"
+																	},
+																	"inputTokens": {
+																		"type": "number"
+																	},
+																	"outputTokens": {
+																		"type": "number"
+																	},
+																	"fallback": {
+																		"type": "boolean",
+																		"default": false
+																	}
+																},
+																"required": [
+																	"step",
+																	"task",
+																	"model",
+																	"inputTokens",
+																	"outputTokens"
+																]
+															},
+															"default": []
 														},
 														"totals": {
 															"type": "object",
@@ -67103,6 +70186,48 @@
 																"type": "string"
 															}
 														},
+														"usage": {
+															"type": "array",
+															"items": {
+																"type": "object",
+																"properties": {
+																	"step": {
+																		"type": "string"
+																	},
+																	"task": {
+																		"enum": [
+																			"extraction",
+																			"evidence",
+																			"writing",
+																			"polish",
+																			"review"
+																		],
+																		"type": "string"
+																	},
+																	"model": {
+																		"type": "string"
+																	},
+																	"inputTokens": {
+																		"type": "number"
+																	},
+																	"outputTokens": {
+																		"type": "number"
+																	},
+																	"fallback": {
+																		"type": "boolean",
+																		"default": false
+																	}
+																},
+																"required": [
+																	"step",
+																	"task",
+																	"model",
+																	"inputTokens",
+																	"outputTokens"
+																]
+															},
+															"default": []
+														},
 														"totals": {
 															"type": "object",
 															"properties": {
@@ -67553,6 +70678,48 @@
 																"type": "string"
 															}
 														},
+														"usage": {
+															"type": "array",
+															"items": {
+																"type": "object",
+																"properties": {
+																	"step": {
+																		"type": "string"
+																	},
+																	"task": {
+																		"enum": [
+																			"extraction",
+																			"evidence",
+																			"writing",
+																			"polish",
+																			"review"
+																		],
+																		"type": "string"
+																	},
+																	"model": {
+																		"type": "string"
+																	},
+																	"inputTokens": {
+																		"type": "number"
+																	},
+																	"outputTokens": {
+																		"type": "number"
+																	},
+																	"fallback": {
+																		"type": "boolean",
+																		"default": false
+																	}
+																},
+																"required": [
+																	"step",
+																	"task",
+																	"model",
+																	"inputTokens",
+																	"outputTokens"
+																]
+															},
+															"default": []
+														},
 														"totals": {
 															"type": "object",
 															"properties": {
@@ -67727,9 +70894,19 @@
 									"usePlan": {
 										"type": "boolean"
 									},
+									"quality": {
+										"enum": [
+											"standard",
+											"thorough"
+										],
+										"type": "string"
+									},
 									"presetId": {
 										"type": "string",
 										"minLength": 1
+									},
+									"review": {
+										"type": "boolean"
 									}
 								},
 								"required": [
@@ -67933,7 +71110,14 @@
 																			"keyword-repetition",
 																			"personal-details",
 																			"heading",
-																			"placeholder"
+																			"placeholder",
+																			"render-failed",
+																			"render-blank-page",
+																			"render-text-missing",
+																			"render-reading-order",
+																			"render-pages",
+																			"render-ats",
+																			"docx-text-missing"
 																		],
 																		"type": "string"
 																	},
@@ -68171,6 +71355,56 @@
 																}
 															}
 														},
+														"usage": {
+															"type": "array",
+															"items": {
+																"type": "object",
+																"properties": {
+																	"step": {
+																		"type": "string"
+																	},
+																	"task": {
+																		"enum": [
+																			"extraction",
+																			"evidence",
+																			"writing",
+																			"polish",
+																			"review"
+																		],
+																		"type": "string"
+																	},
+																	"model": {
+																		"type": "string"
+																	},
+																	"inputTokens": {
+																		"type": "number"
+																	},
+																	"outputTokens": {
+																		"type": "number"
+																	},
+																	"fallback": {
+																		"type": "boolean",
+																		"default": false
+																	}
+																},
+																"required": [
+																	"step",
+																	"task",
+																	"model",
+																	"inputTokens",
+																	"outputTokens"
+																]
+															},
+															"default": []
+														},
+														"quality": {
+															"enum": [
+																"standard",
+																"thorough"
+															],
+															"type": "string",
+															"default": "standard"
+														},
 														"style": {
 															"type": "object",
 															"properties": {
@@ -68185,6 +71419,236 @@
 																"presetId",
 																"name"
 															]
+														},
+														"review": {
+															"type": "object",
+															"properties": {
+																"model": {
+																	"type": "string"
+																},
+																"score": {
+																	"anyOf": [
+																		{
+																			"type": "number",
+																			"minimum": 0,
+																			"maximum": 10
+																		},
+																		{
+																			"type": "null"
+																		}
+																	]
+																},
+																"findings": {
+																	"type": "array",
+																	"items": {
+																		"type": "object",
+																		"properties": {
+																			"category": {
+																				"enum": [
+																					"relevance",
+																					"strength",
+																					"prioritization",
+																					"tone",
+																					"clarity",
+																					"redundancy",
+																					"accuracy"
+																				],
+																				"type": "string"
+																			},
+																			"severity": {
+																				"enum": [
+																					"high",
+																					"medium",
+																					"low"
+																				],
+																				"type": "string"
+																			},
+																			"message": {
+																				"type": "string"
+																			},
+																			"ref": {
+																				"anyOf": [
+																					{
+																						"type": "string"
+																					},
+																					{
+																						"type": "null"
+																					}
+																				]
+																			}
+																		},
+																		"required": [
+																			"category",
+																			"severity",
+																			"message",
+																			"ref"
+																		]
+																	}
+																},
+																"revisions": {
+																	"type": "array",
+																	"items": {
+																		"type": "object",
+																		"properties": {
+																			"target": {
+																				"enum": [
+																					"bullet",
+																					"summary"
+																				],
+																				"type": "string"
+																			},
+																			"achievementId": {
+																				"anyOf": [
+																					{
+																						"type": "string"
+																					},
+																					{
+																						"type": "null"
+																					}
+																				]
+																			},
+																			"before": {
+																				"type": "string"
+																			},
+																			"after": {
+																				"type": "string"
+																			},
+																			"status": {
+																				"enum": [
+																					"applied",
+																					"needs-review",
+																					"reverted",
+																					"dismissed"
+																				],
+																				"type": "string"
+																			},
+																			"reason": {
+																				"type": "string"
+																			}
+																		},
+																		"required": [
+																			"target",
+																			"achievementId",
+																			"before",
+																			"after",
+																			"status",
+																			"reason"
+																		]
+																	}
+																},
+																"promptVersion": {
+																	"type": "string"
+																}
+															},
+															"required": [
+																"model",
+																"score",
+																"findings",
+																"revisions",
+																"promptVersion"
+															]
+														},
+														"rendering": {
+															"type": "object",
+															"properties": {
+																"pdf": {
+																	"anyOf": [
+																		{
+																			"type": "object",
+																			"properties": {
+																				"pages": {
+																					"type": "number"
+																				},
+																				"blankPages": {
+																					"type": "array",
+																					"items": {
+																						"type": "number"
+																					}
+																				},
+																				"textCoverage": {
+																					"type": "number"
+																				},
+																				"missing": {
+																					"type": "array",
+																					"items": {
+																						"type": "string"
+																					}
+																				},
+																				"readingOrder": {
+																					"type": "boolean"
+																				},
+																				"atsScore": {
+																					"anyOf": [
+																						{
+																							"type": "number"
+																						},
+																						{
+																							"type": "null"
+																						}
+																					]
+																				}
+																			},
+																			"required": [
+																				"pages",
+																				"blankPages",
+																				"textCoverage",
+																				"missing",
+																				"readingOrder",
+																				"atsScore"
+																			]
+																		},
+																		{
+																			"type": "null"
+																		}
+																	]
+																},
+																"docx": {
+																	"anyOf": [
+																		{
+																			"type": "object",
+																			"properties": {
+																				"textCoverage": {
+																					"type": "number"
+																				},
+																				"missing": {
+																					"type": "array",
+																					"items": {
+																						"type": "string"
+																					}
+																				}
+																			},
+																			"required": [
+																				"textCoverage",
+																				"missing"
+																			]
+																		},
+																		{
+																			"type": "null"
+																		}
+																	]
+																},
+																"errors": {
+																	"type": "array",
+																	"items": {
+																		"type": "string"
+																	},
+																	"default": []
+																}
+															},
+															"required": [
+																"pdf",
+																"docx"
+															]
+														},
+														"promptVersions": {
+															"type": "object",
+															"propertyNames": {
+																"type": "string"
+															},
+															"additionalProperties": {
+																"type": "string"
+															},
+															"default": {}
 														}
 													},
 													"required": [
@@ -68325,6 +71789,1304 @@
 						"lang": "bash",
 						"label": "cURL",
 						"source": "curl --request POST \"https://rxresu.me/api/openapi/master-profile/assemble\" --header \"x-api-key: <api-key>\" --header \"Content-Type: application/json\" --data '{\n  \"applicationId\": \"<string>\"\n}'"
+					}
+				]
+			}
+		},
+		"/master-profile/assemblies/{assemblyId}/revisions/{index}": {
+			"post": {
+				"operationId": "updateAssemblyRevision",
+				"summary": "Revert, apply or dismiss an AI reviewer change",
+				"description": "Changes only the generated resume's wording for that line. Fails when the line was edited since. The master profile is never changed.",
+				"tags": [
+					"Master profile"
+				],
+				"parameters": [
+					{
+						"name": "assemblyId",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"minLength": 1
+						}
+					},
+					{
+						"name": "index",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "integer",
+							"minimum": 0,
+							"maximum": 9007199254740991
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"action": {
+										"enum": [
+											"revert",
+											"apply",
+											"dismiss"
+										],
+										"type": "string"
+									}
+								},
+								"required": [
+									"action"
+								]
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"coverage": {
+											"type": "array",
+											"items": {
+												"type": "object",
+												"properties": {
+													"requirement": {
+														"type": "string"
+													},
+													"strength": {
+														"enum": [
+															"strong",
+															"partial",
+															"none"
+														],
+														"type": "string"
+													},
+													"achievementIds": {
+														"type": "array",
+														"items": {
+															"type": "string"
+														}
+													},
+													"skillIds": {
+														"type": "array",
+														"items": {
+															"type": "string"
+														}
+													}
+												},
+												"required": [
+													"requirement",
+													"strength",
+													"achievementIds",
+													"skillIds"
+												]
+											}
+										},
+										"bullets": {
+											"type": "array",
+											"items": {
+												"type": "object",
+												"properties": {
+													"achievementId": {
+														"type": "string"
+													},
+													"entryId": {
+														"anyOf": [
+															{
+																"type": "string"
+															},
+															{
+																"type": "null"
+															}
+														]
+													},
+													"text": {
+														"type": "string"
+													},
+													"source": {
+														"enum": [
+															"rephrased",
+															"original",
+															"variant"
+														],
+														"type": "string"
+													}
+												},
+												"required": [
+													"achievementId",
+													"entryId",
+													"text",
+													"source"
+												]
+											}
+										},
+										"entryIds": {
+											"type": "array",
+											"items": {
+												"type": "string"
+											}
+										},
+										"skillIds": {
+											"type": "array",
+											"items": {
+												"type": "string"
+											}
+										},
+										"summaryUsed": {
+											"type": "boolean"
+										},
+										"warnings": {
+											"type": "array",
+											"items": {
+												"type": "string"
+											}
+										},
+										"writing": {
+											"type": "object",
+											"properties": {
+												"headline": {
+													"type": "string"
+												},
+												"summary": {
+													"type": "string"
+												},
+												"skillGroups": {
+													"type": "array",
+													"items": {
+														"type": "object",
+														"properties": {
+															"name": {
+																"type": "string"
+															},
+															"skillIds": {
+																"type": "array",
+																"items": {
+																	"type": "string"
+																}
+															}
+														},
+														"required": [
+															"name",
+															"skillIds"
+														]
+													}
+												},
+												"skillsLeftOut": {
+													"type": "array",
+													"items": {
+														"type": "object",
+														"properties": {
+															"skillId": {
+																"type": "string"
+															},
+															"name": {
+																"type": "string"
+															},
+															"reason": {
+																"type": "string"
+															}
+														},
+														"required": [
+															"skillId",
+															"name",
+															"reason"
+														]
+													}
+												},
+												"checks": {
+													"type": "array",
+													"items": {
+														"type": "object",
+														"properties": {
+															"code": {
+																"enum": [
+																	"unsupported-bullet",
+																	"missing-source",
+																	"title-mismatch",
+																	"date-mismatch",
+																	"entry-not-in-profile",
+																	"order",
+																	"duplicate-bullet",
+																	"skills-count",
+																	"duplicate-skill",
+																	"unsupported-skill",
+																	"soft-skill",
+																	"missing-section",
+																	"missing-contact",
+																	"summary-length",
+																	"bullet-length",
+																	"empty-entry",
+																	"too-long",
+																	"too-short",
+																	"cliche",
+																	"keyword-repetition",
+																	"personal-details",
+																	"heading",
+																	"placeholder",
+																	"render-failed",
+																	"render-blank-page",
+																	"render-text-missing",
+																	"render-reading-order",
+																	"render-pages",
+																	"render-ats",
+																	"docx-text-missing"
+																],
+																"type": "string"
+															},
+															"severity": {
+																"enum": [
+																	"error",
+																	"warning",
+																	"info"
+																],
+																"type": "string"
+															},
+															"message": {
+																"type": "string"
+															},
+															"section": {
+																"type": "string"
+															},
+															"itemId": {
+																"type": "string"
+															}
+														},
+														"required": [
+															"code",
+															"severity",
+															"message"
+														]
+													}
+												},
+												"stats": {
+													"type": "object",
+													"properties": {
+														"words": {
+															"type": "number"
+														},
+														"estimatedPages": {
+															"type": "number"
+														},
+														"targetPages": {
+															"type": "number"
+														},
+														"positions": {
+															"type": "number"
+														},
+														"bullets": {
+															"type": "number"
+														},
+														"skills": {
+															"type": "number"
+														}
+													},
+													"required": [
+														"words",
+														"estimatedPages",
+														"targetPages",
+														"positions",
+														"bullets",
+														"skills"
+													]
+												},
+												"rules": {
+													"type": "object",
+													"properties": {
+														"region": {
+															"enum": [
+																"CA",
+																"US",
+																"GB",
+																"AU",
+																"other"
+															],
+															"type": "string",
+															"default": "CA"
+														},
+														"pages": {
+															"type": "object",
+															"properties": {
+																"experienced": {
+																	"type": "integer",
+																	"minimum": 1,
+																	"maximum": 4,
+																	"default": 2
+																},
+																"early": {
+																	"type": "integer",
+																	"minimum": 1,
+																	"maximum": 4,
+																	"default": 1
+																},
+																"experiencedYears": {
+																	"type": "integer",
+																	"minimum": 0,
+																	"maximum": 30,
+																	"default": 5
+																}
+															},
+															"default": {
+																"experienced": 2,
+																"early": 1,
+																"experiencedYears": 5
+															}
+														},
+														"positions": {
+															"type": "object",
+															"properties": {
+																"min": {
+																	"type": "integer",
+																	"minimum": 1,
+																	"maximum": 9007199254740991,
+																	"default": 3
+																},
+																"max": {
+																	"type": "integer",
+																	"minimum": 1,
+																	"maximum": 9007199254740991,
+																	"default": 5
+																}
+															},
+															"default": {
+																"min": 3,
+																"max": 5
+															}
+														},
+														"bullets": {
+															"type": "object",
+															"properties": {
+																"majorMin": {
+																	"type": "integer",
+																	"minimum": 1,
+																	"maximum": 9007199254740991,
+																	"default": 3
+																},
+																"majorMax": {
+																	"type": "integer",
+																	"minimum": 1,
+																	"maximum": 9007199254740991,
+																	"default": 5
+																},
+																"otherMax": {
+																	"type": "integer",
+																	"minimum": 0,
+																	"maximum": 9007199254740991,
+																	"default": 3
+																},
+																"maxWords": {
+																	"type": "integer",
+																	"minimum": 10,
+																	"maximum": 9007199254740991,
+																	"default": 35
+																}
+															},
+															"default": {
+																"majorMin": 3,
+																"majorMax": 5,
+																"otherMax": 3,
+																"maxWords": 35
+															}
+														},
+														"summary": {
+															"type": "object",
+															"properties": {
+																"enabled": {
+																	"type": "boolean",
+																	"default": true
+																},
+																"minSentences": {
+																	"type": "integer",
+																	"minimum": 1,
+																	"maximum": 9007199254740991,
+																	"default": 2
+																},
+																"maxSentences": {
+																	"type": "integer",
+																	"minimum": 1,
+																	"maximum": 9007199254740991,
+																	"default": 3
+																},
+																"maxWords": {
+																	"type": "integer",
+																	"minimum": 20,
+																	"maximum": 9007199254740991,
+																	"default": 75
+																}
+															},
+															"default": {
+																"enabled": true,
+																"minSentences": 2,
+																"maxSentences": 3,
+																"maxWords": 75
+															}
+														},
+														"headline": {
+															"type": "boolean",
+															"default": true
+														},
+														"skills": {
+															"type": "object",
+															"properties": {
+																"min": {
+																	"type": "integer",
+																	"minimum": 0,
+																	"maximum": 9007199254740991,
+																	"default": 8
+																},
+																"max": {
+																	"type": "integer",
+																	"minimum": 1,
+																	"maximum": 9007199254740991,
+																	"default": 15
+																},
+																"minGroups": {
+																	"type": "integer",
+																	"minimum": 1,
+																	"maximum": 9007199254740991,
+																	"default": 2
+																},
+																"maxGroups": {
+																	"type": "integer",
+																	"minimum": 1,
+																	"maximum": 9007199254740991,
+																	"default": 4
+																}
+															},
+															"default": {
+																"min": 8,
+																"max": 15,
+																"minGroups": 2,
+																"maxGroups": 4
+															}
+														},
+														"wordsPerPage": {
+															"type": "integer",
+															"minimum": 200,
+															"maximum": 900,
+															"default": 500
+														}
+													}
+												},
+												"usage": {
+													"type": "array",
+													"items": {
+														"type": "object",
+														"properties": {
+															"step": {
+																"type": "string"
+															},
+															"task": {
+																"enum": [
+																	"extraction",
+																	"evidence",
+																	"writing",
+																	"polish",
+																	"review"
+																],
+																"type": "string"
+															},
+															"model": {
+																"type": "string"
+															},
+															"inputTokens": {
+																"type": "number"
+															},
+															"outputTokens": {
+																"type": "number"
+															},
+															"fallback": {
+																"type": "boolean",
+																"default": false
+															}
+														},
+														"required": [
+															"step",
+															"task",
+															"model",
+															"inputTokens",
+															"outputTokens"
+														]
+													},
+													"default": []
+												},
+												"quality": {
+													"enum": [
+														"standard",
+														"thorough"
+													],
+													"type": "string",
+													"default": "standard"
+												},
+												"style": {
+													"type": "object",
+													"properties": {
+														"presetId": {
+															"type": "string"
+														},
+														"name": {
+															"type": "string"
+														}
+													},
+													"required": [
+														"presetId",
+														"name"
+													]
+												},
+												"review": {
+													"type": "object",
+													"properties": {
+														"model": {
+															"type": "string"
+														},
+														"score": {
+															"anyOf": [
+																{
+																	"type": "number",
+																	"minimum": 0,
+																	"maximum": 10
+																},
+																{
+																	"type": "null"
+																}
+															]
+														},
+														"findings": {
+															"type": "array",
+															"items": {
+																"type": "object",
+																"properties": {
+																	"category": {
+																		"enum": [
+																			"relevance",
+																			"strength",
+																			"prioritization",
+																			"tone",
+																			"clarity",
+																			"redundancy",
+																			"accuracy"
+																		],
+																		"type": "string"
+																	},
+																	"severity": {
+																		"enum": [
+																			"high",
+																			"medium",
+																			"low"
+																		],
+																		"type": "string"
+																	},
+																	"message": {
+																		"type": "string"
+																	},
+																	"ref": {
+																		"anyOf": [
+																			{
+																				"type": "string"
+																			},
+																			{
+																				"type": "null"
+																			}
+																		]
+																	}
+																},
+																"required": [
+																	"category",
+																	"severity",
+																	"message",
+																	"ref"
+																]
+															}
+														},
+														"revisions": {
+															"type": "array",
+															"items": {
+																"type": "object",
+																"properties": {
+																	"target": {
+																		"enum": [
+																			"bullet",
+																			"summary"
+																		],
+																		"type": "string"
+																	},
+																	"achievementId": {
+																		"anyOf": [
+																			{
+																				"type": "string"
+																			},
+																			{
+																				"type": "null"
+																			}
+																		]
+																	},
+																	"before": {
+																		"type": "string"
+																	},
+																	"after": {
+																		"type": "string"
+																	},
+																	"status": {
+																		"enum": [
+																			"applied",
+																			"needs-review",
+																			"reverted",
+																			"dismissed"
+																		],
+																		"type": "string"
+																	},
+																	"reason": {
+																		"type": "string"
+																	}
+																},
+																"required": [
+																	"target",
+																	"achievementId",
+																	"before",
+																	"after",
+																	"status",
+																	"reason"
+																]
+															}
+														},
+														"promptVersion": {
+															"type": "string"
+														}
+													},
+													"required": [
+														"model",
+														"score",
+														"findings",
+														"revisions",
+														"promptVersion"
+													]
+												},
+												"rendering": {
+													"type": "object",
+													"properties": {
+														"pdf": {
+															"anyOf": [
+																{
+																	"type": "object",
+																	"properties": {
+																		"pages": {
+																			"type": "number"
+																		},
+																		"blankPages": {
+																			"type": "array",
+																			"items": {
+																				"type": "number"
+																			}
+																		},
+																		"textCoverage": {
+																			"type": "number"
+																		},
+																		"missing": {
+																			"type": "array",
+																			"items": {
+																				"type": "string"
+																			}
+																		},
+																		"readingOrder": {
+																			"type": "boolean"
+																		},
+																		"atsScore": {
+																			"anyOf": [
+																				{
+																					"type": "number"
+																				},
+																				{
+																					"type": "null"
+																				}
+																			]
+																		}
+																	},
+																	"required": [
+																		"pages",
+																		"blankPages",
+																		"textCoverage",
+																		"missing",
+																		"readingOrder",
+																		"atsScore"
+																	]
+																},
+																{
+																	"type": "null"
+																}
+															]
+														},
+														"docx": {
+															"anyOf": [
+																{
+																	"type": "object",
+																	"properties": {
+																		"textCoverage": {
+																			"type": "number"
+																		},
+																		"missing": {
+																			"type": "array",
+																			"items": {
+																				"type": "string"
+																			}
+																		}
+																	},
+																	"required": [
+																		"textCoverage",
+																		"missing"
+																	]
+																},
+																{
+																	"type": "null"
+																}
+															]
+														},
+														"errors": {
+															"type": "array",
+															"items": {
+																"type": "string"
+															},
+															"default": []
+														}
+													},
+													"required": [
+														"pdf",
+														"docx"
+													]
+												},
+												"promptVersions": {
+													"type": "object",
+													"propertyNames": {
+														"type": "string"
+													},
+													"additionalProperties": {
+														"type": "string"
+													},
+													"default": {}
+												}
+											},
+											"required": [
+												"headline",
+												"summary",
+												"skillGroups",
+												"skillsLeftOut",
+												"checks",
+												"stats",
+												"rules"
+											]
+										}
+									},
+									"required": [
+										"coverage",
+										"bullets",
+										"entryIds",
+										"skillIds",
+										"summaryUsed",
+										"warnings"
+									]
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Structured API error. See status and code; do not branch on message text.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"required": [
+										"defined",
+										"code",
+										"status",
+										"message"
+									],
+									"properties": {
+										"defined": {
+											"type": "boolean"
+										},
+										"code": {
+											"type": "string"
+										},
+										"status": {
+											"type": "integer"
+										},
+										"message": {
+											"type": "string"
+										},
+										"data": {}
+									}
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"apiKey": []
+					},
+					{
+						"bearerAuth": []
+					},
+					{
+						"cookieAuth": []
+					}
+				],
+				"x-codeSamples": [
+					{
+						"lang": "bash",
+						"label": "cURL",
+						"source": "curl --request POST \"https://rxresu.me/api/openapi/master-profile/assemblies/<assemblyId>/revisions/<index>\" --header \"x-api-key: <api-key>\" --header \"Content-Type: application/json\" --data '{\n  \"action\": \"revert\"\n}'"
+					}
+				]
+			}
+		},
+		"/master-profile/feedback": {
+			"post": {
+				"operationId": "submitResumeFeedback",
+				"summary": "Rate a generated resume and learn from the user's edits",
+				"description": "Stores a rating, a note and the lines the user changed in the generated resume. Later resumes use them as writing preferences only; the master profile is never changed.",
+				"tags": [
+					"Master profile"
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"assemblyId": {
+										"type": "string",
+										"minLength": 1
+									},
+									"rating": {
+										"anyOf": [
+											{
+												"enum": [
+													"good",
+													"needs-work"
+												],
+												"type": "string"
+											},
+											{
+												"type": "null"
+											}
+										],
+										"default": null
+									},
+									"note": {
+										"type": "string",
+										"maxLength": 1000,
+										"default": ""
+									},
+									"learnFromEdits": {
+										"type": "boolean",
+										"default": true
+									}
+								},
+								"required": [
+									"assemblyId"
+								]
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"id": {
+											"type": "string"
+										},
+										"applicationId": {
+											"type": "string"
+										},
+										"assemblyId": {
+											"anyOf": [
+												{
+													"type": "string"
+												},
+												{
+													"type": "null"
+												}
+											]
+										},
+										"rating": {
+											"anyOf": [
+												{
+													"enum": [
+														"good",
+														"needs-work"
+													],
+													"type": "string"
+												},
+												{
+													"type": "null"
+												}
+											]
+										},
+										"note": {
+											"type": "string"
+										},
+										"corrections": {
+											"type": "array",
+											"items": {
+												"type": "object",
+												"properties": {
+													"target": {
+														"enum": [
+															"bullet",
+															"summary",
+															"headline"
+														],
+														"type": "string"
+													},
+													"achievementId": {
+														"anyOf": [
+															{
+																"type": "string"
+															},
+															{
+																"type": "null"
+															}
+														]
+													},
+													"generated": {
+														"type": "string"
+													},
+													"edited": {
+														"type": "string"
+													}
+												},
+												"required": [
+													"target",
+													"achievementId",
+													"generated",
+													"edited"
+												]
+											}
+										},
+										"createdAt": {
+											"type": "string",
+											"format": "date-time",
+											"x-native-type": "date"
+										}
+									},
+									"required": [
+										"id",
+										"applicationId",
+										"assemblyId",
+										"rating",
+										"note",
+										"corrections",
+										"createdAt"
+									]
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Structured API error. See status and code; do not branch on message text.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"required": [
+										"defined",
+										"code",
+										"status",
+										"message"
+									],
+									"properties": {
+										"defined": {
+											"type": "boolean"
+										},
+										"code": {
+											"type": "string"
+										},
+										"status": {
+											"type": "integer"
+										},
+										"message": {
+											"type": "string"
+										},
+										"data": {}
+									}
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"apiKey": []
+					},
+					{
+						"bearerAuth": []
+					},
+					{
+						"cookieAuth": []
+					}
+				],
+				"x-codeSamples": [
+					{
+						"lang": "bash",
+						"label": "cURL",
+						"source": "curl --request POST \"https://rxresu.me/api/openapi/master-profile/feedback\" --header \"x-api-key: <api-key>\" --header \"Content-Type: application/json\" --data '{\n  \"assemblyId\": \"<string>\"\n}'"
+					}
+				]
+			},
+			"get": {
+				"operationId": "listResumeFeedback",
+				"summary": "List feedback on generated resumes",
+				"tags": [
+					"Master profile"
+				],
+				"parameters": [
+					{
+						"name": "applicationId",
+						"in": "query",
+						"schema": {
+							"type": "string",
+							"minLength": 1
+						},
+						"allowEmptyValue": true,
+						"allowReserved": true
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "array",
+									"items": {
+										"type": "object",
+										"properties": {
+											"id": {
+												"type": "string"
+											},
+											"applicationId": {
+												"type": "string"
+											},
+											"assemblyId": {
+												"anyOf": [
+													{
+														"type": "string"
+													},
+													{
+														"type": "null"
+													}
+												]
+											},
+											"rating": {
+												"anyOf": [
+													{
+														"enum": [
+															"good",
+															"needs-work"
+														],
+														"type": "string"
+													},
+													{
+														"type": "null"
+													}
+												]
+											},
+											"note": {
+												"type": "string"
+											},
+											"corrections": {
+												"type": "array",
+												"items": {
+													"type": "object",
+													"properties": {
+														"target": {
+															"enum": [
+																"bullet",
+																"summary",
+																"headline"
+															],
+															"type": "string"
+														},
+														"achievementId": {
+															"anyOf": [
+																{
+																	"type": "string"
+																},
+																{
+																	"type": "null"
+																}
+															]
+														},
+														"generated": {
+															"type": "string"
+														},
+														"edited": {
+															"type": "string"
+														}
+													},
+													"required": [
+														"target",
+														"achievementId",
+														"generated",
+														"edited"
+													]
+												}
+											},
+											"createdAt": {
+												"type": "string",
+												"format": "date-time",
+												"x-native-type": "date"
+											}
+										},
+										"required": [
+											"id",
+											"applicationId",
+											"assemblyId",
+											"rating",
+											"note",
+											"corrections",
+											"createdAt"
+										]
+									}
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Structured API error. See status and code; do not branch on message text.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"required": [
+										"defined",
+										"code",
+										"status",
+										"message"
+									],
+									"properties": {
+										"defined": {
+											"type": "boolean"
+										},
+										"code": {
+											"type": "string"
+										},
+										"status": {
+											"type": "integer"
+										},
+										"message": {
+											"type": "string"
+										},
+										"data": {}
+									}
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"apiKey": []
+					},
+					{
+						"bearerAuth": []
+					},
+					{
+						"cookieAuth": []
+					}
+				],
+				"x-codeSamples": [
+					{
+						"lang": "bash",
+						"label": "cURL",
+						"source": "curl \"https://rxresu.me/api/openapi/master-profile/feedback\" --header \"x-api-key: <api-key>\""
+					}
+				]
+			}
+		},
+		"/master-profile/feedback/{id}": {
+			"delete": {
+				"operationId": "deleteResumeFeedback",
+				"summary": "Delete feedback so later resumes stop using it",
+				"tags": [
+					"Master profile"
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"minLength": 1
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"default": {
+						"description": "Structured API error. See status and code; do not branch on message text.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"required": [
+										"defined",
+										"code",
+										"status",
+										"message"
+									],
+									"properties": {
+										"defined": {
+											"type": "boolean"
+										},
+										"code": {
+											"type": "string"
+										},
+										"status": {
+											"type": "integer"
+										},
+										"message": {
+											"type": "string"
+										},
+										"data": {}
+									}
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"apiKey": []
+					},
+					{
+						"bearerAuth": []
+					},
+					{
+						"cookieAuth": []
+					}
+				],
+				"x-codeSamples": [
+					{
+						"lang": "bash",
+						"label": "cURL",
+						"source": "curl --request DELETE \"https://rxresu.me/api/openapi/master-profile/feedback/<id>\" --header \"x-api-key: <api-key>\""
 					}
 				]
 			}
@@ -68568,7 +73330,14 @@
 																					"keyword-repetition",
 																					"personal-details",
 																					"heading",
-																					"placeholder"
+																					"placeholder",
+																					"render-failed",
+																					"render-blank-page",
+																					"render-text-missing",
+																					"render-reading-order",
+																					"render-pages",
+																					"render-ats",
+																					"docx-text-missing"
 																				],
 																				"type": "string"
 																			},
@@ -68806,6 +73575,56 @@
 																		}
 																	}
 																},
+																"usage": {
+																	"type": "array",
+																	"items": {
+																		"type": "object",
+																		"properties": {
+																			"step": {
+																				"type": "string"
+																			},
+																			"task": {
+																				"enum": [
+																					"extraction",
+																					"evidence",
+																					"writing",
+																					"polish",
+																					"review"
+																				],
+																				"type": "string"
+																			},
+																			"model": {
+																				"type": "string"
+																			},
+																			"inputTokens": {
+																				"type": "number"
+																			},
+																			"outputTokens": {
+																				"type": "number"
+																			},
+																			"fallback": {
+																				"type": "boolean",
+																				"default": false
+																			}
+																		},
+																		"required": [
+																			"step",
+																			"task",
+																			"model",
+																			"inputTokens",
+																			"outputTokens"
+																		]
+																	},
+																	"default": []
+																},
+																"quality": {
+																	"enum": [
+																		"standard",
+																		"thorough"
+																	],
+																	"type": "string",
+																	"default": "standard"
+																},
 																"style": {
 																	"type": "object",
 																	"properties": {
@@ -68820,6 +73639,236 @@
 																		"presetId",
 																		"name"
 																	]
+																},
+																"review": {
+																	"type": "object",
+																	"properties": {
+																		"model": {
+																			"type": "string"
+																		},
+																		"score": {
+																			"anyOf": [
+																				{
+																					"type": "number",
+																					"minimum": 0,
+																					"maximum": 10
+																				},
+																				{
+																					"type": "null"
+																				}
+																			]
+																		},
+																		"findings": {
+																			"type": "array",
+																			"items": {
+																				"type": "object",
+																				"properties": {
+																					"category": {
+																						"enum": [
+																							"relevance",
+																							"strength",
+																							"prioritization",
+																							"tone",
+																							"clarity",
+																							"redundancy",
+																							"accuracy"
+																						],
+																						"type": "string"
+																					},
+																					"severity": {
+																						"enum": [
+																							"high",
+																							"medium",
+																							"low"
+																						],
+																						"type": "string"
+																					},
+																					"message": {
+																						"type": "string"
+																					},
+																					"ref": {
+																						"anyOf": [
+																							{
+																								"type": "string"
+																							},
+																							{
+																								"type": "null"
+																							}
+																						]
+																					}
+																				},
+																				"required": [
+																					"category",
+																					"severity",
+																					"message",
+																					"ref"
+																				]
+																			}
+																		},
+																		"revisions": {
+																			"type": "array",
+																			"items": {
+																				"type": "object",
+																				"properties": {
+																					"target": {
+																						"enum": [
+																							"bullet",
+																							"summary"
+																						],
+																						"type": "string"
+																					},
+																					"achievementId": {
+																						"anyOf": [
+																							{
+																								"type": "string"
+																							},
+																							{
+																								"type": "null"
+																							}
+																						]
+																					},
+																					"before": {
+																						"type": "string"
+																					},
+																					"after": {
+																						"type": "string"
+																					},
+																					"status": {
+																						"enum": [
+																							"applied",
+																							"needs-review",
+																							"reverted",
+																							"dismissed"
+																						],
+																						"type": "string"
+																					},
+																					"reason": {
+																						"type": "string"
+																					}
+																				},
+																				"required": [
+																					"target",
+																					"achievementId",
+																					"before",
+																					"after",
+																					"status",
+																					"reason"
+																				]
+																			}
+																		},
+																		"promptVersion": {
+																			"type": "string"
+																		}
+																	},
+																	"required": [
+																		"model",
+																		"score",
+																		"findings",
+																		"revisions",
+																		"promptVersion"
+																	]
+																},
+																"rendering": {
+																	"type": "object",
+																	"properties": {
+																		"pdf": {
+																			"anyOf": [
+																				{
+																					"type": "object",
+																					"properties": {
+																						"pages": {
+																							"type": "number"
+																						},
+																						"blankPages": {
+																							"type": "array",
+																							"items": {
+																								"type": "number"
+																							}
+																						},
+																						"textCoverage": {
+																							"type": "number"
+																						},
+																						"missing": {
+																							"type": "array",
+																							"items": {
+																								"type": "string"
+																							}
+																						},
+																						"readingOrder": {
+																							"type": "boolean"
+																						},
+																						"atsScore": {
+																							"anyOf": [
+																								{
+																									"type": "number"
+																								},
+																								{
+																									"type": "null"
+																								}
+																							]
+																						}
+																					},
+																					"required": [
+																						"pages",
+																						"blankPages",
+																						"textCoverage",
+																						"missing",
+																						"readingOrder",
+																						"atsScore"
+																					]
+																				},
+																				{
+																					"type": "null"
+																				}
+																			]
+																		},
+																		"docx": {
+																			"anyOf": [
+																				{
+																					"type": "object",
+																					"properties": {
+																						"textCoverage": {
+																							"type": "number"
+																						},
+																						"missing": {
+																							"type": "array",
+																							"items": {
+																								"type": "string"
+																							}
+																						}
+																					},
+																					"required": [
+																						"textCoverage",
+																						"missing"
+																					]
+																				},
+																				{
+																					"type": "null"
+																				}
+																			]
+																		},
+																		"errors": {
+																			"type": "array",
+																			"items": {
+																				"type": "string"
+																			},
+																			"default": []
+																		}
+																	},
+																	"required": [
+																		"pdf",
+																		"docx"
+																	]
+																},
+																"promptVersions": {
+																	"type": "object",
+																	"propertyNames": {
+																		"type": "string"
+																	},
+																	"additionalProperties": {
+																		"type": "string"
+																	},
+																	"default": {}
 																}
 															},
 															"required": [

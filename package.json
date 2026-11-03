@@ -43,6 +43,7 @@
 		"test": "turbo run test --concurrency=1",
 		"test:coverage": "turbo run test:coverage --concurrency=1",
 		"test:ci": "turbo run test:ci --concurrency=1",
+		"benchmark:resumes": "pnpm --filter @reactive-resume/api exec vp test run src/features/master-profile/benchmark",
 		"test:e2e": "playwright test",
 		"test:e2e:ui": "playwright test --ui",
 		"pdf:translations": "pnpm --filter @reactive-resume/tooling pdf:translations",

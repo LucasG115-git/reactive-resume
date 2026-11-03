@@ -13,6 +13,7 @@ import { PIPELINE } from "../../stages";
 import { useInvalidateApplications } from "../../use-application-actions";
 import { FileAttachmentField } from "../file-attachment-field";
 import { AssembleDialog } from "./assemble-dialog";
+import { FeedbackForm } from "./assembly-review";
 import { useDialogStore } from "@/dialogs/store";
 import { toastError } from "@/libs/error-message";
 import { orpc } from "@/libs/orpc/client";
@@ -60,6 +61,10 @@ export function SentDocuments({ application, disabled, assemble }: SentDocuments
 	const { data: documents } = useQuery(orpc.documents.list.queryOptions({ input: { trashed: false } }));
 	const [attaching, setAttaching] = useState(Boolean(application.resumeFileUrl || application.coverLetterUrl));
 	const [assembling, setAssembling] = useState(Boolean(assemble));
+	const [rating, setRating] = useState(false);
+	// The resume built from the profile for this job, when it's still the linked one: feedback on it trains later ones.
+	const latest = useQuery(orpc.masterProfile.latestAssembly.queryOptions({ input: { applicationId: application.id } }));
+	const generated = latest.data && latest.data.resumeId === application.resumeId ? latest.data : null;
 
 	const update = useMutation({
 		...orpc.applications.update.mutationOptions(),
@@ -122,6 +127,21 @@ export function SentDocuments({ application, disabled, assemble }: SentDocuments
 					</Link>
 				</SentDocumentRow>
 			)}
+
+			{generated &&
+				(rating ? (
+					<div className="rounded-xl border border-line p-3">
+						<FeedbackForm assemblyId={generated.id} onDone={() => setRating(false)} />
+					</div>
+				) : (
+					<button
+						type="button"
+						className="w-fit text-xs text-ink-3 underline underline-offset-2 hover:text-ink-2"
+						onClick={() => setRating(true)}
+					>
+						<Trans>Assembled from your profile · Rate it and learn from your edits</Trans>
+					</button>
+				))}
 
 			{application.coverLetterId && (
 				<SentDocumentRow

@@ -19,9 +19,12 @@ import {
 	resumeSelectionPlanSchema,
 	selectionEditSchema,
 } from "@reactive-resume/schema/resume-selection";
+import { resumeFeedbackInputSchema, resumeFeedbackSchema } from "@reactive-resume/schema/resume-writing";
 import { protectedProcedure } from "../../context";
 import { aiRequestRateLimit } from "../../middleware/rate-limit";
+import { revisionService } from "./assemble/revisions";
 import { assembleService } from "./assemble/service";
+import { feedbackService } from "./feedback";
 import { ProfileFileError } from "./import";
 import { selectionService } from "./selection/service";
 import { masterProfileService } from "./service";
@@ -150,6 +153,65 @@ export const masterProfileRouter = {
 			BAD_GATEWAY: { message: "The AI provider returned an error or couldn't be reached.", status: 502 },
 		})
 		.handler(({ context, input, signal }) => assembleService.assemble(context.user.id, input, { signal })),
+
+	/** Puts a reviewer change back, applies one that waited for the user, or dismisses it. */
+	revision: protectedProcedure
+		.route({
+			method: "POST",
+			path: "/master-profile/assemblies/{assemblyId}/revisions/{index}",
+			tags,
+			operationId: "updateAssemblyRevision",
+			summary: "Revert, apply or dismiss an AI reviewer change",
+			description:
+				"Changes only the generated resume's wording for that line. Fails when the line was edited since. The master profile is never changed.",
+		})
+		.input(
+			z.object({
+				assemblyId: z.string().min(1),
+				index: z.coerce.number().int().min(0),
+				action: z.enum(["revert", "apply", "dismiss"]),
+			}),
+		)
+		.output(profileAssemblyResultSchema)
+		.handler(({ context, input }) => revisionService.update(context.user.id, input)),
+
+	feedback: {
+		submit: protectedProcedure
+			.route({
+				method: "POST",
+				path: "/master-profile/feedback",
+				tags,
+				operationId: "submitResumeFeedback",
+				summary: "Rate a generated resume and learn from the user's edits",
+				description:
+					"Stores a rating, a note and the lines the user changed in the generated resume. Later resumes use them as writing preferences only; the master profile is never changed.",
+			})
+			.input(resumeFeedbackInputSchema)
+			.output(resumeFeedbackSchema)
+			.handler(({ context, input }) => feedbackService.submit(context.user.id, input)),
+		list: protectedProcedure
+			.route({
+				method: "GET",
+				path: "/master-profile/feedback",
+				tags,
+				operationId: "listResumeFeedback",
+				summary: "List feedback on generated resumes",
+			})
+			.input(z.object({ applicationId: z.string().min(1).optional() }))
+			.output(z.array(resumeFeedbackSchema))
+			.handler(({ context, input }) => feedbackService.list(context.user.id, input.applicationId)),
+		delete: protectedProcedure
+			.route({
+				method: "DELETE",
+				path: "/master-profile/feedback/{id}",
+				tags,
+				operationId: "deleteResumeFeedback",
+				summary: "Delete feedback so later resumes stop using it",
+			})
+			.input(z.object({ id: z.string().min(1) }))
+			.output(z.void())
+			.handler(({ context, input }) => feedbackService.delete(context.user.id, input.id)),
+	},
 
 	latestAssembly: protectedProcedure
 		.route({

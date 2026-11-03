@@ -86,6 +86,10 @@ msgstr "“Bạn đã đo lường dự án thiết kế lại onboarding như t
 msgid "(no header)"
 msgstr "(không có tiêu đề)"
 
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "(no summary)"
+msgstr ""
+
 #. placeholder {0}: proposals.length
 #: src/features/resume/editor/proposals/proposals.ts
 msgid "{0, plural, =1 {Edit applied} other {# edits applied}}"
@@ -1317,6 +1321,10 @@ msgstr "Thành tích"
 msgid "Account"
 msgstr "Tài khoản"
 
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Accuracy"
+msgstr ""
+
 #: src/features/career/knowledge/profile.tsx
 msgid "Achievement deleted"
 msgstr ""
@@ -1923,6 +1931,15 @@ msgstr "Nhà cung cấp AI không khả dụng trên máy chủ này cho đến 
 msgid "AI providers couldn't be loaded. Reload to try again."
 msgstr "Không thể tải nhà cung cấp AI. Hãy tải lại để thử lại."
 
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "AI review"
+msgstr ""
+
+#. placeholder {0}: review.score
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "AI review · {0} out of 10"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Albanian"
 msgstr "Tiếng Albania"
@@ -2325,6 +2342,7 @@ msgstr "Đã áp dụng. Đã đặt lịch theo dõi vào {0}."
 msgid "Applied. The application is updated."
 msgstr "Đã áp dụng. Hồ sơ ứng tuyển đã được cập nhật."
 
+#: src/features/applications/components/detail/assembly-review.tsx
 #: src/features/career/shared.tsx
 #: src/features/homepage/prepare.tsx
 msgid "Apply"
@@ -2452,6 +2470,10 @@ msgstr ""
 msgid "Assemble resume"
 msgstr ""
 
+#: src/features/applications/components/detail/sent-documents.tsx
+msgid "Assembled from your profile · Rate it and learn from your edits"
+msgstr ""
+
 #: src/features/assistant/assistant-button.tsx
 #: src/features/assistant/assistant-panel.tsx
 #: src/features/assistant/conversation.tsx
@@ -2484,6 +2506,11 @@ msgstr "Tại Northwind Labs, tôi dẫn dắt nghiên cứu cho dự án thiế
 #: src/features/homepage/remember.tsx
 msgid "At Northwind Labs, most new teams stalled before they finished setup."
 msgstr "Tại Northwind Labs, hầu hết các nhóm mới đều bị kẹt trước khi hoàn tất thiết lập."
+
+#. placeholder {0}: rendering.pdf.atsScore
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "ATS {0}"
+msgstr ""
 
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/homepage/footer.tsx
@@ -2705,6 +2732,11 @@ msgstr "Tiếng Bengal"
 #: src/features/resume/share/download-tab.tsx
 msgid "Best for applying"
 msgstr "Phù hợp nhất để ứng tuyển"
+
+#. placeholder {0}: rendering.pdf.blankPages.join(", ")
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "blank page {0}"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Blocker"
@@ -3006,6 +3038,10 @@ msgstr "Đổi múi giờ"
 msgid "Change your password"
 msgstr "Đổi mật khẩu của bạn"
 
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Changed by the reviewer"
+msgstr ""
+
 #: src/routes/builder/letter/-components/letter-bar.tsx
 msgid "Changed elsewhere"
 msgstr "Đã thay đổi ở nơi khác"
@@ -3269,6 +3305,10 @@ msgstr "Vòng tròn"
 msgid "Clarify"
 msgstr "Làm rõ"
 
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Clarity"
+msgstr ""
+
 #: src/features/homepage/sheet.tsx
 msgid "Classic"
 msgstr "Cổ điển"
@@ -3483,6 +3523,10 @@ msgstr "So sánh theo đơn vị tiền tệ và kỳ trả lương gốc. Việ
 #: src/features/career/workspace/practise.tsx
 msgid "Compared with your stories and the posting."
 msgstr "Đã so sánh với các câu chuyện của bạn và tin tuyển dụng."
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Compares the resume as it is now with what was generated. Used for wording only; your profile isn't changed."
+msgstr ""
 
 #: src/features/assistant/assistant-panel.tsx
 msgid "Compares your resume with the posting"
@@ -3866,6 +3910,10 @@ msgstr ""
 #: src/features/career/coach-thread.tsx
 msgid "Couldn't attach the file. Try again."
 msgstr "Không thể đính kèm tệp. Hãy thử lại."
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Couldn't change that line. Try again."
+msgstr ""
 
 #: src/routes/builder/letter/-components/design-panel.tsx
 msgid "Couldn't change the design. Try again."
@@ -4324,6 +4372,10 @@ msgstr "Không thể lưu các thay đổi của bạn. Hãy thử lại trướ
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Couldn't save your changes. Try again."
 msgstr "Không thể lưu thay đổi của bạn. Hãy thử lại."
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Couldn't save your feedback. Try again."
+msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
 msgid "Couldn't save your preferences. Try again."
@@ -5084,11 +5136,16 @@ msgstr "Ngắt kết nối"
 msgid "Disconnecting your {providerName} account…"
 msgstr "Đang ngắt kết nối tài khoản {providerName} của bạn…"
 
+#: src/features/applications/components/detail/assembly-review.tsx
 #: src/features/resume/editor/write/write-panel.tsx
 #: src/routes/builder/letter/-components/write-panel.tsx
 #: src/routes/dashboard/applications/index.tsx
 msgid "Dismiss"
 msgstr "Miễn nhiệm"
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Dismissed"
+msgstr ""
 
 #: src/routes/dashboard/settings/route.tsx
 msgid "Docs"
@@ -5242,6 +5299,7 @@ msgstr "Đã tải xuống sơ yếu lý lịch của bạn và bức thư này"
 msgid "downloads"
 msgstr "lượt tải xuống"
 
+#: src/features/applications/components/detail/assembly-review.tsx
 #: src/features/career/workspace/apply.tsx
 #: src/features/resume/editor/write/entry-card.tsx
 msgid "Draft"
@@ -5871,6 +5929,10 @@ msgstr "Xuất sơ yếu lý lịch dưới dạng PDF văn bản thay vì hình
 msgid "Export to CSV…"
 msgstr "Xuất sang CSV…"
 
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Exported files"
+msgstr ""
+
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "Exported PDF checked: {problems} more to look at."
 msgstr "Đã xuất PDF đã được kiểm tra: {problems} cần xem thêm."
@@ -6464,6 +6526,10 @@ msgstr "Đi đến bảng điều khiển"
 msgid "Go to…"
 msgstr "Đi đến…"
 
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Good"
+msgstr ""
+
 #: src/features/resume/share/download-tab.tsx
 msgid "Good luck out there. Reactive Resume stays free because people chip in."
 msgstr "Chúc may mắn ở ngoài đó. Reactive Resume vẫn miễn phí vì mọi người tham gia."
@@ -6726,6 +6792,10 @@ msgstr "Mọi việc thế nào?"
 msgid "How did it land?"
 msgstr "Được đón nhận thế nào?"
 
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "How did this resume turn out?"
+msgstr ""
+
 #: src/features/applications/components/insights-view.tsx
 msgid "How far applications get"
 msgstr "Đơn xin việc đi được bao xa"
@@ -6953,6 +7023,10 @@ msgstr "Cải thiện…"
 #: src/features/homepage/sections.tsx
 msgid "In good company"
 msgstr "Ở công ty tốt"
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "in your resume"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Increase line spacing so two lines are not merged into one."
@@ -7547,6 +7621,10 @@ msgstr "Dẫn đầu với kết quả và cho nó một thang đo."
 #: src/features/assistant/assistant-panel.tsx
 msgid "Leads with why you fit"
 msgstr "Dẫn đến lý do tại sao bạn phù hợp"
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Learn from my edits"
+msgstr ""
 
 #: src/features/career/offers.tsx
 msgid "Learning budget"
@@ -8624,6 +8702,10 @@ msgstr "lề hẹp"
 msgid "Needs attention"
 msgstr "Cần chú ý"
 
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Needs work"
+msgstr ""
+
 #: src/features/career/today.tsx
 msgid "Needs you"
 msgstr "Cần bạn xử lý"
@@ -8814,6 +8896,10 @@ msgstr "Không tìm thấy danh sách gạch đầu dòng nào."
 #: src/features/career/workspace/messages.tsx
 msgid "No change needed. It's already at {stage}."
 msgstr "Không cần thay đổi. Hồ sơ đã ở {stage}."
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "No changes suggested."
+msgstr ""
 
 #. Empty-state message when no command palette results match the search query
 #: src/features/command-palette/content.tsx
@@ -9449,6 +9535,10 @@ msgctxt "Entry header layout"
 msgid "One line"
 msgstr "Một dòng"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "One more request, to your model for reviewing resumes. It may reword lines; changes to what a line says wait for you."
+msgstr ""
+
 #: src/features/settings/resume-style.tsx
 msgid "One tight line"
 msgstr ""
@@ -9980,6 +10070,12 @@ msgstr "PDF, Word (DOCX), Markdown Và JSON. các JSON xuất khẩu nhập kh�
 msgid "PDF, Word or JSON. We'll build a resume from it."
 msgstr "PDF, Word hoặc JSON. Chúng ta sẽ xây dựng một bản lý lịch từ đó."
 
+#. placeholder {0}: rendering.pdf.pages
+#. placeholder {1}: percent(rendering.pdf.textCoverage)
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "PDF: {0, plural, one {# page} other {# pages}} · {1} of lines read back"
+msgstr ""
+
 #: src/features/homepage/sections.tsx
 msgid "People using it"
 msgstr "Mọi người sử dụng nó"
@@ -10353,6 +10449,10 @@ msgstr "In"
 msgid "Print or export the form to a flat PDF before sending it."
 msgstr "In hoặc xuất biểu mẫu thành PDF phẳng trước khi gửi."
 
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Priorities"
+msgstr ""
+
 #: src/features/resume/share/share-panel.tsx
 msgid "Privacy"
 msgstr "Quyền riêng tư"
@@ -10541,6 +10641,10 @@ msgstr "Tím"
 #: src/features/ats-checker/messages.ts
 msgid "Put a plain email address near the top of the first page. It is what most systems file you under."
 msgstr "Đặt một địa chỉ email đơn giản gần đầu trang một. Đây là thông tin mà hầu hết hệ thống dùng để lưu hồ sơ của bạn."
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Put back to the draft wording"
+msgstr ""
 
 #: src/features/homepage/sections.tsx
 msgid "Put it all on <0>one page.</0>"
@@ -10763,6 +10867,10 @@ msgstr "Điểm dễ đọc: {score}/100"
 
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Reading {fileName}…"
+msgstr ""
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "reading order differs"
 msgstr ""
 
 #: src/features/assistant/conversation.tsx
@@ -10995,6 +11103,10 @@ msgstr "Từ chối"
 msgid "Rejected"
 msgstr "Vật bị loại bỏ"
 
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Relevance"
+msgstr ""
+
 #: src/routes/builder/letter/-components/letter-bar.tsx
 msgid "Reload"
 msgstr "Tải lại"
@@ -11196,6 +11308,10 @@ msgstr "Sắp xếp lại {title}"
 #: src/features/ats-checker/report/jd-coverage.tsx
 msgid "Repeated far more often than the posting itself uses them: {0}. Recruiters notice."
 msgstr "Được lặp lại nhiều hơn hẳn so với chính tin tuyển dụng: {0}. Nhà tuyển dụng sẽ nhận ra điều này."
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Repetition"
+msgstr ""
 
 #: src/features/resume/editor/write/improve.tsx
 msgid "Replace"
@@ -11491,6 +11607,10 @@ msgstr "Xem lại các câu trả lời bắt buộc trong biểu mẫu và bỏ
 msgid "Review stories before adding"
 msgstr ""
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Review the draft with AI"
+msgstr ""
+
 #: src/features/career/workspace/apply.tsx
 msgid "Review the selected resume and cover letter in their editors."
 msgstr "Xem lại sơ yếu lý lịch và thư xin việc đã chọn trong trình chỉnh sửa của chúng."
@@ -11498,6 +11618,10 @@ msgstr "Xem lại sơ yếu lý lịch và thư xin việc đã chọn trong tr�
 #: src/features/resume/editor/check/writing-tab.tsx
 msgid "Review writing"
 msgstr "Đánh giá bài viết"
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Reviewer"
+msgstr ""
 
 #: src/features/career/workspace/debrief.tsx
 msgid "Reviewing needs an AI connection. <0>Add one in Settings</0>. What you write here stays in this browser until then."
@@ -12154,6 +12278,10 @@ msgstr "Bảng định kiểu CSS ngữ nghĩa"
 #: src/features/career/coach-thread.tsx
 msgid "Send"
 msgstr "Gửi"
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Send feedback"
+msgstr ""
 
 #. Primary action button label on forgot-password form
 #: src/features/auth/pages/forgot-password.tsx
@@ -13067,6 +13195,10 @@ msgstr ""
 msgid "Story not found"
 msgstr "Không tìm thấy câu chuyện"
 
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Strength"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "Strengthen"
 msgstr "Cần cải thiện"
@@ -13130,6 +13262,11 @@ msgstr "Thành công sau 90 ngày · bước tiếp theo"
 msgid "Suggest again"
 msgstr "Đề xuất lại"
 
+#. placeholder {0}: item.reason
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Suggested — needs your review: {0}"
+msgstr ""
+
 #: src/features/documents/new-document-dialog.tsx
 msgid "Suggested from the source and the job. Change it anytime."
 msgstr "Đề xuất từ ​​nguồn và công việc. Thay đổi nó bất cứ lúc nào."
@@ -13141,6 +13278,10 @@ msgstr "Thư trả lời gợi ý · chỉnh sửa trước khi gửi"
 #: src/features/settings/ai/providers.tsx
 msgid "Suggestions from <0>models.dev</0>. You can also enter any model ID."
 msgstr "Đề xuất từ ​​<0>models.dev</0>. Bạn cũng có thể nhập bất kỳ ID mẫu nào."
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Suggestions that would change what a line says wait for you. Apply one only if it's true; your master profile isn't changed either way."
+msgstr ""
 
 #: src/features/assistant/assistant-panel.tsx
 msgid "Suggests cuts, never deletes on its own"
@@ -13505,6 +13646,14 @@ msgstr "Cảm ơn bạn đã giữ nó miễn phí."
 #: src/features/homepage/remember.tsx
 msgid "Thanks, Sam. Here’s one: at Northwind Labs I led the onboarding redesign, from 14 customer interviews to a shorter setup."
 msgstr "Cảm ơn Sam. Đây là một ví dụ: tại Northwind Labs, tôi dẫn dắt dự án thiết kế lại onboarding, từ 14 cuộc phỏng vấn khách hàng đến quy trình thiết lập ngắn hơn."
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Thanks. Later resumes will follow your feedback and {learned} edited lines."
+msgstr ""
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Thanks. Later resumes will follow your feedback."
+msgstr ""
 
 #: src/features/ats-checker/checker.tsx
 msgid "That file couldn't be read as a PDF. Choose a PDF file and try again."
@@ -14236,6 +14385,7 @@ msgstr "Hôm nay, {hour}"
 msgid "Tomorrow"
 msgstr "Ngày mai"
 
+#: src/features/applications/components/detail/assembly-review.tsx
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/settings/resume-style.tsx
 msgid "Tone"
@@ -14845,6 +14995,14 @@ msgstr "Sử dụng tin tuyển dụng"
 msgid "Use sample"
 msgstr "Dùng mẫu"
 
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Use the draft wording"
+msgstr ""
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Use the reviewer's wording"
+msgstr ""
+
 #: src/features/resume/editor/check/issues.ts
 msgid "Use the standard heading"
 msgstr "Sử dụng tiêu đề tiêu chuẩn"
@@ -15324,6 +15482,14 @@ msgstr "Họ yêu cầu bạn chuẩn bị gì"
 msgid "What to do"
 msgstr "phải làm gì"
 
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "What to do differently"
+msgstr ""
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "What to keep or do differently next time, e.g. \"Less formal\" or \"Lead with results\""
+msgstr ""
+
 #: src/features/career/knowledge/stories.tsx
 msgid "What was happening before you started?"
 msgstr "Điều gì đang diễn ra trước khi bạn bắt đầu?"
@@ -15502,6 +15668,11 @@ msgstr "Trong một quý, tỷ lệ kích hoạt tăng từ 31% lên 44%."
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Without one, you fill in the recipient yourself and drafting uses only your resume."
 msgstr "Nếu không có ai, bạn sẽ tự điền thông tin người nhận và việc soạn thảo chỉ sử dụng lý lịch của bạn."
+
+#. placeholder {0}: percent(rendering.docx.textCoverage)
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Word: {0} of lines read back"
+msgstr ""
 
 #: src/features/applications/components/detail/assemble-dialog.tsx
 msgid "Wording"
