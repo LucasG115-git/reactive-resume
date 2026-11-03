@@ -432,6 +432,12 @@ msgstr "{0} ώρ."
 msgid "{0} in {1} is {2} in your timezone ({preferredZone})."
 msgstr "Η ώρα {0} σε {1} αντιστοιχεί σε {2} στη ζώνη ώρας σας ({preferredZone})."
 
+#. placeholder {0}: item.inputTokens.toLocaleString()
+#. placeholder {1}: item.outputTokens.toLocaleString()
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "{0} in, {1} out"
+msgstr ""
+
 #. placeholder {0}: interviewKindOf(upcoming.kind)?.label ?? ""
 #. placeholder {0}: kind?.label ?? entry.kind
 #: src/features/applications/components/detail/activity.tsx
@@ -540,6 +546,11 @@ msgstr "{0} τεκμηριωμένα, {1} μερικώς τεκμηριωμέν�
 msgid "{0} to fix"
 msgstr "{0} προς διόρθωση"
 
+#. placeholder {0}: total.toLocaleString()
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "{0} tokens in total"
+msgstr ""
+
 #. placeholder {0}: title || t`Untitled`
 #. placeholder {1}: index + 1
 #: src/features/resume/editor/write/entry-card.tsx
@@ -555,6 +566,11 @@ msgstr "{0}, δεν είναι μία από τις τοποθεσίες σας"
 #: src/features/resume/editor/check/actions.ts
 msgid "{0}. Issue resolved."
 msgstr "{0}. Το θέμα επιλύθηκε."
+
+#. placeholder {0}: Math.round(test.latencyMs / 100) / 10
+#: src/features/settings/ai/task-models.tsx
+msgid "{0}s"
+msgstr ""
 
 #. placeholder {0}: proposals.length
 #: src/features/assistant/conversation.tsx
@@ -3020,6 +3036,7 @@ msgstr "Αλλαγή του κωδικού πρόσβασής σας…"
 
 #: src/features/homepage/footer.tsx
 #: src/features/homepage/header.tsx
+#: src/features/settings/ai/task-models.tsx
 #: src/routes/builder/$resumeId/-components/editor-bar.tsx
 #: src/routes/builder/$resumeId/-components/editor-shell.tsx
 msgid "Check"
@@ -3154,6 +3171,10 @@ msgstr "Έλεγχος… Η αντιγραφή είναι διαθέσιμη μ
 msgid "Checklist progress"
 msgstr "Πρόοδος λίστας ελέγχου"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Checks a finished resume for relevance, strength and tone."
+msgstr ""
+
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "Checks by category"
 msgstr "Έλεγχοι ανά κατηγορία"
@@ -3235,6 +3256,10 @@ msgstr ""
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Choose where each stage named in the file goes, or add it as a new stage."
 msgstr "Επιλέξτε πού θα αντιστοιχιστεί κάθε στάδιο που αναφέρεται στο αρχείο ή προσθέστε το ως νέο στάδιο."
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Choosing evidence"
+msgstr ""
 
 #: src/components/level/combobox.tsx
 msgid "Circle"
@@ -3552,6 +3577,10 @@ msgstr "Συνδέστε έναν πάροχο AI στις Ρυθμίσεις γ
 msgid "Connect an application"
 msgstr "Συνδέστε μια εφαρμογή"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Connect and test an AI provider above to choose models for each task."
+msgstr ""
+
 #: src/features/assistant/assistant-panel.tsx
 #: src/features/career/coach.tsx
 msgid "Connect another…"
@@ -3581,6 +3610,11 @@ msgstr "Συνδέθηκε. Ο τομέας σας ανοίγει το κύρι�
 #: src/features/settings/account/auth-hooks.ts
 msgid "Connecting your {providerName} account…"
 msgstr "Σύνδεση του λογαριασμού σας {providerName}…"
+
+#. placeholder {0}: labels[target].title
+#: src/features/settings/ai/task-models.tsx
+msgid "Connection for {0}"
+msgstr ""
 
 #: src/features/settings/ai/web-access.tsx
 msgid "Connection saved"
@@ -4046,6 +4080,10 @@ msgstr "Δεν ήταν δυνατή η φόρτωση εγγράφων"
 msgid "Couldn't load interviews. Retry"
 msgstr "Δεν ήταν δυνατή η φόρτωση των συνεντεύξεων. Δοκιμάστε ξανά"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Couldn't load model settings. Reload to try again."
+msgstr ""
+
 #: src/features/settings/ai/web-access.tsx
 msgid "Couldn't load or save web access settings. Try again."
 msgstr "Δεν ήταν δυνατή η φόρτωση ή η αποθήκευση των ρυθμίσεων πρόσβασης στο web. Προσπαθήστε ξανά."
@@ -4191,6 +4229,14 @@ msgstr "Δεν ήταν δυνατή η ανάκληση του κλειδιού
 #: src/features/settings/ai/connected-apps.tsx
 msgid "Couldn't revoke this connection. Try again."
 msgstr "Δεν ήταν δυνατή η ανάκληση αυτής της σύνδεσης. Προσπαθήστε ξανά."
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Couldn't run the check. Try again."
+msgstr ""
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Couldn't save model settings. Try again."
+msgstr ""
 
 #: src/features/career/knowledge/profile.tsx
 msgid "Couldn't save that achievement. Try again."
@@ -4758,6 +4804,14 @@ msgstr ""
 msgid "Default"
 msgstr "Προεπιλογή"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Default connection"
+msgstr ""
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Default quality for tailored resumes"
+msgstr ""
+
 #: src/features/resume/editor/write/entries.tsx
 msgid "Degree"
 msgstr "Πτυχίο"
@@ -5004,6 +5058,7 @@ msgid "Digital Marketing"
 msgstr ""
 
 #: src/features/career/schedule-sheet.tsx
+#: src/features/settings/ai/task-models.tsx
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Discard"
 msgstr "Απορρίψτε"
@@ -5725,6 +5780,10 @@ msgstr ""
 msgid "Everything the coach wrote for {0}, newest first."
 msgstr "Όλα όσα έγραψε ο σύμβουλος για την εταιρεία {0}, με τα νεότερα πρώτα."
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Evidence review and writing use your Thorough model. It usually costs more and takes longer."
+msgstr ""
+
 #: src/features/settings/resume-style.tsx
 msgid "Example added"
 msgstr ""
@@ -5871,6 +5930,10 @@ msgstr "Γεγονότα, ιστορίες και προτιμήσεις που 
 msgid "Failed"
 msgstr "Αποτυχημένος"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "fallback"
+msgstr ""
+
 #: src/features/homepage/footer.tsx
 msgid "Features"
 msgstr "Δυνατότητες"
@@ -5931,6 +5994,10 @@ msgstr "Συμπληρώστε τον ρόλο και την εταιρεία. �
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Fill in the role and company. The posting is saved with the application."
 msgstr "Συμπληρώστε το ρόλο και την εταιρεία. Η αγγελία εργασίας αποθηκεύεται με την αίτηση εργασίας."
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Fill suggested OpenAI models"
+msgstr ""
 
 #: src/features/career/knowledge/profile.tsx
 msgid "Fill your profile from a resume you already have"
@@ -6598,6 +6665,10 @@ msgstr "Απόκρυψη της φωτογραφίας"
 msgid "High"
 msgstr "Ψηλά"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "High effort"
+msgstr ""
+
 #: src/features/resume/editor/write/rich-text-editor-field.tsx
 msgid "Highlight"
 msgstr "Επισήμανση"
@@ -7199,9 +7270,17 @@ msgstr "Συμμετοχή στο Discord"
 msgid "Join the Discord community"
 msgstr "Γίνετε μέλος της κοινότητας στο Discord"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "JSON failed"
+msgstr ""
+
 #: src/features/resume/import/read-file.ts
 msgid "JSON read"
 msgstr "JSON διαβάστηκε"
+
+#: src/features/settings/ai/task-models.tsx
+msgid "JSON works"
+msgstr ""
 
 #: src/features/resume/editor/write/rich-text-editor-field.tsx
 msgid "Justify"
@@ -7843,6 +7922,10 @@ msgstr "Φόρτωση της Γνώσης πριν από την αποστολ
 msgid "Loading linked documents…"
 msgstr "Φόρτωση συνδεδεμένων εγγράφων…"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Loading model settings…"
+msgstr ""
+
 #: src/features/settings/ai/providers.tsx
 msgid "Loading model suggestions… You can also enter any model ID."
 msgstr "Φόρτωση προτάσεων μοντέλων… Μπορείτε επίσης να εισαγάγετε οποιοδήποτε αναγνωριστικό μοντέλου."
@@ -7930,6 +8013,10 @@ msgstr "Χάσατε την πρόσβαση στην εφαρμογή ελέγ�
 #: src/features/resume/editor/check/writing-tab.tsx
 msgid "Low"
 msgstr "Χαμηλός"
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Low effort"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 msgid "Lower the design sheet"
@@ -8136,6 +8223,10 @@ msgstr "διάμεσος στην πρώτη απάντηση"
 msgid "Medium"
 msgstr "Μέσον"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Medium effort"
+msgstr ""
+
 #: src/features/homepage/prepare.tsx
 msgid "Mentor other designers"
 msgstr "Καθοδήγηση άλλων σχεδιαστών"
@@ -8219,9 +8310,18 @@ msgstr "μικτή μορφή"
 msgid "Model"
 msgstr "Μοντέλο"
 
+#. placeholder {0}: labels[target].title
+#: src/features/settings/ai/task-models.tsx
+msgid "Model for {0}"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "Model for {label}"
 msgstr "Μοντέλο για {label}"
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Model settings saved"
+msgstr ""
 
 #: src/features/settings/ai/providers.tsx
 msgid "Model suggestions are unavailable. You can still enter any model ID."
@@ -8230,6 +8330,18 @@ msgstr "Οι προτάσεις μοντέλων δεν είναι διαθέσ�
 #: src/features/assistant/assistant-panel.tsx
 msgid "Model: {label}"
 msgstr "Μοντέλο: {label}"
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Models for each task"
+msgstr ""
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Models used"
+msgstr ""
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Models used (Thorough)"
+msgstr ""
 
 #: src/features/homepage/sheet.tsx
 msgid "Mono"
@@ -8926,6 +9038,10 @@ msgstr "Δεν ήταν δυνατή η ανάγνωση κειμένου από
 msgid "No timezone matches."
 msgstr "Καμία ζώνη ώρας δεν ταιριάζει."
 
+#: src/features/settings/ai/task-models.tsx
+msgid "no tool calls"
+msgstr ""
+
 #: src/features/applications/components/detail/selection-review.tsx
 msgid "No verified evidence"
 msgstr ""
@@ -9005,6 +9121,10 @@ msgstr "Δεν έχει υποβληθεί ακόμα"
 msgid "Not available while the resume needs a password."
 msgstr "Δεν είναι διαθέσιμο όσο το βιογραφικό απαιτεί κωδικό."
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Not checked yet. Check it before relying on it."
+msgstr ""
+
 #: src/features/settings/account/security.tsx
 msgid "Not connected"
 msgstr "Δεν είναι συνδεδεμένο"
@@ -9077,6 +9197,7 @@ msgid "Not selected"
 msgstr "Δεν έχει επιλεγεί"
 
 #: src/features/career/knowledge/profile.tsx
+#: src/features/settings/ai/task-models.tsx
 msgid "Not set"
 msgstr ""
 
@@ -9987,6 +10108,7 @@ msgid "Polish"
 msgstr "Πολωνικά"
 
 #: src/features/career/shared.tsx
+#: src/features/settings/ai/task-models.tsx
 msgid "Polishing"
 msgstr "Γυάλισμα"
 
@@ -10360,6 +10482,10 @@ msgstr "Παρέχεται από τον διακομιστή σας: {connected
 msgid "Provider"
 msgstr "Πάροχος"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Provider default"
+msgstr ""
+
 #: src/features/documents/document-card.tsx
 #: src/features/documents/documents-page.tsx
 #: src/features/homepage/share.tsx
@@ -10436,6 +10562,10 @@ msgstr "Κωδικός QR για {url}"
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "QR code for two-step verification"
 msgstr "Κωδικός QR για επαλήθευση δύο βημάτων"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Quality"
+msgstr ""
 
 #: src/features/applications/components/detail/assemble-dialog.tsx
 msgid "Quality checks"
@@ -10639,6 +10769,10 @@ msgstr ""
 msgid "Reading page…"
 msgstr "Διαβάζοντας τη σελίδα…"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Reading postings"
+msgstr ""
+
 #: src/features/documents/new-document-dialog.tsx
 msgid "Reading the file"
 msgstr "Διαβάζοντας το αρχείο"
@@ -10710,6 +10844,19 @@ msgstr "Ετοιμος"
 #: src/features/applications/components/detail/close-dialog.tsx
 msgid "Reason"
 msgstr "Λόγος"
+
+#: src/features/settings/ai/task-models.tsx
+msgid "reasoning effort accepted"
+msgstr ""
+
+#. placeholder {0}: labels[target].title
+#: src/features/settings/ai/task-models.tsx
+msgid "Reasoning effort for {0}"
+msgstr ""
+
+#: src/features/settings/ai/task-models.tsx
+msgid "reasoning effort not accepted"
+msgstr ""
 
 #: src/features/career/knowledge/profile.tsx
 msgid "Rebuilt the volunteer portal on WordPress, cutting coordinator admin time by 40%"
@@ -11066,6 +11213,10 @@ msgstr "Αντικαταστήστε τους πίνακες με απλές π�
 msgid "Replaces “{current}” on the application."
 msgstr "Αντικαθιστά το \"{current}\" στην αίτηση."
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Replaces the models for choosing evidence, writing and reviewing, only when you choose Thorough."
+msgstr ""
+
 #: src/features/career/workspace/saved.tsx
 #: src/features/homepage/remember.tsx
 msgid "Reply"
@@ -11352,6 +11503,14 @@ msgstr "Κριτική γραφής"
 msgid "Reviewing needs an AI connection. <0>Add one in Settings</0>. What you write here stays in this browser until then."
 msgstr "Ο έλεγχος χρειάζεται σύνδεση AI. <0>Προσθέστε μία στις Ρυθμίσεις</0>. Ό,τι γράφετε εδώ μένει σε αυτό το πρόγραμμα περιήγησης μέχρι τότε."
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Reviewing resumes"
+msgstr ""
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Reviews which of your achievements fit a posting."
+msgstr ""
+
 #: src/features/settings/ai/api-keys.tsx
 msgid "Revoke"
 msgstr "Ανακαλώ"
@@ -11586,6 +11745,10 @@ msgstr "Αποθήκευση συνέντευξης"
 msgid "Save job"
 msgstr "Αποθήκευση εργασίας"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Save models"
+msgstr ""
+
 #: src/features/settings/account/security.tsx
 msgid "Save name"
 msgstr "Αποθήκευση ονόματος"
@@ -11619,6 +11782,10 @@ msgstr "Αποθήκευση αυτών των όρων προσφοράς γι�
 msgid "Save this story to Knowledge?"
 msgstr "Να αποθηκευτεί αυτή η ιστορία στη Γνώση;"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Save to check this setting"
+msgstr ""
+
 #: src/features/career/workspace/fit.tsx
 msgid "Save to Knowledge"
 msgstr "Αποθήκευση στη Γνώση"
@@ -11630,6 +11797,10 @@ msgstr "Αποθήκευση στην αίτηση εργασίας"
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Save your backup codes"
 msgstr "Αποθηκεύστε τους εφεδρικούς κωδικούς σας"
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Save, then check this model."
+msgstr ""
 
 #: src/features/resume/share/format.ts
 msgid "saved"
@@ -12092,6 +12263,10 @@ msgstr "Ορίστε μια συνέχεια…"
 msgid "Set a password"
 msgstr "Ορίστε έναν κωδικό πρόσβασης"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Set a Thorough model to make Thorough available. Standard uses the models above."
+msgstr ""
+
 #: src/features/career/preference-check.tsx
 msgid "Set aside for this role"
 msgstr ""
@@ -12190,6 +12365,10 @@ msgstr "Κοντός και ευγενικός, για τον στρατολόγ
 #: src/features/resume/share/share-panel.tsx
 msgid "Short link and domain"
 msgstr "Σύντομος σύνδεσμος και τομέας"
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Short rewrites: application answers and replies."
+msgstr ""
 
 #: src/features/career/workspace/apply.tsx
 msgid "Shorten questions to 2,000 characters and answers to 6,000 characters before marking this applied."
@@ -12695,6 +12874,11 @@ msgstr "Στάδια"
 
 #: src/features/career/knowledge/profile.tsx
 msgid "stakeholder management, nonprofit"
+msgstr ""
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+#: src/features/settings/ai/task-models.tsx
+msgid "Standard"
 msgstr ""
 
 #: src/features/homepage/check.tsx
@@ -13961,6 +14145,21 @@ msgstr "Αυτή την εβδομάδα: κάντε τα τεκμήριά σα�
 msgid "This workspace couldn't be loaded."
 msgstr "Δεν ήταν δυνατή η φόρτωση αυτού του χώρου εργασίας."
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+#: src/features/settings/ai/task-models.tsx
+msgid "Thorough"
+msgstr ""
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Thorough model"
+msgstr ""
+
+#. placeholder {0}: thousands(thoroughShare.input)
+#. placeholder {1}: thousands(thoroughShare.output)
+#: src/features/settings/ai/task-models.tsx
+msgid "Thorough sends about {0} input and {1} output tokens per resume to the Thorough model instead, billed at its rates. You can switch per resume."
+msgstr ""
+
 #: src/features/command-palette/pages/resumes.tsx
 msgid "Threads"
 msgstr "Νήματα"
@@ -14049,6 +14248,10 @@ msgstr "Πολύ ελαφρύ για επικεφαλίδες σε λευκό. �
 #: src/features/settings/ai/web-access.tsx
 msgid "Too many requests. Try again later."
 msgstr "Πάρα πολλά αιτήματα. Δοκιμάστε ξανά αργότερα."
+
+#: src/features/settings/ai/task-models.tsx
+msgid "tool calls work"
+msgstr ""
 
 #: src/features/homepage/sections.tsx
 msgid "Total"
@@ -14205,6 +14408,10 @@ msgstr "Απενεργοποίηση επαλήθευσης δύο βημάτω�
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Turning on two-step verification…"
 msgstr "Ενεργοποίηση επαλήθευσης δύο βημάτων…"
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Turns postings and files into fields and ranked requirements."
+msgstr ""
 
 #: src/features/resume/editor/design/template-group.tsx
 #: src/features/templates/gallery.tsx
@@ -14534,6 +14741,10 @@ msgstr "Χρησιμοποιήστε έως 64 χαρακτήρες."
 msgid "Use a darker shade"
 msgstr "Χρησιμοποιήστε μια πιο σκούρα απόχρωση"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Use a faster model for reading and a stronger one for writing. Anything left blank uses your default provider and its model."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Use a plain international form, such as +1 555 010 1234."
 msgstr "Χρησιμοποιήστε μια απλή διεθνή μορφή, όπως +1 555 010 1234."
@@ -14702,6 +14913,10 @@ msgstr "Χρησιμοποιεί στοιχεία από το βιογραφικ
 #: src/features/assistant/assistant-panel.tsx
 msgid "Uses the linked application"
 msgstr "Χρησιμοποιεί τη συνδεδεμένη αίτηση εργασίας"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Uses the model set for each task."
+msgstr ""
 
 #: src/features/career/schedule-sheet.tsx
 msgid "Uses the web search service set up in Settings. Results wait in Today for your review; applications and documents are never created for you."
@@ -15415,6 +15630,10 @@ msgstr "Γράψτε την απάντησή σας ή συντάξτε ένα �
 msgid "Write your professional resume"
 msgstr "Γράψτε το επαγγελματικό σας βιογραφικό"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Writes the tailored resume from your reviewed selection."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/resume/editor/check/check-panel.tsx
@@ -15429,6 +15648,10 @@ msgstr "Σύνταξη απάντησης…"
 #: src/features/settings/ai/providers.tsx
 msgid "Writing help, tailored suggestions and the assistant. The default provider is used wherever you don't pick one. Your keys stay encrypted."
 msgstr "Βοήθεια γραφής, προσαρμοσμένες προτάσεις και ο βοηθός. Ο προεπιλεγμένος πάροχος χρησιμοποιείται όπου δεν επιλέγετε κάποιον. Τα κλειδιά σας παραμένουν κρυπτογραφημένα."
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Writing resumes"
+msgstr ""
 
 #: src/features/homepage/sections.tsx
 msgid "writing, tailoring and sending"

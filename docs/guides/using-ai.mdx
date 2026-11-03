@@ -121,6 +121,28 @@ You can save several providers, for example one per account or one per model.
 - The **assistant** lets you switch models from the model menu in its header at any time. See [Using the assistant](/guides/using-the-assistant).
 - **Check → Writing** lets you pick the provider for each review.
 
+## Models for each task
+
+**Settings → AI & developer → Models for each task** lets tailored resumes and other AI steps use different models: a fast one for reading postings and a stronger one for writing, for example. Anything you leave blank uses your default provider and its model, so nothing changes until you set it.
+
+| Task              | Used for                                                            |
+| ----------------- | ------------------------------------------------------------------- |
+| Reading postings  | Reading a posting or file into fields, and the job analysis         |
+| Choosing evidence | Reviewing which of your achievements fit a posting                  |
+| Writing resumes   | Wording bullets, the summary and the headline for a tailored resume |
+| Polishing         | Application answers and replies                                     |
+| Reviewing resumes | Reviewing a finished resume                                         |
+
+For each task, choose a **connection** (or the default), a **model name** on it (or the connection's own model) and a **reasoning effort**. Reasoning effort is sent only to OpenAI, OpenAI-compatible, Vercel AI Gateway and OpenRouter connections. Select **Save models**, then **Check** on each one: it tests that the model returns JSON, whether it can call tools, and whether it accepts the reasoning effort. A model that rejects the reasoning effort fails the check: set it to **Provider default**.
+
+If your default provider is an OpenAI connection, **Fill suggested OpenAI models** fills blank tasks with suggestions. They are suggestions only: check each before relying on it, because the models available depend on your account.
+
+If a model name isn't available when a step runs, the step uses the connection's own model instead and the report says so. If a chosen connection is turned off or deleted, the default is used.
+
+### Standard and Thorough
+
+**Thorough** uses the **Thorough model** for choosing evidence, writing and reviewing; reading postings and polishing keep their own models. It's available once you set a Thorough model. **Default quality for tailored resumes** starts as **Standard**, and you can switch for one resume when you tailor it (see [Tailoring a resume for a job](/guides/tailoring-a-resume-for-a-job)). Thorough models usually cost more and take longer, so the setting shows roughly how many tokens a resume sends to it. After assembling, **Models used** lists each step's model and its token counts.
+
 ## Connect from the assistant instead
 
 If no provider is connected yet, opening the assistant in the editor shows **Connect an AI provider** with OpenAI, Anthropic and **Other · OpenAI-compatible**. Enter your key and model there and select **Connect**. It saves and tests the provider the same way as settings. For the other providers, use **AI & developer**.

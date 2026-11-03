@@ -96,7 +96,12 @@ export const masterProfileRouter = {
 					"Analyses the application's posting into ranked requirements (reused while the posting is unchanged unless reanalyze is set), ranks every eligible master-profile record against them, has the default AI connection review the strongest, and saves a Resume Selection Plan. The user's earlier include/exclude choices carry over. The profile is never changed.",
 			})
 			.use(aiRequestRateLimit)
-			.input(applicationInput.extend({ reanalyze: z.boolean().optional() }))
+			.input(
+				applicationInput.extend({
+					reanalyze: z.boolean().optional(),
+					quality: z.enum(["standard", "thorough"]).optional(),
+				}),
+			)
 			.output(selectionSchema)
 			.errors({ BAD_GATEWAY: { message: "The AI provider returned an error or couldn't be reached.", status: 502 } })
 			.handler(({ context, input, signal }) => selectionService.propose(context.user.id, input, { signal })),

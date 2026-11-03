@@ -1,5 +1,6 @@
 import { agentRouter } from "../features/agent/router";
 import { aiProvidersRouter } from "../features/ai-providers/router";
+import { aiTasksRouter } from "../features/ai-tasks/router";
 import { aiRouter } from "../features/ai/router";
 import { applicationsRouter } from "../features/applications/router";
 import { authRouter } from "../features/auth/router";
@@ -19,6 +20,7 @@ import { webAccessRouter } from "../features/web-access/router";
 export default {
 	ai: aiRouter,
 	aiProviders: aiProvidersRouter,
+	aiTasks: aiTasksRouter,
 	agent: agentRouter,
 	applications: applicationsRouter,
 	auth: authRouter,

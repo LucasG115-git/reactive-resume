@@ -239,6 +239,50 @@ describe.skipIf(!databaseUrl)("resume selection plans", () => {
 		expect(reset?.plan.totals.includedEntries).toBe(1);
 	});
 
+	it("keeps task model settings, uses the saved quality and records each step's usage", async () => {
+		await seedProfile();
+		const { aiTasksService } = await import("../../ai-tasks/service");
+		const defaults = await aiTasksService.get("alice");
+		expect(defaults.quality).toBe("standard");
+		const saved = await aiTasksService.save("alice", {
+			...defaults,
+			quality: "thorough",
+			tasks: { ...defaults.tasks, writing: { ...defaults.tasks.writing, model: "writer-model" } },
+			thorough: { ...defaults.thorough, model: "deep-model", reasoningEffort: "high" },
+		});
+		expect((await aiTasksService.get("alice")).thorough.model).toBe("deep-model");
+		expect(saved.tasks.extraction.model).toBeNull();
+		expect((await aiTasksService.get("bob")).thorough.model).toBeNull();
+
+		const seen: Array<[string, string | undefined]> = [];
+		const counted: AskModel = async (input) => {
+			seen.push([input.task, input.quality]);
+			const answer = await ask(input);
+			if (input.task === "writing") return { model: "stub/write", output: input.schema.parse({}) };
+			return { ...answer, usage: { inputTokens: 100, outputTokens: 20 } };
+		};
+		const proposed = await selection.propose(
+			"alice",
+			{ applicationId: "alice-app", quality: "thorough" },
+			{ ask: counted },
+		);
+		expect(seen).toEqual([
+			["extraction", "thorough"],
+			["evidence", "thorough"],
+		]);
+		expect(proposed?.plan.usage.map((item) => [item.step, item.task, item.inputTokens])).toEqual([
+			["analysis", "extraction", 100],
+			["review", "evidence", 100],
+		]);
+
+		// No quality in the request: the saved default (Thorough) is used for writing.
+		seen.length = 0;
+		const built = await assemble.assemble("alice", { applicationId: "alice-app", mode: "rephrase" }, { ask: counted });
+		expect(seen).toEqual([["writing", "thorough"]]);
+		expect(built.result.writing?.quality).toBe("thorough");
+		expect(built.result.writing?.usage.map((item) => [item.step, item.model])).toEqual([["writing", "stub/write"]]);
+	});
+
 	it("asks for a posting and achievements first", async () => {
 		await expect(selection.propose("bob", { applicationId: "bob-app" }, { ask })).rejects.toMatchObject({
 			code: "BAD_REQUEST",

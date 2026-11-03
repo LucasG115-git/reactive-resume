@@ -1,4 +1,4 @@
-import type { LanguageModel } from "ai";
+import type { LanguageModel, LanguageModelUsage } from "ai";
 import { ORPCError } from "@orpc/client";
 import { generateText } from "ai";
 import { z } from "zod";
@@ -19,6 +19,8 @@ export function aiDeadline(signal?: AbortSignal) {
 	return signal ? AbortSignal.any([signal, timeout]) : timeout;
 }
 
+export type ProviderOptions = Parameters<typeof generateText>[0]["providerOptions"];
+
 export type GenerateJsonPrompt = {
 	system?: string;
 	prompt: string;
@@ -36,13 +38,20 @@ export async function generateJson<T>(
 	{ system, prompt }: GenerateJsonPrompt,
 	schema: z.ZodType<T>,
 	signal?: AbortSignal,
+	/** Provider settings (reasoning effort) and a callback for the tokens used. */
+	options: {
+		providerOptions?: ProviderOptions | undefined;
+		onUsage?: ((usage: LanguageModelUsage) => void) | undefined;
+	} = {},
 ): Promise<T> {
-	const { text } = await generateText({
+	const { text, usage } = await generateText({
 		model,
 		abortSignal: aiDeadline(signal),
 		system: `${safetySystemPrompt}\n\n${system ?? ""}`,
 		messages: [{ role: "user", content: prompt }],
+		...(options.providerOptions ? { providerOptions: options.providerOptions } : {}),
 	});
+	options.onUsage?.(usage);
 
 	const fenceStart = text.indexOf("```");
 	const fenceEnd = fenceStart === -1 ? -1 : text.indexOf("```", fenceStart + 3);

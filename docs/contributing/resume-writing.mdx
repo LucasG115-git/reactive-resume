@@ -40,6 +40,16 @@ Other regions (US, UK, Australia, other) change spelling, personal-detail guidan
 - **Examples** (up to 6) are stored as text when added (from a resume via its Markdown, or from a PDF/DOCX/text upload). Saves can rename, annotate or remove examples but never change their text. The writer receives up to two excerpts (2,500 characters) as `STYLE_EXAMPLES`, for style only; a rewrite sharing six or more consecutive words with an example that aren't in the record is rejected.
 - The report stores which preset was used (`writing.style`).
 
+## Task models
+
+`@reactive-resume/schema/ai-tasks`, stored per user in `ai_task_settings` (migration `20261103183158_ai_task_settings`), API `aiTasks.{get, save, check}`, UI **Settings → AI & developer → Models for each task**.
+
+- **Tasks**: `extraction` (posting fields and job analysis), `evidence` (selection review), `writing` (resume wording), `polish` (career answers and replies when no schedule chose a connection), `review` (the resume reviewer). Each holds `providerId` (null: default connection), `model` (null: the connection's model) and `reasoningEffort` (sent as provider options only to OpenAI-like providers; see `reasoningOptions`).
+- **Quality**: `standard` (default) or `thorough`. Thorough swaps the `thorough` setting in for `THOROUGH_TASKS` (evidence, writing, review) only when it has a model or connection (`taskSetting`). Requests pass `quality`; the assemble service otherwise uses the saved default. Nothing routes to the Thorough model without the user choosing it.
+- **Resolution**: `ai-tasks/resolve.ts` builds the model; an unknown model name (`isUnavailableModel`: 404, or a 400/403 naming the model) retries once with the connection's own model and records `fallback` with a note. `selection/model.ts` (`askDefaultModel`) and `applications/ai.ts` (`generateJson` `fallback` option) both apply it.
+- **Check**: `ai-tasks/check.ts` runs a small JSON request (with the reasoning option; on failure it retries without it, and a success then reports `rejected` and fails the check) and a forced tool call; the result is saved as `lastTest` and cleared when the setting changes.
+- **Usage**: every model call records `{step, task, model, inputTokens, outputTokens, fallback}` on the selection plan (`plan.usage`) and the writing report (`writing.usage`, with `quality`). `TASK_TOKEN_ESTIMATES` gives the rough per-resume figures shown in settings. Suggested OpenAI model names (`SUGGESTED_OPENAI_MODELS`) are filled only on request and are never hard-coded defaults.
+
 ## Quality checks
 
 | Severity                        | Codes                                                                                                                                                                                                                                                                                                                                                                          |
@@ -50,7 +60,7 @@ Other regions (US, UK, Australia, other) change spelling, personal-detail guidan
 
 ## Tests
 
-`writing/writing.test.ts`: skill choice (evidence, overlaps, soft skills, user choices, the maximum), group validation and fallback, qualifier and tool checks, rejection of invented numbers, tools, headline words and summary facts, every planned achievement worded, communications / web development / project management resumes built from plans with no error findings, tampered resumes producing each error code, length warnings without cutting, and the fallback to the user's own wording when the AI's answer is unreadable. `selection/service.integration.test.ts` checks the report is stored with the assembly.
+`writing/writing.test.ts`: skill choice (evidence, overlaps, soft skills, user choices, the maximum), group validation and fallback, qualifier and tool checks, rejection of invented numbers, tools, headline words and summary facts, every planned achievement worded, communications / web development / project management resumes built from plans with no error findings, tampered resumes producing each error code, length warnings without cutting, and the fallback to the user's own wording when the AI's answer is unreadable. `selection/service.integration.test.ts` checks the report is stored with the assembly. `ai-tasks/resolve.test.ts`: Thorough applies only to its tasks and only when set, reasoning options per provider, unknown-model detection, default and chosen connections, and the fallback retry with usage.
 
 ## Limitations
 
