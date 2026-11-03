@@ -126,6 +126,14 @@ export const qualityFindingSchema = z.object({
 		"personal-details",
 		"heading",
 		"placeholder",
+		// Rendering validation: the exported files, read back.
+		"render-failed",
+		"render-blank-page",
+		"render-text-missing",
+		"render-reading-order",
+		"render-pages",
+		"render-ats",
+		"docx-text-missing",
 	]),
 	severity: z.enum(["error", "warning", "info"]),
 	message: z.string(),
@@ -141,6 +149,80 @@ export const skillGroupSchema = z.object({
 	skillIds: z.array(z.string()),
 });
 export type SkillGroup = z.infer<typeof skillGroupSchema>;
+
+// ---- AI review ----
+
+export const REVIEW_CATEGORIES = [
+	"relevance",
+	"strength",
+	"prioritization",
+	"tone",
+	"clarity",
+	"redundancy",
+	"accuracy",
+] as const;
+
+/** A judgment the reviewer made about the draft. Advice only; it changes nothing by itself. */
+export const reviewFindingSchema = z.object({
+	category: z.enum(REVIEW_CATEGORIES),
+	severity: z.enum(["high", "medium", "low"]),
+	message: z.string(),
+	/** "summary", "headline", "skills", or the achievement id of a bullet. */
+	ref: z.string().nullable(),
+});
+export type ReviewFinding = z.infer<typeof reviewFindingSchema>;
+
+/**
+ * A rewrite the reviewer suggested. applied: wording only, passed the same record checks as the writer, and was
+ * put in the resume. needs-review: it would change what a line claims, or failed a check; it waits for the user.
+ * reverted: the user put the draft wording back. dismissed: the user declined it.
+ */
+export const reviewRevisionSchema = z.object({
+	target: z.enum(["bullet", "summary"]),
+	achievementId: z.string().nullable(),
+	before: z.string(),
+	after: z.string(),
+	status: z.enum(["applied", "needs-review", "reverted", "dismissed"]),
+	reason: z.string(),
+});
+export type ReviewRevision = z.infer<typeof reviewRevisionSchema>;
+
+/** Most rewrites the reviewer may apply in its one round; the draft wording of each is kept. */
+export const MAX_REVIEW_REVISIONS = 5;
+
+export const resumeReviewSchema = z.object({
+	model: z.string(),
+	/** 0–10 overall, from the reviewer. */
+	score: z.number().min(0).max(10).nullable(),
+	findings: z.array(reviewFindingSchema),
+	revisions: z.array(reviewRevisionSchema),
+	promptVersion: z.string(),
+});
+export type ResumeReview = z.infer<typeof resumeReviewSchema>;
+
+// ---- Rendering validation ----
+
+export const renderingReportSchema = z.object({
+	pdf: z
+		.object({
+			pages: z.number(),
+			/** 1-based page numbers with no text. */
+			blankPages: z.array(z.number()),
+			/** Share of the resume's bullets, title and contact found in the PDF's extracted text, 0–1. */
+			textCoverage: z.number(),
+			/** Lines not found in the extracted text. */
+			missing: z.array(z.string()),
+			/** Positions read back in the order they were written. */
+			readingOrder: z.boolean(),
+			/** The ATS checker's 0–100 score for the file. */
+			atsScore: z.number().nullable(),
+		})
+		.nullable(),
+	docx: z.object({ textCoverage: z.number(), missing: z.array(z.string()) }).nullable(),
+	/** Why a file couldn't be checked. */
+	errors: z.array(z.string()).default([]),
+});
+export type RenderingReport = z.infer<typeof renderingReportSchema>;
 
 /** What the writing step produced, kept with the assembly for review and comparison. */
 export const writingReportSchema = z.object({
@@ -164,5 +246,46 @@ export const writingReportSchema = z.object({
 	quality: z.enum(["standard", "thorough"]).default("standard"),
 	/** The Resume Style Guide preset written with. */
 	style: z.object({ presetId: z.string(), name: z.string() }).optional(),
+	/** The AI reviewer's findings and rewrites, when it ran. */
+	review: resumeReviewSchema.optional(),
+	/** The exported PDF and DOCX, read back. */
+	rendering: renderingReportSchema.optional(),
+	/** Prompt versions used, for comparing runs. */
+	promptVersions: z.record(z.string(), z.string()).default({}),
 });
 export type WritingReport = z.infer<typeof writingReportSchema>;
+
+// ---- Feedback ----
+
+/** A line of a generated resume the user changed, learned from their edits. */
+export const resumeCorrectionSchema = z.object({
+	target: z.enum(["bullet", "summary", "headline"]),
+	achievementId: z.string().nullable(),
+	generated: z.string(),
+	edited: z.string(),
+});
+export type ResumeCorrection = z.infer<typeof resumeCorrectionSchema>;
+
+/**
+ * The user's verdict on a generated resume and the changes they made to it. Used as writing preferences for later
+ * resumes; never as facts, and the master profile is never changed by it.
+ */
+export const resumeFeedbackSchema = z.object({
+	id: z.string(),
+	applicationId: z.string(),
+	assemblyId: z.string().nullable(),
+	rating: z.enum(["good", "needs-work"]).nullable(),
+	note: z.string(),
+	corrections: z.array(resumeCorrectionSchema),
+	createdAt: z.coerce.date(),
+});
+export type ResumeFeedback = z.infer<typeof resumeFeedbackSchema>;
+
+export const resumeFeedbackInputSchema = z.object({
+	assemblyId: z.string().min(1),
+	rating: z.enum(["good", "needs-work"]).nullable().default(null),
+	note: z.string().trim().max(1000).default(""),
+	/** Compare the resume as it is now with what was generated, and keep the lines the user changed. */
+	learnFromEdits: z.boolean().default(true),
+});
+export type ResumeFeedbackInput = z.infer<typeof resumeFeedbackInputSchema>;

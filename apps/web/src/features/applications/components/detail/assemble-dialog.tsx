@@ -19,8 +19,10 @@ import {
 import { Icon } from "@reactive-resume/ui/components/icon";
 import { NativeSelect } from "@reactive-resume/ui/components/native-select";
 import { SegmentedControl, SegmentedControlItem } from "@reactive-resume/ui/components/segmented-control";
+import { SwitchRow } from "@reactive-resume/ui/components/switch";
 import { cn } from "@reactive-resume/utils/style";
 import { useInvalidateApplications } from "../../use-application-actions";
+import { RenderingPanel, ReviewPanel } from "./assembly-review";
 import { SelectionReview } from "./selection-review";
 import { toastError } from "@/libs/error-message";
 import { orpc } from "@/libs/orpc/client";
@@ -68,6 +70,7 @@ export function AssembleDialog({ application, open, onOpenChange, autoPropose }:
 	// Standard unless the user set Thorough as their default or chooses it here; Thorough needs its own model.
 	const taskSettings = useQuery({ ...orpc.aiTasks.get.queryOptions(), enabled: open, retry: false });
 	const thoroughReady = Boolean(taskSettings.data?.thorough.model || taskSettings.data?.thorough.providerId);
+	const [reviewDraft, setReviewDraft] = useState(true);
 	const [qualityChoice, setQualityChoice] = useState<Quality | null>(null);
 	const quality: Quality = thoroughReady ? (qualityChoice ?? taskSettings.data?.quality ?? "standard") : "standard";
 	const qualityControl = thoroughReady ? (
@@ -171,7 +174,7 @@ export function AssembleDialog({ application, open, onOpenChange, autoPropose }:
 				</DialogHeader>
 
 				{result ? (
-					<AssembleReport result={result} />
+					<AssembleReport result={result} onChange={(next) => setResult({ ...result, result: next })} />
 				) : step === "select" ? (
 					current ? (
 						<SelectionReview
@@ -278,6 +281,14 @@ export function AssembleDialog({ application, open, onOpenChange, autoPropose }:
 							</p>
 						</div>
 						{mode === "rephrase" && qualityControl}
+						{mode === "rephrase" && (
+							<SwitchRow
+								checked={reviewDraft}
+								onCheckedChange={setReviewDraft}
+								label={t`Review the draft with AI`}
+								description={t`One more request, to your model for reviewing resumes. It may reword lines; changes to what a line says wait for you.`}
+							/>
+						)}
 					</div>
 				)}
 
@@ -353,6 +364,7 @@ export function AssembleDialog({ application, open, onOpenChange, autoPropose }:
 										applicationId: application.id,
 										mode,
 										quality,
+										review: mode === "rephrase" && reviewDraft,
 										...(base ? { baseResumeId: base } : {}),
 										...(preset ? { presetId: preset } : {}),
 									})
@@ -427,7 +439,7 @@ function ModelUsage(props: ModelUsageProps) {
 	);
 }
 
-type AssembleReportProps = { result: AssembleResult };
+type AssembleReportProps = { result: AssembleResult; onChange: (next: AssembleResult["result"]) => void };
 
 const strengthStyle = {
 	strong: { icon: "check-circle", className: "text-accent-text", label: () => t`Backed` },
@@ -435,7 +447,7 @@ const strengthStyle = {
 	none: { icon: "warning-circle", className: "text-danger-text", label: () => t`No evidence yet` },
 } as const;
 
-function AssembleReport({ result }: AssembleReportProps) {
+function AssembleReport({ result, onChange }: AssembleReportProps) {
 	const { coverage, bullets, warnings } = result.result;
 	const rephrased = bullets.filter((bullet) => bullet.source === "rephrased").length;
 
@@ -452,7 +464,11 @@ function AssembleReport({ result }: AssembleReportProps) {
 					: ""}
 			</p>
 
+			{writing?.review && <ReviewPanel assemblyId={result.assemblyId} review={writing.review} onChange={onChange} />}
+
 			{writing && <QualityChecks writing={writing} />}
+
+			{writing?.rendering && <RenderingPanel rendering={writing.rendering} />}
 
 			{writing && writing.usage.length > 0 && <ModelUsage usage={writing.usage} quality={writing.quality} />}
 

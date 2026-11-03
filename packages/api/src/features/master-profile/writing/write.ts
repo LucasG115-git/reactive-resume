@@ -60,6 +60,8 @@ export function writerPrompt(input: {
 	skills: Skill[];
 	rules: WritingRules;
 	style?: WritingStyle | null | undefined;
+	/** The user's feedback on earlier resumes, as a prompt block (see feedback.ts). */
+	feedback?: string | undefined;
 	now?: Date;
 }): { prompt: string; keys: WriterKeys } {
 	const { plan, analysis, profile, rules } = input;
@@ -113,7 +115,7 @@ ${dataBlock("REQUIREMENTS", requirements || "(none)")}
 ${dataBlock("RECORD", record.join("\n"))}
 
 ${dataBlock("SKILLS", skillLines.join("\n") || "(none)")}
-${style ? styleBlock(style) : ""}
+${style ? styleBlock(style) : ""}${input.feedback ?? ""}
 
 Write in ${region.spelling}. Return JSON:
 {
@@ -268,55 +270,21 @@ export function acceptWriting(input: {
 				bullets.set(achievement.id, { text: achievement.text, source: "original" });
 				continue;
 			}
-			const sources = [
-				achievement.text,
-				...achievement.variants,
-				...achievement.metrics.map((m) => `${m.value} ${m.unit} ${m.label}`),
-			];
-			const grounded = checkGrounded(candidate, sources, lengthBudget([achievement.text, ...achievement.variants]));
-			const tools = introducedTools(candidate, [...sources, ...achievement.skills], skillNames);
-			const borrowed = copiedPhrase(candidate, input.examples ?? [], sources);
-			const problem = !grounded.ok
-				? `the rewrite ${grounded.reason}`
-				: !keepsQualifiers(achievement.text, candidate)
-					? "the rewrite dropped a qualifier such as “about”"
-					: tools.length > 0
-						? `the rewrite named ${tools.join(", ")}`
-						: borrowed
-							? `the rewrite borrowed "${borrowed}" from a style example`
-							: null;
+			const problem = bulletProblem(achievement, candidate, input.examples ?? [], skillNames);
 			if (problem) {
 				warnings.push(`Kept your wording for "${clip(achievement.text)}" (${problem}).`);
 				bullets.set(achievement.id, { text: achievement.text, source: "original" });
 			} else bullets.set(achievement.id, { text: candidate, source: "rephrased" });
 		}
 
-	// Facts the headline and summary may draw on: the included entries and achievements, and the listed skills.
-	const entries = new Map(profile.entries.map((entry) => [entry.id, entry]));
-	const facts = [
-		...includedEntries.flatMap((planned) => {
-			const entry = entries.get(planned.entryId);
-			return entry
-				? [entry.title, entry.organization, entry.summary, entry.startDate ?? "", entry.endDate ?? "", ...entry.tags]
-				: [];
-		}),
-		...[...bullets.keys()].flatMap((id) => {
-			const achievement = achievements.get(id);
-			return achievement ? [achievement.text, ...achievement.variants, ...achievement.metrics.map((m) => m.value)] : [];
-		}),
-		...input.skills.map((skill) => `${skill.name} ${skill.years ?? ""}`),
-	];
+	const facts = recordFacts(plan, profile, [...bullets.keys()], input.skills);
 
 	let summary = "";
 	if (rules.summary.enabled && output?.summary.trim()) {
 		const trimmed = limitSentences(output.summary, rules.summary.maxSentences);
-		const grounded = checkGrounded(trimmed, facts, rules.summary.maxWords * 9);
-		const tools = introducedTools(trimmed, facts, skillNames);
-		if (grounded.ok && tools.length === 0) summary = trimmed;
-		else
-			warnings.push(
-				`Left the summary out (the suggested one ${grounded.ok ? `named ${tools.join(", ")}` : grounded.reason}).`,
-			);
+		const problem = summaryProblem(trimmed, facts, rules, skillNames);
+		if (!problem) summary = trimmed;
+		else warnings.push(`Left the summary out (the suggested one ${problem}).`);
 	}
 
 	const headline = rules.headline ? acceptHeadline(output?.headline ?? "", facts, plan, profile, warnings) : "";
@@ -338,6 +306,64 @@ export function acceptWriting(input: {
 		skillsLeftOut: input.skillsLeftOut,
 		warnings,
 	};
+}
+
+/**
+ * Why a rewrite of an achievement can't be used, or null: it must keep the record's numbers, honest qualifiers and
+ * tools, stay within the record's length, and not borrow phrasing from a style example.
+ */
+export function bulletProblem(
+	achievement: Achievement,
+	candidate: string,
+	examples: string[],
+	skillNames: string[],
+): string | null {
+	const sources = [
+		achievement.text,
+		...achievement.variants,
+		...achievement.metrics.map((m) => `${m.value} ${m.unit} ${m.label}`),
+	];
+	const grounded = checkGrounded(candidate, sources, lengthBudget([achievement.text, ...achievement.variants]));
+	if (!grounded.ok) return `the rewrite ${grounded.reason}`;
+	if (!keepsQualifiers(achievement.text, candidate)) return "the rewrite dropped a qualifier such as “about”";
+	const tools = introducedTools(candidate, [...sources, ...achievement.skills], skillNames);
+	if (tools.length > 0) return `the rewrite named ${tools.join(", ")}`;
+	const borrowed = copiedPhrase(candidate, examples, sources);
+	return borrowed ? `the rewrite borrowed "${borrowed}" from a style example` : null;
+}
+
+/** Facts a headline or summary may draw on: the included entries and achievements, and the listed skills. */
+export function recordFacts(
+	plan: ResumeSelectionPlan,
+	profile: MasterProfile,
+	achievementIds: string[],
+	skills: Skill[],
+): string[] {
+	const entries = new Map(profile.entries.map((entry) => [entry.id, entry]));
+	const achievements = new Map(profile.entries.flatMap((entry) => entry.achievements.map((item) => [item.id, item])));
+	return [
+		...plan.entries
+			.filter((entry) => entry.include)
+			.flatMap((planned) => {
+				const entry = entries.get(planned.entryId);
+				return entry
+					? [entry.title, entry.organization, entry.summary, entry.startDate ?? "", entry.endDate ?? "", ...entry.tags]
+					: [];
+			}),
+		...achievementIds.flatMap((id) => {
+			const achievement = achievements.get(id);
+			return achievement ? [achievement.text, ...achievement.variants, ...achievement.metrics.map((m) => m.value)] : [];
+		}),
+		...skills.map((skill) => `${skill.name} ${skill.years ?? ""}`),
+	];
+}
+
+/** Why a summary can't be used, or null: every number and tool must come from the record. */
+export function summaryProblem(text: string, facts: string[], rules: WritingRules, skillNames: string[]) {
+	const grounded = checkGrounded(text, facts, rules.summary.maxWords * 9);
+	if (!grounded.ok) return grounded.reason;
+	const tools = introducedTools(text, facts, skillNames);
+	return tools.length > 0 ? `named ${tools.join(", ")}` : null;
 }
 
 /** A run of six or more words shared with an example and absent from the record, or null. */

@@ -86,6 +86,10 @@ msgstr "“온보딩 리디자인의 성과는 어떻게 측정했나요?”"
 msgid "(no header)"
 msgstr "(헤더 없음)"
 
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "(no summary)"
+msgstr ""
+
 #. placeholder {0}: proposals.length
 #: src/features/resume/editor/proposals/proposals.ts
 msgid "{0, plural, =1 {Edit applied} other {# edits applied}}"
@@ -1317,6 +1321,10 @@ msgstr "성과"
 msgid "Account"
 msgstr "계정"
 
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Accuracy"
+msgstr ""
+
 #: src/features/career/knowledge/profile.tsx
 msgid "Achievement deleted"
 msgstr ""
@@ -1923,6 +1931,15 @@ msgstr "ENCRYPTION_SECRET가 설정될 때까지 이 서버에서 AI 공급자�
 msgid "AI providers couldn't be loaded. Reload to try again."
 msgstr "AI 제공자를 로드할 수 없습니다. 다시 시도하려면 새로고침하세요."
 
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "AI review"
+msgstr ""
+
+#. placeholder {0}: review.score
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "AI review · {0} out of 10"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Albanian"
 msgstr "알바니아어"
@@ -2325,6 +2342,7 @@ msgstr "적용했습니다. 후속 연락일이 {0}로 설정되었습니다."
 msgid "Applied. The application is updated."
 msgstr "적용했습니다. 지원 내역이 업데이트되었습니다."
 
+#: src/features/applications/components/detail/assembly-review.tsx
 #: src/features/career/shared.tsx
 #: src/features/homepage/prepare.tsx
 msgid "Apply"
@@ -2452,6 +2470,10 @@ msgstr ""
 msgid "Assemble resume"
 msgstr ""
 
+#: src/features/applications/components/detail/sent-documents.tsx
+msgid "Assembled from your profile · Rate it and learn from your edits"
+msgstr ""
+
 #: src/features/assistant/assistant-button.tsx
 #: src/features/assistant/assistant-panel.tsx
 #: src/features/assistant/conversation.tsx
@@ -2484,6 +2506,11 @@ msgstr "Northwind Labs에서 온보딩 리디자인 리서치를 이끌었습니
 #: src/features/homepage/remember.tsx
 msgid "At Northwind Labs, most new teams stalled before they finished setup."
 msgstr "Northwind Labs에서는 대부분의 신규 팀이 설정을 마치기 전에 멈췄습니다."
+
+#. placeholder {0}: rendering.pdf.atsScore
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "ATS {0}"
+msgstr ""
 
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/homepage/footer.tsx
@@ -2705,6 +2732,11 @@ msgstr "벵골어"
 #: src/features/resume/share/download-tab.tsx
 msgid "Best for applying"
 msgstr "지원에 가장 적합"
+
+#. placeholder {0}: rendering.pdf.blankPages.join(", ")
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "blank page {0}"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Blocker"
@@ -3006,6 +3038,10 @@ msgstr "시간대 변경"
 msgid "Change your password"
 msgstr "비밀번호 변경"
 
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Changed by the reviewer"
+msgstr ""
+
 #: src/routes/builder/letter/-components/letter-bar.tsx
 msgid "Changed elsewhere"
 msgstr "다른 곳에서 변경됨"
@@ -3269,6 +3305,10 @@ msgstr "원"
 msgid "Clarify"
 msgstr "명확히 하기"
 
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Clarity"
+msgstr ""
+
 #: src/features/homepage/sheet.tsx
 msgid "Classic"
 msgstr "권위 있는"
@@ -3483,6 +3523,10 @@ msgstr "원래 통화와 지급 주기로 비교합니다. 비교해도 코치�
 #: src/features/career/workspace/practise.tsx
 msgid "Compared with your stories and the posting."
 msgstr "내 스토리 및 채용 공고와 비교했습니다."
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Compares the resume as it is now with what was generated. Used for wording only; your profile isn't changed."
+msgstr ""
 
 #: src/features/assistant/assistant-panel.tsx
 msgid "Compares your resume with the posting"
@@ -3866,6 +3910,10 @@ msgstr ""
 #: src/features/career/coach-thread.tsx
 msgid "Couldn't attach the file. Try again."
 msgstr "파일을 첨부할 수 없습니다. 다시 시도해 보세요."
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Couldn't change that line. Try again."
+msgstr ""
 
 #: src/routes/builder/letter/-components/design-panel.tsx
 msgid "Couldn't change the design. Try again."
@@ -4324,6 +4372,10 @@ msgstr "변경사항을 저장할 수 없습니다. 계속하기 전에 다시 �
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Couldn't save your changes. Try again."
 msgstr "변경 사항을 저장할 수 없습니다. 다시 시도해 보세요."
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Couldn't save your feedback. Try again."
+msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
 msgid "Couldn't save your preferences. Try again."
@@ -5084,11 +5136,16 @@ msgstr "연결 해제"
 msgid "Disconnecting your {providerName} account…"
 msgstr "{providerName} 계정 연결을 해제하는 중…"
 
+#: src/features/applications/components/detail/assembly-review.tsx
 #: src/features/resume/editor/write/write-panel.tsx
 #: src/routes/builder/letter/-components/write-panel.tsx
 #: src/routes/dashboard/applications/index.tsx
 msgid "Dismiss"
 msgstr "해고하다"
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Dismissed"
+msgstr ""
 
 #: src/routes/dashboard/settings/route.tsx
 msgid "Docs"
@@ -5242,6 +5299,7 @@ msgstr "이력서와 이 편지를 다운로드했습니다."
 msgid "downloads"
 msgstr "다운로드"
 
+#: src/features/applications/components/detail/assembly-review.tsx
 #: src/features/career/workspace/apply.tsx
 #: src/features/resume/editor/write/entry-card.tsx
 msgid "Draft"
@@ -5871,6 +5929,10 @@ msgstr "이력서를 이미지나 스캔본이 아닌 텍스트 PDF로 내보내
 msgid "Export to CSV…"
 msgstr "CSV로 내보내기…"
 
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Exported files"
+msgstr ""
+
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "Exported PDF checked: {problems} more to look at."
 msgstr "내보낸 PDF 확인: {problems} 더 살펴볼 사항입니다."
@@ -6464,6 +6526,10 @@ msgstr "대시보드로 이동"
 msgid "Go to…"
 msgstr "…로 이동하세요"
 
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Good"
+msgstr ""
+
 #: src/features/resume/share/download-tab.tsx
 msgid "Good luck out there. Reactive Resume stays free because people chip in."
 msgstr "행운을 빕니다. Reactive Resume는 사람들이 칩을 사용하기 때문에 무료로 유지됩니다."
@@ -6726,6 +6792,10 @@ msgstr "어떠셨나요?"
 msgid "How did it land?"
 msgstr "반응은 어땠나요?"
 
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "How did this resume turn out?"
+msgstr ""
+
 #: src/features/applications/components/insights-view.tsx
 msgid "How far applications get"
 msgstr "입사 지원서가 얼마나 멀리까지 가는지"
@@ -6953,6 +7023,10 @@ msgstr "개선 중…"
 #: src/features/homepage/sections.tsx
 msgid "In good company"
 msgstr "좋은 회사에서"
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "in your resume"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Increase line spacing so two lines are not merged into one."
@@ -7547,6 +7621,10 @@ msgstr "결과를 제시하고 규모를 정하십시오."
 #: src/features/assistant/assistant-panel.tsx
 msgid "Leads with why you fit"
 msgstr "귀하에게 적합한 이유를 알려드립니다."
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Learn from my edits"
+msgstr ""
 
 #: src/features/career/offers.tsx
 msgid "Learning budget"
@@ -8624,6 +8702,10 @@ msgstr "좁은 여백"
 msgid "Needs attention"
 msgstr "주의가 필요함"
 
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Needs work"
+msgstr ""
+
 #: src/features/career/today.tsx
 msgid "Needs you"
 msgstr "확인 필요"
@@ -8814,6 +8896,10 @@ msgstr "글머리 기호 목록을 찾을 수 없습니다."
 #: src/features/career/workspace/messages.tsx
 msgid "No change needed. It's already at {stage}."
 msgstr "변경할 필요가 없습니다. 이미 {stage} 단계입니다."
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "No changes suggested."
+msgstr ""
 
 #. Empty-state message when no command palette results match the search query
 #: src/features/command-palette/content.tsx
@@ -9449,6 +9535,10 @@ msgctxt "Entry header layout"
 msgid "One line"
 msgstr "한 줄"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "One more request, to your model for reviewing resumes. It may reword lines; changes to what a line says wait for you."
+msgstr ""
+
 #: src/features/settings/resume-style.tsx
 msgid "One tight line"
 msgstr ""
@@ -9980,6 +10070,12 @@ msgstr "PDF, Word (DOCX), Markdown 그리고 JSON. 그만큼 JSON 수출 수입�
 msgid "PDF, Word or JSON. We'll build a resume from it."
 msgstr "PDF, Word 또는 JSON. 우리는 그것으로부터 이력서를 작성할 것입니다."
 
+#. placeholder {0}: rendering.pdf.pages
+#. placeholder {1}: percent(rendering.pdf.textCoverage)
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "PDF: {0, plural, one {# page} other {# pages}} · {1} of lines read back"
+msgstr ""
+
 #: src/features/homepage/sections.tsx
 msgid "People using it"
 msgstr "그것을 사용하는 사람들"
@@ -10353,6 +10449,10 @@ msgstr "인쇄"
 msgid "Print or export the form to a flat PDF before sending it."
 msgstr "보내기 전에 양식을 일반 PDF로 인쇄하거나 내보내세요."
 
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Priorities"
+msgstr ""
+
 #: src/features/resume/share/share-panel.tsx
 msgid "Privacy"
 msgstr "개인정보 보호"
@@ -10541,6 +10641,10 @@ msgstr "보라색"
 #: src/features/ats-checker/messages.ts
 msgid "Put a plain email address near the top of the first page. It is what most systems file you under."
 msgstr "첫 페이지 상단 근처에 일반 텍스트 이메일 주소를 넣으세요. 대부분의 시스템이 이를 기준으로 분류합니다."
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Put back to the draft wording"
+msgstr ""
 
 #: src/features/homepage/sections.tsx
 msgid "Put it all on <0>one page.</0>"
@@ -10763,6 +10867,10 @@ msgstr "가독성 점수: 100점 만점에 {score}"
 
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Reading {fileName}…"
+msgstr ""
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "reading order differs"
 msgstr ""
 
 #: src/features/assistant/conversation.tsx
@@ -10995,6 +11103,10 @@ msgstr "거부하다"
 msgid "Rejected"
 msgstr "거부됨"
 
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Relevance"
+msgstr ""
+
 #: src/routes/builder/letter/-components/letter-bar.tsx
 msgid "Reload"
 msgstr "새로고침"
@@ -11196,6 +11308,10 @@ msgstr "{title} 재주문"
 #: src/features/ats-checker/report/jd-coverage.tsx
 msgid "Repeated far more often than the posting itself uses them: {0}. Recruiters notice."
 msgstr "공고 자체보다 훨씬 자주 반복됩니다: {0}. 채용 담당자가 이를 알아챕니다."
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Repetition"
+msgstr ""
 
 #: src/features/resume/editor/write/improve.tsx
 msgid "Replace"
@@ -11491,6 +11607,10 @@ msgstr "필수 양식 답변을 검토하고 근거 없는 주장을 삭제하�
 msgid "Review stories before adding"
 msgstr ""
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Review the draft with AI"
+msgstr ""
+
 #: src/features/career/workspace/apply.tsx
 msgid "Review the selected resume and cover letter in their editors."
 msgstr "선택한 이력서와 커버레터를 각 편집기에서 검토하세요."
@@ -11498,6 +11618,10 @@ msgstr "선택한 이력서와 커버레터를 각 편집기에서 검토하세�
 #: src/features/resume/editor/check/writing-tab.tsx
 msgid "Review writing"
 msgstr "리뷰 작성"
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Reviewer"
+msgstr ""
 
 #: src/features/career/workspace/debrief.tsx
 msgid "Reviewing needs an AI connection. <0>Add one in Settings</0>. What you write here stays in this browser until then."
@@ -12154,6 +12278,10 @@ msgstr "시맨틱 CSS 스타일시트"
 #: src/features/career/coach-thread.tsx
 msgid "Send"
 msgstr "보내다"
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Send feedback"
+msgstr ""
 
 #. Primary action button label on forgot-password form
 #: src/features/auth/pages/forgot-password.tsx
@@ -13067,6 +13195,10 @@ msgstr ""
 msgid "Story not found"
 msgstr "스토리를 찾을 수 없습니다"
 
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Strength"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "Strengthen"
 msgstr "보완할 점"
@@ -13130,6 +13262,11 @@ msgstr "90일 후의 성공 · 다음 단계"
 msgid "Suggest again"
 msgstr "다시 제안"
 
+#. placeholder {0}: item.reason
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Suggested — needs your review: {0}"
+msgstr ""
+
 #: src/features/documents/new-document-dialog.tsx
 msgid "Suggested from the source and the job. Change it anytime."
 msgstr "소스와 작업에서 제안됩니다. 언제든지 변경하세요."
@@ -13141,6 +13278,10 @@ msgstr "제안된 답장 · 보내기 전에 편집하세요"
 #: src/features/settings/ai/providers.tsx
 msgid "Suggestions from <0>models.dev</0>. You can also enter any model ID."
 msgstr "<0>models.dev</0>의 제안. 모델 ID를 입력할 수도 있습니다."
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Suggestions that would change what a line says wait for you. Apply one only if it's true; your master profile isn't changed either way."
+msgstr ""
 
 #: src/features/assistant/assistant-panel.tsx
 msgid "Suggests cuts, never deletes on its own"
@@ -13505,6 +13646,14 @@ msgstr "무료로 보관해 주셔서 감사합니다."
 #: src/features/homepage/remember.tsx
 msgid "Thanks, Sam. Here’s one: at Northwind Labs I led the onboarding redesign, from 14 customer interviews to a shorter setup."
 msgstr "감사합니다, Sam 님. 사례 하나를 말씀드리면, Northwind Labs에서 고객 인터뷰 14건부터 더 짧은 설정 과정까지 온보딩 리디자인을 이끌었습니다."
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Thanks. Later resumes will follow your feedback and {learned} edited lines."
+msgstr ""
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Thanks. Later resumes will follow your feedback."
+msgstr ""
 
 #: src/features/ats-checker/checker.tsx
 msgid "That file couldn't be read as a PDF. Choose a PDF file and try again."
@@ -14236,6 +14385,7 @@ msgstr "오늘, {hour}"
 msgid "Tomorrow"
 msgstr "내일"
 
+#: src/features/applications/components/detail/assembly-review.tsx
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/settings/resume-style.tsx
 msgid "Tone"
@@ -14845,6 +14995,14 @@ msgstr "채용공고를 활용하세요"
 msgid "Use sample"
 msgstr "샘플 사용"
 
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Use the draft wording"
+msgstr ""
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Use the reviewer's wording"
+msgstr ""
+
 #: src/features/resume/editor/check/issues.ts
 msgid "Use the standard heading"
 msgstr "표준 제목을 사용하세요"
@@ -15324,6 +15482,14 @@ msgstr "준비 요청받은 내용"
 msgid "What to do"
 msgstr "해야 할 일"
 
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "What to do differently"
+msgstr ""
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "What to keep or do differently next time, e.g. \"Less formal\" or \"Lead with results\""
+msgstr ""
+
 #: src/features/career/knowledge/stories.tsx
 msgid "What was happening before you started?"
 msgstr "시작하기 전에 어떤 상황이었나요?"
@@ -15502,6 +15668,11 @@ msgstr "한 분기 만에 활성화율이 31%에서 44%가 되었습니다."
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Without one, you fill in the recipient yourself and drafting uses only your resume."
 msgstr "하나도 없으면 수신자를 직접 입력하고 초안 작성 시 이력서만 사용됩니다."
+
+#. placeholder {0}: percent(rendering.docx.textCoverage)
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Word: {0} of lines read back"
+msgstr ""
 
 #: src/features/applications/components/detail/assemble-dialog.tsx
 msgid "Wording"

@@ -278,9 +278,134 @@ describe.skipIf(!databaseUrl)("resume selection plans", () => {
 		// No quality in the request: the saved default (Thorough) is used for writing.
 		seen.length = 0;
 		const built = await assemble.assemble("alice", { applicationId: "alice-app", mode: "rephrase" }, { ask: counted });
-		expect(seen).toEqual([["writing", "thorough"]]);
+		expect(seen).toEqual([
+			["writing", "thorough"],
+			["review", "thorough"],
+		]);
 		expect(built.result.writing?.quality).toBe("thorough");
-		expect(built.result.writing?.usage.map((item) => [item.step, item.model])).toEqual([["writing", "stub/write"]]);
+		expect(built.result.writing?.usage.map((item) => [item.step, item.model])).toEqual([
+			["writing", "stub/write"],
+			["review", "stub/review"],
+		]);
+	});
+
+	it("reviews the draft once, keeps its wording to put back, and learns style from edits without touching facts", async () => {
+		const seeded = await seedProfile();
+		await selection.propose("alice", { applicationId: "alice-app" }, { ask });
+		const sitesText = "Delivered WordPress sites for 12 nonprofits on schedule";
+		const reviewer: AskModel = async (input) => {
+			if (input.task !== "review") return ask(input);
+			const key = [...input.prompt.matchAll(/^\s+(B\d+): (.+)$/gm)].find(([, , text]) => text === sitesText)?.[1];
+			return {
+				model: "stub/reviewer",
+				output: input.schema.parse({
+					score: 6,
+					findings: [
+						{
+							category: "strength",
+							severity: "high",
+							message: "Lead with the scale.",
+							ref: key,
+							rewrite: "Delivered 12 WordPress sites for nonprofits on schedule",
+							changesClaim: false,
+						},
+						{
+							category: "accuracy",
+							severity: "medium",
+							message: "Name the budget.",
+							ref: key,
+							rewrite: "Delivered 12 WordPress sites for nonprofits under a $90,000 budget",
+							changesClaim: false,
+						},
+					],
+				}),
+			};
+		};
+		const built = await assemble.assemble(
+			"alice",
+			{ applicationId: "alice-app", mode: "rephrase" },
+			{
+				ask: reviewer,
+				renderers: {
+					pdf: async () => Promise.reject(new Error("skipped")),
+					docx: async () => Promise.reject(new Error("skipped")),
+				},
+			},
+		);
+		const review = built.result.writing?.review;
+		expect(review?.score).toBe(6);
+		expect(review?.revisions).toEqual([
+			expect.objectContaining({ achievementId: seeded.sites.id, before: sitesText, status: "applied" }),
+		]);
+		expect(built.result.writing?.rendering?.errors).toHaveLength(2);
+		const html = async () =>
+			JSON.stringify((await getDb().select().from(tables.resume).where(eq(tables.resume.id, built.resumeId)))[0]?.data);
+		expect(await html()).toContain("Delivered 12 WordPress sites for nonprofits on schedule");
+
+		const { revisionService } = await import("../assemble/revisions");
+		const reverted = await revisionService.update("alice", {
+			assemblyId: built.assemblyId,
+			index: 0,
+			action: "revert",
+		});
+		expect(reverted.writing?.review?.revisions[0]?.status).toBe("reverted");
+		expect(await html()).toContain(sitesText);
+		await expect(
+			revisionService.update("bob", { assemblyId: built.assemblyId, index: 0, action: "apply" }),
+		).rejects.toMatchObject({ code: "NOT_FOUND" });
+		await revisionService.update("alice", { assemblyId: built.assemblyId, index: 0, action: "apply" });
+		expect(await html()).not.toContain(sitesText);
+
+		// The user edits a bullet in the editor; feedback records it as a preference.
+		const [row] = await getDb().select().from(tables.resume).where(eq(tables.resume.id, built.resumeId));
+		const edited = JSON.parse(
+			JSON.stringify(row?.data).replace(
+				"Rebuilt a nonprofit volunteer portal on WordPress, cutting admin time by 40%",
+				"Rebuilt a WordPress volunteer portal for a nonprofit, cutting admin time by 40%",
+			),
+		);
+		await getDb().update(tables.resume).set({ data: edited }).where(eq(tables.resume.id, built.resumeId));
+		const { feedbackService } = await import("../feedback");
+		const feedback = await feedbackService.submit("alice", {
+			assemblyId: built.assemblyId,
+			rating: "needs-work",
+			note: "Put the platform first",
+			learnFromEdits: true,
+		});
+		expect(feedback.corrections).toEqual([
+			expect.objectContaining({
+				target: "bullet",
+				achievementId: seeded.portal.id,
+				edited: "Rebuilt a WordPress volunteer portal for a nonprofit, cutting admin time by 40%",
+			}),
+		]);
+		expect(await feedbackService.list("bob")).toEqual([]);
+		const [portal] = await getDb()
+			.select()
+			.from(tables.profileAchievement)
+			.where(eq(tables.profileAchievement.id, seeded.portal.id));
+		expect(portal?.text).toBe("Rebuilt a nonprofit volunteer portal on WordPress, cutting admin time by 40%");
+
+		// The next resume's writer sees it as feedback.
+		const prompts: string[] = [];
+		await assemble.assemble(
+			"alice",
+			{ applicationId: "alice-app", mode: "rephrase", review: false },
+			{
+				ask: async (input) => {
+					if (input.task === "writing") prompts.push(input.prompt);
+					return ask(input);
+				},
+				renderers: {
+					pdf: async () => Promise.reject(new Error("skipped")),
+					docx: async () => Promise.reject(new Error("skipped")),
+				},
+			},
+		);
+		expect(prompts[0]).toContain("USER_FEEDBACK");
+		expect(prompts[0]).toContain("Put the platform first");
+		await feedbackService.delete("alice", feedback.id);
+		expect(await feedbackService.list("alice")).toEqual([]);
 	});
 
 	it("asks for a posting and achievements first", async () => {

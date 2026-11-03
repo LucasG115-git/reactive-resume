@@ -86,6 +86,10 @@ msgstr "“Come hai misurato il redesign dell'onboarding?”"
 msgid "(no header)"
 msgstr "(nessuna intestazione)"
 
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "(no summary)"
+msgstr ""
+
 #. placeholder {0}: proposals.length
 #: src/features/resume/editor/proposals/proposals.ts
 msgid "{0, plural, =1 {Edit applied} other {# edits applied}}"
@@ -1317,6 +1321,10 @@ msgstr "Traguardo"
 msgid "Account"
 msgstr "Account"
 
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Accuracy"
+msgstr ""
+
 #: src/features/career/knowledge/profile.tsx
 msgid "Achievement deleted"
 msgstr ""
@@ -1923,6 +1931,15 @@ msgstr "I provider AI non sono disponibili su questo server finché non viene im
 msgid "AI providers couldn't be loaded. Reload to try again."
 msgstr "Impossibile caricare i fornitori di intelligenza artificiale. Ricarica per riprovare."
 
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "AI review"
+msgstr ""
+
+#. placeholder {0}: review.score
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "AI review · {0} out of 10"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Albanian"
 msgstr "Albanese"
@@ -2325,6 +2342,7 @@ msgstr "Applicato. Follow-up fissato per {0}."
 msgid "Applied. The application is updated."
 msgstr "Applicato. La candidatura è aggiornata."
 
+#: src/features/applications/components/detail/assembly-review.tsx
 #: src/features/career/shared.tsx
 #: src/features/homepage/prepare.tsx
 msgid "Apply"
@@ -2452,6 +2470,10 @@ msgstr ""
 msgid "Assemble resume"
 msgstr ""
 
+#: src/features/applications/components/detail/sent-documents.tsx
+msgid "Assembled from your profile · Rate it and learn from your edits"
+msgstr ""
+
 #: src/features/assistant/assistant-button.tsx
 #: src/features/assistant/assistant-panel.tsx
 #: src/features/assistant/conversation.tsx
@@ -2484,6 +2506,11 @@ msgstr "In Northwind Labs ho guidato la ricerca per il redesign dell'onboarding.
 #: src/features/homepage/remember.tsx
 msgid "At Northwind Labs, most new teams stalled before they finished setup."
 msgstr "In Northwind Labs, la maggior parte dei nuovi team si bloccava prima di completare la configurazione."
+
+#. placeholder {0}: rendering.pdf.atsScore
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "ATS {0}"
+msgstr ""
 
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/homepage/footer.tsx
@@ -2705,6 +2732,11 @@ msgstr "Bengalese"
 #: src/features/resume/share/download-tab.tsx
 msgid "Best for applying"
 msgstr "Ideale per candidarsi"
+
+#. placeholder {0}: rendering.pdf.blankPages.join(", ")
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "blank page {0}"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Blocker"
@@ -3006,6 +3038,10 @@ msgstr "Cambia fuso orario"
 msgid "Change your password"
 msgstr "Cambia la tua password"
 
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Changed by the reviewer"
+msgstr ""
+
 #: src/routes/builder/letter/-components/letter-bar.tsx
 msgid "Changed elsewhere"
 msgstr "Cambiato altrove"
@@ -3269,6 +3305,10 @@ msgstr "Cerchio"
 msgid "Clarify"
 msgstr "Chiarisci"
 
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Clarity"
+msgstr ""
+
 #: src/features/homepage/sheet.tsx
 msgid "Classic"
 msgstr "Classico"
@@ -3483,6 +3523,10 @@ msgstr "Confrontate nella valuta e nel periodo di retribuzione originali. Il con
 #: src/features/career/workspace/practise.tsx
 msgid "Compared with your stories and the posting."
 msgstr "Confrontata con le tue storie e l'annuncio."
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Compares the resume as it is now with what was generated. Used for wording only; your profile isn't changed."
+msgstr ""
 
 #: src/features/assistant/assistant-panel.tsx
 msgid "Compares your resume with the posting"
@@ -3866,6 +3910,10 @@ msgstr ""
 #: src/features/career/coach-thread.tsx
 msgid "Couldn't attach the file. Try again."
 msgstr "Impossibile allegare il file. Riprova."
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Couldn't change that line. Try again."
+msgstr ""
 
 #: src/routes/builder/letter/-components/design-panel.tsx
 msgid "Couldn't change the design. Try again."
@@ -4324,6 +4372,10 @@ msgstr "Impossibile salvare le modifiche. Riprovare prima di continuare."
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Couldn't save your changes. Try again."
 msgstr "Impossibile salvare le modifiche. Riprova."
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Couldn't save your feedback. Try again."
+msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
 msgid "Couldn't save your preferences. Try again."
@@ -5084,11 +5136,16 @@ msgstr "Disconnetti"
 msgid "Disconnecting your {providerName} account…"
 msgstr "Scollegamento del tuo account {providerName} in corso…"
 
+#: src/features/applications/components/detail/assembly-review.tsx
 #: src/features/resume/editor/write/write-panel.tsx
 #: src/routes/builder/letter/-components/write-panel.tsx
 #: src/routes/dashboard/applications/index.tsx
 msgid "Dismiss"
 msgstr "Congedare"
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Dismissed"
+msgstr ""
 
 #: src/routes/dashboard/settings/route.tsx
 msgid "Docs"
@@ -5242,6 +5299,7 @@ msgstr "Ho scaricato il tuo curriculum e questa lettera"
 msgid "downloads"
 msgstr "download"
 
+#: src/features/applications/components/detail/assembly-review.tsx
 #: src/features/career/workspace/apply.tsx
 #: src/features/resume/editor/write/entry-card.tsx
 msgid "Draft"
@@ -5871,6 +5929,10 @@ msgstr "Esporta il curriculum come PDF di testo anziché come immagine o scansio
 msgid "Export to CSV…"
 msgstr "Esporta in CSV…"
 
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Exported files"
+msgstr ""
+
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "Exported PDF checked: {problems} more to look at."
 msgstr "PDF esportato controllato: {problems} altro da guardare."
@@ -6464,6 +6526,10 @@ msgstr "Vai alla dashboard"
 msgid "Go to…"
 msgstr "Vai a…"
 
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Good"
+msgstr ""
+
 #: src/features/resume/share/download-tab.tsx
 msgid "Good luck out there. Reactive Resume stays free because people chip in."
 msgstr "Buona fortuna là fuori. Reactive Resume rimane gratuito perché le persone contribuiscono."
@@ -6726,6 +6792,10 @@ msgstr "Com'è andata?"
 msgid "How did it land?"
 msgstr "Com'è stata recepita?"
 
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "How did this resume turn out?"
+msgstr ""
+
 #: src/features/applications/components/insights-view.tsx
 msgid "How far applications get"
 msgstr "Fino a che punto arrivano le domande di lavoro"
@@ -6953,6 +7023,10 @@ msgstr "Migliorare…"
 #: src/features/homepage/sections.tsx
 msgid "In good company"
 msgstr "In buona compagnia"
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "in your resume"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Increase line spacing so two lines are not merged into one."
@@ -7547,6 +7621,10 @@ msgstr "Guida con il risultato e dagli una scala."
 #: src/features/assistant/assistant-panel.tsx
 msgid "Leads with why you fit"
 msgstr "Indica il motivo per cui sei adatto"
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Learn from my edits"
+msgstr ""
 
 #: src/features/career/offers.tsx
 msgid "Learning budget"
@@ -8624,6 +8702,10 @@ msgstr "margini stretti"
 msgid "Needs attention"
 msgstr "Ha bisogno di attenzione"
 
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Needs work"
+msgstr ""
+
 #: src/features/career/today.tsx
 msgid "Needs you"
 msgstr "Richiede la tua attenzione"
@@ -8814,6 +8896,10 @@ msgstr "Non sono stati trovati elenchi puntati."
 #: src/features/career/workspace/messages.tsx
 msgid "No change needed. It's already at {stage}."
 msgstr "Nessuna modifica necessaria. È già in {stage}."
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "No changes suggested."
+msgstr ""
 
 #. Empty-state message when no command palette results match the search query
 #: src/features/command-palette/content.tsx
@@ -9449,6 +9535,10 @@ msgctxt "Entry header layout"
 msgid "One line"
 msgstr "Una riga"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "One more request, to your model for reviewing resumes. It may reword lines; changes to what a line says wait for you."
+msgstr ""
+
 #: src/features/settings/resume-style.tsx
 msgid "One tight line"
 msgstr ""
@@ -9980,6 +10070,12 @@ msgstr "PDF, Word (DOCX), Markdown e JSON. L'esportazione JSON viene importata n
 msgid "PDF, Word or JSON. We'll build a resume from it."
 msgstr "PDF, Word o JSON. Ne costruiremo un curriculum."
 
+#. placeholder {0}: rendering.pdf.pages
+#. placeholder {1}: percent(rendering.pdf.textCoverage)
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "PDF: {0, plural, one {# page} other {# pages}} · {1} of lines read back"
+msgstr ""
+
 #: src/features/homepage/sections.tsx
 msgid "People using it"
 msgstr "Persone che lo usano"
@@ -10353,6 +10449,10 @@ msgstr "Stampa"
 msgid "Print or export the form to a flat PDF before sending it."
 msgstr "Stampa o esporta il modulo in un PDF piatto prima di inviarlo."
 
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Priorities"
+msgstr ""
+
 #: src/features/resume/share/share-panel.tsx
 msgid "Privacy"
 msgstr "Privacy"
@@ -10541,6 +10641,10 @@ msgstr "Viola"
 #: src/features/ats-checker/messages.ts
 msgid "Put a plain email address near the top of the first page. It is what most systems file you under."
 msgstr "Metti un indirizzo email semplice vicino all'inizio della prima pagina. È ciò sotto cui la maggior parte dei sistemi ti archivia."
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Put back to the draft wording"
+msgstr ""
 
 #: src/features/homepage/sections.tsx
 msgid "Put it all on <0>one page.</0>"
@@ -10763,6 +10867,10 @@ msgstr "Punteggio di leggibilità: {score} su 100"
 
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Reading {fileName}…"
+msgstr ""
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "reading order differs"
 msgstr ""
 
 #: src/features/assistant/conversation.tsx
@@ -10995,6 +11103,10 @@ msgstr "Rifiutare"
 msgid "Rejected"
 msgstr "Respinto"
 
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Relevance"
+msgstr ""
+
 #: src/routes/builder/letter/-components/letter-bar.tsx
 msgid "Reload"
 msgstr "Ricaricare"
@@ -11196,6 +11308,10 @@ msgstr "Riordina {title}"
 #: src/features/ats-checker/report/jd-coverage.tsx
 msgid "Repeated far more often than the posting itself uses them: {0}. Recruiters notice."
 msgstr "Ripetuti molto più spesso di quanto li usi lo stesso annuncio: {0}. I recruiter se ne accorgono."
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Repetition"
+msgstr ""
 
 #: src/features/resume/editor/write/improve.tsx
 msgid "Replace"
@@ -11491,6 +11607,10 @@ msgstr "Rivedi le risposte obbligatorie del modulo e rimuovi le affermazioni non
 msgid "Review stories before adding"
 msgstr ""
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Review the draft with AI"
+msgstr ""
+
 #: src/features/career/workspace/apply.tsx
 msgid "Review the selected resume and cover letter in their editors."
 msgstr "Rivedi il curriculum e la lettera di presentazione selezionati nei rispettivi editor."
@@ -11498,6 +11618,10 @@ msgstr "Rivedi il curriculum e la lettera di presentazione selezionati nei rispe
 #: src/features/resume/editor/check/writing-tab.tsx
 msgid "Review writing"
 msgstr "Rivedere la scrittura"
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Reviewer"
+msgstr ""
 
 #: src/features/career/workspace/debrief.tsx
 msgid "Reviewing needs an AI connection. <0>Add one in Settings</0>. What you write here stays in this browser until then."
@@ -12154,6 +12278,10 @@ msgstr "Foglio di stile CSS semantico"
 #: src/features/career/coach-thread.tsx
 msgid "Send"
 msgstr "Inviare"
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Send feedback"
+msgstr ""
 
 #. Primary action button label on forgot-password form
 #: src/features/auth/pages/forgot-password.tsx
@@ -13067,6 +13195,10 @@ msgstr ""
 msgid "Story not found"
 msgstr "Storia non trovata"
 
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Strength"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "Strengthen"
 msgstr "Da rafforzare"
@@ -13130,6 +13262,11 @@ msgstr "Successo a 90 giorni · prossimo passo"
 msgid "Suggest again"
 msgstr "Suggeriscilo di nuovo"
 
+#. placeholder {0}: item.reason
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Suggested — needs your review: {0}"
+msgstr ""
+
 #: src/features/documents/new-document-dialog.tsx
 msgid "Suggested from the source and the job. Change it anytime."
 msgstr "Suggerito dalla fonte e dal lavoro. Cambialo in qualsiasi momento."
@@ -13141,6 +13278,10 @@ msgstr "Risposta suggerita · modificala prima di inviarla"
 #: src/features/settings/ai/providers.tsx
 msgid "Suggestions from <0>models.dev</0>. You can also enter any model ID."
 msgstr "Suggerimenti da <0>models.dev</0>. Puoi anche inserire qualsiasi ID modello."
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Suggestions that would change what a line says wait for you. Apply one only if it's true; your master profile isn't changed either way."
+msgstr ""
 
 #: src/features/assistant/assistant-panel.tsx
 msgid "Suggests cuts, never deletes on its own"
@@ -13505,6 +13646,14 @@ msgstr "Grazie per averlo mantenuto libero."
 #: src/features/homepage/remember.tsx
 msgid "Thanks, Sam. Here’s one: at Northwind Labs I led the onboarding redesign, from 14 customer interviews to a shorter setup."
 msgstr "Grazie, Sam. Eccone uno: in Northwind Labs ho guidato il redesign dell'onboarding, da 14 interviste ai clienti fino a una configurazione più breve."
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Thanks. Later resumes will follow your feedback and {learned} edited lines."
+msgstr ""
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Thanks. Later resumes will follow your feedback."
+msgstr ""
 
 #: src/features/ats-checker/checker.tsx
 msgid "That file couldn't be read as a PDF. Choose a PDF file and try again."
@@ -14236,6 +14385,7 @@ msgstr "Oggi, {hour}"
 msgid "Tomorrow"
 msgstr "Domani"
 
+#: src/features/applications/components/detail/assembly-review.tsx
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/settings/resume-style.tsx
 msgid "Tone"
@@ -14845,6 +14995,14 @@ msgstr "Utilizza gli annunci di lavoro"
 msgid "Use sample"
 msgstr "Usa esempio"
 
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Use the draft wording"
+msgstr ""
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Use the reviewer's wording"
+msgstr ""
+
 #: src/features/resume/editor/check/issues.ts
 msgid "Use the standard heading"
 msgstr "Utilizza l'intestazione standard"
@@ -15324,6 +15482,14 @@ msgstr "Cosa ti hanno chiesto di preparare"
 msgid "What to do"
 msgstr "Cosa fare"
 
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "What to do differently"
+msgstr ""
+
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "What to keep or do differently next time, e.g. \"Less formal\" or \"Lead with results\""
+msgstr ""
+
 #: src/features/career/knowledge/stories.tsx
 msgid "What was happening before you started?"
 msgstr "Qual era la situazione prima che iniziassi?"
@@ -15502,6 +15668,11 @@ msgstr "In un trimestre, l'attivazione è passata dal 31% al 44%."
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Without one, you fill in the recipient yourself and drafting uses only your resume."
 msgstr "Senza uno, inserisci tu stesso il destinatario e la redazione utilizza solo il tuo curriculum."
+
+#. placeholder {0}: percent(rendering.docx.textCoverage)
+#: src/features/applications/components/detail/assembly-review.tsx
+msgid "Word: {0} of lines read back"
+msgstr ""
 
 #: src/features/applications/components/detail/assemble-dialog.tsx
 msgid "Wording"

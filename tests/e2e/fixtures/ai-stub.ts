@@ -189,6 +189,23 @@ function handle(request: IncomingMessage, response: ServerResponse, requests: Ch
 			);
 			return;
 		}
+		const tailored = !parsed.stream ? tailoringAnswer(parsed) : null;
+		if (tailored) {
+			response.writeHead(200, { "content-type": "application/json" });
+			response.end(
+				JSON.stringify({
+					id: "chatcmpl-stub",
+					object: "chat.completion",
+					created: 0,
+					model: parsed.model ?? "stub",
+					choices: [
+						{ index: 0, message: { role: "assistant", content: JSON.stringify(tailored) }, finish_reason: "stop" },
+					],
+					usage: { prompt_tokens: 100, completion_tokens: 20, total_tokens: 120 },
+				}),
+			);
+			return;
+		}
 		// A task model check: one JSON answer and one forced tool call.
 		if (!parsed.stream && parsed.tools?.some((tool) => tool.function.name === "record_number")) {
 			response.writeHead(200, { "content-type": "application/json" });
@@ -246,6 +263,72 @@ function handle(request: IncomingMessage, response: ServerResponse, requests: Ch
 		}
 		void reply(parsed, response);
 	});
+}
+
+/** Rewrite the stub reviewer suggests for the first bullet: wording only, so it's applied. */
+export const REVIEWER_PREFIX = "Reviewed: ";
+
+/**
+ * Answers for tailoring a resume: the posting analysis, no evidence review (the ranking decides), the writer
+ * (each bullet as recorded), and a reviewer that rewords the first bullet. Null for anything else.
+ */
+function tailoringAnswer(request: ChatRequest): unknown {
+	const system = request.messages
+		.filter((message) => message.role === "system")
+		.map((message) => text(message.content))
+		.join("\n");
+	const prompt = request.messages
+		.filter((message) => message.role === "user")
+		.map((message) => text(message.content))
+		.join("\n");
+	if (system.includes("You analyse job postings"))
+		return {
+			title: "Digital Project Manager",
+			employer: "Lumen",
+			seniority: "manager",
+			requirements: [
+				{ text: "WordPress development", importance: 5, necessity: "mandatory", kind: "skill", terms: ["WordPress"] },
+				{
+					text: "Nonprofit sector experience",
+					importance: 4,
+					necessity: "mandatory",
+					kind: "domain",
+					terms: ["nonprofits"],
+				},
+			],
+		};
+	if (system.includes("You review a candidate's verified career record")) return {};
+	if (system.includes("You write tailored resumes")) {
+		const bullets = [...prompt.matchAll(/^\s+(A\d+): (.+?)(?: \[|$)/gm)].map(([, id, line]) => ({ id, text: line }));
+		return { headline: "", summary: "", bullets, skillGroups: [] };
+	}
+	if (system.includes("You review a tailored resume draft")) {
+		const first = /^\s+(B\d+): (.+)$/m.exec(prompt);
+		return {
+			score: 8,
+			findings: first
+				? [
+						{
+							category: "strength",
+							severity: "medium",
+							message: "Lead with the outcome.",
+							ref: first[1],
+							rewrite: `${REVIEWER_PREFIX}${first[2]}`,
+							changesClaim: false,
+						},
+						{
+							category: "relevance",
+							severity: "low",
+							message: "Mention the nonprofit focus earlier.",
+							ref: null,
+							rewrite: null,
+							changesClaim: false,
+						},
+					]
+				: [],
+		};
+	}
+	return null;
 }
 
 export async function startAiStub(port = 0) {

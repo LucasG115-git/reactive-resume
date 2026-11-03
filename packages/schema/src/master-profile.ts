@@ -102,6 +102,8 @@ export const assembleInputSchema = z.object({
 	quality: z.enum(["standard", "thorough"]).optional(),
 	/** The Resume Style Guide preset to write with; by default the one matching the posting's title. */
 	presetId: z.string().min(1).optional(),
+	/** Have the AI review the draft once before it's saved (rephrase mode with a plan). Default: on. */
+	review: z.boolean().optional(),
 });
 export type AssembleInput = z.infer<typeof assembleInputSchema>;
 

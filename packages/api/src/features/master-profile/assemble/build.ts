@@ -52,7 +52,7 @@ export const LIMITS = {
 };
 
 const ESCAPES: Record<string, string> = { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" };
-const escapeHtml = (text: string) => text.replace(/[&<>"]/g, (char) => ESCAPES[char] ?? char);
+export const escapeHtml = (text: string) => text.replace(/[&<>"]/g, (char) => ESCAPES[char] ?? char);
 
 export const bulletsHtml = (bullets: string[]) =>
 	bullets.length === 0 ? "" : `<ul>${bullets.map((text) => `<li><p>${escapeHtml(text)}</p></li>`).join("")}</ul>`;

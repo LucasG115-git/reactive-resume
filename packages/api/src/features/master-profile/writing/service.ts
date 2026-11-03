@@ -23,6 +23,7 @@ export async function writeFromPlan(input: {
 	ask: AskModel;
 	style?: WritingStyle | null | undefined;
 	quality?: "standard" | "thorough" | undefined;
+	feedback?: string | undefined;
 	signal?: AbortSignal | undefined;
 	now?: Date;
 }): Promise<Written & { model: string; usage: TokenUsage[] }> {
@@ -43,6 +44,7 @@ export async function writeFromPlan(input: {
 		skills,
 		rules,
 		style: input.style,
+		feedback: input.feedback,
 		...(input.now ? { now: input.now } : {}),
 	});
 	const examples = input.style?.examples.slice(0, 2).map((example) => example.text.slice(0, EXAMPLE_EXCERPT)) ?? [];
