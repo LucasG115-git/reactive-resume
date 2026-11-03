@@ -432,6 +432,12 @@ msgstr "{0} godz."
 msgid "{0} in {1} is {2} in your timezone ({preferredZone})."
 msgstr "{0} w strefie {1} to {2} w Twojej strefie czasowej ({preferredZone})."
 
+#. placeholder {0}: item.inputTokens.toLocaleString()
+#. placeholder {1}: item.outputTokens.toLocaleString()
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "{0} in, {1} out"
+msgstr ""
+
 #. placeholder {0}: interviewKindOf(upcoming.kind)?.label ?? ""
 #. placeholder {0}: kind?.label ?? entry.kind
 #: src/features/applications/components/detail/activity.tsx
@@ -540,6 +546,11 @@ msgstr "{0} potwierdzone, {1} częściowo potwierdzone, {2} jeszcze bez dowodów
 msgid "{0} to fix"
 msgstr "{0} do poprawy"
 
+#. placeholder {0}: total.toLocaleString()
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "{0} tokens in total"
+msgstr ""
+
 #. placeholder {0}: title || t`Untitled`
 #. placeholder {1}: index + 1
 #: src/features/resume/editor/write/entry-card.tsx
@@ -555,6 +566,11 @@ msgstr "{0}, spoza Twoich lokalizacji"
 #: src/features/resume/editor/check/actions.ts
 msgid "{0}. Issue resolved."
 msgstr "{0}. Problem rozwiązany."
+
+#. placeholder {0}: Math.round(test.latencyMs / 100) / 10
+#: src/features/settings/ai/task-models.tsx
+msgid "{0}s"
+msgstr ""
 
 #. placeholder {0}: proposals.length
 #: src/features/assistant/conversation.tsx
@@ -3020,6 +3036,7 @@ msgstr "Zmienianie hasła…"
 
 #: src/features/homepage/footer.tsx
 #: src/features/homepage/header.tsx
+#: src/features/settings/ai/task-models.tsx
 #: src/routes/builder/$resumeId/-components/editor-bar.tsx
 #: src/routes/builder/$resumeId/-components/editor-shell.tsx
 msgid "Check"
@@ -3154,6 +3171,10 @@ msgstr "Sprawdzam… Kopia jest dostępna po zapisaniu."
 msgid "Checklist progress"
 msgstr "Postęp listy kontrolnej"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Checks a finished resume for relevance, strength and tone."
+msgstr ""
+
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "Checks by category"
 msgstr "Sprawdza według kategorii"
@@ -3235,6 +3256,10 @@ msgstr ""
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Choose where each stage named in the file goes, or add it as a new stage."
 msgstr "Wybierz, gdzie trafi każdy etap wymieniony w pliku, lub dodaj go jako nowy etap."
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Choosing evidence"
+msgstr ""
 
 #: src/components/level/combobox.tsx
 msgid "Circle"
@@ -3552,6 +3577,10 @@ msgstr "Połącz dostawcę AI w Ustawieniach, aby odświeżać go automatycznie.
 msgid "Connect an application"
 msgstr "Połącz aplikację"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Connect and test an AI provider above to choose models for each task."
+msgstr ""
+
 #: src/features/assistant/assistant-panel.tsx
 #: src/features/career/coach.tsx
 msgid "Connect another…"
@@ -3581,6 +3610,11 @@ msgstr "Połączono. Twoja domena otwiera Twoje główne CV."
 #: src/features/settings/account/auth-hooks.ts
 msgid "Connecting your {providerName} account…"
 msgstr "Łączenie konta {providerName}…"
+
+#. placeholder {0}: labels[target].title
+#: src/features/settings/ai/task-models.tsx
+msgid "Connection for {0}"
+msgstr ""
 
 #: src/features/settings/ai/web-access.tsx
 msgid "Connection saved"
@@ -4046,6 +4080,10 @@ msgstr "Nie udało się wczytać dokumentów"
 msgid "Couldn't load interviews. Retry"
 msgstr "Nie udało się wczytać rozmów. Spróbuj ponownie"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Couldn't load model settings. Reload to try again."
+msgstr ""
+
 #: src/features/settings/ai/web-access.tsx
 msgid "Couldn't load or save web access settings. Try again."
 msgstr "Nie udało się wczytać ani zapisać ustawień dostępu do sieci. Spróbuj ponownie."
@@ -4191,6 +4229,14 @@ msgstr "Nie można unieważnić klucza. Spróbuj ponownie."
 #: src/features/settings/ai/connected-apps.tsx
 msgid "Couldn't revoke this connection. Try again."
 msgstr "Nie udało się odwołać tego połączenia. Spróbuj ponownie."
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Couldn't run the check. Try again."
+msgstr ""
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Couldn't save model settings. Try again."
+msgstr ""
 
 #: src/features/career/knowledge/profile.tsx
 msgid "Couldn't save that achievement. Try again."
@@ -4758,6 +4804,14 @@ msgstr ""
 msgid "Default"
 msgstr "Domyślny"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Default connection"
+msgstr ""
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Default quality for tailored resumes"
+msgstr ""
+
 #: src/features/resume/editor/write/entries.tsx
 msgid "Degree"
 msgstr "Stopień"
@@ -5004,6 +5058,7 @@ msgid "Digital Marketing"
 msgstr ""
 
 #: src/features/career/schedule-sheet.tsx
+#: src/features/settings/ai/task-models.tsx
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Discard"
 msgstr "Odrzuć"
@@ -5725,6 +5780,10 @@ msgstr ""
 msgid "Everything the coach wrote for {0}, newest first."
 msgstr "Wszystko, co doradca napisał dla {0}, od najnowszych."
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Evidence review and writing use your Thorough model. It usually costs more and takes longer."
+msgstr ""
+
 #: src/features/settings/resume-style.tsx
 msgid "Example added"
 msgstr ""
@@ -5871,6 +5930,10 @@ msgstr "Fakty, historie i preferencje włączone w Wiedzy"
 msgid "Failed"
 msgstr "Przegrany"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "fallback"
+msgstr ""
+
 #: src/features/homepage/footer.tsx
 msgid "Features"
 msgstr "Funkcje"
@@ -5931,6 +5994,10 @@ msgstr "Wpisz rolę i firmę. Połącz dostawcę AI w ustawieniach, aby odczyta�
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Fill in the role and company. The posting is saved with the application."
 msgstr "Wpisz rolę i firmę. Ogłoszenie o pracę zostaje zapisane wraz z aplikacją o pracę."
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Fill suggested OpenAI models"
+msgstr ""
 
 #: src/features/career/knowledge/profile.tsx
 msgid "Fill your profile from a resume you already have"
@@ -6598,6 +6665,10 @@ msgstr "Ukryj zdjęcie"
 msgid "High"
 msgstr "Wysoki"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "High effort"
+msgstr ""
+
 #: src/features/resume/editor/write/rich-text-editor-field.tsx
 msgid "Highlight"
 msgstr "Wyróżnienie"
@@ -7199,9 +7270,17 @@ msgstr "Dołącz do Discorda"
 msgid "Join the Discord community"
 msgstr "Dołącz do społeczności na Discordzie"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "JSON failed"
+msgstr ""
+
 #: src/features/resume/import/read-file.ts
 msgid "JSON read"
 msgstr "JSON przeczytane"
+
+#: src/features/settings/ai/task-models.tsx
+msgid "JSON works"
+msgstr ""
 
 #: src/features/resume/editor/write/rich-text-editor-field.tsx
 msgid "Justify"
@@ -7843,6 +7922,10 @@ msgstr "Wczytywanie Wiedzy przed wysłaniem…"
 msgid "Loading linked documents…"
 msgstr "Wczytywanie powiązanych dokumentów…"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Loading model settings…"
+msgstr ""
+
 #: src/features/settings/ai/providers.tsx
 msgid "Loading model suggestions… You can also enter any model ID."
 msgstr "Ładowanie sugestii modeli… Możesz także wprowadzić dowolny identyfikator modelu."
@@ -7930,6 +8013,10 @@ msgstr "Utraciłeś dostęp do aplikacji uwierzytelniającej?"
 #: src/features/resume/editor/check/writing-tab.tsx
 msgid "Low"
 msgstr "Niski"
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Low effort"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 msgid "Lower the design sheet"
@@ -8136,6 +8223,10 @@ msgstr "mediana do pierwszej odpowiedzi"
 msgid "Medium"
 msgstr "Średni"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Medium effort"
+msgstr ""
+
 #: src/features/homepage/prepare.tsx
 msgid "Mentor other designers"
 msgstr "Mentoring innych projektantów"
@@ -8219,9 +8310,18 @@ msgstr "formacie mieszanym"
 msgid "Model"
 msgstr "Model"
 
+#. placeholder {0}: labels[target].title
+#: src/features/settings/ai/task-models.tsx
+msgid "Model for {0}"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "Model for {label}"
 msgstr "Model dla {label}"
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Model settings saved"
+msgstr ""
 
 #: src/features/settings/ai/providers.tsx
 msgid "Model suggestions are unavailable. You can still enter any model ID."
@@ -8230,6 +8330,18 @@ msgstr "Propozycje modeli są niedostępne. Nadal możesz wprowadzić dowolny id
 #: src/features/assistant/assistant-panel.tsx
 msgid "Model: {label}"
 msgstr "Model: {label}"
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Models for each task"
+msgstr ""
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Models used"
+msgstr ""
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Models used (Thorough)"
+msgstr ""
 
 #: src/features/homepage/sheet.tsx
 msgid "Mono"
@@ -8926,6 +9038,10 @@ msgstr "Z tego pliku nie udało się odczytać tekstu."
 msgid "No timezone matches."
 msgstr "Brak pasujących stref czasowych."
 
+#: src/features/settings/ai/task-models.tsx
+msgid "no tool calls"
+msgstr ""
+
 #: src/features/applications/components/detail/selection-review.tsx
 msgid "No verified evidence"
 msgstr ""
@@ -9005,6 +9121,10 @@ msgstr "Jeszcze nie złożono aplikacji"
 msgid "Not available while the resume needs a password."
 msgstr "Niedostępne, gdy CV wymaga hasła."
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Not checked yet. Check it before relying on it."
+msgstr ""
+
 #: src/features/settings/account/security.tsx
 msgid "Not connected"
 msgstr "Nie połączony"
@@ -9077,6 +9197,7 @@ msgid "Not selected"
 msgstr "Nie wybrano"
 
 #: src/features/career/knowledge/profile.tsx
+#: src/features/settings/ai/task-models.tsx
 msgid "Not set"
 msgstr ""
 
@@ -9987,6 +10108,7 @@ msgid "Polish"
 msgstr "Polski"
 
 #: src/features/career/shared.tsx
+#: src/features/settings/ai/task-models.tsx
 msgid "Polishing"
 msgstr "Szlifowanie"
 
@@ -10360,6 +10482,10 @@ msgstr "Dostarczone przez Twój serwer: {connectedProvider}."
 msgid "Provider"
 msgstr "Dostawca"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Provider default"
+msgstr ""
+
 #: src/features/documents/document-card.tsx
 #: src/features/documents/documents-page.tsx
 #: src/features/homepage/share.tsx
@@ -10436,6 +10562,10 @@ msgstr "Kod QR dla {url}"
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "QR code for two-step verification"
 msgstr "Kod QR do weryfikacji dwuetapowej"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Quality"
+msgstr ""
 
 #: src/features/applications/components/detail/assemble-dialog.tsx
 msgid "Quality checks"
@@ -10639,6 +10769,10 @@ msgstr ""
 msgid "Reading page…"
 msgstr "Czytanie strony…"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Reading postings"
+msgstr ""
+
 #: src/features/documents/new-document-dialog.tsx
 msgid "Reading the file"
 msgstr "Czytanie pliku"
@@ -10710,6 +10844,19 @@ msgstr "Gotowy"
 #: src/features/applications/components/detail/close-dialog.tsx
 msgid "Reason"
 msgstr "Powód"
+
+#: src/features/settings/ai/task-models.tsx
+msgid "reasoning effort accepted"
+msgstr ""
+
+#. placeholder {0}: labels[target].title
+#: src/features/settings/ai/task-models.tsx
+msgid "Reasoning effort for {0}"
+msgstr ""
+
+#: src/features/settings/ai/task-models.tsx
+msgid "reasoning effort not accepted"
+msgstr ""
 
 #: src/features/career/knowledge/profile.tsx
 msgid "Rebuilt the volunteer portal on WordPress, cutting coordinator admin time by 40%"
@@ -11066,6 +11213,10 @@ msgstr "Zastąp tabele zwykłymi akapitami i listami. Komórki są wyodrębniane
 msgid "Replaces “{current}” on the application."
 msgstr "Zastępuje „{current}” w aplikacji."
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Replaces the models for choosing evidence, writing and reviewing, only when you choose Thorough."
+msgstr ""
+
 #: src/features/career/workspace/saved.tsx
 #: src/features/homepage/remember.tsx
 msgid "Reply"
@@ -11352,6 +11503,14 @@ msgstr "Pisanie recenzji"
 msgid "Reviewing needs an AI connection. <0>Add one in Settings</0>. What you write here stays in this browser until then."
 msgstr "Ocena wymaga połączenia z AI. <0>Dodaj je w Ustawieniach</0>. Do tego czasu to, co tu piszesz, zostaje w tej przeglądarce."
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Reviewing resumes"
+msgstr ""
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Reviews which of your achievements fit a posting."
+msgstr ""
+
 #: src/features/settings/ai/api-keys.tsx
 msgid "Revoke"
 msgstr "Unieważnić"
@@ -11586,6 +11745,10 @@ msgstr "Zapisz rozmowę"
 msgid "Save job"
 msgstr "Zapisz zadanie"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Save models"
+msgstr ""
+
 #: src/features/settings/account/security.tsx
 msgid "Save name"
 msgstr "Zapisz nazwę"
@@ -11619,6 +11782,10 @@ msgstr "Zapisz te warunki oferty do porównania"
 msgid "Save this story to Knowledge?"
 msgstr "Zapisać tę historię w Wiedzy?"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Save to check this setting"
+msgstr ""
+
 #: src/features/career/workspace/fit.tsx
 msgid "Save to Knowledge"
 msgstr "Zapisz w Wiedzy"
@@ -11630,6 +11797,10 @@ msgstr "Zapisz w aplikacji o pracę"
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Save your backup codes"
 msgstr "Zapisz kody zapasowe"
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Save, then check this model."
+msgstr ""
 
 #: src/features/resume/share/format.ts
 msgid "saved"
@@ -12092,6 +12263,10 @@ msgstr "Ustaw kontynuację…"
 msgid "Set a password"
 msgstr "Ustaw hasło"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Set a Thorough model to make Thorough available. Standard uses the models above."
+msgstr ""
+
 #: src/features/career/preference-check.tsx
 msgid "Set aside for this role"
 msgstr ""
@@ -12190,6 +12365,10 @@ msgstr "Krótko i grzecznie, dla rekrutera"
 #: src/features/resume/share/share-panel.tsx
 msgid "Short link and domain"
 msgstr "Krótki link i domena"
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Short rewrites: application answers and replies."
+msgstr ""
 
 #: src/features/career/workspace/apply.tsx
 msgid "Shorten questions to 2,000 characters and answers to 6,000 characters before marking this applied."
@@ -12695,6 +12874,11 @@ msgstr "Gradacja"
 
 #: src/features/career/knowledge/profile.tsx
 msgid "stakeholder management, nonprofit"
+msgstr ""
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+#: src/features/settings/ai/task-models.tsx
+msgid "Standard"
 msgstr ""
 
 #: src/features/homepage/check.tsx
@@ -13961,6 +14145,21 @@ msgstr "W tym tygodniu: spraw, by Twoje dowody były łatwiejsze do śledzenia"
 msgid "This workspace couldn't be loaded."
 msgstr "Nie udało się wczytać tego obszaru roboczego."
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+#: src/features/settings/ai/task-models.tsx
+msgid "Thorough"
+msgstr ""
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Thorough model"
+msgstr ""
+
+#. placeholder {0}: thousands(thoroughShare.input)
+#. placeholder {1}: thousands(thoroughShare.output)
+#: src/features/settings/ai/task-models.tsx
+msgid "Thorough sends about {0} input and {1} output tokens per resume to the Thorough model instead, billed at its rates. You can switch per resume."
+msgstr ""
+
 #: src/features/command-palette/pages/resumes.tsx
 msgid "Threads"
 msgstr "Wątki"
@@ -14049,6 +14248,10 @@ msgstr "Zbyt jasne na nagłówki w kolorze białym. Może być trudno odczytać 
 #: src/features/settings/ai/web-access.tsx
 msgid "Too many requests. Try again later."
 msgstr "Zbyt wiele żądań. Spróbuj ponownie później."
+
+#: src/features/settings/ai/task-models.tsx
+msgid "tool calls work"
+msgstr ""
 
 #: src/features/homepage/sections.tsx
 msgid "Total"
@@ -14205,6 +14408,10 @@ msgstr "Wyłączanie weryfikacji dwuetapowej…"
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Turning on two-step verification…"
 msgstr "Włączanie weryfikacji dwuetapowej…"
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Turns postings and files into fields and ranked requirements."
+msgstr ""
 
 #: src/features/resume/editor/design/template-group.tsx
 #: src/features/templates/gallery.tsx
@@ -14534,6 +14741,10 @@ msgstr "Użyj maksymalnie 64 znaków."
 msgid "Use a darker shade"
 msgstr "Użyj ciemniejszego odcienia"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Use a faster model for reading and a stronger one for writing. Anything left blank uses your default provider and its model."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Use a plain international form, such as +1 555 010 1234."
 msgstr "Użyj zwykłego formatu międzynarodowego, np. +1 555 010 1234."
@@ -14702,6 +14913,10 @@ msgstr "Wykorzystuje fakty z Twojego CV"
 #: src/features/assistant/assistant-panel.tsx
 msgid "Uses the linked application"
 msgstr "Korzysta z połączonej aplikacji o pracę"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Uses the model set for each task."
+msgstr ""
 
 #: src/features/career/schedule-sheet.tsx
 msgid "Uses the web search service set up in Settings. Results wait in Today for your review; applications and documents are never created for you."
@@ -15415,6 +15630,10 @@ msgstr "Napisz odpowiedź lub przygotuj szkic na podstawie Wiedzy."
 msgid "Write your professional resume"
 msgstr "Napisz swoje zawodowe CV"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Writes the tailored resume from your reviewed selection."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/resume/editor/check/check-panel.tsx
@@ -15429,6 +15648,10 @@ msgstr "Pisanie odpowiedzi…"
 #: src/features/settings/ai/providers.tsx
 msgid "Writing help, tailored suggestions and the assistant. The default provider is used wherever you don't pick one. Your keys stay encrypted."
 msgstr "Pomoc w pisaniu, dopasowane sugestie i asystent. Domyślny dostawca jest używany wszędzie tam, gdzie nie wybierzesz innego. Twoje klucze pozostają zaszyfrowane."
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Writing resumes"
+msgstr ""
 
 #: src/features/homepage/sections.tsx
 msgid "writing, tailoring and sending"

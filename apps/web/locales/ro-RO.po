@@ -432,6 +432,12 @@ msgstr "{0} h"
 msgid "{0} in {1} is {2} in your timezone ({preferredZone})."
 msgstr "{0} în {1} înseamnă {2} în fusul dvs. orar ({preferredZone})."
 
+#. placeholder {0}: item.inputTokens.toLocaleString()
+#. placeholder {1}: item.outputTokens.toLocaleString()
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "{0} in, {1} out"
+msgstr ""
+
 #. placeholder {0}: interviewKindOf(upcoming.kind)?.label ?? ""
 #. placeholder {0}: kind?.label ?? entry.kind
 #: src/features/applications/components/detail/activity.tsx
@@ -540,6 +546,11 @@ msgstr "{0} susținute, {1} parțial susținute, {2} încă fără dovezi. {3}"
 msgid "{0} to fix"
 msgstr "{0} de corectat"
 
+#. placeholder {0}: total.toLocaleString()
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "{0} tokens in total"
+msgstr ""
+
 #. placeholder {0}: title || t`Untitled`
 #. placeholder {1}: index + 1
 #: src/features/resume/editor/write/entry-card.tsx
@@ -555,6 +566,11 @@ msgstr "{0}, nu este unul dintre locurile dvs."
 #: src/features/resume/editor/check/actions.ts
 msgid "{0}. Issue resolved."
 msgstr "{0}. Problema rezolvată."
+
+#. placeholder {0}: Math.round(test.latencyMs / 100) / 10
+#: src/features/settings/ai/task-models.tsx
+msgid "{0}s"
+msgstr ""
 
 #. placeholder {0}: proposals.length
 #: src/features/assistant/conversation.tsx
@@ -3020,6 +3036,7 @@ msgstr "Se schimbă parola…"
 
 #: src/features/homepage/footer.tsx
 #: src/features/homepage/header.tsx
+#: src/features/settings/ai/task-models.tsx
 #: src/routes/builder/$resumeId/-components/editor-bar.tsx
 #: src/routes/builder/$resumeId/-components/editor-shell.tsx
 msgid "Check"
@@ -3154,6 +3171,10 @@ msgstr "Se verifică... Copierea este disponibilă după salvare."
 msgid "Checklist progress"
 msgstr "Progresul listei de verificare"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Checks a finished resume for relevance, strength and tone."
+msgstr ""
+
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "Checks by category"
 msgstr "Verificări pe categorii"
@@ -3235,6 +3256,10 @@ msgstr ""
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Choose where each stage named in the file goes, or add it as a new stage."
 msgstr "Alegeți destinația fiecărei etape numite în fișier sau adăugați-o ca etapă nouă."
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Choosing evidence"
+msgstr ""
 
 #: src/components/level/combobox.tsx
 msgid "Circle"
@@ -3552,6 +3577,10 @@ msgstr "Conectați un furnizor AI în Setări pentru a-l actualiza automat."
 msgid "Connect an application"
 msgstr "Conectează o aplicație"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Connect and test an AI provider above to choose models for each task."
+msgstr ""
+
 #: src/features/assistant/assistant-panel.tsx
 #: src/features/career/coach.tsx
 msgid "Connect another…"
@@ -3581,6 +3610,11 @@ msgstr "Conectat. Domeniul tău deschide CV-ul principal."
 #: src/features/settings/account/auth-hooks.ts
 msgid "Connecting your {providerName} account…"
 msgstr "Se conectează contul {providerName}…"
+
+#. placeholder {0}: labels[target].title
+#: src/features/settings/ai/task-models.tsx
+msgid "Connection for {0}"
+msgstr ""
 
 #: src/features/settings/ai/web-access.tsx
 msgid "Connection saved"
@@ -4046,6 +4080,10 @@ msgstr "Nu s-au putut încărca documentele"
 msgid "Couldn't load interviews. Retry"
 msgstr "Nu s-au putut încărca interviurile. Reîncercați"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Couldn't load model settings. Reload to try again."
+msgstr ""
+
 #: src/features/settings/ai/web-access.tsx
 msgid "Couldn't load or save web access settings. Try again."
 msgstr "Nu s-au putut încărca sau salva setările de acces web. Încearcă din nou."
@@ -4191,6 +4229,14 @@ msgstr "Nu s-a putut revoca cheia. Încearcă din nou."
 #: src/features/settings/ai/connected-apps.tsx
 msgid "Couldn't revoke this connection. Try again."
 msgstr "Nu s-a putut revoca această conexiune. Încearcă din nou."
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Couldn't run the check. Try again."
+msgstr ""
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Couldn't save model settings. Try again."
+msgstr ""
 
 #: src/features/career/knowledge/profile.tsx
 msgid "Couldn't save that achievement. Try again."
@@ -4758,6 +4804,14 @@ msgstr ""
 msgid "Default"
 msgstr "Implicit"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Default connection"
+msgstr ""
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Default quality for tailored resumes"
+msgstr ""
+
 #: src/features/resume/editor/write/entries.tsx
 msgid "Degree"
 msgstr "Diplomă"
@@ -5004,6 +5058,7 @@ msgid "Digital Marketing"
 msgstr ""
 
 #: src/features/career/schedule-sheet.tsx
+#: src/features/settings/ai/task-models.tsx
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Discard"
 msgstr "Renunță"
@@ -5725,6 +5780,10 @@ msgstr ""
 msgid "Everything the coach wrote for {0}, newest first."
 msgstr "Tot ce a scris coach-ul pentru {0}, cele mai noi primele."
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Evidence review and writing use your Thorough model. It usually costs more and takes longer."
+msgstr ""
+
 #: src/features/settings/resume-style.tsx
 msgid "Example added"
 msgstr ""
@@ -5871,6 +5930,10 @@ msgstr "Fapte, povești și preferințe activate în Cunoștințe"
 msgid "Failed"
 msgstr "A eșuat"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "fallback"
+msgstr ""
+
 #: src/features/homepage/footer.tsx
 msgid "Features"
 msgstr "Funcții"
@@ -5931,6 +5994,10 @@ msgstr "Completează postul și compania. Conectează un furnizor AI în Setări
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Fill in the role and company. The posting is saved with the application."
 msgstr "Completați rolul și compania. Anunțul de angajare este salvat împreună cu cererea de angajare."
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Fill suggested OpenAI models"
+msgstr ""
 
 #: src/features/career/knowledge/profile.tsx
 msgid "Fill your profile from a resume you already have"
@@ -6598,6 +6665,10 @@ msgstr "Ascunde fotografia"
 msgid "High"
 msgstr "Ridicat"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "High effort"
+msgstr ""
+
 #: src/features/resume/editor/write/rich-text-editor-field.tsx
 msgid "Highlight"
 msgstr "Evidențiere"
@@ -7199,9 +7270,17 @@ msgstr "Alătură-te pe Discord"
 msgid "Join the Discord community"
 msgstr "Alătură-te comunității de pe Discord"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "JSON failed"
+msgstr ""
+
 #: src/features/resume/import/read-file.ts
 msgid "JSON read"
 msgstr "JSON citit"
+
+#: src/features/settings/ai/task-models.tsx
+msgid "JSON works"
+msgstr ""
 
 #: src/features/resume/editor/write/rich-text-editor-field.tsx
 msgid "Justify"
@@ -7843,6 +7922,10 @@ msgstr "Se încarcă Cunoștințele înainte de trimitere…"
 msgid "Loading linked documents…"
 msgstr "Se încarcă documentele asociate…"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Loading model settings…"
+msgstr ""
+
 #: src/features/settings/ai/providers.tsx
 msgid "Loading model suggestions… You can also enter any model ID."
 msgstr "Se încarcă sugestii de model... De asemenea, puteți introduce orice ID de model."
@@ -7930,6 +8013,10 @@ msgstr "Ați pierdut accesul la aplicația de autentificare?"
 #: src/features/resume/editor/check/writing-tab.tsx
 msgid "Low"
 msgstr "Scăzut"
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Low effort"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 msgid "Lower the design sheet"
@@ -8136,6 +8223,10 @@ msgstr "mediana pentru primul răspuns"
 msgid "Medium"
 msgstr "Mediu"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Medium effort"
+msgstr ""
+
 #: src/features/homepage/prepare.tsx
 msgid "Mentor other designers"
 msgstr "Îndrumarea altor designeri"
@@ -8219,9 +8310,18 @@ msgstr "format mixt"
 msgid "Model"
 msgstr "Model"
 
+#. placeholder {0}: labels[target].title
+#: src/features/settings/ai/task-models.tsx
+msgid "Model for {0}"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "Model for {label}"
 msgstr "Model pentru {label}"
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Model settings saved"
+msgstr ""
 
 #: src/features/settings/ai/providers.tsx
 msgid "Model suggestions are unavailable. You can still enter any model ID."
@@ -8230,6 +8330,18 @@ msgstr "Sugestiile de modele nu sunt disponibile. Puteți introduce în continua
 #: src/features/assistant/assistant-panel.tsx
 msgid "Model: {label}"
 msgstr "Model: {label}"
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Models for each task"
+msgstr ""
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Models used"
+msgstr ""
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Models used (Thorough)"
+msgstr ""
 
 #: src/features/homepage/sheet.tsx
 msgid "Mono"
@@ -8926,6 +9038,10 @@ msgstr "Nu a putut fi citit niciun text din acest fișier."
 msgid "No timezone matches."
 msgstr "Niciun fus orar nu se potrivește."
 
+#: src/features/settings/ai/task-models.tsx
+msgid "no tool calls"
+msgstr ""
+
 #: src/features/applications/components/detail/selection-review.tsx
 msgid "No verified evidence"
 msgstr ""
@@ -9005,6 +9121,10 @@ msgstr "Încă netrimisă"
 msgid "Not available while the resume needs a password."
 msgstr "Indisponibil cât timp CV-ul necesită o parolă."
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Not checked yet. Check it before relying on it."
+msgstr ""
+
 #: src/features/settings/account/security.tsx
 msgid "Not connected"
 msgstr "Neconectat"
@@ -9077,6 +9197,7 @@ msgid "Not selected"
 msgstr "Neselectat"
 
 #: src/features/career/knowledge/profile.tsx
+#: src/features/settings/ai/task-models.tsx
 msgid "Not set"
 msgstr ""
 
@@ -9987,6 +10108,7 @@ msgid "Polish"
 msgstr "Poloneză"
 
 #: src/features/career/shared.tsx
+#: src/features/settings/ai/task-models.tsx
 msgid "Polishing"
 msgstr "Se finisează"
 
@@ -10360,6 +10482,10 @@ msgstr "Furnizat de serverul dvs.: {connectedProvider}."
 msgid "Provider"
 msgstr "Furnizor"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Provider default"
+msgstr ""
+
 #: src/features/documents/document-card.tsx
 #: src/features/documents/documents-page.tsx
 #: src/features/homepage/share.tsx
@@ -10436,6 +10562,10 @@ msgstr "Cod QR pentru {url}"
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "QR code for two-step verification"
 msgstr "Cod QR pentru verificarea în doi pași"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Quality"
+msgstr ""
 
 #: src/features/applications/components/detail/assemble-dialog.tsx
 msgid "Quality checks"
@@ -10639,6 +10769,10 @@ msgstr ""
 msgid "Reading page…"
 msgstr "Se citește pagina…"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Reading postings"
+msgstr ""
+
 #: src/features/documents/new-document-dialog.tsx
 msgid "Reading the file"
 msgstr "Citirea dosarului"
@@ -10710,6 +10844,19 @@ msgstr "Gata"
 #: src/features/applications/components/detail/close-dialog.tsx
 msgid "Reason"
 msgstr "Motiv"
+
+#: src/features/settings/ai/task-models.tsx
+msgid "reasoning effort accepted"
+msgstr ""
+
+#. placeholder {0}: labels[target].title
+#: src/features/settings/ai/task-models.tsx
+msgid "Reasoning effort for {0}"
+msgstr ""
+
+#: src/features/settings/ai/task-models.tsx
+msgid "reasoning effort not accepted"
+msgstr ""
 
 #: src/features/career/knowledge/profile.tsx
 msgid "Rebuilt the volunteer portal on WordPress, cutting coordinator admin time by 40%"
@@ -11066,6 +11213,10 @@ msgstr "Înlocuiți tabelele cu paragrafe și liste simple. Celulele sunt extras
 msgid "Replaces “{current}” on the application."
 msgstr "Înlocuiește „{current}” în candidatură."
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Replaces the models for choosing evidence, writing and reviewing, only when you choose Thorough."
+msgstr ""
+
 #: src/features/career/workspace/saved.tsx
 #: src/features/homepage/remember.tsx
 msgid "Reply"
@@ -11352,6 +11503,14 @@ msgstr "Scrierea de recenzii"
 msgid "Reviewing needs an AI connection. <0>Add one in Settings</0>. What you write here stays in this browser until then."
 msgstr "Analiza necesită o conexiune AI. <0>Adăugați una în Setări</0>. Ce scrieți aici rămâne în acest browser până atunci."
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Reviewing resumes"
+msgstr ""
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Reviews which of your achievements fit a posting."
+msgstr ""
+
 #: src/features/settings/ai/api-keys.tsx
 msgid "Revoke"
 msgstr "Revoca"
@@ -11586,6 +11745,10 @@ msgstr "Salvați interviul"
 msgid "Save job"
 msgstr "Salvați locul de muncă"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Save models"
+msgstr ""
+
 #: src/features/settings/account/security.tsx
 msgid "Save name"
 msgstr "Salvează numele"
@@ -11619,6 +11782,10 @@ msgstr "Salvați aceste condiții ale ofertei pentru comparare"
 msgid "Save this story to Knowledge?"
 msgstr "Salvați această poveste în Cunoștințe?"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Save to check this setting"
+msgstr ""
+
 #: src/features/career/workspace/fit.tsx
 msgid "Save to Knowledge"
 msgstr "Salvați în Cunoștințe"
@@ -11630,6 +11797,10 @@ msgstr "Salvați în cererea de angajare"
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Save your backup codes"
 msgstr "Salvează codurile de rezervă"
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Save, then check this model."
+msgstr ""
 
 #: src/features/resume/share/format.ts
 msgid "saved"
@@ -12092,6 +12263,10 @@ msgstr "Stabiliți o urmărire..."
 msgid "Set a password"
 msgstr "Setați o parolă"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Set a Thorough model to make Thorough available. Standard uses the models above."
+msgstr ""
+
 #: src/features/career/preference-check.tsx
 msgid "Set aside for this role"
 msgstr ""
@@ -12190,6 +12365,10 @@ msgstr "Scurt și politicos, pentru recrutor"
 #: src/features/resume/share/share-panel.tsx
 msgid "Short link and domain"
 msgstr "Link scurt și domeniu"
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Short rewrites: application answers and replies."
+msgstr ""
 
 #: src/features/career/workspace/apply.tsx
 msgid "Shorten questions to 2,000 characters and answers to 6,000 characters before marking this applied."
@@ -12695,6 +12874,11 @@ msgstr "Etape"
 
 #: src/features/career/knowledge/profile.tsx
 msgid "stakeholder management, nonprofit"
+msgstr ""
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+#: src/features/settings/ai/task-models.tsx
+msgid "Standard"
 msgstr ""
 
 #: src/features/homepage/check.tsx
@@ -13961,6 +14145,21 @@ msgstr "Săptămâna aceasta: faceți-vă dovezile mai ușor de urmărit"
 msgid "This workspace couldn't be loaded."
 msgstr "Acest spațiu de lucru nu a putut fi încărcat."
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+#: src/features/settings/ai/task-models.tsx
+msgid "Thorough"
+msgstr ""
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Thorough model"
+msgstr ""
+
+#. placeholder {0}: thousands(thoroughShare.input)
+#. placeholder {1}: thousands(thoroughShare.output)
+#: src/features/settings/ai/task-models.tsx
+msgid "Thorough sends about {0} input and {1} output tokens per resume to the Thorough model instead, billed at its rates. You can switch per resume."
+msgstr ""
+
 #: src/features/command-palette/pages/resumes.tsx
 msgid "Threads"
 msgstr "Fire de discuție"
@@ -14049,6 +14248,10 @@ msgstr "Prea deschis pentru titluri pe alb. Poate fi greu de citit și de tipăr
 #: src/features/settings/ai/web-access.tsx
 msgid "Too many requests. Try again later."
 msgstr "Prea multe cereri. Încercați din nou mai târziu."
+
+#: src/features/settings/ai/task-models.tsx
+msgid "tool calls work"
+msgstr ""
 
 #: src/features/homepage/sections.tsx
 msgid "Total"
@@ -14205,6 +14408,10 @@ msgstr "Se dezactivează verificarea în doi pași…"
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Turning on two-step verification…"
 msgstr "Se activează verificarea în doi pași…"
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Turns postings and files into fields and ranked requirements."
+msgstr ""
 
 #: src/features/resume/editor/design/template-group.tsx
 #: src/features/templates/gallery.tsx
@@ -14534,6 +14741,10 @@ msgstr "Folosește cel mult 64 de caractere."
 msgid "Use a darker shade"
 msgstr "Utilizați o nuanță mai închisă"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Use a faster model for reading and a stronger one for writing. Anything left blank uses your default provider and its model."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Use a plain international form, such as +1 555 010 1234."
 msgstr "Folosiți un format internațional simplu, precum +1 555 010 1234."
@@ -14702,6 +14913,10 @@ msgstr "Folosește fapte din CV-ul tău"
 #: src/features/assistant/assistant-panel.tsx
 msgid "Uses the linked application"
 msgstr "Folosește candidatura conectată"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Uses the model set for each task."
+msgstr ""
 
 #: src/features/career/schedule-sheet.tsx
 msgid "Uses the web search service set up in Settings. Results wait in Today for your review; applications and documents are never created for you."
@@ -15415,6 +15630,10 @@ msgstr "Scrieți răspunsul sau redactați unul din Cunoștințele dvs."
 msgid "Write your professional resume"
 msgstr "Scrie-ți CV-ul profesional"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Writes the tailored resume from your reviewed selection."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/resume/editor/check/check-panel.tsx
@@ -15429,6 +15648,10 @@ msgstr "Se scrie un răspuns…"
 #: src/features/settings/ai/providers.tsx
 msgid "Writing help, tailored suggestions and the assistant. The default provider is used wherever you don't pick one. Your keys stay encrypted."
 msgstr "Ajutor la scriere, sugestii adaptate și asistentul. Furnizorul implicit este folosit oriunde nu alegeți altul. Cheile dvs. rămân criptate."
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Writing resumes"
+msgstr ""
 
 #: src/features/homepage/sections.tsx
 msgid "writing, tailoring and sending"

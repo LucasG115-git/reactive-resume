@@ -3,6 +3,7 @@ import { ApiKeysSection } from "./api-keys";
 import { ConnectedAppsSection } from "./connected-apps";
 import { McpSection } from "./mcp";
 import { ProvidersSection } from "./providers";
+import { TaskModelsSection } from "./task-models";
 import { WebAccessSection } from "./web-access";
 import { PageHeader } from "@/components/layout/page-header";
 
@@ -15,6 +16,7 @@ export function AiDeveloperSettings() {
 				description={<Trans>Connect the tools you use for writing, job search and working with your resumes.</Trans>}
 			/>
 			<ProvidersSection />
+			<TaskModelsSection />
 			<WebAccessSection />
 			<ApiKeysSection />
 			<ConnectedAppsSection />

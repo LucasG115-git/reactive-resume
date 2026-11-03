@@ -432,6 +432,12 @@ msgstr "{0} மணி"
 msgid "{0} in {1} is {2} in your timezone ({preferredZone})."
 msgstr "{1}-இல் {0} என்பது உங்கள் நேர மண்டலத்தில் ({preferredZone}) {2}."
 
+#. placeholder {0}: item.inputTokens.toLocaleString()
+#. placeholder {1}: item.outputTokens.toLocaleString()
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "{0} in, {1} out"
+msgstr ""
+
 #. placeholder {0}: interviewKindOf(upcoming.kind)?.label ?? ""
 #. placeholder {0}: kind?.label ?? entry.kind
 #: src/features/applications/components/detail/activity.tsx
@@ -540,6 +546,11 @@ msgstr "{0} சான்றுடன், {1} ஓரளவு சான்று�
 msgid "{0} to fix"
 msgstr "சரிசெய்ய {0}"
 
+#. placeholder {0}: total.toLocaleString()
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "{0} tokens in total"
+msgstr ""
+
 #. placeholder {0}: title || t`Untitled`
 #. placeholder {1}: index + 1
 #: src/features/resume/editor/write/entry-card.tsx
@@ -555,6 +566,11 @@ msgstr "{0}, உங்கள் இடங்களில் ஒன்றல்�
 #: src/features/resume/editor/check/actions.ts
 msgid "{0}. Issue resolved."
 msgstr "{0}. பிரச்சினை தீர்க்கப்பட்டது."
+
+#. placeholder {0}: Math.round(test.latencyMs / 100) / 10
+#: src/features/settings/ai/task-models.tsx
+msgid "{0}s"
+msgstr ""
 
 #. placeholder {0}: proposals.length
 #: src/features/assistant/conversation.tsx
@@ -3020,6 +3036,7 @@ msgstr "உங்கள் கடவுச்சொல் மாற்றப்�
 
 #: src/features/homepage/footer.tsx
 #: src/features/homepage/header.tsx
+#: src/features/settings/ai/task-models.tsx
 #: src/routes/builder/$resumeId/-components/editor-bar.tsx
 #: src/routes/builder/$resumeId/-components/editor-shell.tsx
 msgid "Check"
@@ -3154,6 +3171,10 @@ msgstr "சரிபார்க்கிறது... சேமித்த ப�
 msgid "Checklist progress"
 msgstr "சரிபார்ப்புப் பட்டியல் முன்னேற்றம்"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Checks a finished resume for relevance, strength and tone."
+msgstr ""
+
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "Checks by category"
 msgstr "வகை வாரியாக சரிபார்க்கிறது"
@@ -3235,6 +3256,10 @@ msgstr ""
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Choose where each stage named in the file goes, or add it as a new stage."
 msgstr "கோப்பில் பெயரிடப்பட்ட ஒவ்வொரு நிலையும் எங்கு செல்ல வேண்டும் என்பதைத் தேர்ந்தெடுக்கவும் அல்லது அதைப் புதிய நிலையாகச் சேர்க்கவும்."
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Choosing evidence"
+msgstr ""
 
 #: src/components/level/combobox.tsx
 msgid "Circle"
@@ -3552,6 +3577,10 @@ msgstr "தானாகப் புதுப்பிக்க, அமைப்
 msgid "Connect an application"
 msgstr "ஒரு பயன்பாட்டை இணைக்கவும்"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Connect and test an AI provider above to choose models for each task."
+msgstr ""
+
 #: src/features/assistant/assistant-panel.tsx
 #: src/features/career/coach.tsx
 msgid "Connect another…"
@@ -3581,6 +3610,11 @@ msgstr "இணைக்கப்பட்டது. உங்கள் டொம
 #: src/features/settings/account/auth-hooks.ts
 msgid "Connecting your {providerName} account…"
 msgstr "உங்கள் {providerName} கணக்கு இணைக்கப்படுகிறது…"
+
+#. placeholder {0}: labels[target].title
+#: src/features/settings/ai/task-models.tsx
+msgid "Connection for {0}"
+msgstr ""
 
 #: src/features/settings/ai/web-access.tsx
 msgid "Connection saved"
@@ -4046,6 +4080,10 @@ msgstr "ஆவணங்களை ஏற்ற முடியவில்லை"
 msgid "Couldn't load interviews. Retry"
 msgstr "நேர்காணல்களை ஏற்ற முடியவில்லை. மீண்டும் முயற்சிக்கவும்"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Couldn't load model settings. Reload to try again."
+msgstr ""
+
 #: src/features/settings/ai/web-access.tsx
 msgid "Couldn't load or save web access settings. Try again."
 msgstr "இணைய அணுகல் அமைப்புகளை ஏற்றவோ சேமிக்கவோ முடியவில்லை. மீண்டும் முயற்சிக்கவும்."
@@ -4191,6 +4229,14 @@ msgstr "சாவியைத் திரும்பப் பெற முட
 #: src/features/settings/ai/connected-apps.tsx
 msgid "Couldn't revoke this connection. Try again."
 msgstr "இந்த இணைப்பைத் திரும்பப் பெற முடியவில்லை. மீண்டும் முயற்சிக்கவும்."
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Couldn't run the check. Try again."
+msgstr ""
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Couldn't save model settings. Try again."
+msgstr ""
 
 #: src/features/career/knowledge/profile.tsx
 msgid "Couldn't save that achievement. Try again."
@@ -4758,6 +4804,14 @@ msgstr ""
 msgid "Default"
 msgstr "இயல்புநிலை"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Default connection"
+msgstr ""
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Default quality for tailored resumes"
+msgstr ""
+
 #: src/features/resume/editor/write/entries.tsx
 msgid "Degree"
 msgstr "பட்டம்"
@@ -5004,6 +5058,7 @@ msgid "Digital Marketing"
 msgstr ""
 
 #: src/features/career/schedule-sheet.tsx
+#: src/features/settings/ai/task-models.tsx
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Discard"
 msgstr "நிராகரி"
@@ -5725,6 +5780,10 @@ msgstr ""
 msgid "Everything the coach wrote for {0}, newest first."
 msgstr "{0}-க்காக ஆலோசகர் எழுதிய அனைத்தும், புதியவை முதலில்."
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Evidence review and writing use your Thorough model. It usually costs more and takes longer."
+msgstr ""
+
 #: src/features/settings/resume-style.tsx
 msgid "Example added"
 msgstr ""
@@ -5871,6 +5930,10 @@ msgstr "அறிவுத் தளத்தில் இயக்கப்ப�
 msgid "Failed"
 msgstr "தோல்வியடைந்தது"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "fallback"
+msgstr ""
+
 #: src/features/homepage/footer.tsx
 msgid "Features"
 msgstr "அம்சங்கள்"
@@ -5931,6 +5994,10 @@ msgstr "பணி மற்றும் நிறுவனத்தை நிர
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Fill in the role and company. The posting is saved with the application."
 msgstr "பங்கு மற்றும் நிறுவனத்தை நிரப்பவும். வேலை விண்ணப்பத்துடன் வேலை இடுகை சேமிக்கப்படுகிறது."
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Fill suggested OpenAI models"
+msgstr ""
 
 #: src/features/career/knowledge/profile.tsx
 msgid "Fill your profile from a resume you already have"
@@ -6598,6 +6665,10 @@ msgstr "புகைப்படத்தை மறை"
 msgid "High"
 msgstr "உயர்"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "High effort"
+msgstr ""
+
 #: src/features/resume/editor/write/rich-text-editor-field.tsx
 msgid "Highlight"
 msgstr "ஹைலைட்"
@@ -7199,9 +7270,17 @@ msgstr "Discord-இல் சேருங்கள்"
 msgid "Join the Discord community"
 msgstr "Discord சமூகத்தில் சேருங்கள்"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "JSON failed"
+msgstr ""
+
 #: src/features/resume/import/read-file.ts
 msgid "JSON read"
 msgstr "JSON படித்தது"
+
+#: src/features/settings/ai/task-models.tsx
+msgid "JSON works"
+msgstr ""
 
 #: src/features/resume/editor/write/rich-text-editor-field.tsx
 msgid "Justify"
@@ -7843,6 +7922,10 @@ msgstr "அனுப்பும் முன் அறிவுத் தளத
 msgid "Loading linked documents…"
 msgstr "இணைக்கப்பட்ட ஆவணங்களை ஏற்றுகிறது…"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Loading model settings…"
+msgstr ""
+
 #: src/features/settings/ai/providers.tsx
 msgid "Loading model suggestions… You can also enter any model ID."
 msgstr "மாதிரி பரிந்துரைகளை ஏற்றுகிறது... நீங்கள் எந்த மாதிரி ஐடியையும் உள்ளிடலாம்."
@@ -7930,6 +8013,10 @@ msgstr "உங்கள் அங்கீகார செயலியை அண
 #: src/features/resume/editor/check/writing-tab.tsx
 msgid "Low"
 msgstr "குறைந்த"
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Low effort"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 msgid "Lower the design sheet"
@@ -8136,6 +8223,10 @@ msgstr "முதல் பதிலுக்கான இடைநிலை"
 msgid "Medium"
 msgstr "நடுத்தர"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Medium effort"
+msgstr ""
+
 #: src/features/homepage/prepare.tsx
 msgid "Mentor other designers"
 msgstr "மற்ற வடிவமைப்பாளர்களுக்கு வழிகாட்டுதல்"
@@ -8219,9 +8310,18 @@ msgstr "கலப்பு வடிவம்"
 msgid "Model"
 msgstr "மாதிரி"
 
+#. placeholder {0}: labels[target].title
+#: src/features/settings/ai/task-models.tsx
+msgid "Model for {0}"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "Model for {label}"
 msgstr "{label}-க்கான மாதிரி"
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Model settings saved"
+msgstr ""
 
 #: src/features/settings/ai/providers.tsx
 msgid "Model suggestions are unavailable. You can still enter any model ID."
@@ -8230,6 +8330,18 @@ msgstr "மாதிரி பரிந்துரைகள் கிடைக�
 #: src/features/assistant/assistant-panel.tsx
 msgid "Model: {label}"
 msgstr "மாடல்: {label}"
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Models for each task"
+msgstr ""
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Models used"
+msgstr ""
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Models used (Thorough)"
+msgstr ""
 
 #: src/features/homepage/sheet.tsx
 msgid "Mono"
@@ -8926,6 +9038,10 @@ msgstr "இந்தக் கோப்பிலிருந்து எந்�
 msgid "No timezone matches."
 msgstr "எந்த நேர மண்டலமும் பொருந்தவில்லை."
 
+#: src/features/settings/ai/task-models.tsx
+msgid "no tool calls"
+msgstr ""
+
 #: src/features/applications/components/detail/selection-review.tsx
 msgid "No verified evidence"
 msgstr ""
@@ -9005,6 +9121,10 @@ msgstr "இன்னும் விண்ணப்பிக்கவில்�
 msgid "Not available while the resume needs a password."
 msgstr "ரெஸ்யூமுக்குக் கடவுச்சொல் தேவைப்படும்போது கிடைக்காது."
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Not checked yet. Check it before relying on it."
+msgstr ""
+
 #: src/features/settings/account/security.tsx
 msgid "Not connected"
 msgstr "இணைப்பு இல்லை"
@@ -9077,6 +9197,7 @@ msgid "Not selected"
 msgstr "தேர்ந்தெடுக்கப்படவில்லை"
 
 #: src/features/career/knowledge/profile.tsx
+#: src/features/settings/ai/task-models.tsx
 msgid "Not set"
 msgstr ""
 
@@ -9987,6 +10108,7 @@ msgid "Polish"
 msgstr "போலிஷ்"
 
 #: src/features/career/shared.tsx
+#: src/features/settings/ai/task-models.tsx
 msgid "Polishing"
 msgstr "மெருகேற்றுகிறது"
 
@@ -10360,6 +10482,10 @@ msgstr "உங்கள் சர்வரால் வழங்கப்பட�
 msgid "Provider"
 msgstr "வழங்குபவர்"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Provider default"
+msgstr ""
+
 #: src/features/documents/document-card.tsx
 #: src/features/documents/documents-page.tsx
 #: src/features/homepage/share.tsx
@@ -10436,6 +10562,10 @@ msgstr "{url} க்கான QR குறியீடு"
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "QR code for two-step verification"
 msgstr "இரண்டு-படி சரிபார்ப்புக்கான QR குறியீடு"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Quality"
+msgstr ""
 
 #: src/features/applications/components/detail/assemble-dialog.tsx
 msgid "Quality checks"
@@ -10639,6 +10769,10 @@ msgstr ""
 msgid "Reading page…"
 msgstr "படிக்கும் பக்கம்…"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Reading postings"
+msgstr ""
+
 #: src/features/documents/new-document-dialog.tsx
 msgid "Reading the file"
 msgstr "கோப்பைப் படித்தல்"
@@ -10710,6 +10844,19 @@ msgstr "தயார்"
 #: src/features/applications/components/detail/close-dialog.tsx
 msgid "Reason"
 msgstr "காரணம்"
+
+#: src/features/settings/ai/task-models.tsx
+msgid "reasoning effort accepted"
+msgstr ""
+
+#. placeholder {0}: labels[target].title
+#: src/features/settings/ai/task-models.tsx
+msgid "Reasoning effort for {0}"
+msgstr ""
+
+#: src/features/settings/ai/task-models.tsx
+msgid "reasoning effort not accepted"
+msgstr ""
 
 #: src/features/career/knowledge/profile.tsx
 msgid "Rebuilt the volunteer portal on WordPress, cutting coordinator admin time by 40%"
@@ -11066,6 +11213,10 @@ msgstr "அட்டவணைகளை எளிய பத்திகள் ம
 msgid "Replaces “{current}” on the application."
 msgstr "விண்ணப்பத்தில் உள்ள “{current}”-ஐ மாற்றும்."
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Replaces the models for choosing evidence, writing and reviewing, only when you choose Thorough."
+msgstr ""
+
 #: src/features/career/workspace/saved.tsx
 #: src/features/homepage/remember.tsx
 msgid "Reply"
@@ -11352,6 +11503,14 @@ msgstr "விமர்சனம் எழுதுதல்"
 msgid "Reviewing needs an AI connection. <0>Add one in Settings</0>. What you write here stays in this browser until then."
 msgstr "மதிப்பாய்வுக்கு AI இணைப்பு தேவை. <0>அமைப்புகளில் ஒன்றைச் சேர்க்கவும்</0>. அதுவரை நீங்கள் இங்கே எழுதுவது இந்த உலாவியிலேயே இருக்கும்."
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Reviewing resumes"
+msgstr ""
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Reviews which of your achievements fit a posting."
+msgstr ""
+
 #: src/features/settings/ai/api-keys.tsx
 msgid "Revoke"
 msgstr "திரும்பப் பெறு"
@@ -11586,6 +11745,10 @@ msgstr "நேர்காணலைச் சேமி"
 msgid "Save job"
 msgstr "வேலையை காப்பாற்றுங்கள்"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Save models"
+msgstr ""
+
 #: src/features/settings/account/security.tsx
 msgid "Save name"
 msgstr "பெயரைச் சேமி"
@@ -11619,6 +11782,10 @@ msgstr "ஒப்பிட இந்தச் சலுகை விதிமு
 msgid "Save this story to Knowledge?"
 msgstr "இந்த அனுபவக் கதையை அறிவுத் தளத்தில் சேமிக்கவா?"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Save to check this setting"
+msgstr ""
+
 #: src/features/career/workspace/fit.tsx
 msgid "Save to Knowledge"
 msgstr "அறிவுத் தளத்தில் சேமி"
@@ -11630,6 +11797,10 @@ msgstr "வேலை விண்ணப்பத்தில் சேமிக�
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Save your backup codes"
 msgstr "உங்கள் காப்புக் குறியீடுகளைச் சேமிக்கவும்"
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Save, then check this model."
+msgstr ""
 
 #: src/features/resume/share/format.ts
 msgid "saved"
@@ -12092,6 +12263,10 @@ msgstr "பின்தொடர்வதை அமைக்கவும்…"
 msgid "Set a password"
 msgstr "கடவுச்சொல்லை அமைக்கவும்"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Set a Thorough model to make Thorough available. Standard uses the models above."
+msgstr ""
+
 #: src/features/career/preference-check.tsx
 msgid "Set aside for this role"
 msgstr ""
@@ -12190,6 +12365,10 @@ msgstr "குறுகிய மற்றும் கண்ணியமான,
 #: src/features/resume/share/share-panel.tsx
 msgid "Short link and domain"
 msgstr "குறுகிய இணைப்பும் டொமைனும்"
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Short rewrites: application answers and replies."
+msgstr ""
 
 #: src/features/career/workspace/apply.tsx
 msgid "Shorten questions to 2,000 characters and answers to 6,000 characters before marking this applied."
@@ -12695,6 +12874,11 @@ msgstr "நிலைகள்"
 
 #: src/features/career/knowledge/profile.tsx
 msgid "stakeholder management, nonprofit"
+msgstr ""
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+#: src/features/settings/ai/task-models.tsx
+msgid "Standard"
 msgstr ""
 
 #: src/features/homepage/check.tsx
@@ -13961,6 +14145,21 @@ msgstr "இந்த வாரம்: உங்கள் சான்றுக�
 msgid "This workspace couldn't be loaded."
 msgstr "இந்தப் பணியிடத்தை ஏற்ற முடியவில்லை."
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+#: src/features/settings/ai/task-models.tsx
+msgid "Thorough"
+msgstr ""
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Thorough model"
+msgstr ""
+
+#. placeholder {0}: thousands(thoroughShare.input)
+#. placeholder {1}: thousands(thoroughShare.output)
+#: src/features/settings/ai/task-models.tsx
+msgid "Thorough sends about {0} input and {1} output tokens per resume to the Thorough model instead, billed at its rates. You can switch per resume."
+msgstr ""
+
 #: src/features/command-palette/pages/resumes.tsx
 msgid "Threads"
 msgstr "த்ரெட்டுகள்"
@@ -14049,6 +14248,10 @@ msgstr "வெள்ளை நிறத்தில் உள்ள தலைப
 #: src/features/settings/ai/web-access.tsx
 msgid "Too many requests. Try again later."
 msgstr "பல கோரிக்கைகள். பிறகு முயற்சிக்கவும்."
+
+#: src/features/settings/ai/task-models.tsx
+msgid "tool calls work"
+msgstr ""
 
 #: src/features/homepage/sections.tsx
 msgid "Total"
@@ -14205,6 +14408,10 @@ msgstr "இரண்டு-படி சரிபார்ப்பு முட
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Turning on two-step verification…"
 msgstr "இரண்டு-படி சரிபார்ப்பு இயக்கப்படுகிறது…"
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Turns postings and files into fields and ranked requirements."
+msgstr ""
 
 #: src/features/resume/editor/design/template-group.tsx
 #: src/features/templates/gallery.tsx
@@ -14534,6 +14741,10 @@ msgstr "64 அல்லது அதற்குக் குறைவான எ
 msgid "Use a darker shade"
 msgstr "இருண்ட நிழலைப் பயன்படுத்தவும்"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Use a faster model for reading and a stronger one for writing. Anything left blank uses your default provider and its model."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Use a plain international form, such as +1 555 010 1234."
 msgstr "+1 555 010 1234 போன்ற ஒரு எளிய சர்வதேச வடிவத்தைப் பயன்படுத்தவும்."
@@ -14702,6 +14913,10 @@ msgstr "உங்கள் ரெஸ்யூமில் உள்ள உண்
 #: src/features/assistant/assistant-panel.tsx
 msgid "Uses the linked application"
 msgstr "இணைக்கப்பட்ட வேலை விண்ணப்பத்தைப் பயன்படுத்துகிறது"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Uses the model set for each task."
+msgstr ""
 
 #: src/features/career/schedule-sheet.tsx
 msgid "Uses the web search service set up in Settings. Results wait in Today for your review; applications and documents are never created for you."
@@ -15415,6 +15630,10 @@ msgstr "உங்கள் பதிலை எழுதுங்கள், அ�
 msgid "Write your professional resume"
 msgstr "உங்கள் தொழில்முறை CV ஐ எழுதுங்கள்"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Writes the tailored resume from your reviewed selection."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/resume/editor/check/check-panel.tsx
@@ -15429,6 +15648,10 @@ msgstr "பதில் எழுதுகிறது…"
 #: src/features/settings/ai/providers.tsx
 msgid "Writing help, tailored suggestions and the assistant. The default provider is used wherever you don't pick one. Your keys stay encrypted."
 msgstr "எழுத்து உதவி, ஏற்ப மாற்றிய பரிந்துரைகள், உதவியாளர். நீங்கள் தேர்ந்தெடுக்காத இடங்களில் இயல்புநிலை வழங்குநர் பயன்படுத்தப்படும். உங்கள் விசைகள் குறியாக்கம் செய்யப்பட்டே இருக்கும்."
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Writing resumes"
+msgstr ""
 
 #: src/features/homepage/sections.tsx
 msgid "writing, tailoring and sending"

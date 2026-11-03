@@ -1,4 +1,5 @@
 import z from "zod";
+import { tokenUsageSchema } from "./ai-tasks";
 
 /**
  * Resume writing, step two of tailoring: rules for turning a reviewed Resume Selection Plan into resume text,
@@ -158,6 +159,9 @@ export const writingReportSchema = z.object({
 		skills: z.number(),
 	}),
 	rules: writingRulesSchema,
+	/** Model calls for writing, with tokens used, and the quality mode. */
+	usage: z.array(tokenUsageSchema).default([]),
+	quality: z.enum(["standard", "thorough"]).default("standard"),
 	/** The Resume Style Guide preset written with. */
 	style: z.object({ presetId: z.string(), name: z.string() }).optional(),
 });

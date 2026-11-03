@@ -2,6 +2,7 @@ import type { MasterProfile } from "../service";
 import type { AskModel } from "./model";
 import type { Blocked } from "./rank";
 import type { Review } from "./review";
+import type { AiTask, TokenUsage } from "@reactive-resume/schema/ai-tasks";
 import type { JobAnalysis, ResumeSelectionPlan, SelectionEdit } from "@reactive-resume/schema/resume-selection";
 import { ORPCError } from "@orpc/client";
 import { and, eq, sql } from "drizzle-orm";
@@ -16,6 +17,24 @@ import { askDefaultModel } from "./model";
 import { eligibleProfile, rankEvidence, requirementTerms, shortlist } from "./rank";
 import { EMPTY_REVIEW, resolveReview, REVIEW_SYSTEM, reviewOutputSchema, reviewPrompt } from "./review";
 import { tokens } from "./text";
+
+/** One model call's usage, for the record kept with plans and assemblies. */
+export const usageOf = (
+	step: string,
+	task: AiTask,
+	answer: {
+		model: string;
+		usage?: { inputTokens: number; outputTokens: number } | undefined;
+		fallback?: boolean | undefined;
+	},
+): TokenUsage => ({
+	step,
+	task,
+	model: answer.model,
+	inputTokens: answer.usage?.inputTokens ?? 0,
+	outputTokens: answer.usage?.outputTokens ?? 0,
+	fallback: answer.fallback ?? false,
+});
 
 type Options = { ask?: AskModel; signal?: AbortSignal | undefined; now?: Date };
 
@@ -165,9 +184,10 @@ export const selectionService = {
 	/** Analyses the posting (unless already analysed and unchanged) and proposes a selection plan. */
 	propose: async (
 		userId: string,
-		input: { applicationId: string; reanalyze?: boolean | undefined },
+		input: { applicationId: string; reanalyze?: boolean | undefined; quality?: "standard" | "thorough" | undefined },
 		options: Options = {},
 	) => {
+		const usage: TokenUsage[] = [];
 		const ask = options.ask ?? askDefaultModel;
 		const now = options.now ?? new Date();
 		const application = await applicationService.getById({ id: input.applicationId, userId });
@@ -185,6 +205,8 @@ export const selectionService = {
 			const prompt = { role: application.role, company: application.company, posting, extracted };
 			const answer = await ask({
 				userId,
+				task: "extraction",
+				quality: input.quality,
 				system: ANALYSIS_SYSTEM,
 				prompt: analysisPrompt(prompt),
 				schema: analysisOutputSchema,
@@ -192,6 +214,7 @@ export const selectionService = {
 			});
 			analysis = normalizeAnalysis(answer.output, { ...prompt, model: answer.model, now });
 			analysisModel = answer.model;
+			usage.push(usageOf("analysis", "extraction", answer));
 		}
 		if (analysis.requirements.length === 0)
 			throw new ORPCError("BAD_REQUEST", {
@@ -213,13 +236,17 @@ export const selectionService = {
 			now,
 			review: async (prompt) => {
 				try {
-					return await ask({
+					const answer = await ask({
 						userId,
+						task: "evidence",
+						quality: input.quality,
 						system: REVIEW_SYSTEM,
 						prompt,
 						schema: reviewOutputSchema,
 						signal: options.signal,
 					});
+					usage.push(usageOf("review", "evidence", answer));
+					return answer;
 				} catch (error) {
 					// An unreadable answer falls back to the ranking; connection problems are reported.
 					if (error instanceof ORPCError && error.code === "INTERNAL_SERVER_ERROR") return null;
@@ -228,6 +255,7 @@ export const selectionService = {
 			},
 		});
 
+		for (const item of [selection.proposed, selection.plan]) item.usage = usage;
 		const values = {
 			postingText: posting,
 			analysis,

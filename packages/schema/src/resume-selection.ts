@@ -1,4 +1,5 @@
 import z from "zod";
+import { tokenUsageSchema } from "./ai-tasks";
 
 /**
  * Resume tailoring, step one: a job posting analysed into ranked requirements, and a reviewable Resume Selection
@@ -174,6 +175,8 @@ export const resumeSelectionPlanSchema = z.object({
 	),
 	/** Incomplete or conflicting source information worth checking (missing dates, duplicate achievements…). */
 	warnings: z.array(z.string()),
+	/** Model calls that produced the plan, with tokens used. */
+	usage: z.array(tokenUsageSchema).default([]),
 	/** The full record vs the subset, for display. */
 	totals: z.object({
 		entries: z.number(),

@@ -297,6 +297,7 @@ export function composePlan(input: ComposeInput): ResumeSelectionPlan {
 		source: input.source,
 		positioning: review.positioning,
 		sections: [],
+		usage: [],
 		entries,
 		standalone,
 		skills,

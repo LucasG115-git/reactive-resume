@@ -432,6 +432,12 @@ msgstr "{0} तास"
 msgid "{0} in {1} is {2} in your timezone ({preferredZone})."
 msgstr "{1} मधील {0} म्हणजे तुमच्या टाइमझोनमध्ये ({preferredZone}) {2}."
 
+#. placeholder {0}: item.inputTokens.toLocaleString()
+#. placeholder {1}: item.outputTokens.toLocaleString()
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "{0} in, {1} out"
+msgstr ""
+
 #. placeholder {0}: interviewKindOf(upcoming.kind)?.label ?? ""
 #. placeholder {0}: kind?.label ?? entry.kind
 #: src/features/applications/components/detail/activity.tsx
@@ -540,6 +546,11 @@ msgstr "{0} समर्थित, {1} अंशतः समर्थित, {2
 msgid "{0} to fix"
 msgstr "{0} दुरुस्त करायचे"
 
+#. placeholder {0}: total.toLocaleString()
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "{0} tokens in total"
+msgstr ""
+
 #. placeholder {0}: title || t`Untitled`
 #. placeholder {1}: index + 1
 #: src/features/resume/editor/write/entry-card.tsx
@@ -555,6 +566,11 @@ msgstr "{0}, तुमच्या ठिकाणांपैकी नाह�
 #: src/features/resume/editor/check/actions.ts
 msgid "{0}. Issue resolved."
 msgstr "{0}. समस्या सोडवली."
+
+#. placeholder {0}: Math.round(test.latencyMs / 100) / 10
+#: src/features/settings/ai/task-models.tsx
+msgid "{0}s"
+msgstr ""
 
 #. placeholder {0}: proposals.length
 #: src/features/assistant/conversation.tsx
@@ -3020,6 +3036,7 @@ msgstr "तुमचा पासवर्ड बदलत आहे…"
 
 #: src/features/homepage/footer.tsx
 #: src/features/homepage/header.tsx
+#: src/features/settings/ai/task-models.tsx
 #: src/routes/builder/$resumeId/-components/editor-bar.tsx
 #: src/routes/builder/$resumeId/-components/editor-shell.tsx
 msgid "Check"
@@ -3154,6 +3171,10 @@ msgstr "तपासत आहे... कॉपी सेव्ह केल्�
 msgid "Checklist progress"
 msgstr "चेकलिस्टची प्रगती"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Checks a finished resume for relevance, strength and tone."
+msgstr ""
+
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "Checks by category"
 msgstr "श्रेणीनुसार धनादेश"
@@ -3235,6 +3256,10 @@ msgstr ""
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Choose where each stage named in the file goes, or add it as a new stage."
 msgstr "फाइलमध्ये नाव असलेला प्रत्येक टप्पा कुठे ठेवायचा ते निवडा किंवा तो नवीन टप्पा म्हणून जोडा."
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Choosing evidence"
+msgstr ""
 
 #: src/components/level/combobox.tsx
 msgid "Circle"
@@ -3552,6 +3577,10 @@ msgstr "ते आपोआप रिफ्रेश करण्यासाठ
 msgid "Connect an application"
 msgstr "अनुप्रयोग कनेक्ट करा"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Connect and test an AI provider above to choose models for each task."
+msgstr ""
+
 #: src/features/assistant/assistant-panel.tsx
 #: src/features/career/coach.tsx
 msgid "Connect another…"
@@ -3581,6 +3610,11 @@ msgstr "जोडले गेले. तुमचे डोमेन तुम�
 #: src/features/settings/account/auth-hooks.ts
 msgid "Connecting your {providerName} account…"
 msgstr "तुमचे {providerName} खाते कनेक्ट करत आहे…"
+
+#. placeholder {0}: labels[target].title
+#: src/features/settings/ai/task-models.tsx
+msgid "Connection for {0}"
+msgstr ""
 
 #: src/features/settings/ai/web-access.tsx
 msgid "Connection saved"
@@ -4046,6 +4080,10 @@ msgstr "दस्तऐवज लोड करू शकलो नाही"
 msgid "Couldn't load interviews. Retry"
 msgstr "मुलाखती लोड करता आल्या नाहीत. पुन्हा प्रयत्न करा"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Couldn't load model settings. Reload to try again."
+msgstr ""
+
 #: src/features/settings/ai/web-access.tsx
 msgid "Couldn't load or save web access settings. Try again."
 msgstr "वेब अॅक्सेस सेटिंग्ज लोड किंवा जतन करता आल्या नाहीत. पुन्हा प्रयत्न करा."
@@ -4191,6 +4229,14 @@ msgstr "की मागे घेता आली नाही. पुन्ह
 #: src/features/settings/ai/connected-apps.tsx
 msgid "Couldn't revoke this connection. Try again."
 msgstr "हे कनेक्शन मागे घेता आले नाही. पुन्हा प्रयत्न करा."
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Couldn't run the check. Try again."
+msgstr ""
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Couldn't save model settings. Try again."
+msgstr ""
 
 #: src/features/career/knowledge/profile.tsx
 msgid "Couldn't save that achievement. Try again."
@@ -4758,6 +4804,14 @@ msgstr ""
 msgid "Default"
 msgstr "डीफॉल्ट"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Default connection"
+msgstr ""
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Default quality for tailored resumes"
+msgstr ""
+
 #: src/features/resume/editor/write/entries.tsx
 msgid "Degree"
 msgstr "पदवी"
@@ -5004,6 +5058,7 @@ msgid "Digital Marketing"
 msgstr ""
 
 #: src/features/career/schedule-sheet.tsx
+#: src/features/settings/ai/task-models.tsx
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Discard"
 msgstr "टाकून द्या"
@@ -5725,6 +5780,10 @@ msgstr ""
 msgid "Everything the coach wrote for {0}, newest first."
 msgstr "कोचने {0} साठी लिहिलेले सर्व काही, नवीनतम आधी."
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Evidence review and writing use your Thorough model. It usually costs more and takes longer."
+msgstr ""
+
 #: src/features/settings/resume-style.tsx
 msgid "Example added"
 msgstr ""
@@ -5871,6 +5930,10 @@ msgstr "ज्ञानसंग्रहात चालू असलेली 
 msgid "Failed"
 msgstr "अयशस्वी"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "fallback"
+msgstr ""
+
 #: src/features/homepage/footer.tsx
 msgid "Features"
 msgstr "वैशिष्ट्ये"
@@ -5931,6 +5994,10 @@ msgstr "भूमिका आणि कंपनी भरा. पोस्ट�
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Fill in the role and company. The posting is saved with the application."
 msgstr "भूमिका आणि कंपनी भरा. जॉब पोस्टिंग अर्जासह सेव्ह केले आहे."
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Fill suggested OpenAI models"
+msgstr ""
 
 #: src/features/career/knowledge/profile.tsx
 msgid "Fill your profile from a resume you already have"
@@ -6598,6 +6665,10 @@ msgstr "फोटो लपवा"
 msgid "High"
 msgstr "उच्च"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "High effort"
+msgstr ""
+
 #: src/features/resume/editor/write/rich-text-editor-field.tsx
 msgid "Highlight"
 msgstr "हायलाइट"
@@ -7199,9 +7270,17 @@ msgstr "Discord मध्ये सामील व्हा"
 msgid "Join the Discord community"
 msgstr "Discord समुदायात सामील व्हा"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "JSON failed"
+msgstr ""
+
 #: src/features/resume/import/read-file.ts
 msgid "JSON read"
 msgstr "JSON वाचले"
+
+#: src/features/settings/ai/task-models.tsx
+msgid "JSON works"
+msgstr ""
 
 #: src/features/resume/editor/write/rich-text-editor-field.tsx
 msgid "Justify"
@@ -7843,6 +7922,10 @@ msgstr "पाठवण्यापूर्वी ज्ञानसंग्�
 msgid "Loading linked documents…"
 msgstr "लिंक केलेले दस्तऐवज लोड करत आहे…"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Loading model settings…"
+msgstr ""
+
 #: src/features/settings/ai/providers.tsx
 msgid "Loading model suggestions… You can also enter any model ID."
 msgstr "मॉडेल सूचना लोड करत आहे... तुम्ही कोणताही मॉडेल आयडी देखील एंटर करू शकता."
@@ -7930,6 +8013,10 @@ msgstr "तुम्हाला ओथेंटिकेटरवर प्र�
 #: src/features/resume/editor/check/writing-tab.tsx
 msgid "Low"
 msgstr "कमी"
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Low effort"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 msgid "Lower the design sheet"
@@ -8136,6 +8223,10 @@ msgstr "पहिल्या प्रत्युत्तरासाठी �
 msgid "Medium"
 msgstr "मध्यम"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Medium effort"
+msgstr ""
+
 #: src/features/homepage/prepare.tsx
 msgid "Mentor other designers"
 msgstr "इतर डिझायनर्सना मार्गदर्शन करा"
@@ -8219,9 +8310,18 @@ msgstr "मिश्र स्वरूप"
 msgid "Model"
 msgstr "मॉडेल"
 
+#. placeholder {0}: labels[target].title
+#: src/features/settings/ai/task-models.tsx
+msgid "Model for {0}"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "Model for {label}"
 msgstr "{label} साठी मॉडेल"
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Model settings saved"
+msgstr ""
 
 #: src/features/settings/ai/providers.tsx
 msgid "Model suggestions are unavailable. You can still enter any model ID."
@@ -8230,6 +8330,18 @@ msgstr "मॉडेल सूचना अनुपलब्ध आहेत. �
 #: src/features/assistant/assistant-panel.tsx
 msgid "Model: {label}"
 msgstr "मॉडेल: {label}"
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Models for each task"
+msgstr ""
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Models used"
+msgstr ""
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Models used (Thorough)"
+msgstr ""
 
 #: src/features/homepage/sheet.tsx
 msgid "Mono"
@@ -8926,6 +9038,10 @@ msgstr "या फाइलमधून मजकूर वाचता आल�
 msgid "No timezone matches."
 msgstr "कोणताही टाइमझोन जुळत नाही."
 
+#: src/features/settings/ai/task-models.tsx
+msgid "no tool calls"
+msgstr ""
+
 #: src/features/applications/components/detail/selection-review.tsx
 msgid "No verified evidence"
 msgstr ""
@@ -9005,6 +9121,10 @@ msgstr "अद्याप अर्ज केला नाही"
 msgid "Not available while the resume needs a password."
 msgstr "रेझ्युमेला पासवर्ड आवश्यक असताना उपलब्ध नाही."
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Not checked yet. Check it before relying on it."
+msgstr ""
+
 #: src/features/settings/account/security.tsx
 msgid "Not connected"
 msgstr "जोडलेले नाही"
@@ -9077,6 +9197,7 @@ msgid "Not selected"
 msgstr "निवडले नाही"
 
 #: src/features/career/knowledge/profile.tsx
+#: src/features/settings/ai/task-models.tsx
 msgid "Not set"
 msgstr ""
 
@@ -9987,6 +10108,7 @@ msgid "Polish"
 msgstr "पोलिश"
 
 #: src/features/career/shared.tsx
+#: src/features/settings/ai/task-models.tsx
 msgid "Polishing"
 msgstr "नेटके करत आहे"
 
@@ -10360,6 +10482,10 @@ msgstr "आपल्या सर्व्हरद्वारे प्रद�
 msgid "Provider"
 msgstr "प्रोव्हायडर"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Provider default"
+msgstr ""
+
 #: src/features/documents/document-card.tsx
 #: src/features/documents/documents-page.tsx
 #: src/features/homepage/share.tsx
@@ -10436,6 +10562,10 @@ msgstr "{url} साठी QR कोड"
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "QR code for two-step verification"
 msgstr "द्वि-चरण पडताळणीसाठी QR कोड"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Quality"
+msgstr ""
 
 #: src/features/applications/components/detail/assemble-dialog.tsx
 msgid "Quality checks"
@@ -10639,6 +10769,10 @@ msgstr ""
 msgid "Reading page…"
 msgstr "पृष्ठ वाचत आहे…"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Reading postings"
+msgstr ""
+
 #: src/features/documents/new-document-dialog.tsx
 msgid "Reading the file"
 msgstr "फाईल वाचत आहे"
@@ -10710,6 +10844,19 @@ msgstr "तयार"
 #: src/features/applications/components/detail/close-dialog.tsx
 msgid "Reason"
 msgstr "कारण"
+
+#: src/features/settings/ai/task-models.tsx
+msgid "reasoning effort accepted"
+msgstr ""
+
+#. placeholder {0}: labels[target].title
+#: src/features/settings/ai/task-models.tsx
+msgid "Reasoning effort for {0}"
+msgstr ""
+
+#: src/features/settings/ai/task-models.tsx
+msgid "reasoning effort not accepted"
+msgstr ""
 
 #: src/features/career/knowledge/profile.tsx
 msgid "Rebuilt the volunteer portal on WordPress, cutting coordinator admin time by 40%"
@@ -11066,6 +11213,10 @@ msgstr "टेबल्सऐवजी साधे परिच्छेद आ
 msgid "Replaces “{current}” on the application."
 msgstr "अर्जावरील “{current}” बदलते."
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Replaces the models for choosing evidence, writing and reviewing, only when you choose Thorough."
+msgstr ""
+
 #: src/features/career/workspace/saved.tsx
 #: src/features/homepage/remember.tsx
 msgid "Reply"
@@ -11352,6 +11503,14 @@ msgstr "पुनरावलोकन लेखन"
 msgid "Reviewing needs an AI connection. <0>Add one in Settings</0>. What you write here stays in this browser until then."
 msgstr "तपासणीसाठी AI कनेक्शन आवश्यक आहे. <0>सेटिंग्जमध्ये एक जोडा</0>. तोपर्यंत तुम्ही येथे लिहिलेले या ब्राउझरमध्येच राहते."
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Reviewing resumes"
+msgstr ""
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Reviews which of your achievements fit a posting."
+msgstr ""
+
 #: src/features/settings/ai/api-keys.tsx
 msgid "Revoke"
 msgstr "रद्द करा"
@@ -11586,6 +11745,10 @@ msgstr "मुलाखत जतन करा"
 msgid "Save job"
 msgstr "नोकरी वाचवा"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Save models"
+msgstr ""
+
 #: src/features/settings/account/security.tsx
 msgid "Save name"
 msgstr "नाव जतन करा"
@@ -11619,6 +11782,10 @@ msgstr "तुलनेसाठी या ऑफरच्या अटी ज�
 msgid "Save this story to Knowledge?"
 msgstr "ही गोष्ट ज्ञानसंग्रहात जतन करायची?"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Save to check this setting"
+msgstr ""
+
 #: src/features/career/workspace/fit.tsx
 msgid "Save to Knowledge"
 msgstr "ज्ञानसंग्रहात जतन करा"
@@ -11630,6 +11797,10 @@ msgstr "नोकरीच्या अर्जावर सेव्ह कर
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Save your backup codes"
 msgstr "तुमचे बॅकअप कोड जतन करा"
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Save, then check this model."
+msgstr ""
 
 #: src/features/resume/share/format.ts
 msgid "saved"
@@ -12092,6 +12263,10 @@ msgstr "फॉलोअप सेट करा..."
 msgid "Set a password"
 msgstr "पासवर्ड सेट करा"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Set a Thorough model to make Thorough available. Standard uses the models above."
+msgstr ""
+
 #: src/features/career/preference-check.tsx
 msgid "Set aside for this role"
 msgstr ""
@@ -12190,6 +12365,10 @@ msgstr "लहान आणि विनम्र, भर्तीसाठी"
 #: src/features/resume/share/share-panel.tsx
 msgid "Short link and domain"
 msgstr "शॉर्ट लिंक आणि डोमेन"
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Short rewrites: application answers and replies."
+msgstr ""
 
 #: src/features/career/workspace/apply.tsx
 msgid "Shorten questions to 2,000 characters and answers to 6,000 characters before marking this applied."
@@ -12695,6 +12874,11 @@ msgstr "टप्पे"
 
 #: src/features/career/knowledge/profile.tsx
 msgid "stakeholder management, nonprofit"
+msgstr ""
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+#: src/features/settings/ai/task-models.tsx
+msgid "Standard"
 msgstr ""
 
 #: src/features/homepage/check.tsx
@@ -13961,6 +14145,21 @@ msgstr "या आठवड्यात: तुमचे पुरावे स�
 msgid "This workspace couldn't be loaded."
 msgstr "हे वर्कस्पेस लोड करता आले नाही."
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+#: src/features/settings/ai/task-models.tsx
+msgid "Thorough"
+msgstr ""
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Thorough model"
+msgstr ""
+
+#. placeholder {0}: thousands(thoroughShare.input)
+#. placeholder {1}: thousands(thoroughShare.output)
+#: src/features/settings/ai/task-models.tsx
+msgid "Thorough sends about {0} input and {1} output tokens per resume to the Thorough model instead, billed at its rates. You can switch per resume."
+msgstr ""
+
 #: src/features/command-palette/pages/resumes.tsx
 msgid "Threads"
 msgstr "थ्रेड्स"
@@ -14049,6 +14248,10 @@ msgstr "पांढऱ्यावरील शीर्षकांसाठ�
 #: src/features/settings/ai/web-access.tsx
 msgid "Too many requests. Try again later."
 msgstr "खूप विनंत्या. नंतर पुन्हा प्रयत्न करा."
+
+#: src/features/settings/ai/task-models.tsx
+msgid "tool calls work"
+msgstr ""
 
 #: src/features/homepage/sections.tsx
 msgid "Total"
@@ -14205,6 +14408,10 @@ msgstr "द्वि-चरण पडताळणी बंद करत आह�
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Turning on two-step verification…"
 msgstr "द्वि-चरण पडताळणी सुरू करत आहे…"
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Turns postings and files into fields and ranked requirements."
+msgstr ""
 
 #: src/features/resume/editor/design/template-group.tsx
 #: src/features/templates/gallery.tsx
@@ -14534,6 +14741,10 @@ msgstr "64 किंवा त्यापेक्षा कमी अक्ष
 msgid "Use a darker shade"
 msgstr "गडद सावली वापरा"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Use a faster model for reading and a stronger one for writing. Anything left blank uses your default provider and its model."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Use a plain international form, such as +1 555 010 1234."
 msgstr "+1 555 010 1234 सारखा साधा आंतरराष्ट्रीय स्वरूप वापरा."
@@ -14702,6 +14913,10 @@ msgstr "तुमच्या रेझ्युमेमधील तथ्य�
 #: src/features/assistant/assistant-panel.tsx
 msgid "Uses the linked application"
 msgstr "लिंक केलेला अर्ज वापरते"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Uses the model set for each task."
+msgstr ""
 
 #: src/features/career/schedule-sheet.tsx
 msgid "Uses the web search service set up in Settings. Results wait in Today for your review; applications and documents are never created for you."
@@ -15415,6 +15630,10 @@ msgstr "तुमचे उत्तर लिहा, किंवा तुम�
 msgid "Write your professional resume"
 msgstr "तुमचा व्यावसायिक CV लिहा"
 
+#: src/features/settings/ai/task-models.tsx
+msgid "Writes the tailored resume from your reviewed selection."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/resume/editor/check/check-panel.tsx
@@ -15429,6 +15648,10 @@ msgstr "उत्तर लिहित आहे…"
 #: src/features/settings/ai/providers.tsx
 msgid "Writing help, tailored suggestions and the assistant. The default provider is used wherever you don't pick one. Your keys stay encrypted."
 msgstr "लेखन मदत, जुळवलेल्या सूचना आणि सहाय्यक. तुम्ही प्रदाता न निवडल्यास सर्वत्र डीफॉल्ट प्रदाता वापरला जातो. तुमच्या की एनक्रिप्टेड राहतात."
+
+#: src/features/settings/ai/task-models.tsx
+msgid "Writing resumes"
+msgstr ""
 
 #: src/features/homepage/sections.tsx
 msgid "writing, tailoring and sending"

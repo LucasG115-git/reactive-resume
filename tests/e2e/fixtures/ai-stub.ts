@@ -9,7 +9,15 @@ import { createServer } from "node:http";
  */
 
 type ChatMessage = { role: string; content?: unknown; tool_call_id?: string; tool_calls?: unknown[] };
-type ChatRequest = { messages: ChatMessage[]; tools?: Array<{ function: { name: string } }>; stream?: boolean };
+type ChatRequest = {
+	model?: string;
+	messages: ChatMessage[];
+	tools?: Array<{ function: { name: string } }>;
+	stream?: boolean;
+};
+
+/** A model name the stub doesn't know, for testing the fallback to the connection's own model. */
+export const UNKNOWN_MODEL = "stub-unknown";
 
 const text = (content: unknown) =>
 	typeof content === "string"
@@ -174,11 +182,46 @@ function handle(request: IncomingMessage, response: ServerResponse, requests: Ch
 		}
 		const parsed = JSON.parse(body || "{}") as ChatRequest;
 		requests.push(parsed);
+		if (parsed.model === UNKNOWN_MODEL) {
+			response.writeHead(404, { "content-type": "application/json" });
+			response.end(
+				JSON.stringify({ error: { message: `The model ${UNKNOWN_MODEL} does not exist`, code: "model_not_found" } }),
+			);
+			return;
+		}
+		// A task model check: one JSON answer and one forced tool call.
+		if (!parsed.stream && parsed.tools?.some((tool) => tool.function.name === "record_number")) {
+			response.writeHead(200, { "content-type": "application/json" });
+			response.end(
+				JSON.stringify({
+					id: "chatcmpl-stub",
+					object: "chat.completion",
+					created: 0,
+					model: parsed.model ?? "stub",
+					choices: [
+						{
+							index: 0,
+							message: {
+								role: "assistant",
+								content: null,
+								tool_calls: [
+									{ id: "call-stub", type: "function", function: { name: "record_number", arguments: '{"value":7}' } },
+								],
+							},
+							finish_reason: "tool_calls",
+						},
+					],
+					usage: { prompt_tokens: 1, completion_tokens: 1, total_tokens: 2 },
+				}),
+			);
+			return;
+		}
 		// The connection test asks for a single character, without streaming; a workspace tab asks for its JSON.
 		if (!parsed.stream) {
 			const asksForFit = parsed.messages.some((message) =>
 				text(message.content).includes("Check the posting's requirements"),
 			);
+			const asksForCheck = parsed.messages.some((message) => text(message.content).includes('{"answer": 4}'));
 			response.writeHead(200, { "content-type": "application/json" });
 			response.end(
 				JSON.stringify({
@@ -189,7 +232,10 @@ function handle(request: IncomingMessage, response: ServerResponse, requests: Ch
 					choices: [
 						{
 							index: 0,
-							message: { role: "assistant", content: asksForFit ? JSON.stringify(FIT) : "1" },
+							message: {
+								role: "assistant",
+								content: asksForFit ? JSON.stringify(FIT) : asksForCheck ? '{"answer":4}' : "1",
+							},
 							finish_reason: "stop",
 						},
 					],

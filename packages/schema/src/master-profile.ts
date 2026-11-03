@@ -98,6 +98,8 @@ export const assembleInputSchema = z.object({
 	name: z.string().trim().min(1).max(200).optional(),
 	/** Build from the application's reviewed Resume Selection Plan when it has one (default). */
 	usePlan: z.boolean().optional(),
+	/** Standard uses each task's model; Thorough uses the Thorough model for writing. Default: the saved mode. */
+	quality: z.enum(["standard", "thorough"]).optional(),
 	/** The Resume Style Guide preset to write with; by default the one matching the posting's title. */
 	presetId: z.string().min(1).optional(),
 });

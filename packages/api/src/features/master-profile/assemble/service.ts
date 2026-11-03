@@ -12,6 +12,7 @@ import { choosePreset, rulesFor } from "@reactive-resume/schema/resume-style";
 import { defaultResumeData } from "@reactive-resume/schema/resume/default";
 import { parseResumeDataForWrite } from "@reactive-resume/schema/resume/write";
 import { aiProvidersService } from "../../ai-providers/service";
+import { taskSettings } from "../../ai-tasks/resolve";
 import { generateJson } from "../../ai/generate-json";
 import { getModel } from "../../ai/service";
 import { applicationService } from "../../applications/service";
@@ -106,6 +107,7 @@ export const assembleService = {
 		let written: Awaited<ReturnType<typeof writeFromPlan>> | null = null;
 		// The style preset: the one asked for, else the one matching the posting's title, else the default.
 		const guide = await resumeStyleService.get(userId);
+		const quality = input.quality ?? (await taskSettings(userId)).quality;
 		const preset = choosePreset(guide, stored?.analysis.title || application.role, input.presetId);
 		const rules = rulesFor(preset);
 		const style = { preset, examples: guide.examples.filter((example) => preset.exampleIds.includes(example.id)) };
@@ -123,6 +125,7 @@ export const assembleService = {
 				mode: input.mode,
 				ask: options.ask ?? askDefaultModel,
 				style,
+				quality,
 				signal: options.signal,
 				...(options.now ? { now: options.now } : {}),
 			});
@@ -209,6 +212,8 @@ export const assembleService = {
 							stats,
 							rules,
 							style: { presetId: preset.id, name: preset.name },
+							usage: written.usage,
+							quality,
 						};
 					})()
 				: undefined;

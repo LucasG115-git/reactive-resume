@@ -9,6 +9,7 @@
 		"./resume-selection": "./src/resume-selection.ts",
 		"./resume-writing": "./src/resume-writing.ts",
 		"./resume-style": "./src/resume-style.ts",
+		"./ai-tasks": "./src/ai-tasks.ts",
 		"./master-profile": "./src/master-profile.ts",
 		"./cover-letter/data": "./src/cover-letter/data.ts",
 		"./applications/*": "./src/applications/*.ts",

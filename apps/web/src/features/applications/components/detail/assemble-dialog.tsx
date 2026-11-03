@@ -65,14 +65,23 @@ export function AssembleDialog({ application, open, onOpenChange, autoPropose }:
 		onSuccess: saveSelection,
 		onError: (error) => toastError(error, t`Couldn't restore the proposal. Try again.`),
 	});
+	// Standard unless the user set Thorough as their default or chooses it here; Thorough needs its own model.
+	const taskSettings = useQuery({ ...orpc.aiTasks.get.queryOptions(), enabled: open, retry: false });
+	const thoroughReady = Boolean(taskSettings.data?.thorough.model || taskSettings.data?.thorough.providerId);
+	const [qualityChoice, setQualityChoice] = useState<Quality | null>(null);
+	const quality: Quality = thoroughReady ? (qualityChoice ?? taskSettings.data?.quality ?? "standard") : "standard";
+	const qualityControl = thoroughReady ? (
+		<QualityChoice id={`${formId}-quality`} value={quality} onChange={setQualityChoice} />
+	) : null;
 	const current = selection.data ?? null;
 	const started = useRef(false);
 	useEffect(() => {
-		if (!autoPropose || !open || started.current || selection.isPending || selection.data) return;
+		if (!autoPropose || !open || started.current || selection.isPending || taskSettings.isPending || selection.data)
+			return;
 		if (!application.jobDescription?.trim() && application.requirements.length === 0) return;
 		started.current = true;
-		propose.mutate({ applicationId: application.id });
-	}, [autoPropose, open, selection.isPending, selection.data, application, propose]);
+		propose.mutate({ applicationId: application.id, quality });
+	}, [quality, taskSettings.isPending, autoPropose, open, selection.isPending, selection.data, application, propose]);
 	const edited = Boolean(
 		current &&
 		(current.plan.entries.some((entry) => entry.userEdited || entry.achievements.some((item) => item.userEdited)) ||
@@ -185,6 +194,7 @@ export function AssembleDialog({ application, open, onOpenChange, autoPropose }:
 									<Trans>This application has no posting saved. Add the posting to the application first.</Trans>
 								</p>
 							)}
+							{qualityControl}
 							{propose.isPending && (
 								<p className="text-[13px] text-ink-2" role="status">
 									<Trans>Analysing the posting and reviewing your profile…</Trans>
@@ -267,6 +277,7 @@ export function AssembleDialog({ application, open, onOpenChange, autoPropose }:
 									: t`Bullets print exactly as you wrote them, or as one of your approved variants. Your existing summary is kept.`}
 							</p>
 						</div>
+						{mode === "rephrase" && qualityControl}
 					</div>
 				)}
 
@@ -289,7 +300,9 @@ export function AssembleDialog({ application, open, onOpenChange, autoPropose }:
 								<Button
 									variant="secondary"
 									loading={propose.isPending}
-									onClick={() => propose.mutate({ applicationId: application.id, reanalyze: current.postingChanged })}
+									onClick={() =>
+										propose.mutate({ applicationId: application.id, reanalyze: current.postingChanged, quality })
+									}
 								>
 									{current.postingChanged ? <Trans>Analyse again</Trans> : <Trans>Propose again</Trans>}
 								</Button>
@@ -306,7 +319,7 @@ export function AssembleDialog({ application, open, onOpenChange, autoPropose }:
 								<Button
 									loading={propose.isPending || selection.isPending}
 									disabled={achievements === 0 || !hasPosting}
-									onClick={() => propose.mutate({ applicationId: application.id })}
+									onClick={() => propose.mutate({ applicationId: application.id, quality })}
 								>
 									<Icon name="magic-wand" size={16} />
 									<Trans>Analyse the posting</Trans>
@@ -339,6 +352,7 @@ export function AssembleDialog({ application, open, onOpenChange, autoPropose }:
 									assemble.mutate({
 										applicationId: application.id,
 										mode,
+										quality,
 										...(base ? { baseResumeId: base } : {}),
 										...(preset ? { presetId: preset } : {}),
 									})
@@ -352,6 +366,64 @@ export function AssembleDialog({ application, open, onOpenChange, autoPropose }:
 				</DialogFooter>
 			</DialogContent>
 		</Dialog>
+	);
+}
+
+type Quality = "standard" | "thorough";
+type QualityChoiceProps = { id: string; value: Quality; onChange: (value: Quality) => void };
+
+/** Standard or Thorough for this run; shown only when a Thorough model is set. */
+function QualityChoice(props: QualityChoiceProps) {
+	return (
+		<div className="grid gap-1.5">
+			<span id={props.id} className="text-xs font-medium text-ink-2">
+				<Trans>Quality</Trans>
+			</span>
+			<SegmentedControl
+				aria-labelledby={props.id}
+				value={props.value}
+				onValueChange={(value) => props.onChange(value as Quality)}
+				className="h-[34px] w-fit"
+			>
+				<SegmentedControlItem value="standard" className="px-3">
+					<Trans>Standard</Trans>
+				</SegmentedControlItem>
+				<SegmentedControlItem value="thorough" className="px-3">
+					<Trans>Thorough</Trans>
+				</SegmentedControlItem>
+			</SegmentedControl>
+			<p className="text-xs text-ink-3">
+				{props.value === "thorough"
+					? t`Evidence review and writing use your Thorough model. It usually costs more and takes longer.`
+					: t`Uses the model set for each task.`}
+			</p>
+		</div>
+	);
+}
+
+type ModelUsageProps = { usage: Writing["usage"]; quality: Writing["quality"] };
+
+/** Which models wrote this resume and the tokens they used. */
+function ModelUsage(props: ModelUsageProps) {
+	const total = props.usage.reduce((sum, item) => sum + item.inputTokens + item.outputTokens, 0);
+	return (
+		<div className="grid gap-1">
+			<h4 className="text-xs font-semibold text-ink-3">
+				{props.quality === "thorough" ? <Trans>Models used (Thorough)</Trans> : <Trans>Models used</Trans>}
+			</h4>
+			<ul className="grid gap-0.5 font-mono text-xs text-ink-3">
+				{props.usage.map((item, index) => (
+					<li key={`${item.step}-${index}`}>
+						{item.step} · {item.model} ·{" "}
+						{t`${item.inputTokens.toLocaleString()} in, ${item.outputTokens.toLocaleString()} out`}
+						{item.fallback ? ` · ${t`fallback`}` : ""}
+					</li>
+				))}
+			</ul>
+			{props.usage.length > 1 && (
+				<p className="font-mono text-xs text-ink-3">{t`${total.toLocaleString()} tokens in total`}</p>
+			)}
+		</div>
 	);
 }
 
@@ -381,6 +453,8 @@ function AssembleReport({ result }: AssembleReportProps) {
 			</p>
 
 			{writing && <QualityChecks writing={writing} />}
+
+			{writing && writing.usage.length > 0 && <ModelUsage usage={writing.usage} quality={writing.quality} />}
 
 			{coverage.length > 0 && (
 				<div className="grid gap-1.5">

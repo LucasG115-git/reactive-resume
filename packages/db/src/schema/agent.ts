@@ -1,3 +1,4 @@
+import type { AiTaskSettings } from "@reactive-resume/schema/ai-tasks";
 import type { ResumeData } from "@reactive-resume/schema/resume/data";
 import { sql } from "drizzle-orm";
 import * as pg from "drizzle-orm/pg-core";
@@ -202,3 +203,17 @@ export const agentAction = pg.pgTable(
 	},
 	(t) => [pg.index().on(t.threadId, t.createdAt.desc()), pg.index().on(t.resumeId), pg.index().on(t.messageId)],
 );
+
+/** Which AI connection and model each kind of AI work uses, and the quality mode. One row per user. */
+export const aiTaskSettings = pg.pgTable("ai_task_settings", {
+	userId: pg
+		.text("user_id")
+		.primaryKey()
+		.references(() => user.id, { onDelete: "cascade" }),
+	data: pg.jsonb("data").notNull().$type<AiTaskSettings>(),
+	updatedAt: pg
+		.timestamp("updated_at", { withTimezone: true })
+		.notNull()
+		.defaultNow()
+		.$onUpdate(() => new Date()),
+});
