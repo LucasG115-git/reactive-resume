@@ -10,6 +10,7 @@ import { customDomainRouter } from "../features/custom-domain/router";
 import { documentsRouter } from "../features/documents/router";
 import { flagsRouter } from "../features/flags/router";
 import { masterProfileRouter } from "../features/master-profile/router";
+import { resumeStyleRouter } from "../features/resume-style/router";
 import { resumeRouter } from "../features/resume/router";
 import { statisticsRouter } from "../features/statistics/router";
 import { storageRouter } from "../features/storage/router";
@@ -29,6 +30,7 @@ export default {
 	flags: flagsRouter,
 	masterProfile: masterProfileRouter,
 	resume: resumeRouter,
+	resumeStyle: resumeStyleRouter,
 	statistics: statisticsRouter,
 	storage: storageRouter,
 	webAccess: webAccessRouter,

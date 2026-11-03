@@ -270,6 +270,11 @@ msgstr ""
 msgid "{0, plural, one {# story} other {# stories}}"
 msgstr "{0, plural, one {# داستان} other {# داستان}}"
 
+#. placeholder {0}: example.text.split(/\s+/).length
+#: src/features/settings/resume-style.tsx
+msgid "{0, plural, one {# word} other {# words}}"
+msgstr ""
+
 #. placeholder {0}: remembered.ids.length
 #: src/features/career/coach-chat.tsx
 msgid "{0, plural, one {Added # fact to Knowledge.} other {Added # facts to Knowledge.}}"
@@ -369,6 +374,11 @@ msgstr "{0} · {providerLabel}. این درخواست و دانسته‌های �
 #: src/features/documents/document-actions.tsx
 msgid "{0} (copy)"
 msgstr "{0} (کپی)"
+
+#. placeholder {0}: item.name
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "{0} (matches this posting)"
+msgstr ""
 
 #. placeholder {0}: insights.closed
 #: src/features/applications/components/insights-view.tsx
@@ -511,6 +521,11 @@ msgstr "{0} \"{1}\" را برگرداند. پیام شما حفظ می شود"
 #: src/features/ats-checker/report/score-header.tsx
 msgid "{0} skipped"
 msgstr "{0} نادیده گرفته شد"
+
+#. placeholder {0}: writing.style.name
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "{0} style"
+msgstr ""
 
 #. placeholder {0}: count("supported")
 #. placeholder {1}: count("partial")
@@ -1152,6 +1167,10 @@ msgstr "یک صفحه چرخانده شده است."
 msgid "A pasted posting can be saved as an application afterwards."
 msgstr "یک آگهی شغلی چسبانده شده را می توان پس از آن به عنوان یک درخواست شغلی ذخیره کرد."
 
+#: src/features/settings/resume-style.tsx
+msgid "A preset is picked automatically when a posting's title matches its keywords; you can also choose one when building."
+msgstr ""
+
 #: src/features/applications/components/detail/next-step-card.tsx
 msgid "A reminder to check in, shown as the next step until you do."
 msgstr "یادآوری برای اعلام حضور، به عنوان مرحله بعدی تا زمانی که انجام دهید نشان داده می‌شود."
@@ -1291,6 +1310,10 @@ msgstr ""
 msgid "Action"
 msgstr "اقدام"
 
+#: src/features/settings/resume-style.tsx
+msgid "Action, then result"
+msgstr ""
+
 #: src/features/settings/ai/api-keys.tsx
 msgid "Actions"
 msgstr "اقدامات"
@@ -1321,6 +1344,7 @@ msgstr "فعالیت"
 #: src/features/career/knowledge/facts.tsx
 #: src/features/career/today.tsx
 #: src/features/resume/editor/write/basics-card.tsx
+#: src/features/settings/resume-style.tsx
 msgid "Add"
 msgstr "افزودن"
 
@@ -1362,6 +1386,10 @@ msgstr "یک پیوند اضافه کنید"
 #: src/features/resume/editor/check/issues.ts
 msgid "Add a location"
 msgstr "یک مکان اضافه کنید"
+
+#: src/features/settings/resume-style.tsx
+msgid "Add a name, then Enter"
+msgstr ""
 
 #: src/features/applications/components/detail/activity.tsx
 msgid "Add a note"
@@ -1434,6 +1462,10 @@ msgstr "یک برچسب اضافه کنید"
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Add a tag and press Enter…"
 msgstr "یک برچسب اضافه کنید و Enter را بزنید…"
+
+#: src/features/settings/resume-style.tsx
+msgid "Add a word, then Enter"
+msgstr ""
 
 #: src/features/career/knowledge/profile.tsx
 msgid "Add achievement"
@@ -1522,6 +1554,10 @@ msgstr "افزودن ورودی"
 msgid "Add evidence"
 msgstr "افزودن شاهد"
 
+#: src/features/settings/resume-style.tsx
+msgid "Add examples below, then choose up to three for this preset."
+msgstr ""
+
 #: src/features/resume/editor/check/issues.ts
 #: src/features/resume/editor/write/outline.tsx
 msgid "Add experience"
@@ -1582,6 +1618,10 @@ msgstr "افزودن صفحه"
 #: src/features/settings/account/security.tsx
 msgid "Add passkey"
 msgstr "کلید عبور را اضافه کنید"
+
+#: src/features/settings/resume-style.tsx
+msgid "Add preset"
+msgstr ""
 
 #: src/features/resume/editor/write/outline.tsx
 msgid "Add profile"
@@ -2077,6 +2117,10 @@ msgstr "هر کسی که نشانی عمومی را باز کند به این ر
 msgid "Anyone with the link will be able to view your resume."
 msgstr "هر کسی که پیوند را داشته باشد می تواند رزومه شما را مشاهده کند."
 
+#: src/features/settings/resume-style.tsx
+msgid "Anything else, in your words"
+msgstr ""
+
 #: src/features/applications/components/application-notes.tsx
 msgid "Anything to remember about this job"
 msgstr "هر چیزی که در مورد این شغل به یاد داشته باشید"
@@ -2506,6 +2550,7 @@ msgid "Awarder"
 msgstr "جایزه دهنده"
 
 #: src/features/applications/components/detail/selection-review.tsx
+#: src/features/settings/resume-style.tsx
 #: src/libs/resume/section.tsx
 msgid "Awards"
 msgstr "جوایز"
@@ -2584,6 +2629,10 @@ msgstr "کد پشتیبان"
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Backup codes copied"
 msgstr "کدهای پشتیبان کپی شدند"
+
+#: src/features/settings/resume-style.tsx
+msgid "Balanced"
+msgstr ""
 
 #: src/features/resume/editor/design/entries-group.tsx
 msgctxt "Entry header accent: a tinted background behind the header"
@@ -2753,6 +2802,10 @@ msgstr "یک سیستم طراحی مشترک ساختم که شش تیم محص
 msgid "Built from the posting, Sam’s message and your two strongest stories."
 msgstr "بر اساس آگهی، پیام Sam و دو داستان قوی‌تر شما ساخته شده است."
 
+#: src/features/settings/resume-style.tsx
+msgid "Built only from your own titles, sector and skills."
+msgstr ""
+
 #: src/features/settings/ai/web-access.tsx
 msgid "Built-in reader"
 msgstr "خواننده داخلی"
@@ -2766,6 +2819,10 @@ msgstr "بلغاری"
 msgid "bullet {n}"
 msgstr "ورودی لیست {n}"
 
+#: src/features/settings/resume-style.tsx
+msgid "Bullet style"
+msgstr ""
+
 #: src/features/resume/editor/write/rich-text-editor-field.tsx
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Bulleted list"
@@ -2777,6 +2834,14 @@ msgstr ""
 
 #: src/features/applications/components/detail/assemble-dialog.tsx
 msgid "Bullets print exactly as you wrote them, or as one of your approved variants. Your existing summary is kept."
+msgstr ""
+
+#: src/features/settings/resume-style.tsx
+msgid "Bullets, major roles from"
+msgstr ""
+
+#: src/features/settings/resume-style.tsx
+msgid "Bullets, other roles up to"
 msgstr ""
 
 #: src/features/homepage/footer.tsx
@@ -2859,9 +2924,14 @@ msgid "Certification"
 msgstr ""
 
 #: src/features/applications/components/detail/selection-review.tsx
+#: src/features/settings/resume-style.tsx
 #: src/libs/resume/section.tsx
 msgid "Certifications"
 msgstr "گواهینامه‌ها"
+
+#: src/features/settings/resume-style.tsx
+msgid "Challenge, action, result"
+msgstr ""
 
 #: src/features/resume/editor/check/job-match.tsx
 #: src/features/resume/editor/check/writing-tab.tsx
@@ -3125,6 +3195,10 @@ msgstr "گذرواژه‌ای متفاوت از گذرواژهٔ فعلی خود
 msgid "Choose a PDF file."
 msgstr "یک فایل PDF انتخاب کنید."
 
+#: src/features/settings/resume-style.tsx
+msgid "Choose a resume"
+msgstr ""
+
 #: src/routes/builder/letter/-components/design-panel.tsx
 msgid "Choose a resume in Write to match its design. Until then, the letter has its own."
 msgstr "یک رزومه را در Write انتخاب کنید تا با طراحی آن مطابقت داشته باشد. تا آن زمان، نامه خاص خود را دارد."
@@ -3332,6 +3406,10 @@ msgstr "پالت فرمان"
 msgid "Command palette: {currentPage}"
 msgstr "پالت فرمان: {currentPage}"
 
+#: src/features/settings/resume-style.tsx
+msgid "Communications"
+msgstr ""
+
 #: src/features/homepage/footer.tsx
 msgid "Community"
 msgstr "انجمن"
@@ -3396,6 +3474,10 @@ msgstr "برای سریع نگه داشتن آپلود، تصاویر بزرگ �
 #: src/features/resume/share/web-page-preview.tsx
 msgid "Computer"
 msgstr "رایانه"
+
+#: src/features/settings/resume-style.tsx
+msgid "Confident"
+msgstr ""
 
 #: src/hooks/use-confirm.tsx
 msgid "Confirm"
@@ -3725,6 +3807,10 @@ msgstr "اصلاح‌شده در {correctedOn} · نسخهٔ اصلی حفظ ش�
 msgid "Couldn't add that fact. Try again."
 msgstr "افزودن آن واقعیت ممکن نشد. دوباره امتحان کنید."
 
+#: src/features/settings/resume-style.tsx
+msgid "Couldn't add that resume. Try again."
+msgstr ""
+
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Couldn't add the application. Try again."
@@ -3986,6 +4072,10 @@ msgstr "مرحله‌های شما بارگیری نشدند؛ بنابراین 
 msgid "Couldn't load your stages."
 msgstr "مرحله‌های شما بارگیری نشدند."
 
+#: src/features/settings/resume-style.tsx
+msgid "Couldn't load your style guide."
+msgstr ""
+
 #: src/features/documents/document-actions.tsx
 msgid "Couldn't lock the document. Try again."
 msgstr "قفل کردن سند ممکن نشد. دوباره امتحان کنید."
@@ -4035,6 +4125,10 @@ msgstr "خواندن آن فایل ممکن نشد. یک فایل .csv انتخ�
 #: src/features/ats-checker/checker.tsx
 msgid "Couldn't read that file. Try again."
 msgstr "خواندن آن فایل ممکن نشد. دوباره امتحان کنید."
+
+#: src/features/settings/resume-style.tsx
+msgid "Couldn't read that file. Use a PDF with selectable text or a Word file."
+msgstr ""
 
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Couldn't read the dates on {entries}, so they stay at the end. Fix their dates and sort again."
@@ -4188,6 +4282,10 @@ msgstr "ذخیرهٔ تغییرات شما ممکن نشد. دوباره امت�
 #: src/features/career/knowledge/preferences.tsx
 msgid "Couldn't save your preferences. Try again."
 msgstr "ذخیرهٔ ترجیحات شما ممکن نشد. دوباره امتحان کنید."
+
+#: src/features/settings/resume-style.tsx
+msgid "Couldn't save your resume style. Try again."
+msgstr ""
 
 #: src/features/applications/components/detail/assemble-dialog.tsx
 msgid "Couldn't save your selection. Try again."
@@ -4651,6 +4749,10 @@ msgstr "مرور"
 msgid "Deep breath."
 msgstr "نفس عمیق."
 
+#: src/features/settings/resume-style.tsx
+msgid "default"
+msgstr ""
+
 #: src/features/resume/editor/write/rich-text-editor-field.tsx
 #: src/features/settings/ai/providers.tsx
 msgid "Default"
@@ -4859,6 +4961,10 @@ msgstr "بده‌بستان‌های سیستم طراحی"
 msgid "Design systems"
 msgstr "سیستم‌های طراحی"
 
+#: src/features/settings/resume-style.tsx
+msgid "Detailed"
+msgstr ""
+
 #: src/features/career/workspace/shell.tsx
 #: src/routes/builder/$resumeId/-components/document-menu.tsx
 msgid "Details"
@@ -4893,11 +4999,16 @@ msgstr "واحد پول متفاوت، مقایسه نشد"
 msgid "Different pay period, not compared"
 msgstr "دورهٔ پرداخت متفاوت، مقایسه نشد"
 
+#: src/features/settings/resume-style.tsx
+msgid "Digital Marketing"
+msgstr ""
+
 #: src/features/career/schedule-sheet.tsx
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Discard"
 msgstr "دور انداختن"
 
+#: src/features/settings/resume-style.tsx
 #: src/hooks/use-form-blocker.tsx
 msgid "Discard changes"
 msgstr "دور انداختن تغییرات"
@@ -5381,6 +5492,7 @@ msgstr "سرمقاله"
 #: src/features/career/knowledge/profile.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
+#: src/features/settings/resume-style.tsx
 #: src/libs/resume/section.tsx
 msgid "Education"
 msgstr "تحصیلات"
@@ -5613,6 +5725,18 @@ msgstr ""
 msgid "Everything the coach wrote for {0}, newest first."
 msgstr "هر آنچه مربی برای {0} نوشته است، از جدیدترین."
 
+#: src/features/settings/resume-style.tsx
+msgid "Example added"
+msgstr ""
+
+#: src/features/settings/resume-style.tsx
+msgid "Example name"
+msgstr ""
+
+#: src/features/settings/resume-style.tsx
+msgid "Examples you like"
+msgstr ""
+
 #: src/features/homepage/sections.tsx
 msgid "Exchange resume feedback, ask questions, and help shape Reactive Resume with the community."
 msgstr "درباره رزومه‌ها بازخورد ردوبدل کنید، سؤال بپرسید و همراه با جامعه به شکل‌دادن Reactive Resume کمک کنید."
@@ -5625,6 +5749,7 @@ msgstr "خروج از حالت فوکوس"
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 #: src/features/homepage/write.tsx
+#: src/features/settings/resume-style.tsx
 #: src/libs/resume/section.tsx
 msgid "Experience"
 msgstr "تجربه"
@@ -5635,6 +5760,10 @@ msgstr "تجربه، تحصیلات و موارد دیگر"
 
 #: src/features/career/knowledge/profile.tsx
 msgid "Experience, projects and education"
+msgstr ""
+
+#: src/features/settings/resume-style.tsx
+msgid "Experienced from (years)"
 msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
@@ -6032,6 +6161,10 @@ msgstr "گذرواژه را فراموش کرده‌اید؟"
 msgid "Forgot your password?"
 msgstr "گذرواژهٔ خود را فراموش کرده‌اید؟"
 
+#: src/features/settings/resume-style.tsx
+msgid "Formal"
+msgstr ""
+
 #: src/features/resume/share/download-tab.tsx
 msgid "Format"
 msgstr "قالب"
@@ -6151,6 +6284,10 @@ msgstr ""
 msgid "From your resume"
 msgstr "از رزومهٔ شما"
 
+#: src/features/settings/resume-style.tsx
+msgid "From your resumes"
+msgstr ""
+
 #: src/features/career/knowledge/search-regions-field.tsx
 msgid "From your timezone"
 msgstr "بر اساس منطقه زمانی شما"
@@ -6163,6 +6300,10 @@ msgstr "نام کامل"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Full width"
 msgstr "تمام‌عرض"
+
+#: src/features/settings/resume-style.tsx
+msgid "General"
+msgstr ""
 
 #: src/dialogs/resume/index.tsx
 msgid "Generate a random name"
@@ -6294,6 +6435,14 @@ msgstr "خطاب"
 #: src/features/documents/documents-page.tsx
 msgid "Grid"
 msgstr "جدول"
+
+#: src/features/settings/resume-style.tsx
+msgid "Group names to prefer"
+msgstr ""
+
+#: src/features/settings/resume-style.tsx
+msgid "Groups, from"
+msgstr ""
 
 #: src/features/career/knowledge/structured-preferences.tsx
 msgid "Growth"
@@ -6543,6 +6692,10 @@ msgstr "تناوب"
 msgid "How roles are checked"
 msgstr ""
 
+#: src/features/settings/resume-style.tsx
+msgid "How tailored resumes are written: length, tone, bullets, skills and section order, as presets for the directions you apply in. Examples you like guide the voice; they're never used as facts. Your experience stays in Career → Knowledge."
+msgstr ""
+
 #: src/features/templates/gallery.tsx
 msgid "How to choose a template"
 msgstr "نحوه انتخاب قالب"
@@ -6756,6 +6909,10 @@ msgstr "استنباط‌شده"
 
 #: src/features/applications/components/detail/selection-review.tsx
 msgid "inferred from the duties"
+msgstr ""
+
+#: src/features/settings/resume-style.tsx
+msgid "Information density"
 msgstr ""
 
 #: src/features/resume/editor/write/section-row.tsx
@@ -7125,6 +7282,10 @@ msgstr "پانل را در کنار صفحه نگه دارید"
 msgid "Keep the recording in this browser so I can download it"
 msgstr "ضبط در این مرورگر نگه داشته شود تا بتوانم آن را دانلود کنم"
 
+#: src/features/settings/resume-style.tsx
+msgid "Keep them brief"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Keep them to roughly two lines, so a skim-reader finishes them."
 msgstr "آن‌ها را در حدود دو خط نگه دارید تا خوانندهٔ سریع بتواند آن‌ها را تمام کند."
@@ -7365,6 +7526,7 @@ msgstr "فایل‌های قدیمی Word پشتیبانی نمی‌شوند. ف
 msgid "Legal"
 msgstr "حقوقی"
 
+#: src/features/settings/resume-style.tsx
 #: src/routes/builder/$resumeId/-components/document-details.tsx
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Length"
@@ -7381,6 +7543,10 @@ msgstr "مدت به دقیقه"
 #: src/features/ats-checker/messages.ts
 msgid "Length is not a defect, and there is no universal one-page rule. Keep the pages that earn their place."
 msgstr "طول رزومه نقص نیست و هیچ قانون همگانی تک‌صفحه‌ای وجود ندارد. صفحاتی را نگه دارید که ارزش جای خود را دارند."
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Length, tone, bullets and skills follow this preset. <0>Edit your resume style</0>"
+msgstr ""
 
 #: src/features/career/knowledge/profile.tsx
 msgid "less admin time"
@@ -7471,6 +7637,7 @@ msgid "Ligatures can drop letters out of words such as \"workflow\"."
 msgstr "لیگاچرها می‌توانند حروفی را از کلماتی مانند \"workflow\" حذف کنند."
 
 #. Appearance theme option for light mode
+#: src/features/settings/resume-style.tsx
 #: src/features/user/dropdown-menu.tsx
 #: src/libs/theme.ts
 msgid "Light"
@@ -7708,6 +7875,7 @@ msgstr "در حال بارگیری فضای کاری…"
 #: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/manage-lanes-sheet.tsx
 #: src/features/command-palette/index.tsx
+#: src/features/settings/resume-style.tsx
 msgid "Loading…"
 msgstr "در حال بارگیری…"
 
@@ -7785,6 +7953,7 @@ msgid "Make any of them yours."
 msgstr "هر یک از آنها را مال خود کنید."
 
 #: src/features/settings/ai/providers.tsx
+#: src/features/settings/resume-style.tsx
 msgid "Make default"
 msgstr "تنظیم به‌عنوان پیش‌فرض"
 
@@ -8125,6 +8294,16 @@ msgstr "اکثر سیستم ها نامزدها را با آدرس ایمیل پ
 msgid "Mostly readable"
 msgstr "بیشتر قابل خواندن است"
 
+#. placeholder {0}: sections[section]
+#: src/features/settings/resume-style.tsx
+msgid "Move {0} down"
+msgstr ""
+
+#. placeholder {0}: sections[section]
+#: src/features/settings/resume-style.tsx
+msgid "Move {0} up"
+msgstr ""
+
 #: src/features/applications/components/manage-lanes-sheet.tsx
 msgid "Move {label} down"
 msgstr "انتقال {label} به پایین"
@@ -8255,6 +8434,7 @@ msgstr "کار من این بود که علت را پیدا کنم، بدون ا
 #: src/features/settings/account/profile.tsx
 #: src/features/settings/ai/api-keys.tsx
 #: src/features/settings/ai/providers.tsx
+#: src/features/settings/resume-style.tsx
 msgid "Name"
 msgstr "نام"
 
@@ -8598,6 +8778,10 @@ msgstr "هنوز واقعیتی برای پیوند نیست. آن‌ها را �
 #: src/features/career/knowledge/facts.tsx
 msgid "No facts yet. Add one above."
 msgstr "هنوز واقعیتی نیست. یکی در بالا اضافه کنید."
+
+#: src/features/settings/resume-style.tsx
+msgid "No first person. Use \"led\" sparingly."
+msgstr ""
 
 #: src/features/documents/new-document-dialog.tsx
 msgid "No job yet"
@@ -9043,6 +9227,10 @@ msgstr "اودیایی"
 msgid "Off"
 msgstr "خاموش"
 
+#: src/features/settings/resume-style.tsx
+msgid "Off: always use the order below."
+msgstr ""
+
 #: src/features/career/knowledge/structured-preferences.tsx
 msgid "Off: roles that require relocating to {name} don't meet this rule."
 msgstr ""
@@ -9090,6 +9278,10 @@ msgstr ""
 msgid "Offline · saved on this device"
 msgstr "آفلاین · در این دستگاه ذخیره شده است"
 
+#: src/features/settings/resume-style.tsx
+msgid "Older roles"
+msgstr ""
+
 #: src/features/career/knowledge/structured-preferences.tsx
 msgid "On-site"
 msgstr ""
@@ -9135,6 +9327,10 @@ msgstr "یک فرمت"
 msgctxt "Entry header layout"
 msgid "One line"
 msgstr "یک خط"
+
+#: src/features/settings/resume-style.tsx
+msgid "One tight line"
+msgstr ""
 
 #: src/features/templates/gallery.tsx
 msgid "One-column templates give hiring software a simple top-to-bottom reading order. Two-column templates put supporting details in a sidebar and leave more room for visual hierarchy. Choose for your content, then check the exported PDF."
@@ -9374,6 +9570,7 @@ msgstr "قالب‌بندی اصلی جدول حفظ شده است. این مح�
 
 #: src/features/applications/components/interview-dialog.tsx
 #: src/features/career/knowledge/structured-preferences.tsx
+#: src/features/settings/resume-style.tsx
 msgid "Other"
 msgstr "سایر"
 
@@ -9461,6 +9658,14 @@ msgstr "خواندن صفحه تمام نشد."
 #: src/features/resume/editor/check/page-layer.tsx
 msgid "Page view"
 msgstr "نمای صفحه"
+
+#: src/features/settings/resume-style.tsx
+msgid "Pages, early career"
+msgstr ""
+
+#: src/features/settings/resume-style.tsx
+msgid "Pages, experienced"
+msgstr ""
 
 #: src/features/resume/editor/design/style-groups.tsx
 msgid "Paper"
@@ -9721,6 +9926,10 @@ msgstr "یک قالب انتخاب کنید و همه‌جا از آن استف�
 msgid "Pick two examples"
 msgstr "دو نمونه انتخاب کنید"
 
+#: src/features/settings/resume-style.tsx
+msgid "Picked for posting titles containing"
+msgstr ""
+
 #: src/features/career/shared.tsx
 msgid "Picking your stories"
 msgstr "در حال انتخاب داستان‌های شما"
@@ -9735,6 +9944,10 @@ msgstr "جریان مسیر"
 
 #: src/features/career/knowledge/structured-preferences.tsx
 msgid "Places that identify it in a posting"
+msgstr ""
+
+#: src/features/settings/resume-style.tsx
+msgid "Plain and direct"
 msgstr ""
 
 #: src/features/career/workspace/apply.tsx
@@ -9799,6 +10012,10 @@ msgstr "پرتغالی (پرتغال)"
 #: src/features/resume/editor/write/entries.tsx
 msgid "Position"
 msgstr "موقعیت شغلی"
+
+#: src/features/settings/resume-style.tsx
+msgid "Positions, usually from"
+msgstr ""
 
 #: src/features/career/workspace/saved.tsx
 msgid "posting"
@@ -9954,6 +10171,8 @@ msgid "Present"
 msgstr "تاکنون"
 
 #: src/components/input/color-picker.tsx
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/settings/resume-style.tsx
 msgid "Presets"
 msgstr "پیش‌تنظیم‌ها"
 
@@ -10079,11 +10298,16 @@ msgstr "پروفایل‌ها"
 msgid "Progress bar"
 msgstr "نوار پیشرفت"
 
+#: src/features/settings/resume-style.tsx
+msgid "Project Management"
+msgstr ""
+
 #: src/features/career/knowledge/profile.tsx
 msgid "Project name"
 msgstr ""
 
 #: src/features/applications/components/detail/selection-review.tsx
+#: src/features/settings/resume-style.tsx
 #: src/libs/resume/section.tsx
 msgid "Projects"
 msgstr "پروژه‌ها"
@@ -10499,6 +10723,10 @@ msgstr "یادآوری‌شده"
 msgid "Recent"
 msgstr "اخیر"
 
+#: src/features/settings/resume-style.tsx
+msgid "Recent means the last (years)"
+msgstr ""
+
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Recipient"
 msgstr "گیرنده"
@@ -10591,6 +10819,10 @@ msgstr "به‌روزرسانی گزارش توجیهی ۲۴ ساعت قبل"
 #: src/features/career/workspace/prepare.tsx
 msgid "Refresh the briefing on the morning of"
 msgstr "به‌روزرسانی گزارش توجیهی در صبح همان روز"
+
+#: src/features/settings/resume-style.tsx
+msgid "Regional conventions"
+msgstr ""
 
 #: src/features/resume/share/cv-domain-card.tsx
 msgid "Register at OlaCV"
@@ -10685,12 +10917,13 @@ msgstr "«{name}» حذف شود؟"
 
 #. placeholder {0}: attachment.filename
 #. placeholder {0}: contact.name
-#. placeholder {0}: item.value || kinds[item.kind]
+#. placeholder {0}: example.title
 #: src/features/applications/components/detail/contacts.tsx
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
 #: src/features/career/knowledge/structured-preferences.tsx
 #: src/features/settings/account/security.tsx
+#: src/features/settings/resume-style.tsx
 msgid "Remove {0}"
 msgstr "{0} را حذف کنید"
 
@@ -11000,6 +11233,17 @@ msgstr "فایل رزومه"
 msgid "Resume page"
 msgstr "صفحه رزومه"
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/settings/resume-style.tsx
+#: src/features/settings/root.tsx
+#: src/routes/dashboard/settings/route.tsx
+msgid "Resume style"
+msgstr ""
+
+#: src/features/settings/resume-style.tsx
+msgid "Resume style saved"
+msgstr ""
+
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Resume submitted (optional)"
@@ -11257,6 +11501,10 @@ msgstr "Sam"
 msgid "Sam, Fieldnote"
 msgstr "Sam، Fieldnote"
 
+#: src/features/settings/resume-style.tsx
+msgid "Same detail as recent ones"
+msgstr ""
+
 #: src/features/homepage/remember.tsx
 msgid "Same you. Less starting over."
 msgstr "همان شمایید. بی‌آنکه هر بار از صفر شروع کنید."
@@ -11268,6 +11516,7 @@ msgstr "نمونه رزومه اضافه شد در هر زمان آن را حذ�
 #: src/features/applications/components/detail/activity.tsx
 #: src/features/applications/components/detail/next-step-card.tsx
 #: src/features/resume/share/history-tab.tsx
+#: src/features/settings/resume-style.tsx
 msgid "Save"
 msgstr "ذخیره"
 
@@ -11669,6 +11918,10 @@ msgstr "کلید مخفی کپی شد"
 msgid "Section headings"
 msgstr "سرفصل های بخش"
 
+#: src/features/settings/resume-style.tsx
+msgid "Section order"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 #: src/features/resume/editor/check/parser-view.tsx
 msgid "Sections"
@@ -11822,6 +12075,10 @@ msgstr "به {0} ارسال شد"
 #: src/features/resume/share/history-tab.tsx
 msgid "Sent to Lumen"
 msgstr "به Lumen ارسال شد"
+
+#: src/features/settings/resume-style.tsx
+msgid "Sentences, from"
+msgstr ""
 
 #: src/libs/locale.ts
 msgid "Serbian"
@@ -12199,6 +12456,7 @@ msgstr "مهارت"
 #: src/features/career/knowledge/profile.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
+#: src/features/settings/resume-style.tsx
 #: src/libs/resume/section.tsx
 msgid "Skills"
 msgstr "مهارت‌ها"
@@ -12209,6 +12467,10 @@ msgstr ""
 
 #: src/features/applications/components/detail/selection-review.tsx
 msgid "Skills to list"
+msgstr ""
+
+#: src/features/settings/resume-style.tsx
+msgid "Skills, about"
 msgstr ""
 
 #: src/features/applications/components/detail/assemble-dialog.tsx
@@ -12477,6 +12739,7 @@ msgid "Start each one with a concrete verb: built, led, reduced, migrated."
 msgstr "هر مورد را با یک فعل مشخص شروع کنید: ساخت، رهبری کرد، کاهش داد، مهاجرت داد."
 
 #: src/features/documents/new-document-dialog.tsx
+#: src/features/settings/resume-style.tsx
 msgid "Start from"
 msgstr "شروع از"
 
@@ -12645,6 +12908,10 @@ msgstr ""
 msgid "Stronger verb"
 msgstr "فعل قوی تر"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Style"
+msgstr ""
+
 #: src/features/resume/stylesheet/toolbar.tsx
 msgid "Stylesheet editor"
 msgstr "ویرایشگر استایل‌شیت"
@@ -12700,12 +12967,17 @@ msgid "Summaries of your open applications"
 msgstr "خلاصهٔ درخواست‌های باز شما"
 
 #: src/features/resume/editor/write/summary-editor.tsx
+#: src/features/settings/resume-style.tsx
 #: src/libs/resume/section.tsx
 msgid "Summary"
 msgstr "خلاصه"
 
 #: src/features/career/knowledge/profile.tsx
 msgid "Summary (scope, team size, what the role was for)"
+msgstr ""
+
+#: src/features/settings/resume-style.tsx
+msgid "Summary and headline"
 msgstr ""
 
 #: src/features/homepage/sections.tsx
@@ -13408,6 +13680,10 @@ msgstr "هیچ پاراگراف خلاصه‌ای وجود ندارد."
 msgid "These are the answers saved when you applied."
 msgstr "این‌ها پاسخ‌هایی هستند که هنگام ارسال درخواست ذخیره شدند."
 
+#: src/features/settings/resume-style.tsx
+msgid "These guide the writer and the checks. Nothing you chose is cut, and text is never shrunk to fit."
+msgstr ""
+
 #: src/features/applications/components/list-view.tsx
 msgid "They and their timelines are deleted permanently. This can't be undone."
 msgstr "آنها و جدول زمانی آنها برای همیشه حذف می شوند. این قابل واگرد نیست."
@@ -13735,6 +14011,10 @@ msgstr "نکته"
 msgid "Title"
 msgstr "عنوان"
 
+#: src/features/settings/resume-style.tsx
+msgid "to"
+msgstr ""
+
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "To"
 msgstr "به"
@@ -13756,6 +14036,11 @@ msgstr "امروز، {hour}"
 #: src/features/applications/components/calendar-view.tsx
 msgid "Tomorrow"
 msgstr "فردا"
+
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/settings/resume-style.tsx
+msgid "Tone"
+msgstr ""
 
 #: src/features/resume/editor/design/style-groups.tsx
 msgid "Too light for headings on white. It may be hard to read and print faintly."
@@ -14146,6 +14431,10 @@ msgstr "تا ۲ دقیقه. کلمات شما هم‌زمان با صحبت نم
 msgid "Up to 25 MB · checked in your browser, never uploaded"
 msgstr "حداکثر 25 MB · در مرورگر شما بررسی شده است، هرگز آپلود نشده است"
 
+#: src/features/settings/resume-style.tsx
+msgid "Up to six resumes you think are well written: yours or anyone's. Only their style is used — never their content or facts."
+msgstr ""
+
 #: src/features/applications/components/calendar-view.tsx
 msgid "Upcoming interviews"
 msgstr "مصاحبه های آینده"
@@ -14192,12 +14481,17 @@ msgid "Upload or paste"
 msgstr ""
 
 #: src/features/applications/components/add-application-dialog.tsx
+#: src/features/settings/resume-style.tsx
 msgid "Upload PDF or Word file"
 msgstr ""
 
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Upload photo"
 msgstr "بارگذاری عکس"
+
+#: src/features/settings/resume-style.tsx
+msgid "Uploaded"
+msgstr ""
 
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Uploading photo…"
@@ -14291,6 +14585,10 @@ msgstr "استفاده از پیش‌فرض"
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Use details from “{0}”"
 msgstr "از جزئیات \"{0}\" استفاده کنید"
+
+#: src/features/settings/resume-style.tsx
+msgid "Use each selection's recommended order"
+msgstr ""
 
 #: src/features/career/knowledge/profile-file.tsx
 msgid "Use experience, projects, education, volunteer, certifications, awards and skills."
@@ -14578,10 +14876,15 @@ msgstr "بازدیدکنندگان می توانند PDF را دانلود کن�
 msgid "Visitors enter it before they see the resume. Share it only with people you trust."
 msgstr "بازدیدکنندگان پیش از دیدن رزومه رمز عبور را وارد می‌کنند. آن را فقط با افرادی که به آنها اعتماد دارید به اشتراک بگذارید."
 
+#: src/features/settings/resume-style.tsx
+msgid "Voice"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "Voice settings"
 msgstr "تنظیمات صدا"
 
+#: src/features/settings/resume-style.tsx
 #: src/libs/resume/section.tsx
 msgid "Volunteer"
 msgstr "داوطلبانه"
@@ -14604,6 +14907,10 @@ msgstr ""
 
 #: src/features/career/knowledge/structured-preferences.tsx
 msgid "Want or avoid"
+msgstr ""
+
+#: src/features/settings/resume-style.tsx
+msgid "Warm, people-first"
 msgstr ""
 
 #: src/features/ats-checker/messages.ts
@@ -14637,6 +14944,10 @@ msgstr "دسترسی به وب"
 
 #: src/features/career/knowledge/profile.tsx
 msgid "Web development"
+msgstr ""
+
+#: src/features/settings/resume-style.tsx
+msgid "Web Development"
 msgstr ""
 
 #: src/features/resume/share/share-panel.tsx
@@ -14835,6 +15146,14 @@ msgstr ""
 msgid "What you did: {0}"
 msgstr "کاری که کردید: {0}"
 
+#: src/features/settings/resume-style.tsx
+msgid "What you like about it"
+msgstr ""
+
+#: src/features/settings/resume-style.tsx
+msgid "What you like about it (optional)"
+msgstr ""
+
 #: src/features/applications/components/detail/sent-documents.tsx
 msgid "What you sent"
 msgstr "چیزی که فرستادی"
@@ -14973,9 +15292,17 @@ msgstr "بدون رزومه، شما شخص دریافت کننده را پر م
 msgid "Wording"
 msgstr ""
 
+#: src/features/settings/resume-style.tsx
+msgid "Words per bullet, at most"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Words run together when the text is extracted."
 msgstr "کلمات هنگام استخراج متن به‌هم می‌چسبند."
+
+#: src/features/settings/resume-style.tsx
+msgid "Words, at most"
+msgstr ""
 
 #: src/features/applications/components/detail/selection-review.tsx
 msgid "Work experience"
@@ -15020,9 +15347,17 @@ msgstr "برای تاریخ پایان نقش فعلی خود \"Present\" بنو
 msgid "Write a letter"
 msgstr "نامه بنویس"
 
+#: src/features/settings/resume-style.tsx
+msgid "Write a professional summary"
+msgstr ""
+
 #: src/features/homepage/remember.tsx
 msgid "Write a story once, with the facts behind it, and the coach uses it in 3 places. Switch a fact off and nothing leans on it."
 msgstr "یک بار داستانی را همراه با واقعیت‌های پشتوانه‌اش بنویسید و مربی در ۳ جا از آن استفاده می‌کند. واقعیتی را خاموش کنید تا هیچ چیزی به آن تکیه نکند."
+
+#: src/features/settings/resume-style.tsx
+msgid "Write a targeted headline"
+msgstr ""
 
 #: src/features/homepage/write.tsx
 msgid "Write beside a live page. It saves as you type and keeps every version. Ask the assistant for a sharper line: it suggests, you decide."
@@ -15052,6 +15387,10 @@ msgstr "تا یادتان هست، بنویسید"
 msgid "Write it myself"
 msgstr "خودم بنویسم"
 
+#: src/features/settings/resume-style.tsx
+msgid "Write like these examples"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "Write numbers as digits"
 msgstr "نوشتن اعداد به رقم"
@@ -15077,6 +15416,7 @@ msgid "Write your professional resume"
 msgstr "رزومه حرفه ای خود را بنویسید"
 
 #: src/features/ats-checker/messages.ts
+#: src/features/command-palette/pages/navigation.tsx
 #: src/features/resume/editor/check/check-panel.tsx
 #: src/features/resume/editor/check/issues.ts
 msgid "Writing"

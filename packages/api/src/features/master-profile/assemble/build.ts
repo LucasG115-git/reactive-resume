@@ -149,7 +149,10 @@ export function buildResume(input: {
 	 */
 	plan?: ResumeSelectionPlan | null | undefined;
 	/** The writing step's headline and skill groups; with them, skills print in these groups only. */
-	writing?: { headline: string; skillGroups: SkillGroup[] } | null | undefined;
+	writing?:
+		| { headline: string; skillGroups: SkillGroup[]; sectionOrder?: string[] | null | undefined }
+		| null
+		| undefined;
 }): AssembleResult {
 	const { base, profile, selection, mode, plan } = input;
 	const now = input.now ?? new Date();
@@ -408,7 +411,7 @@ export function buildResume(input: {
 
 	const basics = input.writing?.headline ? { ...base.basics, headline: input.writing.headline } : base.basics;
 	const metadata = plan
-		? { ...base.metadata, layout: orderSections(base.metadata.layout, plan.sections) }
+		? { ...base.metadata, layout: orderSections(base.metadata.layout, input.writing?.sectionOrder ?? plan.sections) }
 		: base.metadata;
 	return {
 		data: {

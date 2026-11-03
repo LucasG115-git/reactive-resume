@@ -70,6 +70,9 @@ export function SettingsRoot() {
 				<Link to="/dashboard/settings/preferences" viewTransition={pushTransition} className={rowClass}>
 					<Row icon="sliders-horizontal" label={<Trans>Preferences</Trans>} value={i18n.t(themeMap[theme])} />
 				</Link>
+				<Link to="/dashboard/settings/resume-style" viewTransition={pushTransition} className={rowClass}>
+					<Row icon="paragraph" label={<Trans>Resume style</Trans>} />
+				</Link>
 				<Link to="/dashboard/settings/ai" viewTransition={pushTransition} className={rowClass}>
 					<Row
 						icon="sparkle"

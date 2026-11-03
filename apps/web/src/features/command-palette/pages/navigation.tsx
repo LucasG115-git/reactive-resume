@@ -130,6 +130,15 @@ export function NavigationCommandGroup() {
 				</CommandItem>
 
 				<CommandItem
+					keywords={[t`Resume style`, t`Tone`, t`Presets`, t`Writing`]}
+					value="navigation.settings.resume-style"
+					onSelect={() => onNavigate("/dashboard/settings/resume-style")}
+				>
+					<Icon name="paragraph" size={16} />
+					<Trans>Resume style</Trans>
+				</CommandItem>
+
+				<CommandItem
 					keywords={[t`AI & developer`, t`AI providers`, t`API keys`, t`MCP`, t`Integrations`]}
 					value="navigation.settings.ai"
 					onSelect={() => onNavigate("/dashboard/settings/ai")}

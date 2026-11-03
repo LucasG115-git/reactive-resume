@@ -1,5 +1,6 @@
 import type { MasterProfile } from "../service";
 import type { JobAnalysis, ResumeSelectionPlan } from "@reactive-resume/schema/resume-selection";
+import type { StyleExample, StylePreset } from "@reactive-resume/schema/resume-style";
 import type { SkillGroup, WritingRules } from "@reactive-resume/schema/resume-writing";
 import z from "zod";
 import { REGION_CONVENTIONS } from "@reactive-resume/schema/resume-writing";
@@ -58,8 +59,16 @@ export function writerPrompt(input: {
 	profile: MasterProfile;
 	skills: Skill[];
 	rules: WritingRules;
+	style?: WritingStyle | null | undefined;
+	now?: Date;
 }): { prompt: string; keys: WriterKeys } {
 	const { plan, analysis, profile, rules } = input;
+	const style = input.style ?? null;
+	const now = input.now ?? new Date();
+	const older = (entry: Pick<Entry, "endDate">) =>
+		style?.preset.olderRoles === "brief" &&
+		entry.endDate !== null &&
+		now.getFullYear() - Number(entry.endDate.slice(0, 4)) > style.preset.recentYears;
 	const region = REGION_CONVENTIONS[rules.region];
 	const keys: WriterKeys = { achievements: new Map(), skills: new Map() };
 	const entries = new Map(profile.entries.map((entry) => [entry.id, entry]));
@@ -69,7 +78,7 @@ export function writerPrompt(input: {
 		const entry = entries.get(planned.entryId);
 		if (!entry) continue;
 		record.push(
-			`[${entry.kind}] ${entry.title}${entry.organization ? ` — ${entry.organization}` : ""} (${dates(entry)})${entry.summary ? `\n  scope: ${entry.summary.slice(0, 300)}` : ""}`,
+			`[${entry.kind}${older(entry) ? ", older: keep its bullets brief" : ""}] ${entry.title}${entry.organization ? ` — ${entry.organization}` : ""} (${dates(entry)})${entry.summary ? `\n  scope: ${entry.summary.slice(0, 300)}` : ""}`,
 		);
 		const achievements = new Map(entry.achievements.map((achievement) => [achievement.id, achievement]));
 		for (const item of planned.achievements.filter((achievement) => achievement.include)) {
@@ -104,6 +113,7 @@ ${dataBlock("REQUIREMENTS", requirements || "(none)")}
 ${dataBlock("RECORD", record.join("\n"))}
 
 ${dataBlock("SKILLS", skillLines.join("\n") || "(none)")}
+${style ? styleBlock(style) : ""}
 
 Write in ${region.spelling}. Return JSON:
 {
@@ -121,8 +131,51 @@ Bullets:
 - Plain, natural professional English. Avoid clichés such as ${CLICHES.slice(0, 10).join(", ")}.
 - Don't repeat the same verb or point across bullets.
 
-Skill groups: put every S id in exactly one of ${rules.skills.minGroups} to ${rules.skills.maxGroups} groups with names suited to this profession and posting (for example "Communications & Marketing", "Digital Platforms", "Project Delivery" for communications; "Languages & Frameworks", "Platforms & Tools" for development). No generic names like "Skills" or "Other". No proficiency levels.`;
+Skill groups: put every S id in exactly one of ${rules.skills.minGroups} to ${rules.skills.maxGroups} groups with names suited to this profession and posting (for example "Communications & Marketing", "Digital Platforms", "Project Delivery" for communications; "Languages & Frameworks", "Platforms & Tools" for development). No generic names like "Skills" or "Other". No proficiency levels.${style?.preset.skillGroupHints.length ? ` Prefer these group names where they fit: ${style.preset.skillGroupHints.join(", ")}.` : ""}`;
 	return { prompt, keys };
+}
+
+/** The user's style preset and the examples it writes like. */
+export type WritingStyle = { preset: StylePreset; examples: StyleExample[] };
+
+const TONE: Record<StylePreset["tone"], string> = {
+	plain: "clear, neutral and direct",
+	warm: "approachable and people-centred, still professional",
+	confident: "direct and assertive, with strong verbs, never boastful",
+	formal: "reserved and precise",
+};
+const BULLETS: Record<StylePreset["bulletStyle"], string> = {
+	"action-result": "verb first, then what was done, then the result when recorded",
+	"challenge-action-result": "the situation or challenge briefly when it adds meaning, then the action and the result",
+	concise: "one tight clause each, results first when recorded",
+};
+const DENSITY: Record<StylePreset["density"], string> = {
+	light: "airy: short bullets, little detail",
+	balanced: "balanced detail",
+	dense: "detailed: name the scope, tools and results the record states",
+};
+
+/** Excerpt length per example; enough to show voice and bullet shape. */
+export const EXAMPLE_EXCERPT = 2500;
+
+function styleBlock(style: WritingStyle) {
+	const { preset } = style;
+	const lines = [
+		`Tone: ${TONE[preset.tone]}.`,
+		`Bullets: ${BULLETS[preset.bulletStyle]}.`,
+		`Density: ${DENSITY[preset.density]}.`,
+		preset.notes ? `The candidate's own notes: ${preset.notes}` : "",
+	].filter(Boolean);
+	const examples = style.examples
+		.slice(0, 2)
+		.map(
+			(example) =>
+				`--- ${example.title}${example.notes ? ` (liked for: ${example.notes})` : ""}\n${example.text.slice(0, EXAMPLE_EXCERPT)}`,
+		)
+		.join("\n\n");
+	return `
+${dataBlock("STYLE", lines.join("\n"))}
+${examples ? `\n${dataBlock("STYLE_EXAMPLES", examples)}\nThe examples show the voice, bullet shape and density the candidate likes. Use them for style only: never copy their content, facts, employers, numbers, tools or phrases.\n` : ""}`;
 }
 
 const looseString = z.string().catch("");
@@ -183,6 +236,8 @@ export function acceptWriting(input: {
 	skills: Skill[];
 	skillsLeftOut: Written["skillsLeftOut"];
 	rules: WritingRules;
+	/** Example texts the writer saw: a wording that borrows a phrase from one (and not from the record) is rejected. */
+	examples?: string[] | undefined;
 }): Written {
 	const { output, keys, plan, profile, rules } = input;
 	const warnings: string[] = [];
@@ -220,13 +275,16 @@ export function acceptWriting(input: {
 			];
 			const grounded = checkGrounded(candidate, sources, lengthBudget([achievement.text, ...achievement.variants]));
 			const tools = introducedTools(candidate, [...sources, ...achievement.skills], skillNames);
+			const borrowed = copiedPhrase(candidate, input.examples ?? [], sources);
 			const problem = !grounded.ok
 				? `the rewrite ${grounded.reason}`
 				: !keepsQualifiers(achievement.text, candidate)
 					? "the rewrite dropped a qualifier such as “about”"
 					: tools.length > 0
 						? `the rewrite named ${tools.join(", ")}`
-						: null;
+						: borrowed
+							? `the rewrite borrowed "${borrowed}" from a style example`
+							: null;
 			if (problem) {
 				warnings.push(`Kept your wording for "${clip(achievement.text)}" (${problem}).`);
 				bullets.set(achievement.id, { text: achievement.text, source: "original" });
@@ -280,6 +338,19 @@ export function acceptWriting(input: {
 		skillsLeftOut: input.skillsLeftOut,
 		warnings,
 	};
+}
+
+/** A run of six or more words shared with an example and absent from the record, or null. */
+export function copiedPhrase(candidate: string, examples: string[], record: string[]): string | null {
+	if (examples.length === 0) return null;
+	const text = words(candidate);
+	const exampleText = ` ${examples.map((example) => words(example).join(" ")).join(" | ")} `;
+	const recordText = ` ${record.map((item) => words(item).join(" ")).join(" | ")} `;
+	for (let i = 0; i + 6 <= text.length; i++) {
+		const run = text.slice(i, i + 6).join(" ");
+		if (exampleText.includes(` ${run} `) && !recordText.includes(` ${run} `)) return run;
+	}
+	return null;
 }
 
 const HEADLINE_JOINERS = new Set(["and", "of", "for", "in", "with", "the", "a", "an", "to", "on"]);

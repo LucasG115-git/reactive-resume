@@ -6,6 +6,7 @@ import { Trans } from "@lingui/react/macro";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { Link } from "@tanstack/react-router";
 import { useEffect, useId, useRef, useState } from "react";
+import { choosePreset } from "@reactive-resume/schema/resume-style";
 import { Button, buttonVariants } from "@reactive-resume/ui/components/button";
 import {
 	Dialog,
@@ -93,6 +94,13 @@ export function AssembleDialog({ application, open, onOpenChange, autoPropose }:
 	// "" starts from the default template with the account's name and email.
 	const base = baseResumeId ?? resumes[0]?.id ?? "";
 	const [mode, setMode] = useState<AssembleMode>("rephrase");
+	const styleGuide = useQuery({ ...orpc.resumeStyle.get.queryOptions(), enabled: open });
+	const [presetId, setPresetId] = useState<string | null>(null);
+	// The preset the server would pick for this posting's title, unless the user chooses another.
+	const suggested = styleGuide.data
+		? choosePreset(styleGuide.data, selection.data?.analysis.title || application.role)
+		: null;
+	const preset = presetId ?? suggested?.id ?? null;
 	const [result, setResult] = useState<AssembleResult | null>(null);
 
 	const achievements =
@@ -209,6 +217,33 @@ export function AssembleDialog({ application, open, onOpenChange, autoPropose }:
 							)}
 						</div>
 
+						{styleGuide.data && (
+							<div className="grid gap-1">
+								<label htmlFor={`${formId}-style`} className="text-xs font-medium text-ink-2">
+									<Trans>Style</Trans>
+								</label>
+								<NativeSelect
+									id={`${formId}-style`}
+									value={preset ?? ""}
+									onChange={(event) => setPresetId(event.target.value)}
+								>
+									{styleGuide.data.presets.map((item) => (
+										<option key={item.id} value={item.id}>
+											{item.id === suggested?.id ? t`${item.name} (matches this posting)` : item.name}
+										</option>
+									))}
+								</NativeSelect>
+								<p className="text-xs text-ink-3">
+									<Trans>
+										Length, tone, bullets and skills follow this preset.{" "}
+										<Link to="/dashboard/settings/resume-style" className="underline underline-offset-2">
+											Edit your resume style
+										</Link>
+									</Trans>
+								</p>
+							</div>
+						)}
+
 						<div className="grid gap-1.5">
 							<span id={`${formId}-mode`} className="text-xs font-medium text-ink-2">
 								<Trans>Wording</Trans>
@@ -301,7 +336,12 @@ export function AssembleDialog({ application, open, onOpenChange, autoPropose }:
 								loading={assemble.isPending}
 								disabled={achievements === 0}
 								onClick={() =>
-									assemble.mutate({ applicationId: application.id, mode, ...(base ? { baseResumeId: base } : {}) })
+									assemble.mutate({
+										applicationId: application.id,
+										mode,
+										...(base ? { baseResumeId: base } : {}),
+										...(preset ? { presetId: preset } : {}),
+									})
 								}
 							>
 								<Icon name="magic-wand" size={16} />
@@ -334,6 +374,7 @@ function AssembleReport({ result }: AssembleReportProps) {
 				{plural(bullets.length, { one: "# bullet placed", other: "# bullets placed" })} ·{" "}
 				{plural(rephrased, { one: "# reworded", other: "# reworded" })}
 				{result.result.summaryUsed ? ` · ${t`new summary`}` : ""}
+				{writing?.style ? ` · ${t`${writing.style.name} style`}` : ""}
 				{writing
 					? ` · ${t`about ${writing.stats.estimatedPages} of ${writing.stats.targetPages} pages`} · ${plural(writing.stats.skills, { one: "# skill", other: "# skills" })}`
 					: ""}

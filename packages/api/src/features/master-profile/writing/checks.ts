@@ -93,6 +93,8 @@ export function checkResume(input: {
 	analysis: JobAnalysis | null;
 	rules: WritingRules;
 	headline: string;
+	/** From the style preset: older roles kept brief. */
+	olderRoles?: { mode: "full" | "brief"; recentYears: number } | undefined;
 	now?: Date;
 }): { findings: QualityFinding[]; stats: WritingReport["stats"] } {
 	const { data, bullets, placements, plan, profile, rules } = input;
@@ -193,6 +195,21 @@ export function checkResume(input: {
 					itemId: item.id,
 				});
 			for (const text of texts) allBulletTexts.push({ text, itemId: item.id });
+			const ended = entry.endDate ? Number(entry.endDate.slice(0, 4)) : null;
+			if (
+				key === "experience" &&
+				input.olderRoles?.mode === "brief" &&
+				ended !== null &&
+				now.getFullYear() - ended > input.olderRoles.recentYears &&
+				texts.length > Math.min(2, rules.bullets.otherMax)
+			)
+				add({
+					code: "bullet-length",
+					severity: "info",
+					message: `"${entry.title}" ended over ${input.olderRoles.recentYears} years ago and has ${texts.length} bullets; your style keeps older roles brief.`,
+					section: key,
+					itemId: item.id,
+				});
 			if (key === "experience" && texts.length === 0)
 				add({
 					code: "empty-entry",

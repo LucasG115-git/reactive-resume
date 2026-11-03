@@ -270,6 +270,11 @@ msgstr ""
 msgid "{0, plural, one {# story} other {# stories}}"
 msgstr "{0, plural, one {# príbeh} few {# príbehy} many {# príbehu} other {# príbehov}}"
 
+#. placeholder {0}: example.text.split(/\s+/).length
+#: src/features/settings/resume-style.tsx
+msgid "{0, plural, one {# word} other {# words}}"
+msgstr ""
+
 #. placeholder {0}: remembered.ids.length
 #: src/features/career/coach-chat.tsx
 msgid "{0, plural, one {Added # fact to Knowledge.} other {Added # facts to Knowledge.}}"
@@ -369,6 +374,11 @@ msgstr "{0} · {providerLabel}. Odošle túto žiadosť a vaše Znalosti; váš 
 #: src/features/documents/document-actions.tsx
 msgid "{0} (copy)"
 msgstr "{0} (kópia)"
+
+#. placeholder {0}: item.name
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "{0} (matches this posting)"
+msgstr ""
 
 #. placeholder {0}: insights.closed
 #: src/features/applications/components/insights-view.tsx
@@ -511,6 +521,11 @@ msgstr "{0} vrátilo „{1}“. Vaša správa je uložená."
 #: src/features/ats-checker/report/score-header.tsx
 msgid "{0} skipped"
 msgstr "{0} preskočených"
+
+#. placeholder {0}: writing.style.name
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "{0} style"
+msgstr ""
 
 #. placeholder {0}: count("supported")
 #. placeholder {1}: count("partial")
@@ -1152,6 +1167,10 @@ msgstr "Strana je otočená."
 msgid "A pasted posting can be saved as an application afterwards."
 msgstr "Vložený pracovný inzerát je možné následne uložiť ako žiadosť o zamestnanie."
 
+#: src/features/settings/resume-style.tsx
+msgid "A preset is picked automatically when a posting's title matches its keywords; you can also choose one when building."
+msgstr ""
+
 #: src/features/applications/components/detail/next-step-card.tsx
 msgid "A reminder to check in, shown as the next step until you do."
 msgstr "Pripomienka na nahlásenie, ktorá sa zobrazuje ako ďalší krok, kým tak neurobíte."
@@ -1291,6 +1310,10 @@ msgstr ""
 msgid "Action"
 msgstr "Akcia"
 
+#: src/features/settings/resume-style.tsx
+msgid "Action, then result"
+msgstr ""
+
 #: src/features/settings/ai/api-keys.tsx
 msgid "Actions"
 msgstr "Akcie"
@@ -1321,6 +1344,7 @@ msgstr "Aktivita"
 #: src/features/career/knowledge/facts.tsx
 #: src/features/career/today.tsx
 #: src/features/resume/editor/write/basics-card.tsx
+#: src/features/settings/resume-style.tsx
 msgid "Add"
 msgstr "Pridať"
 
@@ -1362,6 +1386,10 @@ msgstr "Pridajte odkaz"
 #: src/features/resume/editor/check/issues.ts
 msgid "Add a location"
 msgstr "Pridajte miesto"
+
+#: src/features/settings/resume-style.tsx
+msgid "Add a name, then Enter"
+msgstr ""
 
 #: src/features/applications/components/detail/activity.tsx
 msgid "Add a note"
@@ -1434,6 +1462,10 @@ msgstr "Pridajte značku"
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Add a tag and press Enter…"
 msgstr "Pridajte značku a stlačte Enter…"
+
+#: src/features/settings/resume-style.tsx
+msgid "Add a word, then Enter"
+msgstr ""
 
 #: src/features/career/knowledge/profile.tsx
 msgid "Add achievement"
@@ -1522,6 +1554,10 @@ msgstr "Pridať záznam"
 msgid "Add evidence"
 msgstr "Pridať dôkaz"
 
+#: src/features/settings/resume-style.tsx
+msgid "Add examples below, then choose up to three for this preset."
+msgstr ""
+
 #: src/features/resume/editor/check/issues.ts
 #: src/features/resume/editor/write/outline.tsx
 msgid "Add experience"
@@ -1582,6 +1618,10 @@ msgstr "Pridať stranu"
 #: src/features/settings/account/security.tsx
 msgid "Add passkey"
 msgstr "Pridať prístupový kľúč"
+
+#: src/features/settings/resume-style.tsx
+msgid "Add preset"
+msgstr ""
 
 #: src/features/resume/editor/write/outline.tsx
 msgid "Add profile"
@@ -2077,6 +2117,10 @@ msgstr "Každý, kto otvorí verejný odkaz, bude potrebovať toto heslo."
 msgid "Anyone with the link will be able to view your resume."
 msgstr "Každý s odkazom si bude môcť pozrieť váš životopis."
 
+#: src/features/settings/resume-style.tsx
+msgid "Anything else, in your words"
+msgstr ""
+
 #: src/features/applications/components/application-notes.tsx
 msgid "Anything to remember about this job"
 msgstr "Všetko, čo si treba o tejto práci zapamätať"
@@ -2506,6 +2550,7 @@ msgid "Awarder"
 msgstr "Ocenený"
 
 #: src/features/applications/components/detail/selection-review.tsx
+#: src/features/settings/resume-style.tsx
 #: src/libs/resume/section.tsx
 msgid "Awards"
 msgstr "Ocenenia"
@@ -2584,6 +2629,10 @@ msgstr "Záložný kód"
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Backup codes copied"
 msgstr "Záložné kódy boli skopírované"
+
+#: src/features/settings/resume-style.tsx
+msgid "Balanced"
+msgstr ""
 
 #: src/features/resume/editor/design/entries-group.tsx
 msgctxt "Entry header accent: a tinted background behind the header"
@@ -2753,6 +2802,10 @@ msgstr "Vytvorenie spoločného dizajnového systému, ktorý používa šesť p
 msgid "Built from the posting, Sam’s message and your two strongest stories."
 msgstr "Zostavené z inzerátu, správy, ktorú poslal Sam, a vašich dvoch najsilnejších príbehov."
 
+#: src/features/settings/resume-style.tsx
+msgid "Built only from your own titles, sector and skills."
+msgstr ""
+
 #: src/features/settings/ai/web-access.tsx
 msgid "Built-in reader"
 msgstr "Vstavaná čítačka"
@@ -2766,6 +2819,10 @@ msgstr "Bulharčina"
 msgid "bullet {n}"
 msgstr "položka zoznamu {n}"
 
+#: src/features/settings/resume-style.tsx
+msgid "Bullet style"
+msgstr ""
+
 #: src/features/resume/editor/write/rich-text-editor-field.tsx
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Bulleted list"
@@ -2777,6 +2834,14 @@ msgstr ""
 
 #: src/features/applications/components/detail/assemble-dialog.tsx
 msgid "Bullets print exactly as you wrote them, or as one of your approved variants. Your existing summary is kept."
+msgstr ""
+
+#: src/features/settings/resume-style.tsx
+msgid "Bullets, major roles from"
+msgstr ""
+
+#: src/features/settings/resume-style.tsx
+msgid "Bullets, other roles up to"
 msgstr ""
 
 #: src/features/homepage/footer.tsx
@@ -2859,9 +2924,14 @@ msgid "Certification"
 msgstr ""
 
 #: src/features/applications/components/detail/selection-review.tsx
+#: src/features/settings/resume-style.tsx
 #: src/libs/resume/section.tsx
 msgid "Certifications"
 msgstr "Certifikácie"
+
+#: src/features/settings/resume-style.tsx
+msgid "Challenge, action, result"
+msgstr ""
 
 #: src/features/resume/editor/check/job-match.tsx
 #: src/features/resume/editor/check/writing-tab.tsx
@@ -3125,6 +3195,10 @@ msgstr "Zvoľte heslo, ktoré sa líši od aktuálneho."
 msgid "Choose a PDF file."
 msgstr "Vyberte súbor PDF."
 
+#: src/features/settings/resume-style.tsx
+msgid "Choose a resume"
+msgstr ""
+
 #: src/routes/builder/letter/-components/design-panel.tsx
 msgid "Choose a resume in Write to match its design. Until then, the letter has its own."
 msgstr "Vyberte si životopis v aplikácii Write tak, aby zodpovedal jeho dizajnu. Dovtedy má list svoje."
@@ -3332,6 +3406,10 @@ msgstr "Paleta príkazov"
 msgid "Command palette: {currentPage}"
 msgstr "Paleta príkazov: {currentPage}"
 
+#: src/features/settings/resume-style.tsx
+msgid "Communications"
+msgstr ""
+
 #: src/features/homepage/footer.tsx
 msgid "Community"
 msgstr "Komunita"
@@ -3396,6 +3474,10 @@ msgstr "Skomprimujte alebo odstráňte veľké obrázky, aby bolo nahrávanie r�
 #: src/features/resume/share/web-page-preview.tsx
 msgid "Computer"
 msgstr "Počítač"
+
+#: src/features/settings/resume-style.tsx
+msgid "Confident"
+msgstr ""
 
 #: src/hooks/use-confirm.tsx
 msgid "Confirm"
@@ -3725,6 +3807,10 @@ msgstr "Opravené {correctedOn} · originál zachovaný"
 msgid "Couldn't add that fact. Try again."
 msgstr "Fakt sa nepodarilo pridať. Skúste to znova."
 
+#: src/features/settings/resume-style.tsx
+msgid "Couldn't add that resume. Try again."
+msgstr ""
+
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Couldn't add the application. Try again."
@@ -3986,6 +4072,10 @@ msgstr "Vaše etapy sa nepodarilo načítať, preto sa zobrazujú štandardné. 
 msgid "Couldn't load your stages."
 msgstr "Vaše etapy sa nepodarilo načítať."
 
+#: src/features/settings/resume-style.tsx
+msgid "Couldn't load your style guide."
+msgstr ""
+
 #: src/features/documents/document-actions.tsx
 msgid "Couldn't lock the document. Try again."
 msgstr "Dokument sa nepodarilo uzamknúť. Skúste to znova."
@@ -4035,6 +4125,10 @@ msgstr "Tento súbor sa nepodarilo prečítať. Vyberte súbor .csv a skúste to
 #: src/features/ats-checker/checker.tsx
 msgid "Couldn't read that file. Try again."
 msgstr "Tento súbor sa nepodarilo prečítať. Skúste to znova."
+
+#: src/features/settings/resume-style.tsx
+msgid "Couldn't read that file. Use a PDF with selectable text or a Word file."
+msgstr ""
 
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Couldn't read the dates on {entries}, so they stay at the end. Fix their dates and sort again."
@@ -4188,6 +4282,10 @@ msgstr "Zmeny sa nepodarilo uložiť. Skúste to znova."
 #: src/features/career/knowledge/preferences.tsx
 msgid "Couldn't save your preferences. Try again."
 msgstr "Vaše preferencie sa nepodarilo uložiť. Skúste to znova."
+
+#: src/features/settings/resume-style.tsx
+msgid "Couldn't save your resume style. Try again."
+msgstr ""
 
 #: src/features/applications/components/detail/assemble-dialog.tsx
 msgid "Couldn't save your selection. Try again."
@@ -4651,6 +4749,10 @@ msgstr "Rozbor"
 msgid "Deep breath."
 msgstr "Zhlboka sa nadýchnite."
 
+#: src/features/settings/resume-style.tsx
+msgid "default"
+msgstr ""
+
 #: src/features/resume/editor/write/rich-text-editor-field.tsx
 #: src/features/settings/ai/providers.tsx
 msgid "Default"
@@ -4859,6 +4961,10 @@ msgstr "Kompromisy dizajnového systému"
 msgid "Design systems"
 msgstr "Dizajnové systémy"
 
+#: src/features/settings/resume-style.tsx
+msgid "Detailed"
+msgstr ""
+
 #: src/features/career/workspace/shell.tsx
 #: src/routes/builder/$resumeId/-components/document-menu.tsx
 msgid "Details"
@@ -4893,11 +4999,16 @@ msgstr "Iná mena, neporovnáva sa"
 msgid "Different pay period, not compared"
 msgstr "Iné výplatné obdobie, neporovnáva sa"
 
+#: src/features/settings/resume-style.tsx
+msgid "Digital Marketing"
+msgstr ""
+
 #: src/features/career/schedule-sheet.tsx
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Discard"
 msgstr "Zahodiť"
 
+#: src/features/settings/resume-style.tsx
 #: src/hooks/use-form-blocker.tsx
 msgid "Discard changes"
 msgstr "Zahodiť zmeny"
@@ -5381,6 +5492,7 @@ msgstr "Redakcia"
 #: src/features/career/knowledge/profile.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
+#: src/features/settings/resume-style.tsx
 #: src/libs/resume/section.tsx
 msgid "Education"
 msgstr "Vzdelanie"
@@ -5613,6 +5725,18 @@ msgstr ""
 msgid "Everything the coach wrote for {0}, newest first."
 msgstr "Všetko, čo kouč napísal pre {0}, najnovšie navrchu."
 
+#: src/features/settings/resume-style.tsx
+msgid "Example added"
+msgstr ""
+
+#: src/features/settings/resume-style.tsx
+msgid "Example name"
+msgstr ""
+
+#: src/features/settings/resume-style.tsx
+msgid "Examples you like"
+msgstr ""
+
 #: src/features/homepage/sections.tsx
 msgid "Exchange resume feedback, ask questions, and help shape Reactive Resume with the community."
 msgstr "Vymieňajte si spätnú väzbu k životopisom, pýtajte sa a pomôžte s komunitou formovať Reactive Resume."
@@ -5625,6 +5749,7 @@ msgstr "Ukončiť režim zaostrenia"
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 #: src/features/homepage/write.tsx
+#: src/features/settings/resume-style.tsx
 #: src/libs/resume/section.tsx
 msgid "Experience"
 msgstr "Skúsenosti"
@@ -5635,6 +5760,10 @@ msgstr "Skúsenosti, Vzdelanie a ďalšie"
 
 #: src/features/career/knowledge/profile.tsx
 msgid "Experience, projects and education"
+msgstr ""
+
+#: src/features/settings/resume-style.tsx
+msgid "Experienced from (years)"
 msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
@@ -6032,6 +6161,10 @@ msgstr "Zabudnuté heslo?"
 msgid "Forgot your password?"
 msgstr "Zabudol si heslo?"
 
+#: src/features/settings/resume-style.tsx
+msgid "Formal"
+msgstr ""
+
 #: src/features/resume/share/download-tab.tsx
 msgid "Format"
 msgstr "Formátovať"
@@ -6151,6 +6284,10 @@ msgstr ""
 msgid "From your resume"
 msgstr "Z vášho životopisu"
 
+#: src/features/settings/resume-style.tsx
+msgid "From your resumes"
+msgstr ""
+
 #: src/features/career/knowledge/search-regions-field.tsx
 msgid "From your timezone"
 msgstr "Na základe vášho časového pásma"
@@ -6163,6 +6300,10 @@ msgstr "Celé meno"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Full width"
 msgstr "Plná šírka"
+
+#: src/features/settings/resume-style.tsx
+msgid "General"
+msgstr ""
 
 #: src/dialogs/resume/index.tsx
 msgid "Generate a random name"
@@ -6294,6 +6435,14 @@ msgstr "Oslovenie"
 #: src/features/documents/documents-page.tsx
 msgid "Grid"
 msgstr "Mriežka"
+
+#: src/features/settings/resume-style.tsx
+msgid "Group names to prefer"
+msgstr ""
+
+#: src/features/settings/resume-style.tsx
+msgid "Groups, from"
+msgstr ""
 
 #: src/features/career/knowledge/structured-preferences.tsx
 msgid "Growth"
@@ -6543,6 +6692,10 @@ msgstr "Ako často"
 msgid "How roles are checked"
 msgstr ""
 
+#: src/features/settings/resume-style.tsx
+msgid "How tailored resumes are written: length, tone, bullets, skills and section order, as presets for the directions you apply in. Examples you like guide the voice; they're never used as facts. Your experience stays in Career → Knowledge."
+msgstr ""
+
 #: src/features/templates/gallery.tsx
 msgid "How to choose a template"
 msgstr "Ako si vybrať šablónu"
@@ -6756,6 +6909,10 @@ msgstr "Odvodené"
 
 #: src/features/applications/components/detail/selection-review.tsx
 msgid "inferred from the duties"
+msgstr ""
+
+#: src/features/settings/resume-style.tsx
+msgid "Information density"
 msgstr ""
 
 #: src/features/resume/editor/write/section-row.tsx
@@ -7125,6 +7282,10 @@ msgstr "Panel ponechajte vedľa stránky"
 msgid "Keep the recording in this browser so I can download it"
 msgstr "Uchovať nahrávku v tomto prehliadači na stiahnutie"
 
+#: src/features/settings/resume-style.tsx
+msgid "Keep them brief"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Keep them to roughly two lines, so a skim-reader finishes them."
 msgstr "Udržte ich na približne dvoch riadkoch, aby ich rýchločitateľ stihol dočítať."
@@ -7365,6 +7526,7 @@ msgstr "Staršie súbory Word nie sú podporované. Otvorte súbor v Word a najs
 msgid "Legal"
 msgstr "Právne informácie"
 
+#: src/features/settings/resume-style.tsx
 #: src/routes/builder/$resumeId/-components/document-details.tsx
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Length"
@@ -7381,6 +7543,10 @@ msgstr "Dĺžka v minútach"
 #: src/features/ats-checker/messages.ts
 msgid "Length is not a defect, and there is no universal one-page rule. Keep the pages that earn their place."
 msgstr "Dĺžka nie je nedostatok a univerzálne pravidlo jednej strany neexistuje. Ponechajte strany, ktoré si svoje miesto zaslúžia."
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Length, tone, bullets and skills follow this preset. <0>Edit your resume style</0>"
+msgstr ""
 
 #: src/features/career/knowledge/profile.tsx
 msgid "less admin time"
@@ -7471,6 +7637,7 @@ msgid "Ligatures can drop letters out of words such as \"workflow\"."
 msgstr "Ligatúry môžu vypustiť písmená zo slov ako „workflow“."
 
 #. Appearance theme option for light mode
+#: src/features/settings/resume-style.tsx
 #: src/features/user/dropdown-menu.tsx
 #: src/libs/theme.ts
 msgid "Light"
@@ -7708,6 +7875,7 @@ msgstr "Načítava sa pracovný priestor…"
 #: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/manage-lanes-sheet.tsx
 #: src/features/command-palette/index.tsx
+#: src/features/settings/resume-style.tsx
 msgid "Loading…"
 msgstr "Načítava sa..."
 
@@ -7785,6 +7953,7 @@ msgid "Make any of them yours."
 msgstr "Prispôsobte si ktorýkoľvek z nich."
 
 #: src/features/settings/ai/providers.tsx
+#: src/features/settings/resume-style.tsx
 msgid "Make default"
 msgstr "Nastaviť ako predvolené"
 
@@ -8125,6 +8294,16 @@ msgstr "Väčšina systémov podáva kandidátov podľa e-mailovej adresy."
 msgid "Mostly readable"
 msgstr "Väčšinou čitateľné"
 
+#. placeholder {0}: sections[section]
+#: src/features/settings/resume-style.tsx
+msgid "Move {0} down"
+msgstr ""
+
+#. placeholder {0}: sections[section]
+#: src/features/settings/resume-style.tsx
+msgid "Move {0} up"
+msgstr ""
+
 #: src/features/applications/components/manage-lanes-sheet.tsx
 msgid "Move {label} down"
 msgstr "Presunúť {label} nadol"
@@ -8255,6 +8434,7 @@ msgstr "Mojou úlohou bolo zistiť prečo, bez pridania práce podpore."
 #: src/features/settings/account/profile.tsx
 #: src/features/settings/ai/api-keys.tsx
 #: src/features/settings/ai/providers.tsx
+#: src/features/settings/resume-style.tsx
 msgid "Name"
 msgstr "Názov"
 
@@ -8598,6 +8778,10 @@ msgstr "Zatiaľ žiadne fakty na prepojenie. Pridajte ich vo Faktoch."
 #: src/features/career/knowledge/facts.tsx
 msgid "No facts yet. Add one above."
 msgstr "Zatiaľ žiadne fakty. Pridajte jeden vyššie."
+
+#: src/features/settings/resume-style.tsx
+msgid "No first person. Use \"led\" sparingly."
+msgstr ""
 
 #: src/features/documents/new-document-dialog.tsx
 msgid "No job yet"
@@ -9043,6 +9227,10 @@ msgstr "Urijčina"
 msgid "Off"
 msgstr "Vypnuté"
 
+#: src/features/settings/resume-style.tsx
+msgid "Off: always use the order below."
+msgstr ""
+
 #: src/features/career/knowledge/structured-preferences.tsx
 msgid "Off: roles that require relocating to {name} don't meet this rule."
 msgstr ""
@@ -9090,6 +9278,10 @@ msgstr ""
 msgid "Offline · saved on this device"
 msgstr "Offline · uložené v tomto zariadení"
 
+#: src/features/settings/resume-style.tsx
+msgid "Older roles"
+msgstr ""
+
 #: src/features/career/knowledge/structured-preferences.tsx
 msgid "On-site"
 msgstr ""
@@ -9135,6 +9327,10 @@ msgstr "jeden formát"
 msgctxt "Entry header layout"
 msgid "One line"
 msgstr "Jeden riadok"
+
+#: src/features/settings/resume-style.tsx
+msgid "One tight line"
+msgstr ""
 
 #: src/features/templates/gallery.tsx
 msgid "One-column templates give hiring software a simple top-to-bottom reading order. Two-column templates put supporting details in a sidebar and leave more room for visual hierarchy. Choose for your content, then check the exported PDF."
@@ -9374,6 +9570,7 @@ msgstr "Pôvodné formátovanie tabuľky je zachované. Tento obsah je len na č
 
 #: src/features/applications/components/interview-dialog.tsx
 #: src/features/career/knowledge/structured-preferences.tsx
+#: src/features/settings/resume-style.tsx
 msgid "Other"
 msgstr "Iný"
 
@@ -9461,6 +9658,14 @@ msgstr "Čítanie stránky sa nedokončilo."
 #: src/features/resume/editor/check/page-layer.tsx
 msgid "Page view"
 msgstr "Zobrazenie stránky"
+
+#: src/features/settings/resume-style.tsx
+msgid "Pages, early career"
+msgstr ""
+
+#: src/features/settings/resume-style.tsx
+msgid "Pages, experienced"
+msgstr ""
 
 #: src/features/resume/editor/design/style-groups.tsx
 msgid "Paper"
@@ -9721,6 +9926,10 @@ msgstr "Vyberte si jeden formát a používajte ho všade."
 msgid "Pick two examples"
 msgstr "Vyberte dva príklady"
 
+#: src/features/settings/resume-style.tsx
+msgid "Picked for posting titles containing"
+msgstr ""
+
 #: src/features/career/shared.tsx
 msgid "Picking your stories"
 msgstr "Vyberáme vaše príbehy"
@@ -9735,6 +9944,10 @@ msgstr "Priebeh procesu"
 
 #: src/features/career/knowledge/structured-preferences.tsx
 msgid "Places that identify it in a posting"
+msgstr ""
+
+#: src/features/settings/resume-style.tsx
+msgid "Plain and direct"
 msgstr ""
 
 #: src/features/career/workspace/apply.tsx
@@ -9799,6 +10012,10 @@ msgstr "Portugalčina (Portugalsko)"
 #: src/features/resume/editor/write/entries.tsx
 msgid "Position"
 msgstr "Pozícia"
+
+#: src/features/settings/resume-style.tsx
+msgid "Positions, usually from"
+msgstr ""
 
 #: src/features/career/workspace/saved.tsx
 msgid "posting"
@@ -9954,6 +10171,8 @@ msgid "Present"
 msgstr "Doteraz"
 
 #: src/components/input/color-picker.tsx
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/settings/resume-style.tsx
 msgid "Presets"
 msgstr "Prednastavenia"
 
@@ -10079,11 +10298,16 @@ msgstr "Profily"
 msgid "Progress bar"
 msgstr "Ukazovateľ priebehu"
 
+#: src/features/settings/resume-style.tsx
+msgid "Project Management"
+msgstr ""
+
 #: src/features/career/knowledge/profile.tsx
 msgid "Project name"
 msgstr ""
 
 #: src/features/applications/components/detail/selection-review.tsx
+#: src/features/settings/resume-style.tsx
 #: src/libs/resume/section.tsx
 msgid "Projects"
 msgstr "Projekty"
@@ -10499,6 +10723,10 @@ msgstr "Z pamäti"
 msgid "Recent"
 msgstr "Nedávne"
 
+#: src/features/settings/resume-style.tsx
+msgid "Recent means the last (years)"
+msgstr ""
+
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Recipient"
 msgstr "Príjemca"
@@ -10591,6 +10819,10 @@ msgstr "Obnoviť brífing 24 hodín vopred"
 #: src/features/career/workspace/prepare.tsx
 msgid "Refresh the briefing on the morning of"
 msgstr "Obnoviť brífing ráno v deň pohovoru"
+
+#: src/features/settings/resume-style.tsx
+msgid "Regional conventions"
+msgstr ""
 
 #: src/features/resume/share/cv-domain-card.tsx
 msgid "Register at OlaCV"
@@ -10685,12 +10917,13 @@ msgstr "Odstrániť „{name}“?"
 
 #. placeholder {0}: attachment.filename
 #. placeholder {0}: contact.name
-#. placeholder {0}: item.value || kinds[item.kind]
+#. placeholder {0}: example.title
 #: src/features/applications/components/detail/contacts.tsx
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
 #: src/features/career/knowledge/structured-preferences.tsx
 #: src/features/settings/account/security.tsx
+#: src/features/settings/resume-style.tsx
 msgid "Remove {0}"
 msgstr "Odstráňte {0}"
 
@@ -11000,6 +11233,17 @@ msgstr "Súbor životopisu"
 msgid "Resume page"
 msgstr "stránka so životopisom"
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/settings/resume-style.tsx
+#: src/features/settings/root.tsx
+#: src/routes/dashboard/settings/route.tsx
+msgid "Resume style"
+msgstr ""
+
+#: src/features/settings/resume-style.tsx
+msgid "Resume style saved"
+msgstr ""
+
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Resume submitted (optional)"
@@ -11257,6 +11501,10 @@ msgstr "Sam"
 msgid "Sam, Fieldnote"
 msgstr "Sam, Fieldnote"
 
+#: src/features/settings/resume-style.tsx
+msgid "Same detail as recent ones"
+msgstr ""
+
 #: src/features/homepage/remember.tsx
 msgid "Same you. Less starting over."
 msgstr "Stále vy. Menej začínania odznova."
@@ -11268,6 +11516,7 @@ msgstr "Bol pridaný vzorový životopis. Zmazať ho môžete kedykoľvek."
 #: src/features/applications/components/detail/activity.tsx
 #: src/features/applications/components/detail/next-step-card.tsx
 #: src/features/resume/share/history-tab.tsx
+#: src/features/settings/resume-style.tsx
 msgid "Save"
 msgstr "Uložiť"
 
@@ -11669,6 +11918,10 @@ msgstr "Tajný kľúč skopírovaný"
 msgid "Section headings"
 msgstr "Nadpisy sekcií"
 
+#: src/features/settings/resume-style.tsx
+msgid "Section order"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 #: src/features/resume/editor/check/parser-view.tsx
 msgid "Sections"
@@ -11822,6 +12075,10 @@ msgstr "Odoslané na {0}"
 #: src/features/resume/share/history-tab.tsx
 msgid "Sent to Lumen"
 msgstr "Odoslané do Lumen"
+
+#: src/features/settings/resume-style.tsx
+msgid "Sentences, from"
+msgstr ""
 
 #: src/libs/locale.ts
 msgid "Serbian"
@@ -12199,6 +12456,7 @@ msgstr "Zručnosť"
 #: src/features/career/knowledge/profile.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
+#: src/features/settings/resume-style.tsx
 #: src/libs/resume/section.tsx
 msgid "Skills"
 msgstr "Zručnosti"
@@ -12209,6 +12467,10 @@ msgstr ""
 
 #: src/features/applications/components/detail/selection-review.tsx
 msgid "Skills to list"
+msgstr ""
+
+#: src/features/settings/resume-style.tsx
+msgid "Skills, about"
 msgstr ""
 
 #: src/features/applications/components/detail/assemble-dialog.tsx
@@ -12477,6 +12739,7 @@ msgid "Start each one with a concrete verb: built, led, reduced, migrated."
 msgstr "Začnite každú konkrétnym slovesom: vybudoval, viedol, znížil, migroval."
 
 #: src/features/documents/new-document-dialog.tsx
+#: src/features/settings/resume-style.tsx
 msgid "Start from"
 msgstr "Začnite od"
 
@@ -12645,6 +12908,10 @@ msgstr ""
 msgid "Stronger verb"
 msgstr "Silnejšie sloveso"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Style"
+msgstr ""
+
 #: src/features/resume/stylesheet/toolbar.tsx
 msgid "Stylesheet editor"
 msgstr "Editor štýlov"
@@ -12700,12 +12967,17 @@ msgid "Summaries of your open applications"
 msgstr "Zhrnutia vašich otvorených žiadostí"
 
 #: src/features/resume/editor/write/summary-editor.tsx
+#: src/features/settings/resume-style.tsx
 #: src/libs/resume/section.tsx
 msgid "Summary"
 msgstr "Zhrnutie"
 
 #: src/features/career/knowledge/profile.tsx
 msgid "Summary (scope, team size, what the role was for)"
+msgstr ""
+
+#: src/features/settings/resume-style.tsx
+msgid "Summary and headline"
 msgstr ""
 
 #: src/features/homepage/sections.tsx
@@ -13408,6 +13680,10 @@ msgstr "Chýba súhrnný odsek."
 msgid "These are the answers saved when you applied."
 msgstr "Toto sú odpovede uložené pri odoslaní žiadosti."
 
+#: src/features/settings/resume-style.tsx
+msgid "These guide the writer and the checks. Nothing you chose is cut, and text is never shrunk to fit."
+msgstr ""
+
 #: src/features/applications/components/list-view.tsx
 msgid "They and their timelines are deleted permanently. This can't be undone."
 msgstr "Oni a ich časové osi sa natrvalo odstránia. Toto sa nedá vrátiť späť."
@@ -13735,6 +14011,10 @@ msgstr "Tip"
 msgid "Title"
 msgstr "Názov"
 
+#: src/features/settings/resume-style.tsx
+msgid "to"
+msgstr ""
+
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "To"
 msgstr "Komu"
@@ -13756,6 +14036,11 @@ msgstr "Dnes, {hour}"
 #: src/features/applications/components/calendar-view.tsx
 msgid "Tomorrow"
 msgstr "zajtra"
+
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/settings/resume-style.tsx
+msgid "Tone"
+msgstr ""
 
 #: src/features/resume/editor/design/style-groups.tsx
 msgid "Too light for headings on white. It may be hard to read and print faintly."
@@ -14146,6 +14431,10 @@ msgstr "Až 2 minúty. Vaše slová sa zobrazujú, ako hovoríte."
 msgid "Up to 25 MB · checked in your browser, never uploaded"
 msgstr "Až 25 MB · skontrolovaných vo vašom prehliadači, nikdy sa neodovzdali"
 
+#: src/features/settings/resume-style.tsx
+msgid "Up to six resumes you think are well written: yours or anyone's. Only their style is used — never their content or facts."
+msgstr ""
+
 #: src/features/applications/components/calendar-view.tsx
 msgid "Upcoming interviews"
 msgstr "Nadchádzajúce rozhovory"
@@ -14192,12 +14481,17 @@ msgid "Upload or paste"
 msgstr ""
 
 #: src/features/applications/components/add-application-dialog.tsx
+#: src/features/settings/resume-style.tsx
 msgid "Upload PDF or Word file"
 msgstr ""
 
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Upload photo"
 msgstr "Nahrať fotografiu"
+
+#: src/features/settings/resume-style.tsx
+msgid "Uploaded"
+msgstr ""
 
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Uploading photo…"
@@ -14291,6 +14585,10 @@ msgstr "Použiť predvolené"
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Use details from “{0}”"
 msgstr "Použiť podrobnosti z „{0}“"
+
+#: src/features/settings/resume-style.tsx
+msgid "Use each selection's recommended order"
+msgstr ""
 
 #: src/features/career/knowledge/profile-file.tsx
 msgid "Use experience, projects, education, volunteer, certifications, awards and skills."
@@ -14578,10 +14876,15 @@ msgstr "Návštevníci si môžu stiahnuť PDF"
 msgid "Visitors enter it before they see the resume. Share it only with people you trust."
 msgstr "Návštevníci zadajú heslo skôr, ako uvidia životopis. Zdieľajte ho iba s ľuďmi, ktorým dôverujete."
 
+#: src/features/settings/resume-style.tsx
+msgid "Voice"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "Voice settings"
 msgstr "Nastavenia hlasu"
 
+#: src/features/settings/resume-style.tsx
 #: src/libs/resume/section.tsx
 msgid "Volunteer"
 msgstr "Dobrovoľníctvo"
@@ -14604,6 +14907,10 @@ msgstr ""
 
 #: src/features/career/knowledge/structured-preferences.tsx
 msgid "Want or avoid"
+msgstr ""
+
+#: src/features/settings/resume-style.tsx
+msgid "Warm, people-first"
 msgstr ""
 
 #: src/features/ats-checker/messages.ts
@@ -14637,6 +14944,10 @@ msgstr "Webový prístup"
 
 #: src/features/career/knowledge/profile.tsx
 msgid "Web development"
+msgstr ""
+
+#: src/features/settings/resume-style.tsx
+msgid "Web Development"
 msgstr ""
 
 #: src/features/resume/share/share-panel.tsx
@@ -14835,6 +15146,14 @@ msgstr ""
 msgid "What you did: {0}"
 msgstr "Čo ste urobili: {0}"
 
+#: src/features/settings/resume-style.tsx
+msgid "What you like about it"
+msgstr ""
+
+#: src/features/settings/resume-style.tsx
+msgid "What you like about it (optional)"
+msgstr ""
+
 #: src/features/applications/components/detail/sent-documents.tsx
 msgid "What you sent"
 msgstr "Čo si poslal"
@@ -14973,9 +15292,17 @@ msgstr "Bez neho vyplníte príjemcu sami a na vypracovanie sa použije iba vá�
 msgid "Wording"
 msgstr ""
 
+#: src/features/settings/resume-style.tsx
+msgid "Words per bullet, at most"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Words run together when the text is extracted."
 msgstr "Pri extrahovaní textu sa slová spájajú dokopy."
+
+#: src/features/settings/resume-style.tsx
+msgid "Words, at most"
+msgstr ""
 
 #: src/features/applications/components/detail/selection-review.tsx
 msgid "Work experience"
@@ -15020,9 +15347,17 @@ msgstr "Ako dátum ukončenia vašej aktuálnej pozície napíšte „Present“
 msgid "Write a letter"
 msgstr "Napíšte list"
 
+#: src/features/settings/resume-style.tsx
+msgid "Write a professional summary"
+msgstr ""
+
 #: src/features/homepage/remember.tsx
 msgid "Write a story once, with the facts behind it, and the coach uses it in 3 places. Switch a fact off and nothing leans on it."
 msgstr "Napíšte príbeh raz, s faktami, ktoré ho podopierajú, a kouč ho použije na 3 miestach. Vypnite fakt a nič sa oň neoprie."
+
+#: src/features/settings/resume-style.tsx
+msgid "Write a targeted headline"
+msgstr ""
 
 #: src/features/homepage/write.tsx
 msgid "Write beside a live page. It saves as you type and keeps every version. Ask the assistant for a sharper line: it suggests, you decide."
@@ -15052,6 +15387,10 @@ msgstr "Zapíšte si to, kým to máte v čerstvej pamäti"
 msgid "Write it myself"
 msgstr "Napíš to sám"
 
+#: src/features/settings/resume-style.tsx
+msgid "Write like these examples"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "Write numbers as digits"
 msgstr "Písať čísla číslicami"
@@ -15077,6 +15416,7 @@ msgid "Write your professional resume"
 msgstr "Napíšte svoj profesionálny životopis"
 
 #: src/features/ats-checker/messages.ts
+#: src/features/command-palette/pages/navigation.tsx
 #: src/features/resume/editor/check/check-panel.tsx
 #: src/features/resume/editor/check/issues.ts
 msgid "Writing"

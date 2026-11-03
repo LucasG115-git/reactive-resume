@@ -233,6 +233,7 @@ describe.skipIf(!databaseUrl)("resume selection plans", () => {
 		expect(built.result.writing?.stats.positions).toBe(2);
 		expect(built.result.writing?.checks.filter((finding) => finding.severity === "error")).toEqual([]);
 		expect(built.result.writing?.rules.region).toBe("CA");
+		expect(built.result.writing?.style).toEqual({ presetId: "general", name: "General" });
 
 		const reset = await selection.reset("alice", "alice-app");
 		expect(reset?.plan.totals.includedEntries).toBe(1);

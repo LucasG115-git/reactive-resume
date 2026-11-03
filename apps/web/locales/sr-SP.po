@@ -270,6 +270,11 @@ msgstr ""
 msgid "{0, plural, one {# story} other {# stories}}"
 msgstr "{0, plural, one {# прича} few {# приче} other {# прича}}"
 
+#. placeholder {0}: example.text.split(/\s+/).length
+#: src/features/settings/resume-style.tsx
+msgid "{0, plural, one {# word} other {# words}}"
+msgstr ""
+
 #. placeholder {0}: remembered.ids.length
 #: src/features/career/coach-chat.tsx
 msgid "{0, plural, one {Added # fact to Knowledge.} other {Added # facts to Knowledge.}}"
@@ -369,6 +374,11 @@ msgstr "{0} · {providerLabel}. Шаље ову пријаву и ваше Зн�
 #: src/features/documents/document-actions.tsx
 msgid "{0} (copy)"
 msgstr "{0} (копија)"
+
+#. placeholder {0}: item.name
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "{0} (matches this posting)"
+msgstr ""
 
 #. placeholder {0}: insights.closed
 #: src/features/applications/components/insights-view.tsx
@@ -511,6 +521,11 @@ msgstr "{0} је вратио „{1}“. Ваша порука се чува."
 #: src/features/ats-checker/report/score-header.tsx
 msgid "{0} skipped"
 msgstr "{0} прескочено"
+
+#. placeholder {0}: writing.style.name
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "{0} style"
+msgstr ""
 
 #. placeholder {0}: count("supported")
 #. placeholder {1}: count("partial")
@@ -1152,6 +1167,10 @@ msgstr "Страница је ротирана."
 msgid "A pasted posting can be saved as an application afterwards."
 msgstr "Залепљени оглас за посао може се накнадно сачувати као пријава за посао."
 
+#: src/features/settings/resume-style.tsx
+msgid "A preset is picked automatically when a posting's title matches its keywords; you can also choose one when building."
+msgstr ""
+
 #: src/features/applications/components/detail/next-step-card.tsx
 msgid "A reminder to check in, shown as the next step until you do."
 msgstr "Подсетник да се пријавите, приказан као следећи корак док то не учините."
@@ -1291,6 +1310,10 @@ msgstr ""
 msgid "Action"
 msgstr "Акција"
 
+#: src/features/settings/resume-style.tsx
+msgid "Action, then result"
+msgstr ""
+
 #: src/features/settings/ai/api-keys.tsx
 msgid "Actions"
 msgstr "Акције"
@@ -1321,6 +1344,7 @@ msgstr "Активност"
 #: src/features/career/knowledge/facts.tsx
 #: src/features/career/today.tsx
 #: src/features/resume/editor/write/basics-card.tsx
+#: src/features/settings/resume-style.tsx
 msgid "Add"
 msgstr "Додај"
 
@@ -1362,6 +1386,10 @@ msgstr "Додајте везу"
 #: src/features/resume/editor/check/issues.ts
 msgid "Add a location"
 msgstr "Додајте локацију"
+
+#: src/features/settings/resume-style.tsx
+msgid "Add a name, then Enter"
+msgstr ""
 
 #: src/features/applications/components/detail/activity.tsx
 msgid "Add a note"
@@ -1434,6 +1462,10 @@ msgstr "Додајте ознаку"
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Add a tag and press Enter…"
 msgstr "Додајте ознаку и притисните Enter…"
+
+#: src/features/settings/resume-style.tsx
+msgid "Add a word, then Enter"
+msgstr ""
 
 #: src/features/career/knowledge/profile.tsx
 msgid "Add achievement"
@@ -1522,6 +1554,10 @@ msgstr "Додајте унос"
 msgid "Add evidence"
 msgstr "Додај доказ"
 
+#: src/features/settings/resume-style.tsx
+msgid "Add examples below, then choose up to three for this preset."
+msgstr ""
+
 #: src/features/resume/editor/check/issues.ts
 #: src/features/resume/editor/write/outline.tsx
 msgid "Add experience"
@@ -1582,6 +1618,10 @@ msgstr "Додај страницу"
 #: src/features/settings/account/security.tsx
 msgid "Add passkey"
 msgstr "Додајте приступни кључ"
+
+#: src/features/settings/resume-style.tsx
+msgid "Add preset"
+msgstr ""
 
 #: src/features/resume/editor/write/outline.tsx
 msgid "Add profile"
@@ -2077,6 +2117,10 @@ msgstr "Свако ко отвори јавни URL мораће да зна о�
 msgid "Anyone with the link will be able to view your resume."
 msgstr "Свако ко има везу моћи ће да види ваш резиме."
 
+#: src/features/settings/resume-style.tsx
+msgid "Anything else, in your words"
+msgstr ""
+
 #: src/features/applications/components/application-notes.tsx
 msgid "Anything to remember about this job"
 msgstr "Било шта да запамтите о овом послу"
@@ -2506,6 +2550,7 @@ msgid "Awarder"
 msgstr "Авардер"
 
 #: src/features/applications/components/detail/selection-review.tsx
+#: src/features/settings/resume-style.tsx
 #: src/libs/resume/section.tsx
 msgid "Awards"
 msgstr "Награде"
@@ -2584,6 +2629,10 @@ msgstr "Резервни код"
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Backup codes copied"
 msgstr "Резервни кодови су копирани"
+
+#: src/features/settings/resume-style.tsx
+msgid "Balanced"
+msgstr ""
 
 #: src/features/resume/editor/design/entries-group.tsx
 msgctxt "Entry header accent: a tinted background behind the header"
@@ -2753,6 +2802,10 @@ msgstr "Направио заједнички дизајн систем који
 msgid "Built from the posting, Sam’s message and your two strongest stories."
 msgstr "Направљено на основу огласа, поруке коју је послао Sam и ваше две најјаче приче."
 
+#: src/features/settings/resume-style.tsx
+msgid "Built only from your own titles, sector and skills."
+msgstr ""
+
 #: src/features/settings/ai/web-access.tsx
 msgid "Built-in reader"
 msgstr "Уграђени читач"
@@ -2766,6 +2819,10 @@ msgstr "Бугарски"
 msgid "bullet {n}"
 msgstr "унос у листу {n}"
 
+#: src/features/settings/resume-style.tsx
+msgid "Bullet style"
+msgstr ""
+
 #: src/features/resume/editor/write/rich-text-editor-field.tsx
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Bulleted list"
@@ -2777,6 +2834,14 @@ msgstr ""
 
 #: src/features/applications/components/detail/assemble-dialog.tsx
 msgid "Bullets print exactly as you wrote them, or as one of your approved variants. Your existing summary is kept."
+msgstr ""
+
+#: src/features/settings/resume-style.tsx
+msgid "Bullets, major roles from"
+msgstr ""
+
+#: src/features/settings/resume-style.tsx
+msgid "Bullets, other roles up to"
 msgstr ""
 
 #: src/features/homepage/footer.tsx
@@ -2859,9 +2924,14 @@ msgid "Certification"
 msgstr ""
 
 #: src/features/applications/components/detail/selection-review.tsx
+#: src/features/settings/resume-style.tsx
 #: src/libs/resume/section.tsx
 msgid "Certifications"
 msgstr "Сертификације"
+
+#: src/features/settings/resume-style.tsx
+msgid "Challenge, action, result"
+msgstr ""
 
 #: src/features/resume/editor/check/job-match.tsx
 #: src/features/resume/editor/check/writing-tab.tsx
@@ -3125,6 +3195,10 @@ msgstr "Изаберите лозинку која се разликује од 
 msgid "Choose a PDF file."
 msgstr "Изаберите PDF датотеку."
 
+#: src/features/settings/resume-style.tsx
+msgid "Choose a resume"
+msgstr ""
+
 #: src/routes/builder/letter/-components/design-panel.tsx
 msgid "Choose a resume in Write to match its design. Until then, the letter has its own."
 msgstr "Изаберите резиме у Врите-у тако да одговара његовом дизајну. До тада писмо има своје."
@@ -3332,6 +3406,10 @@ msgstr "Палета команди"
 msgid "Command palette: {currentPage}"
 msgstr "Палета команди: {currentPage}"
 
+#: src/features/settings/resume-style.tsx
+msgid "Communications"
+msgstr ""
+
 #: src/features/homepage/footer.tsx
 msgid "Community"
 msgstr "Заједница"
@@ -3396,6 +3474,10 @@ msgstr "Компресујте или уклоните велике слике �
 #: src/features/resume/share/web-page-preview.tsx
 msgid "Computer"
 msgstr "Рачунар"
+
+#: src/features/settings/resume-style.tsx
+msgid "Confident"
+msgstr ""
 
 #: src/hooks/use-confirm.tsx
 msgid "Confirm"
@@ -3725,6 +3807,10 @@ msgstr "Исправљено {correctedOn} · оригинал сачуван"
 msgid "Couldn't add that fact. Try again."
 msgstr "Није могуће додати ту чињеницу. Покушајте поново."
 
+#: src/features/settings/resume-style.tsx
+msgid "Couldn't add that resume. Try again."
+msgstr ""
+
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Couldn't add the application. Try again."
@@ -3986,6 +4072,10 @@ msgstr "Ваше фазе нису учитане, па су приказане 
 msgid "Couldn't load your stages."
 msgstr "Ваше фазе нису учитане."
 
+#: src/features/settings/resume-style.tsx
+msgid "Couldn't load your style guide."
+msgstr ""
+
 #: src/features/documents/document-actions.tsx
 msgid "Couldn't lock the document. Try again."
 msgstr "Није могуће закључати документ. Покушајте поново."
@@ -4035,6 +4125,10 @@ msgstr "Није могуће прочитати ту датотеку. Изаб
 #: src/features/ats-checker/checker.tsx
 msgid "Couldn't read that file. Try again."
 msgstr "Није могуће прочитати ту датотеку. Покушајте поново."
+
+#: src/features/settings/resume-style.tsx
+msgid "Couldn't read that file. Use a PDF with selectable text or a Word file."
+msgstr ""
 
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Couldn't read the dates on {entries}, so they stay at the end. Fix their dates and sort again."
@@ -4188,6 +4282,10 @@ msgstr "Није могуће сачувати промене. Покушајт�
 #: src/features/career/knowledge/preferences.tsx
 msgid "Couldn't save your preferences. Try again."
 msgstr "Није могуће сачувати ваша подешавања. Покушајте поново."
+
+#: src/features/settings/resume-style.tsx
+msgid "Couldn't save your resume style. Try again."
+msgstr ""
 
 #: src/features/applications/components/detail/assemble-dialog.tsx
 msgid "Couldn't save your selection. Try again."
@@ -4651,6 +4749,10 @@ msgstr "Анализа"
 msgid "Deep breath."
 msgstr "Дубок удах."
 
+#: src/features/settings/resume-style.tsx
+msgid "default"
+msgstr ""
+
 #: src/features/resume/editor/write/rich-text-editor-field.tsx
 #: src/features/settings/ai/providers.tsx
 msgid "Default"
@@ -4859,6 +4961,10 @@ msgstr "Компромиси дизајн система"
 msgid "Design systems"
 msgstr "Системи дизајна"
 
+#: src/features/settings/resume-style.tsx
+msgid "Detailed"
+msgstr ""
+
 #: src/features/career/workspace/shell.tsx
 #: src/routes/builder/$resumeId/-components/document-menu.tsx
 msgid "Details"
@@ -4893,11 +4999,16 @@ msgstr "Друга валута, није поређено"
 msgid "Different pay period, not compared"
 msgstr "Други период исплате, није поређено"
 
+#: src/features/settings/resume-style.tsx
+msgid "Digital Marketing"
+msgstr ""
+
 #: src/features/career/schedule-sheet.tsx
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Discard"
 msgstr "Одбаци"
 
+#: src/features/settings/resume-style.tsx
 #: src/hooks/use-form-blocker.tsx
 msgid "Discard changes"
 msgstr "Одбаци измене"
@@ -5381,6 +5492,7 @@ msgstr "Уредништво"
 #: src/features/career/knowledge/profile.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
+#: src/features/settings/resume-style.tsx
 #: src/libs/resume/section.tsx
 msgid "Education"
 msgstr "Образовање"
@@ -5613,6 +5725,18 @@ msgstr ""
 msgid "Everything the coach wrote for {0}, newest first."
 msgstr "Све што је саветник написао за {0}, од најновијег."
 
+#: src/features/settings/resume-style.tsx
+msgid "Example added"
+msgstr ""
+
+#: src/features/settings/resume-style.tsx
+msgid "Example name"
+msgstr ""
+
+#: src/features/settings/resume-style.tsx
+msgid "Examples you like"
+msgstr ""
+
 #: src/features/homepage/sections.tsx
 msgid "Exchange resume feedback, ask questions, and help shape Reactive Resume with the community."
 msgstr "Размењујте мишљења о биографијама, постављајте питања и помозите да заједно са заједницом обликујемо Reactive Resume."
@@ -5625,6 +5749,7 @@ msgstr "Изађи из режима фокусирања"
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 #: src/features/homepage/write.tsx
+#: src/features/settings/resume-style.tsx
 #: src/libs/resume/section.tsx
 msgid "Experience"
 msgstr "Искуство"
@@ -5635,6 +5760,10 @@ msgstr "Искуство, Образовање и друго"
 
 #: src/features/career/knowledge/profile.tsx
 msgid "Experience, projects and education"
+msgstr ""
+
+#: src/features/settings/resume-style.tsx
+msgid "Experienced from (years)"
 msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
@@ -6032,6 +6161,10 @@ msgstr "Заборавили сте лозинку?"
 msgid "Forgot your password?"
 msgstr "Заборавили сте лозинку?"
 
+#: src/features/settings/resume-style.tsx
+msgid "Formal"
+msgstr ""
+
 #: src/features/resume/share/download-tab.tsx
 msgid "Format"
 msgstr "Формат"
@@ -6151,6 +6284,10 @@ msgstr ""
 msgid "From your resume"
 msgstr "Из вашег резимеа"
 
+#: src/features/settings/resume-style.tsx
+msgid "From your resumes"
+msgstr ""
+
 #: src/features/career/knowledge/search-regions-field.tsx
 msgid "From your timezone"
 msgstr "На основу ваше временске зоне"
@@ -6163,6 +6300,10 @@ msgstr "Пуно име"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Full width"
 msgstr "Пуна ширина"
+
+#: src/features/settings/resume-style.tsx
+msgid "General"
+msgstr ""
 
 #: src/dialogs/resume/index.tsx
 msgid "Generate a random name"
@@ -6294,6 +6435,14 @@ msgstr "Обраћање"
 #: src/features/documents/documents-page.tsx
 msgid "Grid"
 msgstr "Мрежа"
+
+#: src/features/settings/resume-style.tsx
+msgid "Group names to prefer"
+msgstr ""
+
+#: src/features/settings/resume-style.tsx
+msgid "Groups, from"
+msgstr ""
 
 #: src/features/career/knowledge/structured-preferences.tsx
 msgid "Growth"
@@ -6543,6 +6692,10 @@ msgstr "Колико често"
 msgid "How roles are checked"
 msgstr ""
 
+#: src/features/settings/resume-style.tsx
+msgid "How tailored resumes are written: length, tone, bullets, skills and section order, as presets for the directions you apply in. Examples you like guide the voice; they're never used as facts. Your experience stays in Career → Knowledge."
+msgstr ""
+
 #: src/features/templates/gallery.tsx
 msgid "How to choose a template"
 msgstr "Како одабрати шаблон"
@@ -6756,6 +6909,10 @@ msgstr "Изведено"
 
 #: src/features/applications/components/detail/selection-review.tsx
 msgid "inferred from the duties"
+msgstr ""
+
+#: src/features/settings/resume-style.tsx
+msgid "Information density"
 msgstr ""
 
 #: src/features/resume/editor/write/section-row.tsx
@@ -7125,6 +7282,10 @@ msgstr "Држите панел поред странице"
 msgid "Keep the recording in this browser so I can download it"
 msgstr "Задржи снимак у овом прегледачу ради преузимања"
 
+#: src/features/settings/resume-style.tsx
+msgid "Keep them brief"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Keep them to roughly two lines, so a skim-reader finishes them."
 msgstr "Држите их на отприлике два реда, како би их читалац који брзо прегледа завршио."
@@ -7365,6 +7526,7 @@ msgstr "Застареле датотеке Word нису подржане. От
 msgid "Legal"
 msgstr "Правне информације"
 
+#: src/features/settings/resume-style.tsx
 #: src/routes/builder/$resumeId/-components/document-details.tsx
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Length"
@@ -7381,6 +7543,10 @@ msgstr "Трајање у минутима"
 #: src/features/ats-checker/messages.ts
 msgid "Length is not a defect, and there is no universal one-page rule. Keep the pages that earn their place."
 msgstr "Дужина није мана, и не постоји универзално правило од једне странице. Задржите странице које заслужују своје место."
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Length, tone, bullets and skills follow this preset. <0>Edit your resume style</0>"
+msgstr ""
 
 #: src/features/career/knowledge/profile.tsx
 msgid "less admin time"
@@ -7471,6 +7637,7 @@ msgid "Ligatures can drop letters out of words such as \"workflow\"."
 msgstr "Лигатуре могу да избаце слова из речи попут „workflow“."
 
 #. Appearance theme option for light mode
+#: src/features/settings/resume-style.tsx
 #: src/features/user/dropdown-menu.tsx
 #: src/libs/theme.ts
 msgid "Light"
@@ -7708,6 +7875,7 @@ msgstr "Учитавање радног простора…"
 #: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/manage-lanes-sheet.tsx
 #: src/features/command-palette/index.tsx
+#: src/features/settings/resume-style.tsx
 msgid "Loading…"
 msgstr "Учитавање…"
 
@@ -7785,6 +7953,7 @@ msgid "Make any of them yours."
 msgstr "Нека од њих буде ваша."
 
 #: src/features/settings/ai/providers.tsx
+#: src/features/settings/resume-style.tsx
 msgid "Make default"
 msgstr "Постави као подразумевано"
 
@@ -8125,6 +8294,16 @@ msgstr "Већина система подноси кандидате путем
 msgid "Mostly readable"
 msgstr "Углавном читљиво"
 
+#. placeholder {0}: sections[section]
+#: src/features/settings/resume-style.tsx
+msgid "Move {0} down"
+msgstr ""
+
+#. placeholder {0}: sections[section]
+#: src/features/settings/resume-style.tsx
+msgid "Move {0} up"
+msgstr ""
+
 #: src/features/applications/components/manage-lanes-sheet.tsx
 msgid "Move {label} down"
 msgstr "Помери {label} надоле"
@@ -8255,6 +8434,7 @@ msgstr "Мој задатак је био да откријем зашто, бе
 #: src/features/settings/account/profile.tsx
 #: src/features/settings/ai/api-keys.tsx
 #: src/features/settings/ai/providers.tsx
+#: src/features/settings/resume-style.tsx
 msgid "Name"
 msgstr "Име"
 
@@ -8598,6 +8778,10 @@ msgstr "Још нема чињеница за повезивање. Додајт
 #: src/features/career/knowledge/facts.tsx
 msgid "No facts yet. Add one above."
 msgstr "Још нема чињеница. Додајте једну изнад."
+
+#: src/features/settings/resume-style.tsx
+msgid "No first person. Use \"led\" sparingly."
+msgstr ""
 
 #: src/features/documents/new-document-dialog.tsx
 msgid "No job yet"
@@ -9043,6 +9227,10 @@ msgstr "Одија"
 msgid "Off"
 msgstr "Офф"
 
+#: src/features/settings/resume-style.tsx
+msgid "Off: always use the order below."
+msgstr ""
+
 #: src/features/career/knowledge/structured-preferences.tsx
 msgid "Off: roles that require relocating to {name} don't meet this rule."
 msgstr ""
@@ -9090,6 +9278,10 @@ msgstr ""
 msgid "Offline · saved on this device"
 msgstr "Офлајн · сачувано на овом уређају"
 
+#: src/features/settings/resume-style.tsx
+msgid "Older roles"
+msgstr ""
+
 #: src/features/career/knowledge/structured-preferences.tsx
 msgid "On-site"
 msgstr ""
@@ -9135,6 +9327,10 @@ msgstr "један формат"
 msgctxt "Entry header layout"
 msgid "One line"
 msgstr "Један ред"
+
+#: src/features/settings/resume-style.tsx
+msgid "One tight line"
+msgstr ""
 
 #: src/features/templates/gallery.tsx
 msgid "One-column templates give hiring software a simple top-to-bottom reading order. Two-column templates put supporting details in a sidebar and leave more room for visual hierarchy. Choose for your content, then check the exported PDF."
@@ -9374,6 +9570,7 @@ msgstr "Оригинално обликовање табеле је сачува
 
 #: src/features/applications/components/interview-dialog.tsx
 #: src/features/career/knowledge/structured-preferences.tsx
+#: src/features/settings/resume-style.tsx
 msgid "Other"
 msgstr "Друго"
 
@@ -9461,6 +9658,14 @@ msgstr "Читање странице није завршено."
 #: src/features/resume/editor/check/page-layer.tsx
 msgid "Page view"
 msgstr "Приказ странице"
+
+#: src/features/settings/resume-style.tsx
+msgid "Pages, early career"
+msgstr ""
+
+#: src/features/settings/resume-style.tsx
+msgid "Pages, experienced"
+msgstr ""
 
 #: src/features/resume/editor/design/style-groups.tsx
 msgid "Paper"
@@ -9721,6 +9926,10 @@ msgstr "Изаберите један формат и користите га с
 msgid "Pick two examples"
 msgstr "Изаберите два примера"
 
+#: src/features/settings/resume-style.tsx
+msgid "Picked for posting titles containing"
+msgstr ""
+
 #: src/features/career/shared.tsx
 msgid "Picking your stories"
 msgstr "Бирање ваших прича"
@@ -9735,6 +9944,10 @@ msgstr "Ток процеса"
 
 #: src/features/career/knowledge/structured-preferences.tsx
 msgid "Places that identify it in a posting"
+msgstr ""
+
+#: src/features/settings/resume-style.tsx
+msgid "Plain and direct"
 msgstr ""
 
 #: src/features/career/workspace/apply.tsx
@@ -9799,6 +10012,10 @@ msgstr "Португалски (Португал)"
 #: src/features/resume/editor/write/entries.tsx
 msgid "Position"
 msgstr "Позиција"
+
+#: src/features/settings/resume-style.tsx
+msgid "Positions, usually from"
+msgstr ""
 
 #: src/features/career/workspace/saved.tsx
 msgid "posting"
@@ -9954,6 +10171,8 @@ msgid "Present"
 msgstr "До данас"
 
 #: src/components/input/color-picker.tsx
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/settings/resume-style.tsx
 msgid "Presets"
 msgstr "Предефинисања"
 
@@ -10079,11 +10298,16 @@ msgstr "Профили"
 msgid "Progress bar"
 msgstr "Трака напретка"
 
+#: src/features/settings/resume-style.tsx
+msgid "Project Management"
+msgstr ""
+
 #: src/features/career/knowledge/profile.tsx
 msgid "Project name"
 msgstr ""
 
 #: src/features/applications/components/detail/selection-review.tsx
+#: src/features/settings/resume-style.tsx
 #: src/libs/resume/section.tsx
 msgid "Projects"
 msgstr "Пројекти"
@@ -10499,6 +10723,10 @@ msgstr "Из сећања"
 msgid "Recent"
 msgstr "Недавно"
 
+#: src/features/settings/resume-style.tsx
+msgid "Recent means the last (years)"
+msgstr ""
+
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Recipient"
 msgstr "Прималац"
@@ -10591,6 +10819,10 @@ msgstr "Освежи брифинг 24 сата пре"
 #: src/features/career/workspace/prepare.tsx
 msgid "Refresh the briefing on the morning of"
 msgstr "Освежи брифинг ујутру тог дана"
+
+#: src/features/settings/resume-style.tsx
+msgid "Regional conventions"
+msgstr ""
 
 #: src/features/resume/share/cv-domain-card.tsx
 msgid "Register at OlaCV"
@@ -10685,12 +10917,13 @@ msgstr "Уклонити „{name}“?"
 
 #. placeholder {0}: attachment.filename
 #. placeholder {0}: contact.name
-#. placeholder {0}: item.value || kinds[item.kind]
+#. placeholder {0}: example.title
 #: src/features/applications/components/detail/contacts.tsx
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
 #: src/features/career/knowledge/structured-preferences.tsx
 #: src/features/settings/account/security.tsx
+#: src/features/settings/resume-style.tsx
 msgid "Remove {0}"
 msgstr "Уклоните {0}"
 
@@ -11000,6 +11233,17 @@ msgstr "Датотека резимеа"
 msgid "Resume page"
 msgstr "страница са резимеом"
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/settings/resume-style.tsx
+#: src/features/settings/root.tsx
+#: src/routes/dashboard/settings/route.tsx
+msgid "Resume style"
+msgstr ""
+
+#: src/features/settings/resume-style.tsx
+msgid "Resume style saved"
+msgstr ""
+
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Resume submitted (optional)"
@@ -11257,6 +11501,10 @@ msgstr "Sam"
 msgid "Sam, Fieldnote"
 msgstr "Sam, Fieldnote"
 
+#: src/features/settings/resume-style.tsx
+msgid "Same detail as recent ones"
+msgstr ""
+
 #: src/features/homepage/remember.tsx
 msgid "Same you. Less starting over."
 msgstr "Исти ви. Мање почињања испочетка."
@@ -11268,6 +11516,7 @@ msgstr "Додан је узорак резимеа. Избришите га б�
 #: src/features/applications/components/detail/activity.tsx
 #: src/features/applications/components/detail/next-step-card.tsx
 #: src/features/resume/share/history-tab.tsx
+#: src/features/settings/resume-style.tsx
 msgid "Save"
 msgstr "Сачувај"
 
@@ -11669,6 +11918,10 @@ msgstr "Тајни кључ је копиран"
 msgid "Section headings"
 msgstr "Наслови секција"
 
+#: src/features/settings/resume-style.tsx
+msgid "Section order"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 #: src/features/resume/editor/check/parser-view.tsx
 msgid "Sections"
@@ -11822,6 +12075,10 @@ msgstr "Послато на {0}"
 #: src/features/resume/share/history-tab.tsx
 msgid "Sent to Lumen"
 msgstr "Послато Lumen-у"
+
+#: src/features/settings/resume-style.tsx
+msgid "Sentences, from"
+msgstr ""
 
 #: src/libs/locale.ts
 msgid "Serbian"
@@ -12199,6 +12456,7 @@ msgstr "Вештина"
 #: src/features/career/knowledge/profile.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
+#: src/features/settings/resume-style.tsx
 #: src/libs/resume/section.tsx
 msgid "Skills"
 msgstr "Вештине"
@@ -12209,6 +12467,10 @@ msgstr ""
 
 #: src/features/applications/components/detail/selection-review.tsx
 msgid "Skills to list"
+msgstr ""
+
+#: src/features/settings/resume-style.tsx
+msgid "Skills, about"
 msgstr ""
 
 #: src/features/applications/components/detail/assemble-dialog.tsx
@@ -12477,6 +12739,7 @@ msgid "Start each one with a concrete verb: built, led, reduced, migrated."
 msgstr "Почните сваку конкретним глаголом: изградио, водио, смањио, преселио."
 
 #: src/features/documents/new-document-dialog.tsx
+#: src/features/settings/resume-style.tsx
 msgid "Start from"
 msgstr "Почните од"
 
@@ -12645,6 +12908,10 @@ msgstr ""
 msgid "Stronger verb"
 msgstr "Јачи глагол"
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Style"
+msgstr ""
+
 #: src/features/resume/stylesheet/toolbar.tsx
 msgid "Stylesheet editor"
 msgstr "Уређивач стилских листова"
@@ -12700,12 +12967,17 @@ msgid "Summaries of your open applications"
 msgstr "Сажеци ваших отворених пријава"
 
 #: src/features/resume/editor/write/summary-editor.tsx
+#: src/features/settings/resume-style.tsx
 #: src/libs/resume/section.tsx
 msgid "Summary"
 msgstr "Сажетак"
 
 #: src/features/career/knowledge/profile.tsx
 msgid "Summary (scope, team size, what the role was for)"
+msgstr ""
+
+#: src/features/settings/resume-style.tsx
+msgid "Summary and headline"
 msgstr ""
 
 #: src/features/homepage/sections.tsx
@@ -13408,6 +13680,10 @@ msgstr "Не постоји пасус са сажетком."
 msgid "These are the answers saved when you applied."
 msgstr "Ово су одговори сачувани када сте се пријавили."
 
+#: src/features/settings/resume-style.tsx
+msgid "These guide the writer and the checks. Nothing you chose is cut, and text is never shrunk to fit."
+msgstr ""
+
 #: src/features/applications/components/list-view.tsx
 msgid "They and their timelines are deleted permanently. This can't be undone."
 msgstr "Они и њихове временске линије се трајно бришу. Ово се не може поништити."
@@ -13735,6 +14011,10 @@ msgstr "Савет"
 msgid "Title"
 msgstr "Наслов"
 
+#: src/features/settings/resume-style.tsx
+msgid "to"
+msgstr ""
+
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "To"
 msgstr "То"
@@ -13756,6 +14036,11 @@ msgstr "Данас, {hour}"
 #: src/features/applications/components/calendar-view.tsx
 msgid "Tomorrow"
 msgstr "сутра"
+
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/settings/resume-style.tsx
+msgid "Tone"
+msgstr ""
 
 #: src/features/resume/editor/design/style-groups.tsx
 msgid "Too light for headings on white. It may be hard to read and print faintly."
@@ -14146,6 +14431,10 @@ msgstr "До 2 минута. Ваше речи се појављују док г
 msgid "Up to 25 MB · checked in your browser, never uploaded"
 msgstr "До 25 MB · проверено у вашем претраживачу, никад отпремљено"
 
+#: src/features/settings/resume-style.tsx
+msgid "Up to six resumes you think are well written: yours or anyone's. Only their style is used — never their content or facts."
+msgstr ""
+
 #: src/features/applications/components/calendar-view.tsx
 msgid "Upcoming interviews"
 msgstr "Предстојећи интервјуи"
@@ -14192,12 +14481,17 @@ msgid "Upload or paste"
 msgstr ""
 
 #: src/features/applications/components/add-application-dialog.tsx
+#: src/features/settings/resume-style.tsx
 msgid "Upload PDF or Word file"
 msgstr ""
 
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Upload photo"
 msgstr "Отпреми фотографију"
+
+#: src/features/settings/resume-style.tsx
+msgid "Uploaded"
+msgstr ""
 
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Uploading photo…"
@@ -14291,6 +14585,10 @@ msgstr "Користи подразумевано"
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Use details from “{0}”"
 msgstr "Користите детаље са „{0}“"
+
+#: src/features/settings/resume-style.tsx
+msgid "Use each selection's recommended order"
+msgstr ""
 
 #: src/features/career/knowledge/profile-file.tsx
 msgid "Use experience, projects, education, volunteer, certifications, awards and skills."
@@ -14578,10 +14876,15 @@ msgstr "Посетиоци могу да преузму PDF"
 msgid "Visitors enter it before they see the resume. Share it only with people you trust."
 msgstr "Посетиоци га уносе пре него што виде биографију. Делите га само са људима којима верујете."
 
+#: src/features/settings/resume-style.tsx
+msgid "Voice"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "Voice settings"
 msgstr "Подешавања гласа"
 
+#: src/features/settings/resume-style.tsx
 #: src/libs/resume/section.tsx
 msgid "Volunteer"
 msgstr "Волонтерски рад"
@@ -14604,6 +14907,10 @@ msgstr ""
 
 #: src/features/career/knowledge/structured-preferences.tsx
 msgid "Want or avoid"
+msgstr ""
+
+#: src/features/settings/resume-style.tsx
+msgid "Warm, people-first"
 msgstr ""
 
 #: src/features/ats-checker/messages.ts
@@ -14637,6 +14944,10 @@ msgstr "Веб приступ"
 
 #: src/features/career/knowledge/profile.tsx
 msgid "Web development"
+msgstr ""
+
+#: src/features/settings/resume-style.tsx
+msgid "Web Development"
 msgstr ""
 
 #: src/features/resume/share/share-panel.tsx
@@ -14835,6 +15146,14 @@ msgstr ""
 msgid "What you did: {0}"
 msgstr "Шта сте урадили: {0}"
 
+#: src/features/settings/resume-style.tsx
+msgid "What you like about it"
+msgstr ""
+
+#: src/features/settings/resume-style.tsx
+msgid "What you like about it (optional)"
+msgstr ""
+
 #: src/features/applications/components/detail/sent-documents.tsx
 msgid "What you sent"
 msgstr "Оно што сте послали"
@@ -14973,9 +15292,17 @@ msgstr "Без једног, сами попуњавате примаоца, а 
 msgid "Wording"
 msgstr ""
 
+#: src/features/settings/resume-style.tsx
+msgid "Words per bullet, at most"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Words run together when the text is extracted."
 msgstr "Речи се спајају када се текст извуче."
+
+#: src/features/settings/resume-style.tsx
+msgid "Words, at most"
+msgstr ""
 
 #: src/features/applications/components/detail/selection-review.tsx
 msgid "Work experience"
@@ -15020,9 +15347,17 @@ msgstr "Напишите „Present“ као датум завршетка ва
 msgid "Write a letter"
 msgstr "Напиши писмо"
 
+#: src/features/settings/resume-style.tsx
+msgid "Write a professional summary"
+msgstr ""
+
 #: src/features/homepage/remember.tsx
 msgid "Write a story once, with the facts behind it, and the coach uses it in 3 places. Switch a fact off and nothing leans on it."
 msgstr "Напишите причу једном, са чињеницама иза ње, и саветник је користи на 3 места. Искључите чињеницу и ништа се више не ослања на њу."
+
+#: src/features/settings/resume-style.tsx
+msgid "Write a targeted headline"
+msgstr ""
 
 #: src/features/homepage/write.tsx
 msgid "Write beside a live page. It saves as you type and keeps every version. Ask the assistant for a sharper line: it suggests, you decide."
@@ -15052,6 +15387,10 @@ msgstr "Запишите док је још свеже"
 msgid "Write it myself"
 msgstr "Напиши сам"
 
+#: src/features/settings/resume-style.tsx
+msgid "Write like these examples"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "Write numbers as digits"
 msgstr "Пиши бројеве цифрама"
@@ -15077,6 +15416,7 @@ msgid "Write your professional resume"
 msgstr "Напишите свој професионални ЦВ"
 
 #: src/features/ats-checker/messages.ts
+#: src/features/command-palette/pages/navigation.tsx
 #: src/features/resume/editor/check/check-panel.tsx
 #: src/features/resume/editor/check/issues.ts
 msgid "Writing"
