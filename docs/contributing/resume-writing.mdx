@@ -31,6 +31,15 @@ This is step three of tailoring, after [job analysis and evidence selection](/co
 
 Other regions (US, UK, Australia, other) change spelling, personal-detail guidance and page targets.
 
+## Resume Style Guide
+
+`@reactive-resume/schema/resume-style`, stored per user in `resume_style_guide` (migration `20261103180159_resume_style_guide`), API `resumeStyle.{get, save, addExampleFromResume, addExampleFromFile}`, UI **Settings → Resume style**.
+
+- **Presets** (up to 12) hold the writing rules above plus tone, bullet style, density (scales the words-per-bullet limit), recency (`recentYears`, `olderRoles: brief|full`), a fixed section order or the selection's recommendation, preferred skill-group names, notes and up to three examples. Templates exist for General, Communications, Digital Marketing, Project Management, Web Development and Other.
+- **Choosing**: the preset the user picks in the build step, else the one whose keywords match the posting title most (word-start match), else the default (`choosePreset`).
+- **Examples** (up to 6) are stored as text when added (from a resume via its Markdown, or from a PDF/DOCX/text upload). Saves can rename, annotate or remove examples but never change their text. The writer receives up to two excerpts (2,500 characters) as `STYLE_EXAMPLES`, for style only; a rewrite sharing six or more consecutive words with an example that aren't in the record is rejected.
+- The report stores which preset was used (`writing.style`).
+
 ## Quality checks
 
 | Severity                        | Codes                                                                                                                                                                                                                                                                                                                                                                          |
@@ -47,5 +56,4 @@ Other regions (US, UK, Australia, other) change spelling, personal-detail guidan
 
 - Length is estimated from word count; the rendered PDF isn't measured yet (planned with rendering validation).
 - The AI reviewer for judgment-based checks (relevance, strength, tone, prioritization) isn't part of this step yet.
-- Rules are the defaults for everyone until the Resume Style Guide lets users set them.
 - Headline words are checked against the record word by word, so a good headline using a synonym falls back to the latest title.

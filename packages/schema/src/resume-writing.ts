@@ -158,5 +158,7 @@ export const writingReportSchema = z.object({
 		skills: z.number(),
 	}),
 	rules: writingRulesSchema,
+	/** The Resume Style Guide preset written with. */
+	style: z.object({ presetId: z.string(), name: z.string() }).optional(),
 });
 export type WritingReport = z.infer<typeof writingReportSchema>;

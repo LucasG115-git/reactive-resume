@@ -8,7 +8,7 @@ import { APICallError, RetryError } from "ai";
 import { and, desc, eq } from "drizzle-orm";
 import { db } from "@reactive-resume/db/client";
 import * as tables from "@reactive-resume/db/schema";
-import { DEFAULT_WRITING_RULES } from "@reactive-resume/schema/resume-writing";
+import { choosePreset, rulesFor } from "@reactive-resume/schema/resume-style";
 import { defaultResumeData } from "@reactive-resume/schema/resume/default";
 import { parseResumeDataForWrite } from "@reactive-resume/schema/resume/write";
 import { aiProvidersService } from "../../ai-providers/service";
@@ -16,6 +16,7 @@ import { generateJson } from "../../ai/generate-json";
 import { getModel } from "../../ai/service";
 import { applicationService } from "../../applications/service";
 import { documentsService } from "../../documents/service";
+import { resumeStyleService } from "../../resume-style/service";
 import { resumeService } from "../../resume/service";
 import { askDefaultModel } from "../selection/model";
 import { selectionService } from "../selection/service";
@@ -103,7 +104,11 @@ export const assembleService = {
 		let coverage: Coverage;
 		let model = "";
 		let written: Awaited<ReturnType<typeof writeFromPlan>> | null = null;
-		const rules = DEFAULT_WRITING_RULES;
+		// The style preset: the one asked for, else the one matching the posting's title, else the default.
+		const guide = await resumeStyleService.get(userId);
+		const preset = choosePreset(guide, stored?.analysis.title || application.role, input.presetId);
+		const rules = rulesFor(preset);
+		const style = { preset, examples: guide.examples.filter((example) => preset.exampleIds.includes(example.id)) };
 		if (plan) {
 			if (!plan.entries.some((entry) => entry.include && entry.achievements.some((item) => item.include)))
 				throw new ORPCError("BAD_REQUEST", {
@@ -117,7 +122,9 @@ export const assembleService = {
 				rules,
 				mode: input.mode,
 				ask: options.ask ?? askDefaultModel,
+				style,
 				signal: options.signal,
+				...(options.now ? { now: options.now } : {}),
 			});
 			selection = {
 				achievements: [...written.bullets].map(([id, bullet]) => ({ id, text: bullet.text })),
@@ -152,7 +159,9 @@ export const assembleService = {
 		}
 		const built = buildResume({
 			plan,
-			writing: written ? { headline: written.headline, skillGroups: written.skillGroups } : null,
+			writing: written
+				? { headline: written.headline, skillGroups: written.skillGroups, sectionOrder: preset.sectionOrder }
+				: null,
 			base: base?.data ?? (await starterResume(userId)),
 			profile,
 			selection,
@@ -188,6 +197,7 @@ export const assembleService = {
 							analysis: stored?.analysis ?? null,
 							rules,
 							headline: written.headline,
+							olderRoles: { mode: preset.olderRoles, recentYears: preset.recentYears },
 							now: options.now ?? new Date(),
 						});
 						return {
@@ -198,6 +208,7 @@ export const assembleService = {
 							checks: findings,
 							stats,
 							rules,
+							style: { presetId: preset.id, name: preset.name },
 						};
 					})()
 				: undefined;

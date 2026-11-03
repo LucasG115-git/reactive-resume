@@ -7,7 +7,11 @@ import { Icon } from "@reactive-resume/ui/components/icon";
 import { popTransition } from "@/features/settings/root";
 
 type Page = {
-	to: "/dashboard/settings/account" | "/dashboard/settings/preferences" | "/dashboard/settings/ai";
+	to:
+		| "/dashboard/settings/account"
+		| "/dashboard/settings/preferences"
+		| "/dashboard/settings/resume-style"
+		| "/dashboard/settings/ai";
 	icon: IconName;
 	label: () => string;
 };
@@ -16,6 +20,7 @@ type Page = {
 const SETTINGS_PAGES: Page[] = [
 	{ to: "/dashboard/settings/account", icon: "user-circle", label: () => t`Account` },
 	{ to: "/dashboard/settings/preferences", icon: "sliders-horizontal", label: () => t`Preferences` },
+	{ to: "/dashboard/settings/resume-style", icon: "paragraph", label: () => t`Resume style` },
 	{ to: "/dashboard/settings/ai", icon: "sparkle", label: () => t`AI & developer` },
 ];
 

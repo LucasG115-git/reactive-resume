@@ -1,11 +1,11 @@
 import type { AskModel } from "../selection/model";
 import type { MasterProfile } from "../service";
-import type { Written } from "./write";
+import type { Written, WritingStyle } from "./write";
 import type { JobAnalysis, ResumeSelectionPlan } from "@reactive-resume/schema/resume-selection";
 import type { WritingRules } from "@reactive-resume/schema/resume-writing";
 import { ORPCError } from "@orpc/client";
 import { chooseSkills } from "./skills";
-import { acceptWriting, WRITER_SYSTEM, writerOutputSchema, writerPrompt } from "./write";
+import { acceptWriting, EXAMPLE_EXCERPT, WRITER_SYSTEM, writerOutputSchema, writerPrompt } from "./write";
 
 /**
  * Words a reviewed plan: chooses and groups the skills, asks the AI for the headline, summary, bullets and group
@@ -19,7 +19,9 @@ export async function writeFromPlan(input: {
 	rules: WritingRules;
 	mode: "rephrase" | "verbatim";
 	ask: AskModel;
+	style?: WritingStyle | null | undefined;
 	signal?: AbortSignal | undefined;
+	now?: Date;
 }): Promise<Written & { model: string }> {
 	const { plan, profile, rules } = input;
 	const { skills, leftOut } = chooseSkills(profile, plan, rules);
@@ -27,7 +29,16 @@ export async function writeFromPlan(input: {
 	if (input.mode === "verbatim" || !input.analysis)
 		return { ...acceptWriting({ ...base, output: null, keys: null, rules: { ...rules, headline: false } }), model: "" };
 
-	const { prompt, keys } = writerPrompt({ plan, analysis: input.analysis, profile, skills, rules });
+	const { prompt, keys } = writerPrompt({
+		plan,
+		analysis: input.analysis,
+		profile,
+		skills,
+		rules,
+		style: input.style,
+		...(input.now ? { now: input.now } : {}),
+	});
+	const examples = input.style?.examples.slice(0, 2).map((example) => example.text.slice(0, EXAMPLE_EXCERPT)) ?? [];
 	try {
 		const answer = await input.ask({
 			userId: input.userId,
@@ -36,7 +47,7 @@ export async function writeFromPlan(input: {
 			schema: writerOutputSchema,
 			signal: input.signal,
 		});
-		return { ...acceptWriting({ ...base, output: answer.output, keys }), model: answer.model };
+		return { ...acceptWriting({ ...base, output: answer.output, keys, examples }), model: answer.model };
 	} catch (error) {
 		// An unreadable answer still gives a resume in the user's own words; connection problems are reported.
 		if (error instanceof ORPCError && error.code === "INTERNAL_SERVER_ERROR") {

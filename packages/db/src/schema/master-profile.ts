@@ -1,5 +1,6 @@
 import type { ProfileAssemblyResult, ProfileEntryKind, ProfileMetric } from "@reactive-resume/schema/master-profile";
 import type { JobAnalysis, ResumeSelectionPlan } from "@reactive-resume/schema/resume-selection";
+import type { ResumeStyleGuide } from "@reactive-resume/schema/resume-style";
 import { sql } from "drizzle-orm";
 import * as pg from "drizzle-orm/pg-core";
 import { generateId } from "@reactive-resume/utils/string";
@@ -139,3 +140,17 @@ export const resumeSelection = pg.pgTable(
 	},
 	(t) => [pg.uniqueIndex().on(t.userId, t.applicationId)],
 );
+
+/** The user's Resume Style Guide: writing presets and example resumes. One per user; style only, never evidence. */
+export const resumeStyleGuide = pg.pgTable("resume_style_guide", {
+	userId: pg
+		.text("user_id")
+		.primaryKey()
+		.references(() => user.id, { onDelete: "cascade" }),
+	data: pg.jsonb("data").notNull().$type<ResumeStyleGuide>(),
+	updatedAt: pg
+		.timestamp("updated_at", { withTimezone: true })
+		.notNull()
+		.defaultNow()
+		.$onUpdate(() => new Date()),
+});

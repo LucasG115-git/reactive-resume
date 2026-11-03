@@ -67726,6 +67726,10 @@
 									},
 									"usePlan": {
 										"type": "boolean"
+									},
+									"presetId": {
+										"type": "string",
+										"minLength": 1
 									}
 								},
 								"required": [
@@ -68166,6 +68170,21 @@
 																	"default": 500
 																}
 															}
+														},
+														"style": {
+															"type": "object",
+															"properties": {
+																"presetId": {
+																	"type": "string"
+																},
+																"name": {
+																	"type": "string"
+																}
+															},
+															"required": [
+																"presetId",
+																"name"
+															]
 														}
 													},
 													"required": [
@@ -68786,6 +68805,21 @@
 																			"default": 500
 																		}
 																	}
+																},
+																"style": {
+																	"type": "object",
+																	"properties": {
+																		"presetId": {
+																			"type": "string"
+																		},
+																		"name": {
+																			"type": "string"
+																		}
+																	},
+																	"required": [
+																		"presetId",
+																		"name"
+																	]
 																}
 															},
 															"required": [
@@ -102859,6 +102893,1707 @@
 						"lang": "bash",
 						"label": "cURL",
 						"source": "curl \"https://rxresu.me/api/openapi/resumes/<id>/pdf\" --header \"x-api-key: <api-key>\""
+					}
+				]
+			}
+		},
+		"/resume-style": {
+			"get": {
+				"operationId": "getResumeStyleGuide",
+				"summary": "Get the Resume Style Guide",
+				"description": "Writing presets for different career directions and example resumes. Defaults when none is saved.",
+				"tags": [
+					"Resume style"
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"version": {
+											"const": 1,
+											"default": 1
+										},
+										"defaultPresetId": {
+											"type": "string",
+											"minLength": 1,
+											"maxLength": 64
+										},
+										"presets": {
+											"type": "array",
+											"minItems": 1,
+											"maxItems": 12,
+											"items": {
+												"type": "object",
+												"properties": {
+													"id": {
+														"type": "string",
+														"minLength": 1,
+														"maxLength": 64
+													},
+													"name": {
+														"type": "string",
+														"minLength": 1,
+														"maxLength": 60
+													},
+													"roleFamily": {
+														"enum": [
+															"general",
+															"communications",
+															"digital-marketing",
+															"project-management",
+															"web-development",
+															"other"
+														],
+														"type": "string",
+														"default": "general"
+													},
+													"keywords": {
+														"type": "array",
+														"maxItems": 12,
+														"items": {
+															"type": "string",
+															"minLength": 1,
+															"maxLength": 40
+														},
+														"default": []
+													},
+													"tone": {
+														"enum": [
+															"plain",
+															"warm",
+															"confident",
+															"formal"
+														],
+														"type": "string",
+														"default": "plain"
+													},
+													"bulletStyle": {
+														"enum": [
+															"action-result",
+															"challenge-action-result",
+															"concise"
+														],
+														"type": "string",
+														"default": "action-result"
+													},
+													"density": {
+														"enum": [
+															"light",
+															"balanced",
+															"dense"
+														],
+														"type": "string",
+														"default": "balanced"
+													},
+													"rules": {
+														"type": "object",
+														"properties": {
+															"region": {
+																"enum": [
+																	"CA",
+																	"US",
+																	"GB",
+																	"AU",
+																	"other"
+																],
+																"type": "string",
+																"default": "CA"
+															},
+															"pages": {
+																"type": "object",
+																"properties": {
+																	"experienced": {
+																		"type": "integer",
+																		"minimum": 1,
+																		"maximum": 4,
+																		"default": 2
+																	},
+																	"early": {
+																		"type": "integer",
+																		"minimum": 1,
+																		"maximum": 4,
+																		"default": 1
+																	},
+																	"experiencedYears": {
+																		"type": "integer",
+																		"minimum": 0,
+																		"maximum": 30,
+																		"default": 5
+																	}
+																},
+																"default": {
+																	"experienced": 2,
+																	"early": 1,
+																	"experiencedYears": 5
+																}
+															},
+															"positions": {
+																"type": "object",
+																"properties": {
+																	"min": {
+																		"type": "integer",
+																		"minimum": 1,
+																		"maximum": 9007199254740991,
+																		"default": 3
+																	},
+																	"max": {
+																		"type": "integer",
+																		"minimum": 1,
+																		"maximum": 9007199254740991,
+																		"default": 5
+																	}
+																},
+																"default": {
+																	"min": 3,
+																	"max": 5
+																}
+															},
+															"bullets": {
+																"type": "object",
+																"properties": {
+																	"majorMin": {
+																		"type": "integer",
+																		"minimum": 1,
+																		"maximum": 9007199254740991,
+																		"default": 3
+																	},
+																	"majorMax": {
+																		"type": "integer",
+																		"minimum": 1,
+																		"maximum": 9007199254740991,
+																		"default": 5
+																	},
+																	"otherMax": {
+																		"type": "integer",
+																		"minimum": 0,
+																		"maximum": 9007199254740991,
+																		"default": 3
+																	},
+																	"maxWords": {
+																		"type": "integer",
+																		"minimum": 10,
+																		"maximum": 9007199254740991,
+																		"default": 35
+																	}
+																},
+																"default": {
+																	"majorMin": 3,
+																	"majorMax": 5,
+																	"otherMax": 3,
+																	"maxWords": 35
+																}
+															},
+															"summary": {
+																"type": "object",
+																"properties": {
+																	"enabled": {
+																		"type": "boolean",
+																		"default": true
+																	},
+																	"minSentences": {
+																		"type": "integer",
+																		"minimum": 1,
+																		"maximum": 9007199254740991,
+																		"default": 2
+																	},
+																	"maxSentences": {
+																		"type": "integer",
+																		"minimum": 1,
+																		"maximum": 9007199254740991,
+																		"default": 3
+																	},
+																	"maxWords": {
+																		"type": "integer",
+																		"minimum": 20,
+																		"maximum": 9007199254740991,
+																		"default": 75
+																	}
+																},
+																"default": {
+																	"enabled": true,
+																	"minSentences": 2,
+																	"maxSentences": 3,
+																	"maxWords": 75
+																}
+															},
+															"headline": {
+																"type": "boolean",
+																"default": true
+															},
+															"skills": {
+																"type": "object",
+																"properties": {
+																	"min": {
+																		"type": "integer",
+																		"minimum": 0,
+																		"maximum": 9007199254740991,
+																		"default": 8
+																	},
+																	"max": {
+																		"type": "integer",
+																		"minimum": 1,
+																		"maximum": 9007199254740991,
+																		"default": 15
+																	},
+																	"minGroups": {
+																		"type": "integer",
+																		"minimum": 1,
+																		"maximum": 9007199254740991,
+																		"default": 2
+																	},
+																	"maxGroups": {
+																		"type": "integer",
+																		"minimum": 1,
+																		"maximum": 9007199254740991,
+																		"default": 4
+																	}
+																},
+																"default": {
+																	"min": 8,
+																	"max": 15,
+																	"minGroups": 2,
+																	"maxGroups": 4
+																}
+															},
+															"wordsPerPage": {
+																"type": "integer",
+																"minimum": 200,
+																"maximum": 900,
+																"default": 500
+															}
+														},
+														"default": {
+															"region": "CA",
+															"pages": {
+																"experienced": 2,
+																"early": 1,
+																"experiencedYears": 5
+															},
+															"positions": {
+																"min": 3,
+																"max": 5
+															},
+															"bullets": {
+																"majorMin": 3,
+																"majorMax": 5,
+																"otherMax": 3,
+																"maxWords": 35
+															},
+															"summary": {
+																"enabled": true,
+																"minSentences": 2,
+																"maxSentences": 3,
+																"maxWords": 75
+															},
+															"headline": true,
+															"skills": {
+																"min": 8,
+																"max": 15,
+																"minGroups": 2,
+																"maxGroups": 4
+															},
+															"wordsPerPage": 500
+														}
+													},
+													"recentYears": {
+														"type": "integer",
+														"minimum": 1,
+														"maximum": 40,
+														"default": 10
+													},
+													"olderRoles": {
+														"enum": [
+															"full",
+															"brief"
+														],
+														"type": "string",
+														"default": "brief"
+													},
+													"sectionOrder": {
+														"anyOf": [
+															{
+																"type": "array",
+																"items": {
+																	"enum": [
+																		"summary",
+																		"skills",
+																		"experience",
+																		"projects",
+																		"volunteer",
+																		"education",
+																		"certifications",
+																		"awards"
+																	],
+																	"type": "string"
+																}
+															},
+															{
+																"type": "null"
+															}
+														],
+														"default": null
+													},
+													"skillGroupHints": {
+														"type": "array",
+														"maxItems": 6,
+														"items": {
+															"type": "string",
+															"minLength": 1,
+															"maxLength": 40
+														},
+														"default": []
+													},
+													"exampleIds": {
+														"type": "array",
+														"maxItems": 3,
+														"items": {
+															"type": "string",
+															"minLength": 1,
+															"maxLength": 64
+														},
+														"default": []
+													},
+													"notes": {
+														"type": "string",
+														"maxLength": 1000,
+														"default": ""
+													}
+												},
+												"required": [
+													"id",
+													"name"
+												]
+											}
+										},
+										"examples": {
+											"type": "array",
+											"maxItems": 6,
+											"items": {
+												"type": "object",
+												"properties": {
+													"id": {
+														"type": "string",
+														"minLength": 1,
+														"maxLength": 64
+													},
+													"title": {
+														"type": "string",
+														"minLength": 1,
+														"maxLength": 120
+													},
+													"source": {
+														"enum": [
+															"resume",
+															"upload"
+														],
+														"type": "string"
+													},
+													"resumeId": {
+														"anyOf": [
+															{
+																"type": "string"
+															},
+															{
+																"type": "null"
+															}
+														],
+														"default": null
+													},
+													"text": {
+														"type": "string",
+														"maxLength": 15000
+													},
+													"notes": {
+														"type": "string",
+														"maxLength": 500,
+														"default": ""
+													},
+													"addedAt": {
+														"type": "string",
+														"format": "date-time"
+													}
+												},
+												"required": [
+													"id",
+													"title",
+													"source",
+													"text",
+													"addedAt"
+												]
+											},
+											"default": []
+										}
+									},
+									"required": [
+										"defaultPresetId",
+										"presets"
+									]
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Structured API error. See status and code; do not branch on message text.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"required": [
+										"defined",
+										"code",
+										"status",
+										"message"
+									],
+									"properties": {
+										"defined": {
+											"type": "boolean"
+										},
+										"code": {
+											"type": "string"
+										},
+										"status": {
+											"type": "integer"
+										},
+										"message": {
+											"type": "string"
+										},
+										"data": {}
+									}
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"apiKey": []
+					},
+					{
+						"bearerAuth": []
+					},
+					{
+						"cookieAuth": []
+					}
+				],
+				"x-codeSamples": [
+					{
+						"lang": "bash",
+						"label": "cURL",
+						"source": "curl \"https://rxresu.me/api/openapi/resume-style\" --header \"x-api-key: <api-key>\""
+					}
+				]
+			},
+			"put": {
+				"operationId": "saveResumeStyleGuide",
+				"summary": "Save the Resume Style Guide",
+				"description": "Replaces presets and settings. Examples can be renamed, annotated or removed here; add them with the example endpoints.",
+				"tags": [
+					"Resume style"
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"version": {
+										"const": 1,
+										"default": 1
+									},
+									"defaultPresetId": {
+										"type": "string",
+										"minLength": 1,
+										"maxLength": 64
+									},
+									"presets": {
+										"type": "array",
+										"minItems": 1,
+										"maxItems": 12,
+										"items": {
+											"type": "object",
+											"properties": {
+												"id": {
+													"type": "string",
+													"minLength": 1,
+													"maxLength": 64
+												},
+												"name": {
+													"type": "string",
+													"minLength": 1,
+													"maxLength": 60
+												},
+												"roleFamily": {
+													"enum": [
+														"general",
+														"communications",
+														"digital-marketing",
+														"project-management",
+														"web-development",
+														"other"
+													],
+													"type": "string",
+													"default": "general"
+												},
+												"keywords": {
+													"type": "array",
+													"maxItems": 12,
+													"items": {
+														"type": "string",
+														"minLength": 1,
+														"maxLength": 40
+													},
+													"default": []
+												},
+												"tone": {
+													"enum": [
+														"plain",
+														"warm",
+														"confident",
+														"formal"
+													],
+													"type": "string",
+													"default": "plain"
+												},
+												"bulletStyle": {
+													"enum": [
+														"action-result",
+														"challenge-action-result",
+														"concise"
+													],
+													"type": "string",
+													"default": "action-result"
+												},
+												"density": {
+													"enum": [
+														"light",
+														"balanced",
+														"dense"
+													],
+													"type": "string",
+													"default": "balanced"
+												},
+												"rules": {
+													"type": "object",
+													"properties": {
+														"region": {
+															"enum": [
+																"CA",
+																"US",
+																"GB",
+																"AU",
+																"other"
+															],
+															"type": "string",
+															"default": "CA"
+														},
+														"pages": {
+															"type": "object",
+															"properties": {
+																"experienced": {
+																	"type": "integer",
+																	"minimum": 1,
+																	"maximum": 4,
+																	"default": 2
+																},
+																"early": {
+																	"type": "integer",
+																	"minimum": 1,
+																	"maximum": 4,
+																	"default": 1
+																},
+																"experiencedYears": {
+																	"type": "integer",
+																	"minimum": 0,
+																	"maximum": 30,
+																	"default": 5
+																}
+															},
+															"default": {
+																"experienced": 2,
+																"early": 1,
+																"experiencedYears": 5
+															}
+														},
+														"positions": {
+															"type": "object",
+															"properties": {
+																"min": {
+																	"type": "integer",
+																	"minimum": 1,
+																	"maximum": 9007199254740991,
+																	"default": 3
+																},
+																"max": {
+																	"type": "integer",
+																	"minimum": 1,
+																	"maximum": 9007199254740991,
+																	"default": 5
+																}
+															},
+															"default": {
+																"min": 3,
+																"max": 5
+															}
+														},
+														"bullets": {
+															"type": "object",
+															"properties": {
+																"majorMin": {
+																	"type": "integer",
+																	"minimum": 1,
+																	"maximum": 9007199254740991,
+																	"default": 3
+																},
+																"majorMax": {
+																	"type": "integer",
+																	"minimum": 1,
+																	"maximum": 9007199254740991,
+																	"default": 5
+																},
+																"otherMax": {
+																	"type": "integer",
+																	"minimum": 0,
+																	"maximum": 9007199254740991,
+																	"default": 3
+																},
+																"maxWords": {
+																	"type": "integer",
+																	"minimum": 10,
+																	"maximum": 9007199254740991,
+																	"default": 35
+																}
+															},
+															"default": {
+																"majorMin": 3,
+																"majorMax": 5,
+																"otherMax": 3,
+																"maxWords": 35
+															}
+														},
+														"summary": {
+															"type": "object",
+															"properties": {
+																"enabled": {
+																	"type": "boolean",
+																	"default": true
+																},
+																"minSentences": {
+																	"type": "integer",
+																	"minimum": 1,
+																	"maximum": 9007199254740991,
+																	"default": 2
+																},
+																"maxSentences": {
+																	"type": "integer",
+																	"minimum": 1,
+																	"maximum": 9007199254740991,
+																	"default": 3
+																},
+																"maxWords": {
+																	"type": "integer",
+																	"minimum": 20,
+																	"maximum": 9007199254740991,
+																	"default": 75
+																}
+															},
+															"default": {
+																"enabled": true,
+																"minSentences": 2,
+																"maxSentences": 3,
+																"maxWords": 75
+															}
+														},
+														"headline": {
+															"type": "boolean",
+															"default": true
+														},
+														"skills": {
+															"type": "object",
+															"properties": {
+																"min": {
+																	"type": "integer",
+																	"minimum": 0,
+																	"maximum": 9007199254740991,
+																	"default": 8
+																},
+																"max": {
+																	"type": "integer",
+																	"minimum": 1,
+																	"maximum": 9007199254740991,
+																	"default": 15
+																},
+																"minGroups": {
+																	"type": "integer",
+																	"minimum": 1,
+																	"maximum": 9007199254740991,
+																	"default": 2
+																},
+																"maxGroups": {
+																	"type": "integer",
+																	"minimum": 1,
+																	"maximum": 9007199254740991,
+																	"default": 4
+																}
+															},
+															"default": {
+																"min": 8,
+																"max": 15,
+																"minGroups": 2,
+																"maxGroups": 4
+															}
+														},
+														"wordsPerPage": {
+															"type": "integer",
+															"minimum": 200,
+															"maximum": 900,
+															"default": 500
+														}
+													},
+													"default": {
+														"region": "CA",
+														"pages": {
+															"experienced": 2,
+															"early": 1,
+															"experiencedYears": 5
+														},
+														"positions": {
+															"min": 3,
+															"max": 5
+														},
+														"bullets": {
+															"majorMin": 3,
+															"majorMax": 5,
+															"otherMax": 3,
+															"maxWords": 35
+														},
+														"summary": {
+															"enabled": true,
+															"minSentences": 2,
+															"maxSentences": 3,
+															"maxWords": 75
+														},
+														"headline": true,
+														"skills": {
+															"min": 8,
+															"max": 15,
+															"minGroups": 2,
+															"maxGroups": 4
+														},
+														"wordsPerPage": 500
+													}
+												},
+												"recentYears": {
+													"type": "integer",
+													"minimum": 1,
+													"maximum": 40,
+													"default": 10
+												},
+												"olderRoles": {
+													"enum": [
+														"full",
+														"brief"
+													],
+													"type": "string",
+													"default": "brief"
+												},
+												"sectionOrder": {
+													"anyOf": [
+														{
+															"type": "array",
+															"items": {
+																"enum": [
+																	"summary",
+																	"skills",
+																	"experience",
+																	"projects",
+																	"volunteer",
+																	"education",
+																	"certifications",
+																	"awards"
+																],
+																"type": "string"
+															}
+														},
+														{
+															"type": "null"
+														}
+													],
+													"default": null
+												},
+												"skillGroupHints": {
+													"type": "array",
+													"maxItems": 6,
+													"items": {
+														"type": "string",
+														"minLength": 1,
+														"maxLength": 40
+													},
+													"default": []
+												},
+												"exampleIds": {
+													"type": "array",
+													"maxItems": 3,
+													"items": {
+														"type": "string",
+														"minLength": 1,
+														"maxLength": 64
+													},
+													"default": []
+												},
+												"notes": {
+													"type": "string",
+													"maxLength": 1000,
+													"default": ""
+												}
+											},
+											"required": [
+												"id",
+												"name"
+											]
+										}
+									},
+									"examples": {
+										"type": "array",
+										"maxItems": 6,
+										"items": {
+											"type": "object",
+											"properties": {
+												"id": {
+													"type": "string",
+													"minLength": 1,
+													"maxLength": 64
+												},
+												"title": {
+													"type": "string",
+													"minLength": 1,
+													"maxLength": 120
+												},
+												"source": {
+													"enum": [
+														"resume",
+														"upload"
+													],
+													"type": "string"
+												},
+												"resumeId": {
+													"anyOf": [
+														{
+															"type": "string"
+														},
+														{
+															"type": "null"
+														}
+													],
+													"default": null
+												},
+												"text": {
+													"type": "string",
+													"maxLength": 15000
+												},
+												"notes": {
+													"type": "string",
+													"maxLength": 500,
+													"default": ""
+												},
+												"addedAt": {
+													"type": "string",
+													"format": "date-time"
+												}
+											},
+											"required": [
+												"id",
+												"title",
+												"source",
+												"text",
+												"addedAt"
+											]
+										},
+										"default": []
+									}
+								},
+								"required": [
+									"defaultPresetId",
+									"presets"
+								]
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"version": {
+											"const": 1,
+											"default": 1
+										},
+										"defaultPresetId": {
+											"type": "string",
+											"minLength": 1,
+											"maxLength": 64
+										},
+										"presets": {
+											"type": "array",
+											"minItems": 1,
+											"maxItems": 12,
+											"items": {
+												"type": "object",
+												"properties": {
+													"id": {
+														"type": "string",
+														"minLength": 1,
+														"maxLength": 64
+													},
+													"name": {
+														"type": "string",
+														"minLength": 1,
+														"maxLength": 60
+													},
+													"roleFamily": {
+														"enum": [
+															"general",
+															"communications",
+															"digital-marketing",
+															"project-management",
+															"web-development",
+															"other"
+														],
+														"type": "string",
+														"default": "general"
+													},
+													"keywords": {
+														"type": "array",
+														"maxItems": 12,
+														"items": {
+															"type": "string",
+															"minLength": 1,
+															"maxLength": 40
+														},
+														"default": []
+													},
+													"tone": {
+														"enum": [
+															"plain",
+															"warm",
+															"confident",
+															"formal"
+														],
+														"type": "string",
+														"default": "plain"
+													},
+													"bulletStyle": {
+														"enum": [
+															"action-result",
+															"challenge-action-result",
+															"concise"
+														],
+														"type": "string",
+														"default": "action-result"
+													},
+													"density": {
+														"enum": [
+															"light",
+															"balanced",
+															"dense"
+														],
+														"type": "string",
+														"default": "balanced"
+													},
+													"rules": {
+														"type": "object",
+														"properties": {
+															"region": {
+																"enum": [
+																	"CA",
+																	"US",
+																	"GB",
+																	"AU",
+																	"other"
+																],
+																"type": "string",
+																"default": "CA"
+															},
+															"pages": {
+																"type": "object",
+																"properties": {
+																	"experienced": {
+																		"type": "integer",
+																		"minimum": 1,
+																		"maximum": 4,
+																		"default": 2
+																	},
+																	"early": {
+																		"type": "integer",
+																		"minimum": 1,
+																		"maximum": 4,
+																		"default": 1
+																	},
+																	"experiencedYears": {
+																		"type": "integer",
+																		"minimum": 0,
+																		"maximum": 30,
+																		"default": 5
+																	}
+																},
+																"default": {
+																	"experienced": 2,
+																	"early": 1,
+																	"experiencedYears": 5
+																}
+															},
+															"positions": {
+																"type": "object",
+																"properties": {
+																	"min": {
+																		"type": "integer",
+																		"minimum": 1,
+																		"maximum": 9007199254740991,
+																		"default": 3
+																	},
+																	"max": {
+																		"type": "integer",
+																		"minimum": 1,
+																		"maximum": 9007199254740991,
+																		"default": 5
+																	}
+																},
+																"default": {
+																	"min": 3,
+																	"max": 5
+																}
+															},
+															"bullets": {
+																"type": "object",
+																"properties": {
+																	"majorMin": {
+																		"type": "integer",
+																		"minimum": 1,
+																		"maximum": 9007199254740991,
+																		"default": 3
+																	},
+																	"majorMax": {
+																		"type": "integer",
+																		"minimum": 1,
+																		"maximum": 9007199254740991,
+																		"default": 5
+																	},
+																	"otherMax": {
+																		"type": "integer",
+																		"minimum": 0,
+																		"maximum": 9007199254740991,
+																		"default": 3
+																	},
+																	"maxWords": {
+																		"type": "integer",
+																		"minimum": 10,
+																		"maximum": 9007199254740991,
+																		"default": 35
+																	}
+																},
+																"default": {
+																	"majorMin": 3,
+																	"majorMax": 5,
+																	"otherMax": 3,
+																	"maxWords": 35
+																}
+															},
+															"summary": {
+																"type": "object",
+																"properties": {
+																	"enabled": {
+																		"type": "boolean",
+																		"default": true
+																	},
+																	"minSentences": {
+																		"type": "integer",
+																		"minimum": 1,
+																		"maximum": 9007199254740991,
+																		"default": 2
+																	},
+																	"maxSentences": {
+																		"type": "integer",
+																		"minimum": 1,
+																		"maximum": 9007199254740991,
+																		"default": 3
+																	},
+																	"maxWords": {
+																		"type": "integer",
+																		"minimum": 20,
+																		"maximum": 9007199254740991,
+																		"default": 75
+																	}
+																},
+																"default": {
+																	"enabled": true,
+																	"minSentences": 2,
+																	"maxSentences": 3,
+																	"maxWords": 75
+																}
+															},
+															"headline": {
+																"type": "boolean",
+																"default": true
+															},
+															"skills": {
+																"type": "object",
+																"properties": {
+																	"min": {
+																		"type": "integer",
+																		"minimum": 0,
+																		"maximum": 9007199254740991,
+																		"default": 8
+																	},
+																	"max": {
+																		"type": "integer",
+																		"minimum": 1,
+																		"maximum": 9007199254740991,
+																		"default": 15
+																	},
+																	"minGroups": {
+																		"type": "integer",
+																		"minimum": 1,
+																		"maximum": 9007199254740991,
+																		"default": 2
+																	},
+																	"maxGroups": {
+																		"type": "integer",
+																		"minimum": 1,
+																		"maximum": 9007199254740991,
+																		"default": 4
+																	}
+																},
+																"default": {
+																	"min": 8,
+																	"max": 15,
+																	"minGroups": 2,
+																	"maxGroups": 4
+																}
+															},
+															"wordsPerPage": {
+																"type": "integer",
+																"minimum": 200,
+																"maximum": 900,
+																"default": 500
+															}
+														},
+														"default": {
+															"region": "CA",
+															"pages": {
+																"experienced": 2,
+																"early": 1,
+																"experiencedYears": 5
+															},
+															"positions": {
+																"min": 3,
+																"max": 5
+															},
+															"bullets": {
+																"majorMin": 3,
+																"majorMax": 5,
+																"otherMax": 3,
+																"maxWords": 35
+															},
+															"summary": {
+																"enabled": true,
+																"minSentences": 2,
+																"maxSentences": 3,
+																"maxWords": 75
+															},
+															"headline": true,
+															"skills": {
+																"min": 8,
+																"max": 15,
+																"minGroups": 2,
+																"maxGroups": 4
+															},
+															"wordsPerPage": 500
+														}
+													},
+													"recentYears": {
+														"type": "integer",
+														"minimum": 1,
+														"maximum": 40,
+														"default": 10
+													},
+													"olderRoles": {
+														"enum": [
+															"full",
+															"brief"
+														],
+														"type": "string",
+														"default": "brief"
+													},
+													"sectionOrder": {
+														"anyOf": [
+															{
+																"type": "array",
+																"items": {
+																	"enum": [
+																		"summary",
+																		"skills",
+																		"experience",
+																		"projects",
+																		"volunteer",
+																		"education",
+																		"certifications",
+																		"awards"
+																	],
+																	"type": "string"
+																}
+															},
+															{
+																"type": "null"
+															}
+														],
+														"default": null
+													},
+													"skillGroupHints": {
+														"type": "array",
+														"maxItems": 6,
+														"items": {
+															"type": "string",
+															"minLength": 1,
+															"maxLength": 40
+														},
+														"default": []
+													},
+													"exampleIds": {
+														"type": "array",
+														"maxItems": 3,
+														"items": {
+															"type": "string",
+															"minLength": 1,
+															"maxLength": 64
+														},
+														"default": []
+													},
+													"notes": {
+														"type": "string",
+														"maxLength": 1000,
+														"default": ""
+													}
+												},
+												"required": [
+													"id",
+													"name"
+												]
+											}
+										},
+										"examples": {
+											"type": "array",
+											"maxItems": 6,
+											"items": {
+												"type": "object",
+												"properties": {
+													"id": {
+														"type": "string",
+														"minLength": 1,
+														"maxLength": 64
+													},
+													"title": {
+														"type": "string",
+														"minLength": 1,
+														"maxLength": 120
+													},
+													"source": {
+														"enum": [
+															"resume",
+															"upload"
+														],
+														"type": "string"
+													},
+													"resumeId": {
+														"anyOf": [
+															{
+																"type": "string"
+															},
+															{
+																"type": "null"
+															}
+														],
+														"default": null
+													},
+													"text": {
+														"type": "string",
+														"maxLength": 15000
+													},
+													"notes": {
+														"type": "string",
+														"maxLength": 500,
+														"default": ""
+													},
+													"addedAt": {
+														"type": "string",
+														"format": "date-time"
+													}
+												},
+												"required": [
+													"id",
+													"title",
+													"source",
+													"text",
+													"addedAt"
+												]
+											},
+											"default": []
+										}
+									},
+									"required": [
+										"defaultPresetId",
+										"presets"
+									]
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Structured API error. See status and code; do not branch on message text.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"required": [
+										"defined",
+										"code",
+										"status",
+										"message"
+									],
+									"properties": {
+										"defined": {
+											"type": "boolean"
+										},
+										"code": {
+											"type": "string"
+										},
+										"status": {
+											"type": "integer"
+										},
+										"message": {
+											"type": "string"
+										},
+										"data": {}
+									}
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"apiKey": []
+					},
+					{
+						"bearerAuth": []
+					},
+					{
+						"cookieAuth": []
+					}
+				],
+				"x-codeSamples": [
+					{
+						"lang": "bash",
+						"label": "cURL",
+						"source": "curl --request PUT \"https://rxresu.me/api/openapi/resume-style\" --header \"x-api-key: <api-key>\" --header \"Content-Type: application/json\" --data '{\n  \"defaultPresetId\": \"<string>\",\n  \"presets\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\"\n    }\n  ]\n}'"
+					}
+				]
+			}
+		},
+		"/resume-style/examples/from-resume": {
+			"post": {
+				"operationId": "addResumeStyleExampleFromResume",
+				"summary": "Add one of your resumes as a style example",
+				"tags": [
+					"Resume style"
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"resumeId": {
+										"type": "string",
+										"minLength": 1
+									},
+									"title": {
+										"type": "string",
+										"maxLength": 120
+									},
+									"notes": {
+										"type": "string",
+										"maxLength": 500
+									}
+								},
+								"required": [
+									"resumeId"
+								]
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"id": {
+											"type": "string",
+											"minLength": 1,
+											"maxLength": 64
+										},
+										"title": {
+											"type": "string",
+											"minLength": 1,
+											"maxLength": 120
+										},
+										"source": {
+											"enum": [
+												"resume",
+												"upload"
+											],
+											"type": "string"
+										},
+										"resumeId": {
+											"anyOf": [
+												{
+													"type": "string"
+												},
+												{
+													"type": "null"
+												}
+											],
+											"default": null
+										},
+										"text": {
+											"type": "string",
+											"maxLength": 15000
+										},
+										"notes": {
+											"type": "string",
+											"maxLength": 500,
+											"default": ""
+										},
+										"addedAt": {
+											"type": "string",
+											"format": "date-time"
+										}
+									},
+									"required": [
+										"id",
+										"title",
+										"source",
+										"text",
+										"addedAt"
+									]
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Structured API error. See status and code; do not branch on message text.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"required": [
+										"defined",
+										"code",
+										"status",
+										"message"
+									],
+									"properties": {
+										"defined": {
+											"type": "boolean"
+										},
+										"code": {
+											"type": "string"
+										},
+										"status": {
+											"type": "integer"
+										},
+										"message": {
+											"type": "string"
+										},
+										"data": {}
+									}
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"apiKey": []
+					},
+					{
+						"bearerAuth": []
+					},
+					{
+						"cookieAuth": []
+					}
+				],
+				"x-codeSamples": [
+					{
+						"lang": "bash",
+						"label": "cURL",
+						"source": "curl --request POST \"https://rxresu.me/api/openapi/resume-style/examples/from-resume\" --header \"x-api-key: <api-key>\" --header \"Content-Type: application/json\" --data '{\n  \"resumeId\": \"<string>\"\n}'"
+					}
+				]
+			}
+		},
+		"/resume-style/examples/from-file": {
+			"post": {
+				"operationId": "addResumeStyleExampleFromFile",
+				"summary": "Upload a resume you like as a style example",
+				"description": "Multipart form with a file field: a PDF with a text layer, a Word (.docx) or a text file, up to 10 MB. Only the text is kept.",
+				"tags": [
+					"Resume style"
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"multipart/form-data": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"file": {
+										"type": "string",
+										"contentMediaType": "*/*"
+									},
+									"notes": {
+										"type": "string",
+										"maxLength": 500
+									}
+								},
+								"required": [
+									"file"
+								]
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"id": {
+											"type": "string",
+											"minLength": 1,
+											"maxLength": 64
+										},
+										"title": {
+											"type": "string",
+											"minLength": 1,
+											"maxLength": 120
+										},
+										"source": {
+											"enum": [
+												"resume",
+												"upload"
+											],
+											"type": "string"
+										},
+										"resumeId": {
+											"anyOf": [
+												{
+													"type": "string"
+												},
+												{
+													"type": "null"
+												}
+											],
+											"default": null
+										},
+										"text": {
+											"type": "string",
+											"maxLength": 15000
+										},
+										"notes": {
+											"type": "string",
+											"maxLength": 500,
+											"default": ""
+										},
+										"addedAt": {
+											"type": "string",
+											"format": "date-time"
+										}
+									},
+									"required": [
+										"id",
+										"title",
+										"source",
+										"text",
+										"addedAt"
+									]
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Structured API error. See status and code; do not branch on message text.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"required": [
+										"defined",
+										"code",
+										"status",
+										"message"
+									],
+									"properties": {
+										"defined": {
+											"type": "boolean"
+										},
+										"code": {
+											"type": "string"
+										},
+										"status": {
+											"type": "integer"
+										},
+										"message": {
+											"type": "string"
+										},
+										"data": {}
+									}
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"apiKey": []
+					},
+					{
+						"bearerAuth": []
+					},
+					{
+						"cookieAuth": []
+					}
+				],
+				"x-codeSamples": [
+					{
+						"lang": "bash",
+						"label": "cURL",
+						"source": "curl --request POST \"https://rxresu.me/api/openapi/resume-style/examples/from-file\" --header \"x-api-key: <api-key>\" --form \"file=@<file>\""
 					}
 				]
 			}
