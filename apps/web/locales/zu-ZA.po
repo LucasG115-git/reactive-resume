@@ -4194,6 +4194,10 @@ msgstr ""
 msgid "Couldn't reach your AI provider. Its key may have expired."
 msgstr ""
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Couldn't read"
+msgstr ""
+
 #. placeholder {0}: dates.raw
 #: src/features/resume/editor/write/dates-field.tsx
 msgid "Couldn't read “{0}”. Enter the dates so they sort and print consistently."
@@ -6042,6 +6046,10 @@ msgstr ""
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Fill fields"
+msgstr ""
+
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Fill in the details"
 msgstr ""
 
 #: src/features/applications/components/add-application-dialog.tsx
@@ -10759,6 +10767,10 @@ msgstr ""
 msgid "Reactive Resume is open source under the MIT License. Amruth Pillai and a community of contributors keep it running, and donations pay for hosting and development. There’s no paid tier."
 msgstr ""
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Read again"
+msgstr ""
+
 #. placeholder {0}: reader.label
 #: src/features/career/workspace/practise.tsx
 msgid "Read aloud by {0}, which may use tokens on that account."
@@ -10790,7 +10802,6 @@ msgstr ""
 msgid "Read only"
 msgstr ""
 
-#: src/features/applications/components/add-application-dialog.tsx
 #: src/features/career/today.tsx
 msgid "Read posting"
 msgstr ""
@@ -11195,6 +11206,7 @@ msgstr ""
 msgid "Remove {label}…"
 msgstr ""
 
+#: src/features/applications/components/add-application-dialog.tsx
 #: src/features/career/knowledge/structured-preferences.tsx
 msgid "Remove {name}"
 msgstr ""
@@ -14843,6 +14855,14 @@ msgstr ""
 
 #: src/features/settings/resume-style.tsx
 msgid "Uploaded"
+msgstr ""
+
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Uploaded and read"
+msgstr ""
+
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Uploading and reading…"
 msgstr ""
 
 #: src/features/resume/editor/write/picture-settings.tsx

@@ -147,16 +147,24 @@ function AddApplicationForm({ onClose, onAdded }: AddApplicationFormProps) {
 	const readable = text.length > 8 && (link || hasUsableProvider);
 	const parsed = reading?.text === text ? reading.result : null;
 	const clipped = Boolean(parsed?.postingSource.truncated || (!link && text.length > MAX_POSTING_CHARS));
-	const readPosting = () => {
-		if (!readable || read.isPending) return;
+	// An automatic read that arrived before the AI provider finished loading; it runs once the provider is ready.
+	const waiting = useRef<[string, boolean] | null>(null);
+	const readPosting = (value = text, recovery = pasteOpen) => {
+		const asLink = !recovery && isLink(value);
+		waiting.current = null;
+		if (value.length <= 8 || read.isPending) return;
+		if (!asLink && !hasUsableProvider) {
+			waiting.current = [value, recovery];
+			return;
+		}
 		const request = new AbortController();
 		controller.current = request;
 		read.mutate(
-			{ input: text },
+			{ input: value },
 			{
 				onSuccess: (result) => {
 					if (request.signal.aborted) return;
-					setReading({ text, result });
+					setReading({ text: value, result });
 					setRole((current) => current || result.role);
 					setCompany((current) => current || result.company);
 					setLocation((current) => current || result.location);
@@ -164,10 +172,31 @@ function AddApplicationForm({ onClose, onAdded }: AddApplicationFormProps) {
 					setDescription(result.jobDescription);
 				},
 				onError: () => {
-					if (link && !request.signal.aborted) setPasteOpen(true);
+					if (asLink && !request.signal.aborted) setPasteOpen(true);
 				},
 			},
 		);
+	};
+
+	// Reading starts on its own a moment after a link or posting is pasted or typed, so the fields fill themselves.
+	const autoRead = useRef<ReturnType<typeof setTimeout> | null>(null);
+	const latestRead = useRef(readPosting);
+	useEffect(() => {
+		latestRead.current = readPosting;
+	});
+	useEffect(() => {
+		if (!hasUsableProvider || !waiting.current) return;
+		const [value, recovery] = waiting.current;
+		latestRead.current(value, recovery);
+	}, [hasUsableProvider]);
+	useEffect(() => () => clearTimeout(autoRead.current ?? undefined), []);
+	const scheduleRead = (value: string, recovery = false) => {
+		clearTimeout(autoRead.current ?? undefined);
+		const next = value.trim();
+		// A link is read as soon as it's complete; text waits until it looks like a posting, not a few words.
+		if (!(!recovery && isLink(next)) && next.length < 40) return;
+		// The latest render's reader runs, so a provider that finished loading in the meantime is used.
+		autoRead.current = setTimeout(() => latestRead.current(next, recovery), isLink(next) ? 400 : 900);
 	};
 
 	const ready =
@@ -371,6 +400,7 @@ function AddApplicationForm({ onClose, onAdded }: AddApplicationFormProps) {
 						setFileName(null);
 						readFile.reset();
 						resetRead();
+						scheduleRead(event.target.value);
 					}}
 					autoFocus
 				/>
@@ -402,6 +432,7 @@ function AddApplicationForm({ onClose, onAdded }: AddApplicationFormProps) {
 								setPastedText(event.target.value);
 								setDescription(null);
 								resetRead();
+								scheduleRead(event.target.value, true);
 							}}
 						/>
 						<p className="text-xs text-ink-3">
@@ -409,9 +440,33 @@ function AddApplicationForm({ onClose, onAdded }: AddApplicationFormProps) {
 						</p>
 					</div>
 				)}
-				{readable && (
-					<Button type="button" variant="secondary" size="sm" disabled={read.isPending} onClick={readPosting}>
-						<Trans>Read posting</Trans>
+				{fileName && (
+					<FileStatus
+						name={fileName}
+						state={
+							readFile.isPending ? "reading" : readFile.isError ? "failed" : readFile.isSuccess ? "read" : "reading"
+						}
+						onRemove={() => {
+							setFileName(null);
+							readFile.reset();
+							resetRead();
+							setInput("");
+						}}
+					/>
+				)}
+				{readable && !read.isPending && !readFile.isPending && (
+					<Button
+						type="button"
+						variant="secondary"
+						size="sm"
+						className="w-fit"
+						onClick={() => {
+							clearTimeout(autoRead.current ?? undefined);
+							readPosting();
+						}}
+					>
+						<Icon name="arrows-clockwise" size={16} />
+						{parsed ? <Trans>Read again</Trans> : <Trans>Fill in the details</Trans>}
 					</Button>
 				)}
 				{(clipped || parsed?.postingSource.completeness === "incomplete") && (
@@ -632,16 +687,6 @@ function ReadStatus({ text, link, readable, pending, error, parsed, ai, fileName
 			</p>
 		);
 	}
-	if (!text) {
-		return (
-			<p className={cn(base, "text-ink-3")}>
-				<Trans>
-					Paste a link or the posting, or upload it as a PDF or Word file. It's saved for Check, the assistant, your
-					resume and your letter.
-				</Trans>
-			</p>
-		);
-	}
 	if (error) {
 		return (
 			<p className={cn(base, "text-warn-text")} role="alert">
@@ -652,6 +697,16 @@ function ReadStatus({ text, link, readable, pending, error, parsed, ai, fileName
 						? t`That file couldn't be read. Upload a PDF with selectable text or a Word (.docx) file, or paste the posting.`
 						: t`The posting couldn't be read. Fill in the role and company.`,
 				})}
+			</p>
+		);
+	}
+	if (!text) {
+		return (
+			<p className={cn(base, "text-ink-3")}>
+				<Trans>
+					Paste a link or the posting, or upload it as a PDF or Word file. It's saved for Check, the assistant, your
+					resume and your letter.
+				</Trans>
 			</p>
 		);
 	}
@@ -694,5 +749,46 @@ function ReadStatus({ text, link, readable, pending, error, parsed, ai, fileName
 				<Trans>Fill in the role and company. Connect an AI provider in Settings to read them from the posting.</Trans>
 			)}
 		</p>
+	);
+}
+
+type FileStatusProps = { name: string; state: "reading" | "read" | "failed"; onRemove: () => void };
+
+/** The uploaded posting file: its name, whether it was read, and a way to remove it. */
+function FileStatus({ name, state, onRemove }: FileStatusProps) {
+	return (
+		<div
+			className={cn(
+				"flex items-center gap-2 rounded-lg border px-2.5 py-1.5 text-[13px]",
+				state === "failed" ? "border-warn-text/40 bg-warn-soft" : "border-line bg-sunken",
+			)}
+		>
+			<Icon
+				name={state === "read" ? "check-circle" : state === "failed" ? "warning-circle" : "file-text"}
+				size={16}
+				className={cn(
+					"shrink-0",
+					state === "read" ? "text-accent-text" : state === "failed" ? "text-warn-text" : "text-ink-2",
+				)}
+			/>
+			<span className="min-w-0 flex-1 truncate font-medium">{name}</span>
+			<span className="shrink-0 text-xs text-ink-3" role="status">
+				{state === "reading" ? (
+					<Trans>Uploading and reading…</Trans>
+				) : state === "read" ? (
+					<Trans>Uploaded and read</Trans>
+				) : (
+					<Trans>Couldn't read</Trans>
+				)}
+			</span>
+			<button
+				type="button"
+				className="touch-target shrink-0 rounded-sm text-ink-3 hover:text-ink"
+				aria-label={t`Remove ${name}`}
+				onClick={onRemove}
+			>
+				<Icon name="x" size={14} />
+			</button>
+		</div>
 	);
 }

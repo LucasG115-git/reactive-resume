@@ -113,7 +113,6 @@ test("unreadable link preserves fields and source while offering immediate paste
 	await dialog.getByLabel("Job link or posting text").fill(source);
 	await dialog.getByLabel("Role", { exact: true }).fill("Manual role");
 	await dialog.getByLabel("Company", { exact: true }).fill("Manual company");
-	await dialog.getByRole("button", { name: "Read posting", exact: true }).click();
 	await expect(dialog.getByLabel("Pasted description")).toBeVisible();
 	await expect(dialog.getByLabel("Role", { exact: true })).toHaveValue("Manual role");
 	await expect(dialog.getByLabel("Job link or posting text")).toHaveValue(source);

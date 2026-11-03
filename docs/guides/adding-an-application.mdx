@@ -16,14 +16,16 @@ Saving a job and preparing a resume manually work without an AI connection or an
   </Step>
   <Step title="Paste the job link or posting">
     Paste into **Job link or posting text**. A single web address counts as a link; anything else counts as posting
-    text. Select **Read posting** to retrieve a link's text and any available job details. Reading starts only when you
-    select the button; you can also save the link without reading it. If you have the posting as a file, select **Upload
-    PDF or Word file** (or drop the file on the box): a PDF with selectable text, a Word (.docx) file or a text file is
-    read the same way. Scanned PDFs have no text to read; paste the posting instead.
+    text. Reading starts on its own a moment after you paste: a link's page is retrieved, and the job details are filled
+    in. Select **Read again** to read it once more after you change it. If you have the posting as a file, select
+    **Upload PDF or Word file** (or drop the file on the box): a PDF with selectable text, a Word (.docx) file or a text
+    file is read the same way. The file's name appears under the box with **Uploaded and read** once it's done, and its
+    text goes into the box; if it can't be read, it says so. Scanned PDFs have no text to read; paste the posting
+    instead.
   </Step>
   <Step title="Check the role and company">
-    Reading may fill **Role**, **Company**, **Location** and **Salary**. Correct anything that was found, and fill
-    missing fields yourself. Only **Role** and **Company** are required.
+    Reading may fill **Role**, **Company**, **Location** and **Salary**. Fields you've already typed in are kept.
+    Correct anything that was found, and fill missing fields yourself. Only **Role** and **Company** are required.
   </Step>
   <Step title="Pick a stage">
     **Saved** is the default. Choose **Already applied** or **Already interviewing** only if that happened, then confirm
@@ -60,7 +62,7 @@ If search is available on your installation, the **Save a job** dialog also show
     the dialog; it does not read or save the posting.
   </Step>
   <Step title="Read and review">
-    Select **Read posting**, then review **Saved description** and the role, company, location and salary. Correct
+    The posting is read on its own. Review **Saved description** and the role, company, location and salary. Correct
     missing or inaccurate details. If the page cannot be read, use **Paste description instead**.
   </Step>
   <Step title="Save the job">
@@ -72,13 +74,13 @@ If search is available on your installation, the **Save a job** dialog also show
   </Step>
 </Steps>
 
-Search sends your search terms to the configured web search service. Reading a link retrieves its public page through the selected web reader or the built-in reader. If you have a usable default AI provider, **Read posting** also sends the posting text to it to suggest job details. Saving a job never submits an application or contacts the employer.
+Search sends your search terms to the configured web search service. Reading a link retrieves its public page through the selected web reader or the built-in reader. If you have a usable default AI provider, reading also sends the posting text to it to suggest job details. Saving a job never submits an application or contacts the employer.
 
 If search fails or finds nothing useful, change your keywords or paste a posting link directly. For searches that run on a schedule, see [Finding roles automatically](/guides/finding-roles-automatically).
 
 ## What gets read from a posting
 
-What **Read posting** can fill depends on what you paste and whether you already have a usable [AI connection](/guides/using-ai):
+What reading can fill depends on what you paste and whether you already have a usable [AI connection](/guides/using-ai):
 
 | You paste    | Without an AI provider                                                                | With an AI provider                                             |
 | ------------ | ------------------------------------------------------------------------------------- | --------------------------------------------------------------- |

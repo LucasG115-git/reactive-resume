@@ -168,7 +168,6 @@ it.each(["ai", "page"])(
 		fireEvent.change(await screen.findByRole("textbox", { name: "Job link or posting text" }), {
 			target: { value: "https://example.test/careers" },
 		});
-		fireEvent.click(screen.getByRole("button", { name: "Read posting" }));
 		await screen.findByText(/Some job details couldn't be read/);
 		expect(screen.queryByText(/Found (the )?role,? (and )?company/)).toBeNull();
 		expect((screen.getByRole("button", { name: "Save job" }) as HTMLButtonElement).disabled).toBe(true);
@@ -204,6 +203,8 @@ it("reads a posting file and saves the job straight into building a resume from 
 	const file = new File(["%PDF"], "posting.pdf", { type: "application/pdf" });
 	fireEvent.change(input, { target: { files: [file] } });
 	await screen.findByText(/Found role, company and 2 requirements/);
+	expect(screen.getByText("posting.pdf")).toBeTruthy();
+	expect(screen.getByText("Uploaded and read")).toBeTruthy();
 	expect(api.readPostingFile.mock.calls[0]?.[0]).toEqual({ file });
 	expect((screen.getByRole("textbox", { name: "Role" }) as HTMLInputElement).value).toBe("Web Developer");
 	fireEvent.click(await screen.findByRole("button", { name: "Save and build resume" }));
@@ -214,4 +215,49 @@ it("reads a posting file and saves the job straight into building a resume from 
 		jobDescription: "Web Developer at Contoso. WordPress and accessibility.",
 		postingSource: { method: "upload" },
 	});
+});
+
+it("says when a posting file couldn't be read, and lets it be removed", async () => {
+	api.readPostingFile.mockRejectedValueOnce(new Error("unreadable"));
+	mount(<AddApplicationDialog open onOpenChange={vi.fn()} onAdded={vi.fn()} />);
+	await screen.findByRole("button", { name: "Upload PDF or Word file" });
+	const input = document.querySelector<HTMLInputElement>('input[type="file"]');
+	if (!input) throw new Error("No file input.");
+	fireEvent.change(input, { target: { files: [new File(["x"], "scan.pdf", { type: "application/pdf" })] } });
+	await screen.findByText("Couldn't read");
+	expect(screen.getByRole("alert").textContent).toContain("unreadable");
+	fireEvent.click(screen.getByRole("button", { name: "Remove scan.pdf" }));
+	expect(screen.queryByText("scan.pdf")).toBeNull();
+});
+
+it("fills the details by itself shortly after a posting is pasted, keeping what the user typed", async () => {
+	api.parsePosting.mockResolvedValueOnce({
+		role: "Communications Manager",
+		company: "Harbourview Food Bank",
+		location: "Peterborough, ON",
+		salary: "$70,000",
+		requirements: ["Writing"],
+		jobDescription: "Communications Manager at Harbourview Food Bank, Peterborough.",
+		sourceUrl: null,
+		postingSource: { method: "paste", format: "text", truncated: false, completeness: "unknown" },
+		enrichmentWarning: null,
+		filledBy: "ai",
+	});
+	mount(<AddApplicationDialog open onOpenChange={vi.fn()} onAdded={vi.fn()} />);
+	fireEvent.change(await screen.findByRole("textbox", { name: "Company" }), { target: { value: "My Company" } });
+	fireEvent.change(screen.getByRole("textbox", { name: "Job link or posting text" }), {
+		target: { value: "Communications Manager at Harbourview Food Bank, Peterborough. $70,000." },
+	});
+	await waitFor(
+		() =>
+			expect((screen.getByRole("textbox", { name: "Role" }) as HTMLInputElement).value).toBe("Communications Manager"),
+		{
+			timeout: 3000,
+		},
+	);
+	expect(api.parsePosting).toHaveBeenCalledTimes(1);
+	expect((screen.getByRole("textbox", { name: "Company" }) as HTMLInputElement).value).toBe("My Company");
+	expect((screen.getByRole("textbox", { name: "Location" }) as HTMLInputElement).value).toBe("Peterborough, ON");
+	expect((screen.getByRole("textbox", { name: "Salary" }) as HTMLInputElement).value).toBe("$70,000");
+	expect(screen.getByRole("button", { name: "Read again" })).toBeTruthy();
 });
