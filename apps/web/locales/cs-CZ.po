@@ -228,6 +228,11 @@ msgstr ""
 msgid "{0, plural, one {# proposed edit} other {# proposed edits}}"
 msgstr "{0, plural, one {Navrhovaná úprava #} other {# navrhované úpravy}}"
 
+#. placeholder {0}: plan.unavailable.length
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "{0, plural, one {# record is hidden, switched off in Knowledge, or private to another application, so it wasn't considered.} other {# records are hidden, switched off in Knowledge, or private to another application, so they weren't considered.}}"
+msgstr ""
+
 #. placeholder {0}: result.skipped
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "{0, plural, one {# row has no company or role and will be skipped.} other {# rows have no company or role and will be skipped.}}"
@@ -437,6 +442,12 @@ msgstr "o {0} více"
 #. placeholder {0}: result.added
 #: src/features/career/knowledge/profile-knowledge-sync.tsx
 msgid "{0} new facts"
+msgstr ""
+
+#. placeholder {0}: included.length
+#. placeholder {1}: entry.achievements.length
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "{0} of {1} achievements"
 msgstr ""
 
 #. placeholder {0}: report.passedChecks
@@ -681,6 +692,10 @@ msgstr "{failing, plural, one {# ke kontrole} other {# ke kontrole}}"
 #: src/features/career/knowledge/stories.tsx
 msgid "{filled} of 5 parts"
 msgstr "{filled} z 5 částí"
+
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "{hiddenCount, plural, one {Show # more achievement} other {Show # more achievements}}"
+msgstr ""
 
 #: src/features/ats-checker/checker.tsx
 msgid "{issues, plural, one {# issue could cost you a match.} other {# issues could cost you a match.}}"
@@ -1117,6 +1132,11 @@ msgstr ""
 #: src/features/settings/account/security.tsx
 msgid "A name helps you tell passkeys apart, like “Work laptop”."
 msgstr "Název vám pomůže passkeys rozlišit, například „Pracovní notebook“."
+
+#. placeholder {0}: application.company
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "A new resume for {0} is built from the selection you reviewed. With \"Adjust to the posting\", your AI connection words the bullets and writes a summary; the selected records and the posting are sent to it."
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "A numeric date reads differently in different countries."
@@ -1969,6 +1989,18 @@ msgstr "chyba"
 msgid "An unexpected error stopped this page from loading. Try again, or go to the dashboard."
 msgstr "Načtení této stránky zastavila neočekávaná chyba. Zkuste to znovu nebo přejděte na nástěnku."
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Analyse again"
+msgstr ""
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Analyse the posting"
+msgstr ""
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Analysing the posting and reviewing your profile…"
+msgstr ""
+
 #. Hero headline, line 3 of 4: A free, open-source / resume builder / and / career manager.
 #: src/features/homepage/hero.tsx
 msgctxt "hero headline"
@@ -2349,10 +2381,6 @@ msgid "Assemble from profile"
 msgstr ""
 
 #: src/features/applications/components/detail/assemble-dialog.tsx
-msgid "Assemble from your profile"
-msgstr ""
-
-#: src/features/applications/components/detail/assemble-dialog.tsx
 msgid "Assemble resume"
 msgstr ""
 
@@ -2469,6 +2497,7 @@ msgstr ""
 msgid "Awarder"
 msgstr "oceněný"
 
+#: src/features/applications/components/detail/selection-review.tsx
 #: src/libs/resume/section.tsx
 msgid "Awards"
 msgstr "Ocenění"
@@ -2521,6 +2550,10 @@ msgstr "Zpět na přihlášení"
 #: src/features/career/knowledge/stories.tsx
 msgid "Back to stories"
 msgstr "Zpět na příběhy"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Back to the selection"
+msgstr ""
 
 #: src/features/applications/components/detail/assemble-dialog.tsx
 msgid "Backed"
@@ -2691,6 +2724,10 @@ msgstr "Sestavte si profesní životopis, stáhněte si jej jako PDF nebo Micros
 msgid "Build a resume for a job"
 msgstr ""
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Build the resume"
+msgstr ""
+
 #: src/features/homepage/ui.tsx
 #: src/features/templates/gallery.tsx
 msgid "Build your resume"
@@ -2813,6 +2850,7 @@ msgstr ""
 msgid "Certification"
 msgstr ""
 
+#: src/features/applications/components/detail/selection-review.tsx
 #: src/libs/resume/section.tsx
 msgid "Certifications"
 msgstr "Osvědčení"
@@ -3107,6 +3145,10 @@ msgstr "Vyberte jiný soubor"
 #: src/components/input/color-picker.tsx
 msgid "Choose color"
 msgstr "Vyberte barvu"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Choose what to include"
+msgstr ""
 
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Choose where each stage named in the file goes, or add it as a new stage."
@@ -3685,6 +3727,10 @@ msgid "Couldn't add the passkey. Try again."
 msgstr "Nepodařilo se přidat přístupový klíč. Zkuste to znovu."
 
 #: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Couldn't analyse the posting. Try again."
+msgstr ""
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
 msgid "Couldn't assemble the resume. Try again."
 msgstr ""
 
@@ -4032,6 +4078,10 @@ msgstr "Heslo se nepodařilo obnovit. Zkuste to znovu."
 msgid "Couldn't restore the document. Try again."
 msgstr "Dokument se nepodařilo obnovit. Zkuste to znovu."
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Couldn't restore the proposal. Try again."
+msgstr ""
+
 #: src/features/settings/ai/api-keys.tsx
 msgid "Couldn't revoke the key. Try again."
 msgstr "Klíč se nepodařilo zrušit. Zkuste to znovu."
@@ -4130,6 +4180,10 @@ msgstr "Vaše změny se nepodařilo uložit. Zkuste to znovu."
 #: src/features/career/knowledge/preferences.tsx
 msgid "Couldn't save your preferences. Try again."
 msgstr "Vaše předvolby se nepodařilo uložit. Zkuste to znovu."
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Couldn't save your selection. Try again."
+msgstr ""
 
 #: src/features/applications/components/manage-lanes-sheet.tsx
 msgid "Couldn't save your stages. Try again."
@@ -5315,6 +5369,7 @@ msgstr "Pohledy editora"
 msgid "Editorial"
 msgstr "Redakční"
 
+#: src/features/applications/components/detail/selection-review.tsx
 #: src/features/career/knowledge/profile.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
@@ -6060,6 +6115,14 @@ msgstr ""
 msgid "From your experience entries"
 msgstr "Z vašich zkušeností"
 
+#. placeholder {0}: plan.totals.entries
+#. placeholder {1}: plan.totals.achievements
+#. placeholder {2}: plan.totals.includedEntries
+#. placeholder {3}: plan.totals.includedAchievements
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "From your full record of {0, plural, one {# entry} other {# entries}} and {1, plural, one {# achievement} other {# achievements}}, this resume uses {2, plural, one {# entry} other {# entries}} and {3, plural, one {# achievement} other {# achievements}}."
+msgstr ""
+
 #: src/features/career/knowledge/facts.tsx
 msgid "From your message"
 msgstr "Z vaší zprávy"
@@ -6613,6 +6676,11 @@ msgstr "Importujte tento soubor do bezplatného Reactive Resume. Každý problé
 msgid "Import your current resume and we'll lay out every section for you to refine. Or start fresh. Start with your name. Build from there."
 msgstr "Importujte svůj aktuální životopis a my vám připravíme každou sekci k upřesnění. Nebo začít znovu. Začněte svým jménem. Stavět odtud."
 
+#. placeholder {0}: requirement.importance
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "importance {0} of 5"
+msgstr ""
+
 #: src/features/documents/new-document-dialog.tsx
 #: src/features/resume/share/format.ts
 msgid "Imported"
@@ -6669,6 +6737,10 @@ msgstr ""
 #: src/features/career/workspace/fit.tsx
 msgid "Inferred"
 msgstr "Odvozeno"
+
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "inferred from the duties"
+msgstr ""
 
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Inline"
@@ -7247,6 +7319,10 @@ msgstr "Ponechte prázdné, chcete-li použít původní název."
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Leave out"
 msgstr "Vynechat"
+
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "Leaving a position off this resume doesn't change your dates or your profile. When an application form asks for your full employment history, list every position."
+msgstr ""
 
 #: src/features/homepage/sheet.tsx
 msgid "Led <0>user research</0> for the onboarding redesign; activation rose from 31% to 44%."
@@ -8040,6 +8116,7 @@ msgstr "Posunout {label} nahoru"
 msgid "Move all content inside the page boundaries and re-export."
 msgstr "Přesuňte veškerý obsah dovnitř hranic stránky a znovu exportujte."
 
+#: src/features/applications/components/detail/selection-review.tsx
 #: src/features/career/knowledge/structured-preferences.tsx
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Move down"
@@ -8103,6 +8180,7 @@ msgstr "Přesunout do koše"
 msgid "Move to…"
 msgstr "Přesunout do…"
 
+#: src/features/applications/components/detail/selection-review.tsx
 #: src/features/career/knowledge/structured-preferences.tsx
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Move up"
@@ -8381,6 +8459,10 @@ msgstr "Další krok: {0}. Přidá připomínku do sekce Dnes."
 msgid "Next time, I’d agree how to measure success before the first prototype."
 msgstr "Příště se před prvním prototypem nejdřív dohodnout, jak měřit úspěch."
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Next: build the resume"
+msgstr ""
+
 #: src/features/career/knowledge/structured-preferences.tsx
 #: src/features/career/preference-check.tsx
 msgid "Nice to have"
@@ -8448,6 +8530,10 @@ msgstr "Bez oprav"
 #: src/features/career/knowledge/search-regions-field.tsx
 msgid "No country matches."
 msgstr "Nebyly nalezeny žádné země."
+
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "No dates"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "No dates were found."
@@ -8634,6 +8720,10 @@ msgstr "Z tohoto souboru se nepodařilo přečíst žádný text."
 #: src/features/settings/preferences.tsx
 msgid "No timezone matches."
 msgstr "Žádné časové pásmo neodpovídá."
+
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "No verified evidence"
+msgstr ""
 
 #: src/features/resume/editor/check/issues.ts
 msgid "No work experience shows"
@@ -8844,6 +8934,10 @@ msgstr "Dokud se nerozhodnete, nic se nepodá ani nevytvoří."
 
 #: src/features/career/knowledge/profile-file.tsx
 msgid "Nothing is saved until you choose Add to profile. Anything already in your profile is skipped."
+msgstr ""
+
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "Nothing is written for a requirement without evidence. If you have done it, add it to your profile and propose again."
 msgstr ""
 
 #: src/features/ats-checker/messages.ts
@@ -9373,6 +9467,7 @@ msgstr "Parcel & Co. · Porto"
 msgid "Partly backed"
 msgstr ""
 
+#: src/features/applications/components/detail/selection-review.tsx
 #: src/features/career/shared.tsx
 #: src/features/homepage/prepare.tsx
 msgid "Partly supported"
@@ -9778,6 +9873,7 @@ msgctxt "Career preferences: the roles, places, pay and ways of working you want
 msgid "Preferences"
 msgstr "Předvolby"
 
+#: src/features/applications/components/detail/selection-review.tsx
 #: src/features/career/knowledge/structured-preferences.tsx
 msgid "Preferred"
 msgstr ""
@@ -9825,6 +9921,10 @@ msgstr "Připravujeme životopis k tisku…"
 #: src/features/resume/editor/chrome/bar.tsx
 msgid "Preparing…"
 msgstr "Příprava…"
+
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "present"
+msgstr ""
 
 #: src/features/career/knowledge/profile.tsx
 #: src/features/resume/editor/write/dates-field.tsx
@@ -9961,6 +10061,7 @@ msgstr "Ukazatel průběhu"
 msgid "Project name"
 msgstr ""
 
+#: src/features/applications/components/detail/selection-review.tsx
 #: src/libs/resume/section.tsx
 msgid "Projects"
 msgstr "Projekty"
@@ -9978,6 +10079,10 @@ msgstr ""
 msgid "Prompt copied. Paste it into Claude or ChatGPT."
 msgstr ""
 
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Propose again"
+msgstr ""
+
 #: src/features/career/workspace/messages.tsx
 msgid "Proposed changes"
 msgstr "Navrhované změny"
@@ -9985,6 +10090,10 @@ msgstr "Navrhované změny"
 #: src/features/resume/editor/proposals/proposal-list.tsx
 msgid "Proposed edits"
 msgstr "Navrhované úpravy"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Proposed from your whole profile for this posting. Include or leave out entries and achievements, and reorder bullets. Your profile itself doesn't change."
+msgstr ""
 
 #: src/features/resume/builder/password-dialog.tsx
 msgid "Protect your resume with a password"
@@ -10717,6 +10826,10 @@ msgstr "Nahlásit chybu"
 msgid "Require a password"
 msgstr "Vyžadovat heslo"
 
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "Required"
+msgstr ""
+
 #: src/features/career/workspace/fit.tsx
 msgid "Requirement"
 msgstr "Požadavek"
@@ -10765,6 +10878,10 @@ msgstr "Zodpovědnost za návrhový systém a pomoc ostatním týmům s jejich n
 #: src/features/documents/document-actions.tsx
 msgid "Restore"
 msgstr "Obnovit"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Restore the proposal"
+msgstr ""
 
 #: src/features/resume/share/history-tab.tsx
 msgid "Restore this version"
@@ -11861,6 +11978,10 @@ msgstr "Zobrazit odkaz v nadpisu"
 msgid "Show on page"
 msgstr "Zobrazit na stránce"
 
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "Show only the included achievements"
+msgstr ""
+
 #: src/features/resume/editor/chrome.tsx
 msgid "Show panel"
 msgstr "Zobrazit panel"
@@ -12058,6 +12179,10 @@ msgstr "Dovednosti"
 
 #: src/features/career/knowledge/profile.tsx
 msgid "Skills shown, comma separated"
+msgstr ""
+
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "Skills to list"
 msgstr ""
 
 #: src/features/assistant/tool-approvals.tsx
@@ -12553,6 +12678,7 @@ msgstr ""
 msgid "Support"
 msgstr "Podpora"
 
+#: src/features/applications/components/detail/selection-review.tsx
 #: src/features/career/shared.tsx
 #: src/features/career/workspace/debrief.tsx
 #: src/features/homepage/prepare.tsx
@@ -13102,6 +13228,10 @@ msgstr "Stránky jsou obrázky, bez textu na pozadí."
 msgid "The posting asks for “{label}”. If it's true for me, work it into my resume where it fits. Ask me first."
 msgstr "Nabídka práce požaduje „{label}“. Pokud je to pro mě pravda, zapracujte to do mého životopisu, kam se to hodí. Nejdřív se mě zeptej."
 
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "The posting changed since this was analysed. Analyse it again to update the requirements."
+msgstr ""
+
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "The posting couldn't be read. Fill in the role and company."
 msgstr "Nabídku práce nelze přečíst. Vyplňte roli a společnost."
@@ -13273,7 +13403,7 @@ msgid "This application has no posting saved yet. Paste it to match against it."
 msgstr "Tato žádost o zaměstnání zatím nemá uložený inzerát. Vložte ho pro porovnání."
 
 #: src/features/applications/components/detail/assemble-dialog.tsx
-msgid "This application has no posting text saved, so there's little to match against. Add the posting to the application first for a better result."
+msgid "This application has no posting saved. Add the posting to the application first."
 msgstr ""
 
 #: src/features/career/knowledge/structured-preferences.tsx
@@ -13456,6 +13586,10 @@ msgstr "Tento životopis byl aktualizován agentem s umělou inteligencí."
 #: src/features/resume/builder/draft.ts
 msgid "This resume's sharing settings changed elsewhere."
 msgstr "Nastavení sdílení tohoto životopisu se změnilo jinde."
+
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "This role"
+msgstr ""
 
 #: src/features/career/knowledge/structured-preferences.tsx
 msgid "This rule isn't saved until then."
@@ -14418,6 +14552,10 @@ msgstr "Nastavení hlasu"
 msgid "Volunteer"
 msgstr "Dobrovolnictví"
 
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "Volunteer work"
+msgstr ""
+
 #: src/features/career/workspace/messages.tsx
 msgid "Waiting for you"
 msgstr "Čeká na vás"
@@ -14614,6 +14752,10 @@ msgstr "Co bys poslala kontrola na úrovni souboru v PDF. Běželo to na této k
 msgid "What the posting asks for"
 msgstr ""
 
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "What the posting needs, most important first"
+msgstr ""
+
 #: src/features/applications/components/interview-dialog.tsx
 msgid "What they asked you to prepare"
 msgstr "Co vás požádali připravit"
@@ -14800,6 +14942,10 @@ msgstr ""
 #: src/features/ats-checker/messages.ts
 msgid "Words run together when the text is extracted."
 msgstr "Slova se při extrakci textu spojují dohromady."
+
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "Work experience"
+msgstr ""
 
 #: src/features/career/workspace/prepare.tsx
 msgid "Works without AI or new research"
@@ -15063,9 +15209,8 @@ msgstr "vaše připojení k AI"
 msgid "Your AI connection"
 msgstr "Vaše připojení k AI"
 
-#. placeholder {0}: application.company
 #: src/features/applications/components/detail/assemble-dialog.tsx
-msgid "Your AI connection picks the achievements and skills from your master profile that best match this posting, and builds a new resume for {0} from them. Your profile, the posting and the base resume's text are sent to that connection."
+msgid "Your AI connection analyses the posting into ranked requirements, then reviews the strongest evidence from your whole master profile. You check the selection before anything is written. The posting and your profile are sent to that connection."
 msgstr ""
 
 #: src/features/career/workspace/practise.tsx
@@ -15117,6 +15262,10 @@ msgstr "Vaše odrážky jsou vykresleny neobvyklými znaky."
 #: src/routes/builder/letter/-components/letter-shell.tsx
 msgid "Your changes are saved automatically."
 msgstr "Vaše změny se ukládají automaticky."
+
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "your choice"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Your contact details are not on the first page."
@@ -15253,6 +15402,14 @@ msgstr "Vaše telefonní číslo je zapsáno v neobvyklém formátu."
 #: src/features/career/coach.tsx
 msgid "your preferences"
 msgstr "vaše předvolby"
+
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "Your profile changed since this was proposed. Propose again to consider new records."
+msgstr ""
+
+#: src/features/applications/components/detail/selection-review.tsx
+msgid "your profile has evidence that isn't included"
+msgstr ""
 
 #: src/features/assistant/assistant-panel.tsx
 msgid "your provider"

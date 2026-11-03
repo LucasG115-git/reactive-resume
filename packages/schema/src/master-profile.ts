@@ -95,6 +95,8 @@ export const assembleInputSchema = z.object({
 	baseResumeId: z.string().min(1).optional(),
 	mode: assembleModeSchema.default("rephrase"),
 	name: z.string().trim().min(1).max(200).optional(),
+	/** Build from the application's reviewed Resume Selection Plan when it has one (default). */
+	usePlan: z.boolean().optional(),
 });
 export type AssembleInput = z.infer<typeof assembleInputSchema>;
 

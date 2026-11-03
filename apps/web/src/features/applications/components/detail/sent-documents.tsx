@@ -179,7 +179,7 @@ export function SentDocuments({ application, disabled, assemble }: SentDocuments
 				</div>
 			)}
 
-			<AssembleDialog application={application} open={assembling} onOpenChange={setAssembling} />
+			<AssembleDialog application={application} open={assembling} onOpenChange={setAssembling} autoPropose={assemble} />
 
 			{attaching ? (
 				<div className="grid gap-1.5">

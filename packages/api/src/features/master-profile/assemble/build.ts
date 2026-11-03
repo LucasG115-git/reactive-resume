@@ -1,4 +1,5 @@
 import type { MasterProfile } from "../service";
+import type { ResumeSelectionPlan } from "@reactive-resume/schema/resume-selection";
 import type { ResumeData } from "@reactive-resume/schema/resume/data";
 import type { ResumeDates } from "@reactive-resume/schema/resume/dates";
 import { generateId } from "@reactive-resume/utils/string";
@@ -138,8 +139,13 @@ export function buildResume(input: {
 	selection: Selection;
 	mode: AssembleMode;
 	now?: Date;
+	/**
+	 * A reviewed Resume Selection Plan. With one, it decides which entries, achievements (in its order, uncapped)
+	 * and skills appear; the selection only supplies wording and the summary.
+	 */
+	plan?: ResumeSelectionPlan | null | undefined;
 }): AssembleResult {
-	const { base, profile, selection, mode } = input;
+	const { base, profile, selection, mode, plan } = input;
 	const now = input.now ?? new Date();
 	const warnings: string[] = [];
 
@@ -154,7 +160,26 @@ export function buildResume(input: {
 	// Selected bullets per entry, in the model's order of relevance, capped per entry.
 	const chosen = new Map<string | null, Array<{ achievement: Achievement; proposed: string }>>();
 	const seen = new Set<string>();
-	for (const pick of selection.achievements) {
+	const wording = new Map(selection.achievements.map((pick) => [pick.id, pick.text]));
+	const planned = plan
+		? plan.entries
+				.filter((entry) => entry.include)
+				.flatMap((entry) =>
+					entry.achievements
+						.filter((item) => item.include)
+						.map((item) => ({ id: item.achievementId, text: wording.get(item.achievementId) ?? "" })),
+				)
+		: null;
+	if (plan) {
+		const missing = plan.entries
+			.filter((entry) => entry.include)
+			.flatMap((entry) =>
+				entry.achievements.filter((item) => item.include && !visibleAchievements.has(item.achievementId)),
+			);
+		if (missing.length > 0)
+			warnings.push(`${missing.length} planned achievement(s) are no longer in your profile, so they were left out.`);
+	}
+	for (const pick of planned ?? selection.achievements) {
 		const achievement = visibleAchievements.get(pick.id);
 		if (!achievement || seen.has(pick.id)) continue;
 		seen.add(pick.id);
@@ -166,8 +191,12 @@ export function buildResume(input: {
 	const capFor = (entry: Entry) =>
 		entry.kind === "position" ? (isRecent(entry, now, 5) ? LIMITS.recentPosition : LIMITS.olderPosition) : LIMITS.other;
 
-	// Which entries appear: anything with a chosen bullet, recent positions, all education and certifications.
+	// Which entries appear: the plan's, or anything with a chosen bullet, recent positions, all education and certifications.
+	const planEntries = plan
+		? new Set(plan.entries.filter((entry) => entry.include).map((entry) => entry.entryId))
+		: null;
 	const included = entries.filter((entry) => {
+		if (planEntries) return planEntries.has(entry.id);
 		if (chosen.has(entry.id)) return true;
 		if (entry.kind === "position") return isRecent(entry, now, LIMITS.keepPositionYears);
 		return entry.kind === "education" || entry.kind === "certification";
@@ -176,6 +205,13 @@ export function buildResume(input: {
 	const bullets: AssembledBullet[] = [];
 	const bulletsFor = (entry: Entry): string[] => {
 		const picks = [...(chosen.get(entry.id) ?? [])];
+		// The reviewed plan is final: its bullets, in its order, with nothing added or capped.
+		if (plan)
+			return picks.map(({ achievement, proposed }) => {
+				const chosenWording = chooseWording(achievement, proposed, mode, warnings);
+				bullets.push({ achievementId: achievement.id, entryId: entry.id, ...chosenWording });
+				return chosenWording.text;
+			});
 		// Always-include achievements join the picks (after them, unless already picked).
 		for (const achievement of entry.achievements)
 			if (achievement.core && !achievement.hidden && !picks.some((pick) => pick.achievement.id === achievement.id))
@@ -287,8 +323,12 @@ export function buildResume(input: {
 	// Skills: the model's picks first, then every other visible skill, grouped by category.
 	const visibleSkills = profile.skills.filter((skill) => !skill.hidden);
 	const skillById = new Map(visibleSkills.map((skill) => [skill.id, skill]));
-	const picked = selection.skills.map((id) => skillById.get(id)).filter((skill): skill is Skill => Boolean(skill));
-	const orderedSkills = [...new Set([...picked, ...visibleSkills])];
+	const pickedIds = plan
+		? plan.skills.filter((skill) => skill.include).map((skill) => skill.skillId)
+		: selection.skills;
+	const picked = pickedIds.map((id) => skillById.get(id)).filter((skill): skill is Skill => Boolean(skill));
+	// With a plan, only its skills; without, the picks first and then every other visible skill.
+	const orderedSkills = plan ? [...new Set(picked)] : [...new Set([...picked, ...visibleSkills])];
 	const groups = new Map<string, Skill[]>();
 	for (const skill of orderedSkills) {
 		const key = skill.category || "Skills";
@@ -330,7 +370,7 @@ export function buildResume(input: {
 	}
 
 	// Entries the model referred to that don't exist (or are hidden) are ignored, but worth knowing about.
-	const unknown = selection.achievements.filter((pick) => !visibleAchievements.has(pick.id)).length;
+	const unknown = plan ? 0 : selection.achievements.filter((pick) => !visibleAchievements.has(pick.id)).length;
 	if (unknown > 0) warnings.push(`Ignored ${unknown} suggestion(s) that didn't match your profile.`);
 
 	return {

@@ -3,9 +3,9 @@ import type { RouterOutput } from "@/libs/orpc/client";
 import type { AssembleMode } from "@reactive-resume/schema/master-profile";
 import { plural, t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { Link } from "@tanstack/react-router";
-import { useId, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { Button, buttonVariants } from "@reactive-resume/ui/components/button";
 import {
 	Dialog,
@@ -20,6 +20,7 @@ import { NativeSelect } from "@reactive-resume/ui/components/native-select";
 import { SegmentedControl, SegmentedControlItem } from "@reactive-resume/ui/components/segmented-control";
 import { cn } from "@reactive-resume/utils/style";
 import { useInvalidateApplications } from "../../use-application-actions";
+import { SelectionReview } from "./selection-review";
 import { toastError } from "@/libs/error-message";
 import { orpc } from "@/libs/orpc/client";
 
@@ -29,11 +30,53 @@ type AssembleDialogProps = {
 	application: Application;
 	open: boolean;
 	onOpenChange: (open: boolean) => void;
+	/** Start analysing as soon as it opens, when there's no selection yet (after "Save and build resume"). */
+	autoPropose?: boolean | undefined;
 };
 
-/** Assemble a resume for this job from the master profile, then show what the posting asked for and what backed it. */
-export function AssembleDialog({ application, open, onOpenChange }: AssembleDialogProps) {
+/**
+ * Tailoring a resume for this job, in three steps: propose which profile records to use (job analysis and
+ * evidence selection), review that selection, then build the resume from it.
+ */
+export function AssembleDialog({ application, open, onOpenChange, autoPropose }: AssembleDialogProps) {
 	const formId = useId();
+	const queryClient = useQueryClient();
+	const [step, setStep] = useState<"select" | "build">("select");
+	const selectionOptions = orpc.masterProfile.selection.get.queryOptions({ input: { applicationId: application.id } });
+	const selection = useQuery({ ...selectionOptions, enabled: open });
+	const saveSelection = (data: Awaited<ReturnType<typeof orpc.masterProfile.selection.get.call>>) =>
+		queryClient.setQueryData(selectionOptions.queryKey, data);
+	const propose = useMutation({
+		...orpc.masterProfile.selection.propose.mutationOptions(),
+		onSuccess: saveSelection,
+		onError: (error) => toastError(error, t`Couldn't analyse the posting. Try again.`),
+	});
+	const update = useMutation({
+		...orpc.masterProfile.selection.update.mutationOptions(),
+		onSuccess: saveSelection,
+		onError: (error) => {
+			void selection.refetch();
+			toastError(error, t`Couldn't save your selection. Try again.`);
+		},
+	});
+	const reset = useMutation({
+		...orpc.masterProfile.selection.reset.mutationOptions(),
+		onSuccess: saveSelection,
+		onError: (error) => toastError(error, t`Couldn't restore the proposal. Try again.`),
+	});
+	const current = selection.data ?? null;
+	const started = useRef(false);
+	useEffect(() => {
+		if (!autoPropose || !open || started.current || selection.isPending || selection.data) return;
+		if (!application.jobDescription?.trim() && application.requirements.length === 0) return;
+		started.current = true;
+		propose.mutate({ applicationId: application.id });
+	}, [autoPropose, open, selection.isPending, selection.data, application, propose]);
+	const edited = Boolean(
+		current &&
+		(current.plan.entries.some((entry) => entry.userEdited || entry.achievements.some((item) => item.userEdited)) ||
+			current.plan.skills.some((skill) => skill.userEdited)),
+	);
 	const invalidate = useInvalidateApplications();
 	const { data: documents } = useQuery(orpc.documents.list.queryOptions({ input: { trashed: false } }));
 	const profile = useQuery({ ...orpc.masterProfile.get.queryOptions(), enabled: open });
@@ -68,22 +111,43 @@ export function AssembleDialog({ application, open, onOpenChange }: AssembleDial
 
 	const close = (next: boolean) => {
 		onOpenChange(next);
-		if (!next) setResult(null);
+		if (!next) {
+			setResult(null);
+			setStep("select");
+		}
 	};
+	const reviewing = !result && step === "select";
 
 	return (
 		<Dialog open={open} onOpenChange={close}>
-			<DialogContent className="sm:max-w-xl">
+			<DialogContent
+				className={cn("max-h-[92svh] overflow-y-auto", reviewing && current ? "sm:max-w-3xl" : "sm:max-w-xl")}
+			>
 				<DialogHeader>
-					<DialogTitle>{result ? t`Resume assembled` : t`Assemble from your profile`}</DialogTitle>
+					<DialogTitle>
+						{result ? t`Resume assembled` : step === "select" ? t`Choose what to include` : t`Build the resume`}
+					</DialogTitle>
 					<DialogDescription>
 						{result ? (
 							<Trans>Review it in the editor before you send it. Every line comes from your master profile.</Trans>
+						) : step === "select" ? (
+							current ? (
+								<Trans>
+									Proposed from your whole profile for this posting. Include or leave out entries and achievements, and
+									reorder bullets. Your profile itself doesn't change.
+								</Trans>
+							) : (
+								<Trans>
+									Your AI connection analyses the posting into ranked requirements, then reviews the strongest evidence
+									from your whole master profile. You check the selection before anything is written. The posting and
+									your profile are sent to that connection.
+								</Trans>
+							)
 						) : (
 							<Trans>
-								Your AI connection picks the achievements and skills from your master profile that best match this
-								posting, and builds a new resume for {application.company} from them. Your profile, the posting and the
-								base resume's text are sent to that connection.
+								A new resume for {application.company} is built from the selection you reviewed. With "Adjust to the
+								posting", your AI connection words the bullets and writes a summary; the selected records and the
+								posting are sent to it.
 							</Trans>
 						)}
 					</DialogDescription>
@@ -91,25 +155,37 @@ export function AssembleDialog({ application, open, onOpenChange }: AssembleDial
 
 				{result ? (
 					<AssembleReport result={result} />
+				) : step === "select" ? (
+					current ? (
+						<SelectionReview
+							selection={current}
+							saving={update.isPending}
+							onChange={(edit) => update.mutate({ applicationId: application.id, ...edit })}
+						/>
+					) : (
+						<div className="grid gap-3">
+							{profile.data && achievements === 0 && (
+								<p className="rounded-lg bg-warn-soft px-3 py-2 text-[13px] text-warn-text">
+									<Trans>Your master profile has no achievements yet.</Trans>{" "}
+									<Link to="/dashboard/career/knowledge/profile" className="underline underline-offset-2">
+										<Trans>Add some first</Trans>
+									</Link>
+								</p>
+							)}
+							{!hasPosting && (
+								<p className="rounded-lg bg-warn-soft px-3 py-2 text-[13px] text-warn-text">
+									<Trans>This application has no posting saved. Add the posting to the application first.</Trans>
+								</p>
+							)}
+							{propose.isPending && (
+								<p className="text-[13px] text-ink-2" role="status">
+									<Trans>Analysing the posting and reviewing your profile…</Trans>
+								</p>
+							)}
+						</div>
+					)
 				) : (
 					<div className="grid gap-4">
-						{profile.data && achievements === 0 && (
-							<p className="rounded-lg bg-warn-soft px-3 py-2 text-[13px] text-warn-text">
-								<Trans>Your master profile has no achievements yet.</Trans>{" "}
-								<Link to="/dashboard/career/knowledge/profile" className="underline underline-offset-2">
-									<Trans>Add some first</Trans>
-								</Link>
-							</p>
-						)}
-						{!hasPosting && (
-							<p className="rounded-lg bg-warn-soft px-3 py-2 text-[13px] text-warn-text">
-								<Trans>
-									This application has no posting text saved, so there's little to match against. Add the posting to the
-									application first for a better result.
-								</Trans>
-							</p>
-						)}
-
 						<div className="grid gap-1">
 							<label htmlFor={`${formId}-base`} className="text-xs font-medium text-ink-2">
 								<Trans>Start from (keeps its contact details, template and design)</Trans>
@@ -160,7 +236,49 @@ export function AssembleDialog({ application, open, onOpenChange }: AssembleDial
 				)}
 
 				<DialogFooter>
-					{result ? (
+					{!result && step === "select" ? (
+						<>
+							<Button variant="ghost" onClick={() => close(false)}>
+								<Trans>Cancel</Trans>
+							</Button>
+							{current && edited && (
+								<Button
+									variant="ghost"
+									loading={reset.isPending}
+									onClick={() => reset.mutate({ applicationId: application.id })}
+								>
+									<Trans>Restore the proposal</Trans>
+								</Button>
+							)}
+							{current && (
+								<Button
+									variant="secondary"
+									loading={propose.isPending}
+									onClick={() => propose.mutate({ applicationId: application.id, reanalyze: current.postingChanged })}
+								>
+									{current.postingChanged ? <Trans>Analyse again</Trans> : <Trans>Propose again</Trans>}
+								</Button>
+							)}
+							{current ? (
+								<Button
+									disabled={current.plan.totals.includedAchievements === 0 || update.isPending}
+									onClick={() => setStep("build")}
+								>
+									<Trans>Next: build the resume</Trans>
+									<Icon name="arrow-right" size={16} />
+								</Button>
+							) : (
+								<Button
+									loading={propose.isPending || selection.isPending}
+									disabled={achievements === 0 || !hasPosting}
+									onClick={() => propose.mutate({ applicationId: application.id })}
+								>
+									<Icon name="magic-wand" size={16} />
+									<Trans>Analyse the posting</Trans>
+								</Button>
+							)}
+						</>
+					) : result ? (
 						<>
 							<Button variant="ghost" onClick={() => close(false)}>
 								<Trans>Close</Trans>
@@ -175,8 +293,9 @@ export function AssembleDialog({ application, open, onOpenChange }: AssembleDial
 						</>
 					) : (
 						<>
-							<Button variant="ghost" onClick={() => close(false)}>
-								<Trans>Cancel</Trans>
+							<Button variant="ghost" onClick={() => setStep("select")}>
+								<Icon name="arrow-left" size={16} />
+								<Trans>Back to the selection</Trans>
 							</Button>
 							<Button
 								loading={assemble.isPending}

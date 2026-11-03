@@ -1,4 +1,5 @@
 import type { ProfileAssemblyResult, ProfileEntryKind, ProfileMetric } from "@reactive-resume/schema/master-profile";
+import type { JobAnalysis, ResumeSelectionPlan } from "@reactive-resume/schema/resume-selection";
 import { sql } from "drizzle-orm";
 import * as pg from "drizzle-orm/pg-core";
 import { generateId } from "@reactive-resume/utils/string";
@@ -99,4 +100,42 @@ export const profileAssembly = pg.pgTable(
 		createdAt: pg.timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
 	},
 	(t) => [pg.index().on(t.userId, t.applicationId, t.createdAt)],
+);
+
+/**
+ * One application's Resume Selection Plan: the posting analysed into ranked requirements, the AI's proposal, and
+ * the user's reviewed version that resumes are built from. One per application; re-proposing replaces it.
+ */
+export const resumeSelection = pg.pgTable(
+	"resume_selection",
+	{
+		id: pg
+			.text("id")
+			.primaryKey()
+			.$defaultFn(() => generateId()),
+		userId: pg
+			.text("user_id")
+			.notNull()
+			.references(() => user.id, { onDelete: "cascade" }),
+		applicationId: pg
+			.text("application_id")
+			.notNull()
+			.references(() => application.id, { onDelete: "cascade" }),
+		/** The posting text that was analysed, kept even if the application's posting is edited later. */
+		postingText: pg.text("posting_text").notNull().default(""),
+		analysis: pg.jsonb("analysis").notNull().$type<JobAnalysis>(),
+		/** What the ranking and AI proposed, kept so the user's edits can be compared and undone. */
+		proposed: pg.jsonb("proposed").notNull().$type<ResumeSelectionPlan>(),
+		/** The reviewed plan resumes are built from. */
+		plan: pg.jsonb("plan").notNull().$type<ResumeSelectionPlan>(),
+		/** Provider and model that analysed and reviewed, for later comparison. */
+		model: pg.text("model").notNull().default(""),
+		createdAt: pg.timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+		updatedAt: pg
+			.timestamp("updated_at", { withTimezone: true })
+			.notNull()
+			.defaultNow()
+			.$onUpdate(() => new Date()),
+	},
+	(t) => [pg.uniqueIndex().on(t.userId, t.applicationId)],
 );

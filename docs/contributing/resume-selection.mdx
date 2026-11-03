@@ -1,0 +1,137 @@
+---
+title: "Resume selection"
+description: "How a job posting is analysed and evidence is chosen from the master profile before a tailored resume is written."
+---
+
+Tailoring a resume from the master profile now happens in three steps: **analyse** the posting into ranked requirements, **select** evidence from the whole profile into a reviewable Resume Selection Plan, and **build** the resume from the reviewed plan. This page records how each step works, the contract between selection and writing, and the limits.
+
+## Audit of the previous workflow
+
+Four parts of the app touch tailoring. Only one builds a resume from Career Knowledge.
+
+| Component                                                                                            | What it does                                                                                                                                                                                                    | Uses the master profile?      |
+| ---------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
+| `packages/api/src/features/master-profile/assemble/` ("Assemble from profile")                       | Sent the **entire** visible profile (no size budget) and the posting to one AI call that chose 8–18 achievements, reworded them and wrote a summary.                                                            | Yes — the only path that does |
+| `packages/ai/src/prompts/assistant-system.md`, `packages/api/src/features/agent/` (editor assistant) | Proposes edits to the open document only. Never reads Career Knowledge.                                                                                                                                         | No                            |
+| `packages/api/src/features/career/generate.ts`, `tools.ts` (Fit, Apply, Prepare, coach)              | Reads Career Knowledge **facts**, ordered by literal word overlap (`rankByRelevance`) within a 16k-character budget; the coach sees the first 30 facts. Produces fit checks, answers and coaching, not resumes. | Indirectly (synced facts)     |
+| `applications.ai.tailorResume`                                                                       | Rewrites only the summary of a linked resume. No UI calls it.                                                                                                                                                   | No                            |
+| `plugins/reactive-resume/skills/resume-tailor/`                                                      | Detailed tailoring guidance for external agents (MCP/plugin). Not loaded by the app.                                                                                                                            | No                            |
+
+Problems found in "Assemble from profile":
+
+- Every position from the last 10 years was printed whether or not it was relevant, so unrelated recent jobs always appeared and relevance only decided bullets.
+- No ranking or budget: a large profile was sent whole; the posting was cut at 15,000 characters.
+- Requirements were a flat, unranked list saved when the job was read.
+- Selection and wording happened in one call, with nothing to review in between.
+- Every visible skill was appended after the picks, producing long skill lists.
+- Records switched off or made private in Career Knowledge were still used.
+
+## 1. Job analysis
+
+`selection/analysis.ts`. The default AI connection reads the saved posting into a `JobAnalysis`: title, employer, seniority, summary, responsibilities, domain knowledge, and 8–20 requirements. Each requirement has a `kind` (responsibility, qualification, skill, domain, competency), `necessity` (mandatory/preferred), `origin` (explicit/inferred), `importance` 1–5 judged by the role's purpose rather than keyword frequency, and `terms`: alternative wordings used for matching.
+
+Normalisation is deterministic: duplicates are merged, importance is clamped, and requirements are ranked by importance, then mandatory, then explicit, then the model's order, and numbered `R1…`. If the model returns nothing usable, the requirements extracted when the job was saved are used. The analysed posting text and its SHA-256 are stored, so the analysis is reused until the posting changes (or the user asks to analyse again).
+
+## 2. Evidence retrieval and ranking
+
+`selection/rank.ts`, deterministic.
+
+- **Eligibility.** Hidden profile records, records whose synced fact is switched off or forgotten in Career Knowledge, and records whose fact is private to another application are left out and listed as `unavailable` with the reason.
+- **Matching across wording.** Each requirement becomes a term set from its text and `terms`, expanded with the profile's own skill aliases and a short list of synonym groups (`selection/text.ts`, e.g. "donor", "raised" ↔ "fundraising"). Words are lightly stemmed. A record answers a requirement directly (1), through a synonym (0.4–0.85) or only through its entry's context (0.25). Achievements can relate to, but never prove, a credential (degrees, certifications).
+- **Score** (0–1) = 0.55 alignment + 0.2 strength + 0.12 recency + 0.08 seniority/scope + 0.05 emphasis.
+  - _Alignment_ is led by the single best importance-weighted match, with smaller credit for a second and third, so many incidental matches can't look like one strong one.
+  - _Strength_: measured results, action-led wording, reasonable length, always-include; duty-style phrasing ("Responsible for…") counts against.
+  - _Recency_ decays with years since the entry ended but never below 0.3 — age alone can't rule a record out.
+  - _Scope_ compares the entry title's level with the job's seniority. _Emphasis_ rewards overlap with the user's target roles, priorities and wanted organisations (Preferences).
+- **Shortlist.** The whole profile is ranked first; the AI then reviews the best 50 overall, the best four for each requirement, every always-include achievement and each entry's best, within a 36,000-character budget. Every entry is listed with its dates even when none of its achievements is shown, and the AI is told how many weaker achievements weren't sent.
+
+## 3. AI review
+
+`selection/review.ts`. The model rates each shortlisted achievement 0–3 for relevance with the requirement ids it evidences and a short reason, recommends entries in or out, and rates relevant skills. It cites short ids (`E1`, `A3`, `S2`); ids it invents are dropped, and requirement ids are validated. If the answer can't be read, the plan comes from the ranking alone and says so.
+
+## 4. Composing the plan
+
+`selection/compose.ts`, deterministic. An achievement's combined score is half the AI rating and half the ranking, so neither decides alone. Configurable defaults are in `SELECTION_RULES`:
+
+- Recommended achievements need a combined score of 0.45 **and** a real connection to the posting (alignment ≥ 0.35 or an AI rating ≥ 2).
+- Positions are decided newest first. A recent position (ended within 10 years) is included when it has strong evidence or the AI recommends it; the current or latest role stays for the timeline. An older position joins only when it shows something the included recent roles don't, or when it is strongly relevant (≥ 0.72) — so a genuinely relevant early role stays eligible.
+- Bullets: up to 5 for the lead position, 4 for other recent ones, 3 for older positions and other entries; near-duplicates of an already chosen achievement are skipped; always-include achievements are kept.
+- Up to 3 projects and 2 volunteer roles. Education is listed by convention; certifications and awards when they relate to the posting (certifications also when recent).
+- Up to 15 skills that relate to a requirement, best evidenced first.
+- Section order: summary, skills, experience and projects (projects first when they carry the strongest evidence), volunteer, education, certifications, awards.
+- Coverage per requirement: **supported** (an included achievement demonstrates it), **partial** (only a weak match, a listed skill or a related credential), or **gap**, with any unselected evidence that could support it.
+- Source checks: positions without start dates, the same role recorded twice with different dates, near-identical achievements, and one name used for two skills.
+
+Repeated runs on the same input give identical plans; the AI's role is limited to ratings that are blended and thresholded, so small changes in its ratings move only borderline items.
+
+## 5. Review and persistence
+
+One `resume_selection` row per application (migration `20261102215017_resume_selection`) keeps the analysed posting text, the analysis, the **proposed** plan and the user's **reviewed** plan. Edits change include flags and order only, never profile records; anything that differs from the proposal is marked `userEdited`, and those choices carry over when the user proposes again. The API is `masterProfile.selection.{get, propose, update, reset}`; `get` reports when the posting or the profile changed since the plan was made.
+
+In the app, **Assemble from profile** (and **Save and build resume**) now opens on _Choose what to include_: the ranked requirements with their coverage, then every profile entry in reverse chronological order with what's included, why, and up/down ordering, then skills. _Next: build the resume_ writes from the reviewed plan.
+
+## 6. Building from the plan
+
+`assemble/service.ts` uses the reviewed plan when one exists: its entries, its achievements in its order (uncapped), and its skills only. With _Use my exact wording_, no AI call is made. With _Adjust to the posting_, the AI words only the planned achievements and writes a summary; the existing grounding check still rejects rewrites that add numbers. Without a plan, the previous one-step path runs unchanged.
+
+## Contract for the writing step
+
+The writing phase consumes `ResumeSelectionPlan` and `JobAnalysis` from `@reactive-resume/schema/resume-selection`:
+
+```ts
+JobAnalysis {
+  title, employer, seniority, summary, responsibilities[], domain[],
+  requirements: { id: "R1"…, text, kind, necessity, origin, importance 1-5, terms[] }[]  // ranked
+  postingHash, analyzedAt, model
+}
+
+ResumeSelectionPlan {
+  applicationId, createdAt, source: "ai" | "ranking", positioning,
+  sections: ("summary"|"skills"|"experience"|"projects"|"volunteer"|"education"|"certifications"|"awards")[],
+  entries: {                      // every eligible profile entry, reverse chronological
+    entryId, kind, title, organization, startDate, endDate,   // copied from the source record
+    include, reason, bulletTarget, requirementIds[], userEdited,
+    achievements: {               // included first, in print order
+      achievementId, text, include, requirementIds[], reason, core, userEdited,
+      score: { total, alignment, strength, recency, aiRelevance }
+    }[]
+  }[],
+  standalone: PlanAchievement[],  // not attached to an entry; can inform the summary only
+  skills: { skillId, name, category, include, requirementIds[], evidenced, reason, userEdited }[],
+  coverage: { requirementId, status: "supported"|"partial"|"gap", achievementIds[], skillIds[], entryIds[], available[] }[],
+  unavailable: { id, kind, reason }[],
+  warnings: string[],
+  totals: { entries, achievements, skills, includedEntries, includedAchievements, includedSkills }
+}
+```
+
+Rules for consumers:
+
+- Write only included entries and included achievements, in plan order; read wording, metrics, variants and dates from the profile records by id (`text` is a display copy).
+- Keep `startDate`, `endDate`, titles and organisations exactly as recorded; never fill a `gap` requirement.
+- `bulletTarget` is a suggestion; the user's included set wins.
+- Treat `positioning` and `reason` as guidance, not as resume text.
+
+## Tests
+
+`selection/selection.test.ts` uses fictional profiles in `selection/fixtures.ts`:
+
+- a communications posting where recent nonprofit campaign and communications work outranks an unrelated early retail job;
+- a web development posting where technical projects and integrations are emphasised;
+- a project management posting where delivery, coordination, stakeholders and measured scope lead, and a certificate counts only as partial coverage for "PMP or equivalent";
+- a highly relevant 2008 role kept beside an unrelated current job, in reverse chronological order;
+- conflicting and incomplete records (duplicate roles with different dates, missing dates, near-duplicate achievements, an alias naming two skills) plus hidden, switched-off and private records;
+- a profile of 430+ achievements where the relevant ones come last, which are still shortlisted, sent to the AI and selected;
+- AI answers citing records that don't exist; identical plans on repeated runs, and only borderline changes when AI ratings shift;
+- edits that carry into a new proposal, and requirements reported as gaps.
+
+`selection/service.integration.test.ts` (real PostgreSQL) covers proposing, reusing the analysis, ownership, Knowledge switches, saving edits without changing the profile, resetting, and building a resume that follows the reviewed plan without an AI call.
+
+## Limitations
+
+- Matching is lexical with stemming and a small synonym list; semantic matching beyond that relies on the AI's `terms` and its review of the shortlist. Embeddings were not added.
+- Seniority is read from title words; scope (team size, budget) is judged by the AI, not measured.
+- Only the master profile is used as evidence. Free-text Career Knowledge facts that aren't from the profile (for example remembered from coaching) are not selectable, because they have no position to sit under.
+- The analysis and review run on the user's default AI connection; there is no per-task model choice yet.
+- The review interface is on the web; the mobile app doesn't assemble from the profile yet.
+- Section order is recommended in the plan; applying it to the template's layout is left to the writing step.

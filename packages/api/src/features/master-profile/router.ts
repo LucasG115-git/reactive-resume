@@ -14,10 +14,16 @@ import {
 	profileSkillInputSchema,
 	storyFileSchema,
 } from "@reactive-resume/schema/master-profile";
+import {
+	jobAnalysisSchema,
+	resumeSelectionPlanSchema,
+	selectionEditSchema,
+} from "@reactive-resume/schema/resume-selection";
 import { protectedProcedure } from "../../context";
 import { aiRequestRateLimit } from "../../middleware/rate-limit";
 import { assembleService } from "./assemble/service";
 import { ProfileFileError } from "./import";
+import { selectionService } from "./selection/service";
 import { masterProfileService } from "./service";
 import { factCatalog, importStories } from "./stories";
 
@@ -49,7 +55,79 @@ const assemblySchema = createSelectSchema(tables.profileAssembly, {
 	result: profileAssemblyResultSchema,
 });
 
+const selectionSchema = z
+	.object({
+		analysis: jobAnalysisSchema,
+		plan: resumeSelectionPlanSchema,
+		proposed: resumeSelectionPlanSchema,
+		postingText: z.string(),
+		model: z.string(),
+		updatedAt: z.date(),
+		postingChanged: z.boolean(),
+		profileChanged: z.boolean(),
+	})
+	.nullable();
+const applicationInput = z.object({ applicationId: z.string().min(1) });
+
 export const masterProfileRouter = {
+	selection: {
+		get: protectedProcedure
+			.route({
+				method: "GET",
+				path: "/master-profile/selections/{applicationId}",
+				tags,
+				operationId: "getResumeSelection",
+				summary: "Get an application's Resume Selection Plan",
+				description:
+					"The posting's job analysis (ranked requirements), the proposed plan and the user's reviewed plan, with flags when the posting or profile changed since. Null before a plan is proposed.",
+			})
+			.input(applicationInput)
+			.output(selectionSchema)
+			.handler(({ context, input }) => selectionService.get(context.user.id, input.applicationId)),
+
+		propose: protectedProcedure
+			.route({
+				method: "POST",
+				path: "/master-profile/selections/{applicationId}/proposals",
+				tags,
+				operationId: "proposeResumeSelection",
+				summary: "Analyse the posting and propose which profile records to use",
+				description:
+					"Analyses the application's posting into ranked requirements (reused while the posting is unchanged unless reanalyze is set), ranks every eligible master-profile record against them, has the default AI connection review the strongest, and saves a Resume Selection Plan. The user's earlier include/exclude choices carry over. The profile is never changed.",
+			})
+			.use(aiRequestRateLimit)
+			.input(applicationInput.extend({ reanalyze: z.boolean().optional() }))
+			.output(selectionSchema)
+			.errors({ BAD_GATEWAY: { message: "The AI provider returned an error or couldn't be reached.", status: 502 } })
+			.handler(({ context, input, signal }) => selectionService.propose(context.user.id, input, { signal })),
+
+		update: protectedProcedure
+			.route({
+				method: "PUT",
+				path: "/master-profile/selections/{applicationId}",
+				tags,
+				operationId: "updateResumeSelection",
+				summary: "Save the user's review of a Resume Selection Plan",
+				description:
+					"Sets which entries, achievements and skills are included and the order of achievements within each entry. Coverage is recomputed; profile records are never changed.",
+			})
+			.input(selectionEditSchema)
+			.output(selectionSchema)
+			.handler(({ context, input }) => selectionService.update(context.user.id, input)),
+
+		reset: protectedProcedure
+			.route({
+				method: "POST",
+				path: "/master-profile/selections/{applicationId}/reset",
+				tags,
+				operationId: "resetResumeSelection",
+				summary: "Discard edits and return to the proposed plan",
+			})
+			.input(applicationInput)
+			.output(selectionSchema)
+			.handler(({ context, input }) => selectionService.reset(context.user.id, input.applicationId)),
+	},
+
 	assemble: protectedProcedure
 		.route({
 			method: "POST",
