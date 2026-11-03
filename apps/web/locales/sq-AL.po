@@ -4199,6 +4199,10 @@ msgstr "Nuk mund të kontaktohej me ofruesin e AI. Provo sërish pas një moment
 msgid "Couldn't reach your AI provider. Its key may have expired."
 msgstr "Nuk mund të kontaktohej me ofruesin tuaj të AI. Çelësi i tij mund të ketë skaduar."
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Couldn't read"
+msgstr ""
+
 #. placeholder {0}: dates.raw
 #: src/features/resume/editor/write/dates-field.tsx
 msgid "Couldn't read “{0}”. Enter the dates so they sort and print consistently."
@@ -6048,6 +6052,10 @@ msgstr "skedari i lexuar"
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Fill fields"
 msgstr "Plotëso fushat"
+
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Fill in the details"
+msgstr ""
 
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Fill in the role and company. Connect an AI provider in Settings to read them from the posting."
@@ -10764,6 +10772,10 @@ msgstr "Reactive Resume {__APP_VERSION__} · MIT"
 msgid "Reactive Resume is open source under the MIT License. Amruth Pillai and a community of contributors keep it running, and donations pay for hosting and development. There’s no paid tier."
 msgstr "Reactive Resume është me burim të hapur sipas licencës MIT. Amruth Pillai dhe një komunitet kontribuuesish e mbajnë në punë, dhe donacionet paguajnë hostimin dhe zhvillimin. Nuk ka nivel me pagesë."
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Read again"
+msgstr ""
+
 #. placeholder {0}: reader.label
 #: src/features/career/workspace/practise.tsx
 msgid "Read aloud by {0}, which may use tokens on that account."
@@ -10795,7 +10807,6 @@ msgstr "Lexoje për mua"
 msgid "Read only"
 msgstr "Qasje vetëm për lexim"
 
-#: src/features/applications/components/add-application-dialog.tsx
 #: src/features/career/today.tsx
 msgid "Read posting"
 msgstr "Lexoni postimin e punës"
@@ -11200,6 +11211,7 @@ msgstr "Hiq {country}"
 msgid "Remove {label}…"
 msgstr "Hiq {label}…"
 
+#: src/features/applications/components/add-application-dialog.tsx
 #: src/features/career/knowledge/structured-preferences.tsx
 msgid "Remove {name}"
 msgstr ""
@@ -14848,6 +14860,14 @@ msgstr "Ngarko foton"
 
 #: src/features/settings/resume-style.tsx
 msgid "Uploaded"
+msgstr ""
+
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Uploaded and read"
+msgstr ""
+
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Uploading and reading…"
 msgstr ""
 
 #: src/features/resume/editor/write/picture-settings.tsx

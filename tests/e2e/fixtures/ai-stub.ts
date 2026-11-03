@@ -281,6 +281,14 @@ function tailoringAnswer(request: ChatRequest): unknown {
 		.filter((message) => message.role === "user")
 		.map((message) => text(message.content))
 		.join("\n");
+	if (system.includes("You read job postings"))
+		return {
+			company: "Harbourview Food Bank",
+			role: "Communications Manager",
+			location: "Peterborough, ON",
+			salary: "$68,000–$74,000",
+			requirements: ["Nonprofit communications", "Email marketing"],
+		};
 	if (system.includes("You analyse job postings"))
 		return {
 			title: "Digital Project Manager",
