@@ -5,6 +5,7 @@ import type { SkillGroup, WritingRules } from "@reactive-resume/schema/resume-wr
 import z from "zod";
 import { REGION_CONVENTIONS } from "@reactive-resume/schema/resume-writing";
 import { dataBlock } from "../../ai/data-block";
+import { yearsOfExperience } from "../assemble/build";
 import { checkGrounded, lengthBudget } from "../assemble/grounding";
 import { words } from "../selection/text";
 import { introducedTools, keepsQualifiers } from "./grounding";
@@ -108,7 +109,9 @@ export function writerPrompt(input: {
 		)
 		.join("\n");
 
+	const years = yearsOfExperience(profile, input.now ?? new Date());
 	const prompt = `Target: ${analysis.title || "the role"} at ${analysis.employer || "the employer"} (${analysis.seniority})
+Experience: ${years} years in total, from the record's dates. A summary may say "${years} years" or less, never more, and never "+".
 ${plan.positioning ? `Positioning: ${plan.positioning}` : ""}
 
 ${dataBlock("REQUIREMENTS", requirements || "(none)")}
@@ -364,6 +367,7 @@ export function recordFacts(
 	profile: MasterProfile,
 	achievementIds: string[],
 	skills: Skill[],
+	now = new Date(),
 ): string[] {
 	const entries = new Map(profile.entries.map((entry) => [entry.id, entry]));
 	const achievements = new Map(profile.entries.flatMap((entry) => entry.achievements.map((item) => [item.id, item])));
@@ -381,6 +385,7 @@ export function recordFacts(
 			return achievement ? [achievement.text, ...achievement.variants, ...achievement.metrics.map((m) => m.value)] : [];
 		}),
 		...skills.map((skill) => `${skill.name} ${skill.years ?? ""}`),
+		`${yearsOfExperience(profile, now)} years`,
 	];
 }
 

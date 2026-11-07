@@ -7,6 +7,7 @@ import type { ResumeDates } from "@reactive-resume/schema/resume/dates";
 import { generateId } from "@reactive-resume/utils/string";
 import {
 	alignTense,
+	displayUrl,
 	dropFiller,
 	dropOwnName,
 	ownNames,
@@ -78,6 +79,20 @@ function yearOf(value: string | null): number | null {
 	return value ? Number(value.slice(0, 4)) : null;
 }
 
+/** Whole years since the earliest position started: the most a summary may claim ("6 years", never "7+"). */
+export function yearsOfExperience(profile: Pick<MasterProfile, "entries">, now: Date) {
+	const starts = profile.entries
+		.filter((entry) => entry.kind === "position" && entry.startDate && !entry.hidden)
+		.map((entry) => {
+			const value = entry.startDate ?? "";
+			const month = value.length >= 7 ? Number(value.slice(5, 7)) - 1 : 0;
+			return new Date(Date.UTC(Number(value.slice(0, 4)), month, 1));
+		});
+	if (starts.length === 0) return 0;
+	const earliest = Math.min(...starts.map((date) => date.getTime()));
+	return Math.max(0, Math.floor((now.getTime() - earliest) / (365.25 * 24 * 3600 * 1000)));
+}
+
 export function isRecent(entry: Pick<Entry, "startDate" | "endDate">, now: Date, years: number) {
 	// Ongoing (or undated) entries count as recent.
 	if (!entry.endDate) return true;
@@ -106,7 +121,7 @@ export function datesOf(entry: Pick<Entry, "startDate" | "endDate">, single = fa
 	return { start, end, present: Boolean(start && !end) };
 }
 
-const website = (url: string) => ({ url, label: "", inlineLink: false });
+const website = (url: string) => ({ url, label: url ? displayUrl(url) : "", inlineLink: false });
 const noWebsite = website("");
 
 /** Every wording the user wrote for an achievement: its text and approved variants. */
@@ -449,12 +464,21 @@ export function buildResume(input: {
 			...placed.flatMap((achievement) => [...wordingsOf(achievement), ...achievement.metrics.map((m) => m.value)]),
 			...included.map((entry) => `${entry.summary} ${entry.startDate ?? ""} ${entry.endDate ?? ""}`),
 			...visibleSkills.map((skill) => `${skill.name} ${skill.years ?? ""}`),
+			`${yearsOfExperience(profile, now)} years`,
 		];
 		const check = checkGrounded(proposedSummary, sources, 700);
 		if (check.ok) {
 			summary = { ...summary, content: paragraphHtml(tidy(null, proposedSummary)), hidden: false };
 			summaryUsed = true;
-		} else warnings.push(`Kept your existing summary (the suggested one ${check.reason}).`);
+		} else if (!input.writing) warnings.push(`Kept your existing summary (the suggested one ${check.reason}).`);
+	}
+	// A resume written for this posting never inherits the base resume's summary: it was written for another job and
+	// its claims aren't checked against the record. Without a usable one, the summary is left off.
+	if (mode === "rephrase" && input.writing && !summaryUsed) {
+		summary = { ...summary, content: "", hidden: true };
+		warnings.push(
+			"Left the summary off: no summary for this posting passed the record checks. Write one in the editor, or rebuild.",
+		);
 	}
 
 	// Entries the model referred to that don't exist (or are hidden) are ignored, but worth knowing about.
