@@ -189,7 +189,8 @@ describe.skipIf(!databaseUrl)("resume selection plans", { timeout: 30_000 }, () 
 		// The analysis is reused while the posting is unchanged.
 		calls.length = 0;
 		await selection.propose("alice", { applicationId: "alice-app" }, { ask });
-		expect(calls).toEqual(["You review a candida"]);
+		// The review, then the fit assessment.
+		expect(calls).toEqual(["You review a candida", "You are an experienc"]);
 
 		// The user keeps only the sites bullet and adds the retail role.
 		const edited = await selection.update("alice", {
@@ -270,10 +271,12 @@ describe.skipIf(!databaseUrl)("resume selection plans", { timeout: 30_000 }, () 
 		expect(seen).toEqual([
 			["extraction", "thorough"],
 			["evidence", "thorough"],
+			["evidence", "thorough"],
 		]);
 		expect(proposed?.plan.usage.map((item) => [item.step, item.task, item.inputTokens])).toEqual([
 			["analysis", "extraction", 100],
 			["review", "evidence", 100],
+			["fit", "evidence", 100],
 		]);
 
 		// No quality in the request: the saved default (Thorough) is used for writing.
@@ -451,7 +454,7 @@ describe.skipIf(!databaseUrl)("resume selection plans", { timeout: 30_000 }, () 
 					{
 						requirementId: french?.requirementId ?? "",
 						have: true,
-						skills: ["French"],
+						skills: [{ name: "French", kind: "skill", entryIds: [seeded.founder.id, seeded.founder.id] }],
 						entryId: seeded.founder.id,
 						text: "Ran client meetings in French for two Quebec nonprofits",
 					},
@@ -461,7 +464,10 @@ describe.skipIf(!databaseUrl)("resume selection plans", { timeout: 30_000 }, () 
 		);
 		expect(answered.added).toBe(2);
 		const saved = await profile.get("alice");
-		expect(saved.skills.map((skill) => skill.name)).toContain("French");
+		expect(saved.skills.find((skill) => skill.name === "French")).toMatchObject({
+			kind: "skill",
+			entryIds: [seeded.founder.id],
+		});
 		const founder = saved.entries.find((entry) => entry.id === seeded.founder.id);
 		expect(founder?.achievements.map((item) => item.text)).toContain(
 			"Ran client meetings in French for two Quebec nonprofits",
@@ -471,6 +477,28 @@ describe.skipIf(!databaseUrl)("resume selection plans", { timeout: 30_000 }, () 
 		);
 		expect(answered.report?.match).toBeGreaterThan(before?.match ?? 0);
 		expect((await profile.get("bob")).skills.map((skill) => skill.name)).not.toContain("French");
+
+		// A skill already in the profile gains the other places it was used.
+		await gapsService.answer(
+			"alice",
+			{
+				applicationId: "alice-app",
+				answers: [
+					{
+						requirementId: french?.requirementId ?? "",
+						have: true,
+						skills: [{ name: "french", kind: "skill", entryIds: [seeded.retail.id, "not-mine"] }],
+						entryId: null,
+						text: "",
+					},
+				],
+			},
+			{ ask },
+		);
+		expect((await profile.get("alice")).skills.find((skill) => skill.name === "French")?.entryIds).toEqual([
+			seeded.founder.id,
+			seeded.retail.id,
+		]);
 
 		// A "no" is remembered for this posting and adds nothing.
 		const declined = await gapsService.answer("alice", {

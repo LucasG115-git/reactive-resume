@@ -74,6 +74,10 @@ export const profileSkill = pg.pgTable(
 		level: pg.integer("level"),
 		years: pg.real("years"),
 		aliases: stringList("aliases"),
+		/** skill: an ability or method. tool: a specific product or platform (WordPress, Slate CRM). */
+		kind: pg.text("kind").$type<"skill" | "tool">().notNull().default("skill"),
+		/** Profile entries where the skill was used or learned. */
+		entryIds: stringList("entry_ids"),
 	},
 	(t) => [pg.uniqueIndex("profile_skill_user_name_idx").on(t.userId, sql`lower(${t.name})`)],
 );

@@ -11,6 +11,7 @@ import { SegmentedControl, SegmentedControlItem } from "@reactive-resume/ui/comp
 import { Textarea } from "@reactive-resume/ui/components/textarea";
 import { toast } from "@reactive-resume/ui/components/toast";
 import { cn } from "@reactive-resume/utils/style";
+import { entryLabel, UsedAt } from "../../../career/knowledge/used-at";
 import { toastError } from "@/libs/error-message";
 import { orpc } from "@/libs/orpc/client";
 
@@ -19,25 +20,40 @@ type Gap = Report["gaps"][number];
 type Entry = RouterOutput["masterProfile"]["get"]["entries"][number];
 type Selection = RouterOutput["masterProfile"]["gaps"]["answer"]["selection"];
 
-type Answer = { have: boolean | null; skills: string[]; entryId: string | null; note: string; text: string };
+type Answer = {
+	have: boolean | null;
+	/** Names of the skills and tools ticked. */
+	skills: string[];
+	/** Where each ticked skill or tool was used. */
+	places: Record<string, string[]>;
+	entryId: string | null;
+	note: string;
+	text: string;
+};
 
-const EMPTY: Answer = { have: null, skills: [], entryId: null, note: "", text: "" };
+const EMPTY: Answer = { have: null, skills: [], places: {}, entryId: null, note: "", text: "" };
+
+const RATING_LABELS = () => [t`None`, t`Adjacent`, t`Some`, t`Strong`];
+const RATING_TONES = ["text-danger-text", "text-warn-text", "text-ink-2", "text-accent-text"];
 
 type MatchBarProps = { report: Report; className?: string };
 
-/** The match, as a number and a bar. */
+/** The match, as a number and a bar, with how it was worked out. */
 export function MatchBar({ report, className }: MatchBarProps) {
 	const tone = report.match >= 75 ? "bg-accent" : report.match >= 50 ? "bg-warn-text" : "bg-danger-text";
+	const labels = RATING_LABELS();
 	return (
 		<div className={cn("grid gap-1.5", className)}>
-			<div className="flex items-baseline justify-between gap-3">
+			<div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
 				<p className="text-sm">
 					<Trans>
 						<span className="text-2xl font-semibold tabular-nums">{report.match}%</span> match for this posting
 					</Trans>
 				</p>
 				<p className="text-xs text-ink-3">
-					{t`${report.supported} of ${report.total} requirements shown, ${report.partial} partly`}
+					{report.basis === "ai"
+						? t`Judged by your AI connection, requirement by requirement`
+						: t`Estimated from keyword matches, which overstates fit`}
 				</p>
 			</div>
 			<div
@@ -50,6 +66,37 @@ export function MatchBar({ report, className }: MatchBarProps) {
 			>
 				<div className={cn("h-full rounded-full", tone)} style={{ width: `${report.match}%` }} />
 			</div>
+			{report.summary && <p className="text-[13px] leading-5 text-ink-2">{report.summary}</p>}
+			{report.ratings.length > 0 && (
+				<details className="group text-[13px]">
+					<summary className="w-fit cursor-pointer text-xs font-medium text-ink-2 hover:underline">
+						<Trans>How this is worked out</Trans>
+					</summary>
+					<p className="mt-2 text-xs leading-5 text-ink-3">
+						<Trans>
+							Each requirement is rated on the evidence proposed for this resume: strong (counts in full), some (60%),
+							adjacent (25%) or none. Ratings are weighted by how much the requirement matters, and "nice to have" items
+							count for less.
+						</Trans>
+					</p>
+					<ul className="mt-2 grid gap-1.5">
+						{report.ratings.map((item) => (
+							<li key={item.requirementId} className="grid grid-cols-[4.5rem_1fr] gap-x-2">
+								<span className={cn("text-xs font-medium", RATING_TONES[item.rating])}>
+									{labels[item.rating] ?? labels[0]}
+								</span>
+								<span>
+									{item.text}
+									{item.necessity === "preferred" && (
+										<span className="ms-1.5 text-xs text-ink-3">{t`· nice to have`}</span>
+									)}
+									{item.reason && <span className="block text-xs text-ink-3">{item.reason}</span>}
+								</span>
+							</li>
+						))}
+					</ul>
+				</details>
+			)}
 		</div>
 	);
 }
@@ -96,7 +143,11 @@ export function GapStep({ applicationId, report, entries, onDone, onSkip }: GapS
 			return {
 				requirementId,
 				have: answer.have,
-				skills: answer.have ? gap.skills.filter((skill) => answer.skills.includes(skill)) : [],
+				skills: answer.have
+					? gap.skills
+							.filter((skill) => answer.skills.includes(skill.name))
+							.map((skill) => ({ name: skill.name, kind: skill.kind, entryIds: answer.places[skill.name] ?? [] }))
+					: [],
 				entryId: answer.have ? answer.entryId : null,
 				text: answer.have ? text : "",
 			};
@@ -104,7 +155,9 @@ export function GapStep({ applicationId, report, entries, onDone, onSkip }: GapS
 		.filter((item) => item !== null)
 		.filter((item) => !item.have || item.skills.length > 0 || item.text);
 
-	const skills = open.filter((gap) => gap.type === "skill");
+	const named = open.filter((gap) => gap.type === "skill");
+	const tools = named.filter((gap) => gap.skills.every((skill) => skill.kind === "tool"));
+	const skills = named.filter((gap) => !tools.includes(gap));
 	const experience = open.filter((gap) => gap.type === "experience");
 
 	return (
@@ -112,30 +165,38 @@ export function GapStep({ applicationId, report, entries, onDone, onSkip }: GapS
 			<MatchBar report={report} />
 			<p className="text-[13px] leading-5 text-ink-2">
 				<Trans>
-					The posting asks for these, but your profile doesn't show them anywhere. If you have them, say where you did
-					or learned them: they're added to your master profile for this and future resumes. Only add what's true; you
+					The posting asks for these, but your profile shows little or nothing for them. If you have them, say where you
+					used or did them: they're added to your master profile for this and future resumes. Only add what's true; you
 					can skip any of them.
 				</Trans>
 			</p>
 
-			{skills.length > 0 && (
-				<section className="grid gap-2" aria-labelledby={`${applicationId}-gap-skills`}>
-					<h3 id={`${applicationId}-gap-skills`} className="text-xs font-semibold tracking-wide text-ink-3 uppercase">
-						<Trans>Skills you might have</Trans>
-					</h3>
-					<ul className="grid gap-2">
-						{skills.map((gap) => (
-							<SkillGap
-								key={gap.requirementId}
-								gap={gap}
-								answer={answerOf(gap)}
-								entries={entries}
-								onChange={(patch) => set(gap, patch)}
-							/>
-						))}
-					</ul>
-				</section>
-			)}
+			{[
+				{ key: "tools", list: tools, title: t`Tools and platforms you might use` },
+				{ key: "skills", list: skills, title: t`Skills you might have` },
+			]
+				.filter((group) => group.list.length > 0)
+				.map((group) => (
+					<section key={group.key} className="grid gap-2" aria-labelledby={`${applicationId}-gap-${group.key}`}>
+						<h3
+							id={`${applicationId}-gap-${group.key}`}
+							className="text-xs font-semibold tracking-wide text-ink-3 uppercase"
+						>
+							{group.title}
+						</h3>
+						<ul className="grid gap-2">
+							{group.list.map((gap) => (
+								<SkillGap
+									key={gap.requirementId}
+									gap={gap}
+									answer={answerOf(gap)}
+									entries={entries}
+									onChange={(patch) => set(gap, patch)}
+								/>
+							))}
+						</ul>
+					</section>
+				))}
 
 			{experience.length > 0 && (
 				<section className="grid gap-2" aria-labelledby={`${applicationId}-gap-experience`}>
@@ -205,7 +266,7 @@ function Where({ id, value, entries, onChange, label }: WhereProps) {
 				<option value="">{t`Not tied to one role or project`}</option>
 				{entries.map((entry) => (
 					<option key={entry.id} value={entry.id}>
-						{entry.organization ? `${entry.title} — ${entry.organization}` : entry.title}
+						{entryLabel(entry)}
 					</option>
 				))}
 			</NativeSelect>
@@ -221,39 +282,62 @@ function SkillGap({ gap, answer, entries, onChange }: GapProps) {
 		const next = checked ? [...answer.skills, skill] : answer.skills.filter((item) => item !== skill);
 		onChange({ skills: next, have: next.length > 0 ? true : null });
 	};
+	const setPlaces = (skill: string, entryIds: string[]) => {
+		const places = { ...answer.places, [skill]: entryIds };
+		const used = [...new Set(answer.skills.flatMap((name) => places[name] ?? []))];
+		// The achievement goes under one of the places named; the first unless the user picked another.
+		const entryId = answer.entryId && used.includes(answer.entryId) ? answer.entryId : (used[0] ?? null);
+		onChange({ places, entryId });
+	};
+	const used = entries.filter((entry) => answer.skills.some((name) => answer.places[name]?.includes(entry.id)));
 	return (
 		<li className="grid gap-2 rounded-lg border border-line p-3">
 			<p className="text-[13px] text-ink-2">
 				{gap.text}
 				{gap.necessity === "mandatory" && <span className="ms-1.5 text-xs text-ink-3">{t`· required`}</span>}
 			</p>
-			<div className="flex flex-wrap gap-x-4 gap-y-2">
-				{gap.skills.map((skill) => (
-					<label key={skill} className="flex items-center gap-2 text-sm">
-						<Checkbox checked={answer.skills.includes(skill)} onCheckedChange={(checked) => toggle(skill, checked)} />
-						{skill}
-					</label>
-				))}
-			</div>
-			{answer.skills.length > 0 && (
-				<>
-					<Where
-						id={`${id}-where`}
-						value={answer.entryId}
-						entries={entries}
-						onChange={(entryId) => onChange({ entryId })}
-						label={t`Where did you use or learn it? (optional)`}
+			<ul className="grid gap-2">
+				{gap.skills.map((skill) => {
+					const on = answer.skills.includes(skill.name);
+					return (
+						<li key={skill.name} className="grid gap-1.5">
+							<label className="flex w-fit items-center gap-2 text-sm">
+								<Checkbox checked={on} onCheckedChange={(checked) => toggle(skill.name, checked)} />
+								{skill.name}
+								<span className="text-[11px] text-ink-3">{skill.kind === "tool" ? t`tool` : t`skill`}</span>
+							</label>
+							{on && (
+								<UsedAt
+									className="ms-6"
+									label={t`Where did you use ${skill.name}?`}
+									entries={entries}
+									value={answer.places[skill.name] ?? []}
+									onChange={(entryIds) => setPlaces(skill.name, entryIds)}
+								/>
+							)}
+						</li>
+					);
+				})}
+			</ul>
+			{used.length > 0 && (
+				<div className="grid gap-2">
+					<Textarea
+						aria-label={t`How you used it`}
+						placeholder={t`Optional: what you did with it, in a sentence. It's added as an achievement.`}
+						value={answer.note}
+						onChange={(event) => onChange({ note: event.target.value })}
+						className="min-h-14 text-[13px]"
 					/>
-					{answer.entryId && (
-						<Textarea
-							aria-label={t`How you used it`}
-							placeholder={t`Optional: what you did with it there, in a sentence. It's added as an achievement.`}
-							value={answer.note}
-							onChange={(event) => onChange({ note: event.target.value })}
-							className="min-h-14 text-[13px]"
+					{answer.note.trim() && used.length > 1 && (
+						<Where
+							id={`${id}-where`}
+							value={answer.entryId}
+							entries={used}
+							onChange={(entryId) => onChange({ entryId })}
+							label={t`Add the achievement under`}
 						/>
 					)}
-				</>
+				</div>
 			)}
 		</li>
 	);
@@ -341,17 +425,18 @@ function ExperienceGap({ applicationId, gap, answer, entries, onChange }: GapPro
 					)}
 					{gap.skills.length > 0 && (
 						<div className="flex flex-wrap gap-x-4 gap-y-2">
-							{gap.skills.map((skill) => (
-								<label key={skill} className="flex items-center gap-2 text-xs text-ink-2">
+							{gap.skills.map(({ name }) => (
+								<label key={name} className="flex items-center gap-2 text-xs text-ink-2">
 									<Checkbox
-										checked={answer.skills.includes(skill)}
+										checked={answer.skills.includes(name)}
 										onCheckedChange={(checked) =>
 											onChange({
-												skills: checked ? [...answer.skills, skill] : answer.skills.filter((item) => item !== skill),
+												skills: checked ? [...answer.skills, name] : answer.skills.filter((item) => item !== name),
+												places: { ...answer.places, [name]: answer.entryId ? [answer.entryId] : [] },
 											})
 										}
 									/>
-									{t`Also add the skill ${skill}`}
+									{t`Also add the skill ${name}`}
 								</label>
 							))}
 						</div>

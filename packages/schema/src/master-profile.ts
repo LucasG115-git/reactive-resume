@@ -73,6 +73,10 @@ export const profileSkillInputSchema = z.object({
 	years: z.number().min(0).max(60).nullable().default(null),
 	/** Synonyms used when matching postings, e.g. "JS" for JavaScript. */
 	aliases: z.array(z.string().trim().min(1).max(100)).max(20).default([]),
+	/** skill: an ability or method ("Copywriting"). tool: a specific product or platform ("WordPress", "Slate CRM"). */
+	kind: z.enum(["skill", "tool"]).default("skill"),
+	/** Profile entries (roles, projects, volunteering, education) where it was used or learned. */
+	entryIds: z.array(z.string().min(1)).max(50).default([]),
 	hidden: z.boolean().default(false),
 });
 export type ProfileSkillInput = z.infer<typeof profileSkillInputSchema>;

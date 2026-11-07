@@ -53,9 +53,19 @@ test("before tailoring, the posting's missing skills and experience can be added
 
 	await expect(dialog.getByRole("heading", { name: "Fill the gaps in your profile" })).toBeVisible({ timeout: 30_000 });
 	await expect(dialog.getByText(/% match for this posting/)).toBeVisible();
+	await expect(dialog.getByText("Judged by your AI connection, requirement by requirement")).toBeVisible();
+	await dialog.getByText("How this is worked out").click();
+	await expect(dialog.getByText("Delivered WordPress sites.")).toBeVisible();
 	// WordPress is already in the profile (named in an achievement), so only the new skills are asked about.
 	await expect(dialog.getByRole("checkbox", { name: /WordPress/ })).toHaveCount(0);
-	await dialog.getByRole("checkbox", { name: "Photography" }).check();
+	const photography = dialog.getByRole("listitem").filter({ hasText: "Skilled in photography" });
+	await photography.getByRole("checkbox", { name: /^Photography/ }).check();
+	// A skill can be tied to every place it was used.
+	await photography.getByRole("button", { name: "Founder — Northbrook Digital" }).click();
+	await expect(photography.getByRole("button", { name: "Founder — Northbrook Digital" })).toHaveAttribute(
+		"aria-pressed",
+		"true",
+	);
 	const printers = dialog.getByRole("listitem").filter({ hasText: "Plan Open House events" });
 	await printers.getByRole("radio", { name: "I've done this" }).click();
 	await printers.getByLabel("Where did you do it?").selectOption({ label: "Founder — Northbrook Digital" });
@@ -69,7 +79,9 @@ test("before tailoring, the posting's missing skills and experience can be added
 
 	await expect(dialog.getByRole("heading", { name: "Choose what to include" })).toBeVisible({ timeout: 30_000 });
 	const profile = await (await page.request.get("/api/openapi/master-profile")).json();
-	expect(profile.skills.map((skill: { name: string }) => skill.name)).toContain("Photography");
+	expect(profile.skills).toContainEqual(
+		expect.objectContaining({ name: "Photography", kind: "skill", entryIds: [entryId] }),
+	);
 	expect(JSON.stringify(profile.entries)).toContain("Planned two open house events for a nonprofit");
 	// The new achievement is now part of the proposal.
 	await expect(dialog.getByText("Planned two open house events for a nonprofit")).toBeVisible();

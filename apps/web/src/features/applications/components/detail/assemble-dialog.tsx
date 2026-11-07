@@ -223,7 +223,7 @@ export function AssembleDialog({ application, open, onOpenChange, autoPropose }:
 											className="w-fit text-xs text-ink-3 underline underline-offset-2 hover:text-ink-2"
 											onClick={() => setGapsDone(false)}
 										>
-											{t`${gaps.data.gaps.length} things the posting asks for aren't in your profile. Review them`}
+											{t`${gaps.data.gaps.length} things the posting asks for are weak or missing in your profile. Review them`}
 										</button>
 									)}
 								</div>

@@ -21,7 +21,7 @@ export const SENIORITY_LEVELS = [
 ] as const;
 export const seniorityLevelSchema = z.enum(SENIORITY_LEVELS);
 
-export const REQUIREMENT_KINDS = ["responsibility", "qualification", "skill", "domain", "competency"] as const;
+export const REQUIREMENT_KINDS = ["responsibility", "qualification", "skill", "tool", "domain", "competency"] as const;
 
 export const jobRequirementSchema = z.object({
 	/** "R1", "R2", … in rank order: R1 matters most. */
@@ -155,6 +155,28 @@ export const requirementCoverageSchema = z.object({
 });
 export type RequirementCoverage = z.infer<typeof requirementCoverageSchema>;
 
+/**
+ * How well the selected evidence meets each requirement, judged as a hiring manager would. ai: rated by the AI
+ * against a rubric (3 strong and direct, 2 some, 1 only adjacent or listed, 0 none). keywords: estimated from the
+ * ranking's keyword matches when no AI rating is available, which overstates fit.
+ */
+export const fitAssessmentSchema = z.object({
+	basis: z.enum(["ai", "keywords"]),
+	/** 0–100: ratings weighted by requirement importance (3 = 1, 2 = 0.6, 1 = 0.25, 0 = 0). */
+	match: z.number(),
+	ratings: z.array(
+		z.object({
+			requirementId: z.string(),
+			rating: z.number().int().min(0).max(3),
+			reason: z.string(),
+		}),
+	),
+	/** One or two sentences on the overall fit. */
+	summary: z.string().default(""),
+	model: z.string().default(""),
+});
+export type FitAssessment = z.infer<typeof fitAssessmentSchema>;
+
 export const resumeSelectionPlanSchema = z.object({
 	version: z.literal(1).default(1),
 	applicationId: z.string(),
@@ -179,6 +201,8 @@ export const resumeSelectionPlanSchema = z.object({
 	warnings: z.array(z.string()),
 	/** Model calls that produced the plan, with tokens used. */
 	usage: z.array(tokenUsageSchema).default([]),
+	/** The AI's judgment of fit for the proposal, when it ran. */
+	assessment: fitAssessmentSchema.optional(),
 	/** The full record vs the subset, for display. */
 	totals: z.object({
 		entries: z.number(),
@@ -223,16 +247,31 @@ export const profileGapSchema = z.object({
 	importance: z.number(),
 	/** skill: tools or abilities to add as skills. experience: something done, to add as an achievement. */
 	type: z.enum(["skill", "experience"]),
-	/** Skill names from the posting that the profile has under no name. */
-	skills: z.array(z.string()),
+	/** Skills and tools the posting names that the profile has under no name. */
+	skills: z.array(z.object({ name: z.string(), kind: z.enum(["skill", "tool"]) })),
 	/** The user's earlier answer for this posting: "no", or "added" to the profile. Null when unanswered. */
 	answer: z.enum(["no", "added"]).nullable(),
 });
 export type ProfileGap = z.infer<typeof profileGapSchema>;
 
 export const gapReportSchema = z.object({
-	/** 0–100: requirements the selected evidence supports, weighted by importance; partial support counts half. */
+	/** 0–100: see fitAssessmentSchema. */
 	match: z.number(),
+	basis: z.enum(["ai", "keywords"]).default("keywords"),
+	/** Each requirement's rating and why, for "how this is worked out". */
+	ratings: z
+		.array(
+			z.object({
+				requirementId: z.string(),
+				text: z.string(),
+				necessity: z.enum(["mandatory", "preferred"]),
+				importance: z.number(),
+				rating: z.number(),
+				reason: z.string(),
+			}),
+		)
+		.default([]),
+	summary: z.string().default(""),
 	supported: z.number(),
 	partial: z.number(),
 	total: z.number(),
@@ -243,8 +282,17 @@ export type GapReport = z.infer<typeof gapReportSchema>;
 export const gapAnswerSchema = z.object({
 	requirementId: z.string().min(1),
 	have: z.boolean(),
-	/** Skill names to add to the profile (those it doesn't have yet). */
-	skills: z.array(z.string().trim().min(1).max(100)).max(10).default([]),
+	/** Skills and tools to add to the profile, each with the entries where it was used or learned. */
+	skills: z
+		.array(
+			z.object({
+				name: z.string().trim().min(1).max(100),
+				kind: z.enum(["skill", "tool"]).default("skill"),
+				entryIds: z.array(z.string().min(1)).max(50).default([]),
+			}),
+		)
+		.max(10)
+		.default([]),
 	/** Where it was done or learned: a profile entry, or null for no particular one. */
 	entryId: z.string().min(1).nullable().default(null),
 	/** An achievement to add, in the user's words (or a draft they approved). Empty adds only the skills. */

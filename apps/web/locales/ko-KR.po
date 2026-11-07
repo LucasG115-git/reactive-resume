@@ -24,6 +24,10 @@ msgid "…or paste YAML or JSON here"
 msgstr ""
 
 #: src/features/applications/components/detail/gap-step.tsx
+msgid "· nice to have"
+msgstr ""
+
+#: src/features/applications/components/detail/gap-step.tsx
 msgid "· required"
 msgstr ""
 
@@ -500,13 +504,6 @@ msgstr "{1}의 {0} 수정 사항이 승인되었습니다."
 msgid "{0} of {1} posting terms appear"
 msgstr "{0}의 {1} 채용 공고 용어가 나타납니다."
 
-#. placeholder {0}: report.supported
-#. placeholder {1}: report.total
-#. placeholder {2}: report.partial
-#: src/features/applications/components/detail/gap-step.tsx
-msgid "{0} of {1} requirements shown, {2} partly"
-msgstr ""
-
 #. placeholder {0}: shown.length
 #. placeholder {1}: TEMPLATE_IDS.length
 #: src/features/resume/editor/design/template-group.tsx
@@ -558,7 +555,7 @@ msgstr "뒷받침됨 {0}개, 일부 뒷받침됨 {1}개, 아직 근거 없음 {2
 
 #. placeholder {0}: gaps.data.gaps.length
 #: src/features/applications/components/detail/assemble-dialog.tsx
-msgid "{0} things the posting asks for aren't in your profile. Review them"
+msgid "{0} things the posting asks for are weak or missing in your profile. Review them"
 msgstr ""
 
 #. placeholder {0}: findings.length
@@ -1737,6 +1734,10 @@ msgstr "태그 추가"
 msgid "Add text"
 msgstr "텍스트 추가"
 
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Add the achievement under"
+msgstr ""
+
 #: src/features/resume/editor/write/fields.tsx
 msgid "Add the domain after the @, like {name}@example.com"
 msgstr "{name}@example.com처럼 @ 뒤에 도메인을 추가하세요."
@@ -1770,6 +1771,10 @@ msgstr "질문에 추가"
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Add to Skills"
 msgstr "스킬에 추가"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Add tool"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Add two or three lines at the top describing what you do."
@@ -1856,6 +1861,10 @@ msgstr "그때까지 답이 없으면 오늘에 알림을 추가합니다."
 
 #: src/features/career/knowledge/profile-file.tsx
 msgid "Adds to existing"
+msgstr ""
+
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Adjacent"
 msgstr ""
 
 #: src/features/templates/gallery.tsx
@@ -2052,7 +2061,7 @@ msgid "Already interviewing"
 msgstr "이미 인터뷰 중"
 
 #: src/features/applications/components/detail/gap-step.tsx
-msgid "Also add the skill {skill}"
+msgid "Also add the skill {name}"
 msgstr ""
 
 #: src/features/resume/editor/check/check-panel.tsx
@@ -5498,6 +5507,10 @@ msgstr "피드백을 받은 답변은 모두 최신순으로 여기에 보관됩
 msgid "Each requirement in the posting is checked against the facts and stories in your Knowledge. Gaps show as missing evidence, never missing ability."
 msgstr "채용 공고의 각 요건을 지식에 있는 사실 및 스토리와 대조합니다. 빈 부분은 능력이 아니라 근거가 부족하다는 뜻으로만 표시됩니다."
 
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Each requirement is rated on the evidence proposed for this resume: strong (counts in full), some (60%), adjacent (25%) or none. Ratings are weighted by how much the requirement matters, and \"nice to have\" items count for less."
+msgstr ""
+
 #: src/features/career/knowledge/structured-preferences.tsx
 msgid "Each rule covers an area. A rule naming places is used before a country rule, and a country rule before an \"anywhere\" rule; among rules of the same kind, the higher one wins. Radius and commute time are shared with the coach but can't be checked against a posting."
 msgstr ""
@@ -5614,6 +5627,10 @@ msgstr "링크 편집"
 #: src/features/applications/components/detail/next-step-card.tsx
 msgid "Edit this interview…"
 msgstr "이 인터뷰를 편집하세요…"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Edit tool"
+msgstr ""
 
 #: src/features/career/knowledge/profile.tsx
 msgid "Edit: {excerpt}"
@@ -5843,6 +5860,10 @@ msgstr "입장 옵션"
 #: src/features/career/offers.tsx
 msgid "Equity"
 msgstr "지분"
+
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Estimated from keyword matches, which overstates fit"
+msgstr ""
 
 #: src/features/career/today.tsx
 msgid "Every {days} days at {clock} · next {next}"
@@ -6904,6 +6925,10 @@ msgstr ""
 msgid "How tailored resumes are written: length, tone, bullets, skills and section order, as presets for the directions you apply in. Examples you like guide the voice; they're never used as facts. Your experience stays in Career → Knowledge."
 msgstr ""
 
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "How this is worked out"
+msgstr ""
+
 #: src/features/templates/gallery.tsx
 msgid "How to choose a template"
 msgstr "템플릿을 선택하는 방법"
@@ -7433,6 +7458,10 @@ msgstr "JSON 읽기"
 
 #: src/features/settings/ai/task-models.tsx
 msgid "JSON works"
+msgstr ""
+
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Judged by your AI connection, requirement by requirement"
 msgstr ""
 
 #: src/features/resume/editor/write/rich-text-editor-field.tsx
@@ -8913,6 +8942,10 @@ msgstr ""
 msgid "New teams at Northwind were stalling in setup; most never got through."
 msgstr "Northwind의 신규 팀들이 설정 단계에서 멈췄고, 대부분 끝까지 가지 못했습니다."
 
+#: src/features/career/knowledge/profile.tsx
+msgid "New tool"
+msgstr ""
+
 #: src/features/resume/editor/check/page-layer.tsx
 msgid "Next issue"
 msgstr "다음호"
@@ -9171,7 +9204,7 @@ msgid "No skills section was found."
 msgstr "기술 섹션을 찾을 수 없습니다."
 
 #: src/features/career/knowledge/profile.tsx
-msgid "No skills yet. Add the tools and abilities you'd want a recruiter to search for."
+msgid "No skills yet. Add the abilities and methods you'd want a recruiter to search for."
 msgstr ""
 
 #: src/features/applications/components/insights-view.tsx
@@ -9219,6 +9252,10 @@ msgstr "일치하는 시간대가 없습니다."
 msgid "no tool calls"
 msgstr ""
 
+#: src/features/career/knowledge/profile.tsx
+msgid "No tools yet. Add the software and platforms you've used, like WordPress or Salesforce."
+msgstr ""
+
 #: src/features/applications/components/detail/selection-review.tsx
 msgid "No verified evidence"
 msgstr ""
@@ -9242,6 +9279,7 @@ msgstr "없음"
 
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/detail/gap-step.tsx
 #: src/features/applications/components/list-view.tsx
 msgid "None"
 msgstr "없음"
@@ -9818,7 +9856,11 @@ msgid "Optional; replaces the general minimum in this area."
 msgstr ""
 
 #: src/features/applications/components/detail/gap-step.tsx
-msgid "Optional: what you did with it there, in a sentence. It's added as an achievement."
+msgid "Optional: what you did with it, in a sentence. It's added as an achievement."
+msgstr ""
+
+#: src/features/career/knowledge/used-at.tsx
+msgid "Optional. Pick every place it applies."
 msgstr ""
 
 #: src/components/ui/combobox.tsx
@@ -11905,6 +11947,7 @@ msgstr "샘플 이력서가 추가되었습니다. 언제든지 삭제하세요.
 
 #: src/features/applications/components/detail/activity.tsx
 #: src/features/applications/components/detail/next-step-card.tsx
+#: src/features/career/knowledge/profile.tsx
 #: src/features/resume/share/history-tab.tsx
 #: src/features/settings/resume-style.tsx
 msgid "Save"
@@ -11987,10 +12030,6 @@ msgstr "이름 저장"
 #: src/features/career/schedule-sheet.tsx
 msgid "Save schedule"
 msgstr "스케줄 저장"
-
-#: src/features/career/knowledge/profile.tsx
-msgid "Save skill"
-msgstr ""
 
 #: src/features/assistant/tool-approvals.tsx
 #: src/features/career/knowledge/stories.tsx
@@ -12870,10 +12909,18 @@ msgstr "6개 제품팀"
 msgid "Size"
 msgstr "크기"
 
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "skill"
+msgstr ""
+
 #: src/features/career/knowledge/facts.tsx
 #: src/features/career/knowledge/profile.tsx
 msgid "Skill"
 msgstr "기술"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Skill: an ability or method"
+msgstr ""
 
 #: src/features/career/knowledge/profile.tsx
 #: src/features/homepage/check.tsx
@@ -12948,6 +12995,10 @@ msgstr "숫자는 적지만 주목할 가치가 있습니다."
 #: src/features/homepage/remember.tsx
 msgid "So I talked to 14 customers, found the three places people dropped off, and we prototyped a shorter setup."
 msgstr "그래서 고객 14명과 이야기해 사람들이 이탈하는 세 지점을 찾았고, 더 짧은 설정 과정의 프로토타입을 만들었습니다."
+
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Some"
+msgstr ""
 
 #: src/features/resume/editor/check/issues.ts
 msgid "Some application systems ask for one before you can apply."
@@ -13328,6 +13379,10 @@ msgstr "보완할 점"
 #: src/features/resume/editor/write/rich-text-editor-field.tsx
 msgid "Strikethrough"
 msgstr "취소선"
+
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Strong"
+msgstr ""
 
 #: src/features/career/knowledge/structured-preferences.tsx
 msgid "Strong benefits"
@@ -13990,7 +14045,7 @@ msgid "The posting asks for “{label}”. If it's true for me, work it into my 
 msgstr "채용 공고에는 \"{label}\"가 필요합니다. 그것이 나에게 사실이라면 이력서에 적합한 곳에 적용하십시오. 먼저 나에게 물어보세요."
 
 #: src/features/applications/components/detail/gap-step.tsx
-msgid "The posting asks for these, but your profile doesn't show them anywhere. If you have them, say where you did or learned them: they're added to your master profile for this and future resumes. Only add what's true; you can skip any of them."
+msgid "The posting asks for these, but your profile shows little or nothing for them. If you have them, say where you used or did them: they're added to your master profile for this and future resumes. Only add what's true; you can skip any of them."
 msgstr ""
 
 #: src/features/applications/components/detail/selection-review.tsx
@@ -14525,8 +14580,28 @@ msgstr "흰색 제목에 너무 밝습니다. 희미하게 인쇄되어 읽기 �
 msgid "Too many requests. Try again later."
 msgstr "요청이 너무 많습니다. 나중에 다시 시도하세요."
 
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "tool"
+msgstr ""
+
 #: src/features/settings/ai/task-models.tsx
 msgid "tool calls work"
+msgstr ""
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Tool or platform"
+msgstr ""
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Tool or platform: a named product"
+msgstr ""
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Tools & platforms"
+msgstr ""
+
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Tools and platforms you might use"
 msgstr ""
 
 #: src/features/homepage/sections.tsx
@@ -15177,6 +15252,11 @@ msgstr "사용됨"
 msgid "used {used}"
 msgstr "사용: {used}"
 
+#. placeholder {0}: skill.entryIds.length
+#: src/features/career/knowledge/profile.tsx
+msgid "Used at {0} places"
+msgstr ""
+
 #: src/features/career/knowledge/facts.tsx
 #: src/features/homepage/remember.tsx
 msgid "Used in coaching"
@@ -15718,8 +15798,13 @@ msgstr "지원 유입 경로"
 msgid "Where did you do it?"
 msgstr ""
 
+#. placeholder {0}: skill.name
 #: src/features/applications/components/detail/gap-step.tsx
-msgid "Where did you use or learn it? (optional)"
+msgid "Where did you use {0}?"
+msgstr ""
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Where you used it"
 msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx

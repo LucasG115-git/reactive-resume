@@ -320,6 +320,18 @@ function tailoringAnswer(request: ChatRequest): unknown {
 			],
 		};
 	if (system.includes("You review a candidate's verified career record")) return {};
+	// The fit assessment: strong on WordPress, some nonprofit evidence, nothing for the rest.
+	if (system.includes("You are an experienced hiring manager screening")) {
+		const ratings = [...prompt.matchAll(/^(R\d+) \([^)]*\): (.+)$/gm)].map(([, id, line = ""]) => {
+			const rating = /wordpress/i.test(line) ? 3 : /nonprofit/i.test(line) ? 2 : 0;
+			return {
+				id,
+				rating,
+				reason: rating === 3 ? "Delivered WordPress sites." : rating ? "Nonprofit clients." : "No evidence.",
+			};
+		});
+		return { ratings, summary: "Strong on WordPress; nothing yet for photography or events." };
+	}
 	// A profile-gap draft: the user's note, reworded without adding anything.
 	if (system.includes("You turn a candidate's own short account")) {
 		const note = /<<<NOTE_START>>>\n([\s\S]*?)\n<<<NOTE_END>>>/.exec(prompt)?.[1]?.trim() ?? "";

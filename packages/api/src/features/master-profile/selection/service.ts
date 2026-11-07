@@ -2,7 +2,7 @@ import type { MasterProfile } from "../service";
 import type { AskModel } from "./model";
 import type { Blocked } from "./rank";
 import type { Review } from "./review";
-import type { AiTask, TokenUsage } from "@reactive-resume/schema/ai-tasks";
+import type { TokenUsage } from "@reactive-resume/schema/ai-tasks";
 import type { JobAnalysis, ResumeSelectionPlan, SelectionEdit } from "@reactive-resume/schema/resume-selection";
 import type { WritingRules } from "@reactive-resume/schema/resume-writing";
 import { ORPCError } from "@orpc/client";
@@ -15,30 +15,15 @@ import { applicationService } from "../../applications/service";
 import { resumeStyleService } from "../../resume-style/service";
 import { masterProfileService } from "../service";
 import { analysisOutputSchema, analysisPrompt, ANALYSIS_SYSTEM, normalizeAnalysis, postingHash } from "./analysis";
+import { assessFit } from "./assessment";
 import { applyEdit, composePlan, finalize } from "./compose";
 import { fitToPages } from "./fit";
-import { askDefaultModel } from "./model";
+import { askDefaultModel, usageOf } from "./model";
 import { eligibleProfile, rankEvidence, requirementTerms, shortlist } from "./rank";
 import { EMPTY_REVIEW, resolveReview, REVIEW_SYSTEM, reviewOutputSchema, reviewPrompt } from "./review";
 import { tokens } from "./text";
 
-/** One model call's usage, for the record kept with plans and assemblies. */
-export const usageOf = (
-	step: string,
-	task: AiTask,
-	answer: {
-		model: string;
-		usage?: { inputTokens: number; outputTokens: number } | undefined;
-		fallback?: boolean | undefined;
-	},
-): TokenUsage => ({
-	step,
-	task,
-	model: answer.model,
-	inputTokens: answer.usage?.inputTokens ?? 0,
-	outputTokens: answer.usage?.outputTokens ?? 0,
-	fallback: answer.fallback ?? false,
-});
+export { usageOf } from "./model";
 
 type Options = { ask?: AskModel; signal?: AbortSignal | undefined; now?: Date };
 
@@ -289,7 +274,22 @@ export const selectionService = {
 			},
 		});
 
-		for (const item of [selection.proposed, selection.plan]) item.usage = usage;
+		// The honest fit, judged on the proposal; the gap step shows it with each requirement's reason.
+		const fit = await assessFit({
+			userId,
+			analysis,
+			plan: selection.plan,
+			profile,
+			ask,
+			quality: input.quality,
+			signal: options.signal,
+			now,
+		});
+		usage.push(...fit.usage);
+		for (const item of [selection.proposed, selection.plan]) {
+			item.usage = usage;
+			item.assessment = fit.assessment;
+		}
 		const values = {
 			postingText: posting,
 			analysis,

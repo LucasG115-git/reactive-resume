@@ -1,4 +1,4 @@
-import type { AiTask, AiTaskSettings } from "@reactive-resume/schema/ai-tasks";
+import type { AiTask, AiTaskSettings, TokenUsage } from "@reactive-resume/schema/ai-tasks";
 import type z from "zod";
 import { ORPCError } from "@orpc/client";
 import { APICallError, RetryError } from "ai";
@@ -67,3 +67,21 @@ export const askDefaultModel: AskModel = async ({ userId, task, quality, system,
 		throw reachable(error);
 	}
 };
+
+/** One model call's usage, for the record kept with plans and assemblies. */
+export const usageOf = (
+	step: string,
+	task: AiTask,
+	answer: {
+		model: string;
+		usage?: { inputTokens: number; outputTokens: number } | undefined;
+		fallback?: boolean | undefined;
+	},
+): TokenUsage => ({
+	step,
+	task,
+	model: answer.model,
+	inputTokens: answer.usage?.inputTokens ?? 0,
+	outputTokens: answer.usage?.outputTokens ?? 0,
+	fallback: answer.fallback ?? false,
+});

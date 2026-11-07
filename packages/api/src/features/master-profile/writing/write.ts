@@ -99,7 +99,7 @@ export function writerPrompt(input: {
 	const skillLines = input.skills.map((skill, index) => {
 		const key = `S${index + 1}`;
 		keys.skills.set(key, skill.id);
-		return `  ${key}: ${skill.name}`;
+		return `  ${key}: ${skill.name}${skill.kind === "tool" ? " [tool]" : ""}`;
 	});
 	const requirements = analysis.requirements
 		.slice(0, 12)
@@ -146,7 +146,7 @@ Bullets:
 - Plain, natural professional English. Avoid clichés such as ${CLICHES.slice(0, 10).join(", ")}.
 - Don't repeat the same verb or point across bullets.
 
-Skill groups: put every S id in exactly one of ${rules.skills.minGroups} to ${rules.skills.maxGroups} groups with names suited to this profession and posting (for example "Communications & Marketing", "Digital Platforms", "Project Delivery" for communications; "Languages & Frameworks", "Platforms & Tools" for development). Group names of at most 3 words and about 24 characters, using "&" rather than "and", so they fit on one line. No generic names like "Skills" or "Other". A skill must not just repeat its group's name. No proficiency levels.${style?.preset.skillGroupHints.length ? ` Prefer these group names where they fit: ${style.preset.skillGroupHints.join(", ")}.` : ""}`;
+Skill groups: skills marked [tool] are specific products or platforms; put them together in a group of their own (e.g. "Tools & Platforms"), apart from abilities and methods. Put every S id in exactly one of ${rules.skills.minGroups} to ${rules.skills.maxGroups} groups with names suited to this profession and posting (for example "Communications & Marketing", "Digital Platforms", "Project Delivery" for communications; "Languages & Frameworks", "Platforms & Tools" for development). Group names of at most 3 words and about 24 characters, using "&" rather than "and", so they fit on one line. No generic names like "Skills" or "Other". A skill must not just repeat its group's name. No proficiency levels.${style?.preset.skillGroupHints.length ? ` Prefer these group names where they fit: ${style.preset.skillGroupHints.join(", ")}.` : ""}`;
 	return { prompt, keys };
 }
 
@@ -319,7 +319,10 @@ export function acceptWriting(input: {
 		const echo = group.skillIds.filter((id) => parts.has(names.get(id) ?? ""));
 		if (group.skillIds.length - echo.length >= 2) for (const id of echo) echoes.add(id);
 	}
-	const skillGroups = grouped.map((group) => ({ ...group, skillIds: group.skillIds.filter((id) => !echoes.has(id)) }));
+	const skillGroups = separateTools(
+		grouped.map((group) => ({ ...group, skillIds: group.skillIds.filter((id) => !echoes.has(id)) })),
+		input.skills,
+	);
 
 	return {
 		headline,
@@ -395,6 +398,23 @@ export function summaryProblem(text: string, facts: string[], rules: WritingRule
 	if (!grounded.ok) return grounded.reason;
 	const tools = introducedTools(text, facts, skillNames);
 	return tools.length > 0 ? `named ${tools.join(", ")}` : null;
+}
+
+/**
+ * Tools and platforms in a group of their own, apart from abilities: a reader scanning for "Slate CRM" or
+ * "WordPress" finds it at once. Groups left empty are dropped; nothing moves when there are no tools, or nothing else.
+ */
+export function separateTools(groups: SkillGroup[], skills: Skill[]): SkillGroup[] {
+	const tools = new Set(skills.filter((skill) => skill.kind === "tool").map((skill) => skill.id));
+	if (tools.size === 0 || tools.size === skills.length) return groups;
+	const toolGroup = groups.find((group) => group.skillIds.length > 0 && group.skillIds.every((id) => tools.has(id)));
+	const name = toolGroup?.name ?? "Tools & Platforms";
+	const moved = groups.flatMap((group) => (group === toolGroup ? [] : group.skillIds.filter((id) => tools.has(id))));
+	const rest = groups
+		.filter((group) => group !== toolGroup)
+		.map((group) => ({ ...group, skillIds: group.skillIds.filter((id) => !tools.has(id)) }))
+		.filter((group) => group.skillIds.length > 0);
+	return [...rest, { name, skillIds: [...(toolGroup?.skillIds ?? []), ...moved] }];
 }
 
 /** A run of six or more words shared with an example and absent from the record, or null. */

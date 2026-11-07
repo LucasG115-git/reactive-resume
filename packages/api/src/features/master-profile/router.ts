@@ -47,7 +47,11 @@ export const profileAchievementSchema = createSelectSchema(tables.profileAchieve
 	tags: stringList,
 	variants: stringList,
 });
-export const profileSkillSchema = createSelectSchema(tables.profileSkill, { aliases: stringList });
+export const profileSkillSchema = createSelectSchema(tables.profileSkill, {
+	aliases: stringList,
+	entryIds: stringList,
+	kind: z.enum(["skill", "tool"]),
+});
 export const masterProfileSchema = z.object({
 	entries: z.array(profileEntrySchema.extend({ achievements: z.array(profileAchievementSchema) })),
 	standalone: z.array(profileAchievementSchema),

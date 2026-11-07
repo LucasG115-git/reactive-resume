@@ -13,6 +13,7 @@ import {
 	profileEntryInputSchema,
 	profileSkillInputSchema,
 } from "@reactive-resume/schema/master-profile";
+import { toolLike } from "./writing/skills";
 
 const ENTITIES: Record<string, string> = { amp: "&", lt: "<", gt: ">", quot: '"', apos: "'", nbsp: " ", "#39": "'" };
 
@@ -208,6 +209,7 @@ export function resumeToProfile(data: ResumeData): ResumeImport {
 				name: clean,
 				category: clip(category.trim(), 100),
 				level: level > 0 ? level : null,
+				kind: toolLike(clean) ? "tool" : "skill",
 			}),
 		);
 	};
@@ -283,7 +285,10 @@ export function profileFileToRecords(file: ProfileFile): ResumeImport {
 
 	const skills: ProfileSkillInput[] = [];
 	file.skills.forEach((raw, index) => {
-		const result = profileSkillInputSchema.safeParse(raw);
+		const typed = raw && typeof raw === "object" && !("kind" in raw) && "name" in raw && typeof raw.name === "string";
+		const result = profileSkillInputSchema.safeParse(
+			typed ? { ...raw, kind: toolLike(String(raw.name)) ? "tool" : "skill" } : raw,
+		);
 		if (result.success) skills.push(result.data);
 		else
 			for (const issue of result.error.issues)
