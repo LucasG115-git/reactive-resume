@@ -125,12 +125,17 @@ export async function validateRendering(input: {
 			.filter((page) => !page.items.some((item) => item.str.trim()))
 			.map((page) => page.pageNumber);
 		const ats = analyzePdfResume(raw, input.now ? { now: input.now } : {});
+		const last = raw.pages.at(-1);
+		const lowest = last?.items.filter((item) => item.str.trim()).map((item) => item.transform[5] ?? 0) ?? [];
+		const lastPageFill =
+			last && lowest.length > 0 ? Math.round(((last.height - Math.min(...lowest)) / last.height) * 100) / 100 : 0;
 		report.pdf = {
 			pages: raw.pageCount,
 			blankPages,
 			...coverage,
 			readingOrder: readsInOrder(extracted.fullText, titles),
 			atsScore: ats.score,
+			lastPageFill,
 		};
 		if (blankPages.length > 0)
 			findings.push({
@@ -155,6 +160,13 @@ export async function validateRendering(input: {
 				code: "render-pages",
 				severity: "warning",
 				message: `The PDF is ${raw.pageCount} pages; the target is ${input.targetPages}.`,
+			});
+		// A mostly empty last page looks like the resume ran over; trim to fewer pages or use the space.
+		if (raw.pageCount > 1 && lastPageFill < 0.35)
+			findings.push({
+				code: "render-sparse-page",
+				severity: "warning",
+				message: `Page ${raw.pageCount} is only about ${Math.max(5, Math.round(lastPageFill * 100))}% full. Trim the weakest bullets to fit ${raw.pageCount - 1} page${raw.pageCount === 2 ? "" : "s"}, or add relevant content.`,
 			});
 		const blockers = ats.checks.filter((check) => check.status === "fail" && check.severity === "blocker");
 		if (blockers.length > 0)

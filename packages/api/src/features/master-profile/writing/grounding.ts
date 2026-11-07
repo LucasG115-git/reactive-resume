@@ -14,7 +14,7 @@ export function keepsQualifiers(source: string, rewrite: string): boolean {
 }
 
 /** Tools and platforms commonly named on resumes; with the profile's own skills, what a rewrite may not invent. */
-const TOOLS = [
+export const TOOLS = [
 	"wordpress",
 	"elementor",
 	"woocommerce",

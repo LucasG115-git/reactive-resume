@@ -5,6 +5,15 @@ import type { SkillGroup } from "@reactive-resume/schema/resume-writing";
 import type { ResumeData } from "@reactive-resume/schema/resume/data";
 import type { ResumeDates } from "@reactive-resume/schema/resume/dates";
 import { generateId } from "@reactive-resume/utils/string";
+import {
+	alignTense,
+	sameSite,
+	shortenApproximations,
+	shortLocation,
+	singleHeadline,
+	stripEvidenceNotes,
+	titleWithOrganization,
+} from "../writing/hygiene";
 import { checkGrounded, lengthBudget } from "./grounding";
 
 type Entry = MasterProfile["entries"][number];
@@ -40,6 +49,8 @@ export type AssembleResult = {
 	warnings: string[];
 	/** Which profile entry each resume item came from. */
 	placements: Placement[];
+	/** Notes about evidence taken out of printed lines, so the user can fix the record itself. */
+	evidenceNotes: Array<{ achievementId: string | null; removed: string[]; doubtful: boolean }>;
 };
 
 export const LIMITS = {
@@ -76,12 +87,23 @@ export function byRecency(a: Entry, b: Entry) {
 	return end(b).localeCompare(end(a)) || (b.startDate ?? "").localeCompare(a.startDate ?? "");
 }
 
-function datesOf(entry: Entry, single = false): ResumeDates {
+/**
+ * An entry's dates at one precision: when one end has only a year, the other shows only its year too ("2026 –
+ * 2026" collapses to "2026"), so "2026 – Oct 2026" can't happen.
+ */
+export function datesOf(entry: Pick<Entry, "startDate" | "endDate">, single = false): ResumeDates {
 	if (single) return { start: entry.endDate ?? entry.startDate, end: null, present: false };
-	return { start: entry.startDate, end: entry.endDate, present: Boolean(entry.startDate && !entry.endDate) };
+	let { startDate: start, endDate: end } = entry;
+	if (start && end && (start.length === 4) !== (end.length === 4)) {
+		start = start.slice(0, 4);
+		end = end.slice(0, 4);
+	}
+	if (start && end && start.length === 4 && start === end) return { start, end: null, present: false };
+	return { start, end, present: Boolean(start && !end) };
 }
 
 const website = (url: string) => ({ url, label: "", inlineLink: false });
+const noWebsite = website("");
 
 /** Every wording the user wrote for an achievement: its text and approved variants. */
 const wordingsOf = (achievement: Achievement) => [achievement.text, ...achievement.variants];
@@ -212,25 +234,40 @@ export function buildResume(input: {
 	});
 
 	const bullets: AssembledBullet[] = [];
+	const evidenceNotes: AssembleResult["evidenceNotes"] = [];
+	/** The printed line: notes about evidence out, long approximations shortened. Never adds anything. */
+	const tidy = (achievementId: string | null, text: string) => {
+		const cleaned = stripEvidenceNotes(text);
+		if (cleaned.removed.length > 0 || cleaned.doubtful)
+			evidenceNotes.push({ achievementId, removed: cleaned.removed, doubtful: cleaned.doubtful });
+		return shortenApproximations(cleaned.text);
+	};
+	/** Bullets for an entry with their wording chosen and tidied, in one tense. */
+	const placeBullets = (entry: Entry, picks: Array<{ achievement: Achievement; proposed: string }>) => {
+		const lines = picks.map(({ achievement, proposed }) => {
+			const chosenWording = chooseWording(achievement, proposed, mode, warnings);
+			return { achievement, ...chosenWording, text: tidy(achievement.id, chosenWording.text) };
+		});
+		const tensed = alignTense(
+			lines.map((line) => line.text),
+			!entry.endDate,
+		);
+		return lines.map((line, index) => {
+			const text = tensed[index] ?? line.text;
+			bullets.push({ achievementId: line.achievement.id, entryId: entry.id, text, source: line.source });
+			return text;
+		});
+	};
 	const bulletsFor = (entry: Entry): string[] => {
 		const picks = [...(chosen.get(entry.id) ?? [])];
 		// The reviewed plan is final: its bullets, in its order, with nothing added or capped.
-		if (plan)
-			return picks.map(({ achievement, proposed }) => {
-				const chosenWording = chooseWording(achievement, proposed, mode, warnings);
-				bullets.push({ achievementId: achievement.id, entryId: entry.id, ...chosenWording });
-				return chosenWording.text;
-			});
+		if (plan) return placeBullets(entry, picks);
 		// Always-include achievements join the picks (after them, unless already picked).
 		for (const achievement of entry.achievements)
 			if (achievement.core && !achievement.hidden && !picks.some((pick) => pick.achievement.id === achievement.id))
 				picks.push({ achievement, proposed: achievement.text });
 		const cap = Math.max(capFor(entry), entry.achievements.filter((a) => a.core && !a.hidden).length);
-		return picks.slice(0, cap).map(({ achievement, proposed }) => {
-			const wording = chooseWording(achievement, proposed, mode, warnings);
-			bullets.push({ achievementId: achievement.id, entryId: entry.id, ...wording });
-			return wording.text;
-		});
+		return placeBullets(entry, picks.slice(0, cap));
 	};
 
 	const ofKind = (kind: Entry["kind"]) => included.filter((entry) => entry.kind === kind).toSorted(byRecency);
@@ -252,10 +289,11 @@ export function buildResume(input: {
 			hidden: false,
 			company: entry.organization,
 			position: entry.title,
-			location: entry.location,
+			location: shortLocation(entry.location),
 			period: "",
 			dates: datesOf(entry),
-			website: website(entry.url),
+			// The candidate's own site is already in the header; printing it again under a role is clutter.
+			website: sameSite(entry.url, base.basics.website.url) ? noWebsite : website(entry.url),
 			description: bulletsHtml(bulletsFor(entry)),
 			roles: [],
 		})),
@@ -265,7 +303,7 @@ export function buildResume(input: {
 		ofKind("project").map((entry) => ({
 			id: place("projects", entry),
 			hidden: false,
-			name: entry.organization ? `${entry.title} — ${entry.organization}` : entry.title,
+			name: titleWithOrganization(entry.title, entry.organization),
 			period: "",
 			dates: datesOf(entry),
 			website: website(entry.url),
@@ -277,8 +315,8 @@ export function buildResume(input: {
 		ofKind("volunteer").map((entry) => ({
 			id: place("volunteer", entry),
 			hidden: false,
-			organization: entry.organization ? `${entry.organization} — ${entry.title}` : entry.title,
-			location: entry.location,
+			organization: titleWithOrganization(entry.organization, entry.title),
+			location: shortLocation(entry.location),
 			period: "",
 			dates: datesOf(entry),
 			website: website(entry.url),
@@ -294,10 +332,11 @@ export function buildResume(input: {
 			degree: entry.organization ? entry.title : "",
 			area: "",
 			grade: "",
-			location: entry.location,
+			location: shortLocation(entry.location),
 			period: "",
 			dates: datesOf(entry),
-			website: website(entry.url),
+			// A school's home page tells the reader nothing.
+			website: noWebsite,
 			description: bulletsHtml(bulletsFor(entry)),
 		})),
 	);
@@ -400,7 +439,7 @@ export function buildResume(input: {
 		];
 		const check = checkGrounded(proposedSummary, sources, 700);
 		if (check.ok) {
-			summary = { ...summary, content: paragraphHtml(proposedSummary), hidden: false };
+			summary = { ...summary, content: paragraphHtml(tidy(null, proposedSummary)), hidden: false };
 			summaryUsed = true;
 		} else warnings.push(`Kept your existing summary (the suggested one ${check.reason}).`);
 	}
@@ -409,7 +448,9 @@ export function buildResume(input: {
 	const unknown = plan ? 0 : selection.achievements.filter((pick) => !visibleAchievements.has(pick.id)).length;
 	if (unknown > 0) warnings.push(`Ignored ${unknown} suggestion(s) that didn't match your profile.`);
 
-	const basics = input.writing?.headline ? { ...base.basics, headline: input.writing.headline } : base.basics;
+	const basics = input.writing?.headline
+		? { ...base.basics, headline: singleHeadline(input.writing.headline) }
+		: base.basics;
 	const metadata = plan
 		? { ...base.metadata, layout: orderSections(base.metadata.layout, input.writing?.sectionOrder ?? plan.sections) }
 		: base.metadata;
@@ -428,6 +469,7 @@ export function buildResume(input: {
 		skillIds: orderedSkills.map((skill) => skill.id),
 		summaryUsed,
 		warnings,
+		evidenceNotes,
 	};
 }
 

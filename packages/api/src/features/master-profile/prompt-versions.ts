@@ -3,8 +3,8 @@
  * across prompt changes. Bump one whenever its prompt or system message changes meaningfully.
  */
 export const PROMPT_VERSIONS = {
-	analysis: "analysis-1",
-	evidence: "evidence-1",
-	writing: "writing-2",
-	review: "review-1",
+	analysis: "analysis-2",
+	evidence: "evidence-2",
+	writing: "writing-3",
+	review: "review-2",
 } as const;

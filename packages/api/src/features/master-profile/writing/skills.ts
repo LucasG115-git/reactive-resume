@@ -2,6 +2,9 @@ import type { MasterProfile } from "../service";
 import type { ResumeSelectionPlan } from "@reactive-resume/schema/resume-selection";
 import type { SkillGroup, WritingRules } from "@reactive-resume/schema/resume-writing";
 import { words } from "../selection/text";
+import { TOOLS } from "./grounding";
+
+const TOOL_NAMES = new Set(TOOLS.map((name) => words(name).join(" ")));
 
 type Skill = MasterProfile["skills"][number];
 
@@ -41,6 +44,16 @@ const SOFT_SKILLS = new Set(
 );
 
 const key = (name: string) => words(name).join(" ");
+
+/** Categories and names that mark a hard, technical skill: a tool, platform, language or method. */
+const TECHNICAL_CATEGORY =
+	/\b(?:tech|tool|platform|software|language|framework|stack|develop|engineer|cms|data|analytic|web|design)/i;
+
+/** A tool or platform named in a profile skill: shown when the resume's bullets use it, whatever the posting. */
+export const isTechnical = (skill: Skill) =>
+	TECHNICAL_CATEGORY.test(skill.category) ||
+	TOOL_NAMES.has(key(skill.name)) ||
+	skill.aliases.some((alias) => TOOL_NAMES.has(key(alias)));
 export const isSoftSkill = (name: string) => SOFT_SKILLS.has(key(name));
 
 const namesOf = (skill: Skill) => [skill.name, ...skill.aliases].map(key).filter(Boolean);
@@ -89,6 +102,14 @@ export function chooseSkills(profile: MasterProfile, plan: ResumeSelectionPlan, 
 		[1, (item) => item.include && evidenced.has(item.skillId)],
 		[2, (item) => item.include],
 		[3, (item) => !item.userEdited && item.requirementIds.length > 0 && evidenced.has(item.skillId)],
+		// Tools the included bullets name ("WordPress, Drupal and Shopify"): a resume naming them should list them.
+		[
+			3,
+			(item) => {
+				const skill = byId.get(item.skillId);
+				return !item.userEdited && evidenced.has(item.skillId) && Boolean(skill && isTechnical(skill));
+			},
+		],
 		[4, (item) => !item.userEdited && evidenced.has(item.skillId)],
 	];
 	const ordered: Array<{ item: ResumeSelectionPlan["skills"][number]; tier: number }> = [];
@@ -104,7 +125,7 @@ export function chooseSkills(profile: MasterProfile, plan: ResumeSelectionPlan, 
 	for (const { item, tier } of ordered) {
 		const skill = byId.get(item.skillId);
 		if (!skill || skill.hidden) continue;
-		if (tier >= 3 && chosen.length >= rules.skills.min) continue;
+		if (tier >= 4 && chosen.length >= rules.skills.min) continue;
 		if (isSoftSkill(skill.name) && tier !== 0) {
 			leftOut.push({
 				skillId: skill.id,
@@ -151,6 +172,22 @@ export function validateGroups(proposed: SkillGroup[], skills: Skill[], rules: W
 	if (missing.length > 0) groups[0]?.skillIds.push(...missing);
 	const enough = skills.length < rules.skills.minGroups * 2 || groups.length >= rules.skills.minGroups;
 	return enough && groups.length <= rules.skills.maxGroups ? groups : null;
+}
+
+/**
+ * No one-skill groups ("Project Delivery: Project Management"): a group with a single skill joins the smallest other
+ * group. A heading over one item reads as padding, so this wins over the minimum number of groups.
+ */
+export function mergeThinGroups(groups: SkillGroup[]): SkillGroup[] {
+	const result = groups.map((group) => ({ ...group, skillIds: [...group.skillIds] }));
+	for (;;) {
+		const thin = result.findIndex((group) => group.skillIds.length === 1);
+		if (thin < 0 || result.length <= 1) return result;
+		const [group] = result.splice(thin, 1);
+		const target = result.toSorted((a, b) => a.skillIds.length - b.skillIds.length)[0];
+		if (!target || !group) return result;
+		target.skillIds.push(...group.skillIds);
+	}
 }
 
 /** Groups from the profile's own categories: largest first, the smallest merged once there are too many. */

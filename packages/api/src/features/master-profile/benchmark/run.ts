@@ -163,6 +163,7 @@ export async function runCase(item: BenchmarkCase, config: BenchmarkConfig): Pro
 			analysis,
 			rules,
 			headline: written.headline,
+			evidenceNotes: built.evidenceNotes,
 			now,
 		});
 		const rendering = config.render

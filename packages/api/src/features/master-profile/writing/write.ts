@@ -8,7 +8,7 @@ import { dataBlock } from "../../ai/data-block";
 import { checkGrounded, lengthBudget } from "../assemble/grounding";
 import { words } from "../selection/text";
 import { introducedTools, keepsQualifiers } from "./grounding";
-import { groupByCategory, validateGroups } from "./skills";
+import { groupByCategory, mergeThinGroups, validateGroups } from "./skills";
 
 type Entry = MasterProfile["entries"][number];
 type Achievement = Entry["achievements"][number];
@@ -119,8 +119,8 @@ ${style ? styleBlock(style) : ""}${input.feedback ?? ""}
 
 Write in ${region.spelling}. Return JSON:
 {
-  "headline": ${rules.headline ? `"a professional headline of at most 10 words, built only from the candidate's own titles, sector and skills in the RECORD and SKILLS. Never claim a job title they haven't held."` : `""`},
-  "summary": ${rules.summary.enabled ? `"${rules.summary.minSentences}-${rules.summary.maxSentences} concise sentences, at most ${rules.summary.maxWords} words, for this role: who they are professionally, the strongest relevant evidence, and what they offer. Only facts from the RECORD; numbers only if they appear in it."` : `""`},
+  "headline": ${rules.headline ? `"one professional headline of at most 8 words pitched at this role, built only from the candidate's own titles, sector and skills in the RECORD and SKILLS. One identity, not a list: no | or / separators and no stacked titles. Never claim a job title they haven't held."` : `""`},
+  "summary": ${rules.summary.enabled ? `"${rules.summary.minSentences}-${rules.summary.maxSentences} concise sentences, at most ${rules.summary.maxWords} words, for this role: who they are professionally, the strongest relevant evidence, and what they offer this employer. Only claims an included RECORD entry shows: never mention experience (such as leadership or a sector) the RECORD doesn't. Numbers only if they appear in it. No vague filler such as 'offers hands-on' or 'passionate about'."` : `""`},
   "bullets": [{ "id": "A1", "text": "the bullet" }],
   "skillGroups": [{ "name": "a category name suited to this profession", "skills": ["S1", "S2"] }]
 }
@@ -128,7 +128,12 @@ Write in ${region.spelling}. Return JSON:
 Bullets:
 - Return every A id exactly once.
 - Lead with a strong, specific verb. Show action, scope and result where the record states them. One or two lines, at most ${rules.bullets.maxWords} words.
-- Keep every number, date and qualifier as recorded ("about", "nearly", "~", "up to"). Never add a number, tool, employer, title or outcome the record doesn't state. If the record has an approved wording that fits, you may use it exactly.
+- Keep every number and date as recorded, and keep an honest qualifier on an approximate number, written briefly: "~25 websites", not "approximately 25 websites". Never add a number, tool, employer, title or outcome the record doesn't state. If the record has an approved wording that fits, you may use it exactly.
+- The record may hold the candidate's notes about evidence: who reported a figure, that it's unverified, "at that time", what wasn't completed. Never put these notes on the resume. If a figure is marked unverified, uncertain or only "claimed", leave that figure out rather than state it or hedge it, and keep the rest of the achievement.
+- Past tense for every bullet ("Led", "Built", "Managed"), including the current role, so tenses never mix within a role.
+- Write what a hiring manager wants to see: the result first where the record states one, then how. Cut filler such as "with additional projects in development", "respectively", "various", "responsible for".
+- Don't stress working alone ("independently", "single-handedly") unless the posting asks for it; show the clients, teams and stakeholders the work served.
+- Never mention political campaigns, religion, health, age or family unless the entry was included for a job in that field.
 - Use the posting's terms only where they accurately describe the record, at most once per bullet. No keyword lists.
 - Plain, natural professional English. Avoid clichés such as ${CLICHES.slice(0, 10).join(", ")}.
 - Don't repeat the same verb or point across bullets.
@@ -295,7 +300,9 @@ export function acceptWriting(input: {
 			.map((key) => keys?.skills.get(key.trim().toUpperCase()))
 			.filter((id): id is string => Boolean(id)),
 	}));
-	const skillGroups = validateGroups(proposedGroups, input.skills, rules) ?? groupByCategory(input.skills, rules);
+	const skillGroups = mergeThinGroups(
+		validateGroups(proposedGroups, input.skills, rules) ?? groupByCategory(input.skills, rules),
+	);
 
 	return {
 		headline,
