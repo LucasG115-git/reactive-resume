@@ -59,6 +59,11 @@ describe("notes about evidence", () => {
 		expect(stripEvidenceNotes("Raised $12,000 (unverified, from the board report) in one season.").text).toBe(
 			"Raised $12,000 in one season.",
 		);
+		expect(
+			stripEvidenceNotes(
+				"Supported onboarding of ~80 additional organizations and claims of pre-populated profiles, based on recollection rather than a verified registration export.",
+			).text,
+		).toBe("Supported onboarding of ~80 additional organizations and claims of pre-populated profiles.");
 	});
 
 	it("flags a line whose main clause is itself unsure, and leaves plain lines alone", () => {

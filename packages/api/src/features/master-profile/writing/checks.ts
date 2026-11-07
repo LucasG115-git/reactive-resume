@@ -3,6 +3,7 @@ import type { MasterProfile } from "../service";
 import type { JobAnalysis, ResumeSelectionPlan } from "@reactive-resume/schema/resume-selection";
 import type { QualityFinding, WritingReport, WritingRules } from "@reactive-resume/schema/resume-writing";
 import type { ResumeData } from "@reactive-resume/schema/resume/data";
+import { pagesFor, yearsSinceFirstRole } from "@reactive-resume/schema/resume-writing";
 import { datesOf } from "../assemble/build";
 import { jaccard, tokens, words } from "../selection/text";
 import { isPolitical, isPoliticalField, oddApproximation, opensInPresent } from "./hygiene";
@@ -76,10 +77,7 @@ const clip = (text: string, max = 60) => (text.length > max ? `${text.slice(0, m
 
 /** Years of work across included and excluded positions, from the earliest start to now (rough, for page targets). */
 export function experienceYears(profile: MasterProfile, now: Date) {
-	const starts = profile.entries
-		.filter((entry) => entry.kind === "position" && entry.startDate)
-		.map((entry) => Number(entry.startDate?.slice(0, 4)));
-	return starts.length ? now.getFullYear() - Math.min(...starts) : 0;
+	return yearsSinceFirstRole(profile.entries, now);
 }
 
 /**
@@ -553,8 +551,7 @@ export function checkResume(input: {
 		8;
 	const words_ = countWords(allText) + keywords.length * 1.5 + entryWords + skillItems.length * 2;
 	const estimatedPages = Math.round((words_ / rules.wordsPerPage) * 10) / 10;
-	const targetPages =
-		experienceYears(profile, now) >= rules.pages.experiencedYears ? rules.pages.experienced : rules.pages.early;
+	const targetPages = pagesFor(rules, experienceYears(profile, now));
 	if (estimatedPages > targetPages + 0.2)
 		add({
 			code: "too-long",

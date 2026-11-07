@@ -1,6 +1,7 @@
 import type { MasterProfile } from "../service";
 import type { JobAnalysis, ResumeSelectionPlan } from "@reactive-resume/schema/resume-selection";
 import type { WritingRules } from "@reactive-resume/schema/resume-writing";
+import { pagesFor } from "@reactive-resume/schema/resume-writing";
 import { experienceYears } from "../writing/checks";
 import { finalize, SELECTION_RULES } from "./compose";
 import { words } from "./text";
@@ -8,7 +9,7 @@ import { words } from "./text";
 /**
  * Fits a proposed selection to the page target: while the estimated length is over it, the weakest proposed
  * achievement is left out (never one the user chose or marked always-include); the lead role keeps up to three bullets
- * and other positions one; projects and volunteer roles aren't thinned below their minimum. Then whole projects or
+ * and other positions two; projects and volunteer roles aren't thinned below their minimum. Then whole projects or
  * volunteer roles go, weakest first. Everything left out says why, so the user
  * can include it again in review; nothing is changed in the profile.
  */
@@ -25,7 +26,7 @@ export function estimateWords(plan: ResumeSelectionPlan, rules: WritingRules) {
 }
 
 export function targetPages(profile: MasterProfile, rules: WritingRules, now: Date) {
-	return experienceYears(profile, now) >= rules.pages.experiencedYears ? rules.pages.experienced : rules.pages.early;
+	return pagesFor(rules, experienceYears(profile, now));
 }
 
 export function fitToPages(input: {
@@ -42,7 +43,7 @@ export function fitToPages(input: {
 	let trimmed = 0;
 
 	// The lead role (the first included position: current or most recent) carries the resume, so it keeps up to
-	// three bullets and is trimmed last; other positions keep one. Projects and older roles give way first.
+	// three bullets and is trimmed last; other positions keep two. Projects and older roles give way first.
 	const lead = plan.entries.find((entry) => entry.include && entry.kind === "position");
 	const weight = (entry: (typeof plan.entries)[number]) => (entry === lead ? 0.3 : entry.kind === "position" ? 0.1 : 0);
 	const removable = () =>
@@ -58,7 +59,7 @@ export function fitToPages(input: {
 							? 0
 							: entry.kind === "project" || entry.kind === "volunteer"
 								? Math.min(SELECTION_RULES.minBullets[entry.kind], included.length)
-								: 1;
+								: Math.min(2, included.length);
 				if (included.length <= floor) return [];
 				return included.filter((item) => !item.userEdited && !item.core).map((item) => ({ entry, item }));
 			})

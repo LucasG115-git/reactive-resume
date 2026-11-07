@@ -12,7 +12,12 @@ import {
 	ROLE_FAMILIES,
 	ROLE_FAMILY_TEMPLATES,
 } from "@reactive-resume/schema/resume-style";
-import { REGION_CONVENTIONS, WRITING_REGIONS } from "@reactive-resume/schema/resume-writing";
+import {
+	pagesFor,
+	REGION_CONVENTIONS,
+	WRITING_REGIONS,
+	yearsSinceFirstRole,
+} from "@reactive-resume/schema/resume-writing";
 import { Button } from "@reactive-resume/ui/components/button";
 import { Icon } from "@reactive-resume/ui/components/icon";
 import { IconButton } from "@reactive-resume/ui/components/icon-button";
@@ -75,6 +80,10 @@ type StyleGuideFormProps = { initial: ResumeStyleGuide };
 
 function StyleGuideForm({ initial }: StyleGuideFormProps) {
 	const queryClient = useQueryClient();
+	// Each preset's page target for this person, shown with its name.
+	const profile = useQuery(orpc.masterProfile.get.queryOptions());
+	const [now] = useState(() => new Date());
+	const years = profile.data ? yearsSinceFirstRole(profile.data.entries, now) : 0;
 	const [draft, setDraft] = useState(initial);
 	const [selectedId, setSelectedId] = useState(initial.defaultPresetId);
 	const familyId = useId();
@@ -166,6 +175,9 @@ function StyleGuideForm({ initial }: StyleGuideFormProps) {
 							className="flex h-8 items-center gap-1.5 rounded-md border border-line-2 px-3 text-[13px] text-ink-2 hover:bg-hover aria-selected:border-accent aria-selected:bg-accent-soft aria-selected:text-ink"
 						>
 							{item.name}
+							<span className="text-[11px] text-ink-3">
+								· {plural(pagesFor(item.rules, years), { one: "# page", other: "# pages" })}
+							</span>
 							{item.id === draft.defaultPresetId && <span className="text-[11px] text-ink-3">· {t`default`}</span>}
 						</button>
 					))}

@@ -201,6 +201,8 @@ export const resumeSelectionPlanSchema = z.object({
 	warnings: z.array(z.string()),
 	/** Model calls that produced the plan, with tokens used. */
 	usage: z.array(tokenUsageSchema).default([]),
+	/** The resume style preset the proposal was fitted to, and its page target for this candidate. */
+	style: z.object({ presetId: z.string(), name: z.string(), pages: z.number().int() }).optional(),
 	/** The AI's judgment of fit for the proposal, when it ran. */
 	assessment: fitAssessmentSchema.optional(),
 	/** The full record vs the subset, for display. */
