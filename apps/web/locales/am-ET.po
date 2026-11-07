@@ -8794,6 +8794,10 @@ msgstr "አዲስ ገጽ"
 msgid "New password"
 msgstr "አዲስ የይለፍ ቃል"
 
+#: src/features/settings/resume-style.tsx
+msgid "New preset from"
+msgstr ""
+
 #: src/features/career/today.tsx
 msgid "New roles from your search"
 msgstr "ከፍለጋዎ የተገኙ አዲስ የሥራ መደቦች"
@@ -13063,7 +13067,6 @@ msgid "Start each one with a concrete verb: built, led, reduced, migrated."
 msgstr "እያንዳንዱን በተጨባጭ ግስ ይጀምሩ፦ built, led, reduced, migrated የመሳሰሉት።"
 
 #: src/features/documents/new-document-dialog.tsx
-#: src/features/settings/resume-style.tsx
 msgid "Start from"
 msgstr "ከ ጀምር"
 

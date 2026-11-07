@@ -103,6 +103,7 @@ export async function runCase(item: BenchmarkCase, config: BenchmarkConfig): Pro
 			emphasis: { text: "", tokens: tokens("") },
 			previous: null,
 			now,
+			rules,
 			review: (prompt) =>
 				ask({
 					userId: "benchmark",

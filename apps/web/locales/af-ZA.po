@@ -8794,6 +8794,10 @@ msgstr "Nuwe bladsy"
 msgid "New password"
 msgstr "Nuwe wagwoord"
 
+#: src/features/settings/resume-style.tsx
+msgid "New preset from"
+msgstr ""
+
 #: src/features/career/today.tsx
 msgid "New roles from your search"
 msgstr "Nuwe poste uit jou soektog"
@@ -13063,7 +13067,6 @@ msgid "Start each one with a concrete verb: built, led, reduced, migrated."
 msgstr "Begin elkeen met 'n konkrete werkwoord: gebou, gelei, verminder, gemigreer."
 
 #: src/features/documents/new-document-dialog.tsx
-#: src/features/settings/resume-style.tsx
 msgid "Start from"
 msgstr "Begin vanaf"
 

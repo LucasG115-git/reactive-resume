@@ -8794,6 +8794,10 @@ msgstr "Nova stran"
 msgid "New password"
 msgstr "Novo geslo"
 
+#: src/features/settings/resume-style.tsx
+msgid "New preset from"
+msgstr ""
+
 #: src/features/career/today.tsx
 msgid "New roles from your search"
 msgstr "Nove vloge iz vašega iskanja"
@@ -13063,7 +13067,6 @@ msgid "Start each one with a concrete verb: built, led, reduced, migrated."
 msgstr "Vsako začnite s konkretnim glagolom: zgradil, vodil, zmanjšal, migriral."
 
 #: src/features/documents/new-document-dialog.tsx
-#: src/features/settings/resume-style.tsx
 msgid "Start from"
 msgstr "Začnite od"
 

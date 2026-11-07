@@ -8794,6 +8794,10 @@ msgstr "Pàgina nova"
 msgid "New password"
 msgstr "Contrasenya nova"
 
+#: src/features/settings/resume-style.tsx
+msgid "New preset from"
+msgstr ""
+
 #: src/features/career/today.tsx
 msgid "New roles from your search"
 msgstr "Llocs nous de la vostra cerca"
@@ -13063,7 +13067,6 @@ msgid "Start each one with a concrete verb: built, led, reduced, migrated."
 msgstr "Comença cadascuna amb un verb concret: va crear, va liderar, va reduir, va migrar."
 
 #: src/features/documents/new-document-dialog.tsx
-#: src/features/settings/resume-style.tsx
 msgid "Start from"
 msgstr "Comença des de"
 

@@ -5,7 +5,7 @@ import type { QualityFinding, WritingReport, WritingRules } from "@reactive-resu
 import type { ResumeData } from "@reactive-resume/schema/resume/data";
 import { datesOf } from "../assemble/build";
 import { jaccard, tokens, words } from "../selection/text";
-import { isPolitical, isPoliticalField, opensInPresent } from "./hygiene";
+import { isPolitical, isPoliticalField, oddApproximation, opensInPresent } from "./hygiene";
 import { isSoftSkill } from "./skills";
 import { CLICHES, limitSentences } from "./write";
 
@@ -517,6 +517,15 @@ export function checkResume(input: {
 			severity: "warning",
 			message: `The headline "${clip(data.basics.headline)}" lists several identities. Name the one role you're applying as.`,
 		});
+	for (const bullet of allBulletTexts) {
+		const odd = oddApproximation(bullet.text);
+		if (odd !== null)
+			add({
+				code: "approximate-exact",
+				severity: "info",
+				message: `"~${odd}" reads oddly, because ${odd} looks exact. If you know the number, record it in your profile without "approximately"; otherwise round it.`,
+			});
+	}
 	const hedges = (allText.match(/\b(?:approximately|approx\.?|roughly)\b/gi) ?? []).length;
 	if (hedges >= 2)
 		add({

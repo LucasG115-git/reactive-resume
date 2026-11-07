@@ -8794,6 +8794,10 @@ msgstr "പുതിയ പേജ്"
 msgid "New password"
 msgstr "പുതിയ പാസ്‌വേഡ്"
 
+#: src/features/settings/resume-style.tsx
+msgid "New preset from"
+msgstr ""
+
 #: src/features/career/today.tsx
 msgid "New roles from your search"
 msgstr "നിങ്ങളുടെ തിരയലിൽ നിന്നുള്ള പുതിയ റോളുകൾ"
@@ -13063,7 +13067,6 @@ msgid "Start each one with a concrete verb: built, led, reduced, migrated."
 msgstr "ഓരോന്നും ഒരു വ്യക്തമായ ക്രിയയോടെ തുടങ്ങുക: built, led, reduced, migrated."
 
 #: src/features/documents/new-document-dialog.tsx
-#: src/features/settings/resume-style.tsx
 msgid "Start from"
 msgstr "മുതൽ ആരംഭിക്കുക"
 

@@ -8794,6 +8794,10 @@ msgstr "नया पेज"
 msgid "New password"
 msgstr "नया पासवर्ड"
 
+#: src/features/settings/resume-style.tsx
+msgid "New preset from"
+msgstr ""
+
 #: src/features/career/today.tsx
 msgid "New roles from your search"
 msgstr "आपकी खोज से नए पद"
@@ -13063,7 +13067,6 @@ msgid "Start each one with a concrete verb: built, led, reduced, migrated."
 msgstr "हर एक को एक ठोस क्रिया से शुरू करें: built, led, reduced, migrated।"
 
 #: src/features/documents/new-document-dialog.tsx
-#: src/features/settings/resume-style.tsx
 msgid "Start from"
 msgstr "से शुरु करें"
 

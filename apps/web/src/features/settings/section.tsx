@@ -15,8 +15,8 @@ type SettingsSectionProps = {
 export function SettingsSection({ title, description, action, children, className }: SettingsSectionProps) {
 	return (
 		<section className={cn("grid gap-3 border-t border-line pt-6 first:border-t-0 first:pt-0", className)}>
-			<div className="flex items-center justify-between gap-3">
-				<div className="grid gap-0.5">
+			<div className="flex flex-wrap items-center justify-between gap-3">
+				<div className="grid min-w-0 flex-1 basis-64 gap-0.5">
 					<h2 className="text-[17px] font-semibold">{title}</h2>
 					{description && <p className="text-sm text-ink-3">{description}</p>}
 				</div>

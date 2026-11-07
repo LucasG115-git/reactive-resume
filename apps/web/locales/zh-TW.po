@@ -8794,6 +8794,10 @@ msgstr "新頁面"
 msgid "New password"
 msgstr "新密碼"
 
+#: src/features/settings/resume-style.tsx
+msgid "New preset from"
+msgstr ""
+
 #: src/features/career/today.tsx
 msgid "New roles from your search"
 msgstr "來自您搜尋的新職缺"
@@ -13063,7 +13067,6 @@ msgid "Start each one with a concrete verb: built, led, reduced, migrated."
 msgstr "每一條都以具體的動詞開頭：建置、領導、降低、遷移。"
 
 #: src/features/documents/new-document-dialog.tsx
-#: src/features/settings/resume-style.tsx
 msgid "Start from"
 msgstr "開始於"
 

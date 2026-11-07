@@ -120,7 +120,12 @@ export const assembleService = {
 		// The style preset: the one asked for, else the one matching the posting's title, else the default.
 		const guide = await resumeStyleService.get(userId);
 		const quality = input.quality ?? (await taskSettings(userId)).quality;
-		const preset = choosePreset(guide, stored?.analysis.title || application.role, input.presetId);
+		const preset = choosePreset(
+			guide,
+			stored?.analysis.title || application.role,
+			input.presetId,
+			stored ? [stored.analysis.summary, ...stored.analysis.domain].join(" ") : "",
+		);
 		const rules = rulesFor(preset);
 		const style = { preset, examples: guide.examples.filter((example) => preset.exampleIds.includes(example.id)) };
 		if (plan) {

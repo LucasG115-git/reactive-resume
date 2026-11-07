@@ -4,15 +4,19 @@ import type { Blocked } from "./rank";
 import type { Review } from "./review";
 import type { AiTask, TokenUsage } from "@reactive-resume/schema/ai-tasks";
 import type { JobAnalysis, ResumeSelectionPlan, SelectionEdit } from "@reactive-resume/schema/resume-selection";
+import type { WritingRules } from "@reactive-resume/schema/resume-writing";
 import { ORPCError } from "@orpc/client";
 import { and, eq, sql } from "drizzle-orm";
 import { db } from "@reactive-resume/db/client";
 import * as tables from "@reactive-resume/db/schema";
 import { careerProfileDataSchema } from "@reactive-resume/schema/career";
+import { choosePreset, rulesFor } from "@reactive-resume/schema/resume-style";
 import { applicationService } from "../../applications/service";
+import { resumeStyleService } from "../../resume-style/service";
 import { masterProfileService } from "../service";
 import { analysisOutputSchema, analysisPrompt, ANALYSIS_SYSTEM, normalizeAnalysis, postingHash } from "./analysis";
 import { applyEdit, composePlan, finalize } from "./compose";
+import { fitToPages } from "./fit";
 import { askDefaultModel } from "./model";
 import { eligibleProfile, rankEvidence, requirementTerms, shortlist } from "./rank";
 import { EMPTY_REVIEW, resolveReview, REVIEW_SYSTEM, reviewOutputSchema, reviewPrompt } from "./review";
@@ -93,6 +97,8 @@ export async function buildSelection(input: {
 	previous: ResumeSelectionPlan | null;
 	review: (prompt: string) => Promise<{ output: unknown; model: string } | null>;
 	now: Date;
+	/** The writing rules to fit the proposal to; without them, nothing is left out for length. */
+	rules?: WritingRules | undefined;
 }) {
 	const { profile, unavailable } = eligibleProfile(input.profile, input.blocked);
 	const achievementCount =
@@ -144,8 +150,27 @@ export async function buildSelection(input: {
 		context,
 		now: input.now,
 	};
-	const proposed = composePlan(base);
-	const plan = input.previous ? composePlan({ ...base, previous: input.previous }) : proposed;
+	let proposed = composePlan(base);
+	let plan = input.previous ? composePlan({ ...base, previous: input.previous }) : proposed;
+	if (input.rules) {
+		const fit = (item: ResumeSelectionPlan) => {
+			const result = fitToPages({
+				plan: item,
+				analysis: input.analysis,
+				profile,
+				rules: input.rules as WritingRules,
+				now: input.now,
+			});
+			if (result.trimmed > 0)
+				result.plan.warnings.push(
+					`Left out ${result.trimmed} weaker achievement${result.trimmed === 1 ? "" : "s"} to fit the ${result.pages}-page target. They're marked below; include any you'd rather keep.`,
+				);
+			return result.plan;
+		};
+		const same = plan === proposed;
+		proposed = fit(proposed);
+		plan = same ? proposed : fit(plan);
+	}
 	if (source === "ranking")
 		for (const item of [proposed, plan])
 			item.warnings.unshift("The AI review didn't return a usable answer, so this plan comes from the ranking alone.");
@@ -226,6 +251,14 @@ export const selectionService = {
 			blockedRecords(userId, input.applicationId),
 			emphasisOf(userId),
 		]);
+		// The proposal fits the page target of the style preset this posting would be written with.
+		const guide = await resumeStyleService.get(userId);
+		const preset = choosePreset(
+			guide,
+			analysis.title || application.role,
+			null,
+			[analysis.summary, ...analysis.domain].join(" "),
+		);
 		const selection = await buildSelection({
 			applicationId: input.applicationId,
 			analysis,
@@ -233,6 +266,7 @@ export const selectionService = {
 			blocked,
 			emphasis,
 			previous: previous?.plan ?? null,
+			rules: rulesFor(preset),
 			now,
 			review: async (prompt) => {
 				try {

@@ -110,7 +110,12 @@ export function AssembleDialog({ application, open, onOpenChange, autoPropose }:
 	const [presetId, setPresetId] = useState<string | null>(null);
 	// The preset the server would pick for this posting's title, unless the user chooses another.
 	const suggested = styleGuide.data
-		? choosePreset(styleGuide.data, selection.data?.analysis.title || application.role)
+		? choosePreset(
+				styleGuide.data,
+				selection.data?.analysis.title || application.role,
+				null,
+				selection.data ? [selection.data.analysis.summary, ...selection.data.analysis.domain].join(" ") : "",
+			)
 		: null;
 	const preset = presetId ?? suggested?.id ?? null;
 	const [result, setResult] = useState<AssembleResult | null>(null);

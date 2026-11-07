@@ -188,17 +188,26 @@ const lower = (text: string) =>
 		.trim()} `;
 
 /**
- * The preset for a posting: the one whose keywords match the job title most (ties go to the earlier preset), or
- * the default. A preset chosen by the user always wins.
+ * The preset for a posting: the one chosen, else the one whose keywords best match the title (or, more weakly, the
+ * posting's summary and field, so "Officer, Recruitment" still finds a communications preset), else the default.
  */
-export function choosePreset(guide: ResumeStyleGuide, title: string, chosenId?: string | null): StylePreset {
+export function choosePreset(
+	guide: ResumeStyleGuide,
+	title: string,
+	chosenId?: string | null,
+	context = "",
+): StylePreset {
 	const chosen = chosenId ? guide.presets.find((preset) => preset.id === chosenId) : undefined;
 	if (chosen) return chosen;
 	const haystack = lower(title);
+	const around = lower(context);
 	let best: { preset: StylePreset; hits: number } | null = null;
 	for (const preset of guide.presets) {
-		// Matched at the start of a word, so "project" also matches "Projects".
-		const hits = preset.keywords.filter((keyword) => haystack.includes(lower(keyword).trimEnd())).length;
+		// Matched at the start of a word, so "project" also matches "Projects". Title matches count double.
+		const hits = preset.keywords.reduce((sum, keyword) => {
+			const word = lower(keyword).trimEnd();
+			return sum + (haystack.includes(word) ? 2 : around.includes(word) ? 1 : 0);
+		}, 0);
 		if (hits > 0 && (!best || hits > best.hits)) best = { preset, hits };
 	}
 	const fallback = guide.presets.find((preset) => preset.id === guide.defaultPresetId) ?? guide.presets[0];

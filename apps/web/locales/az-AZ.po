@@ -8794,6 +8794,10 @@ msgstr "Yeni səhifə"
 msgid "New password"
 msgstr "Yeni parol"
 
+#: src/features/settings/resume-style.tsx
+msgid "New preset from"
+msgstr ""
+
 #: src/features/career/today.tsx
 msgid "New roles from your search"
 msgstr "Axtarışınızdan yeni vəzifələr"
@@ -13063,7 +13067,6 @@ msgid "Start each one with a concrete verb: built, led, reduced, migrated."
 msgstr "Hər birini konkret fellə başlayın: qurdu, rəhbərlik etdi, azaltdı, köçürdü."
 
 #: src/features/documents/new-document-dialog.tsx
-#: src/features/settings/resume-style.tsx
 msgid "Start from"
 msgstr "-dən başlayın"
 
