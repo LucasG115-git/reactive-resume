@@ -90,7 +90,7 @@ ${dataBlock(
 	"DRAFT",
 	[
 		`HEADLINE: ${written.headline || "(none)"}`,
-		`SUMMARY: ${written.summary || "(none)"}`,
+		`SUMMARY: ${written.summary || "(written after this review, from the final bullets)"}`,
 		...draft,
 		`SKILLS: ${groups.join(" | ") || "(none)"}`,
 	].join("\n"),

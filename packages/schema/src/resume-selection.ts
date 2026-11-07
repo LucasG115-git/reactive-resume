@@ -83,6 +83,8 @@ export const selectionScoreSchema = z.object({
 	strength: z.number(),
 	/** 0–1: how recent its entry is. Never rules anything out alone. */
 	recency: z.number(),
+	/** 0–1: how long the candidate held the entry's role; where most of their experience was built. */
+	tenure: z.number().default(0.5),
 	/** 0–3 from the AI review, or null when the AI didn't rate it. */
 	aiRelevance: z.number().nullable(),
 });

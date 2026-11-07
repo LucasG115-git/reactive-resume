@@ -7,8 +7,8 @@ import { words } from "./text";
 
 /**
  * Fits a proposed selection to the page target: while the estimated length is over it, the weakest proposed
- * achievement is left out (never one the user chose or marked always-include), keeping at least one bullet per
- * position. Then whole projects or volunteer roles go, weakest first. Everything left out says why, so the user
+ * achievement is left out (never one the user chose or marked always-include); the lead role keeps up to three bullets
+ * and other positions one. Then whole projects or volunteer roles go, weakest first. Everything left out says why, so the user
  * can include it again in review; nothing is changed in the profile.
  */
 
@@ -40,17 +40,20 @@ export function fitToPages(input: {
 	const reason = `Left out to fit the ${pages}-page target; include it if you'd rather have it.`;
 	let trimmed = 0;
 
+	// The lead role (the first included position: current or most recent) carries the resume, so it keeps up to
+	// three bullets and is trimmed last; other positions keep one. Projects and older roles give way first.
+	const lead = plan.entries.find((entry) => entry.include && entry.kind === "position");
+	const weight = (entry: (typeof plan.entries)[number]) => (entry === lead ? 0.3 : entry.kind === "position" ? 0.1 : 0);
 	const removable = () =>
 		plan.entries
 			.filter((entry) => entry.include)
 			.flatMap((entry) => {
 				const included = entry.achievements.filter((item) => item.include);
-				// Positions keep their best bullet so the timeline still reads; other entries can go to none.
-				const floor = entry.kind === "position" ? 1 : entry.kind === "education" ? 0 : 1;
+				const floor = entry === lead ? Math.min(3, included.length) : entry.kind === "education" ? 0 : 1;
 				if (included.length <= floor) return [];
 				return included.filter((item) => !item.userEdited && !item.core).map((item) => ({ entry, item }));
 			})
-			.toSorted((a, b) => a.item.score.total - b.item.score.total);
+			.toSorted((a, b) => a.item.score.total + weight(a.entry) - (b.item.score.total + weight(b.entry)));
 
 	while (estimateWords(plan, rules) > budget) {
 		const weakest = removable()[0];

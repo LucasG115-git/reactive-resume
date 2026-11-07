@@ -5,6 +5,7 @@ import type { SkillGroup, WritingRules } from "@reactive-resume/schema/resume-wr
 import z from "zod";
 import { REGION_CONVENTIONS } from "@reactive-resume/schema/resume-writing";
 import { dataBlock } from "../../ai/data-block";
+import { yearsOfExperience } from "../assemble/build";
 import { checkGrounded, lengthBudget } from "../assemble/grounding";
 import { words } from "../selection/text";
 import { introducedTools, keepsQualifiers } from "./grounding";
@@ -108,7 +109,9 @@ export function writerPrompt(input: {
 		)
 		.join("\n");
 
+	const years = yearsOfExperience(profile, input.now ?? new Date());
 	const prompt = `Target: ${analysis.title || "the role"} at ${analysis.employer || "the employer"} (${analysis.seniority})
+Experience: ${years} years in total, from the record's dates. A summary may say "${years} years" or less, never more, and never "+".
 ${plan.positioning ? `Positioning: ${plan.positioning}` : ""}
 
 ${dataBlock("REQUIREMENTS", requirements || "(none)")}
@@ -121,7 +124,7 @@ ${style ? styleBlock(style) : ""}${input.feedback ?? ""}
 Write in ${region.spelling}. Return JSON:
 {
   "headline": ${rules.headline ? `"one professional headline of at most 8 words that presents the candidate as the profession this posting hires, in that profession's terms, built only from their own titles, sector and skills in the RECORD and SKILLS (for a communications posting, e.g. 'Digital Communications and Marketing Professional' when those are among their skills, not their current job title). One identity, not a list: no | or / separators and no stacked titles. Never claim a job title they haven't held."` : `""`},
-  "summary": ${rules.summary.enabled ? `"${rules.summary.minSentences}-${rules.summary.maxSentences} concise sentences, at most ${rules.summary.maxWords} words, for this role: who they are professionally, the strongest relevant evidence, and what they offer this employer. Only claims an included RECORD entry shows: never mention experience (such as leadership or a sector) the RECORD doesn't. Numbers only if they appear in it. No vague filler such as 'offers hands-on' or 'passionate about'."` : `""`},
+  "summary": "" (always empty: the summary is written last, from the finished resume),
   "bullets": [{ "id": "A1", "text": "the bullet" }],
   "skillGroups": [{ "name": "a category name suited to this profession", "skills": ["S1", "S2"] }]
 }
@@ -170,7 +173,7 @@ const DENSITY: Record<StylePreset["density"], string> = {
 /** Excerpt length per example; enough to show voice and bullet shape. */
 export const EXAMPLE_EXCERPT = 2500;
 
-function styleBlock(style: WritingStyle) {
+export function styleBlock(style: WritingStyle) {
 	const { preset } = style;
 	const lines = [
 		`Tone: ${TONE[preset.tone]}.`,
@@ -364,6 +367,7 @@ export function recordFacts(
 	profile: MasterProfile,
 	achievementIds: string[],
 	skills: Skill[],
+	now = new Date(),
 ): string[] {
 	const entries = new Map(profile.entries.map((entry) => [entry.id, entry]));
 	const achievements = new Map(profile.entries.flatMap((entry) => entry.achievements.map((item) => [item.id, item])));
@@ -381,6 +385,7 @@ export function recordFacts(
 			return achievement ? [achievement.text, ...achievement.variants, ...achievement.metrics.map((m) => m.value)] : [];
 		}),
 		...skills.map((skill) => `${skill.name} ${skill.years ?? ""}`),
+		`${yearsOfExperience(profile, now)} years`,
 	];
 }
 

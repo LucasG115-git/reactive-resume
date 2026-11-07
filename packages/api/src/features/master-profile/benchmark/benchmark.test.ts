@@ -20,7 +20,12 @@ const usage = { inputTokens: 1000, outputTokens: 200 };
 /** Answers like a careful writer: tightens wording, keeps facts; one bullet invents a number to test rejection. */
 const careful =
 	(invent: boolean): AskModel =>
-	async ({ task, prompt, schema }) => {
+	async ({ task, prompt, schema, system }) => {
+		// The summary, written last: the first finished bullet, which is grounded by construction.
+		if (system.startsWith("You write the professional summary")) {
+			const first = /^\s+- (.+)$/m.exec(prompt)?.[1] ?? "";
+			return { model: "stub/writer", usage, output: schema.parse({ summary: first }) };
+		}
 		if (task === "writing") {
 			const bullets = [...prompt.matchAll(/^\s+(A\d+): (.+?)(?: \[|$)/gm)].map(([, id, text], index) => ({
 				id,
@@ -83,9 +88,9 @@ describe("resume tailoring benchmark", () => {
 			expect(score.lengthOver, score.caseId).toBeLessThanOrEqual(0);
 			expect(score.formatting, score.caseId).toBe(1);
 			expect(score.reviewScore).toBe(7);
-			// Three calls (evidence, writing, review) at 1,000 in and 200 out, priced per million.
-			expect(score.inputTokens).toBe(3000);
-			expect(score.cost).toBeCloseTo((3 * (1000 * 1 + 200 * 4)) / 1_000_000, 6);
+			// Four calls (evidence, writing, review, summary) at 1,000 in and 200 out, priced per million.
+			expect(score.inputTokens).toBe(4000);
+			expect(score.cost).toBeCloseTo((4 * (1000 * 1 + 200 * 4)) / 1_000_000, 6);
 		}
 		// Invented numbers never reach the resume: the record checks keep the user's words and count it.
 		for (const score of scores.filter((item) => item.config === "stub: invents a number"))

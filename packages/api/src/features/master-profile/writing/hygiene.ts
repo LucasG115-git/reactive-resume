@@ -313,6 +313,9 @@ const host = (url: string) => {
 	}
 };
 
+/** A link as a reader wants to see it: "pmi.bc.ca", not "https://pmi.bc.ca". */
+export const displayUrl = (url: string) => host(url) || url;
+
 /** True when two links go to the same site. */
 export const sameSite = (a: string, b: string) => Boolean(host(a)) && host(a) === host(b);
 

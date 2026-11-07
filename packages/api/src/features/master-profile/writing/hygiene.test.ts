@@ -3,7 +3,7 @@ import { describe, expect, it } from "vite-plus/test";
 import { choosePreset, DEFAULT_STYLE_GUIDE } from "@reactive-resume/schema/resume-style";
 import { DEFAULT_WRITING_RULES } from "@reactive-resume/schema/resume-writing";
 import { defaultResumeData } from "@reactive-resume/schema/resume/default";
-import { buildResume, datesOf } from "../assemble/build";
+import { buildResume, datesOf, yearsOfExperience } from "../assemble/build";
 import { estimateWords } from "../selection/fit";
 import { achievement, communicationsJob, consultantProfile, entry, skill } from "../selection/fixtures";
 import { buildSelection } from "../selection/service";
@@ -419,5 +419,68 @@ describe("pitch and polish", () => {
 		expect(written.skillsLeftOut).toContainEqual(
 			expect.objectContaining({ skillId: "s-comms", reason: "Repeats its group's heading" }),
 		);
+	});
+});
+
+describe("summary and fit", () => {
+	const now = new Date("2026-11-01T00:00:00Z");
+
+	async function planFor(rules = DEFAULT_WRITING_RULES) {
+		const profile = consultantProfile();
+		const analysis = communicationsJob();
+		const { plan } = await buildSelection({
+			applicationId: "app",
+			analysis,
+			profile,
+			blocked: new Map(),
+			emphasis: { text: "", tokens: tokens("") },
+			previous: null,
+			now,
+			review: async () => null,
+			rules,
+		});
+		return { profile, analysis, plan };
+	}
+
+	it("counts whole years of experience, never rounding up", () => {
+		const [first] = consultantProfile().entries;
+		if (!first) throw new Error("No entries.");
+		const started = (startDate: string) => ({
+			entries: [{ ...first, kind: "position" as const, startDate, hidden: false }],
+		});
+		expect(yearsOfExperience(started("2020-01"), now)).toBe(6);
+		expect(yearsOfExperience(started("2019-12"), now)).toBe(6);
+		expect(yearsOfExperience(started("2019-10"), now)).toBe(7);
+	});
+
+	it("never inherits the base resume's summary when writing for a posting", async () => {
+		const { profile, plan } = await planFor();
+		const base = structuredClone(defaultResumeData);
+		base.summary.content = "<p>Expert in PHP and MySQL with 7+ years of experience.</p>";
+		const built = buildResume({
+			base,
+			profile,
+			plan,
+			mode: "rephrase",
+			now,
+			selection: { achievements: [], skills: [], summary: "Seasoned leader with 43 years of experience." },
+			writing: { headline: "", skillGroups: [] },
+		});
+		expect(built.summaryUsed).toBe(false);
+		expect(built.data.summary.hidden).toBe(true);
+		expect(built.data.summary.content).toBe("");
+		expect(built.warnings.some((warning) => warning.startsWith("Left the summary off"))).toBe(true);
+	});
+
+	it("keeps the lead role's strongest bullets when fitting to the page", async () => {
+		const tight = {
+			...DEFAULT_WRITING_RULES,
+			wordsPerPage: 230,
+			pages: { ...DEFAULT_WRITING_RULES.pages, early: 1, experiencedYears: 30 },
+		};
+		const { plan } = await planFor(tight);
+		const lead = plan.entries.find((item) => item.include && item.kind === "position");
+		const proposed = lead?.achievements.length ?? 0;
+		expect(lead?.achievements.filter((item) => item.include).length).toBe(Math.min(3, proposed));
 	});
 });

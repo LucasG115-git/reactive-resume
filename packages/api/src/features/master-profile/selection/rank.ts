@@ -126,8 +126,23 @@ export function yearsAgo(entry: Pick<Entry, "startDate" | "endDate"> | null, now
 
 export const recencyOf = (entry: Pick<Entry, "startDate" | "endDate"> | null, now: Date) => {
 	const years = yearsAgo(entry, now);
-	// Undated and standalone records sit in the middle; age alone never drops below 0.3.
-	return years === null ? 0.6 : Math.max(0.3, 1 - years / 20);
+	// Undated and standalone records sit in the middle; age alone never drops below 0.3. Work from the last few
+	// years counts clearly more than work from five or more years ago.
+	return years === null ? 0.6 : Math.max(0.3, 1 - years / 10);
+};
+
+/**
+ * 0–1: how long the role was held, full at five years. Long roles are where most skills were built, so their
+ * evidence counts for more. Projects, volunteer work and undated records sit in the middle.
+ */
+export const tenureOf = (entry: Pick<Entry, "kind" | "startDate" | "endDate"> | null, now: Date) => {
+	if (!entry || entry.kind !== "position" || !entry.startDate) return 0.5;
+	const point = (value: string) => {
+		const [year, month] = value.split("-").map(Number);
+		return (year ?? now.getFullYear()) + ((month ?? 6) - 1) / 12;
+	};
+	const end = entry.endDate ? point(entry.endDate) : now.getFullYear() + now.getMonth() / 12;
+	return Math.max(0.1, Math.min(1, (end - point(entry.startDate)) / 5));
 };
 
 export type Candidate = {
@@ -211,7 +226,9 @@ export function scoreAchievement(achievement: Achievement, entry: Entry | null, 
 	const scope = jobLevel === null || level === null ? 0.7 : 1 - Math.min(1, Math.abs(jobLevel - level) * 0.25);
 	const emphasis =
 		overlap(context.emphasis, record) > 0 || (entryTokens && overlap(context.emphasis, entryTokens) > 0) ? 1 : 0;
-	const total = 0.55 * alignment + 0.2 * strength + 0.12 * recency + 0.05 * emphasis + 0.08 * scope;
+	const tenure = tenureOf(entry, context.now);
+	// Relevance leads; recent and long-held roles, where the candidate built most of their experience, come next.
+	const total = 0.5 * alignment + 0.18 * strength + 0.14 * recency + 0.08 * tenure + 0.04 * emphasis + 0.06 * scope;
 	return {
 		achievement,
 		entry,
@@ -222,6 +239,7 @@ export function scoreAchievement(achievement: Achievement, entry: Entry | null, 
 			alignment: round(alignment),
 			strength: round(strength),
 			recency: round(recency),
+			tenure: round(tenure),
 			aiRelevance: null,
 		},
 	};

@@ -279,14 +279,19 @@ describe.skipIf(!databaseUrl)("resume selection plans", { timeout: 30_000 }, () 
 		// No quality in the request: the saved default (Thorough) is used for writing.
 		seen.length = 0;
 		const built = await assemble.assemble("alice", { applicationId: "alice-app", mode: "rephrase" }, { ask: counted });
+		// Writing, then the review, then the summary last (an empty answer is retried once, then left out).
 		expect(seen).toEqual([
 			["writing", "thorough"],
 			["review", "thorough"],
+			["writing", "thorough"],
+			["writing", "thorough"],
 		]);
 		expect(built.result.writing?.quality).toBe("thorough");
 		expect(built.result.writing?.usage.map((item) => [item.step, item.model])).toEqual([
 			["writing", "stub/write"],
 			["review", "stub/review"],
+			["summary", "stub/write"],
+			["summary", "stub/write"],
 		]);
 	});
 
