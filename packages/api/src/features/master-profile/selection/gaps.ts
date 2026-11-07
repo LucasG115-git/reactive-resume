@@ -1,11 +1,13 @@
 import type { MasterProfile } from "../service";
 import type { GapReport, JobAnalysis, ProfileGap, ResumeSelectionPlan } from "@reactive-resume/schema/resume-selection";
+import { TOOLS } from "../writing/grounding";
+import { keywordAssessment, matchFromRatings } from "./assessment";
 import { words } from "./text";
 
 /**
  * Profile gaps: what a posting asks for that the master profile doesn't show anywhere, so the user can say
- * whether they have it and add it to their profile before the resume is written. Requirements the profile can
- * already evidence (even if not selected) aren't asked about; neither are ones the user already answered.
+ * whether they have it and add it to their profile before the resume is written. With the AI's fit assessment,
+ * requirements rated "only adjacent" or "none" are asked about; without it, ones the profile can't evidence at all.
  */
 
 const phrase = (text: string) => words(text).join(" ");
@@ -95,17 +97,26 @@ function inProfile(name: string, profile: MasterProfile, haystack: string) {
 
 const capitalise = (text: string) => text.charAt(0).toUpperCase() + text.slice(1);
 
-/** 0–100, weighted by importance and necessity: supported counts fully, partial support half. */
-export function matchScore(plan: ResumeSelectionPlan, analysis: JobAnalysis) {
-	let earned = 0;
-	let possible = 0;
-	for (const requirement of analysis.requirements) {
-		const weight = (requirement.importance / 5) * (requirement.necessity === "mandatory" ? 1 : 0.75);
-		const status = plan.coverage.find((item) => item.requirementId === requirement.id)?.status ?? "gap";
-		possible += weight;
-		earned += weight * (status === "supported" ? 1 : status === "partial" ? 0.5 : 0);
-	}
-	return possible === 0 ? 0 : Math.round((earned / possible) * 100);
+const TOOL_NAMES = new Set(TOOLS.map(phrase));
+
+/**
+ * A named product or platform rather than an ability: a known tool, a name with an inner capital ("HubSpot"), or
+ * anything a requirement about a specific tool names.
+ */
+export function kindOf(name: string, requirement: JobAnalysis["requirements"][number]): "skill" | "tool" {
+	if (requirement.kind === "tool" || TOOL_NAMES.has(phrase(name)) || /[a-z][A-Z]/.test(name)) return "tool";
+	return "skill";
+}
+
+/** The match shown to the user: the AI's ratings when it ran, the keyword estimate otherwise. */
+export function assessmentOf(plan: ResumeSelectionPlan, analysis: JobAnalysis) {
+	const assessment = plan.assessment ?? keywordAssessment(plan, analysis);
+	// Recomputed so a changed weighting or a re-analysed posting never shows a stale number.
+	const match = matchFromRatings(
+		analysis,
+		new Map(assessment.ratings.map((item) => [item.requirementId, item.rating])),
+	);
+	return { ...assessment, match };
 }
 
 export function gapReport(input: {
@@ -127,19 +138,27 @@ export function gapReport(input: {
 		].join(" ; "),
 	)} `;
 	const answers = new Map(input.answers.map((item) => [item.requirementId, item.answer]));
+	const assessment = assessmentOf(plan, analysis);
+	const rated = new Map(assessment.ratings.map((item) => [item.requirementId, item]));
 	const gaps: ProfileGap[] = [];
 	for (const requirement of analysis.requirements) {
 		const coverage = plan.coverage.find((item) => item.requirementId === requirement.id);
 		const status = coverage?.status ?? "gap";
-		const missing = skillCandidates(requirement)
-			.filter((name) => !inProfile(name, profile, haystack))
-			.map(capitalise)
-			.slice(0, 6);
-		const type = requirement.kind === "skill" ? "skill" : "experience";
-		// Nothing in the profile evidences it (selected or not), or it names skills the profile has under no name.
-		const unevidenced = status === "gap" && (coverage?.available.length ?? 0) === 0;
-		if (!unevidenced && !(type === "skill" && missing.length > 0)) continue;
-		if (type === "skill" && missing.length === 0) continue;
+		const named = requirement.kind === "skill" || requirement.kind === "tool";
+		// Skills and tools the requirement names that the profile has under no name.
+		const missing = named
+			? skillCandidates(requirement)
+					.filter((name) => !inProfile(name, profile, haystack))
+					.slice(0, 6)
+					.map((name) => ({ name: capitalise(name), kind: kindOf(name, requirement) }))
+			: [];
+		// Weak evidence: rated adjacent or none by the AI; without its ratings, nothing in the profile evidences it.
+		const weak =
+			plan.assessment !== undefined
+				? (rated.get(requirement.id)?.rating ?? 0) <= 1
+				: status === "gap" && (coverage?.available.length ?? 0) === 0;
+		if (!weak && missing.length === 0) continue;
+		const type = missing.length > 0 ? "skill" : "experience";
 		gaps.push({
 			requirementId: requirement.id,
 			text: requirement.text,
@@ -154,11 +173,32 @@ export function gapReport(input: {
 	gaps.sort(
 		(a, b) => Number(b.necessity === "mandatory") - Number(a.necessity === "mandatory") || b.importance - a.importance,
 	);
-	const statuses = plan.coverage.map((item) => item.status);
+	const byId = new Map(analysis.requirements.map((item) => [item.id, item]));
+	const ratings = assessment.ratings.flatMap((item) => {
+		const requirement = byId.get(item.requirementId);
+		return requirement
+			? [
+					{
+						requirementId: item.requirementId,
+						text: requirement.text,
+						necessity: requirement.necessity,
+						importance: requirement.importance,
+						rating: item.rating,
+						reason: item.reason,
+					},
+				]
+			: [];
+	});
+	ratings.sort(
+		(a, b) => b.importance - a.importance || Number(b.necessity === "mandatory") - Number(a.necessity === "mandatory"),
+	);
 	return {
-		match: matchScore(plan, analysis),
-		supported: statuses.filter((status) => status === "supported").length,
-		partial: statuses.filter((status) => status === "partial").length,
+		match: assessment.match,
+		basis: assessment.basis,
+		ratings,
+		summary: assessment.summary,
+		supported: ratings.filter((item) => item.rating >= 2).length,
+		partial: ratings.filter((item) => item.rating === 1).length,
 		total: analysis.requirements.length,
 		gaps: gaps.slice(0, 15),
 	};

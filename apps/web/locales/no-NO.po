@@ -24,6 +24,10 @@ msgid "…or paste YAML or JSON here"
 msgstr ""
 
 #: src/features/applications/components/detail/gap-step.tsx
+msgid "· nice to have"
+msgstr ""
+
+#: src/features/applications/components/detail/gap-step.tsx
 msgid "· required"
 msgstr ""
 
@@ -500,13 +504,6 @@ msgstr "{0} av {1}-redigeringer akseptert"
 msgid "{0} of {1} posting terms appear"
 msgstr "{0} av {1} begreper fra stillingsannonsen finnes"
 
-#. placeholder {0}: report.supported
-#. placeholder {1}: report.total
-#. placeholder {2}: report.partial
-#: src/features/applications/components/detail/gap-step.tsx
-msgid "{0} of {1} requirements shown, {2} partly"
-msgstr ""
-
 #. placeholder {0}: shown.length
 #. placeholder {1}: TEMPLATE_IDS.length
 #: src/features/resume/editor/design/template-group.tsx
@@ -558,7 +555,7 @@ msgstr "{0} underbygd, {1} delvis underbygd, {2} uten belegg ennå. {3}"
 
 #. placeholder {0}: gaps.data.gaps.length
 #: src/features/applications/components/detail/assemble-dialog.tsx
-msgid "{0} things the posting asks for aren't in your profile. Review them"
+msgid "{0} things the posting asks for are weak or missing in your profile. Review them"
 msgstr ""
 
 #. placeholder {0}: findings.length
@@ -1737,6 +1734,10 @@ msgstr "Legg til tag"
 msgid "Add text"
 msgstr "Legg til tekst"
 
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Add the achievement under"
+msgstr ""
+
 #: src/features/resume/editor/write/fields.tsx
 msgid "Add the domain after the @, like {name}@example.com"
 msgstr "Legg til domenet etter @, som {name}@example.com"
@@ -1770,6 +1771,10 @@ msgstr "Legg til i spørsmål"
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Add to Skills"
 msgstr "Legg til ferdigheter"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Add tool"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Add two or three lines at the top describing what you do."
@@ -1856,6 +1861,10 @@ msgstr "Legger til en påminnelse i I dag hvis du ikke har fått svar innen da."
 
 #: src/features/career/knowledge/profile-file.tsx
 msgid "Adds to existing"
+msgstr ""
+
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Adjacent"
 msgstr ""
 
 #: src/features/templates/gallery.tsx
@@ -2052,7 +2061,7 @@ msgid "Already interviewing"
 msgstr "Allerede intervjuer"
 
 #: src/features/applications/components/detail/gap-step.tsx
-msgid "Also add the skill {skill}"
+msgid "Also add the skill {name}"
 msgstr ""
 
 #: src/features/resume/editor/check/check-panel.tsx
@@ -5498,6 +5507,10 @@ msgstr "Hvert svar du får tilbakemelding på, lagres her, nyeste først."
 msgid "Each requirement in the posting is checked against the facts and stories in your Knowledge. Gaps show as missing evidence, never missing ability."
 msgstr "Hvert krav i stillingsannonsen sjekkes mot fakta og historier i Kunnskap. Hull vises som manglende belegg, aldri som manglende evne."
 
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Each requirement is rated on the evidence proposed for this resume: strong (counts in full), some (60%), adjacent (25%) or none. Ratings are weighted by how much the requirement matters, and \"nice to have\" items count for less."
+msgstr ""
+
 #: src/features/career/knowledge/structured-preferences.tsx
 msgid "Each rule covers an area. A rule naming places is used before a country rule, and a country rule before an \"anywhere\" rule; among rules of the same kind, the higher one wins. Radius and commute time are shared with the coach but can't be checked against a posting."
 msgstr ""
@@ -5614,6 +5627,10 @@ msgstr "Rediger lenken"
 #: src/features/applications/components/detail/next-step-card.tsx
 msgid "Edit this interview…"
 msgstr "Rediger dette intervjuet..."
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Edit tool"
+msgstr ""
 
 #: src/features/career/knowledge/profile.tsx
 msgid "Edit: {excerpt}"
@@ -5843,6 +5860,10 @@ msgstr "Inngangsalternativer"
 #: src/features/career/offers.tsx
 msgid "Equity"
 msgstr "Eierandeler"
+
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Estimated from keyword matches, which overstates fit"
+msgstr ""
 
 #: src/features/career/today.tsx
 msgid "Every {days} days at {clock} · next {next}"
@@ -6904,6 +6925,10 @@ msgstr ""
 msgid "How tailored resumes are written: length, tone, bullets, skills and section order, as presets for the directions you apply in. Examples you like guide the voice; they're never used as facts. Your experience stays in Career → Knowledge."
 msgstr ""
 
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "How this is worked out"
+msgstr ""
+
 #: src/features/templates/gallery.tsx
 msgid "How to choose a template"
 msgstr "Hvordan velge en mal"
@@ -7433,6 +7458,10 @@ msgstr "JSON lest"
 
 #: src/features/settings/ai/task-models.tsx
 msgid "JSON works"
+msgstr ""
+
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Judged by your AI connection, requirement by requirement"
 msgstr ""
 
 #: src/features/resume/editor/write/rich-text-editor-field.tsx
@@ -8913,6 +8942,10 @@ msgstr ""
 msgid "New teams at Northwind were stalling in setup; most never got through."
 msgstr "Nye team hos Northwind stoppet opp i oppsettet; de fleste kom seg aldri gjennom."
 
+#: src/features/career/knowledge/profile.tsx
+msgid "New tool"
+msgstr ""
+
 #: src/features/resume/editor/check/page-layer.tsx
 msgid "Next issue"
 msgstr "Neste nummer"
@@ -9171,7 +9204,7 @@ msgid "No skills section was found."
 msgstr "Ingen ferdighetsseksjon ble funnet."
 
 #: src/features/career/knowledge/profile.tsx
-msgid "No skills yet. Add the tools and abilities you'd want a recruiter to search for."
+msgid "No skills yet. Add the abilities and methods you'd want a recruiter to search for."
 msgstr ""
 
 #: src/features/applications/components/insights-view.tsx
@@ -9219,6 +9252,10 @@ msgstr "Ingen tidssoner samsvarer."
 msgid "no tool calls"
 msgstr ""
 
+#: src/features/career/knowledge/profile.tsx
+msgid "No tools yet. Add the software and platforms you've used, like WordPress or Salesforce."
+msgstr ""
+
 #: src/features/applications/components/detail/selection-review.tsx
 msgid "No verified evidence"
 msgstr ""
@@ -9242,6 +9279,7 @@ msgstr "ingen"
 
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/detail/gap-step.tsx
 #: src/features/applications/components/list-view.tsx
 msgid "None"
 msgstr "Ingen"
@@ -9818,7 +9856,11 @@ msgid "Optional; replaces the general minimum in this area."
 msgstr ""
 
 #: src/features/applications/components/detail/gap-step.tsx
-msgid "Optional: what you did with it there, in a sentence. It's added as an achievement."
+msgid "Optional: what you did with it, in a sentence. It's added as an achievement."
+msgstr ""
+
+#: src/features/career/knowledge/used-at.tsx
+msgid "Optional. Pick every place it applies."
 msgstr ""
 
 #: src/components/ui/combobox.tsx
@@ -11905,6 +11947,7 @@ msgstr "Eksempel på CV lagt til. Slett den når som helst."
 
 #: src/features/applications/components/detail/activity.tsx
 #: src/features/applications/components/detail/next-step-card.tsx
+#: src/features/career/knowledge/profile.tsx
 #: src/features/resume/share/history-tab.tsx
 #: src/features/settings/resume-style.tsx
 msgid "Save"
@@ -11987,10 +12030,6 @@ msgstr "Lagre navn"
 #: src/features/career/schedule-sheet.tsx
 msgid "Save schedule"
 msgstr "Lagre tidsplan"
-
-#: src/features/career/knowledge/profile.tsx
-msgid "Save skill"
-msgstr ""
 
 #: src/features/assistant/tool-approvals.tsx
 #: src/features/career/knowledge/stories.tsx
@@ -12870,10 +12909,18 @@ msgstr "Seks produktteam"
 msgid "Size"
 msgstr "Størrelse"
 
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "skill"
+msgstr ""
+
 #: src/features/career/knowledge/facts.tsx
 #: src/features/career/knowledge/profile.tsx
 msgid "Skill"
 msgstr "Ferdighet"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Skill: an ability or method"
+msgstr ""
 
 #: src/features/career/knowledge/profile.tsx
 #: src/features/homepage/check.tsx
@@ -12948,6 +12995,10 @@ msgstr "Små tall, men verdt å legge merke til."
 #: src/features/homepage/remember.tsx
 msgid "So I talked to 14 customers, found the three places people dropped off, and we prototyped a shorter setup."
 msgstr "Så jeg snakket med 14 kunder, fant de tre stedene der folk falt fra, og vi lagde en prototype på et kortere oppsett."
+
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Some"
+msgstr ""
 
 #: src/features/resume/editor/check/issues.ts
 msgid "Some application systems ask for one before you can apply."
@@ -13328,6 +13379,10 @@ msgstr "Styrk"
 #: src/features/resume/editor/write/rich-text-editor-field.tsx
 msgid "Strikethrough"
 msgstr "Gjennomstreking"
+
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Strong"
+msgstr ""
 
 #: src/features/career/knowledge/structured-preferences.tsx
 msgid "Strong benefits"
@@ -13990,7 +14045,7 @@ msgid "The posting asks for “{label}”. If it's true for me, work it into my 
 msgstr "Stillingsannonsen ber om \"{label}\". Hvis det er sant for meg, skriv det inn i CV-en min der den passer. Spør meg først."
 
 #: src/features/applications/components/detail/gap-step.tsx
-msgid "The posting asks for these, but your profile doesn't show them anywhere. If you have them, say where you did or learned them: they're added to your master profile for this and future resumes. Only add what's true; you can skip any of them."
+msgid "The posting asks for these, but your profile shows little or nothing for them. If you have them, say where you used or did them: they're added to your master profile for this and future resumes. Only add what's true; you can skip any of them."
 msgstr ""
 
 #: src/features/applications/components/detail/selection-review.tsx
@@ -14525,8 +14580,28 @@ msgstr "For lys for overskrifter på hvitt. Det kan være vanskelig å lese og s
 msgid "Too many requests. Try again later."
 msgstr "For mange forespørsler. Prøv igjen senere."
 
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "tool"
+msgstr ""
+
 #: src/features/settings/ai/task-models.tsx
 msgid "tool calls work"
+msgstr ""
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Tool or platform"
+msgstr ""
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Tool or platform: a named product"
+msgstr ""
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Tools & platforms"
+msgstr ""
+
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Tools and platforms you might use"
 msgstr ""
 
 #: src/features/homepage/sections.tsx
@@ -15177,6 +15252,11 @@ msgstr "Brukt"
 msgid "used {used}"
 msgstr "brukte {used}"
 
+#. placeholder {0}: skill.entryIds.length
+#: src/features/career/knowledge/profile.tsx
+msgid "Used at {0} places"
+msgstr ""
+
 #: src/features/career/knowledge/facts.tsx
 #: src/features/homepage/remember.tsx
 msgid "Used in coaching"
@@ -15718,8 +15798,13 @@ msgstr "Hvor søknadene kommer fra"
 msgid "Where did you do it?"
 msgstr ""
 
+#. placeholder {0}: skill.name
 #: src/features/applications/components/detail/gap-step.tsx
-msgid "Where did you use or learn it? (optional)"
+msgid "Where did you use {0}?"
+msgstr ""
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Where you used it"
 msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx

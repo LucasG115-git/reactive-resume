@@ -56,7 +56,13 @@ export const entry = (
 	...extra,
 });
 
-export const skill = (id: string, name: string, category = "", aliases: string[] = []): Skill => ({
+export const skill = (
+	id: string,
+	name: string,
+	category = "",
+	aliases: string[] = [],
+	more: Partial<Pick<Skill, "kind" | "entryIds">> = {},
+): Skill => ({
 	...stamp,
 	id,
 	name,
@@ -64,6 +70,9 @@ export const skill = (id: string, name: string, category = "", aliases: string[]
 	level: null,
 	years: null,
 	aliases,
+	kind: "skill",
+	entryIds: [],
+	...more,
 });
 
 /** A web consultant for nonprofits with communications, development and project-delivery evidence. */

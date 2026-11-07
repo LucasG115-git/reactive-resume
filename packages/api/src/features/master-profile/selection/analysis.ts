@@ -40,6 +40,7 @@ Return JSON:
 Rules:
 - 8 to 20 requirements. Merge duplicates; split lists of unrelated tools into separate items only when each matters.
 - "mandatory" only for what the posting requires ("required", "must", minimum qualifications). Assets, "nice to have" and "preferred" are "preferred". Inferred requirements are "preferred" unless they're unavoidable for the duties.
+- Use kind "tool" for a named software product or platform (WordPress, Salesforce, Adobe InDesign, Google Analytics), kind "skill" for an ability or method (copywriting, SEO, budgeting).
 - Include transferable competencies the duties need (for example stakeholder management for a coordination role) as kind "competency", origin "inferred".
 - Rank by what the hiring manager will screen for first: core duties and hard requirements outrank boilerplate. Equal-opportunity statements, benefits, culture slogans and application instructions are not requirements.
 - Say in "summary" what profession and level the posting is written for and what the work is mostly about (e.g. "a mid-level communications role centred on recruitment writing and content"), so the resume can be pitched at it. The requirements that define that core get importance 5.

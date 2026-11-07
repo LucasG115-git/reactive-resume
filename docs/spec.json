@@ -65778,6 +65778,57 @@
 												"match": {
 													"type": "number"
 												},
+												"basis": {
+													"enum": [
+														"ai",
+														"keywords"
+													],
+													"type": "string",
+													"default": "keywords"
+												},
+												"ratings": {
+													"type": "array",
+													"items": {
+														"type": "object",
+														"properties": {
+															"requirementId": {
+																"type": "string"
+															},
+															"text": {
+																"type": "string"
+															},
+															"necessity": {
+																"enum": [
+																	"mandatory",
+																	"preferred"
+																],
+																"type": "string"
+															},
+															"importance": {
+																"type": "number"
+															},
+															"rating": {
+																"type": "number"
+															},
+															"reason": {
+																"type": "string"
+															}
+														},
+														"required": [
+															"requirementId",
+															"text",
+															"necessity",
+															"importance",
+															"rating",
+															"reason"
+														]
+													},
+													"default": []
+												},
+												"summary": {
+													"type": "string",
+													"default": ""
+												},
 												"supported": {
 													"type": "number"
 												},
@@ -65803,6 +65854,7 @@
 																	"responsibility",
 																	"qualification",
 																	"skill",
+																	"tool",
 																	"domain",
 																	"competency"
 																],
@@ -65828,7 +65880,23 @@
 															"skills": {
 																"type": "array",
 																"items": {
-																	"type": "string"
+																	"type": "object",
+																	"properties": {
+																		"name": {
+																			"type": "string"
+																		},
+																		"kind": {
+																			"enum": [
+																				"skill",
+																				"tool"
+																			],
+																			"type": "string"
+																		}
+																	},
+																	"required": [
+																		"name",
+																		"kind"
+																	]
 																}
 															},
 															"answer": {
@@ -65969,9 +66037,34 @@
 													"type": "array",
 													"maxItems": 10,
 													"items": {
-														"type": "string",
-														"minLength": 1,
-														"maxLength": 100
+														"type": "object",
+														"properties": {
+															"name": {
+																"type": "string",
+																"minLength": 1,
+																"maxLength": 100
+															},
+															"kind": {
+																"enum": [
+																	"skill",
+																	"tool"
+																],
+																"type": "string",
+																"default": "skill"
+															},
+															"entryIds": {
+																"type": "array",
+																"maxItems": 50,
+																"items": {
+																	"type": "string",
+																	"minLength": 1
+																},
+																"default": []
+															}
+														},
+														"required": [
+															"name"
+														]
 													},
 													"default": []
 												},
@@ -66082,6 +66175,7 @@
 																					"responsibility",
 																					"qualification",
 																					"skill",
+																					"tool",
 																					"domain",
 																					"competency"
 																				],
@@ -66611,6 +66705,58 @@
 																	},
 																	"default": []
 																},
+																"assessment": {
+																	"type": "object",
+																	"properties": {
+																		"basis": {
+																			"enum": [
+																				"ai",
+																				"keywords"
+																			],
+																			"type": "string"
+																		},
+																		"match": {
+																			"type": "number"
+																		},
+																		"ratings": {
+																			"type": "array",
+																			"items": {
+																				"type": "object",
+																				"properties": {
+																					"requirementId": {
+																						"type": "string"
+																					},
+																					"rating": {
+																						"type": "integer",
+																						"minimum": 0,
+																						"maximum": 3
+																					},
+																					"reason": {
+																						"type": "string"
+																					}
+																				},
+																				"required": [
+																					"requirementId",
+																					"rating",
+																					"reason"
+																				]
+																			}
+																		},
+																		"summary": {
+																			"type": "string",
+																			"default": ""
+																		},
+																		"model": {
+																			"type": "string",
+																			"default": ""
+																		}
+																	},
+																	"required": [
+																		"basis",
+																		"match",
+																		"ratings"
+																	]
+																},
 																"totals": {
 																	"type": "object",
 																	"properties": {
@@ -67111,6 +67257,58 @@
 																	},
 																	"default": []
 																},
+																"assessment": {
+																	"type": "object",
+																	"properties": {
+																		"basis": {
+																			"enum": [
+																				"ai",
+																				"keywords"
+																			],
+																			"type": "string"
+																		},
+																		"match": {
+																			"type": "number"
+																		},
+																		"ratings": {
+																			"type": "array",
+																			"items": {
+																				"type": "object",
+																				"properties": {
+																					"requirementId": {
+																						"type": "string"
+																					},
+																					"rating": {
+																						"type": "integer",
+																						"minimum": 0,
+																						"maximum": 3
+																					},
+																					"reason": {
+																						"type": "string"
+																					}
+																				},
+																				"required": [
+																					"requirementId",
+																					"rating",
+																					"reason"
+																				]
+																			}
+																		},
+																		"summary": {
+																			"type": "string",
+																			"default": ""
+																		},
+																		"model": {
+																			"type": "string",
+																			"default": ""
+																		}
+																	},
+																	"required": [
+																		"basis",
+																		"match",
+																		"ratings"
+																	]
+																},
 																"totals": {
 																	"type": "object",
 																	"properties": {
@@ -67199,6 +67397,57 @@
 														"match": {
 															"type": "number"
 														},
+														"basis": {
+															"enum": [
+																"ai",
+																"keywords"
+															],
+															"type": "string",
+															"default": "keywords"
+														},
+														"ratings": {
+															"type": "array",
+															"items": {
+																"type": "object",
+																"properties": {
+																	"requirementId": {
+																		"type": "string"
+																	},
+																	"text": {
+																		"type": "string"
+																	},
+																	"necessity": {
+																		"enum": [
+																			"mandatory",
+																			"preferred"
+																		],
+																		"type": "string"
+																	},
+																	"importance": {
+																		"type": "number"
+																	},
+																	"rating": {
+																		"type": "number"
+																	},
+																	"reason": {
+																		"type": "string"
+																	}
+																},
+																"required": [
+																	"requirementId",
+																	"text",
+																	"necessity",
+																	"importance",
+																	"rating",
+																	"reason"
+																]
+															},
+															"default": []
+														},
+														"summary": {
+															"type": "string",
+															"default": ""
+														},
 														"supported": {
 															"type": "number"
 														},
@@ -67224,6 +67473,7 @@
 																			"responsibility",
 																			"qualification",
 																			"skill",
+																			"tool",
 																			"domain",
 																			"competency"
 																		],
@@ -67249,7 +67499,23 @@
 																	"skills": {
 																		"type": "array",
 																		"items": {
-																			"type": "string"
+																			"type": "object",
+																			"properties": {
+																				"name": {
+																					"type": "string"
+																				},
+																				"kind": {
+																					"enum": [
+																						"skill",
+																						"tool"
+																					],
+																					"type": "string"
+																				}
+																			},
+																			"required": [
+																				"name",
+																				"kind"
+																			]
 																		}
 																	},
 																	"answer": {
@@ -67711,6 +67977,7 @@
 																			"responsibility",
 																			"qualification",
 																			"skill",
+																			"tool",
 																			"domain",
 																			"competency"
 																		],
@@ -68240,6 +68507,58 @@
 															},
 															"default": []
 														},
+														"assessment": {
+															"type": "object",
+															"properties": {
+																"basis": {
+																	"enum": [
+																		"ai",
+																		"keywords"
+																	],
+																	"type": "string"
+																},
+																"match": {
+																	"type": "number"
+																},
+																"ratings": {
+																	"type": "array",
+																	"items": {
+																		"type": "object",
+																		"properties": {
+																			"requirementId": {
+																				"type": "string"
+																			},
+																			"rating": {
+																				"type": "integer",
+																				"minimum": 0,
+																				"maximum": 3
+																			},
+																			"reason": {
+																				"type": "string"
+																			}
+																		},
+																		"required": [
+																			"requirementId",
+																			"rating",
+																			"reason"
+																		]
+																	}
+																},
+																"summary": {
+																	"type": "string",
+																	"default": ""
+																},
+																"model": {
+																	"type": "string",
+																	"default": ""
+																}
+															},
+															"required": [
+																"basis",
+																"match",
+																"ratings"
+															]
+														},
 														"totals": {
 															"type": "object",
 															"properties": {
@@ -68739,6 +69058,58 @@
 																]
 															},
 															"default": []
+														},
+														"assessment": {
+															"type": "object",
+															"properties": {
+																"basis": {
+																	"enum": [
+																		"ai",
+																		"keywords"
+																	],
+																	"type": "string"
+																},
+																"match": {
+																	"type": "number"
+																},
+																"ratings": {
+																	"type": "array",
+																	"items": {
+																		"type": "object",
+																		"properties": {
+																			"requirementId": {
+																				"type": "string"
+																			},
+																			"rating": {
+																				"type": "integer",
+																				"minimum": 0,
+																				"maximum": 3
+																			},
+																			"reason": {
+																				"type": "string"
+																			}
+																		},
+																		"required": [
+																			"requirementId",
+																			"rating",
+																			"reason"
+																		]
+																	}
+																},
+																"summary": {
+																	"type": "string",
+																	"default": ""
+																},
+																"model": {
+																	"type": "string",
+																	"default": ""
+																}
+															},
+															"required": [
+																"basis",
+																"match",
+																"ratings"
+															]
 														},
 														"totals": {
 															"type": "object",
@@ -69038,6 +69409,7 @@
 																			"responsibility",
 																			"qualification",
 																			"skill",
+																			"tool",
 																			"domain",
 																			"competency"
 																		],
@@ -69567,6 +69939,58 @@
 															},
 															"default": []
 														},
+														"assessment": {
+															"type": "object",
+															"properties": {
+																"basis": {
+																	"enum": [
+																		"ai",
+																		"keywords"
+																	],
+																	"type": "string"
+																},
+																"match": {
+																	"type": "number"
+																},
+																"ratings": {
+																	"type": "array",
+																	"items": {
+																		"type": "object",
+																		"properties": {
+																			"requirementId": {
+																				"type": "string"
+																			},
+																			"rating": {
+																				"type": "integer",
+																				"minimum": 0,
+																				"maximum": 3
+																			},
+																			"reason": {
+																				"type": "string"
+																			}
+																		},
+																		"required": [
+																			"requirementId",
+																			"rating",
+																			"reason"
+																		]
+																	}
+																},
+																"summary": {
+																	"type": "string",
+																	"default": ""
+																},
+																"model": {
+																	"type": "string",
+																	"default": ""
+																}
+															},
+															"required": [
+																"basis",
+																"match",
+																"ratings"
+															]
+														},
 														"totals": {
 															"type": "object",
 															"properties": {
@@ -70066,6 +70490,58 @@
 																]
 															},
 															"default": []
+														},
+														"assessment": {
+															"type": "object",
+															"properties": {
+																"basis": {
+																	"enum": [
+																		"ai",
+																		"keywords"
+																	],
+																	"type": "string"
+																},
+																"match": {
+																	"type": "number"
+																},
+																"ratings": {
+																	"type": "array",
+																	"items": {
+																		"type": "object",
+																		"properties": {
+																			"requirementId": {
+																				"type": "string"
+																			},
+																			"rating": {
+																				"type": "integer",
+																				"minimum": 0,
+																				"maximum": 3
+																			},
+																			"reason": {
+																				"type": "string"
+																			}
+																		},
+																		"required": [
+																			"requirementId",
+																			"rating",
+																			"reason"
+																		]
+																	}
+																},
+																"summary": {
+																	"type": "string",
+																	"default": ""
+																},
+																"model": {
+																	"type": "string",
+																	"default": ""
+																}
+															},
+															"required": [
+																"basis",
+																"match",
+																"ratings"
+															]
 														},
 														"totals": {
 															"type": "object",
@@ -70315,6 +70791,7 @@
 																			"responsibility",
 																			"qualification",
 																			"skill",
+																			"tool",
 																			"domain",
 																			"competency"
 																		],
@@ -70844,6 +71321,58 @@
 															},
 															"default": []
 														},
+														"assessment": {
+															"type": "object",
+															"properties": {
+																"basis": {
+																	"enum": [
+																		"ai",
+																		"keywords"
+																	],
+																	"type": "string"
+																},
+																"match": {
+																	"type": "number"
+																},
+																"ratings": {
+																	"type": "array",
+																	"items": {
+																		"type": "object",
+																		"properties": {
+																			"requirementId": {
+																				"type": "string"
+																			},
+																			"rating": {
+																				"type": "integer",
+																				"minimum": 0,
+																				"maximum": 3
+																			},
+																			"reason": {
+																				"type": "string"
+																			}
+																		},
+																		"required": [
+																			"requirementId",
+																			"rating",
+																			"reason"
+																		]
+																	}
+																},
+																"summary": {
+																	"type": "string",
+																	"default": ""
+																},
+																"model": {
+																	"type": "string",
+																	"default": ""
+																}
+															},
+															"required": [
+																"basis",
+																"match",
+																"ratings"
+															]
+														},
 														"totals": {
 															"type": "object",
 															"properties": {
@@ -71343,6 +71872,58 @@
 																]
 															},
 															"default": []
+														},
+														"assessment": {
+															"type": "object",
+															"properties": {
+																"basis": {
+																	"enum": [
+																		"ai",
+																		"keywords"
+																	],
+																	"type": "string"
+																},
+																"match": {
+																	"type": "number"
+																},
+																"ratings": {
+																	"type": "array",
+																	"items": {
+																		"type": "object",
+																		"properties": {
+																			"requirementId": {
+																				"type": "string"
+																			},
+																			"rating": {
+																				"type": "integer",
+																				"minimum": 0,
+																				"maximum": 3
+																			},
+																			"reason": {
+																				"type": "string"
+																			}
+																		},
+																		"required": [
+																			"requirementId",
+																			"rating",
+																			"reason"
+																		]
+																	}
+																},
+																"summary": {
+																	"type": "string",
+																	"default": ""
+																},
+																"model": {
+																	"type": "string",
+																	"default": ""
+																}
+															},
+															"required": [
+																"basis",
+																"match",
+																"ratings"
+															]
 														},
 														"totals": {
 															"type": "object",
@@ -71629,6 +72210,7 @@
 																			"responsibility",
 																			"qualification",
 																			"skill",
+																			"tool",
 																			"domain",
 																			"competency"
 																		],
@@ -72158,6 +72740,58 @@
 															},
 															"default": []
 														},
+														"assessment": {
+															"type": "object",
+															"properties": {
+																"basis": {
+																	"enum": [
+																		"ai",
+																		"keywords"
+																	],
+																	"type": "string"
+																},
+																"match": {
+																	"type": "number"
+																},
+																"ratings": {
+																	"type": "array",
+																	"items": {
+																		"type": "object",
+																		"properties": {
+																			"requirementId": {
+																				"type": "string"
+																			},
+																			"rating": {
+																				"type": "integer",
+																				"minimum": 0,
+																				"maximum": 3
+																			},
+																			"reason": {
+																				"type": "string"
+																			}
+																		},
+																		"required": [
+																			"requirementId",
+																			"rating",
+																			"reason"
+																		]
+																	}
+																},
+																"summary": {
+																	"type": "string",
+																	"default": ""
+																},
+																"model": {
+																	"type": "string",
+																	"default": ""
+																}
+															},
+															"required": [
+																"basis",
+																"match",
+																"ratings"
+															]
+														},
 														"totals": {
 															"type": "object",
 															"properties": {
@@ -72657,6 +73291,58 @@
 																]
 															},
 															"default": []
+														},
+														"assessment": {
+															"type": "object",
+															"properties": {
+																"basis": {
+																	"enum": [
+																		"ai",
+																		"keywords"
+																	],
+																	"type": "string"
+																},
+																"match": {
+																	"type": "number"
+																},
+																"ratings": {
+																	"type": "array",
+																	"items": {
+																		"type": "object",
+																		"properties": {
+																			"requirementId": {
+																				"type": "string"
+																			},
+																			"rating": {
+																				"type": "integer",
+																				"minimum": 0,
+																				"maximum": 3
+																			},
+																			"reason": {
+																				"type": "string"
+																			}
+																		},
+																		"required": [
+																			"requirementId",
+																			"rating",
+																			"reason"
+																		]
+																	}
+																},
+																"summary": {
+																	"type": "string",
+																	"default": ""
+																},
+																"model": {
+																	"type": "string",
+																	"default": ""
+																}
+															},
+															"required": [
+																"basis",
+																"match",
+																"ratings"
+															]
 														},
 														"totals": {
 															"type": "object",
@@ -76339,6 +77025,19 @@
 														"items": {
 															"type": "string"
 														}
+													},
+													"kind": {
+														"enum": [
+															"skill",
+															"tool"
+														],
+														"type": "string"
+													},
+													"entryIds": {
+														"type": "array",
+														"items": {
+															"type": "string"
+														}
 													}
 												},
 												"required": [
@@ -76352,7 +77051,9 @@
 													"category",
 													"level",
 													"years",
-													"aliases"
+													"aliases",
+													"kind",
+													"entryIds"
 												]
 											}
 										}
@@ -79316,6 +80017,23 @@
 										},
 										"default": []
 									},
+									"kind": {
+										"enum": [
+											"skill",
+											"tool"
+										],
+										"type": "string",
+										"default": "skill"
+									},
+									"entryIds": {
+										"type": "array",
+										"maxItems": 50,
+										"items": {
+											"type": "string",
+											"minLength": 1
+										},
+										"default": []
+									},
 									"hidden": {
 										"type": "boolean",
 										"default": false
@@ -79399,6 +80117,19 @@
 											"items": {
 												"type": "string"
 											}
+										},
+										"kind": {
+											"enum": [
+												"skill",
+												"tool"
+											],
+											"type": "string"
+										},
+										"entryIds": {
+											"type": "array",
+											"items": {
+												"type": "string"
+											}
 										}
 									},
 									"required": [
@@ -79412,7 +80143,9 @@
 										"category",
 										"level",
 										"years",
-										"aliases"
+										"aliases",
+										"kind",
+										"entryIds"
 									]
 								}
 							}

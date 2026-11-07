@@ -2,13 +2,14 @@ import type { MasterProfile } from "../service";
 import type { JobAnalysis, ResumeSelectionPlan } from "@reactive-resume/schema/resume-selection";
 import type { WritingRules } from "@reactive-resume/schema/resume-writing";
 import { experienceYears } from "../writing/checks";
-import { finalize } from "./compose";
+import { finalize, SELECTION_RULES } from "./compose";
 import { words } from "./text";
 
 /**
  * Fits a proposed selection to the page target: while the estimated length is over it, the weakest proposed
  * achievement is left out (never one the user chose or marked always-include); the lead role keeps up to three bullets
- * and other positions one. Then whole projects or volunteer roles go, weakest first. Everything left out says why, so the user
+ * and other positions one; projects and volunteer roles aren't thinned below their minimum. Then whole projects or
+ * volunteer roles go, weakest first. Everything left out says why, so the user
  * can include it again in review; nothing is changed in the profile.
  */
 
@@ -49,7 +50,15 @@ export function fitToPages(input: {
 			.filter((entry) => entry.include)
 			.flatMap((entry) => {
 				const included = entry.achievements.filter((item) => item.include);
-				const floor = entry === lead ? Math.min(3, included.length) : entry.kind === "education" ? 0 : 1;
+				// A project or volunteer role isn't thinned below its minimum: it goes whole below instead.
+				const floor =
+					entry === lead
+						? Math.min(3, included.length)
+						: entry.kind === "education"
+							? 0
+							: entry.kind === "project" || entry.kind === "volunteer"
+								? Math.min(SELECTION_RULES.minBullets[entry.kind], included.length)
+								: 1;
 				if (included.length <= floor) return [];
 				return included.filter((item) => !item.userEdited && !item.core).map((item) => ({ entry, item }));
 			})

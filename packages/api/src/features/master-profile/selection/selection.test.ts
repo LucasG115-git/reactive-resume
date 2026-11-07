@@ -6,6 +6,7 @@ import { resumeSelectionPlanSchema } from "@reactive-resume/schema/resume-select
 import { analysisOutputSchema, normalizeAnalysis } from "./analysis";
 import { applyEdit } from "./compose";
 import {
+	achievement,
 	analysisOf,
 	communicationsJob,
 	consultantProfile,
@@ -159,6 +160,39 @@ describe("selection plans", () => {
 		expect(chosen.skills).toEqual(expect.arrayContaining(["s-copy", "s-social"]));
 		expect(chosen.skills).not.toContain("s-php");
 		expect(plan.coverage.find((item) => item.requirementId === "R1")?.status).toBe("supported");
+	});
+
+	it("leaves out a thin project that isn't particularly relevant and gives its space to the roles", async () => {
+		const profile = consultantProfile();
+		const founder = profile.entries.find((item) => item.id === "e-founder");
+		founder?.achievements.push(
+			achievement(
+				"a-appeal",
+				"e-founder",
+				"Wrote the year-end donor appeal letters and email series for a community nonprofit, raising $30,000",
+				{ skills: ["Copywriting", "Email marketing"] },
+			),
+			achievement(
+				"a-stories",
+				"e-founder",
+				"Interviewed volunteers and wrote impact stories for a charity's website and social media channels",
+				{ skills: ["Storytelling", "Social media"] },
+			),
+		);
+		const { plan } = await select(communicationsJob(), profile);
+		// The civic project would show one loosely related bullet.
+		expect(entryOf(plan, "e-civic")).toMatchObject({
+			include: false,
+			reason: expect.stringMatching(/Only one bullet/),
+		});
+		const lead = entryOf(plan, "e-founder");
+		expect(lead?.achievements.filter((item) => item.include).length).toBeGreaterThan(5);
+		expect(lead?.achievements.find((item) => item.achievementId === "a-appeal")?.include).toBe(true);
+		expect(lead?.achievements.find((item) => item.achievementId === "a-stories")?.include).toBe(true);
+		// Loosely related work isn't used as padding.
+		expect(lead?.achievements.find((item) => item.achievementId === "a-plugin")?.include).toBe(false);
+		// A single bullet that is strongly relevant keeps its volunteer role.
+		expect(entryOf(plan, "e-volunteer")?.include).toBe(true);
 	});
 
 	it("web development: technical projects get the emphasis", async () => {

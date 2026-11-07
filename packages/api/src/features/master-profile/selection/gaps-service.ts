@@ -50,9 +50,12 @@ export const gapsService = {
 		if (!row) throw new ORPCError("NOT_FOUND", { message: "Analyse the posting first." });
 		const requirements = new Set(row.analysis.requirements.map((item) => item.id));
 		const profile = await masterProfileService.get(userId);
-		const known = new Set(
-			profile.skills.flatMap((skill) => [skill.name, ...skill.aliases]).map((name) => words(name).join(" ")),
+		const byName = new Map(
+			profile.skills.flatMap((skill) =>
+				[skill.name, ...skill.aliases].map((name) => [words(name).join(" "), skill] as const),
+			),
 		);
+		const entryIds = new Set(profile.entries.map((entry) => entry.id));
 		const recorded = new Map(row.gapAnswers.map((item) => [item.requirementId, item]));
 		const at = (options.now ?? new Date()).toISOString();
 		let added = 0;
@@ -60,11 +63,29 @@ export const gapsService = {
 		for (const answer of input.answers) {
 			if (!requirements.has(answer.requirementId)) continue;
 			if (answer.have) {
-				for (const name of answer.skills) {
-					const key = words(name).join(" ");
-					if (!key || known.has(key)) continue;
-					await masterProfileService.saveSkill(userId, profileSkillInputSchema.parse({ name }));
-					known.add(key);
+				for (const item of answer.skills) {
+					const key = words(item.name).join(" ");
+					if (!key) continue;
+					const places = [...new Set(item.entryIds.filter((id) => entryIds.has(id)))];
+					const existing = byName.get(key);
+					if (existing) {
+						// Already in the profile: only the new places it was used are added.
+						const merged = [...new Set([...existing.entryIds, ...places])];
+						if (merged.length === existing.entryIds.length) continue;
+						// The input schema keeps only editable fields, so the rest of the skill is saved unchanged.
+						const saved = await masterProfileService.saveSkill(
+							userId,
+							profileSkillInputSchema.parse({ ...existing, entryIds: merged }),
+							existing.id,
+						);
+						byName.set(key, saved);
+					} else {
+						const saved = await masterProfileService.saveSkill(
+							userId,
+							profileSkillInputSchema.parse({ name: item.name, kind: item.kind, entryIds: places }),
+						);
+						byName.set(key, saved);
+					}
 					added++;
 				}
 				if (answer.text)
@@ -74,7 +95,7 @@ export const gapsService = {
 							profileAchievementInputSchema.parse({
 								entryId: answer.entryId,
 								text: answer.text,
-								skills: answer.skills,
+								skills: answer.skills.map((item) => item.name),
 							}),
 						)
 						.then(() => added++);

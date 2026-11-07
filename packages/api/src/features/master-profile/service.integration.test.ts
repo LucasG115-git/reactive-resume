@@ -42,13 +42,15 @@ describe.skipIf(!databaseUrl)("master profile persistence", () => {
 		fixture.pool = new Pool({ connectionString: databaseUrl, options: `-c search_path=${schemaName}` });
 		fixture.db = drizzle({ client: fixture.pool });
 		await fixture.pool.query(`CREATE TABLE "user" (id text PRIMARY KEY);`);
-		const migration = await readFile(
-			new URL("../../../../../migrations/20261029222356_master_profile/migration.sql", import.meta.url),
-			"utf8",
-		);
-		for (const statement of migration.split("--> statement-breakpoint")) {
-			const sql = statement.trim();
-			if (sql) await fixture.pool.query(sql);
+		for (const name of ["20261029222356_master_profile", "20261107195715_profile_skill_kind_and_places"]) {
+			const migration = await readFile(
+				new URL(`../../../../../migrations/${name}/migration.sql`, import.meta.url),
+				"utf8",
+			);
+			for (const statement of migration.split("--> statement-breakpoint")) {
+				const sql = statement.trim();
+				if (sql) await fixture.pool.query(sql);
+			}
 		}
 		service = (await import("./service")).masterProfileService;
 	});

@@ -51,14 +51,17 @@ const TECHNICAL_CATEGORY =
 
 /** A tool or platform named in a profile skill: shown when the resume's bullets use it, whatever the posting. */
 export const isTechnical = (skill: Skill) =>
+	skill.kind === "tool" ||
 	TECHNICAL_CATEGORY.test(skill.category) ||
 	TOOL_NAMES.has(key(skill.name)) ||
 	skill.aliases.some((alias) => TOOL_NAMES.has(key(alias)));
+/** A name that is a known product or platform ("WordPress", "Google Analytics"), for records saved without a type. */
+export const toolLike = (name: string) => TOOL_NAMES.has(key(name)) || /[a-z][A-Z]/.test(name.trim());
 export const isSoftSkill = (name: string) => SOFT_SKILLS.has(key(name));
 
 const namesOf = (skill: Skill) => [skill.name, ...skill.aliases].map(key).filter(Boolean);
 
-/** A skill is evidenced when an included achievement names it, as a tag or in its text. */
+/** A skill is evidenced when an included achievement names it (as a tag or in its text), or it was used at an included entry. */
 export function evidencedSkills(profile: MasterProfile, plan: ResumeSelectionPlan): Set<string> {
 	const included = new Set(
 		plan.entries
@@ -70,9 +73,15 @@ export function evidencedSkills(profile: MasterProfile, plan: ResumeSelectionPla
 		.filter((achievement) => included.has(achievement.id));
 	const tags = new Set(records.flatMap((achievement) => achievement.skills.map(key)));
 	const text = ` ${records.map((achievement) => words(achievement.text).join(" ")).join(" | ")} `;
+	const entries = new Set(plan.entries.filter((entry) => entry.include).map((entry) => entry.entryId));
 	const evidenced = new Set<string>();
 	for (const skill of profile.skills)
-		if (namesOf(skill).some((name) => tags.has(name) || text.includes(` ${name} `))) evidenced.add(skill.id);
+		if (
+			namesOf(skill).some((name) => tags.has(name) || text.includes(` ${name} `)) ||
+			// Used at a role, project or course on this resume.
+			skill.entryIds.some((id) => entries.has(id))
+		)
+			evidenced.add(skill.id);
 	return evidenced;
 }
 

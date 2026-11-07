@@ -20,6 +20,7 @@ import { CareerLoadError, CareerLoading } from "../load-state";
 import { withUndo } from "../shared";
 import { ProfileFileImport } from "./profile-file";
 import { ProfileKnowledgeSync } from "./profile-knowledge-sync";
+import { UsedAt } from "./used-at";
 import { toastError } from "@/libs/error-message";
 import { client, orpc } from "@/libs/orpc/client";
 
@@ -191,7 +192,8 @@ export function ProfilePage() {
 				)}
 			</section>
 
-			<SkillsSection skills={profile.skills} onChanged={refresh} />
+			<SkillsSection kind="skill" skills={profile.skills} entries={profile.entries} onChanged={refresh} />
+			<SkillsSection kind="tool" skills={profile.skills} entries={profile.entries} onChanged={refresh} />
 		</div>
 	);
 }
@@ -760,16 +762,18 @@ function AchievementEditor({ entryId, achievement, onCancel, onSaved }: Achievem
 
 // ---- Skills ----
 
-type SkillsSectionProps = { skills: Skill[]; onChanged: () => void };
+type SkillsSectionProps = { kind: Skill["kind"]; skills: Skill[]; entries: Entry[]; onChanged: () => void };
 
-function SkillsSection({ skills, onChanged }: SkillsSectionProps) {
+/** Skills (abilities and methods) or tools and platforms (named products), each in its own section. */
+function SkillsSection({ kind, skills: all, entries, onChanged }: SkillsSectionProps) {
 	const [editing, setEditing] = useState<Skill | "new" | null>(null);
+	const skills = all.filter((skill) => skill.kind === kind);
 	const groups = new Map<string, Skill[]>();
 	for (const skill of skills) {
 		const category = skill.category || t`Uncategorized`;
 		groups.set(category, [...(groups.get(category) ?? []), skill]);
 	}
-	const categories = [...new Set(skills.map((skill) => skill.category).filter(Boolean))];
+	const categories = [...new Set(all.map((skill) => skill.category).filter(Boolean))];
 
 	const remove = (skill: Skill) =>
 		client.masterProfile
@@ -781,16 +785,18 @@ function SkillsSection({ skills, onChanged }: SkillsSectionProps) {
 		<section className="grid gap-3">
 			<div className="flex flex-wrap items-center gap-2">
 				<h2 className="flex-1 text-base font-semibold">
-					<Trans>Skills</Trans>
+					{kind === "tool" ? <Trans>Tools & platforms</Trans> : <Trans>Skills</Trans>}
 				</h2>
 				<Button variant="secondary" size="sm" onClick={() => setEditing("new")}>
 					<Icon name="plus" size={16} />
-					<Trans>Add skill</Trans>
+					{kind === "tool" ? <Trans>Add tool</Trans> : <Trans>Add skill</Trans>}
 				</Button>
 			</div>
 			{editing && (
 				<SkillEditor
 					skill={editing === "new" ? undefined : editing}
+					kind={kind}
+					entries={entries}
 					categories={categories}
 					onCancel={() => setEditing(null)}
 					onSaved={() => {
@@ -801,7 +807,11 @@ function SkillsSection({ skills, onChanged }: SkillsSectionProps) {
 			)}
 			{skills.length === 0 && !editing && (
 				<p className="rounded-xl border border-dashed border-line-2 p-4 text-center text-sm text-ink-3">
-					<Trans>No skills yet. Add the tools and abilities you'd want a recruiter to search for.</Trans>
+					{kind === "tool" ? (
+						<Trans>No tools yet. Add the software and platforms you've used, like WordPress or Salesforce.</Trans>
+					) : (
+						<Trans>No skills yet. Add the abilities and methods you'd want a recruiter to search for.</Trans>
+					)}
 				</p>
 			)}
 			{[...groups].map(([category, list]) => (
@@ -819,6 +829,14 @@ function SkillsSection({ skills, onChanged }: SkillsSectionProps) {
 								<button type="button" className="hover:underline" onClick={() => setEditing(skill)}>
 									{skill.name}
 								</button>
+								{skill.entryIds.length > 0 && (
+									<span
+										className="font-mono text-[11px] text-ink-3"
+										aria-label={t`Used at ${skill.entryIds.length} places`}
+									>
+										×{skill.entryIds.length}
+									</span>
+								)}
 								{skill.level !== null && (
 									<span className="font-mono text-[11px] text-ink-3" aria-label={t`Level ${skill.level} of 5`}>
 										{skill.level}/5
@@ -834,11 +852,20 @@ function SkillsSection({ skills, onChanged }: SkillsSectionProps) {
 	);
 }
 
-type SkillEditorProps = { skill?: Skill | undefined; categories: string[]; onCancel: () => void; onSaved: () => void };
+type SkillEditorProps = {
+	skill?: Skill | undefined;
+	kind: Skill["kind"];
+	entries: Entry[];
+	categories: string[];
+	onCancel: () => void;
+	onSaved: () => void;
+};
 
-function SkillEditor({ skill, categories, onCancel, onSaved }: SkillEditorProps) {
+function SkillEditor({ skill, kind: initialKind, entries, categories, onCancel, onSaved }: SkillEditorProps) {
 	const formId = useId();
 	const [name, setName] = useState(skill?.name ?? "");
+	const [kind, setKind] = useState<Skill["kind"]>(skill?.kind ?? initialKind);
+	const [entryIds, setEntryIds] = useState<string[]>(skill?.entryIds ?? []);
 	const [category, setCategory] = useState(skill?.category ?? "");
 	const [level, setLevel] = useState(skill?.level?.toString() ?? "");
 	const [years, setYears] = useState(skill?.years?.toString() ?? "");
@@ -852,7 +879,7 @@ function SkillEditor({ skill, categories, onCancel, onSaved }: SkillEditorProps)
 
 	return (
 		<form
-			aria-label={skill ? t`Edit skill` : t`New skill`}
+			aria-label={kind === "tool" ? (skill ? t`Edit tool` : t`New tool`) : skill ? t`Edit skill` : t`New skill`}
 			className="grid gap-3 rounded-xl border border-accent bg-surface p-4 shadow-[0_0_0_3px_var(--accent-soft)]"
 			onSubmit={(event) => {
 				event.preventDefault();
@@ -863,12 +890,14 @@ function SkillEditor({ skill, categories, onCancel, onSaved }: SkillEditorProps)
 					level: level ? Number(level) : null,
 					years: years ? Number(years) : null,
 					aliases: splitList(aliases),
+					kind,
+					entryIds: entryIds.filter((id) => entries.some((entry) => entry.id === id)),
 					hidden,
 				});
 			}}
 		>
 			<div className="grid gap-3 sm:grid-cols-2">
-				<Field id={`${formId}-name`} label={t`Skill`}>
+				<Field id={`${formId}-name`} label={kind === "tool" ? t`Tool or platform` : t`Skill`}>
 					<Input
 						id={`${formId}-name`}
 						required
@@ -893,6 +922,16 @@ function SkillEditor({ skill, categories, onCancel, onSaved }: SkillEditorProps)
 						))}
 					</datalist>
 				</Field>
+				<Field id={`${formId}-kind`} label={t`Type`}>
+					<NativeSelect
+						id={`${formId}-kind`}
+						value={kind}
+						onChange={(e) => setKind(e.target.value === "tool" ? "tool" : "skill")}
+					>
+						<option value="skill">{t`Skill: an ability or method`}</option>
+						<option value="tool">{t`Tool or platform: a named product`}</option>
+					</NativeSelect>
+				</Field>
 				<Field id={`${formId}-level`} label={t`Level (optional)`}>
 					<NativeSelect id={`${formId}-level`} value={level} onChange={(e) => setLevel(e.target.value)}>
 						<option value="">{t`Not set`}</option>
@@ -915,6 +954,7 @@ function SkillEditor({ skill, categories, onCancel, onSaved }: SkillEditorProps)
 					/>
 				</Field>
 			</div>
+			<UsedAt label={t`Where you used it`} entries={entries} value={entryIds} onChange={setEntryIds} />
 			<Field id={`${formId}-aliases`} label={t`Other names postings use, comma separated`}>
 				<Input
 					id={`${formId}-aliases`}
@@ -928,7 +968,7 @@ function SkillEditor({ skill, categories, onCancel, onSaved }: SkillEditorProps)
 				onHidden={setHidden}
 				pending={save.isPending}
 				onCancel={onCancel}
-				submitLabel={skill ? t`Save skill` : t`Add skill`}
+				submitLabel={skill ? t`Save` : kind === "tool" ? t`Add tool` : t`Add skill`}
 			/>
 		</form>
 	);
