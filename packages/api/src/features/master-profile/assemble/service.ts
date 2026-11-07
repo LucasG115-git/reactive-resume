@@ -28,6 +28,7 @@ import { masterProfileService } from "../service";
 import { checkResume } from "../writing/checks";
 import { reviewDraft } from "../writing/review";
 import { writeFromPlan } from "../writing/service";
+import { writeSummary } from "../writing/summary";
 import { buildResume } from "./build";
 import { buildCatalog, buildPrompt, modelOutputSchema, resolveOutput, SYSTEM_PROMPT } from "./prompt";
 import { validateRendering } from "./rendering";
@@ -165,6 +166,24 @@ export const assembleService = {
 				written.usage.push(...reviewed.usage);
 				written.warnings.push(...reviewed.warnings);
 			}
+			// The summary comes last, written from the finished bullets, skills and headline for this posting.
+			if (input.mode === "rephrase" && stored?.analysis) {
+				const summary = await writeSummary({
+					userId,
+					plan,
+					analysis: stored.analysis,
+					profile,
+					written,
+					rules,
+					ask: options.ask ?? askDefaultModel,
+					style,
+					quality,
+					signal: options.signal,
+					...(options.now ? { now: options.now } : {}),
+				});
+				written.usage.push(...summary.usage);
+				written.warnings.push(...summary.warnings);
+			}
 			selection = {
 				achievements: [...written.bullets].map(([id, bullet]) => ({ id, text: bullet.text })),
 				skills: written.skills.map((skill) => skill.id),
@@ -265,6 +284,7 @@ export const assembleService = {
 					evidence: PROMPT_VERSIONS.evidence,
 					...(input.mode === "rephrase" ? { writing: PROMPT_VERSIONS.writing } : {}),
 					...(review ? { review: PROMPT_VERSIONS.review } : {}),
+					...(input.mode === "rephrase" ? { summary: PROMPT_VERSIONS.summary } : {}),
 				},
 			};
 		}

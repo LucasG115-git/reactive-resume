@@ -15,6 +15,7 @@ import { tokens } from "../selection/text";
 import { checkResume } from "../writing/checks";
 import { reviewDraft } from "../writing/review";
 import { writeFromPlan } from "../writing/service";
+import { writeSummary } from "../writing/summary";
 
 /** One model setup to benchmark: how each task is answered, plus what to run. */
 export type BenchmarkConfig = {
@@ -137,6 +138,18 @@ export async function runCase(item: BenchmarkCase, config: BenchmarkConfig): Pro
 					quality: config.quality,
 				})
 			: null;
+		const summarised = await writeSummary({
+			userId: "benchmark",
+			plan,
+			analysis,
+			profile,
+			written,
+			rules,
+			ask,
+			quality: config.quality,
+			now,
+		});
+		written.warnings.push(...summarised.warnings);
 		const data = structuredClone(defaultResumeData);
 		data.basics.name = "Avery Example";
 		data.basics.email = "avery@example.test";

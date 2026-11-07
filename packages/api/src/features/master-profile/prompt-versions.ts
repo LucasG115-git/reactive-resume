@@ -5,6 +5,7 @@
 export const PROMPT_VERSIONS = {
 	analysis: "analysis-3",
 	evidence: "evidence-3",
-	writing: "writing-4",
+	writing: "writing-5",
 	review: "review-3",
+	summary: "summary-1",
 } as const;

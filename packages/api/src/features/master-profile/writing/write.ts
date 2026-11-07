@@ -124,7 +124,7 @@ ${style ? styleBlock(style) : ""}${input.feedback ?? ""}
 Write in ${region.spelling}. Return JSON:
 {
   "headline": ${rules.headline ? `"one professional headline of at most 8 words that presents the candidate as the profession this posting hires, in that profession's terms, built only from their own titles, sector and skills in the RECORD and SKILLS (for a communications posting, e.g. 'Digital Communications and Marketing Professional' when those are among their skills, not their current job title). One identity, not a list: no | or / separators and no stacked titles. Never claim a job title they haven't held."` : `""`},
-  "summary": ${rules.summary.enabled ? `"${rules.summary.minSentences}-${rules.summary.maxSentences} concise sentences, at most ${rules.summary.maxWords} words, for this role: who they are professionally, the strongest relevant evidence, and what they offer this employer. Only claims an included RECORD entry shows: never mention experience (such as leadership or a sector) the RECORD doesn't. Numbers only if they appear in it. No vague filler such as 'offers hands-on' or 'passionate about'."` : `""`},
+  "summary": "" (always empty: the summary is written last, from the finished resume),
   "bullets": [{ "id": "A1", "text": "the bullet" }],
   "skillGroups": [{ "name": "a category name suited to this profession", "skills": ["S1", "S2"] }]
 }
@@ -173,7 +173,7 @@ const DENSITY: Record<StylePreset["density"], string> = {
 /** Excerpt length per example; enough to show voice and bullet shape. */
 export const EXAMPLE_EXCERPT = 2500;
 
-function styleBlock(style: WritingStyle) {
+export function styleBlock(style: WritingStyle) {
 	const { preset } = style;
 	const lines = [
 		`Tone: ${TONE[preset.tone]}.`,
