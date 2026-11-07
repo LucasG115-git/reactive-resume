@@ -132,6 +132,12 @@ export const resumeSelection = pg.pgTable(
 		plan: pg.jsonb("plan").notNull().$type<ResumeSelectionPlan>(),
 		/** Provider and model that analysed and reviewed, for later comparison. */
 		model: pg.text("model").notNull().default(""),
+		/** The user's answers to the posting's profile gaps: "no", or "added" to the profile. */
+		gapAnswers: pg
+			.jsonb("gap_answers")
+			.notNull()
+			.$type<Array<{ requirementId: string; answer: "no" | "added"; at: string }>>()
+			.default([]),
 		createdAt: pg.timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
 		updatedAt: pg
 			.timestamp("updated_at", { withTimezone: true })

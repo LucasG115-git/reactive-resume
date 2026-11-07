@@ -135,3 +135,13 @@ Rules for consumers:
 - The analysis and review run on the user's default AI connection; there is no per-task model choice yet.
 - The review interface is on the web; the mobile app doesn't assemble from the profile yet.
 - Section order is recommended in the plan; applying it to the template's layout is left to the writing step.
+
+## Profile gaps
+
+`selection/gaps.ts` and `selection/gaps-service.ts`, API `masterProfile.gaps.{get, answer, draft}`, column `resume_selection.gap_answers` (migration `20261107182809_resume_selection_gap_answers`).
+
+- **Match** (`matchScore`): Σ weight × (supported 1, partial 0.5) / Σ weight, with each requirement's weight = importance / 5, × 0.75 when preferred.
+- **Gaps** (`gapReport`): a requirement is asked about when nothing in the profile evidences it (coverage `gap` with no `available` evidence), or, for a skill requirement, when it names skills (`skillCandidates`: its terms and list items, without lead-ins such as "proficiency with" or generic words) that the profile has under no name and no record mentions. Qualifier words ("development", "tools", "systems") are ignored when matching, so "WordPress development" is found in a WordPress achievement. Mandatory first, then importance; at most 15.
+- **Answer**: confirmed skills become profile skills; a line (the user's note, or a draft they approved) becomes an achievement under the chosen entry, tagged with the skills. Each answer is recorded as `added` or `no` and not asked again for that posting. When anything was added, the selection is proposed again, keeping the user's earlier choices.
+- **Draft** (task `polish`): words the user's note as one achievement. It's checked with `checkGrounded` and `introducedTools` against the note; a draft that adds a number or tool is replaced by the note itself, with a warning.
+- Web: `gap-step.tsx` in the tailoring dialog, before **Choose what to include**, with the match bar kept above the selection review.

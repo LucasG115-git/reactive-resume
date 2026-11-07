@@ -303,9 +303,28 @@ function tailoringAnswer(request: ChatRequest): unknown {
 					kind: "domain",
 					terms: ["nonprofits"],
 				},
+				{
+					text: "Skilled in photography and videography",
+					importance: 3,
+					necessity: "preferred",
+					kind: "skill",
+					terms: [],
+				},
+				{
+					text: "Plan Open House events for prospective students",
+					importance: 3,
+					necessity: "preferred",
+					kind: "responsibility",
+					terms: [],
+				},
 			],
 		};
 	if (system.includes("You review a candidate's verified career record")) return {};
+	// A profile-gap draft: the user's note, reworded without adding anything.
+	if (system.includes("You turn a candidate's own short account")) {
+		const note = /<<<NOTE_START>>>\n([\s\S]*?)\n<<<NOTE_END>>>/.exec(prompt)?.[1]?.trim() ?? "";
+		return { text: note.replace(/^I /, "").replace(/^\w/, (letter) => letter.toUpperCase()) };
+	}
 	if (system.includes("You write tailored resumes")) {
 		const bullets = [...prompt.matchAll(/^\s+(A\d+): (.+?)(?: \[|$)/gm)].map(([, id, line]) => ({ id, text: line }));
 		return { headline: "", summary: "", bullets, skillGroups: [] };

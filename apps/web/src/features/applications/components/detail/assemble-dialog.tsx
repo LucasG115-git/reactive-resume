@@ -23,6 +23,7 @@ import { SwitchRow } from "@reactive-resume/ui/components/switch";
 import { cn } from "@reactive-resume/utils/style";
 import { useInvalidateApplications } from "../../use-application-actions";
 import { RenderingPanel, ReviewPanel } from "./assembly-review";
+import { GapStep, MatchBar } from "./gap-step";
 import { SelectionReview } from "./selection-review";
 import { toastError } from "@/libs/error-message";
 import { orpc } from "@/libs/orpc/client";
@@ -77,6 +78,11 @@ export function AssembleDialog({ application, open, onOpenChange, autoPropose }:
 		<QualityChoice id={`${formId}-quality`} value={quality} onChange={setQualityChoice} />
 	) : null;
 	const current = selection.data ?? null;
+	// What the posting asks for that the profile shows nowhere: asked about once, before the selection review.
+	const gapsOptions = orpc.masterProfile.gaps.get.queryOptions({ input: { applicationId: application.id } });
+	const gaps = useQuery({ ...gapsOptions, enabled: open && Boolean(current) });
+	const [gapsDone, setGapsDone] = useState(false);
+	const askingGaps = !gapsDone && Boolean(current) && (gaps.data?.gaps.some((gap) => gap.answer === null) ?? false);
 	const started = useRef(false);
 	useEffect(() => {
 		if (!autoPropose || !open || started.current || selection.isPending || taskSettings.isPending || selection.data)
@@ -139,6 +145,7 @@ export function AssembleDialog({ application, open, onOpenChange, autoPropose }:
 		if (!next) {
 			setResult(null);
 			setStep("select");
+			setGapsDone(false);
 		}
 	};
 	const reviewing = !result && step === "select";
@@ -150,13 +157,24 @@ export function AssembleDialog({ application, open, onOpenChange, autoPropose }:
 			>
 				<DialogHeader>
 					<DialogTitle>
-						{result ? t`Resume assembled` : step === "select" ? t`Choose what to include` : t`Build the resume`}
+						{result
+							? t`Resume assembled`
+							: step === "select"
+								? askingGaps && reviewing
+									? t`Fill the gaps in your profile`
+									: t`Choose what to include`
+								: t`Build the resume`}
 					</DialogTitle>
 					<DialogDescription>
 						{result ? (
 							<Trans>Review it in the editor before you send it. Every line comes from your master profile.</Trans>
 						) : step === "select" ? (
-							current ? (
+							current && askingGaps ? (
+								<Trans>
+									Before the resume is written: add what you've done that this posting asks for, so your profile is
+									complete for this and future applications.
+								</Trans>
+							) : current ? (
 								<Trans>
 									Proposed from your whole profile for this posting. Include or leave out entries and achievements, and
 									reorder bullets. Your profile itself doesn't change.
@@ -181,12 +199,41 @@ export function AssembleDialog({ application, open, onOpenChange, autoPropose }:
 				{result ? (
 					<AssembleReport result={result} onChange={(next) => setResult({ ...result, result: next })} />
 				) : step === "select" ? (
-					current ? (
-						<SelectionReview
-							selection={current}
-							saving={update.isPending}
-							onChange={(edit) => update.mutate({ applicationId: application.id, ...edit })}
+					current && askingGaps && gaps.data ? (
+						<GapStep
+							applicationId={application.id}
+							report={gaps.data}
+							entries={profile.data?.entries ?? []}
+							onSkip={() => setGapsDone(true)}
+							onDone={(next) => {
+								saveSelection(next);
+								setGapsDone(true);
+								void queryClient.invalidateQueries({ queryKey: gapsOptions.queryKey });
+								void queryClient.invalidateQueries({ queryKey: orpc.masterProfile.get.key() });
+							}}
 						/>
+					) : current ? (
+						<div className="grid gap-4">
+							{gaps.data && (
+								<div className="grid gap-1.5">
+									<MatchBar report={gaps.data} />
+									{gaps.data.gaps.length > 0 && (
+										<button
+											type="button"
+											className="w-fit text-xs text-ink-3 underline underline-offset-2 hover:text-ink-2"
+											onClick={() => setGapsDone(false)}
+										>
+											{t`${gaps.data.gaps.length} things the posting asks for aren't in your profile. Review them`}
+										</button>
+									)}
+								</div>
+							)}
+							<SelectionReview
+								selection={current}
+								saving={update.isPending}
+								onChange={(edit) => update.mutate({ applicationId: application.id, ...edit })}
+							/>
+						</div>
 					) : (
 						<div className="grid gap-3">
 							{profile.data && achievements === 0 && (
@@ -297,90 +344,92 @@ export function AssembleDialog({ application, open, onOpenChange, autoPropose }:
 					</div>
 				)}
 
-				<DialogFooter>
-					{!result && step === "select" ? (
-						<>
-							<Button variant="ghost" onClick={() => close(false)}>
-								<Trans>Cancel</Trans>
-							</Button>
-							{current && edited && (
-								<Button
-									variant="ghost"
-									loading={reset.isPending}
-									onClick={() => reset.mutate({ applicationId: application.id })}
-								>
-									<Trans>Restore the proposal</Trans>
+				{!(askingGaps && reviewing && current) && (
+					<DialogFooter>
+						{!result && step === "select" ? (
+							<>
+								<Button variant="ghost" onClick={() => close(false)}>
+									<Trans>Cancel</Trans>
 								</Button>
-							)}
-							{current && (
+								{current && edited && (
+									<Button
+										variant="ghost"
+										loading={reset.isPending}
+										onClick={() => reset.mutate({ applicationId: application.id })}
+									>
+										<Trans>Restore the proposal</Trans>
+									</Button>
+								)}
+								{current && (
+									<Button
+										variant="secondary"
+										loading={propose.isPending}
+										onClick={() =>
+											propose.mutate({ applicationId: application.id, reanalyze: current.postingChanged, quality })
+										}
+									>
+										{current.postingChanged ? <Trans>Analyse again</Trans> : <Trans>Propose again</Trans>}
+									</Button>
+								)}
+								{current ? (
+									<Button
+										disabled={current.plan.totals.includedAchievements === 0 || update.isPending}
+										onClick={() => setStep("build")}
+									>
+										<Trans>Next: build the resume</Trans>
+										<Icon name="arrow-right" size={16} />
+									</Button>
+								) : (
+									<Button
+										loading={propose.isPending || selection.isPending}
+										disabled={achievements === 0 || !hasPosting}
+										onClick={() => propose.mutate({ applicationId: application.id, quality })}
+									>
+										<Icon name="magic-wand" size={16} />
+										<Trans>Analyse the posting</Trans>
+									</Button>
+								)}
+							</>
+						) : result ? (
+							<>
+								<Button variant="ghost" onClick={() => close(false)}>
+									<Trans>Close</Trans>
+								</Button>
+								<Link
+									to="/builder/$resumeId"
+									params={{ resumeId: result.resumeId }}
+									className={buttonVariants({ variant: "primary" })}
+								>
+									<Trans>Open the resume</Trans>
+								</Link>
+							</>
+						) : (
+							<>
+								<Button variant="ghost" onClick={() => setStep("select")}>
+									<Icon name="arrow-left" size={16} />
+									<Trans>Back to the selection</Trans>
+								</Button>
 								<Button
-									variant="secondary"
-									loading={propose.isPending}
+									loading={assemble.isPending}
+									disabled={achievements === 0}
 									onClick={() =>
-										propose.mutate({ applicationId: application.id, reanalyze: current.postingChanged, quality })
+										assemble.mutate({
+											applicationId: application.id,
+											mode,
+											quality,
+											review: mode === "rephrase" && reviewDraft,
+											...(base ? { baseResumeId: base } : {}),
+											...(preset ? { presetId: preset } : {}),
+										})
 									}
 								>
-									{current.postingChanged ? <Trans>Analyse again</Trans> : <Trans>Propose again</Trans>}
-								</Button>
-							)}
-							{current ? (
-								<Button
-									disabled={current.plan.totals.includedAchievements === 0 || update.isPending}
-									onClick={() => setStep("build")}
-								>
-									<Trans>Next: build the resume</Trans>
-									<Icon name="arrow-right" size={16} />
-								</Button>
-							) : (
-								<Button
-									loading={propose.isPending || selection.isPending}
-									disabled={achievements === 0 || !hasPosting}
-									onClick={() => propose.mutate({ applicationId: application.id, quality })}
-								>
 									<Icon name="magic-wand" size={16} />
-									<Trans>Analyse the posting</Trans>
+									<Trans>Assemble resume</Trans>
 								</Button>
-							)}
-						</>
-					) : result ? (
-						<>
-							<Button variant="ghost" onClick={() => close(false)}>
-								<Trans>Close</Trans>
-							</Button>
-							<Link
-								to="/builder/$resumeId"
-								params={{ resumeId: result.resumeId }}
-								className={buttonVariants({ variant: "primary" })}
-							>
-								<Trans>Open the resume</Trans>
-							</Link>
-						</>
-					) : (
-						<>
-							<Button variant="ghost" onClick={() => setStep("select")}>
-								<Icon name="arrow-left" size={16} />
-								<Trans>Back to the selection</Trans>
-							</Button>
-							<Button
-								loading={assemble.isPending}
-								disabled={achievements === 0}
-								onClick={() =>
-									assemble.mutate({
-										applicationId: application.id,
-										mode,
-										quality,
-										review: mode === "rephrase" && reviewDraft,
-										...(base ? { baseResumeId: base } : {}),
-										...(preset ? { presetId: preset } : {}),
-									})
-								}
-							>
-								<Icon name="magic-wand" size={16} />
-								<Trans>Assemble resume</Trans>
-							</Button>
-						</>
-					)}
-				</DialogFooter>
+							</>
+						)}
+					</DialogFooter>
+				)}
 			</DialogContent>
 		</Dialog>
 	);

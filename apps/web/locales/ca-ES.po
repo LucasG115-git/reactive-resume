@@ -23,6 +23,10 @@ msgstr ""
 msgid "…or paste YAML or JSON here"
 msgstr ""
 
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "· required"
+msgstr ""
+
 #. placeholder {0}: application.role
 #. placeholder {1}: application.company
 #: src/features/applications/components/application-actions-menu.tsx
@@ -496,6 +500,13 @@ msgstr "S'han acceptat edicions {0} de {1}"
 msgid "{0} of {1} posting terms appear"
 msgstr "Apareixen {0} de {1} termes de l'anunci"
 
+#. placeholder {0}: report.supported
+#. placeholder {1}: report.total
+#. placeholder {2}: report.partial
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "{0} of {1} requirements shown, {2} partly"
+msgstr ""
+
 #. placeholder {0}: shown.length
 #. placeholder {1}: TEMPLATE_IDS.length
 #: src/features/resume/editor/design/template-group.tsx
@@ -544,6 +555,11 @@ msgstr ""
 #: src/features/career/workspace/saved.tsx
 msgid "{0} supported, {1} partly supported, {2} with no evidence yet. {3}"
 msgstr "{0} avalats, {1} avalats en part, {2} encara sense proves. {3}"
+
+#. placeholder {0}: gaps.data.gaps.length
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "{0} things the posting asks for aren't in your profile. Review them"
+msgstr ""
 
 #. placeholder {0}: findings.length
 #: src/features/ats-checker/report/report-view.tsx
@@ -701,6 +717,10 @@ msgstr "{doneMinutes} de {total} min"
 #: src/features/homepage/prepare.tsx
 msgid "{earlier} · typed"
 msgstr "{earlier} · escrit"
+
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "{earlier} more you answered before aren't shown again."
+msgstr ""
 
 #: src/features/resume/editor/write/write-panel.tsx
 msgid "{entries, plural, one {# entry} other {# entries}}"
@@ -974,6 +994,11 @@ msgstr "+{extra} més"
 #: src/features/homepage/hero.tsx
 msgid "+13 pts activation"
 msgstr "+13 pts d'activació"
+
+#. placeholder {0}: report.match
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "<0>{0}%</0> match for this posting"
+msgstr ""
 
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "<0>Nothing to fix.</0> Every check passes."
@@ -1790,6 +1815,12 @@ msgstr ""
 msgid "Added {0} entries, {1} achievements and {2} skills. Review them, add numbers you can back up, and hide anything you don't want used."
 msgstr ""
 
+#. placeholder {0}: data.added
+#. placeholder {1}: data.report?.match ?? report.match
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Added {0} items to your profile. Match: {1}%."
+msgstr ""
+
 #: src/features/career/knowledge/facts.tsx
 #: src/features/career/shared.tsx
 msgid "Added by you"
@@ -2019,6 +2050,10 @@ msgstr ""
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Already interviewing"
 msgstr "Ja s'entrevista"
+
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Also add the skill {skill}"
+msgstr ""
 
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "Also check the exported PDF"
@@ -2712,6 +2747,10 @@ msgstr "Bàsic"
 #: src/features/resume/share/format.ts
 msgid "Before restore"
 msgstr "Abans de restaurar"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Before the resume is written: add what you've done that this posting asks for, so your profile is complete for this and future applications."
+msgstr ""
 
 #: src/features/career/workspace/apply.tsx
 msgid "Before you submit"
@@ -4050,6 +4089,10 @@ msgstr "No s'ha pogut suprimir el vostre compte. Torneu-ho a provar."
 msgid "Couldn't disconnect your {providerName} account. Try again."
 msgstr "No s'ha pogut desconnectar el vostre compte de {providerName}. Torneu-ho a provar."
 
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Couldn't draft the line. Write it yourself or try again."
+msgstr ""
+
 #: src/features/documents/document-actions.tsx
 msgid "Couldn't duplicate the document. Try again."
 msgstr "No s'ha pogut duplicar el document. Torneu-ho a provar."
@@ -4364,6 +4407,10 @@ msgstr "No s'ha pogut desar aquest lloc de treball a Candidatures. Torneu-ho a p
 #: src/features/career/schedule-sheet.tsx
 msgid "Couldn't save this schedule. Try again."
 msgstr "No s'ha pogut desar aquesta programació. Torneu-ho a provar."
+
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Couldn't save to your profile. Try again."
+msgstr ""
 
 #: src/features/letters/store.ts
 #: src/features/resume/share/history-tab.tsx
@@ -5875,6 +5922,10 @@ msgstr "Surt del mode d'enfocament"
 msgid "Experience"
 msgstr "Experiència"
 
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Experience you might have"
+msgstr ""
+
 #: src/features/resume/editor/design/entries-group.tsx
 msgid "Experience, Education and more"
 msgstr "Experiència, Educació i més"
@@ -6067,6 +6118,10 @@ msgstr "Ompliu el rol i la companyia. La publicació de feina es desa amb la sol
 
 #: src/features/settings/ai/task-models.tsx
 msgid "Fill suggested OpenAI models"
+msgstr ""
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Fill the gaps in your profile"
 msgstr ""
 
 #: src/features/career/knowledge/profile.tsx
@@ -6606,6 +6661,10 @@ msgstr "És difícil llegir el programari"
 msgid "Have a resume already? <0>Import it</0>"
 msgstr "Ja teniu un currículum? <0>Importeu-lo</0>"
 
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Have you done this?"
+msgstr ""
+
 #: src/features/resume/stylesheet/targets.ts
 msgid "Header"
 msgstr "Capçalera"
@@ -6857,6 +6916,10 @@ msgstr "Com mostrar el fitxer"
 msgid "How well do I fit this role?"
 msgstr "Què tan bé m'encaixo aquest paper?"
 
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "How you used it"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Hungarian"
 msgstr "Hongarès"
@@ -6885,6 +6948,10 @@ msgstr "Vaig entrevistar 14 clients, vaig identificar tres punts d'abandonament 
 #: src/features/applications/stages.ts
 msgid "I withdrew"
 msgstr "em vaig retirar"
+
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "I've done this"
+msgstr ""
 
 #: src/components/level/combobox.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/design.tsx
@@ -7031,6 +7098,10 @@ msgstr "S'està millorant…"
 #: src/features/homepage/sections.tsx
 msgid "In good company"
 msgstr "En bona companyia"
+
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "In your own words: what you did, for whom, and any result you know."
+msgstr ""
 
 #: src/features/applications/components/detail/assembly-review.tsx
 msgid "in your resume"
@@ -7824,6 +7895,10 @@ msgstr "Interlineat"
 msgid "Line height set to {minimum}"
 msgstr "Alçada de línia establerta a {minimum}"
 
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Line to add to your profile"
+msgstr ""
+
 #: src/features/resume/editor/check/issues.ts
 msgid "Lines are packed tightly"
 msgstr "Les línies estan ben empaquetades"
@@ -8264,6 +8339,10 @@ msgstr "Coincideix amb \"{0}\""
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Match against a job"
 msgstr "Partit contra una feina"
+
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Match for this posting"
+msgstr ""
 
 #: src/features/command-palette/pages/preferences/theme.tsx
 msgid "Match system theme"
@@ -9311,6 +9390,10 @@ msgstr ""
 msgid "Not sure what to write?"
 msgstr "No saps què escriure?"
 
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Not tied to one role or project"
+msgstr ""
+
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Not true for me, hide it"
 msgstr "No és cert per a mi, amaga-ho"
@@ -9330,6 +9413,10 @@ msgstr "No s'usa a l'orientació, per tant no pot avalar cap història."
 #: src/features/settings/account/profile.tsx
 msgid "Not verified yet. Resend the link"
 msgstr "Encara no s'ha verificat. Torna a enviar l'enllaç"
+
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Not yet"
+msgstr ""
 
 #: src/features/applications/components/detail/activity.tsx
 #: src/features/applications/components/detail/assemble-dialog.tsx
@@ -9728,6 +9815,10 @@ msgstr "Opcional per a Ollama local"
 
 #: src/features/career/knowledge/structured-preferences.tsx
 msgid "Optional; replaces the general minimum in this area."
+msgstr ""
+
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Optional: what you did with it there, in a sentence. It's added as an achievement."
 msgstr ""
 
 #: src/components/ui/combobox.tsx
@@ -11930,6 +12021,10 @@ msgstr ""
 msgid "Save to Knowledge"
 msgstr "Desa a Coneixements"
 
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Save to profile and continue"
+msgstr ""
+
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Save to the application"
 msgstr "Desa a la sol·licitud de feina"
@@ -12021,6 +12116,10 @@ msgstr "S'ha desat a Coneixements, privat per a aquesta candidatura."
 #: src/features/career/workspace/practise.tsx
 msgid "Saved to Saved · Practice"
 msgstr "S'ha desat a Desats · Assaig"
+
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Saved your answers."
+msgstr ""
 
 #. placeholder {0}: new URL(url).host
 #: src/features/resume/share/address-field.tsx
@@ -12792,6 +12891,10 @@ msgstr ""
 msgid "Skills to list"
 msgstr ""
 
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Skills you might have"
+msgstr ""
+
 #: src/features/settings/resume-style.tsx
 msgid "Skills, about"
 msgstr ""
@@ -12808,6 +12911,10 @@ msgstr "Omet"
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Skip and upload"
 msgstr "Omet i puja"
+
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Skip for now"
+msgstr ""
 
 #: src/features/homepage/page.tsx
 msgid "Skip to content"
@@ -13882,6 +13989,10 @@ msgstr "Les pàgines són imatges, sense text al darrere."
 msgid "The posting asks for “{label}”. If it's true for me, work it into my resume where it fits. Ask me first."
 msgstr "L'oferta de feina demana \"{label}\". Si és cert per a mi, introduïu-lo al meu currículum on encaixi. Pregunteu-me primer."
 
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "The posting asks for these, but your profile doesn't show them anywhere. If you have them, say where you did or learned them: they're added to your master profile for this and future resumes. Only add what's true; you can skip any of them."
+msgstr ""
+
 #: src/features/applications/components/detail/selection-review.tsx
 msgid "The posting changed since this was analysed. Analyse it again to update the requirements."
 msgstr ""
@@ -14539,6 +14650,10 @@ msgstr "Turc"
 
 #: src/features/career/knowledge/structured-preferences.tsx
 msgid "Turn into a rule"
+msgstr ""
+
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Turn it into a resume line"
 msgstr ""
 
 #: src/features/ats-checker/messages.ts
@@ -15541,6 +15656,10 @@ msgstr ""
 msgid "What would you do differently?"
 msgstr "Què faríeu diferent?"
 
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "What you did"
+msgstr ""
+
 #: src/features/career/knowledge/profile.tsx
 msgid "What you did and what changed, as a resume bullet"
 msgstr ""
@@ -15594,6 +15713,14 @@ msgstr ""
 #: src/features/applications/components/insights-view.tsx
 msgid "Where applications come from"
 msgstr "D'on provenen les sol·licituds"
+
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Where did you do it?"
+msgstr ""
+
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Where did you use or learn it? (optional)"
+msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
 msgid "Where you want to work"

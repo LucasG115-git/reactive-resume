@@ -57,6 +57,8 @@ test("an assembled resume is reviewed once, its draft wording can be put back, a
 	await page.getByRole("button", { name: "Assemble from profile" }).click();
 	const dialog = page.getByRole("dialog");
 	await dialog.getByRole("button", { name: "Analyse the posting" }).click();
+	// The posting asks for things the profile doesn't show; this test skips adding them.
+	await dialog.getByRole("button", { name: "Skip for now" }).click({ timeout: 30_000 });
 	await dialog.getByRole("button", { name: "Next: build the resume" }).click({ timeout: 30_000 });
 	await expect(dialog.getByRole("switch", { name: /Review the draft with AI/ })).toBeChecked();
 	await dialog.getByRole("button", { name: "Assemble resume" }).click();

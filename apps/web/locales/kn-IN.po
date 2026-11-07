@@ -23,6 +23,10 @@ msgstr ""
 msgid "…or paste YAML or JSON here"
 msgstr ""
 
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "· required"
+msgstr ""
+
 #. placeholder {0}: application.role
 #. placeholder {1}: application.company
 #: src/features/applications/components/application-actions-menu.tsx
@@ -496,6 +500,13 @@ msgstr "{1} ನ {0} ಸಂಪಾದನೆಗಳನ್ನು ಸ್ವೀಕರ�
 msgid "{0} of {1} posting terms appear"
 msgstr "{1} ನ {0} ಉದ್ಯೋಗ ಪೋಸ್ಟ್ ಮಾಡುವ ನಿಯಮಗಳು ಗೋಚರಿಸುತ್ತವೆ"
 
+#. placeholder {0}: report.supported
+#. placeholder {1}: report.total
+#. placeholder {2}: report.partial
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "{0} of {1} requirements shown, {2} partly"
+msgstr ""
+
 #. placeholder {0}: shown.length
 #. placeholder {1}: TEMPLATE_IDS.length
 #: src/features/resume/editor/design/template-group.tsx
@@ -544,6 +555,11 @@ msgstr ""
 #: src/features/career/workspace/saved.tsx
 msgid "{0} supported, {1} partly supported, {2} with no evidence yet. {3}"
 msgstr "{0} ಬೆಂಬಲಿತ, {1} ಭಾಗಶಃ ಬೆಂಬಲಿತ, {2} ಇನ್ನೂ ಪುರಾವೆ ಇಲ್ಲದವು. {3}"
+
+#. placeholder {0}: gaps.data.gaps.length
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "{0} things the posting asks for aren't in your profile. Review them"
+msgstr ""
 
 #. placeholder {0}: findings.length
 #: src/features/ats-checker/report/report-view.tsx
@@ -701,6 +717,10 @@ msgstr "{total} ರಲ್ಲಿ {doneMinutes} ನಿಮಿಷ"
 #: src/features/homepage/prepare.tsx
 msgid "{earlier} · typed"
 msgstr "{earlier} · ಟೈಪ್ ಮಾಡಿದ್ದು"
+
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "{earlier} more you answered before aren't shown again."
+msgstr ""
 
 #: src/features/resume/editor/write/write-panel.tsx
 msgid "{entries, plural, one {# entry} other {# entries}}"
@@ -974,6 +994,11 @@ msgstr "+{extra} ಹೆಚ್ಚು"
 #: src/features/homepage/hero.tsx
 msgid "+13 pts activation"
 msgstr "+13 ಅಂಕಗಳು ಸಕ್ರಿಯಗೊಳಿಸುವಿಕೆ"
+
+#. placeholder {0}: report.match
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "<0>{0}%</0> match for this posting"
+msgstr ""
 
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "<0>Nothing to fix.</0> Every check passes."
@@ -1790,6 +1815,12 @@ msgstr ""
 msgid "Added {0} entries, {1} achievements and {2} skills. Review them, add numbers you can back up, and hide anything you don't want used."
 msgstr ""
 
+#. placeholder {0}: data.added
+#. placeholder {1}: data.report?.match ?? report.match
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Added {0} items to your profile. Match: {1}%."
+msgstr ""
+
 #: src/features/career/knowledge/facts.tsx
 #: src/features/career/shared.tsx
 msgid "Added by you"
@@ -2019,6 +2050,10 @@ msgstr ""
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Already interviewing"
 msgstr "ಈಗಾಗಲೇ ಸಂದರ್ಶನ ನಡೆಯುತ್ತಿದೆ"
+
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Also add the skill {skill}"
+msgstr ""
 
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "Also check the exported PDF"
@@ -2712,6 +2747,10 @@ msgstr "ಮೂಲಭೂತಗಳು"
 #: src/features/resume/share/format.ts
 msgid "Before restore"
 msgstr "ಪುನಃಸ್ಥಾಪಿಸುವ ಮೊದಲು"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Before the resume is written: add what you've done that this posting asks for, so your profile is complete for this and future applications."
+msgstr ""
 
 #: src/features/career/workspace/apply.tsx
 msgid "Before you submit"
@@ -4050,6 +4089,10 @@ msgstr "ನಿಮ್ಮ ಖಾತೆಯನ್ನು ಅಳಿಸಲು ಸಾಧ
 msgid "Couldn't disconnect your {providerName} account. Try again."
 msgstr "ನಿಮ್ಮ {providerName} ಖಾತೆಯ ಸಂಪರ್ಕ ಕಡಿತಗೊಳಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ."
 
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Couldn't draft the line. Write it yourself or try again."
+msgstr ""
+
 #: src/features/documents/document-actions.tsx
 msgid "Couldn't duplicate the document. Try again."
 msgstr "ದಾಖಲೆಯನ್ನು ನಕಲು ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ."
@@ -4364,6 +4407,10 @@ msgstr "ಈ ಹುದ್ದೆಯನ್ನು ಅರ್ಜಿಗಳಿಗೆ ಉ
 #: src/features/career/schedule-sheet.tsx
 msgid "Couldn't save this schedule. Try again."
 msgstr "ಈ ವೇಳಾಪಟ್ಟಿಯನ್ನು ಉಳಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ."
+
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Couldn't save to your profile. Try again."
+msgstr ""
 
 #: src/features/letters/store.ts
 #: src/features/resume/share/history-tab.tsx
@@ -5875,6 +5922,10 @@ msgstr "ಫೋಕಸ್ ಮೋಡ್‌ನಿಂದ ನಿರ್ಗಮಿಸಿ"
 msgid "Experience"
 msgstr "ಅನುಭವ"
 
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Experience you might have"
+msgstr ""
+
 #: src/features/resume/editor/design/entries-group.tsx
 msgid "Experience, Education and more"
 msgstr "ಅನುಭವ, ಶಿಕ್ಷಣ ಮತ್ತು ಇನ್ನಷ್ಟು"
@@ -6067,6 +6118,10 @@ msgstr "ಪಾತ್ರ ಮತ್ತು ಕಂಪನಿಯನ್ನು ಭರ್
 
 #: src/features/settings/ai/task-models.tsx
 msgid "Fill suggested OpenAI models"
+msgstr ""
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Fill the gaps in your profile"
 msgstr ""
 
 #: src/features/career/knowledge/profile.tsx
@@ -6606,6 +6661,10 @@ msgstr "ಸಾಫ್ಟ್‌ವೇರ್ ಓದಲು ಕಷ್ಟ"
 msgid "Have a resume already? <0>Import it</0>"
 msgstr "ಈಗಾಗಲೇ ರೆಸ್ಯೂಮೆ ಇದೆಯೇ? <0>ಆಮದು ಮಾಡಿ</0>"
 
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Have you done this?"
+msgstr ""
+
 #: src/features/resume/stylesheet/targets.ts
 msgid "Header"
 msgstr "ಶಿರೋಲೇಖ"
@@ -6857,6 +6916,10 @@ msgstr "ಫೈಲ್ ಅನ್ನು ಹೇಗೆ ತೋರಿಸುವುದು
 msgid "How well do I fit this role?"
 msgstr "ನಾನು ಈ ಪಾತ್ರಕ್ಕೆ ಎಷ್ಟು ಚೆನ್ನಾಗಿ ಹೊಂದಿಕೊಳ್ಳುತ್ತೇನೆ?"
 
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "How you used it"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Hungarian"
 msgstr "ಹಂಗೇರಿಯನ್"
@@ -6885,6 +6948,10 @@ msgstr "ನಾನು 14 ಗ್ರಾಹಕರನ್ನು ಸಂದರ್ಶಿ�
 #: src/features/applications/stages.ts
 msgid "I withdrew"
 msgstr "ನಾನು ಹಿಂತೆಗೆದುಕೊಂಡೆ"
+
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "I've done this"
+msgstr ""
 
 #: src/components/level/combobox.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/design.tsx
@@ -7031,6 +7098,10 @@ msgstr "ಸುಧಾರಿಸುತ್ತಿದೆ..."
 #: src/features/homepage/sections.tsx
 msgid "In good company"
 msgstr "ಒಳ್ಳೆಯ ಕಂಪನಿಯಲ್ಲಿ"
+
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "In your own words: what you did, for whom, and any result you know."
+msgstr ""
 
 #: src/features/applications/components/detail/assembly-review.tsx
 msgid "in your resume"
@@ -7824,6 +7895,10 @@ msgstr "ಸಾಲಿನ ಎತ್ತರ"
 msgid "Line height set to {minimum}"
 msgstr "ಸಾಲಿನ ಎತ್ತರವನ್ನು {minimum} ಗೆ ಹೊಂದಿಸಲಾಗಿದೆ"
 
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Line to add to your profile"
+msgstr ""
+
 #: src/features/resume/editor/check/issues.ts
 msgid "Lines are packed tightly"
 msgstr "ಸಾಲುಗಳನ್ನು ಬಿಗಿಯಾಗಿ ಪ್ಯಾಕ್ ಮಾಡಲಾಗಿದೆ"
@@ -8264,6 +8339,10 @@ msgstr "ಹೊಂದಾಣಿಕೆ \"{0}\""
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Match against a job"
 msgstr "ಕೆಲಸದ ವಿರುದ್ಧ ಹೊಂದಾಣಿಕೆ"
+
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Match for this posting"
+msgstr ""
 
 #: src/features/command-palette/pages/preferences/theme.tsx
 msgid "Match system theme"
@@ -9311,6 +9390,10 @@ msgstr ""
 msgid "Not sure what to write?"
 msgstr "ಏನು ಬರೆಯಬೇಕೆಂದು ಖಚಿತವಿಲ್ಲವೇ?"
 
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Not tied to one role or project"
+msgstr ""
+
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Not true for me, hide it"
 msgstr "ನನಗೆ ನಿಜವಲ್ಲ, ಅದನ್ನು ಮರೆಮಾಡಿ"
@@ -9330,6 +9413,10 @@ msgstr "ಕೋಚಿಂಗ್‌ನಲ್ಲಿ ಬಳಸಲಾಗಿಲ್ಲ, 
 #: src/features/settings/account/profile.tsx
 msgid "Not verified yet. Resend the link"
 msgstr "ಇನ್ನೂ ಪರಿಶೀಲಿಸಲಾಗಿಲ್ಲ. ಲಿಂಕ್ ಅನ್ನು ಮರುಕಳುಹಿಸಿ"
+
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Not yet"
+msgstr ""
 
 #: src/features/applications/components/detail/activity.tsx
 #: src/features/applications/components/detail/assemble-dialog.tsx
@@ -9728,6 +9815,10 @@ msgstr "ಸ್ಥಳೀಯ Ollama ಗಾಗಿ ಐಚ್ಛಿಕ"
 
 #: src/features/career/knowledge/structured-preferences.tsx
 msgid "Optional; replaces the general minimum in this area."
+msgstr ""
+
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Optional: what you did with it there, in a sentence. It's added as an achievement."
 msgstr ""
 
 #: src/components/ui/combobox.tsx
@@ -11930,6 +12021,10 @@ msgstr ""
 msgid "Save to Knowledge"
 msgstr "ಜ್ಞಾನಕ್ಕೆ ಉಳಿಸಿ"
 
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Save to profile and continue"
+msgstr ""
+
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Save to the application"
 msgstr "ಉದ್ಯೋಗ ಅರ್ಜಿಗೆ ಉಳಿಸಿ"
@@ -12021,6 +12116,10 @@ msgstr "ಜ್ಞಾನಕ್ಕೆ ಉಳಿಸಲಾಗಿದೆ, ಈ ಅರ�
 #: src/features/career/workspace/practise.tsx
 msgid "Saved to Saved · Practice"
 msgstr "“ಉಳಿಸಲಾಗಿದೆ” ಗೆ ಉಳಿಸಲಾಗಿದೆ · ಅಭ್ಯಾಸ"
+
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Saved your answers."
+msgstr ""
 
 #. placeholder {0}: new URL(url).host
 #: src/features/resume/share/address-field.tsx
@@ -12792,6 +12891,10 @@ msgstr ""
 msgid "Skills to list"
 msgstr ""
 
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Skills you might have"
+msgstr ""
+
 #: src/features/settings/resume-style.tsx
 msgid "Skills, about"
 msgstr ""
@@ -12808,6 +12911,10 @@ msgstr "ಬಿಟ್ಟುಬಿಡಿ"
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Skip and upload"
 msgstr "ಬಿಟ್ಟುಬಿಡಿ ಮತ್ತು ಅಪ್‌ಲೋಡ್ ಮಾಡಿ"
+
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Skip for now"
+msgstr ""
 
 #: src/features/homepage/page.tsx
 msgid "Skip to content"
@@ -13882,6 +13989,10 @@ msgstr "ಪುಟಗಳು ಚಿತ್ರಗಳಾಗಿವೆ, ಅವುಗಳ
 msgid "The posting asks for “{label}”. If it's true for me, work it into my resume where it fits. Ask me first."
 msgstr "ಉದ್ಯೋಗ ಪೋಸ್ಟ್ ಮಾಡುವಿಕೆಯು \"{label}\" ಅನ್ನು ಕೇಳುತ್ತದೆ. ಇದು ನನಗೆ ನಿಜವಾಗಿದ್ದರೆ, ಅದು ಸರಿಹೊಂದುವ ನನ್ನ ರೆಸ್ಯೂಮೆಯಲ್ಲಿ ಅದನ್ನು ಕೆಲಸ ಮಾಡಿ. ಮೊದಲು ನನ್ನನ್ನು ಕೇಳು."
 
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "The posting asks for these, but your profile doesn't show them anywhere. If you have them, say where you did or learned them: they're added to your master profile for this and future resumes. Only add what's true; you can skip any of them."
+msgstr ""
+
 #: src/features/applications/components/detail/selection-review.tsx
 msgid "The posting changed since this was analysed. Analyse it again to update the requirements."
 msgstr ""
@@ -14539,6 +14650,10 @@ msgstr "ಟರ್ಕಿಶ್"
 
 #: src/features/career/knowledge/structured-preferences.tsx
 msgid "Turn into a rule"
+msgstr ""
+
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Turn it into a resume line"
 msgstr ""
 
 #: src/features/ats-checker/messages.ts
@@ -15541,6 +15656,10 @@ msgstr ""
 msgid "What would you do differently?"
 msgstr "ನೀವು ಏನನ್ನು ಬೇರೆ ರೀತಿಯಲ್ಲಿ ಮಾಡುತ್ತೀರಿ?"
 
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "What you did"
+msgstr ""
+
 #: src/features/career/knowledge/profile.tsx
 msgid "What you did and what changed, as a resume bullet"
 msgstr ""
@@ -15594,6 +15713,14 @@ msgstr ""
 #: src/features/applications/components/insights-view.tsx
 msgid "Where applications come from"
 msgstr "ಅರ್ಜಿಗಳು ಎಲ್ಲಿಂದ ಬರುತ್ತವೆ"
+
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Where did you do it?"
+msgstr ""
+
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Where did you use or learn it? (optional)"
+msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
 msgid "Where you want to work"
