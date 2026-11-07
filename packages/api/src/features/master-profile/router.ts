@@ -18,6 +18,9 @@ import {
 	jobAnalysisSchema,
 	resumeSelectionPlanSchema,
 	selectionEditSchema,
+	gapAnswersInputSchema,
+	gapDraftInputSchema,
+	gapReportSchema,
 } from "@reactive-resume/schema/resume-selection";
 import { resumeFeedbackInputSchema, resumeFeedbackSchema } from "@reactive-resume/schema/resume-writing";
 import { protectedProcedure } from "../../context";
@@ -26,6 +29,7 @@ import { revisionService } from "./assemble/revisions";
 import { assembleService } from "./assemble/service";
 import { feedbackService } from "./feedback";
 import { ProfileFileError } from "./import";
+import { gapsService } from "./selection/gaps-service";
 import { selectionService } from "./selection/service";
 import { masterProfileService } from "./service";
 import { factCatalog, importStories } from "./stories";
@@ -73,6 +77,55 @@ const selectionSchema = z
 const applicationInput = z.object({ applicationId: z.string().min(1) });
 
 export const masterProfileRouter = {
+	/** What a posting asks for that the profile doesn't show yet, and adding what the user confirms. */
+	gaps: {
+		get: protectedProcedure
+			.route({
+				method: "GET",
+				path: "/master-profile/selections/{applicationId}/gaps",
+				tags,
+				operationId: "getProfileGaps",
+				summary: "How well the profile matches a posting, and what it's missing",
+				description:
+					"A 0–100 match from the selection's requirement coverage, and the posting's skills and requirements that no profile record shows, with the user's earlier answers. Null before a selection is proposed.",
+			})
+			.input(applicationInput)
+			.output(gapReportSchema.nullable())
+			.handler(({ context, input }) => gapsService.get(context.user.id, input.applicationId)),
+
+		answer: protectedProcedure
+			.route({
+				method: "POST",
+				path: "/master-profile/selections/{applicationId}/gaps",
+				tags,
+				operationId: "answerProfileGaps",
+				summary: "Add confirmed skills and experience to the profile, then propose again",
+				description:
+					"For each answer the user confirmed, adds the named skills and an achievement (under the entry they chose) to their master profile; answers of no are remembered for this posting. When anything was added, the selection is proposed again from the expanded profile.",
+			})
+			.use(aiRequestRateLimit)
+			.input(gapAnswersInputSchema)
+			.output(z.object({ selection: selectionSchema, report: gapReportSchema.nullable(), added: z.number() }))
+			.errors({ BAD_GATEWAY: { message: "The AI provider returned an error or couldn't be reached.", status: 502 } })
+			.handler(({ context, input, signal }) => gapsService.answer(context.user.id, input, { signal })),
+
+		draft: protectedProcedure
+			.route({
+				method: "POST",
+				path: "/master-profile/selections/{applicationId}/gaps/{requirementId}/draft",
+				tags,
+				operationId: "draftProfileGapAchievement",
+				summary: "Word the user's note as a resume achievement",
+				description:
+					"Turns the user's own account of what they did into one achievement for the requirement. It may only reword the note; a draft that adds a number or tool is replaced by the note itself.",
+			})
+			.use(aiRequestRateLimit)
+			.input(gapDraftInputSchema)
+			.output(z.object({ text: z.string(), warning: z.string().nullable() }))
+			.errors({ BAD_GATEWAY: { message: "The AI provider returned an error or couldn't be reached.", status: 502 } })
+			.handler(({ context, input, signal }) => gapsService.draft(context.user.id, input, { signal })),
+	},
+
 	selection: {
 		get: protectedProcedure
 			.route({

@@ -207,3 +207,60 @@ export const selectionEditSchema = z.object({
 	skills: z.array(z.object({ skillId: z.string(), include: z.boolean() })).max(500),
 });
 export type SelectionEdit = z.infer<typeof selectionEditSchema>;
+
+// ---- Profile gaps ----
+
+/**
+ * What the posting asks for that the master profile doesn't show yet: skills it names that no profile skill or
+ * achievement has, and requirements no profile record evidences. The user says whether they have them and where;
+ * what they confirm is added to their profile, so it grows more complete with each application.
+ */
+export const profileGapSchema = z.object({
+	requirementId: z.string(),
+	text: z.string(),
+	kind: z.enum(REQUIREMENT_KINDS),
+	necessity: z.enum(["mandatory", "preferred"]),
+	importance: z.number(),
+	/** skill: tools or abilities to add as skills. experience: something done, to add as an achievement. */
+	type: z.enum(["skill", "experience"]),
+	/** Skill names from the posting that the profile has under no name. */
+	skills: z.array(z.string()),
+	/** The user's earlier answer for this posting: "no", or "added" to the profile. Null when unanswered. */
+	answer: z.enum(["no", "added"]).nullable(),
+});
+export type ProfileGap = z.infer<typeof profileGapSchema>;
+
+export const gapReportSchema = z.object({
+	/** 0–100: requirements the selected evidence supports, weighted by importance; partial support counts half. */
+	match: z.number(),
+	supported: z.number(),
+	partial: z.number(),
+	total: z.number(),
+	gaps: z.array(profileGapSchema),
+});
+export type GapReport = z.infer<typeof gapReportSchema>;
+
+export const gapAnswerSchema = z.object({
+	requirementId: z.string().min(1),
+	have: z.boolean(),
+	/** Skill names to add to the profile (those it doesn't have yet). */
+	skills: z.array(z.string().trim().min(1).max(100)).max(10).default([]),
+	/** Where it was done or learned: a profile entry, or null for no particular one. */
+	entryId: z.string().min(1).nullable().default(null),
+	/** An achievement to add, in the user's words (or a draft they approved). Empty adds only the skills. */
+	text: z.string().trim().max(1000).default(""),
+});
+export type GapAnswer = z.infer<typeof gapAnswerSchema>;
+
+export const gapAnswersInputSchema = z.object({
+	applicationId: z.string().min(1),
+	answers: z.array(gapAnswerSchema).min(1).max(40),
+});
+
+export const gapDraftInputSchema = z.object({
+	applicationId: z.string().min(1),
+	requirementId: z.string().min(1),
+	entryId: z.string().min(1).nullable().default(null),
+	/** The user's own account of what they did. The draft may not add to it. */
+	note: z.string().trim().min(3).max(1500),
+});

@@ -414,6 +414,72 @@ describe.skipIf(!databaseUrl)("resume selection plans", { timeout: 30_000 }, () 
 		expect(await feedbackService.list("alice")).toEqual([]);
 	});
 
+	it("reports what the profile lacks, adds what the user confirms, and proposes again from the larger profile", async () => {
+		const seeded = await seedProfile();
+		await selection.propose("alice", { applicationId: "alice-app" }, { ask });
+		const { gapsService } = await import("./gaps-service");
+		const before = await gapsService.get("alice", "alice-app");
+		expect(before?.match).toBeLessThan(100);
+		const french = before?.gaps.find((gap) => gap.text === "French fluency");
+		expect(french).toMatchObject({ answer: null });
+		expect(await gapsService.get("bob", "alice-app")).toBeNull();
+
+		const drafted = await gapsService.draft(
+			"alice",
+			{
+				applicationId: "alice-app",
+				requirementId: french?.requirementId ?? "",
+				entryId: seeded.founder.id,
+				note: "I ran client meetings in French for two Quebec nonprofits",
+			},
+			{
+				ask: async ({ schema }) => ({
+					model: "stub",
+					output: schema.parse({ text: "Led client meetings in French for 12 Quebec nonprofits" }),
+				}),
+			},
+		);
+		// The draft added a number the note didn't state, so the user's own words come back.
+		expect(drafted.text).toBe("I ran client meetings in French for two Quebec nonprofits");
+		expect(drafted.warning).toMatch(/introduced number 12/);
+
+		const answered = await gapsService.answer(
+			"alice",
+			{
+				applicationId: "alice-app",
+				answers: [
+					{
+						requirementId: french?.requirementId ?? "",
+						have: true,
+						skills: ["French"],
+						entryId: seeded.founder.id,
+						text: "Ran client meetings in French for two Quebec nonprofits",
+					},
+				],
+			},
+			{ ask },
+		);
+		expect(answered.added).toBe(2);
+		const saved = await profile.get("alice");
+		expect(saved.skills.map((skill) => skill.name)).toContain("French");
+		const founder = saved.entries.find((entry) => entry.id === seeded.founder.id);
+		expect(founder?.achievements.map((item) => item.text)).toContain(
+			"Ran client meetings in French for two Quebec nonprofits",
+		);
+		expect(answered.report?.gaps.find((gap) => gap.requirementId === french?.requirementId)?.answer ?? "added").toBe(
+			"added",
+		);
+		expect(answered.report?.match).toBeGreaterThan(before?.match ?? 0);
+		expect((await profile.get("bob")).skills.map((skill) => skill.name)).not.toContain("French");
+
+		// A "no" is remembered for this posting and adds nothing.
+		const declined = await gapsService.answer("alice", {
+			applicationId: "alice-app",
+			answers: [{ requirementId: french?.requirementId ?? "", have: false, skills: [], entryId: null, text: "" }],
+		});
+		expect(declined.added).toBe(0);
+	});
+
 	it("asks for a posting and achievements first", async () => {
 		await expect(selection.propose("bob", { applicationId: "bob-app" }, { ask })).rejects.toMatchObject({
 			code: "BAD_REQUEST",

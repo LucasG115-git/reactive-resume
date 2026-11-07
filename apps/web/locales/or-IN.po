@@ -23,6 +23,10 @@ msgstr ""
 msgid "…or paste YAML or JSON here"
 msgstr ""
 
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "· required"
+msgstr ""
+
 #. placeholder {0}: application.role
 #. placeholder {1}: application.company
 #: src/features/applications/components/application-actions-menu.tsx
@@ -496,6 +500,13 @@ msgstr "{1} ସଂପାଦନର {0} ଗ୍ରହଣ କରାଯାଇଛି |
 msgid "{0} of {1} posting terms appear"
 msgstr "ଚାକିରି ବିଜ୍ଞାପନର {1}ଟି ଶବ୍ଦ ମଧ୍ୟରୁ {0}ଟି ଦେଖାଯାଉଛି"
 
+#. placeholder {0}: report.supported
+#. placeholder {1}: report.total
+#. placeholder {2}: report.partial
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "{0} of {1} requirements shown, {2} partly"
+msgstr ""
+
 #. placeholder {0}: shown.length
 #. placeholder {1}: TEMPLATE_IDS.length
 #: src/features/resume/editor/design/template-group.tsx
@@ -544,6 +555,11 @@ msgstr ""
 #: src/features/career/workspace/saved.tsx
 msgid "{0} supported, {1} partly supported, {2} with no evidence yet. {3}"
 msgstr "{0} ସମର୍ଥିତ, {1} ଆଂଶିକ ସମର୍ଥିତ, {2}ଟିରେ ଏପର୍ଯ୍ୟନ୍ତ କୌଣସି ପ୍ରମାଣ ନାହିଁ। {3}"
+
+#. placeholder {0}: gaps.data.gaps.length
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "{0} things the posting asks for aren't in your profile. Review them"
+msgstr ""
 
 #. placeholder {0}: findings.length
 #: src/features/ats-checker/report/report-view.tsx
@@ -701,6 +717,10 @@ msgstr "{total} ମିନିଟ୍ ମଧ୍ୟରୁ {doneMinutes}"
 #: src/features/homepage/prepare.tsx
 msgid "{earlier} · typed"
 msgstr "{earlier} · ଟାଇପ୍ କରାଯାଇଛି"
+
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "{earlier} more you answered before aren't shown again."
+msgstr ""
 
 #: src/features/resume/editor/write/write-panel.tsx
 msgid "{entries, plural, one {# entry} other {# entries}}"
@@ -974,6 +994,11 @@ msgstr "+ {extra} ଅଧିକ |"
 #: src/features/homepage/hero.tsx
 msgid "+13 pts activation"
 msgstr "+13 pts ଆକ୍ଟିଭେସନ୍ |"
+
+#. placeholder {0}: report.match
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "<0>{0}%</0> match for this posting"
+msgstr ""
 
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "<0>Nothing to fix.</0> Every check passes."
@@ -1790,6 +1815,12 @@ msgstr ""
 msgid "Added {0} entries, {1} achievements and {2} skills. Review them, add numbers you can back up, and hide anything you don't want used."
 msgstr ""
 
+#. placeholder {0}: data.added
+#. placeholder {1}: data.report?.match ?? report.match
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Added {0} items to your profile. Match: {1}%."
+msgstr ""
+
 #: src/features/career/knowledge/facts.tsx
 #: src/features/career/shared.tsx
 msgid "Added by you"
@@ -2019,6 +2050,10 @@ msgstr ""
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Already interviewing"
 msgstr "ପୂର୍ବରୁ ସାକ୍ଷାତକାର |"
+
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Also add the skill {skill}"
+msgstr ""
 
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "Also check the exported PDF"
@@ -2712,6 +2747,10 @@ msgstr "ମୌଳିକ ବିବରଣୀ"
 #: src/features/resume/share/format.ts
 msgid "Before restore"
 msgstr "ପୁନ restore ସ୍ଥାପନ ପୂର୍ବରୁ"
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Before the resume is written: add what you've done that this posting asks for, so your profile is complete for this and future applications."
+msgstr ""
 
 #: src/features/career/workspace/apply.tsx
 msgid "Before you submit"
@@ -4050,6 +4089,10 @@ msgstr "ଆପଣଙ୍କ ଆକାଉଣ୍ଟ ବିଲୋପ କରିହେ
 msgid "Couldn't disconnect your {providerName} account. Try again."
 msgstr "ଆପଣଙ୍କ {providerName} ଆକାଉଣ୍ଟ ବିଚ୍ଛିନ୍ନ କରିହେଲା ନାହିଁ। ପୁଣି ଚେଷ୍ଟା କରନ୍ତୁ।"
 
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Couldn't draft the line. Write it yourself or try again."
+msgstr ""
+
 #: src/features/documents/document-actions.tsx
 msgid "Couldn't duplicate the document. Try again."
 msgstr "ଡକ୍ୟୁମେଣ୍ଟ୍ ଡୁପ୍ଲିକେଟ୍ କରିହେଲା ନାହିଁ। ପୁଣି ଚେଷ୍ଟା କରନ୍ତୁ।"
@@ -4364,6 +4407,10 @@ msgstr "ଏହି ପଦବୀକୁ ଆବେଦନଗୁଡ଼ିକରେ ସ
 #: src/features/career/schedule-sheet.tsx
 msgid "Couldn't save this schedule. Try again."
 msgstr "ଏହି ସମୟସୂଚୀ ସେଭ୍ କରିହେଲା ନାହିଁ। ପୁଣି ଚେଷ୍ଟା କରନ୍ତୁ।"
+
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Couldn't save to your profile. Try again."
+msgstr ""
 
 #: src/features/letters/store.ts
 #: src/features/resume/share/history-tab.tsx
@@ -5875,6 +5922,10 @@ msgstr "ଫୋକସ୍ ମୋଡ୍‌ରୁ ବାହାରି ଯାଆନ୍
 msgid "Experience"
 msgstr "ଅନୁଭବ"
 
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Experience you might have"
+msgstr ""
+
 #: src/features/resume/editor/design/entries-group.tsx
 msgid "Experience, Education and more"
 msgstr "ଅଭିଜ୍ଞତା, ଶିକ୍ଷା ଓ ଅନ୍ୟାନ୍ୟ"
@@ -6067,6 +6118,10 @@ msgstr "ଭୂମିକା ଏବଂ କମ୍ପାନୀ ପୁରଣ କର�
 
 #: src/features/settings/ai/task-models.tsx
 msgid "Fill suggested OpenAI models"
+msgstr ""
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Fill the gaps in your profile"
 msgstr ""
 
 #: src/features/career/knowledge/profile.tsx
@@ -6606,6 +6661,10 @@ msgstr "ସଫ୍ଟୱେର୍ ପ read ିବା ପାଇଁ କଠିନ |"
 msgid "Have a resume already? <0>Import it</0>"
 msgstr "ଆପଣଙ୍କ ପାଖରେ ଆଗରୁ ରେଜ୍ୟୁମେ ଅଛି କି? <0>ଆମଦାନି କରନ୍ତୁ</0>"
 
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Have you done this?"
+msgstr ""
+
 #: src/features/resume/stylesheet/targets.ts
 msgid "Header"
 msgstr "ଶୀର୍ଷଲେଖ"
@@ -6857,6 +6916,10 @@ msgstr "ଫାଇଲ୍ କିପରି ଦେଖାଇବେ |"
 msgid "How well do I fit this role?"
 msgstr "ମୁଁ ଏହି ଭୂମିକାକୁ କେତେ ଭଲ ଭାବରେ ଫିଟ୍ କରିବି?"
 
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "How you used it"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Hungarian"
 msgstr "ହଙ୍ଗେରିଆନ୍"
@@ -6885,6 +6948,10 @@ msgstr "ମୁଁ 14 ଜଣ ଗ୍ରାହକଙ୍କ ସାକ୍ଷାତକ
 #: src/features/applications/stages.ts
 msgid "I withdrew"
 msgstr "ମୁଁ ସେଠାରୁ ଚାଲିଗଲି"
+
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "I've done this"
+msgstr ""
 
 #: src/components/level/combobox.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/design.tsx
@@ -7032,6 +7099,10 @@ msgstr "ଉନ୍ନତି…"
 #: src/features/homepage/sections.tsx
 msgid "In good company"
 msgstr "ଭଲ କମ୍ପାନୀରେ |"
+
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "In your own words: what you did, for whom, and any result you know."
+msgstr ""
 
 #: src/features/applications/components/detail/assembly-review.tsx
 msgid "in your resume"
@@ -7825,6 +7896,10 @@ msgstr "ଲାଇନ୍ ଉଚ୍ଚତା"
 msgid "Line height set to {minimum}"
 msgstr "ରେଖା ଉଚ୍ଚତା {minimum} ରେ ସେଟ୍ ହୋଇଛି |"
 
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Line to add to your profile"
+msgstr ""
+
 #: src/features/resume/editor/check/issues.ts
 msgid "Lines are packed tightly"
 msgstr "ରେଖାଗୁଡ଼ିକ ଜୋରରେ ପ୍ୟାକ୍ ହୋଇଛି |"
@@ -8265,6 +8340,10 @@ msgstr "“{0}” ସହିତ ମେଳ କରନ୍ତୁ |"
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Match against a job"
 msgstr "ଏକ ଚାକିରି ସହିତ ମେଳ |"
+
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Match for this posting"
+msgstr ""
 
 #: src/features/command-palette/pages/preferences/theme.tsx
 msgid "Match system theme"
@@ -9312,6 +9391,10 @@ msgstr ""
 msgid "Not sure what to write?"
 msgstr "କଣ ଲେଖିବେ ନିଶ୍ଚିତ ନୁହଁନ୍ତି?"
 
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Not tied to one role or project"
+msgstr ""
+
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Not true for me, hide it"
 msgstr "ମୋ ପାଇଁ ସତ ନୁହେଁ, ଏହାକୁ ଲୁଚାନ୍ତୁ |"
@@ -9331,6 +9414,10 @@ msgstr "କୋଚିଂରେ ବ୍ୟବହୃତ ନୁହେଁ, ତେଣ�
 #: src/features/settings/account/profile.tsx
 msgid "Not verified yet. Resend the link"
 msgstr "ଏପର୍ଯ୍ୟନ୍ତ ଯାଞ୍ଚ ହୋଇନାହିଁ | ଲିଙ୍କ୍ ପଠାନ୍ତୁ |"
+
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Not yet"
+msgstr ""
 
 #: src/features/applications/components/detail/activity.tsx
 #: src/features/applications/components/detail/assemble-dialog.tsx
@@ -9730,6 +9817,10 @@ msgstr "ସ୍ଥାନୀୟ Ollama ପାଇଁ ବ tion କଳ୍ପିକ |"
 
 #: src/features/career/knowledge/structured-preferences.tsx
 msgid "Optional; replaces the general minimum in this area."
+msgstr ""
+
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Optional: what you did with it there, in a sentence. It's added as an achievement."
 msgstr ""
 
 #: src/components/ui/combobox.tsx
@@ -11932,6 +12023,10 @@ msgstr ""
 msgid "Save to Knowledge"
 msgstr "ଜ୍ଞାନରେ ସେଭ୍ କରନ୍ତୁ"
 
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Save to profile and continue"
+msgstr ""
+
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Save to the application"
 msgstr "ଚାକିରି ଆବେଦନକୁ ସଞ୍ଚୟ କରନ୍ତୁ |"
@@ -12023,6 +12118,10 @@ msgstr "ଜ୍ଞାନରେ ସେଭ୍ ହେଲା, କେବଳ ଏହି 
 #: src/features/career/workspace/practise.tsx
 msgid "Saved to Saved · Practice"
 msgstr "“ସେଭ୍‍ କରାଯାଇଛି”ରେ ସେଭ୍ ହେଲା · ଅଭ୍ୟାସ"
+
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Saved your answers."
+msgstr ""
 
 #. placeholder {0}: new URL(url).host
 #: src/features/resume/share/address-field.tsx
@@ -12794,6 +12893,10 @@ msgstr ""
 msgid "Skills to list"
 msgstr ""
 
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Skills you might have"
+msgstr ""
+
 #: src/features/settings/resume-style.tsx
 msgid "Skills, about"
 msgstr ""
@@ -12810,6 +12913,10 @@ msgstr "ଛାଡ଼ନ୍ତୁ"
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Skip and upload"
 msgstr "ଛାଡ଼ି ଅପଲୋଡ୍ କରନ୍ତୁ"
+
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Skip for now"
+msgstr ""
 
 #: src/features/homepage/page.tsx
 msgid "Skip to content"
@@ -13884,6 +13991,10 @@ msgstr "ପୃଷ୍ଠାଗୁଡ଼ିକ ଛବି, ପଛରେ କୌଣ�
 msgid "The posting asks for “{label}”. If it's true for me, work it into my resume where it fits. Ask me first."
 msgstr "ଚାକିରି ପୋଷ୍ଟିଂ “{label}” ମାଗେ | ଯଦି ଏହା ମୋ ପାଇଁ ସତ, ତେବେ ଏହାକୁ ମୋ ରେଜୁମ୍ରେ କାମ କର ଯେଉଁଠାରେ ଏହା ଫିଟ୍ ହୁଏ | ମୋତେ ପ୍ରଥମେ ପଚାର |"
 
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "The posting asks for these, but your profile doesn't show them anywhere. If you have them, say where you did or learned them: they're added to your master profile for this and future resumes. Only add what's true; you can skip any of them."
+msgstr ""
+
 #: src/features/applications/components/detail/selection-review.tsx
 msgid "The posting changed since this was analysed. Analyse it again to update the requirements."
 msgstr ""
@@ -14542,6 +14653,10 @@ msgstr "ତୁର୍କିଶ୍"
 
 #: src/features/career/knowledge/structured-preferences.tsx
 msgid "Turn into a rule"
+msgstr ""
+
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Turn it into a resume line"
 msgstr ""
 
 #: src/features/ats-checker/messages.ts
@@ -15544,6 +15659,10 @@ msgstr ""
 msgid "What would you do differently?"
 msgstr "ଆପଣ କ'ଣ ଭିନ୍ନ ଭାବେ କରିଥାନ୍ତେ?"
 
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "What you did"
+msgstr ""
+
 #: src/features/career/knowledge/profile.tsx
 msgid "What you did and what changed, as a resume bullet"
 msgstr ""
@@ -15597,6 +15716,14 @@ msgstr ""
 #: src/features/applications/components/insights-view.tsx
 msgid "Where applications come from"
 msgstr "ଯେଉଁଠାରେ ଆବେଦନଗୁଡ଼ିକ ଆସେ |"
+
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Where did you do it?"
+msgstr ""
+
+#: src/features/applications/components/detail/gap-step.tsx
+msgid "Where did you use or learn it? (optional)"
+msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
 msgid "Where you want to work"

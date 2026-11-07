@@ -1,0 +1,1 @@
+ALTER TABLE "resume_selection" ADD COLUMN "gap_answers" jsonb DEFAULT '[]' NOT NULL;

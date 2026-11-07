@@ -65746,6 +65746,1880 @@
 				]
 			}
 		},
+		"/master-profile/selections/{applicationId}/gaps": {
+			"get": {
+				"operationId": "getProfileGaps",
+				"summary": "How well the profile matches a posting, and what it's missing",
+				"description": "A 0–100 match from the selection's requirement coverage, and the posting's skills and requirements that no profile record shows, with the user's earlier answers. Null before a selection is proposed.",
+				"tags": [
+					"Master profile"
+				],
+				"parameters": [
+					{
+						"name": "applicationId",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"minLength": 1
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"anyOf": [
+										{
+											"type": "object",
+											"properties": {
+												"match": {
+													"type": "number"
+												},
+												"supported": {
+													"type": "number"
+												},
+												"partial": {
+													"type": "number"
+												},
+												"total": {
+													"type": "number"
+												},
+												"gaps": {
+													"type": "array",
+													"items": {
+														"type": "object",
+														"properties": {
+															"requirementId": {
+																"type": "string"
+															},
+															"text": {
+																"type": "string"
+															},
+															"kind": {
+																"enum": [
+																	"responsibility",
+																	"qualification",
+																	"skill",
+																	"domain",
+																	"competency"
+																],
+																"type": "string"
+															},
+															"necessity": {
+																"enum": [
+																	"mandatory",
+																	"preferred"
+																],
+																"type": "string"
+															},
+															"importance": {
+																"type": "number"
+															},
+															"type": {
+																"enum": [
+																	"skill",
+																	"experience"
+																],
+																"type": "string"
+															},
+															"skills": {
+																"type": "array",
+																"items": {
+																	"type": "string"
+																}
+															},
+															"answer": {
+																"anyOf": [
+																	{
+																		"enum": [
+																			"no",
+																			"added"
+																		],
+																		"type": "string"
+																	},
+																	{
+																		"type": "null"
+																	}
+																]
+															}
+														},
+														"required": [
+															"requirementId",
+															"text",
+															"kind",
+															"necessity",
+															"importance",
+															"type",
+															"skills",
+															"answer"
+														]
+													}
+												}
+											},
+											"required": [
+												"match",
+												"supported",
+												"partial",
+												"total",
+												"gaps"
+											]
+										},
+										{
+											"type": "null"
+										}
+									]
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Structured API error. See status and code; do not branch on message text.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"required": [
+										"defined",
+										"code",
+										"status",
+										"message"
+									],
+									"properties": {
+										"defined": {
+											"type": "boolean"
+										},
+										"code": {
+											"type": "string"
+										},
+										"status": {
+											"type": "integer"
+										},
+										"message": {
+											"type": "string"
+										},
+										"data": {}
+									}
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"apiKey": []
+					},
+					{
+						"bearerAuth": []
+					},
+					{
+						"cookieAuth": []
+					}
+				],
+				"x-codeSamples": [
+					{
+						"lang": "bash",
+						"label": "cURL",
+						"source": "curl \"https://rxresu.me/api/openapi/master-profile/selections/<applicationId>/gaps\" --header \"x-api-key: <api-key>\""
+					}
+				]
+			},
+			"post": {
+				"operationId": "answerProfileGaps",
+				"summary": "Add confirmed skills and experience to the profile, then propose again",
+				"description": "For each answer the user confirmed, adds the named skills and an achievement (under the entry they chose) to their master profile; answers of no are remembered for this posting. When anything was added, the selection is proposed again from the expanded profile.",
+				"tags": [
+					"Master profile"
+				],
+				"parameters": [
+					{
+						"name": "applicationId",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"minLength": 1
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"answers": {
+										"type": "array",
+										"minItems": 1,
+										"maxItems": 40,
+										"items": {
+											"type": "object",
+											"properties": {
+												"requirementId": {
+													"type": "string",
+													"minLength": 1
+												},
+												"have": {
+													"type": "boolean"
+												},
+												"skills": {
+													"type": "array",
+													"maxItems": 10,
+													"items": {
+														"type": "string",
+														"minLength": 1,
+														"maxLength": 100
+													},
+													"default": []
+												},
+												"entryId": {
+													"anyOf": [
+														{
+															"type": "string",
+															"minLength": 1
+														},
+														{
+															"type": "null"
+														}
+													],
+													"default": null
+												},
+												"text": {
+													"type": "string",
+													"maxLength": 1000,
+													"default": ""
+												}
+											},
+											"required": [
+												"requirementId",
+												"have"
+											]
+										}
+									}
+								},
+								"required": [
+									"answers"
+								]
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"selection": {
+											"anyOf": [
+												{
+													"type": "object",
+													"properties": {
+														"analysis": {
+															"type": "object",
+															"properties": {
+																"version": {
+																	"const": 1,
+																	"default": 1
+																},
+																"title": {
+																	"type": "string",
+																	"maxLength": 200
+																},
+																"employer": {
+																	"type": "string",
+																	"maxLength": 200
+																},
+																"seniority": {
+																	"enum": [
+																		"entry",
+																		"junior",
+																		"intermediate",
+																		"senior",
+																		"lead",
+																		"manager",
+																		"executive",
+																		"unknown"
+																	],
+																	"type": "string"
+																},
+																"summary": {
+																	"type": "string",
+																	"maxLength": 600,
+																	"default": ""
+																},
+																"responsibilities": {
+																	"type": "array",
+																	"maxItems": 15,
+																	"items": {
+																		"type": "string",
+																		"maxLength": 300
+																	},
+																	"default": []
+																},
+																"requirements": {
+																	"type": "array",
+																	"maxItems": 30,
+																	"items": {
+																		"type": "object",
+																		"properties": {
+																			"id": {
+																				"type": "string",
+																				"pattern": "^R\\d+$"
+																			},
+																			"text": {
+																				"type": "string",
+																				"minLength": 1,
+																				"maxLength": 300
+																			},
+																			"kind": {
+																				"enum": [
+																					"responsibility",
+																					"qualification",
+																					"skill",
+																					"domain",
+																					"competency"
+																				],
+																				"type": "string"
+																			},
+																			"necessity": {
+																				"enum": [
+																					"mandatory",
+																					"preferred"
+																				],
+																				"type": "string"
+																			},
+																			"origin": {
+																				"enum": [
+																					"explicit",
+																					"inferred"
+																				],
+																				"type": "string"
+																			},
+																			"importance": {
+																				"type": "integer",
+																				"minimum": 1,
+																				"maximum": 5
+																			},
+																			"terms": {
+																				"type": "array",
+																				"maxItems": 15,
+																				"items": {
+																					"type": "string",
+																					"minLength": 1,
+																					"maxLength": 80
+																				},
+																				"default": []
+																			}
+																		},
+																		"required": [
+																			"id",
+																			"text",
+																			"kind",
+																			"necessity",
+																			"origin",
+																			"importance"
+																		]
+																	}
+																},
+																"domain": {
+																	"type": "array",
+																	"maxItems": 10,
+																	"items": {
+																		"type": "string",
+																		"maxLength": 120
+																	},
+																	"default": []
+																},
+																"postingHash": {
+																	"type": "string"
+																},
+																"analyzedAt": {
+																	"type": "string",
+																	"format": "date-time"
+																},
+																"model": {
+																	"type": "string",
+																	"default": ""
+																}
+															},
+															"required": [
+																"title",
+																"employer",
+																"seniority",
+																"requirements",
+																"postingHash",
+																"analyzedAt"
+															]
+														},
+														"plan": {
+															"type": "object",
+															"properties": {
+																"version": {
+																	"const": 1,
+																	"default": 1
+																},
+																"applicationId": {
+																	"type": "string"
+																},
+																"createdAt": {
+																	"type": "string",
+																	"format": "date-time"
+																},
+																"source": {
+																	"enum": [
+																		"ai",
+																		"ranking"
+																	],
+																	"type": "string"
+																},
+																"positioning": {
+																	"type": "string",
+																	"default": ""
+																},
+																"sections": {
+																	"type": "array",
+																	"items": {
+																		"enum": [
+																			"summary",
+																			"skills",
+																			"experience",
+																			"projects",
+																			"volunteer",
+																			"education",
+																			"certifications",
+																			"awards"
+																		],
+																		"type": "string"
+																	}
+																},
+																"entries": {
+																	"type": "array",
+																	"items": {
+																		"type": "object",
+																		"properties": {
+																			"entryId": {
+																				"type": "string"
+																			},
+																			"kind": {
+																				"enum": [
+																					"position",
+																					"project",
+																					"education",
+																					"volunteer",
+																					"certification",
+																					"award"
+																				],
+																				"type": "string"
+																			},
+																			"title": {
+																				"type": "string"
+																			},
+																			"organization": {
+																				"type": "string"
+																			},
+																			"startDate": {
+																				"anyOf": [
+																					{
+																						"type": "string"
+																					},
+																					{
+																						"type": "null"
+																					}
+																				]
+																			},
+																			"endDate": {
+																				"anyOf": [
+																					{
+																						"type": "string"
+																					},
+																					{
+																						"type": "null"
+																					}
+																				]
+																			},
+																			"include": {
+																				"type": "boolean"
+																			},
+																			"reason": {
+																				"type": "string"
+																			},
+																			"bulletTarget": {
+																				"type": "integer",
+																				"minimum": 0,
+																				"maximum": 100
+																			},
+																			"requirementIds": {
+																				"type": "array",
+																				"items": {
+																					"type": "string"
+																				},
+																				"default": []
+																			},
+																			"achievements": {
+																				"type": "array",
+																				"items": {
+																					"type": "object",
+																					"properties": {
+																						"achievementId": {
+																							"type": "string"
+																						},
+																						"text": {
+																							"type": "string"
+																						},
+																						"include": {
+																							"type": "boolean"
+																						},
+																						"requirementIds": {
+																							"type": "array",
+																							"items": {
+																								"type": "string"
+																							}
+																						},
+																						"reason": {
+																							"type": "string"
+																						},
+																						"score": {
+																							"type": "object",
+																							"properties": {
+																								"total": {
+																									"type": "number"
+																								},
+																								"alignment": {
+																									"type": "number"
+																								},
+																								"strength": {
+																									"type": "number"
+																								},
+																								"recency": {
+																									"type": "number"
+																								},
+																								"tenure": {
+																									"type": "number",
+																									"default": 0.5
+																								},
+																								"aiRelevance": {
+																									"anyOf": [
+																										{
+																											"type": "number"
+																										},
+																										{
+																											"type": "null"
+																										}
+																									]
+																								}
+																							},
+																							"required": [
+																								"total",
+																								"alignment",
+																								"strength",
+																								"recency",
+																								"aiRelevance"
+																							]
+																						},
+																						"userEdited": {
+																							"type": "boolean",
+																							"default": false
+																						},
+																						"core": {
+																							"type": "boolean",
+																							"default": false
+																						}
+																					},
+																					"required": [
+																						"achievementId",
+																						"text",
+																						"include",
+																						"requirementIds",
+																						"reason",
+																						"score"
+																					]
+																				}
+																			},
+																			"userEdited": {
+																				"type": "boolean",
+																				"default": false
+																			}
+																		},
+																		"required": [
+																			"entryId",
+																			"kind",
+																			"title",
+																			"organization",
+																			"startDate",
+																			"endDate",
+																			"include",
+																			"reason",
+																			"bulletTarget",
+																			"achievements"
+																		]
+																	}
+																},
+																"standalone": {
+																	"type": "array",
+																	"items": {
+																		"type": "object",
+																		"properties": {
+																			"achievementId": {
+																				"type": "string"
+																			},
+																			"text": {
+																				"type": "string"
+																			},
+																			"include": {
+																				"type": "boolean"
+																			},
+																			"requirementIds": {
+																				"type": "array",
+																				"items": {
+																					"type": "string"
+																				}
+																			},
+																			"reason": {
+																				"type": "string"
+																			},
+																			"score": {
+																				"type": "object",
+																				"properties": {
+																					"total": {
+																						"type": "number"
+																					},
+																					"alignment": {
+																						"type": "number"
+																					},
+																					"strength": {
+																						"type": "number"
+																					},
+																					"recency": {
+																						"type": "number"
+																					},
+																					"tenure": {
+																						"type": "number",
+																						"default": 0.5
+																					},
+																					"aiRelevance": {
+																						"anyOf": [
+																							{
+																								"type": "number"
+																							},
+																							{
+																								"type": "null"
+																							}
+																						]
+																					}
+																				},
+																				"required": [
+																					"total",
+																					"alignment",
+																					"strength",
+																					"recency",
+																					"aiRelevance"
+																				]
+																			},
+																			"userEdited": {
+																				"type": "boolean",
+																				"default": false
+																			},
+																			"core": {
+																				"type": "boolean",
+																				"default": false
+																			}
+																		},
+																		"required": [
+																			"achievementId",
+																			"text",
+																			"include",
+																			"requirementIds",
+																			"reason",
+																			"score"
+																		]
+																	}
+																},
+																"skills": {
+																	"type": "array",
+																	"items": {
+																		"type": "object",
+																		"properties": {
+																			"skillId": {
+																				"type": "string"
+																			},
+																			"name": {
+																				"type": "string"
+																			},
+																			"category": {
+																				"type": "string"
+																			},
+																			"include": {
+																				"type": "boolean"
+																			},
+																			"requirementIds": {
+																				"type": "array",
+																				"items": {
+																					"type": "string"
+																				}
+																			},
+																			"evidenced": {
+																				"type": "boolean"
+																			},
+																			"reason": {
+																				"type": "string"
+																			},
+																			"userEdited": {
+																				"type": "boolean",
+																				"default": false
+																			}
+																		},
+																		"required": [
+																			"skillId",
+																			"name",
+																			"category",
+																			"include",
+																			"requirementIds",
+																			"evidenced",
+																			"reason"
+																		]
+																	}
+																},
+																"coverage": {
+																	"type": "array",
+																	"items": {
+																		"type": "object",
+																		"properties": {
+																			"requirementId": {
+																				"type": "string"
+																			},
+																			"status": {
+																				"enum": [
+																					"supported",
+																					"partial",
+																					"gap"
+																				],
+																				"type": "string"
+																			},
+																			"achievementIds": {
+																				"type": "array",
+																				"items": {
+																					"type": "string"
+																				}
+																			},
+																			"skillIds": {
+																				"type": "array",
+																				"items": {
+																					"type": "string"
+																				}
+																			},
+																			"entryIds": {
+																				"type": "array",
+																				"items": {
+																					"type": "string"
+																				},
+																				"default": []
+																			},
+																			"available": {
+																				"type": "array",
+																				"items": {
+																					"type": "string"
+																				}
+																			}
+																		},
+																		"required": [
+																			"requirementId",
+																			"status",
+																			"achievementIds",
+																			"skillIds",
+																			"available"
+																		]
+																	}
+																},
+																"unavailable": {
+																	"type": "array",
+																	"items": {
+																		"type": "object",
+																		"properties": {
+																			"id": {
+																				"type": "string"
+																			},
+																			"kind": {
+																				"enum": [
+																					"entry",
+																					"achievement",
+																					"skill"
+																				],
+																				"type": "string"
+																			},
+																			"reason": {
+																				"type": "string"
+																			}
+																		},
+																		"required": [
+																			"id",
+																			"kind",
+																			"reason"
+																		]
+																	}
+																},
+																"warnings": {
+																	"type": "array",
+																	"items": {
+																		"type": "string"
+																	}
+																},
+																"usage": {
+																	"type": "array",
+																	"items": {
+																		"type": "object",
+																		"properties": {
+																			"step": {
+																				"type": "string"
+																			},
+																			"task": {
+																				"enum": [
+																					"extraction",
+																					"evidence",
+																					"writing",
+																					"polish",
+																					"review"
+																				],
+																				"type": "string"
+																			},
+																			"model": {
+																				"type": "string"
+																			},
+																			"inputTokens": {
+																				"type": "number"
+																			},
+																			"outputTokens": {
+																				"type": "number"
+																			},
+																			"fallback": {
+																				"type": "boolean",
+																				"default": false
+																			}
+																		},
+																		"required": [
+																			"step",
+																			"task",
+																			"model",
+																			"inputTokens",
+																			"outputTokens"
+																		]
+																	},
+																	"default": []
+																},
+																"totals": {
+																	"type": "object",
+																	"properties": {
+																		"entries": {
+																			"type": "number"
+																		},
+																		"achievements": {
+																			"type": "number"
+																		},
+																		"skills": {
+																			"type": "number"
+																		},
+																		"includedEntries": {
+																			"type": "number"
+																		},
+																		"includedAchievements": {
+																			"type": "number"
+																		},
+																		"includedSkills": {
+																			"type": "number"
+																		}
+																	},
+																	"required": [
+																		"entries",
+																		"achievements",
+																		"skills",
+																		"includedEntries",
+																		"includedAchievements",
+																		"includedSkills"
+																	]
+																}
+															},
+															"required": [
+																"applicationId",
+																"createdAt",
+																"source",
+																"sections",
+																"entries",
+																"standalone",
+																"skills",
+																"coverage",
+																"unavailable",
+																"warnings",
+																"totals"
+															]
+														},
+														"proposed": {
+															"type": "object",
+															"properties": {
+																"version": {
+																	"const": 1,
+																	"default": 1
+																},
+																"applicationId": {
+																	"type": "string"
+																},
+																"createdAt": {
+																	"type": "string",
+																	"format": "date-time"
+																},
+																"source": {
+																	"enum": [
+																		"ai",
+																		"ranking"
+																	],
+																	"type": "string"
+																},
+																"positioning": {
+																	"type": "string",
+																	"default": ""
+																},
+																"sections": {
+																	"type": "array",
+																	"items": {
+																		"enum": [
+																			"summary",
+																			"skills",
+																			"experience",
+																			"projects",
+																			"volunteer",
+																			"education",
+																			"certifications",
+																			"awards"
+																		],
+																		"type": "string"
+																	}
+																},
+																"entries": {
+																	"type": "array",
+																	"items": {
+																		"type": "object",
+																		"properties": {
+																			"entryId": {
+																				"type": "string"
+																			},
+																			"kind": {
+																				"enum": [
+																					"position",
+																					"project",
+																					"education",
+																					"volunteer",
+																					"certification",
+																					"award"
+																				],
+																				"type": "string"
+																			},
+																			"title": {
+																				"type": "string"
+																			},
+																			"organization": {
+																				"type": "string"
+																			},
+																			"startDate": {
+																				"anyOf": [
+																					{
+																						"type": "string"
+																					},
+																					{
+																						"type": "null"
+																					}
+																				]
+																			},
+																			"endDate": {
+																				"anyOf": [
+																					{
+																						"type": "string"
+																					},
+																					{
+																						"type": "null"
+																					}
+																				]
+																			},
+																			"include": {
+																				"type": "boolean"
+																			},
+																			"reason": {
+																				"type": "string"
+																			},
+																			"bulletTarget": {
+																				"type": "integer",
+																				"minimum": 0,
+																				"maximum": 100
+																			},
+																			"requirementIds": {
+																				"type": "array",
+																				"items": {
+																					"type": "string"
+																				},
+																				"default": []
+																			},
+																			"achievements": {
+																				"type": "array",
+																				"items": {
+																					"type": "object",
+																					"properties": {
+																						"achievementId": {
+																							"type": "string"
+																						},
+																						"text": {
+																							"type": "string"
+																						},
+																						"include": {
+																							"type": "boolean"
+																						},
+																						"requirementIds": {
+																							"type": "array",
+																							"items": {
+																								"type": "string"
+																							}
+																						},
+																						"reason": {
+																							"type": "string"
+																						},
+																						"score": {
+																							"type": "object",
+																							"properties": {
+																								"total": {
+																									"type": "number"
+																								},
+																								"alignment": {
+																									"type": "number"
+																								},
+																								"strength": {
+																									"type": "number"
+																								},
+																								"recency": {
+																									"type": "number"
+																								},
+																								"tenure": {
+																									"type": "number",
+																									"default": 0.5
+																								},
+																								"aiRelevance": {
+																									"anyOf": [
+																										{
+																											"type": "number"
+																										},
+																										{
+																											"type": "null"
+																										}
+																									]
+																								}
+																							},
+																							"required": [
+																								"total",
+																								"alignment",
+																								"strength",
+																								"recency",
+																								"aiRelevance"
+																							]
+																						},
+																						"userEdited": {
+																							"type": "boolean",
+																							"default": false
+																						},
+																						"core": {
+																							"type": "boolean",
+																							"default": false
+																						}
+																					},
+																					"required": [
+																						"achievementId",
+																						"text",
+																						"include",
+																						"requirementIds",
+																						"reason",
+																						"score"
+																					]
+																				}
+																			},
+																			"userEdited": {
+																				"type": "boolean",
+																				"default": false
+																			}
+																		},
+																		"required": [
+																			"entryId",
+																			"kind",
+																			"title",
+																			"organization",
+																			"startDate",
+																			"endDate",
+																			"include",
+																			"reason",
+																			"bulletTarget",
+																			"achievements"
+																		]
+																	}
+																},
+																"standalone": {
+																	"type": "array",
+																	"items": {
+																		"type": "object",
+																		"properties": {
+																			"achievementId": {
+																				"type": "string"
+																			},
+																			"text": {
+																				"type": "string"
+																			},
+																			"include": {
+																				"type": "boolean"
+																			},
+																			"requirementIds": {
+																				"type": "array",
+																				"items": {
+																					"type": "string"
+																				}
+																			},
+																			"reason": {
+																				"type": "string"
+																			},
+																			"score": {
+																				"type": "object",
+																				"properties": {
+																					"total": {
+																						"type": "number"
+																					},
+																					"alignment": {
+																						"type": "number"
+																					},
+																					"strength": {
+																						"type": "number"
+																					},
+																					"recency": {
+																						"type": "number"
+																					},
+																					"tenure": {
+																						"type": "number",
+																						"default": 0.5
+																					},
+																					"aiRelevance": {
+																						"anyOf": [
+																							{
+																								"type": "number"
+																							},
+																							{
+																								"type": "null"
+																							}
+																						]
+																					}
+																				},
+																				"required": [
+																					"total",
+																					"alignment",
+																					"strength",
+																					"recency",
+																					"aiRelevance"
+																				]
+																			},
+																			"userEdited": {
+																				"type": "boolean",
+																				"default": false
+																			},
+																			"core": {
+																				"type": "boolean",
+																				"default": false
+																			}
+																		},
+																		"required": [
+																			"achievementId",
+																			"text",
+																			"include",
+																			"requirementIds",
+																			"reason",
+																			"score"
+																		]
+																	}
+																},
+																"skills": {
+																	"type": "array",
+																	"items": {
+																		"type": "object",
+																		"properties": {
+																			"skillId": {
+																				"type": "string"
+																			},
+																			"name": {
+																				"type": "string"
+																			},
+																			"category": {
+																				"type": "string"
+																			},
+																			"include": {
+																				"type": "boolean"
+																			},
+																			"requirementIds": {
+																				"type": "array",
+																				"items": {
+																					"type": "string"
+																				}
+																			},
+																			"evidenced": {
+																				"type": "boolean"
+																			},
+																			"reason": {
+																				"type": "string"
+																			},
+																			"userEdited": {
+																				"type": "boolean",
+																				"default": false
+																			}
+																		},
+																		"required": [
+																			"skillId",
+																			"name",
+																			"category",
+																			"include",
+																			"requirementIds",
+																			"evidenced",
+																			"reason"
+																		]
+																	}
+																},
+																"coverage": {
+																	"type": "array",
+																	"items": {
+																		"type": "object",
+																		"properties": {
+																			"requirementId": {
+																				"type": "string"
+																			},
+																			"status": {
+																				"enum": [
+																					"supported",
+																					"partial",
+																					"gap"
+																				],
+																				"type": "string"
+																			},
+																			"achievementIds": {
+																				"type": "array",
+																				"items": {
+																					"type": "string"
+																				}
+																			},
+																			"skillIds": {
+																				"type": "array",
+																				"items": {
+																					"type": "string"
+																				}
+																			},
+																			"entryIds": {
+																				"type": "array",
+																				"items": {
+																					"type": "string"
+																				},
+																				"default": []
+																			},
+																			"available": {
+																				"type": "array",
+																				"items": {
+																					"type": "string"
+																				}
+																			}
+																		},
+																		"required": [
+																			"requirementId",
+																			"status",
+																			"achievementIds",
+																			"skillIds",
+																			"available"
+																		]
+																	}
+																},
+																"unavailable": {
+																	"type": "array",
+																	"items": {
+																		"type": "object",
+																		"properties": {
+																			"id": {
+																				"type": "string"
+																			},
+																			"kind": {
+																				"enum": [
+																					"entry",
+																					"achievement",
+																					"skill"
+																				],
+																				"type": "string"
+																			},
+																			"reason": {
+																				"type": "string"
+																			}
+																		},
+																		"required": [
+																			"id",
+																			"kind",
+																			"reason"
+																		]
+																	}
+																},
+																"warnings": {
+																	"type": "array",
+																	"items": {
+																		"type": "string"
+																	}
+																},
+																"usage": {
+																	"type": "array",
+																	"items": {
+																		"type": "object",
+																		"properties": {
+																			"step": {
+																				"type": "string"
+																			},
+																			"task": {
+																				"enum": [
+																					"extraction",
+																					"evidence",
+																					"writing",
+																					"polish",
+																					"review"
+																				],
+																				"type": "string"
+																			},
+																			"model": {
+																				"type": "string"
+																			},
+																			"inputTokens": {
+																				"type": "number"
+																			},
+																			"outputTokens": {
+																				"type": "number"
+																			},
+																			"fallback": {
+																				"type": "boolean",
+																				"default": false
+																			}
+																		},
+																		"required": [
+																			"step",
+																			"task",
+																			"model",
+																			"inputTokens",
+																			"outputTokens"
+																		]
+																	},
+																	"default": []
+																},
+																"totals": {
+																	"type": "object",
+																	"properties": {
+																		"entries": {
+																			"type": "number"
+																		},
+																		"achievements": {
+																			"type": "number"
+																		},
+																		"skills": {
+																			"type": "number"
+																		},
+																		"includedEntries": {
+																			"type": "number"
+																		},
+																		"includedAchievements": {
+																			"type": "number"
+																		},
+																		"includedSkills": {
+																			"type": "number"
+																		}
+																	},
+																	"required": [
+																		"entries",
+																		"achievements",
+																		"skills",
+																		"includedEntries",
+																		"includedAchievements",
+																		"includedSkills"
+																	]
+																}
+															},
+															"required": [
+																"applicationId",
+																"createdAt",
+																"source",
+																"sections",
+																"entries",
+																"standalone",
+																"skills",
+																"coverage",
+																"unavailable",
+																"warnings",
+																"totals"
+															]
+														},
+														"postingText": {
+															"type": "string"
+														},
+														"model": {
+															"type": "string"
+														},
+														"updatedAt": {
+															"type": "string",
+															"format": "date-time",
+															"x-native-type": "date"
+														},
+														"postingChanged": {
+															"type": "boolean"
+														},
+														"profileChanged": {
+															"type": "boolean"
+														}
+													},
+													"required": [
+														"analysis",
+														"plan",
+														"proposed",
+														"postingText",
+														"model",
+														"updatedAt",
+														"postingChanged",
+														"profileChanged"
+													]
+												},
+												{
+													"type": "null"
+												}
+											]
+										},
+										"report": {
+											"anyOf": [
+												{
+													"type": "object",
+													"properties": {
+														"match": {
+															"type": "number"
+														},
+														"supported": {
+															"type": "number"
+														},
+														"partial": {
+															"type": "number"
+														},
+														"total": {
+															"type": "number"
+														},
+														"gaps": {
+															"type": "array",
+															"items": {
+																"type": "object",
+																"properties": {
+																	"requirementId": {
+																		"type": "string"
+																	},
+																	"text": {
+																		"type": "string"
+																	},
+																	"kind": {
+																		"enum": [
+																			"responsibility",
+																			"qualification",
+																			"skill",
+																			"domain",
+																			"competency"
+																		],
+																		"type": "string"
+																	},
+																	"necessity": {
+																		"enum": [
+																			"mandatory",
+																			"preferred"
+																		],
+																		"type": "string"
+																	},
+																	"importance": {
+																		"type": "number"
+																	},
+																	"type": {
+																		"enum": [
+																			"skill",
+																			"experience"
+																		],
+																		"type": "string"
+																	},
+																	"skills": {
+																		"type": "array",
+																		"items": {
+																			"type": "string"
+																		}
+																	},
+																	"answer": {
+																		"anyOf": [
+																			{
+																				"enum": [
+																					"no",
+																					"added"
+																				],
+																				"type": "string"
+																			},
+																			{
+																				"type": "null"
+																			}
+																		]
+																	}
+																},
+																"required": [
+																	"requirementId",
+																	"text",
+																	"kind",
+																	"necessity",
+																	"importance",
+																	"type",
+																	"skills",
+																	"answer"
+																]
+															}
+														}
+													},
+													"required": [
+														"match",
+														"supported",
+														"partial",
+														"total",
+														"gaps"
+													]
+												},
+												{
+													"type": "null"
+												}
+											]
+										},
+										"added": {
+											"type": "number"
+										}
+									},
+									"required": [
+										"selection",
+										"report",
+										"added"
+									]
+								}
+							}
+						}
+					},
+					"502": {
+						"description": "502",
+						"content": {
+							"application/json": {
+								"schema": {
+									"oneOf": [
+										{
+											"type": "object",
+											"properties": {
+												"defined": {
+													"const": true
+												},
+												"code": {
+													"const": "BAD_GATEWAY"
+												},
+												"status": {
+													"const": 502
+												},
+												"message": {
+													"type": "string",
+													"default": "The AI provider returned an error or couldn't be reached."
+												},
+												"data": {}
+											},
+											"required": [
+												"defined",
+												"code",
+												"status",
+												"message"
+											]
+										},
+										{
+											"type": "object",
+											"properties": {
+												"defined": {
+													"const": false
+												},
+												"code": {
+													"type": "string"
+												},
+												"status": {
+													"type": "number"
+												},
+												"message": {
+													"type": "string"
+												},
+												"data": {}
+											},
+											"required": [
+												"defined",
+												"code",
+												"status",
+												"message"
+											]
+										}
+									]
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Structured API error. See status and code; do not branch on message text.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"required": [
+										"defined",
+										"code",
+										"status",
+										"message"
+									],
+									"properties": {
+										"defined": {
+											"type": "boolean"
+										},
+										"code": {
+											"type": "string"
+										},
+										"status": {
+											"type": "integer"
+										},
+										"message": {
+											"type": "string"
+										},
+										"data": {}
+									}
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"apiKey": []
+					},
+					{
+						"bearerAuth": []
+					},
+					{
+						"cookieAuth": []
+					}
+				],
+				"x-codeSamples": [
+					{
+						"lang": "bash",
+						"label": "cURL",
+						"source": "curl --request POST \"https://rxresu.me/api/openapi/master-profile/selections/<applicationId>/gaps\" --header \"x-api-key: <api-key>\" --header \"Content-Type: application/json\" --data '{\n  \"answers\": [\n    {\n      \"requirementId\": \"<string>\",\n      \"have\": true\n    }\n  ]\n}'"
+					}
+				]
+			}
+		},
+		"/master-profile/selections/{applicationId}/gaps/{requirementId}/draft": {
+			"post": {
+				"operationId": "draftProfileGapAchievement",
+				"summary": "Word the user's note as a resume achievement",
+				"description": "Turns the user's own account of what they did into one achievement for the requirement. It may only reword the note; a draft that adds a number or tool is replaced by the note itself.",
+				"tags": [
+					"Master profile"
+				],
+				"parameters": [
+					{
+						"name": "applicationId",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"minLength": 1
+						}
+					},
+					{
+						"name": "requirementId",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"minLength": 1
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"entryId": {
+										"anyOf": [
+											{
+												"type": "string",
+												"minLength": 1
+											},
+											{
+												"type": "null"
+											}
+										],
+										"default": null
+									},
+									"note": {
+										"type": "string",
+										"minLength": 3,
+										"maxLength": 1500
+									}
+								},
+								"required": [
+									"note"
+								]
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"text": {
+											"type": "string"
+										},
+										"warning": {
+											"anyOf": [
+												{
+													"type": "string"
+												},
+												{
+													"type": "null"
+												}
+											]
+										}
+									},
+									"required": [
+										"text",
+										"warning"
+									]
+								}
+							}
+						}
+					},
+					"502": {
+						"description": "502",
+						"content": {
+							"application/json": {
+								"schema": {
+									"oneOf": [
+										{
+											"type": "object",
+											"properties": {
+												"defined": {
+													"const": true
+												},
+												"code": {
+													"const": "BAD_GATEWAY"
+												},
+												"status": {
+													"const": 502
+												},
+												"message": {
+													"type": "string",
+													"default": "The AI provider returned an error or couldn't be reached."
+												},
+												"data": {}
+											},
+											"required": [
+												"defined",
+												"code",
+												"status",
+												"message"
+											]
+										},
+										{
+											"type": "object",
+											"properties": {
+												"defined": {
+													"const": false
+												},
+												"code": {
+													"type": "string"
+												},
+												"status": {
+													"type": "number"
+												},
+												"message": {
+													"type": "string"
+												},
+												"data": {}
+											},
+											"required": [
+												"defined",
+												"code",
+												"status",
+												"message"
+											]
+										}
+									]
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Structured API error. See status and code; do not branch on message text.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"required": [
+										"defined",
+										"code",
+										"status",
+										"message"
+									],
+									"properties": {
+										"defined": {
+											"type": "boolean"
+										},
+										"code": {
+											"type": "string"
+										},
+										"status": {
+											"type": "integer"
+										},
+										"message": {
+											"type": "string"
+										},
+										"data": {}
+									}
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"apiKey": []
+					},
+					{
+						"bearerAuth": []
+					},
+					{
+						"cookieAuth": []
+					}
+				],
+				"x-codeSamples": [
+					{
+						"lang": "bash",
+						"label": "cURL",
+						"source": "curl --request POST \"https://rxresu.me/api/openapi/master-profile/selections/<applicationId>/gaps/<requirementId>/draft\" --header \"x-api-key: <api-key>\" --header \"Content-Type: application/json\" --data '{\n  \"note\": \"<string>\"\n}'"
+					}
+				]
+			}
+		},
 		"/master-profile/selections/{applicationId}": {
 			"get": {
 				"operationId": "getResumeSelection",
@@ -66054,6 +67928,10 @@
 																						"recency": {
 																							"type": "number"
 																						},
+																						"tenure": {
+																							"type": "number",
+																							"default": 0.5
+																						},
 																						"aiRelevance": {
 																							"anyOf": [
 																								{
@@ -66148,6 +68026,10 @@
 																			},
 																			"recency": {
 																				"type": "number"
+																			},
+																			"tenure": {
+																				"type": "number",
+																				"default": 0.5
 																			},
 																			"aiRelevance": {
 																				"anyOf": [
@@ -66546,6 +68428,10 @@
 																						"recency": {
 																							"type": "number"
 																						},
+																						"tenure": {
+																							"type": "number",
+																							"default": 0.5
+																						},
 																						"aiRelevance": {
 																							"anyOf": [
 																								{
@@ -66640,6 +68526,10 @@
 																			},
 																			"recency": {
 																				"type": "number"
+																			},
+																			"tenure": {
+																				"type": "number",
+																				"default": 0.5
 																			},
 																			"aiRelevance": {
 																				"anyOf": [
@@ -67365,6 +69255,10 @@
 																						"recency": {
 																							"type": "number"
 																						},
+																						"tenure": {
+																							"type": "number",
+																							"default": 0.5
+																						},
 																						"aiRelevance": {
 																							"anyOf": [
 																								{
@@ -67459,6 +69353,10 @@
 																			},
 																			"recency": {
 																				"type": "number"
+																			},
+																			"tenure": {
+																				"type": "number",
+																				"default": 0.5
 																			},
 																			"aiRelevance": {
 																				"anyOf": [
@@ -67857,6 +69755,10 @@
 																						"recency": {
 																							"type": "number"
 																						},
+																						"tenure": {
+																							"type": "number",
+																							"default": 0.5
+																						},
 																						"aiRelevance": {
 																							"anyOf": [
 																								{
@@ -67951,6 +69853,10 @@
 																			},
 																			"recency": {
 																				"type": "number"
+																			},
+																			"tenure": {
+																				"type": "number",
+																				"default": 0.5
 																			},
 																			"aiRelevance": {
 																				"anyOf": [
@@ -68626,6 +70532,10 @@
 																						"recency": {
 																							"type": "number"
 																						},
+																						"tenure": {
+																							"type": "number",
+																							"default": 0.5
+																						},
 																						"aiRelevance": {
 																							"anyOf": [
 																								{
@@ -68720,6 +70630,10 @@
 																			},
 																			"recency": {
 																				"type": "number"
+																			},
+																			"tenure": {
+																				"type": "number",
+																				"default": 0.5
 																			},
 																			"aiRelevance": {
 																				"anyOf": [
@@ -69118,6 +71032,10 @@
 																						"recency": {
 																							"type": "number"
 																						},
+																						"tenure": {
+																							"type": "number",
+																							"default": 0.5
+																						},
 																						"aiRelevance": {
 																							"anyOf": [
 																								{
@@ -69212,6 +71130,10 @@
 																			},
 																			"recency": {
 																				"type": "number"
+																			},
+																			"tenure": {
+																				"type": "number",
+																				"default": 0.5
 																			},
 																			"aiRelevance": {
 																				"anyOf": [
@@ -69924,6 +71846,10 @@
 																						"recency": {
 																							"type": "number"
 																						},
+																						"tenure": {
+																							"type": "number",
+																							"default": 0.5
+																						},
 																						"aiRelevance": {
 																							"anyOf": [
 																								{
@@ -70018,6 +71944,10 @@
 																			},
 																			"recency": {
 																				"type": "number"
+																			},
+																			"tenure": {
+																				"type": "number",
+																				"default": 0.5
 																			},
 																			"aiRelevance": {
 																				"anyOf": [
@@ -70416,6 +72346,10 @@
 																						"recency": {
 																							"type": "number"
 																						},
+																						"tenure": {
+																							"type": "number",
+																							"default": 0.5
+																						},
 																						"aiRelevance": {
 																							"anyOf": [
 																								{
@@ -70510,6 +72444,10 @@
 																			},
 																			"recency": {
 																				"type": "number"
+																			},
+																			"tenure": {
+																				"type": "number",
+																				"default": 0.5
 																			},
 																			"aiRelevance": {
 																				"anyOf": [
@@ -71117,7 +73055,16 @@
 																			"render-reading-order",
 																			"render-pages",
 																			"render-ats",
-																			"docx-text-missing"
+																			"docx-text-missing",
+																			"render-sparse-page",
+																			"evidence-note",
+																			"sensitive-content",
+																			"tense-mixed",
+																			"headline-list",
+																			"hedging",
+																			"thin-skill-group",
+																			"approximate-exact",
+																			"trimmed-to-fit"
 																		],
 																		"type": "string"
 																	},
@@ -71210,13 +73157,13 @@
 																			"type": "integer",
 																			"minimum": 0,
 																			"maximum": 30,
-																			"default": 5
+																			"default": 10
 																		}
 																	},
 																	"default": {
 																		"experienced": 2,
 																		"early": 1,
-																		"experiencedYears": 5
+																		"experiencedYears": 10
 																	}
 																},
 																"positions": {
@@ -71586,6 +73533,9 @@
 																							"type": "null"
 																						}
 																					]
+																				},
+																				"lastPageFill": {
+																					"type": "number"
 																				}
 																			},
 																			"required": [
@@ -72037,7 +73987,16 @@
 																	"render-reading-order",
 																	"render-pages",
 																	"render-ats",
-																	"docx-text-missing"
+																	"docx-text-missing",
+																	"render-sparse-page",
+																	"evidence-note",
+																	"sensitive-content",
+																	"tense-mixed",
+																	"headline-list",
+																	"hedging",
+																	"thin-skill-group",
+																	"approximate-exact",
+																	"trimmed-to-fit"
 																],
 																"type": "string"
 															},
@@ -72130,13 +74089,13 @@
 																	"type": "integer",
 																	"minimum": 0,
 																	"maximum": 30,
-																	"default": 5
+																	"default": 10
 																}
 															},
 															"default": {
 																"experienced": 2,
 																"early": 1,
-																"experiencedYears": 5
+																"experiencedYears": 10
 															}
 														},
 														"positions": {
@@ -72506,6 +74465,9 @@
 																					"type": "null"
 																				}
 																			]
+																		},
+																		"lastPageFill": {
+																			"type": "number"
 																		}
 																	},
 																	"required": [
@@ -73337,7 +75299,16 @@
 																					"render-reading-order",
 																					"render-pages",
 																					"render-ats",
-																					"docx-text-missing"
+																					"docx-text-missing",
+																					"render-sparse-page",
+																					"evidence-note",
+																					"sensitive-content",
+																					"tense-mixed",
+																					"headline-list",
+																					"hedging",
+																					"thin-skill-group",
+																					"approximate-exact",
+																					"trimmed-to-fit"
 																				],
 																				"type": "string"
 																			},
@@ -73430,13 +75401,13 @@
 																					"type": "integer",
 																					"minimum": 0,
 																					"maximum": 30,
-																					"default": 5
+																					"default": 10
 																				}
 																			},
 																			"default": {
 																				"experienced": 2,
 																				"early": 1,
-																				"experiencedYears": 5
+																				"experiencedYears": 10
 																			}
 																		},
 																		"positions": {
@@ -73806,6 +75777,9 @@
 																									"type": "null"
 																								}
 																							]
+																						},
+																						"lastPageFill": {
+																							"type": "number"
 																						}
 																					},
 																					"required": [
@@ -108071,13 +110045,13 @@
 																		"type": "integer",
 																		"minimum": 0,
 																		"maximum": 30,
-																		"default": 5
+																		"default": 10
 																	}
 																},
 																"default": {
 																	"experienced": 2,
 																	"early": 1,
-																	"experiencedYears": 5
+																	"experiencedYears": 10
 																}
 															},
 															"positions": {
@@ -108220,7 +110194,7 @@
 															"pages": {
 																"experienced": 2,
 																"early": 1,
-																"experiencedYears": 5
+																"experiencedYears": 10
 															},
 															"positions": {
 																"min": 3,
@@ -108559,13 +110533,13 @@
 																	"type": "integer",
 																	"minimum": 0,
 																	"maximum": 30,
-																	"default": 5
+																	"default": 10
 																}
 															},
 															"default": {
 																"experienced": 2,
 																"early": 1,
-																"experiencedYears": 5
+																"experiencedYears": 10
 															}
 														},
 														"positions": {
@@ -108708,7 +110682,7 @@
 														"pages": {
 															"experienced": 2,
 															"early": 1,
-															"experiencedYears": 5
+															"experiencedYears": 10
 														},
 														"positions": {
 															"min": 3,
@@ -108990,13 +110964,13 @@
 																		"type": "integer",
 																		"minimum": 0,
 																		"maximum": 30,
-																		"default": 5
+																		"default": 10
 																	}
 																},
 																"default": {
 																	"experienced": 2,
 																	"early": 1,
-																	"experiencedYears": 5
+																	"experiencedYears": 10
 																}
 															},
 															"positions": {
@@ -109139,7 +111113,7 @@
 															"pages": {
 																"experienced": 2,
 																"early": 1,
-																"experiencedYears": 5
+																"experiencedYears": 10
 															},
 															"positions": {
 																"min": 3,
