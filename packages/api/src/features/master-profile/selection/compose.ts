@@ -11,6 +11,7 @@ import type {
 	SelectionEdit,
 	SelectionSection,
 } from "@reactive-resume/schema/resume-selection";
+import { isPolitical, isPoliticalField } from "../writing/hygiene";
 import { entryAlignment, matchStrength, similar, yearsAgo } from "./rank";
 import { tokens, words } from "./text";
 
@@ -276,6 +277,32 @@ export function composePlan(input: ComposeInput): ResumeSelectionPlan {
 		if (plan.include) chooseIn(plan, R.bullets.other);
 		for (const id of requirementIds) if (plan.include) covered.set(id, Math.max(covered.get(id) ?? 0, 0.5));
 	}
+
+	// Political work (a campaign, a candidacy) invites the reader's own views, so it's left off unless the job is in
+	// that field. The user can include it in review.
+	const postingText = [
+		input.analysis.title,
+		input.analysis.employer,
+		input.analysis.summary,
+		...input.analysis.domain,
+		...input.analysis.requirements.map((requirement) => requirement.text),
+	].join(" ");
+	if (!isPoliticalField(postingText))
+		for (const plan of entries) {
+			const entry = entryById.get(plan.entryId);
+			if (!plan.include || !entry || plan.kind === "education") continue;
+			const text = [
+				entry.title,
+				entry.organization,
+				entry.summary,
+				...entry.achievements.map((item) => item.text),
+			].join(" ");
+			if (!isPolitical(text)) continue;
+			plan.include = false;
+			for (const item of plan.achievements) item.include = false;
+			plan.reason =
+				"Political work: left off because this job isn't in politics or government. Include it if it's relevant.";
+		}
 
 	for (const plan of entries) if (!plan.include && !plan.reason) plan.reason = "Not chosen for this posting";
 

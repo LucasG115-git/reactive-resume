@@ -25,7 +25,8 @@ function getDb() {
 }
 
 // Real PostgreSQL, opt-in only. Every table and FK comes from shipped migrations in a unique schema.
-describe.skipIf(!databaseUrl)("resume selection plans", () => {
+// Assembling renders and reads back a real PDF and DOCX, which takes a few seconds under load.
+describe.skipIf(!databaseUrl)("resume selection plans", { timeout: 30_000 }, () => {
 	let selection: typeof import("./service").selectionService;
 	let assemble: typeof import("../assemble/service").assembleService;
 	let profile: typeof import("../service").masterProfileService;

@@ -11,6 +11,7 @@ import { dataBlock } from "../../ai/data-block";
 import { PROMPT_VERSIONS } from "../prompt-versions";
 import { usageOf } from "../selection/service";
 import { words } from "../selection/text";
+import { opensInPresent, shortenApproximations, stripEvidenceNotes, toPastTense } from "./hygiene";
 import { bulletProblem, limitSentences, recordFacts, summaryProblem } from "./write";
 
 /**
@@ -110,7 +111,14 @@ Return JSON:
   }]
 }
 
-At most 10 findings, most important first. Only suggest a rewrite for a bullet or the SUMMARY, and only when it clearly improves the line: stronger verb, clearer result, tighter wording, better use of the posting's terms where accurate. Keep every number, date and qualifier ("about", "nearly", "up to") exactly. If the draft is strong, return few findings. Point out requirements the draft could show better from what is already there, and anything repeated or off-target.`;
+Read it as the hiring manager for this posting would in a 30-second first pass, and report first anything that could put them off:
+- notes about evidence left in a line ("unverified", "reported", "claimed", "at that time", "without completing"), or hedging that sounds unsure, such as "approximately" again and again;
+- content that invites bias or concern for this role: political campaigns, religion, health, age, family, or anything that suggests the candidate may soon leave;
+- claims in the summary or headline that the bullets don't back up, or a headline that lists several identities;
+- tense that changes within a role, filler, vague duties without results, repeated points, and lines that stress working alone.
+Use category "accuracy" for evidence notes and unsupported claims, and "relevance" for off-target or risky content.
+
+At most 10 findings, most important first. Only suggest a rewrite for a bullet or the SUMMARY, and only when it clearly improves the line: stronger verb, clearer result, tighter wording, better use of the posting's terms where accurate. Keep every number and date exactly and keep an honest qualifier on an approximate number, written briefly ("~25"). A rewrite never includes notes about evidence, and it uses past tense. If the draft is strong, return few findings. Point out requirements the draft could show better from what is already there, and anything repeated or off-target.`;
 	return { prompt, keys };
 }
 
@@ -145,7 +153,11 @@ export function acceptReview(input: {
 		const ref = achievementId ?? (raw ? raw.toLowerCase() : null);
 		findings.push({ category: item.category, severity: item.severity, message: item.message, ref });
 
-		const rewrite = item.rewrite?.trim();
+		// The rewrite gets the same hygiene as the draft: no evidence notes, short approximations, the draft's tense.
+		const proposed = item.rewrite?.trim() ?? "";
+		const tidied = shortenApproximations(stripEvidenceNotes(proposed).text);
+		const draftLine = achievementId ? (written.bullets.get(achievementId)?.text ?? "") : "";
+		const rewrite = achievementId && !opensInPresent(draftLine) ? toPastTense(tidied) : tidied;
 		if (!rewrite || (raw !== "SUMMARY" && !achievementId)) continue;
 		const key = achievementId ?? "summary";
 		if (touched.has(key)) continue;

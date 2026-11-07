@@ -231,6 +231,7 @@ export const assembleService = {
 				analysis: stored?.analysis ?? null,
 				rules,
 				headline: written.headline,
+				evidenceNotes: built.evidenceNotes,
 				olderRoles: { mode: preset.olderRoles, recentYears: preset.recentYears },
 				now: options.now ?? new Date(),
 			});

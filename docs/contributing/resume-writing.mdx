@@ -62,6 +62,21 @@ Other regions (US, UK, Australia, other) change spelling, personal-detail guidan
 
 `writing/writing.test.ts`: skill choice (evidence, overlaps, soft skills, user choices, the maximum), group validation and fallback, qualifier and tool checks, rejection of invented numbers, tools, headline words and summary facts, every planned achievement worded, communications / web development / project management resumes built from plans with no error findings, tampered resumes producing each error code, length warnings without cutting, and the fallback to the user's own wording when the AI's answer is unreadable. `selection/service.integration.test.ts` checks the report is stored with the assembly. `writing/review.test.ts`: reviewer rewrites applied, held back (new number, changed claim, limit), unknown refs dropped, the draft kept when the review fails, edits paired as corrections and passed to the writer as preferences. `assemble/rendering.test.ts`: real PDF and DOCX of an assembled resume read back in full, and lost text and failed renders reported. `benchmark/benchmark.test.ts`: every case scored. The selection integration test covers revert/apply, feedback from edits, the profile staying unchanged, and the next writer prompt. `ai-tasks/resolve.test.ts`: Thorough applies only to its tasks and only when set, reasoning options per provider, unknown-model detection, default and chosen connections, and the fallback retry with usage.
 
+## Line hygiene
+
+`writing/hygiene.ts` holds deterministic clean-ups that only remove or reformat, never add a claim. The writing step (`tidyWritten`), the reviewer (each rewrite) and the build (every printed line, including verbatim mode) apply them:
+
+- **Evidence notes** (`stripEvidenceNotes`): clauses after `;` or a dash that report where a figure came from or that it's unverified ("internal reporting… claimed", "was reported", "at that time"), undercutting tails ("without completing…") and parenthetical notes are removed. A main clause that is itself unsure is flagged `doubtful`. The build returns them as `evidenceNotes`, and checks report `evidence-note` so the user fixes the record.
+- **Approximations** (`shortenApproximations`): "approximately 25" / "roughly five" → "~25" / "~5". Other qualifiers stay. `hedging` warns if long forms remain twice or more.
+- **Tense** (`alignTense`): bullets open in the past tense; a current role written entirely in the present is left alone. `tense-mixed` reports what's left.
+- **Titles, places, links, dates**: `titleWithOrganization` doesn't repeat an organization the title (or its acronym) already names; `shortLocation` gives "City, ON"; roles don't print the candidate's own site again and education prints no link; `datesOf` shows both ends at one precision.
+- **Headline** (`singleHeadline`): one identity, the part before the first `|`. `headline-list` warns otherwise.
+- **Political work** (`isPolitical`, `isPoliticalField`): left out of the plan unless the posting is in politics or government, with a reason the user can override. `sensitive-content` warns if it's included anyway.
+- **Skills**: tools the included bullets name are listed whatever the posting asked (`isTechnical`); one-skill groups are merged (`mergeThinGroups`).
+- **Length**: one page is the target below 10 years of experience (`pages.experiencedYears`). Rendering reports `render-sparse-page` when the last page is less than about a third full.
+
+The AI instructions say the same: the analysis ignores boilerplate, the evidence review rates risky or note-only records 0, the writer leaves out notes and unverified figures, writes past tense and one headline, and the reviewer looks for all of the above first.
+
 ## AI review
 
 `writing/review.ts`, task `review`, prompt version `PROMPT_VERSIONS.review`. Runs once after writing, in rephrase mode with a plan, unless the request sets `review: false`.

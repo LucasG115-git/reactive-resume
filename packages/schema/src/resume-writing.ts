@@ -60,9 +60,9 @@ export const writingRulesSchema = z.object({
 		.object({
 			experienced: z.number().int().min(1).max(4).default(2),
 			early: z.number().int().min(1).max(4).default(1),
-			experiencedYears: z.number().int().min(0).max(30).default(5),
+			experiencedYears: z.number().int().min(0).max(30).default(10),
 		})
-		.default({ experienced: 2, early: 1, experiencedYears: 5 }),
+		.default({ experienced: 2, early: 1, experiencedYears: 10 }),
 	/** Usual number of positions; more is fine when the user includes them. */
 	positions: z
 		.object({ min: z.number().int().min(1).default(3), max: z.number().int().min(1).default(5) })
@@ -134,6 +134,14 @@ export const qualityFindingSchema = z.object({
 		"render-pages",
 		"render-ats",
 		"docx-text-missing",
+		"render-sparse-page",
+		// What could put a hiring manager off.
+		"evidence-note",
+		"sensitive-content",
+		"tense-mixed",
+		"headline-list",
+		"hedging",
+		"thin-skill-group",
 	]),
 	severity: z.enum(["error", "warning", "info"]),
 	message: z.string(),
@@ -216,6 +224,8 @@ export const renderingReportSchema = z.object({
 			readingOrder: z.boolean(),
 			/** The ATS checker's 0–100 score for the file. */
 			atsScore: z.number().nullable(),
+			/** How far down the last page the text reaches, 0–1. */
+			lastPageFill: z.number().optional(),
 		})
 		.nullable(),
 	docx: z.object({ textCoverage: z.number(), missing: z.array(z.string()) }).nullable(),

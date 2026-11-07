@@ -3,7 +3,9 @@ import type { MasterProfile } from "../service";
 import type { JobAnalysis, ResumeSelectionPlan } from "@reactive-resume/schema/resume-selection";
 import type { QualityFinding, WritingReport, WritingRules } from "@reactive-resume/schema/resume-writing";
 import type { ResumeData } from "@reactive-resume/schema/resume/data";
+import { datesOf } from "../assemble/build";
 import { jaccard, tokens, words } from "../selection/text";
+import { isPolitical, isPoliticalField, opensInPresent } from "./hygiene";
 import { isSoftSkill } from "./skills";
 import { CLICHES, limitSentences } from "./write";
 
@@ -95,6 +97,8 @@ export function checkResume(input: {
 	headline: string;
 	/** From the style preset: older roles kept brief. */
 	olderRoles?: { mode: "full" | "brief"; recentYears: number } | undefined;
+	/** Notes about evidence the build took out of printed lines. */
+	evidenceNotes?: Array<{ achievementId: string | null; removed: string[]; doubtful: boolean }> | undefined;
 	now?: Date;
 }): { findings: QualityFinding[]; stats: WritingReport["stats"] } {
 	const { data, bullets, placements, plan, profile, rules } = input;
@@ -174,7 +178,8 @@ export function checkResume(input: {
 					});
 			}
 			if (item.dates && key !== "certifications" && key !== "awards") {
-				const expected = { start: entry.startDate, end: entry.endDate };
+				// The dates as the resume shows them: both ends at the same precision (see datesOf).
+				const expected = datesOf(entry);
 				if (item.dates.start !== expected.start || item.dates.end !== expected.end)
 					add({
 						code: "date-mismatch",
@@ -457,6 +462,78 @@ export function checkResume(input: {
 				section: key,
 			});
 	}
+
+	// What could put a hiring manager off: notes about evidence, political content, mixed tense, a headline that
+	// lists several identities, repeated hedging and one-skill headings.
+	for (const note of input.evidenceNotes ?? []) {
+		const record = note.achievementId ? achievements.get(note.achievementId)?.text : "your summary";
+		if (note.removed.length > 0)
+			add({
+				code: "evidence-note",
+				severity: "info",
+				message: `Left a note about evidence off the resume ("${clip(note.removed.join("; "))}") from "${clip(record ?? "")}". If the claim holds, reword it in Career → Knowledge → Profile; if it doesn't, remove it there.`,
+			});
+		if (note.doubtful)
+			add({
+				code: "evidence-note",
+				severity: "warning",
+				message: `"${clip(record ?? "")}" reads as unsure of itself ("unverified", "claimed", "reported"…). Reword it in your profile as a plain statement, or leave it out.`,
+			});
+	}
+	const postingText = input.analysis
+		? [
+				input.analysis.title,
+				input.analysis.summary,
+				...input.analysis.domain,
+				...input.analysis.requirements.map((item) => item.text),
+			].join(" ")
+		: "";
+	if (!isPoliticalField(postingText))
+		for (const planned of plan.entries.filter((entry) => entry.include)) {
+			const entry = entries.get(planned.entryId);
+			if (!entry || entry.kind === "education") continue;
+			if (isPolitical([entry.title, entry.organization, entry.summary].join(" ")))
+				add({
+					code: "sensitive-content",
+					severity: "warning",
+					message: `"${entry.title}" is political work. Unless this job is in politics or government, it can invite the reader's own views; consider leaving it off.`,
+				});
+		}
+	for (const item of experience) {
+		const lines = listItems(item.description ?? "");
+		const present = lines.filter(opensInPresent).length;
+		if (present > 0 && present < lines.length)
+			add({
+				code: "tense-mixed",
+				severity: "warning",
+				message: `"${item.position}" mixes present and past tense. Use one tense within a role.`,
+				section: "experience",
+				itemId: item.id,
+			});
+	}
+	if (/\s[|/]\s|\|/.test(data.basics.headline))
+		add({
+			code: "headline-list",
+			severity: "warning",
+			message: `The headline "${clip(data.basics.headline)}" lists several identities. Name the one role you're applying as.`,
+		});
+	const hedges = (allText.match(/\b(?:approximately|approx\.?|roughly)\b/gi) ?? []).length;
+	if (hedges >= 2)
+		add({
+			code: "hedging",
+			severity: "warning",
+			message: `"Approximately" appears ${hedges} times, which reads as unsure. Write "~25" or a floor such as "25+" when it's true.`,
+		});
+	const skillGroups = data.sections.skills.hidden ? [] : data.sections.skills.items.filter((item) => !item.hidden);
+	if (skillGroups.length > 1)
+		for (const group of skillGroups.filter((item) => item.keywords.length === 1))
+			add({
+				code: "thin-skill-group",
+				severity: "info",
+				message: `The skill heading "${group.name}" has a single skill. Merge it into another group.`,
+				section: "skills",
+				itemId: group.id,
+			});
 
 	// Length: an estimate from word count; the rendered PDF is the final word.
 	const entryWords =
