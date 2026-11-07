@@ -97,20 +97,21 @@ export function chooseSkills(profile: MasterProfile, plan: ResumeSelectionPlan, 
 	const byId = new Map(profile.skills.map((skill) => [skill.id, skill]));
 	const evidenced = evidencedSkills(profile, plan);
 	const leftOut: ChosenSkills["leftOut"] = [];
+	// Shown beats claimed: skills the included bullets demonstrate come before skills only marked relevant.
 	const tiers: Array<[number, (item: ResumeSelectionPlan["skills"][number]) => boolean]> = [
 		[0, (item) => item.include && item.userEdited],
 		[1, (item) => item.include && evidenced.has(item.skillId)],
-		[2, (item) => item.include],
-		[3, (item) => !item.userEdited && item.requirementIds.length > 0 && evidenced.has(item.skillId)],
 		// Tools the included bullets name ("WordPress, Drupal and Shopify"): a resume naming them should list them.
 		[
-			3,
+			2,
 			(item) => {
 				const skill = byId.get(item.skillId);
 				return !item.userEdited && evidenced.has(item.skillId) && Boolean(skill && isTechnical(skill));
 			},
 		],
-		[4, (item) => !item.userEdited && evidenced.has(item.skillId)],
+		[3, (item) => !item.userEdited && item.requirementIds.length > 0 && evidenced.has(item.skillId)],
+		[4, (item) => item.include],
+		[5, (item) => !item.userEdited && evidenced.has(item.skillId)],
 	];
 	const ordered: Array<{ item: ResumeSelectionPlan["skills"][number]; tier: number }> = [];
 	for (const item of plan.skills) {
@@ -125,7 +126,7 @@ export function chooseSkills(profile: MasterProfile, plan: ResumeSelectionPlan, 
 	for (const { item, tier } of ordered) {
 		const skill = byId.get(item.skillId);
 		if (!skill || skill.hidden) continue;
-		if (tier >= 4 && chosen.length >= rules.skills.min) continue;
+		if (tier >= 5 && chosen.length >= rules.skills.min) continue;
 		if (isSoftSkill(skill.name) && tier !== 0) {
 			leftOut.push({
 				skillId: skill.id,

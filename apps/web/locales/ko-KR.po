@@ -8794,6 +8794,10 @@ msgstr "새 페이지"
 msgid "New password"
 msgstr "새 비밀번호"
 
+#: src/features/settings/resume-style.tsx
+msgid "New preset from"
+msgstr ""
+
 #: src/features/career/today.tsx
 msgid "New roles from your search"
 msgstr "검색으로 찾은 새 직무"
@@ -13063,7 +13067,6 @@ msgid "Start each one with a concrete verb: built, led, reduced, migrated."
 msgstr "각 항목을 구체적인 동사로 시작하세요: 구축했다, 이끌었다, 줄였다, 이전했다 등."
 
 #: src/features/documents/new-document-dialog.tsx
-#: src/features/settings/resume-style.tsx
 msgid "Start from"
 msgstr "다음에서 시작"
 

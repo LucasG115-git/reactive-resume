@@ -6,12 +6,21 @@ import type { JobAnalysis, ResumeSelectionPlan } from "@reactive-resume/schema/r
 import type { WritingRules } from "@reactive-resume/schema/resume-writing";
 import { ORPCError } from "@orpc/client";
 import { usageOf } from "../selection/service";
-import { alignTense, shortenApproximations, singleHeadline, stripEvidenceNotes } from "./hygiene";
+import {
+	alignTense,
+	dropFiller,
+	dropOwnName,
+	ownNames,
+	shortenApproximations,
+	singleHeadline,
+	stripEvidenceNotes,
+} from "./hygiene";
 import { chooseSkills } from "./skills";
 import { acceptWriting, EXAMPLE_EXCERPT, WRITER_SYSTEM, writerOutputSchema, writerPrompt } from "./write";
 
 /** A line as it will print: notes about evidence out, long approximations shortened. */
-export const tidyLine = (text: string) => shortenApproximations(stripEvidenceNotes(text).text);
+export const tidyLine = (text: string, names: string[] = []) =>
+	dropOwnName(dropFiller(shortenApproximations(stripEvidenceNotes(text).text)), names);
 
 /**
  * Applies line hygiene to a draft in place, so what the reviewer sees and what's stored match what prints: tidy
@@ -21,8 +30,10 @@ export function tidyWritten<T extends Written>(written: T, plan: ResumeSelection
 	const entries = new Map(profile.entries.map((entry) => [entry.id, entry]));
 	for (const planned of plan.entries.filter((entry) => entry.include)) {
 		const ids = planned.achievements.filter((item) => item.include && written.bullets.has(item.achievementId));
-		const lines = ids.map((item) => tidyLine(written.bullets.get(item.achievementId)?.text ?? ""));
-		const tensed = alignTense(lines, !entries.get(planned.entryId)?.endDate);
+		const entry = entries.get(planned.entryId);
+		const names = entry ? ownNames(entry) : [];
+		const lines = ids.map((item) => tidyLine(written.bullets.get(item.achievementId)?.text ?? "", names));
+		const tensed = alignTense(lines, !entry?.endDate);
 		ids.forEach((item, index) => {
 			const bullet = written.bullets.get(item.achievementId);
 			if (bullet) written.bullets.set(item.achievementId, { ...bullet, text: tensed[index] ?? bullet.text });

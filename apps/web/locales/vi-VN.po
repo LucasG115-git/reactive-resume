@@ -8794,6 +8794,10 @@ msgstr "Trang mới"
 msgid "New password"
 msgstr "Mật khẩu mới"
 
+#: src/features/settings/resume-style.tsx
+msgid "New preset from"
+msgstr ""
+
 #: src/features/career/today.tsx
 msgid "New roles from your search"
 msgstr "Vị trí mới từ tìm kiếm của bạn"
@@ -13063,7 +13067,6 @@ msgid "Start each one with a concrete verb: built, led, reduced, migrated."
 msgstr "Bắt đầu mỗi mục bằng một động từ cụ thể: xây dựng, dẫn dắt, giảm thiểu, chuyển đổi."
 
 #: src/features/documents/new-document-dialog.tsx
-#: src/features/settings/resume-style.tsx
 msgid "Start from"
 msgstr "Bắt đầu từ"
 

@@ -8794,6 +8794,10 @@ msgstr "Новая страница"
 msgid "New password"
 msgstr "Новый пароль"
 
+#: src/features/settings/resume-style.tsx
+msgid "New preset from"
+msgstr ""
+
 #: src/features/career/today.tsx
 msgid "New roles from your search"
 msgstr "Новые вакансии из вашего поиска"
@@ -13063,7 +13067,6 @@ msgid "Start each one with a concrete verb: built, led, reduced, migrated."
 msgstr "Начинайте каждый пункт с конкретного глагола: создал, руководил, сократил, перенёс."
 
 #: src/features/documents/new-document-dialog.tsx
-#: src/features/settings/resume-style.tsx
 msgid "Start from"
 msgstr "Начать с"
 

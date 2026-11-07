@@ -8794,6 +8794,10 @@ msgstr "新しいページ"
 msgid "New password"
 msgstr "新しいパスワード"
 
+#: src/features/settings/resume-style.tsx
+msgid "New preset from"
+msgstr ""
+
 #: src/features/career/today.tsx
 msgid "New roles from your search"
 msgstr "検索で見つかった新しい求人"
@@ -13063,7 +13067,6 @@ msgid "Start each one with a concrete verb: built, led, reduced, migrated."
 msgstr "それぞれを具体的な動詞から書き始めてください。例: built、led、reduced、migrated。"
 
 #: src/features/documents/new-document-dialog.tsx
-#: src/features/settings/resume-style.tsx
 msgid "Start from"
 msgstr "から開始"
 

@@ -8794,6 +8794,10 @@ msgstr "Nová stránka"
 msgid "New password"
 msgstr "Nové heslo"
 
+#: src/features/settings/resume-style.tsx
+msgid "New preset from"
+msgstr ""
+
 #: src/features/career/today.tsx
 msgid "New roles from your search"
 msgstr "Nové pozície z vášho hľadania"
@@ -13063,7 +13067,6 @@ msgid "Start each one with a concrete verb: built, led, reduced, migrated."
 msgstr "Začnite každú konkrétnym slovesom: vybudoval, viedol, znížil, migroval."
 
 #: src/features/documents/new-document-dialog.tsx
-#: src/features/settings/resume-style.tsx
 msgid "Start from"
 msgstr "Začnite od"
 

@@ -142,6 +142,8 @@ export const qualityFindingSchema = z.object({
 		"headline-list",
 		"hedging",
 		"thin-skill-group",
+		"approximate-exact",
+		"trimmed-to-fit",
 	]),
 	severity: z.enum(["error", "warning", "info"]),
 	message: z.string(),

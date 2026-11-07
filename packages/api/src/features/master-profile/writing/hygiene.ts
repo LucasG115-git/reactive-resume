@@ -324,6 +324,13 @@ export function singleHeadline(headline: string): string {
 	return first || headline.trim();
 }
 
+/** Skill group names short enough to sit on one line beside their skills: "and" becomes "&". */
+export const shortGroupName = (name: string) =>
+	name
+		.replace(/\s+and\s+/gi, " & ")
+		.replace(/\s+/g, " ")
+		.trim();
+
 // ---- Sensitive content ----
 
 /**
@@ -339,3 +346,63 @@ const POLITICAL_FIELD =
 
 export const isPolitical = (text: string) => POLITICAL.test(text);
 export const isPoliticalField = (text: string) => POLITICAL_FIELD.test(text);
+
+// ---- Filler and repetition ----
+
+/** Trailing filler that adds nothing a reader can use. */
+const FILLER_TAIL =
+	/,?\s+(?:with|and) (?:additional|more|further|other|several) (?:projects?|work|clients?|sites?|websites?) (?:in development|underway|in progress|ongoing|to come|planned)\b|,?\s+(?:and more|etc\.?)(?=[.;]?$)/gi;
+
+/** Removes filler tails ("…, with additional projects in development"). */
+export function dropFiller(text: string): string {
+	const result = text.replace(FILLER_TAIL, "").trim();
+	return result && result !== text.trim() ? finish(result, text) : text;
+}
+
+const escapeRegExp = (text: string) => text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
+/**
+ * Drops a mention of the entry's own name from its bullet ("…launch for Volunteer Hub" under "Volunteer Hub —
+ * Website Platform"): the heading already says it.
+ */
+export function dropOwnName(text: string, names: string[]): string {
+	let result = text;
+	for (const name of names.map((item) => item.trim()).filter((item) => item.length >= 4)) {
+		result = result.replace(
+			new RegExp(`\\s+(?:for|at|with|of|within) (?:the )?${escapeRegExp(name)}(?=[\\s.,;]|$)`, "i"),
+			"",
+		);
+	}
+	return result === text ? text : finish(result, text);
+}
+
+/** Names the bullets of an entry shouldn't repeat: its organization and the first part of its title. */
+export const ownNames = (entry: { title: string; organization: string }) =>
+	[entry.organization, entry.title.split(/\s+[—–-]\s+/)[0] ?? ""].filter(Boolean);
+
+/** "~38": a hedge on a number that looks exact reads oddly. Round numbers (≤10, or multiples of 5) are fine. */
+export const oddApproximation = (text: string) =>
+	[...text.matchAll(/~\s?(\d[\d,]*)/g)]
+		.map((match) => Number((match[1] ?? "").replace(/,/g, "")))
+		.find((value) => value > 10 && value % 5 !== 0) ?? null;
+
+/** A line that only restates the heading it sits under ("Earned a BBA…" under "BBA, Trent University"). */
+export function restatesHeading(text: string, heading: string): boolean {
+	const filler = new Set([
+		"earned",
+		"completed",
+		"received",
+		"obtained",
+		"graduated",
+		"with",
+		"degree",
+		"in",
+		"a",
+		"an",
+		"the",
+		"of",
+	]);
+	const line = words(text).filter((word) => !filler.has(word));
+	const head = new Set(words(heading));
+	return line.length > 0 && line.filter((word) => head.has(word)).length / line.length >= 0.8;
+}

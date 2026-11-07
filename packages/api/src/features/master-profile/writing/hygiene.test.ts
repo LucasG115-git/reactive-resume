@@ -1,13 +1,22 @@
+import type { StylePreset } from "@reactive-resume/schema/resume-style";
 import { describe, expect, it } from "vite-plus/test";
+import { choosePreset, DEFAULT_STYLE_GUIDE } from "@reactive-resume/schema/resume-style";
 import { DEFAULT_WRITING_RULES } from "@reactive-resume/schema/resume-writing";
 import { defaultResumeData } from "@reactive-resume/schema/resume/default";
 import { buildResume, datesOf } from "../assemble/build";
-import { achievement, communicationsJob, consultantProfile, entry } from "../selection/fixtures";
+import { estimateWords } from "../selection/fit";
+import { achievement, communicationsJob, consultantProfile, entry, skill } from "../selection/fixtures";
 import { buildSelection } from "../selection/service";
 import { tokens } from "../selection/text";
 import { checkResume } from "./checks";
 import {
 	alignTense,
+	dropFiller,
+	dropOwnName,
+	oddApproximation,
+	ownNames,
+	restatesHeading,
+	shortGroupName,
 	isPolitical,
 	isPoliticalField,
 	sameSite,
@@ -279,5 +288,136 @@ describe("a tailored resume from a record with these problems", () => {
 		expect(codes).not.toContain("tense-mixed");
 		expect(codes).not.toContain("date-mismatch");
 		expect(codes).not.toContain("headline-list");
+	});
+});
+
+describe("pitch and polish", () => {
+	it("drops filler, the entry's own name, and lines that restate their heading", () => {
+		expect(dropFiller("Designed and launched ~25 client websites, with additional projects in development.")).toBe(
+			"Designed and launched ~25 client websites.",
+		);
+		expect(
+			dropOwnName(
+				"Led discovery, research, design and launch for Volunteer Hub.",
+				ownNames({ title: "Volunteer Hub — Website Platform", organization: "Volunteer Hub" }),
+			),
+		).toBe("Led discovery, research, design and launch.");
+		expect(
+			restatesHeading(
+				"Earned a Bachelor of Business Administration with Entrepreneurship Specialization.",
+				"Bachelor of Business Administration (BBA), Entrepreneurship Specialization Riverside University",
+			),
+		).toBe(true);
+		expect(
+			restatesHeading("Took extra coursework in Statistics and Design.", "Bachelor of Arts Riverside University"),
+		).toBe(false);
+	});
+
+	it("flags a hedge on a number that looks exact", () => {
+		expect(oddApproximation("Placed ads for ~38 sponsors")).toBe(38);
+		expect(oddApproximation("Launched ~25 sites for ~5 clients")).toBeNull();
+	});
+
+	it("keeps skill group names short", () => {
+		expect(shortGroupName("Communications and Marketing")).toBe("Communications & Marketing");
+	});
+
+	it("picks a preset from the posting's field when the title alone doesn't say", () => {
+		const guide = {
+			...DEFAULT_STYLE_GUIDE,
+			presets: [
+				...DEFAULT_STYLE_GUIDE.presets,
+				{
+					...(DEFAULT_STYLE_GUIDE.presets[0] as StylePreset),
+					id: "comms",
+					name: "Communications",
+					keywords: ["communications", "marketing"],
+				},
+			],
+		};
+		expect(choosePreset(guide, "Officer, Recruitment").id).toBe("general");
+		expect(
+			choosePreset(guide, "Officer, Recruitment", null, "a communications role centred on recruitment writing").id,
+		).toBe("comms");
+	});
+
+	it("fits the proposal to the page target, weakest first, and says what it left out", async () => {
+		const profile = consultantProfile();
+		const analysis = communicationsJob();
+		const loose = {
+			...DEFAULT_WRITING_RULES,
+			pages: { ...DEFAULT_WRITING_RULES.pages, early: 1, experiencedYears: 30 },
+		};
+		const select = (rules?: typeof loose) =>
+			buildSelection({
+				applicationId: "app",
+				analysis,
+				profile,
+				blocked: new Map(),
+				emphasis: { text: "", tokens: tokens("") },
+				previous: null,
+				now: new Date("2026-11-01T00:00:00Z"),
+				review: async () => null,
+				...(rules ? { rules } : {}),
+			});
+		const tight = { ...loose, wordsPerPage: 250 };
+		const before = (await select()).plan;
+		const after = (await select(tight)).plan;
+		expect(estimateWords(after, tight)).toBeLessThan(estimateWords(before, tight));
+		expect(after.totals.includedAchievements).toBeLessThan(before.totals.includedAchievements);
+		const left = after.entries.flatMap((item) => item.achievements).filter((item) => /page target/.test(item.reason));
+		expect(left.length).toBeGreaterThan(0);
+		expect(after.warnings.some((warning) => /to fit the 1-page target/.test(warning))).toBe(true);
+		// Every included position keeps at least one bullet.
+		for (const item of after.entries.filter((x) => x.include && x.kind === "position"))
+			expect(item.achievements.some((x) => x.include)).toBe(true);
+	});
+
+	it("lists skills the bullets show before ones only marked relevant, and drops a skill that repeats its heading", async () => {
+		const profile = consultantProfile();
+		profile.skills.push(skill("s-comms", "Communications", "Communications"));
+		const analysis = communicationsJob();
+		const { plan } = await buildSelection({
+			applicationId: "app",
+			analysis,
+			profile,
+			blocked: new Map(),
+			emphasis: { text: "", tokens: tokens("") },
+			previous: null,
+			now: new Date("2026-11-01T00:00:00Z"),
+			review: async () => null,
+		});
+		const comms = plan.skills.find((item) => item.skillId === "s-comms");
+		if (comms) comms.include = true;
+		const written = await writeFromPlan({
+			userId: "u",
+			plan,
+			analysis,
+			profile,
+			rules: DEFAULT_WRITING_RULES,
+			mode: "rephrase",
+			ask: async ({ schema, prompt }) => {
+				const skills = [...prompt.matchAll(/^\s+(S\d+): (.+)$/gm)];
+				const comm = skills.find(([, , name]) => name === "Communications")?.[1];
+				const rest = skills.map(([, id]) => id).filter((id) => id !== comm);
+				return {
+					model: "stub",
+					output: schema.parse({
+						headline: "",
+						summary: "",
+						bullets: [],
+						skillGroups: [
+							{ name: "Communications and Marketing", skills: [comm, ...rest.slice(0, 3)] },
+							{ name: "Platforms and Tools", skills: rest.slice(3) },
+						],
+					}),
+				};
+			},
+		});
+		expect(written.skillGroups.map((group) => group.name)).toEqual(["Communications & Marketing", "Platforms & Tools"]);
+		expect(written.skills.map((item) => item.id)).not.toContain("s-comms");
+		expect(written.skillsLeftOut).toContainEqual(
+			expect.objectContaining({ skillId: "s-comms", reason: "Repeats its group's heading" }),
+		);
 	});
 });

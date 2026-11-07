@@ -8794,6 +8794,10 @@ msgstr "صفحه جدید"
 msgid "New password"
 msgstr "گذرواژهٔ جدید"
 
+#: src/features/settings/resume-style.tsx
+msgid "New preset from"
+msgstr ""
+
 #: src/features/career/today.tsx
 msgid "New roles from your search"
 msgstr "موقعیت‌های جدید از جستجوی شما"
@@ -13063,7 +13067,6 @@ msgid "Start each one with a concrete verb: built, led, reduced, migrated."
 msgstr "هر مورد را با یک فعل مشخص شروع کنید: ساخت، رهبری کرد، کاهش داد، مهاجرت داد."
 
 #: src/features/documents/new-document-dialog.tsx
-#: src/features/settings/resume-style.tsx
 msgid "Start from"
 msgstr "شروع از"
 

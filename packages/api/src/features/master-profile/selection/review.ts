@@ -103,6 +103,7 @@ How to judge:
 - Include an entry when it adds relevant evidence. Older work belongs when it shows something the more recent work doesn't; age alone is not a reason to leave it out. Leave out positions that add nothing for this role.
 - Rate only skills relevant to this role (relevance 2-3) and the requirements they relate to; leave the rest out.
 - Judge as the hiring manager for this role would: what makes them want to interview this person, and what would make them hesitate.
+- Weight by the posting's core profession, not by how impressive the work is. For a communications or marketing role, rank writing, content, campaigns, audiences, storytelling and results above adjacent technical or build work, even strong work; include technical work only where it shows what the posting asks for. Do the same in reverse for technical roles.
 - Rate 0 and leave out anything that would put a reader off for this role without adding evidence: political campaigns or candidacies (unless the job is in politics or government), religious or partisan activity, personal causes unrelated to the work, and achievements that are mostly notes about whether a claim is verified.
 - Prefer results a reader can check over unquantified duties, and client or team work over work that stresses doing everything alone.
 - Cite only ids listed above. Never invent records, numbers or qualifications.`;

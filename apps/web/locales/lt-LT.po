@@ -8794,6 +8794,10 @@ msgstr "Naujas puslapis"
 msgid "New password"
 msgstr "Naujas slaptažodis"
 
+#: src/features/settings/resume-style.tsx
+msgid "New preset from"
+msgstr ""
+
 #: src/features/career/today.tsx
 msgid "New roles from your search"
 msgstr "Naujos pozicijos iš jūsų paieškos"
@@ -13063,7 +13067,6 @@ msgid "Start each one with a concrete verb: built, led, reduced, migrated."
 msgstr "Kiekvieną pradėkite konkrečiu veiksmažodžiu: sukūrė, vadovavo, sumažino, perkėlė."
 
 #: src/features/documents/new-document-dialog.tsx
-#: src/features/settings/resume-style.tsx
 msgid "Start from"
 msgstr "Pradėkite nuo"
 

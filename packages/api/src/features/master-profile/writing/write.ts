@@ -8,6 +8,7 @@ import { dataBlock } from "../../ai/data-block";
 import { checkGrounded, lengthBudget } from "../assemble/grounding";
 import { words } from "../selection/text";
 import { introducedTools, keepsQualifiers } from "./grounding";
+import { shortGroupName } from "./hygiene";
 import { groupByCategory, mergeThinGroups, validateGroups } from "./skills";
 
 type Entry = MasterProfile["entries"][number];
@@ -119,7 +120,7 @@ ${style ? styleBlock(style) : ""}${input.feedback ?? ""}
 
 Write in ${region.spelling}. Return JSON:
 {
-  "headline": ${rules.headline ? `"one professional headline of at most 8 words pitched at this role, built only from the candidate's own titles, sector and skills in the RECORD and SKILLS. One identity, not a list: no | or / separators and no stacked titles. Never claim a job title they haven't held."` : `""`},
+  "headline": ${rules.headline ? `"one professional headline of at most 8 words that presents the candidate as the profession this posting hires, in that profession's terms, built only from their own titles, sector and skills in the RECORD and SKILLS (for a communications posting, e.g. 'Digital Communications and Marketing Professional' when those are among their skills, not their current job title). One identity, not a list: no | or / separators and no stacked titles. Never claim a job title they haven't held."` : `""`},
   "summary": ${rules.summary.enabled ? `"${rules.summary.minSentences}-${rules.summary.maxSentences} concise sentences, at most ${rules.summary.maxWords} words, for this role: who they are professionally, the strongest relevant evidence, and what they offer this employer. Only claims an included RECORD entry shows: never mention experience (such as leadership or a sector) the RECORD doesn't. Numbers only if they appear in it. No vague filler such as 'offers hands-on' or 'passionate about'."` : `""`},
   "bullets": [{ "id": "A1", "text": "the bullet" }],
   "skillGroups": [{ "name": "a category name suited to this profession", "skills": ["S1", "S2"] }]
@@ -134,11 +135,15 @@ Bullets:
 - Write what a hiring manager wants to see: the result first where the record states one, then how. Cut filler such as "with additional projects in development", "respectively", "various", "responsible for".
 - Don't stress working alone ("independently", "single-handedly") unless the posting asks for it; show the clients, teams and stakeholders the work served.
 - Never mention political campaigns, religion, health, age or family unless the entry was included for a job in that field.
+- Describe every achievement in the terms of the profession this posting hires and emphasise the part that matters to it. For a communications role, web work is about audiences, content, campaigns and results, not build steps; for a technical role, the reverse. Leave out internal process detail (site maps, risk registers, change control) unless the posting asks for it.
+- Name an internal product, platform or event only if a reader outside the organization would know it; otherwise describe it ("a virtual conference platform").
+- Don't repeat the entry's organization or project name in its bullets; the heading already says it. Don't restate a degree in its own bullets.
+- One hedge per bullet at most, and no "~" on a number that looks exact.
 - Use the posting's terms only where they accurately describe the record, at most once per bullet. No keyword lists.
 - Plain, natural professional English. Avoid clichés such as ${CLICHES.slice(0, 10).join(", ")}.
 - Don't repeat the same verb or point across bullets.
 
-Skill groups: put every S id in exactly one of ${rules.skills.minGroups} to ${rules.skills.maxGroups} groups with names suited to this profession and posting (for example "Communications & Marketing", "Digital Platforms", "Project Delivery" for communications; "Languages & Frameworks", "Platforms & Tools" for development). No generic names like "Skills" or "Other". No proficiency levels.${style?.preset.skillGroupHints.length ? ` Prefer these group names where they fit: ${style.preset.skillGroupHints.join(", ")}.` : ""}`;
+Skill groups: put every S id in exactly one of ${rules.skills.minGroups} to ${rules.skills.maxGroups} groups with names suited to this profession and posting (for example "Communications & Marketing", "Digital Platforms", "Project Delivery" for communications; "Languages & Frameworks", "Platforms & Tools" for development). Group names of at most 3 words and about 24 characters, using "&" rather than "and", so they fit on one line. No generic names like "Skills" or "Other". A skill must not just repeat its group's name. No proficiency levels.${style?.preset.skillGroupHints.length ? ` Prefer these group names where they fit: ${style.preset.skillGroupHints.join(", ")}.` : ""}`;
 	return { prompt, keys };
 }
 
@@ -300,17 +305,31 @@ export function acceptWriting(input: {
 			.map((key) => keys?.skills.get(key.trim().toUpperCase()))
 			.filter((id): id is string => Boolean(id)),
 	}));
-	const skillGroups = mergeThinGroups(
+	const grouped = mergeThinGroups(
 		validateGroups(proposedGroups, input.skills, rules) ?? groupByCategory(input.skills, rules),
-	);
+	).map((group) => ({ ...group, name: shortGroupName(group.name) }));
+	// A skill that only repeats its heading ("Communications" under "Communications & Marketing") is left out.
+	const names = new Map(input.skills.map((skill) => [skill.id, words(skill.name).join(" ")]));
+	const echoes = new Set<string>();
+	for (const group of grouped) {
+		const parts = new Set(group.name.split(/\s*(?:&|,|\band\b)\s*/i).map((part) => words(part).join(" ")));
+		const echo = group.skillIds.filter((id) => parts.has(names.get(id) ?? ""));
+		if (group.skillIds.length - echo.length >= 2) for (const id of echo) echoes.add(id);
+	}
+	const skillGroups = grouped.map((group) => ({ ...group, skillIds: group.skillIds.filter((id) => !echoes.has(id)) }));
 
 	return {
 		headline,
 		summary,
 		bullets,
-		skills: input.skills,
+		skills: input.skills.filter((skill) => !echoes.has(skill.id)),
 		skillGroups,
-		skillsLeftOut: input.skillsLeftOut,
+		skillsLeftOut: [
+			...input.skillsLeftOut,
+			...input.skills
+				.filter((skill) => echoes.has(skill.id))
+				.map((skill) => ({ skillId: skill.id, name: skill.name, reason: "Repeats its group's heading" })),
+		],
 		warnings,
 	};
 }
@@ -386,7 +405,24 @@ export function copiedPhrase(candidate: string, examples: string[], record: stri
 	return null;
 }
 
-const HEADLINE_JOINERS = new Set(["and", "of", "for", "in", "with", "the", "a", "an", "to", "on"]);
+// Joining words, and descriptors that claim no title: "Communications and Marketing Professional" is true of anyone
+// whose record shows communications and marketing work.
+const HEADLINE_JOINERS = new Set([
+	"and",
+	"of",
+	"for",
+	"in",
+	"with",
+	"the",
+	"a",
+	"an",
+	"to",
+	"on",
+	"professional",
+	"specialist",
+	"practitioner",
+	"generalist",
+]);
 
 /**
  * A headline must be built from the record: every word comes from an included title, organization, scope,

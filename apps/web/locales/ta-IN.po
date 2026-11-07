@@ -8794,6 +8794,10 @@ msgstr "புதிய பக்கம்"
 msgid "New password"
 msgstr "புதிய கடவுச்சொல்"
 
+#: src/features/settings/resume-style.tsx
+msgid "New preset from"
+msgstr ""
+
 #: src/features/career/today.tsx
 msgid "New roles from your search"
 msgstr "உங்கள் தேடலிலிருந்து புதிய பதவிகள்"
@@ -13063,7 +13067,6 @@ msgid "Start each one with a concrete verb: built, led, reduced, migrated."
 msgstr "ஒவ்வொன்றையும் ஒரு உறுதியான வினைச்சொல்லுடன் தொடங்கவும்: கட்டியெழுப்பினேன், வழிநடத்தினேன், குறைத்தேன், மாற்றினேன்."
 
 #: src/features/documents/new-document-dialog.tsx
-#: src/features/settings/resume-style.tsx
 msgid "Start from"
 msgstr "இருந்து தொடங்குங்கள்"
 

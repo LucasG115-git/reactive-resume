@@ -77,6 +77,7 @@ function StyleGuideForm({ initial }: StyleGuideFormProps) {
 	const queryClient = useQueryClient();
 	const [draft, setDraft] = useState(initial);
 	const [selectedId, setSelectedId] = useState(initial.defaultPresetId);
+	const familyId = useId();
 	const [family, setFamily] = useState<RoleFamily>("communications");
 	const families = familyLabel();
 	const dirty = JSON.stringify(draft) !== JSON.stringify(initial);
@@ -120,20 +121,34 @@ function StyleGuideForm({ initial }: StyleGuideFormProps) {
 					</Trans>
 				}
 				action={
-					<div className="flex items-center gap-2">
-						<NativeSelect
-							aria-label={t`Start from`}
-							value={family}
-							onChange={(event) => setFamily(event.target.value as RoleFamily)}
-							className="h-8 min-w-44 text-[13px]"
+					<div className="flex flex-wrap items-center gap-2">
+						{/* A labelled template picker, so it can't be mistaken for a preset that already exists. */}
+						<div className="flex shrink-0 items-center gap-2 text-xs text-ink-3">
+							<label htmlFor={`${familyId}-family`}>
+								<Trans>New preset from</Trans>
+							</label>
+							<span className="w-44 shrink-0">
+								<NativeSelect
+									id={`${familyId}-family`}
+									value={family}
+									onChange={(event) => setFamily(event.target.value as RoleFamily)}
+									className="h-8 text-[13px]"
+								>
+									{ROLE_FAMILIES.map((item) => (
+										<option key={item} value={item}>
+											{families[item]}
+										</option>
+									))}
+								</NativeSelect>
+							</span>
+						</div>
+						<Button
+							size="sm"
+							variant="secondary"
+							className="shrink-0"
+							disabled={draft.presets.length >= 12}
+							onClick={addPreset}
 						>
-							{ROLE_FAMILIES.map((item) => (
-								<option key={item} value={item}>
-									{families[item]}
-								</option>
-							))}
-						</NativeSelect>
-						<Button size="sm" variant="secondary" disabled={draft.presets.length >= 12} onClick={addPreset}>
 							<Icon name="plus" size={16} />
 							<Trans>Add preset</Trans>
 						</Button>

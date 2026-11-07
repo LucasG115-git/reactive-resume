@@ -8794,6 +8794,10 @@ msgstr "కొత్త పేజీ"
 msgid "New password"
 msgstr "న్యూ పాస్‌వర్డ్"
 
+#: src/features/settings/resume-style.tsx
+msgid "New preset from"
+msgstr ""
+
 #: src/features/career/today.tsx
 msgid "New roles from your search"
 msgstr "మీ అన్వేషణ నుండి కొత్త పదవులు"
@@ -13063,7 +13067,6 @@ msgid "Start each one with a concrete verb: built, led, reduced, migrated."
 msgstr "ప్రతిదాన్ని నిర్దిష్ట క్రియతో ప్రారంభించండి: built, led, reduced, migrated."
 
 #: src/features/documents/new-document-dialog.tsx
-#: src/features/settings/resume-style.tsx
 msgid "Start from"
 msgstr "నుండి ప్రారంభించండి"
 

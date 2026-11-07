@@ -7,6 +7,10 @@ import type { ResumeDates } from "@reactive-resume/schema/resume/dates";
 import { generateId } from "@reactive-resume/utils/string";
 import {
 	alignTense,
+	dropFiller,
+	dropOwnName,
+	ownNames,
+	restatesHeading,
 	sameSite,
 	shortenApproximations,
 	shortLocation,
@@ -236,18 +240,27 @@ export function buildResume(input: {
 	const bullets: AssembledBullet[] = [];
 	const evidenceNotes: AssembleResult["evidenceNotes"] = [];
 	/** The printed line: notes about evidence out, long approximations shortened. Never adds anything. */
-	const tidy = (achievementId: string | null, text: string) => {
+	const tidy = (achievementId: string | null, text: string, names: string[] = []) => {
 		const cleaned = stripEvidenceNotes(text);
 		if (cleaned.removed.length > 0 || cleaned.doubtful)
 			evidenceNotes.push({ achievementId, removed: cleaned.removed, doubtful: cleaned.doubtful });
-		return shortenApproximations(cleaned.text);
+		return dropOwnName(dropFiller(shortenApproximations(cleaned.text)), names);
 	};
 	/** Bullets for an entry with their wording chosen and tidied, in one tense. */
 	const placeBullets = (entry: Entry, picks: Array<{ achievement: Achievement; proposed: string }>) => {
-		const lines = picks.map(({ achievement, proposed }) => {
-			const chosenWording = chooseWording(achievement, proposed, mode, warnings);
-			return { achievement, ...chosenWording, text: tidy(achievement.id, chosenWording.text) };
-		});
+		const lines = picks
+			.map(({ achievement, proposed }) => {
+				const chosenWording = chooseWording(achievement, proposed, mode, warnings);
+				return { achievement, ...chosenWording, text: tidy(achievement.id, chosenWording.text, ownNames(entry)) };
+			})
+			// Under a degree or credential, a line that only restates it is dropped.
+			.filter(
+				(line) =>
+					!(
+						["education", "certification"].includes(entry.kind) &&
+						restatesHeading(line.text, `${entry.title} ${entry.organization}`)
+					),
+			);
 		const tensed = alignTense(
 			lines.map((line) => line.text),
 			!entry.endDate,
