@@ -101,6 +101,7 @@ How to judge:
 - Value demonstrated results, scope and seniority over duties. Prefer the stronger of two achievements that show the same thing.
 - "requirements" lists only requirement ids the achievement actually evidences, including through different wording.
 - Include an entry when it adds relevant evidence. Older work belongs when it shows something the more recent work doesn't; age alone is not a reason to leave it out. Leave out positions that add nothing for this role.
+- Include a project or volunteer role only when it has at least two or three strong achievements for this role, or shows something important the positions don't. A side project with one loosely related line reads as filler; the space is better spent on more evidence from the main roles.
 - Rate only skills relevant to this role (relevance 2-3) and the requirements they relate to; leave the rest out.
 - Judge as the hiring manager for this role would: what makes them want to interview this person, and what would make them hesitate.
 - Give more weight to the candidate's recent and long-held roles, where they built most of their experience (see the dates); an older or short role needs stronger evidence to earn a place.

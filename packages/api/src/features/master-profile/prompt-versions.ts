@@ -4,7 +4,7 @@
  */
 export const PROMPT_VERSIONS = {
 	analysis: "analysis-4",
-	evidence: "evidence-3",
+	evidence: "evidence-4",
 	writing: "writing-5",
 	review: "review-3",
 	summary: "summary-1",

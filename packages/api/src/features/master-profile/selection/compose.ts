@@ -30,6 +30,17 @@ export const SELECTION_RULES = {
 	maxPositions: 6,
 	maxProjects: 3,
 	maxVolunteer: 2,
+	/**
+	 * Fewest bullets a project (or volunteer role) needs to earn its place; thinner ones read as filler beside roles
+	 * with four or five, so they stay only when particularly relevant, and their space goes to the positions.
+	 */
+	minBullets: { project: 3, volunteer: 2 },
+	/** A thin project stays when its best bullet scores at least this, or it shows something no position does. */
+	strongOther: 0.7,
+	/** Extra bullets a position may take from the space a dropped project frees: the lead role, then others. */
+	extraBullets: { lead: 2, other: 1 },
+	/** The connection to the posting an added bullet needs (or an AI relevance of 2 or more). */
+	extendAlignment: 0.5,
 	/** An older position joins when one of its achievements scores at least this, even without unique coverage. */
 	strongOlder: 0.72,
 	/** Two achievements this similar are treated as saying the same thing. */
@@ -179,6 +190,35 @@ export function composePlan(input: ComposeInput): ResumeSelectionPlan {
 		return picks;
 	};
 
+	/** Adds up to n more recommended bullets to an included entry, skipping near-duplicates. Returns how many. */
+	const extendIn = (plan: PlanEntry, n: number) => {
+		let added = 0;
+		for (const item of plan.achievements) {
+			if (added >= n) break;
+			// Only clearly relevant bullets: padding a role with loosely related work is no better than a thin project.
+			const relevant = item.score.alignment >= R.extendAlignment || (item.score.aiRelevance ?? 0) >= 2;
+			if (item.include || !recommended(item) || !relevant) continue;
+			const candidate = candidates.get(item.achievementId);
+			const twin =
+				candidate &&
+				chosen.some((other) => {
+					const otherCandidate = candidates.get(other.achievementId);
+					return otherCandidate ? similar(candidate, otherCandidate) >= R.redundant : false;
+				});
+			if (twin) continue;
+			item.include = true;
+			item.reason = "Added in place of a thin project, to build out this role";
+			chosen.push(item);
+			added++;
+		}
+		if (added > 0) {
+			const picks = plan.achievements.filter((item) => item.include).toSorted((a, b) => b.score.total - a.score.total);
+			plan.achievements = [...picks, ...plan.achievements.filter((item) => !item.include)];
+			plan.bulletTarget = picks.length;
+		}
+		return added;
+	};
+
 	const best = (plan: PlanEntry) => plan.achievements[0]?.score.total ?? 0;
 	const aiEntry = (plan: PlanEntry) => review.entries.get(plan.entryId);
 
@@ -254,6 +294,44 @@ export function composePlan(input: ComposeInput): ResumeSelectionPlan {
 			count++;
 			chooseIn(plan, R.bullets.other);
 		}
+	}
+
+	// Thin projects and volunteer roles (one or two bullets beside roles with four or five) read as filler: they stay
+	// only when particularly relevant, a strongly matched bullet or something no position shows, and their space
+	// goes to more bullets from the positions instead.
+	const shownByPositions = new Set(
+		entries
+			.filter((plan) => plan.include && plan.kind === "position")
+			.flatMap((plan) => plan.achievements.filter((item) => item.include).flatMap((item) => item.requirementIds)),
+	);
+	let freed = 0;
+	for (const plan of entries) {
+		if (!plan.include || (plan.kind !== "project" && plan.kind !== "volunteer")) continue;
+		const picks = plan.achievements.filter((item) => item.include);
+		if (picks.length >= R.minBullets[plan.kind] || picks.some((item) => item.core)) continue;
+		const entry = entryById.get(plan.entryId);
+		const own = entry && plan.achievements.length === 0 ? entryAlignment(entry, context) : null;
+		const top = Math.max(own?.alignment ?? 0, ...picks.map((item) => item.score.total));
+		const unique = [...picks.flatMap((item) => item.requirementIds), ...(own?.requirementIds ?? [])].some(
+			(id) => !shownByPositions.has(id),
+		);
+		if (top >= R.strongOther || unique) continue;
+		plan.include = false;
+		plan.reason = `Only ${picks.length === 1 ? "one bullet" : `${picks.length} bullets`} and not especially relevant, so the space goes to your experience. Include it if you'd rather have it.`;
+		for (const item of picks) {
+			item.include = false;
+			const at = chosen.indexOf(item);
+			if (at >= 0) chosen.splice(at, 1);
+		}
+		plan.bulletTarget = 0;
+		freed += picks.length + 1;
+	}
+	let leadRole = true;
+	for (const plan of entries) {
+		if (freed <= 0) break;
+		if (!plan.include || plan.kind !== "position") continue;
+		freed -= extendIn(plan, Math.min(freed, leadRole ? R.extraBullets.lead : R.extraBullets.other));
+		leadRole = false;
 	}
 
 	// Education is listed by convention; certifications and awards when they relate to the posting or are recent.
