@@ -126,11 +126,11 @@ beforeEach(() => {
 
 describe("createApp", () => {
 	// The first case pays for the cold import of the whole app, which takes seconds under a parallel run.
-	it("serves /index.html through the shared HTML response before static files", async () => {
+	it("serves app pages through the shared HTML response after static files", async () => {
 		const { createApp } = await import("./app");
-		const response = await createApp().request("/index.html");
+		mocks.serveWebDistStatic.mockImplementation(async (_context: unknown, next: () => Promise<void>) => next());
+		const response = await createApp().request("/dashboard");
 		expect(await response.text()).toBe("web");
-		expect(mocks.serveWebDistStatic).not.toHaveBeenCalled();
 	}, 15_000);
 
 	it.each([
@@ -228,15 +228,13 @@ describe("createApp", () => {
 		expect(mocks.handleWellKnownFallback).not.toHaveBeenCalled();
 	});
 
-	it("routes GET / to the web app before static files", async () => {
+	it.each(["/", "/index.html"])("opens the dashboard from %s instead of the marketing home", async (path) => {
 		const { createApp } = await import("./app");
-		const app = createApp();
-		const request = new Request("http://localhost:3001/");
+		const response = await createApp().fetch(new Request(`http://localhost:3001${path}`));
 
-		const response = await app.fetch(request);
-
-		expect(response.status).toBe(200);
-		expect(await response.text()).toBe("web");
+		expect(response.status).toBe(302);
+		expect(response.headers.get("Location")).toBe("/dashboard");
+		expect(mocks.handleWebApp).not.toHaveBeenCalled();
 		expect(mocks.serveWebDistStatic).not.toHaveBeenCalled();
 	});
 
@@ -251,12 +249,13 @@ describe("createApp", () => {
 		mocks.handleWebApp.mockImplementation(async () => htmlResponse());
 		mocks.handleRpc.mockImplementation(async () => stream());
 		mocks.handleMcp.mockImplementation(async () => stream());
+		mocks.serveWebDistStatic.mockImplementation(async (_context: unknown, next: () => Promise<void>) => next());
 		const headers = { "Accept-Encoding": "br, gzip" };
 
-		const page = await createApp().request("http://localhost:3000/", { headers });
+		const page = await createApp().request("http://localhost:3000/dashboard", { headers });
 		const rpc = await createApp().request("http://localhost:3000/api/rpc/agent/chat", { headers });
 		const mcp = await createApp().request("http://localhost:3000/mcp", { headers });
-		const vercelPage = await createApp({ serveStatic: false }).request("http://localhost:3000/", { headers });
+		const vercelPage = await createApp({ serveStatic: false }).request("http://localhost:3000/dashboard", { headers });
 
 		expect(page.headers.get("content-encoding")).toBe("gzip");
 		expect(page.headers.get("vary")).toBe("Cookie, Accept-Encoding");
