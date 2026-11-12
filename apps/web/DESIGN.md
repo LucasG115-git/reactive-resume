@@ -270,6 +270,8 @@ The shared `theme` cookie stores `light`, `dark`, or `system` (the default). Sys
 
 ## Marketing site
 
+This instance doesn't show the homepage: `/` opens the dashboard when signed in and the login page when not (`apps/server/src/http/app.ts` redirects first loads; the `/_home/` route redirects in-app links). The code is kept so it can be turned back on.
+
 The public homepage in `apps/web/src/features/homepage` shares app colors and themes but has its own typography, illustrations, and motion. `landing.css` defines its fonts, graphite color, paper shadows, and ambient animations. Other illustration colors in the front matter are scene values, not global app tokens.
 
 ### Brand and type

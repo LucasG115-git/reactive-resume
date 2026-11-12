@@ -171,12 +171,11 @@ export function createApp(options: AppOptions = {}) {
 
 	// Must precede the static middleware: serveStatic resolves "/" to dist/index.html and would
 	// return it verbatim, skipping the OpenGraph/Twitter/canonical/JSON-LD injection in handleWebApp.
-	// An instance can show one resume at its root instead of the marketing home; the configuration alone picks it.
+	// An instance can show one resume at its root; the configuration alone picks it. Otherwise the root opens the app:
+	// the dashboard, which sends anyone signed out to the login page. The marketing home isn't shown.
 	const rootResumeId = env.ROOT_RESUME_ID;
 	app.on("GET", ["/", "/index.html"], (c) =>
-		rootResumeId
-			? serveResumePage(c.req.raw, { id: rootResumeId }, client(c))
-			: handleWebApp(c.req.raw, options.readWebFile),
+		rootResumeId ? serveResumePage(c.req.raw, { id: rootResumeId }, client(c)) : c.redirect("/dashboard", 302),
 	);
 	if (rootResumeId)
 		app.post("/", limitBody(16 * 1024), (c) => serveResumePage(c.req.raw, { id: rootResumeId }, client(c)));
