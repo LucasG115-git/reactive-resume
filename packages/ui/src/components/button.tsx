@@ -5,11 +5,11 @@ import { Spinner } from "@reactive-resume/ui/components/spinner";
 import { cn } from "@reactive-resume/utils/style";
 
 const buttonVariants = cva(
-	"group/button touch-target relative inline-flex shrink-0 items-center justify-center gap-2 border border-transparent text-sm font-medium whitespace-nowrap transition-[background-color,border-color,color,filter,scale] duration-quick ease-enter select-none disabled:pointer-events-none aria-busy:cursor-progress [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+	"group/button touch-target relative inline-flex shrink-0 items-center justify-center gap-2 border border-transparent text-sm font-medium whitespace-nowrap transition-[background-color,border-color,color,filter] duration-quick ease-enter select-none disabled:pointer-events-none aria-busy:cursor-progress [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
 	{
 		variants: {
 			variant: {
-				primary: "bg-accent font-semibold text-on-accent hover:bg-accent-hover disabled:bg-sunken disabled:text-ink-3",
+				primary: "bg-accent font-bold text-on-accent hover:bg-accent-hover disabled:bg-sunken disabled:text-ink-3",
 				secondary:
 					"border-line-2 bg-surface text-ink hover:bg-sunken active:bg-press disabled:border-line disabled:text-ink-3 aria-expanded:bg-sunken",
 				ghost: "text-ink hover:bg-hover active:bg-press disabled:text-ink-3 aria-expanded:bg-hover",
@@ -29,8 +29,8 @@ const buttonVariants = cva(
 		},
 		compoundVariants: [
 			{ variant: "ghost", size: "default", className: "px-3" },
-			// Press feedback; a text link doesn't press, and a loading button blocks activation.
-			{ variant: ["primary", "secondary", "ghost", "danger"], className: "not-aria-busy:active:scale-[0.97]" },
+			// Press feedback is colour only (nothing scales on press); a loading button blocks activation.
+			{ variant: "primary", className: "not-aria-busy:active:bg-accent-press" },
 		],
 		defaultVariants: {
 			variant: "primary",

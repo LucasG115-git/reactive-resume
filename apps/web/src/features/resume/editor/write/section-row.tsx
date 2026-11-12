@@ -139,7 +139,7 @@ export function SectionRow({ section, locked, onMove, children }: SectionRowProp
 					</Badge>
 				)}
 				{section.kind !== "summary" && (
-					<span className="px-1 font-mono text-xs text-ink-3">
+					<span className="px-1 text-xs text-ink-3 tabular-nums">
 						<span aria-hidden="true">{count}</span>
 						<span className="sr-only">{plural(count, { one: "# entry", other: "# entries" })}</span>
 					</span>

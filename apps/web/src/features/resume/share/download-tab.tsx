@@ -108,7 +108,7 @@ export function FormatRadioGroup<Id extends string>({ formats, value, onChange }
 					<span className="grid min-w-0 flex-1 gap-0.5">
 						<span className="flex flex-wrap items-center gap-2">
 							<span className="text-sm font-semibold">{option.label}</span>
-							<span className="font-mono text-[11px] font-medium text-ink-3 group-data-checked/format:text-ink-2">
+							<span className="text-[11px] font-medium text-ink-3 tabular-nums group-data-checked/format:text-ink-2">
 								{option.extension}
 							</span>
 							{option.id === "pdf" && (
@@ -139,7 +139,7 @@ export function FileNameField({ value, extension, hint, onChange }: FileNameFiel
 			<label htmlFor={id} className="text-xs font-medium text-ink-2">
 				<Trans>File name</Trans>
 			</label>
-			<div className="flex h-[38px] items-center overflow-hidden rounded-lg border border-line-2 bg-raised focus-within:border-accent focus-within:ring-3 focus-within:ring-accent-soft">
+			<div className="flex h-[38px] items-center overflow-hidden rounded-lg border border-line-2 bg-raised focus-within:border-accent focus-within:ring-3 focus-within:ring-focus/32">
 				<input
 					id={id}
 					value={value}

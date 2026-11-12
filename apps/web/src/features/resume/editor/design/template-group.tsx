@@ -252,7 +252,7 @@ function SidebarPanel({ data, template }: SidebarPanelProps) {
 					<span id={widthId}>
 						<Trans>Width</Trans>
 					</span>
-					<span className="font-mono text-xs text-ink-2">{width}%</span>
+					<span className="text-xs text-ink-2 tabular-nums">{width}%</span>
 				</div>
 				<Slider
 					aria-labelledby={`${titleId} ${widthId}`}

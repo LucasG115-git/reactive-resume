@@ -395,7 +395,7 @@ type TagFilterProps = {
 
 const chipClassName = (isActive: boolean) =>
 	cn(
-		"min-h-7 rounded-sm border px-3 text-[13px] transition-[background-color,border-color,color,scale] duration-quick ease-enter active:scale-[0.97] pointer-coarse:min-h-11",
+		"min-h-7 rounded-sm border px-3 text-[13px] transition-[background-color,border-color,color,scale] duration-quick ease-enter pointer-coarse:min-h-11",
 		isActive ? "border-accent bg-accent-soft text-accent-text" : "border-line-2 text-ink-2 hover:bg-hover",
 	);
 

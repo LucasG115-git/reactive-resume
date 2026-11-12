@@ -431,7 +431,7 @@ function EmptyState({ document, disabled, onPick }: EmptyStateProps) {
 							type="button"
 							disabled={disabled}
 							onClick={() => onPick(suggestion.label)}
-							className="flex min-h-11 w-full items-center gap-3 rounded-lg border border-line px-3 py-2 text-start transition-[background-color,scale] duration-quick ease-enter hover:bg-hover enabled:active:scale-[0.98] disabled:opacity-60"
+							className="enabled: flex min-h-11 w-full items-center gap-3 rounded-lg border border-line px-3 py-2 text-start transition-[background-color,scale] duration-quick ease-enter hover:bg-hover disabled:opacity-60"
 						>
 							<Icon name={suggestion.icon} size={20} className="shrink-0 text-ink-2" />
 							<span className="grid min-w-0">

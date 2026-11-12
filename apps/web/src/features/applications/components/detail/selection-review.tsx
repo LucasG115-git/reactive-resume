@@ -23,7 +23,7 @@ export function editOf(plan: ResumeSelectionPlan): Omit<SelectionEdit, "applicat
 }
 
 const statusStyle = {
-	supported: { icon: "check-circle", className: "text-accent-text", label: () => t`Supported` },
+	supported: { icon: "check-circle", className: "text-success-text", label: () => t`Supported` },
 	partial: { icon: "circle-half", className: "text-warn-text", label: () => t`Partly supported` },
 	gap: { icon: "warning-circle", className: "text-danger-text", label: () => t`No verified evidence` },
 } as const;
@@ -101,7 +101,7 @@ export function SelectionReview({ selection, saving, onChange }: SelectionReview
 								<Icon name={style.icon} size={16} className={cn("mt-0.5 flex-none", style.className)} aria-hidden />
 								<span className="grid flex-1 gap-0.5">
 									<span>
-										<span className="font-mono text-[11px] text-ink-3">{requirement.id}</span> {requirement.text}
+										<span className="text-[11px] text-ink-3 tabular-nums">{requirement.id}</span> {requirement.text}
 									</span>
 									<span className="text-xs text-ink-3">
 										{requirement.necessity === "mandatory" ? t`Required` : t`Preferred`}

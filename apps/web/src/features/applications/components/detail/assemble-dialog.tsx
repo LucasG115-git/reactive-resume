@@ -477,7 +477,7 @@ function ModelUsage(props: ModelUsageProps) {
 			<h4 className="text-xs font-semibold text-ink-3">
 				{props.quality === "thorough" ? <Trans>Models used (Thorough)</Trans> : <Trans>Models used</Trans>}
 			</h4>
-			<ul className="grid gap-0.5 font-mono text-xs text-ink-3">
+			<ul className="grid gap-0.5 text-xs text-ink-3 tabular-nums">
 				{props.usage.map((item, index) => (
 					<li key={`${item.step}-${index}`}>
 						{item.step} · {item.model} ·{" "}
@@ -487,7 +487,7 @@ function ModelUsage(props: ModelUsageProps) {
 				))}
 			</ul>
 			{props.usage.length > 1 && (
-				<p className="font-mono text-xs text-ink-3">{t`${total.toLocaleString()} tokens in total`}</p>
+				<p className="text-xs text-ink-3 tabular-nums">{t`${total.toLocaleString()} tokens in total`}</p>
 			)}
 		</div>
 	);
@@ -496,7 +496,7 @@ function ModelUsage(props: ModelUsageProps) {
 type AssembleReportProps = { result: AssembleResult; onChange: (next: AssembleResult["result"]) => void };
 
 const strengthStyle = {
-	strong: { icon: "check-circle", className: "text-accent-text", label: () => t`Backed` },
+	strong: { icon: "check-circle", className: "text-success-text", label: () => t`Backed` },
 	partial: { icon: "circle-half", className: "text-warn-text", label: () => t`Partly backed` },
 	none: { icon: "warning-circle", className: "text-danger-text", label: () => t`No evidence yet` },
 } as const;
@@ -508,7 +508,7 @@ function AssembleReport({ result, onChange }: AssembleReportProps) {
 	const writing = result.result.writing;
 	return (
 		<div className="grid gap-4">
-			<p className="font-mono text-xs text-ink-3">
+			<p className="text-xs text-ink-3 tabular-nums">
 				{plural(bullets.length, { one: "# bullet placed", other: "# bullets placed" })} ·{" "}
 				{plural(rephrased, { one: "# reworded", other: "# reworded" })}
 				{result.result.summaryUsed ? ` · ${t`new summary`}` : ""}

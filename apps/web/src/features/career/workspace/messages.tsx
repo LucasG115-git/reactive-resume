@@ -137,7 +137,7 @@ function ReplyCard({ reply, readOnly }: ReplyCardProps) {
 				<ul className="grid gap-1.5">
 					{reply.data.asks.map((ask) => (
 						<li key={ask} className="flex gap-2 text-sm leading-[21px]">
-							<Icon name="check" size={17} className="mt-0.5 shrink-0 text-accent-text" />
+							<Icon name="check" size={17} className="mt-0.5 shrink-0 text-success-text" />
 							{ask}
 						</li>
 					))}

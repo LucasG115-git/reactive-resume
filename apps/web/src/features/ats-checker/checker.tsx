@@ -308,7 +308,7 @@ function Progress({ file, step }: { file: File; step: number }) {
 					>
 						<span className="flex w-5.5 justify-center">
 							{index < step ? (
-								<Icon name="check" size={20} className={cn(POP_CLASS, "text-accent-text")} />
+								<Icon name="check" size={20} className={cn(POP_CLASS, "text-success-text")} />
 							) : index === step ? (
 								<Spinner decorative className={cn(POP_CLASS, "size-4")} />
 							) : (

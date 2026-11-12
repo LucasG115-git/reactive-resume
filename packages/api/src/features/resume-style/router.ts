@@ -16,6 +16,7 @@ export const resumeStyleRouter = {
 			summary: "Get the Resume Style Guide",
 			description: "Writing presets for different career directions and example resumes. Defaults when none is saved.",
 		})
+		.input(z.object({}).optional())
 		.output(resumeStyleGuideSchema)
 		.handler(({ context }) => resumeStyleService.get(context.user.id)),
 

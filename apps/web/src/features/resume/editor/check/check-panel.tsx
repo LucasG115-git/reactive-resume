@@ -57,12 +57,12 @@ export function CheckPanel() {
 				<TabsList aria-label={t`Check views`} className="h-[38px] w-full">
 					<TabsTrigger value="issues" className="gap-1.5">
 						<Trans>Issues</Trans>
-						<span className="font-mono text-xs text-ink-3">{check.issues.length}</span>
+						<span className="text-xs text-ink-3 tabular-nums">{check.issues.length}</span>
 					</TabsTrigger>
 					<TabsTrigger value="match" className="gap-1.5">
 						<Trans>Job match</Trans>
 						{match.result && (
-							<span className="font-mono text-xs text-ink-3">
+							<span className="text-xs text-ink-3 tabular-nums">
 								{match.result.found.length}/{match.result.total}
 							</span>
 						)}
@@ -103,7 +103,7 @@ function ScoreSummary({ report }: { report: AtsReport }) {
 				style={
 					{
 						"--ring-value": `${score}%`,
-						"--ring-color": score >= 80 ? "var(--accent)" : "var(--warn)",
+						"--ring-color": score >= 80 ? "var(--success)" : "var(--warn)",
 					} as CSSProperties
 				}
 			>
@@ -142,7 +142,7 @@ function IssuesTab({ check }: { check: CheckResult }) {
 	return (
 		<div className="grid gap-2.5">
 			{issues.length === 0 ? (
-				<div className="flex gap-2.5 rounded-xl bg-accent-soft p-3 text-[13px] leading-[19px] text-accent-text">
+				<div className="flex gap-2.5 rounded-xl bg-success-soft p-3 text-[13px] leading-[19px] text-success-text">
 					<Icon name="check-circle" />
 					<p>
 						<Trans>
@@ -212,7 +212,7 @@ function IssueCard({ issue, selected, locked }: IssueCardProps) {
 					{issue.number}
 				</span>
 				<div className="grid min-w-0 gap-[3px]">
-					<span className="font-mono text-xs text-ink-3">{getCategoryName(issue.category)}</span>
+					<span className="text-xs text-ink-3 tabular-nums">{getCategoryName(issue.category)}</span>
 					<h3 id={titleId} className="text-sm leading-5 font-semibold">
 						<span className="sr-only">
 							<Trans>Issue {issue.number}:</Trans>{" "}

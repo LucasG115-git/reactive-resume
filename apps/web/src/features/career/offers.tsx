@@ -587,7 +587,7 @@ function OpenQuestions({ offers }: OpenQuestionsProps) {
 					<ol className="grid gap-2">
 						{questions.map((item, index) => (
 							<li key={item.question} className="grid grid-cols-[20px_minmax(0,1fr)] text-sm leading-[21px]">
-								<span className="font-mono text-xs leading-[21px] text-ink-3">{index + 1}.</span>
+								<span className="text-xs leading-[21px] text-ink-3 tabular-nums">{index + 1}.</span>
 								<span>
 									{item.question} <span className="text-xs text-ink-3">· {item.ask}</span>
 								</span>

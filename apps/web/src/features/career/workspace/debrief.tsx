@@ -439,7 +439,7 @@ function WeekPlan({ application, review, now, readOnly }: WeekPlanProps) {
 									onCheckedChange={(on) => ticks.toggle(row.key, on)}
 									className="mt-px"
 								/>
-								<span className="font-mono text-xs leading-4 font-medium text-ink-3">
+								<span className="text-xs leading-4 font-medium text-ink-3 tabular-nums">
 									{weekday}
 									<br />
 									{t`${length}m`}

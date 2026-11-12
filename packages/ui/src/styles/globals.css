@@ -1,11 +1,8 @@
 @import "tailwindcss" source(none);
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
-@import "@fontsource-variable/figtree/wght.css";
-@import "@fontsource-variable/figtree/wght-italic.css";
-@import "@fontsource/instrument-serif/400.css";
-@import "@fontsource/instrument-serif/400-italic.css";
-@import "@fontsource-variable/geist-mono/wght.css";
+@import "@fontsource-variable/manrope/wght.css";
+@import "@fontsource/space-grotesk/700.css";
 /* Phosphor's web font draws the icons inside resumes (their names are stored in resume data). */
 @import "@phosphor-icons/web/regular/style.css";
 @import "./typeset.css";
@@ -16,58 +13,77 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * Desk & Paper tokens. oklch is the source of truth; the hex values are sRGB approximations.
- * The resume page (--paper) is white in both themes and never inverts.
+ * Countdown Creative tokens (rebrand spec v1). Orange has three jobs: the primary action, the selected item, and the
+ * one number on a screen that matters most. No pure black and no gradients: warm paper and warm ink. Success replaces
+ * the old "green means good" use of the accent. The resume page (--paper) is white in both themes and never inverts.
  */
 :root {
 	color-scheme: light;
 
-	--bg: oklch(0.975 0.005 95); /* #F8F7F3 app desk */
-	--surface: oklch(0.995 0.002 95); /* #FEFDFC panels, cards */
-	--raised: oklch(1 0 0); /* #FFFFFF menus, dialogs, inputs */
-	--sunken: oklch(0.952 0.006 95); /* #F0EFEB wells, tracks, page canvas */
-	--line: oklch(0.9 0.006 95); /* #DFDEDA dividers */
-	--line-2: oklch(0.82 0.008 95); /* #C5C4BE input borders */
-	--ink: oklch(0.22 0.01 95); /* #1C1B15 primary text */
-	--ink-2: oklch(0.42 0.01 95); /* #4F4D47 secondary text */
-	--ink-3: oklch(0.53 0.01 95); /* #6D6C65 meta, placeholder (minimum for text) */
-	--accent: oklch(0.5 0.1 150); /* #337344 primary action, selection, focus */
-	--accent-hover: oklch(0.44 0.1 150); /* #206133 */
-	--on-accent: oklch(0.99 0.01 150); /* #F7FEF8 */
-	--accent-soft: oklch(0.94 0.035 150); /* #DCF2DF selected background, proposals */
-	--accent-text: oklch(0.42 0.1 150); /* #195C2E */
-	--danger: oklch(0.53 0.17 27); /* #BA3630 */
-	--danger-soft: oklch(0.95 0.03 27); /* #FFE7E4 */
-	--danger-text: oklch(0.48 0.17 27); /* #A92321 */
-	--warn: oklch(0.72 0.14 80); /* #D29922 check issues, stale edits */
-	--warn-soft: oklch(0.95 0.045 85); /* #FCEDCD */
-	--warn-text: oklch(0.48 0.1 70); /* #81520A */
-	--info-soft: oklch(0.95 0.03 250); /* #E0F1FF neutral guidance, assistant question */
-	--info-text: oklch(0.46 0.11 250); /* #1D5B92 */
-	--hover: oklch(0.22 0.01 95 / 0.05);
-	--press: oklch(0.22 0.01 95 / 0.09);
-	--scrim: oklch(0.2 0.01 95 / 0.32);
-	--scrim-sheet: oklch(0.2 0.01 95 / 0.18);
+	/* Surfaces and lines: paper ramp */
+	--bg: #f4efe9; /* paper-200 app background */
+	--surface: #fdfcfb; /* paper-50 panels, cards */
+	--raised: #ffffff; /* paper-0 menus, dialogs, inputs */
+	--sunken: #ece5de; /* paper-300 wells, tracks, page canvas */
+	--line: #ece5de; /* paper-300 dividers, card edges */
+	--line-2: #d3c7bb; /* paper-500 input borders */
+	--line-strong: #8a7c70; /* ink-400 strong control borders */
+
+	/* Text: warm ink */
+	--ink: #1e1a17; /* ink-900 main text, headings */
+	--ink-2: #4a423c; /* ink-600 secondary text */
+	--ink-3: #5c534c; /* ink-500 meta, placeholder (minimum for text) */
+
+	/* Brand orange */
+	--accent: #ff7739; /* action-primary: primary buttons, selection */
+	--accent-hover: #e85f1e;
+	--accent-press: #c44e14;
+	--on-accent: #ffffff; /* text on orange, weight 700 */
+	--accent-soft: #fff7f2; /* orange-50 selected and proposed backgrounds */
+	--accent-text: #c44e14; /* orange-700 accent text and links; never #FF7739 on text */
+	--focus: #ff9660; /* focus ring */
+
+	/* Status: muted on purpose */
+	--danger: #d2605a;
+	--danger-soft: #fbebeb;
+	--danger-text: #b3413b;
+	--warn: #d9a33a;
+	--warn-soft: #fdf3d9;
+	--warn-text: #8a6410;
+	--info: #5b86c9;
+	--info-soft: #eaf1fb;
+	--info-text: #3b6ab3;
+	--success: #4e9a6c;
+	--success-soft: #eaf4ee;
+	--success-text: #2e7d4f;
+
+	/* Overlays: warm ink at low opacity */
+	--hover: rgb(30 26 23 / 0.05);
+	--press: rgb(30 26 23 / 0.09);
+	--scrim: rgb(30 20 10 / 0.32);
+	--scrim-sheet: rgb(30 20 10 / 0.18);
 	--paper: #ffffff;
 
-	--shadow-1: 0 1px 2px oklch(0.2 0.01 95 / 0.07);
-	--shadow-2: 0 1px 2px oklch(0.2 0.01 95 / 0.06), 0 10px 28px -8px oklch(0.2 0.01 95 / 0.18);
-	--shadow-3: 0 2px 6px oklch(0.2 0.01 95 / 0.08), 0 28px 64px -16px oklch(0.2 0.01 95 / 0.3);
-	--shadow-page: 0 1px 2px oklch(0.2 0.01 95 / 0.08), 0 12px 36px -12px oklch(0.2 0.01 95 / 0.25);
+	/* Elevation: warm-tinted, only on things that float (menus, dialogs, sheets); cards use a 1px border. */
+	--shadow-1: 0 1px 2px rgb(46 32 20 / 0.06);
+	--shadow-2: 0 4px 12px -2px rgb(46 32 20 / 0.1);
+	--shadow-3: 0 12px 28px -8px rgb(46 32 20 / 0.16);
+	--shadow-page: 0 1px 2px rgb(46 32 20 / 0.08), 0 24px 60px -20px rgb(30 20 10 / 0.28);
+	--shadow-focus: 0 0 0 3px rgb(255 119 57 / 0.32);
 
-	/* Application stages: shared lightness and chroma; only ever shown next to the stage name. */
-	--stage-saved: oklch(0.64 0.02 95); /* #908C7F */
-	--stage-applied: oklch(0.64 0.11 250); /* #5590CC */
-	--stage-screening: oklch(0.64 0.11 200); /* #00A0A6 */
-	--stage-interview: oklch(0.64 0.11 80); /* #AF8433 */
-	--stage-offer: oklch(0.64 0.11 150); /* #579F68 */
-	--stage-closed: oklch(0.64 0.11 27); /* #C67067 */
+	/* Application stages: the brand's chart palette, never orange; always shown next to the stage name. */
+	--stage-saved: #8a7c70; /* ink-400 */
+	--stage-applied: #5e7fae; /* viz-5 dusty blue */
+	--stage-screening: #3e7c78; /* viz-2 deep teal */
+	--stage-interview: #c99a2e; /* viz-3 ochre */
+	--stage-offer: #4e9a6c; /* success */
+	--stage-closed: #8a5a7c; /* viz-4 plum: closed isn't an error */
 
-	/* Motion: quick for hover and toggles, standard for menus and expand, emphasized for sheets and toasts. */
+	/* Motion: quick and unfussy, colour and opacity only. */
 	--d1: 120ms;
-	--d2: 200ms;
-	--d3: 320ms;
-	--ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+	--d2: 180ms;
+	--d3: 240ms;
+	--ease: cubic-bezier(0.2, 0.6, 0.3, 1);
 
 	/* Layout constants */
 	--editor-bar: 56px;
@@ -81,37 +97,57 @@
 .dark {
 	color-scheme: dark;
 
-	--bg: oklch(0.17 0.006 95); /* #100F0C */
-	--surface: oklch(0.2 0.006 95); /* #171613 */
-	--raised: oklch(0.235 0.007 95); /* #1F1E1A */
-	--sunken: oklch(0.145 0.006 95); /* #0B0A08 */
-	--line: oklch(0.29 0.007 95); /* #2C2B27 */
-	--line-2: oklch(0.4 0.008 95); /* #494843 */
-	--ink: oklch(0.95 0.005 95); /* #EFEEEB */
-	--ink-2: oklch(0.79 0.008 95); /* #BCBAB5 */
-	--ink-3: oklch(0.67 0.008 95); /* #979590 */
-	--accent: oklch(0.74 0.12 150); /* #6FC082 */
-	--accent-hover: oklch(0.8 0.12 150); /* #83D494 */
-	--on-accent: oklch(0.18 0.03 150); /* #07150A */
-	--accent-soft: oklch(0.3 0.05 150); /* #1A3520 */
-	--accent-text: oklch(0.82 0.11 150); /* #8FD89E */
-	--danger: oklch(0.62 0.17 27); /* #D9544B */
-	--danger-soft: oklch(0.3 0.06 27); /* #47211D */
-	--danger-text: oklch(0.8 0.11 27); /* #FDA297 */
-	--warn: oklch(0.8 0.13 85); /* #E4B750 */
-	--warn-soft: oklch(0.31 0.05 80); /* #3E2D10 */
-	--warn-text: oklch(0.86 0.1 85); /* #EFCC83 */
-	--info-soft: oklch(0.3 0.05 250); /* #192F46 */
-	--info-text: oklch(0.82 0.08 250); /* #9DC9F7 */
-	--hover: oklch(1 0 0 / 0.06);
-	--press: oklch(1 0 0 / 0.1);
-	--scrim: oklch(0 0 0 / 0.5);
-	--scrim-sheet: oklch(0 0 0 / 0.5);
+	/* Surfaces get lighter as they come forward: page, panel, raised. Still warm, never black. */
+	--bg: #1c1815;
+	--surface: #241f1b;
+	--raised: #2a2420;
+	--sunken: #171310;
+	--line: #3a322c;
+	--line-2: #5e544c;
+	--line-strong: #958879;
 
-	--shadow-1: 0 1px 2px oklch(0 0 0 / 0.4);
-	--shadow-2: 0 1px 2px oklch(0 0 0 / 0.4), 0 12px 32px -8px oklch(0 0 0 / 0.55);
-	--shadow-3: 0 2px 6px oklch(0 0 0 / 0.4), 0 28px 64px -12px oklch(0 0 0 / 0.7);
-	--shadow-page: 0 1px 2px oklch(0 0 0 / 0.4), 0 12px 36px -12px oklch(0 0 0 / 0.6);
+	--ink: #f6f1ec;
+	--ink-2: #c2b6ab;
+	--ink-3: #a09387;
+
+	/* The orange stays the same; tints and text tones change. */
+	--accent: #ff7739;
+	--accent-hover: #ff8a52;
+	--accent-press: #e85f1e;
+	--on-accent: #ffffff;
+	--accent-soft: #33221a;
+	--accent-text: #ff9660;
+	--focus: #ff9660;
+
+	--danger: #e0726b;
+	--danger-soft: #3a211f;
+	--danger-text: #ec8b85;
+	--warn: #e0ae48;
+	--warn-soft: #31280f;
+	--warn-text: #e3bc67;
+	--info: #739bda;
+	--info-soft: #1d2838;
+	--info-text: #8fb0e3;
+	--success: #5db081;
+	--success-soft: #1e2d24;
+	--success-text: #7cc49a;
+
+	--hover: rgb(246 241 236 / 0.06);
+	--press: rgb(246 241 236 / 0.1);
+	--scrim: rgb(12 8 5 / 0.5);
+	--scrim-sheet: rgb(12 8 5 / 0.5);
+
+	--shadow-1: 0 1px 2px rgb(10 6 3 / 0.4);
+	--shadow-2: 0 4px 12px -2px rgb(10 6 3 / 0.45);
+	--shadow-3: 0 12px 28px -8px rgb(10 6 3 / 0.6);
+	--shadow-page: 0 1px 2px rgb(10 6 3 / 0.4), 0 24px 60px -20px rgb(10 6 3 / 0.6);
+
+	--stage-saved: #a09387;
+	--stage-applied: #86a6d6;
+	--stage-screening: #5fa8a2;
+	--stage-interview: #ddb25a;
+	--stage-offer: #5db081;
+	--stage-closed: #b985a9;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -123,22 +159,24 @@
 }
 
 @theme {
-	/* Instrument Serif has one weight (400 and italic): never set it semibold or bold. */
-	--font-display: "Instrument Serif", Georgia, serif;
-	--font-ui: "Figtree Variable", system-ui, sans-serif;
+	/* Space Grotesk 700 for titles (no italic: use weight for emphasis); Manrope for everything else. Mono is the
+	   system's, for code, URLs and keys only: labels use the eyebrow, numbers use Manrope with tabular figures. */
+	--font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+	--font-ui: "Manrope Variable", "Manrope", ui-sans-serif, system-ui, sans-serif;
 	--font-sans: var(--font-ui);
-	--font-mono: "Geist Mono Variable", ui-monospace, monospace;
+	--font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 
-	/* Corners are 2–4px everywhere: 2 chips, tags and small marks · 3 controls · 4 cards, menus, dialogs, sheets. */
-	--radius: 4px;
-	--radius-xs: 2px;
-	--radius-sm: 2px;
-	--radius-md: 3px;
-	--radius-lg: 4px;
-	--radius-xl: 4px;
-	--radius-2xl: 4px;
-	--radius-3xl: 4px;
-	--radius-4xl: 4px;
+	/* Corners: 4 small marks · 6 tags · 7 controls · 9 nav rows and large buttons · 12 alerts · 14 cards, menus ·
+	   18 dialogs and the app frame. Only status chips are full pills. */
+	--radius: 7px;
+	--radius-xs: 4px;
+	--radius-sm: 6px;
+	--radius-md: 7px;
+	--radius-lg: 9px;
+	--radius-xl: 14px;
+	--radius-2xl: 18px;
+	--radius-3xl: 18px;
+	--radius-4xl: 18px;
 
 	--aspect-page: 210 / 297;
 }
@@ -155,6 +193,9 @@
 	--color-ink-3: var(--ink-3);
 	--color-accent: var(--accent);
 	--color-accent-hover: var(--accent-hover);
+	--color-accent-press: var(--accent-press);
+	--color-focus: var(--focus);
+	--color-line-strong: var(--line-strong);
 	--color-on-accent: var(--on-accent);
 	--color-accent-soft: var(--accent-soft);
 	--color-accent-text: var(--accent-text);
@@ -164,8 +205,12 @@
 	--color-warn: var(--warn);
 	--color-warn-soft: var(--warn-soft);
 	--color-warn-text: var(--warn-text);
+	--color-info: var(--info);
 	--color-info-soft: var(--info-soft);
 	--color-info-text: var(--info-text);
+	--color-success: var(--success);
+	--color-success-soft: var(--success-soft);
+	--color-success-text: var(--success-text);
 	--color-hover: var(--hover);
 	--color-press: var(--press);
 	--color-scrim: var(--scrim);
@@ -181,6 +226,7 @@
 	--shadow-e2: var(--shadow-2);
 	--shadow-e3: var(--shadow-3);
 	--shadow-page: var(--shadow-page);
+	--shadow-focus: var(--shadow-focus);
 
 	--transition-duration-quick: var(--d1);
 	--transition-duration-standard: var(--d2);
@@ -215,9 +261,17 @@
 		@apply font-display;
 	}
 
-	/* A 2px accent ring with a 2px gap on every interactive element; never removed. */
+	/* Space Grotesk titles are bold and slightly tight; weight (not italic) carries emphasis. Utilities can override. */
+	:where(h1, .font-display) {
+		font-weight: 700;
+		font-style: normal;
+		letter-spacing: -0.02em;
+	}
+
+	/* A 2px ring with a 2px gap on every interactive element; never removed. It uses the darker orange so it keeps
+	   3:1 against the page; text fields add the brand's soft orange halo (--shadow-focus) with an orange border. */
 	:focus-visible {
-		outline: 2px solid var(--accent);
+		outline: 2px solid var(--accent-text);
 		outline-offset: 2px;
 	}
 
@@ -230,6 +284,16 @@
 	[role="button"]:not(:disabled) {
 		cursor: pointer;
 	}
+}
+
+/* Section and group labels: Manrope 700, 11px, uppercase, widely tracked. */
+@utility eyebrow {
+	font-family: var(--font-ui);
+	font-size: 11px;
+	line-height: 16px;
+	font-weight: 700;
+	letter-spacing: 0.11em;
+	text-transform: uppercase;
 }
 
 /* Outside layers so text-size utilities cannot undo the iOS zoom prevention. */

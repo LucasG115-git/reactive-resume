@@ -101,7 +101,7 @@ export function ProfilePage() {
 						</Trans>
 					</p>
 				</div>
-				<p className="font-mono text-xs text-ink-3">
+				<p className="text-xs text-ink-3 tabular-nums">
 					{plural(profile.entries.length, { one: "# entry", other: "# entries" })} ·{" "}
 					{plural(achievementCount, { one: "# achievement", other: "# achievements" })} ·{" "}
 					{plural(profile.skills.length, { one: "# skill", other: "# skills" })}
@@ -167,7 +167,7 @@ export function ProfilePage() {
 					if (entries.length === 0) return null;
 					return (
 						<div key={kind} className="grid gap-2">
-							<h3 className="flex items-center gap-2 font-mono text-xs font-medium tracking-wide text-ink-3 uppercase">
+							<h3 className="flex items-center gap-2 eyebrow text-ink-3">
 								<Icon name={kindIcon[kind]} size={16} />
 								{kindLabel(kind, entries.length)}
 							</h3>
@@ -180,7 +180,7 @@ export function ProfilePage() {
 
 				{profile.standalone.length > 0 && (
 					<div className="grid gap-2">
-						<h3 className="font-mono text-xs font-medium tracking-wide text-ink-3 uppercase">
+						<h3 className="eyebrow text-ink-3">
 							<Trans>Other achievements</Trans>
 						</h3>
 						<div className="overflow-hidden rounded-xl border border-line bg-surface">
@@ -314,7 +314,7 @@ function EntryCard({ entry, onChanged }: EntryCardProps) {
 					{entry.tags.length > 0 && <Chips items={entry.tags} />}
 				</div>
 				<div className="grid justify-items-end gap-1">
-					<span className="font-mono text-xs whitespace-nowrap text-ink-3">{dateRange(entry)}</span>
+					<span className="text-xs whitespace-nowrap text-ink-3 tabular-nums">{dateRange(entry)}</span>
 					<div className="flex gap-0.5">
 						<RowAction icon="pencil-simple" label={t`Edit ${entry.title}`} onClick={() => setEditing(true)} />
 						<RowAction icon="trash" label={t`Delete ${entry.title}`} onClick={remove} />
@@ -375,7 +375,7 @@ function EntryEditor({ kind: initialKind, entry, onCancel, onSaved }: EntryEdito
 	return (
 		<form
 			aria-label={entry ? t`Edit entry` : t`New entry`}
-			className="grid gap-3 rounded-xl border border-accent bg-surface p-4 shadow-[0_0_0_3px_var(--accent-soft)]"
+			className="grid gap-3 rounded-xl border border-accent bg-surface p-4 shadow-focus"
 			onSubmit={(event) => {
 				event.preventDefault();
 				save.mutate({
@@ -548,7 +548,7 @@ function AchievementRow({ achievement, onChanged }: AchievementRowProps) {
 								// Metrics have no ids; their order is stable between saves.
 								// oxlint-disable-next-line react/no-array-index-key -- metrics are a value list without ids
 								key={index}
-								className="h-[20px] rounded-lg bg-accent-soft px-1.5 font-mono text-[11px] leading-[20px] text-accent-text"
+								className="h-[20px] rounded-lg bg-accent-soft px-1.5 text-[11px] leading-[20px] text-accent-text tabular-nums"
 							>
 								{metricLabel(metric)}
 							</span>
@@ -816,7 +816,7 @@ function SkillsSection({ kind, skills: all, entries, onChanged }: SkillsSectionP
 			)}
 			{[...groups].map(([category, list]) => (
 				<div key={category} className="grid gap-1.5">
-					<h3 className="font-mono text-xs font-medium tracking-wide text-ink-3 uppercase">{category}</h3>
+					<h3 className="eyebrow text-ink-3">{category}</h3>
 					<div className="flex flex-wrap gap-1.5">
 						{list.map((skill) => (
 							<span
@@ -831,14 +831,14 @@ function SkillsSection({ kind, skills: all, entries, onChanged }: SkillsSectionP
 								</button>
 								{skill.entryIds.length > 0 && (
 									<span
-										className="font-mono text-[11px] text-ink-3"
+										className="text-[11px] text-ink-3 tabular-nums"
 										aria-label={t`Used at ${skill.entryIds.length} places`}
 									>
 										×{skill.entryIds.length}
 									</span>
 								)}
 								{skill.level !== null && (
-									<span className="font-mono text-[11px] text-ink-3" aria-label={t`Level ${skill.level} of 5`}>
+									<span className="text-[11px] text-ink-3 tabular-nums" aria-label={t`Level ${skill.level} of 5`}>
 										{skill.level}/5
 									</span>
 								)}
@@ -880,7 +880,7 @@ function SkillEditor({ skill, kind: initialKind, entries, categories, onCancel, 
 	return (
 		<form
 			aria-label={kind === "tool" ? (skill ? t`Edit tool` : t`New tool`) : skill ? t`Edit skill` : t`New skill`}
-			className="grid gap-3 rounded-xl border border-accent bg-surface p-4 shadow-[0_0_0_3px_var(--accent-soft)]"
+			className="grid gap-3 rounded-xl border border-accent bg-surface p-4 shadow-focus"
 			onSubmit={(event) => {
 				event.preventDefault();
 				save.mutate({

@@ -639,7 +639,7 @@ function LengthSection({ content }: { content: string }) {
 			id="letter-length"
 			title={<Trans>Length</Trans>}
 			aside={
-				<span className={cn("font-mono text-xs font-medium", color)}>
+				<span className={cn("text-xs font-medium tabular-nums", color)}>
 					<Plural value={words} one="# word" other="# words" />
 				</span>
 			}

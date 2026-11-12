@@ -21,7 +21,7 @@ import {
 void React;
 
 const appName = "Reactive Resume";
-const logoUrl = "https://rxresu.me/icon/dark.svg";
+const logoUrl = "https://rxresu.me/icon/light.svg";
 
 interface AuthEmailLayoutProps {
 	preview: string;
@@ -41,57 +41,48 @@ function AuthEmailLayout({ preview, heading, intro, details, actionLabel, action
 					presets: [pixelBasedPreset],
 					theme: {
 						fontFamily: {
-							body: ["IBM Plex Sans", "sans-serif"],
-							heading: ["IBM Plex Sans Condensed", "sans-serif"],
+							// Many mail clients ignore web fonts: Arial is what most people see.
+							body: ["Manrope", "Arial", "sans-serif"],
+							heading: ["Manrope", "Arial", "sans-serif"],
 						},
 					},
 				}}
 			>
 				<Head>
 					<Font
-						fontFamily="IBM Plex Sans Condensed"
-						fallbackFontFamily="sans-serif"
-						fontWeight={500}
-						fontStyle="normal"
-						webFont={{
-							url: "https://fonts.gstatic.com/s/ibmplexsans/v23/zYXGKVElMYYaJe8bpLHnCwDKr932-G7dytD-DmvrswZSAXcomDVmadSD2FlDB6g4tIOm6_De.woff2",
-							format: "woff2",
-						}}
-					/>
-					<Font
-						fontFamily="IBM Plex Sans"
-						fallbackFontFamily="sans-serif"
+						fontFamily="Manrope"
+						fallbackFontFamily="Arial"
 						fontWeight={400}
 						fontStyle="normal"
 						webFont={{
-							url: "https://fonts.gstatic.com/s/ibmplexsans/v23/zYXGKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1swZSAXcomDVmadSD6llDB6g4tIOm6_De.woff2",
+							url: "https://fonts.gstatic.com/s/manrope/v23/xn7gYHE41ni1AdIRggexSg.woff2",
 							format: "woff2",
 						}}
 					/>
 				</Head>
 
-				<Body className="font-body m-0 bg-zinc-950 p-0 text-sm text-zinc-50">
+				<Body className="font-body m-0 bg-[#F4EFE9] p-0 text-sm text-[#1E1A17]">
 					<Preview>{preview}</Preview>
-					<Container className="mx-auto w-full max-w-xl bg-zinc-900 p-6 text-zinc-50">
+					<Container className="mx-auto w-full max-w-xl rounded-[14px] border border-solid border-[#ECE5DE] bg-white p-6 text-[#1E1A17]">
 						<Section>
 							<Img src={logoUrl} alt={appName} width="48" height="48" className="block" />
 						</Section>
 
 						<Section className="mt-6">
-							<Heading className="font-heading text-2xl leading-0 font-medium tracking-tighter whitespace-break-spaces md:text-5xl">
+							<Heading className="font-heading text-2xl leading-0 font-bold tracking-tight whitespace-break-spaces md:text-4xl">
 								{heading}
 							</Heading>
 
 							<Section className="mt-6 md:mt-12">
 								<Text>{intro}</Text>
 
-								{details ? <Text className="opacity-60">{details}</Text> : null}
+								{details ? <Text className="text-[#4A423C]">{details}</Text> : null}
 							</Section>
 
 							<Button
 								target="_blank"
 								href={actionUrl}
-								className="mt-6 box-border inline-block bg-zinc-200 px-6 py-3 text-center text-zinc-900 no-underline"
+								className="mt-6 box-border inline-block rounded-[7px] bg-[#FF7739] px-6 py-3 text-center font-bold text-white no-underline"
 							>
 								{actionLabel}
 							</Button>
@@ -100,19 +91,19 @@ function AuthEmailLayout({ preview, heading, intro, details, actionLabel, action
 								<Text className="leading-0">
 									If the button does not work, copy and paste this link into your browser:
 								</Text>
-								<Link className="leading-0 text-zinc-200/60 underline underline-offset-2" href={actionUrl}>
+								<Link className="leading-0 text-[#C44E14] underline underline-offset-2" href={actionUrl}>
 									{actionUrl}
 								</Link>
 							</Section>
 
 							<Section className="mt-4">
-								<Text className="opacity-60">{outro}</Text>
+								<Text className="text-[#4A423C]">{outro}</Text>
 							</Section>
 
-							<Hr className="my-10 border-zinc-700" />
+							<Hr className="my-10 border-[#ECE5DE]" />
 
-							<Text className="mt-8 text-xs leading-1 opacity-40">By the community, for the community.</Text>
-							<Text className="text-xs leading-1 opacity-40">
+							<Text className="mt-8 text-xs leading-1 text-[#5C534C]">By the community, for the community.</Text>
+							<Text className="text-xs leading-1 text-[#5C534C]">
 								A passion project by{" "}
 								<Link
 									target="_blank"
@@ -125,7 +116,9 @@ function AuthEmailLayout({ preview, heading, intro, details, actionLabel, action
 								.
 							</Text>
 
-							<Text className="font-heading mt-8 text-base font-medium tracking-tight opacity-80">Reactive Resume</Text>
+							<Text className="font-heading mt-8 text-base font-bold tracking-tight text-[#4A423C]">
+								Reactive Resume
+							</Text>
 						</Section>
 					</Container>
 				</Body>

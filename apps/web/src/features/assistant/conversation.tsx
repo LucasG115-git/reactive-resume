@@ -800,7 +800,7 @@ export function Composer(props: ComposerProps) {
 				</div>
 			)}
 
-			<div className="flex items-end gap-1.5 rounded-xl border border-line-2 bg-raised p-1.5 transition-[border-color,box-shadow] focus-within:border-accent focus-within:ring-3 focus-within:ring-accent-soft">
+			<div className="flex items-end gap-1.5 rounded-xl border border-line-2 bg-raised p-1.5 transition-[border-color,box-shadow] focus-within:border-accent focus-within:ring-3 focus-within:ring-focus/32">
 				<label htmlFor={id} className="sr-only">
 					<Trans>Message the assistant</Trans>
 				</label>
@@ -848,7 +848,7 @@ export function Composer(props: ComposerProps) {
 					disabled={!streaming && (!hasText || disabled || uploading)}
 					onClick={streaming ? props.onStop : submit}
 					className={cn(
-						"grid size-[34px] shrink-0 place-items-center rounded-lg transition-[background-color,color,scale] duration-quick ease-enter enabled:active:scale-[0.97]",
+						"enabled: grid size-[34px] shrink-0 place-items-center rounded-lg transition-[background-color,color,scale] duration-quick ease-enter",
 						streaming ? "bg-ink text-bg" : hasText ? "bg-accent text-on-accent" : "bg-sunken text-ink-3",
 					)}
 				>

@@ -37,7 +37,7 @@ async function prerenderPages() {
 	const shell = await readFile(`${webRoot}dist/index.html`, "utf8");
 	const assets = await readdir(`${webRoot}dist/assets`);
 	// These fonts paint the first screen. Discover the build's hashed URLs before CSS would request them.
-	const fontPreloads = ["figtree-latin-wght-normal-", "instrument-serif-latin-400-normal-"]
+	const fontPreloads = ["manrope-latin-wght-normal-", "space-grotesk-latin-700-normal-"]
 		.map((prefix) => {
 			const asset = assets.find((name) => name.startsWith(prefix) && name.endsWith(".woff2"));
 			if (!asset) throw new Error(`Missing marketing font: ${prefix}`);

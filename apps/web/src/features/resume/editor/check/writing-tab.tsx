@@ -252,7 +252,7 @@ function WritingNoteCard({ note }: { note: WritingNote }) {
 	return (
 		<article className="grid gap-1.5 rounded-lg border border-line p-3">
 			<div className="flex justify-between gap-2">
-				<span className="font-mono text-xs text-ink-3">{note.location}</span>
+				<span className="text-xs text-ink-3 tabular-nums">{note.location}</span>
 				<span
 					className={cn(
 						"h-[18px] rounded px-1.5 text-[11px] leading-[18px] font-semibold",

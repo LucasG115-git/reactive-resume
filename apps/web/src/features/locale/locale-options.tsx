@@ -10,7 +10,7 @@ export const getLocaleOptions = () => {
 			value,
 			label: (
 				<span className="flex items-center gap-x-2">
-					<span className="font-mono text-xs text-ink-3">{value}</span>
+					<span className="text-xs text-ink-3 tabular-nums">{value}</span>
 					{name}
 				</span>
 			),
