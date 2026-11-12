@@ -24,7 +24,7 @@ function NativeCallbackPage() {
 	return (
 		<div className="space-y-4 text-center">
 			<h1 className="text-xl font-semibold">
-				<Trans>Open the Reactive Resume app</Trans>
+				<Trans>Open the Resume Builder app</Trans>
 			</h1>
 			<p className="text-muted-foreground text-sm">
 				<Trans>If the app did not open, try again on a device where it is installed.</Trans>

@@ -34,7 +34,8 @@ export async function handleCustomDomain(request: Request, trustedClient: string
 	const username = await usernameOf(url.hostname);
 	if (!username) return null;
 
-	if (url.pathname.startsWith("/api/resumes/") || /^\/favicon\.(ico|svg)$/.test(url.pathname)) return null;
+	if (url.pathname.startsWith("/api/resumes/") || /^\/(favicon\.(ico|svg)|pwa-192x192\.png)$/.test(url.pathname))
+		return null;
 	if (url.pathname === "/robots.txt")
 		return new Response("User-agent: *\nAllow: /\n", { headers: { "Content-Type": "text/plain; charset=UTF-8" } });
 	if (url.pathname !== "/") return Response.redirect(onAppDomain(url), 301);

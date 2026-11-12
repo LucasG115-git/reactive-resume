@@ -280,7 +280,7 @@ function buildMetaXml(title: string): string {
 	return [
 		XML_DECLARATION,
 		`<office:document-meta xmlns:office="${OFFICE_NS}" xmlns:meta="${META_NS}" xmlns:dc="${DC_NS}" office:version="1.3">`,
-		`<office:meta><dc:title>${escapeXml(title)}</dc:title><meta:generator>Reactive Resume</meta:generator></office:meta>`,
+		`<office:meta><dc:title>${escapeXml(title)}</dc:title><meta:generator>Resume Builder</meta:generator></office:meta>`,
 		"</office:document-meta>",
 	].join("");
 }

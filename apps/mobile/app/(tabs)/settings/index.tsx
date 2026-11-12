@@ -109,7 +109,7 @@ export default function SettingsScreen() {
 			</SettingsGroup>
 			<View style={{ alignItems: "center", gap: space.s1 }}>
 				<Text variant="caption" color="ink3" align="center">
-					Reactive Resume
+					Resume Builder · based on Reactive Resume
 				</Text>
 				<Text variant="caption" color="ink3" align="center">
 					<Trans>

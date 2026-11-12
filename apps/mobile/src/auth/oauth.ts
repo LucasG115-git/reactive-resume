@@ -213,7 +213,7 @@ export async function registerClient(origin: string, discovery: Discovery): Prom
 		headers: { "content-type": "application/json", accept: "application/json" },
 		signal: AbortSignal.timeout(requestTimeout),
 		body: JSON.stringify({
-			client_name: Platform.OS === "ios" ? "Reactive Resume for iOS" : "Reactive Resume for Android",
+			client_name: Platform.OS === "ios" ? "Resume Builder for iOS" : "Resume Builder for Android",
 			redirect_uris: [redirectUri(origin)],
 			token_endpoint_auth_method: "none",
 			grant_types: ["authorization_code", "refresh_token"],

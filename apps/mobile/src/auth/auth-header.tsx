@@ -1,32 +1,24 @@
 import { useLingui } from "@lingui/react/macro";
-import { Image } from "expo-image";
 import { openBrowserAsync } from "expo-web-browser";
 import { View } from "react-native";
-import { Button, Text, showToast, useTheme } from "@/ui";
+import { Brand, Button, Text, showToast, useTheme } from "@/ui";
 
 type AuthHeaderProps = {
 	subtitle?: string | undefined;
 };
 
-/** The app mark and name at the top of the sign-in screens. */
+/** The Countdown Creative mark and the app name at the top of the sign-in screens. */
 export function AuthHeader({ subtitle }: AuthHeaderProps) {
 	const { t } = useLingui();
-	const { radius, space } = useTheme();
+	const { space } = useTheme();
 
 	return (
 		<View style={{ alignItems: "center", gap: space.s4, paddingHorizontal: space.s2 }}>
-			<Image
-				source={require("../../assets/icon.png")}
-				accessible={false}
-				style={{
-					width: space.s12 * 2,
-					height: space.s12 * 2,
-					borderRadius: radius.rLg,
-					marginBottom: space.s2,
-				}}
-			/>
+			<View style={{ marginBottom: space.s2 }}>
+				<Brand variant="mark" size={space.s12 * 2} />
+			</View>
 			<Text variant="display" align="center" accessibilityRole="header">
-				{t`Reactive Resume`}
+				{t`Resume Builder`}
 			</Text>
 			{subtitle ? (
 				<Text color="ink2" align="center">

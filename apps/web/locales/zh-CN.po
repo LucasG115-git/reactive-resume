@@ -1107,8 +1107,8 @@ msgid "A accepts and R rejects the focused edit. ↑ and ↓ move between edits.
 msgstr "A 接受而 R 拒绝焦点编辑。 ↑ 和 ↓ 在编辑之间移动。"
 
 #: src/routes/builder/letter/-components/download-sheet.tsx
-msgid "A backup of this letter. Imports back into Reactive Resume as a letter."
-msgstr "这封信的备份。作为信件导入回 Reactive Resume。"
+msgid "A backup of this letter. Imports back into Resume Builder as a letter."
+msgstr ""
 
 #: src/features/applications/components/detail/assemble-dialog.tsx
 msgid "A blank template, with your account's name and email"
@@ -3603,8 +3603,8 @@ msgid "Compares your resume with the posting"
 msgstr "将您的简历与职位发布进行比较"
 
 #: src/features/resume/share/download-tab.tsx
-msgid "Complete data backup. Imports back into Reactive Resume or JSON Resume tools."
-msgstr "完整的数据备份。导入回 Reactive Resume 或 JSON Resume 工具。"
+msgid "Complete data backup. Imports back into Resume Builder or JSON Resume tools."
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Compress or remove large images to keep uploads quick."
@@ -5473,8 +5473,8 @@ msgid "Drag to reposition and use the slider to zoom before uploading."
 msgstr "拖动即可重新定位，上传前可使用滑块进行缩放。"
 
 #: src/features/documents/new-document-dialog.tsx
-msgid "Drop a file here or browse. PDF, Word, Reactive Resume or JSON Resume. We fill in every section and flag anything we're unsure of."
-msgstr "将文件拖放到此处或浏览。 PDF、Word、Reactive Resume 或 JSON Resume。我们填写每个部分并标记任何我们不确定的内容。"
+msgid "Drop a file here or browse. PDF, Word, Resume Builder or JSON Resume. We fill in every section and flag anything we're unsure of."
+msgstr ""
 
 #: src/features/ats-checker/checker.tsx
 msgid "Drop a PDF here or choose a file"
@@ -7107,8 +7107,8 @@ msgid "Import steps"
 msgstr "导入步骤"
 
 #: src/features/ats-checker/checker.tsx
-msgid "Import this file into a free Reactive Resume. Every issue is waiting for you in Check."
-msgstr "将此文件导入到免费的 Reactive Resume 中。每一个问题都在 Check 中等着您。"
+msgid "Import this file into Resume Builder. Every issue is waiting for you in Check."
+msgstr ""
 
 #: src/features/documents/documents-page.tsx
 msgid "Import your current resume and we'll lay out every section for you to refine. Or start fresh. Start with your name. Build from there."
@@ -7974,14 +7974,6 @@ msgstr "关联"
 msgid "Link (optional)"
 msgstr ""
 
-#: src/features/applications/components/application-form-sheet.tsx
-msgid "Link a Reactive Resume (recommended)"
-msgstr "关联 Reactive Resume（推荐）"
-
-#: src/features/applications/components/application-form-sheet.tsx
-msgid "Link a Reactive Resume to use AI match scoring and tailoring."
-msgstr "关联一份 Reactive Resume 简历，即可使用 AI 匹配度评分和定制功能。"
-
 #: src/features/resume/editor/write/basics-card.tsx
 #: src/features/resume/editor/write/rich-text-editor-field.tsx
 msgid "Link address"
@@ -8001,6 +7993,14 @@ msgstr "链接工作申请..."
 #: src/features/resume/share/web-page-text.ts
 msgid "Link copied"
 msgstr "链接已复制"
+
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Link one of your resumes (recommended)"
+msgstr ""
+
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Link one of your resumes to use AI match scoring and tailoring."
+msgstr ""
 
 #: src/features/documents/document-actions.tsx
 msgid "Link to application"
@@ -9825,12 +9825,12 @@ msgstr "打开故事"
 msgid "Open the exported file and confirm you can select and copy every part of it."
 msgstr "打开导出的文件，确认你可以选取并复制其中的每一部分。"
 
-#: src/routes/auth/native-callback.tsx
-msgid "Open the Reactive Resume app"
-msgstr "打开Reactive Resume应用程序"
-
 #: src/features/applications/components/detail/assemble-dialog.tsx
 msgid "Open the resume"
+msgstr ""
+
+#: src/routes/auth/native-callback.tsx
+msgid "Open the Resume Builder app"
 msgstr ""
 
 #: src/features/career/today.tsx
@@ -10934,10 +10934,6 @@ msgstr "Re: 高级产品设计师"
 msgid "Reactive Resume - Go to homepage"
 msgstr "Reactive Resume - 返回首页"
 
-#: src/routes/dashboard/settings/route.tsx
-msgid "Reactive Resume {__APP_VERSION__} · MIT"
-msgstr "Reactive Resume {__APP_VERSION__} · MIT"
-
 #: src/features/homepage/sections.tsx
 msgid "Reactive Resume is open source under the MIT License. Amruth Pillai and a community of contributors keep it running, and donations pay for hosting and development. There’s no paid tier."
 msgstr "Reactive Resume 基于 MIT 许可证开源。Amruth Pillai 和贡献者社区维护着它的运转，捐赠用于支付托管和开发费用。没有付费版本。"
@@ -11666,6 +11662,10 @@ msgstr "简历制作"
 #: src/features/homepage/sections.tsx
 msgid "Resume builder"
 msgstr "简历制作者"
+
+#: src/routes/dashboard/settings/route.tsx
+msgid "Resume Builder {__APP_VERSION__} · based on Reactive Resume (MIT)"
+msgstr ""
 
 #: src/features/resume/preview/preview.browser.tsx
 msgid "Resume content"
@@ -14347,8 +14347,8 @@ msgid "This file is larger than many application forms accept."
 msgstr "该文件的大小超过了许多申请表单允许的上限。"
 
 #: src/features/documents/new-document-dialog.tsx
-msgid "This file type can't be imported. Use a PDF, Word, Reactive Resume or JSON Resume file, or a LinkedIn export (.zip)."
-msgstr "无法导入此文件类型。使用 PDF、Word、Reactive Resume 或 JSON Resume 文件，或 LinkedIn 导出 (.zip)。"
+msgid "This file type can't be imported. Use a PDF, Word, Resume Builder or JSON Resume file, or a LinkedIn export (.zip)."
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "This file uses a lot of different fonts."

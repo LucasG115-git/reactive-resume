@@ -88,7 +88,7 @@ export function socialMetaTags(tags: {
 }) {
 	return [
 		`<meta property="og:type" content="${tags.type}">`,
-		`<meta property="og:site_name" content="Reactive Resume">`,
+		`<meta property="og:site_name" content="Resume Builder">`,
 		`<meta property="og:title" content="${tags.title}">`,
 		`<meta property="og:description" content="${tags.description}">`,
 		`<meta property="og:url" content="${tags.url}">`,
@@ -126,7 +126,7 @@ const metaTags = (head: WebPageHead | undefined) => {
 };
 
 const shell = (lang: string, head: string, css: string, body: string) =>
-	`<!doctype html><html lang="${escapeHtml(lang)}" dir="${isRTL(lang) ? "rtl" : "ltr"}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" href="/favicon.svg" type="image/svg+xml">${head}<style>${css}</style></head><body>${body}</body></html>`;
+	`<!doctype html><html lang="${escapeHtml(lang)}" dir="${isRTL(lang) ? "rtl" : "ltr"}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" href="/pwa-192x192.png" type="image/png" sizes="192x192">${head}<style>${css}</style></head><body>${body}</body></html>`;
 
 /** A resume's whole web page, ready to send. */
 export function renderWebPageDocument({

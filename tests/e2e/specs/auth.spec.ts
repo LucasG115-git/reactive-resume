@@ -51,7 +51,7 @@ test("keeps long auth pages reachable without horizontal overflow", async ({ pag
 			.poll(() => page.evaluate(() => window.innerWidth - document.documentElement.clientWidth))
 			.toBeGreaterThan(0);
 
-		const logo = page.getByRole("img", { name: "Reactive Resume", exact: true });
+		const logo = page.getByRole("img", { name: "Countdown Creative", exact: true });
 		await expect(logo).toBeInViewport();
 		expect(await logo.evaluate((element) => element.getBoundingClientRect().top)).toBeGreaterThanOrEqual(16);
 		expect(

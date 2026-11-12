@@ -20,8 +20,15 @@ import {
 // ponytail: server dev consumes this source through tsx, which emits React.createElement here.
 void React;
 
-const appName = "Reactive Resume";
-const logoUrl = "https://rxresu.me/icon/light.svg";
+const appName = "Resume Builder";
+// The Countdown Creative lockup, served by the instance that sent the email (the action link's origin).
+const logoUrlFor = (actionUrl: string) => {
+	try {
+		return `${new URL(actionUrl).origin}/logo/light.png`;
+	} catch {
+		return null;
+	}
+};
 
 interface AuthEmailLayoutProps {
 	preview: string;
@@ -65,7 +72,14 @@ function AuthEmailLayout({ preview, heading, intro, details, actionLabel, action
 					<Preview>{preview}</Preview>
 					<Container className="mx-auto w-full max-w-xl rounded-[14px] border border-solid border-[#ECE5DE] bg-white p-6 text-[#1E1A17]">
 						<Section>
-							<Img src={logoUrl} alt={appName} width="48" height="48" className="block" />
+							{logoUrlFor(actionUrl) ? (
+								<Img
+									src={logoUrlFor(actionUrl) ?? ""}
+									alt="Countdown Creative"
+									height="40"
+									className="block h-10 w-auto"
+								/>
+							) : null}
 						</Section>
 
 						<Section className="mt-6">
@@ -102,7 +116,9 @@ function AuthEmailLayout({ preview, heading, intro, details, actionLabel, action
 
 							<Hr className="my-10 border-[#ECE5DE]" />
 
-							<Text className="mt-8 text-xs leading-1 text-[#5C534C]">By the community, for the community.</Text>
+							<Text className="mt-8 text-xs leading-1 text-[#5C534C]">
+								Built on Reactive Resume, by the community, for the community.
+							</Text>
 							<Text className="text-xs leading-1 text-[#5C534C]">
 								A passion project by{" "}
 								<Link
@@ -117,7 +133,7 @@ function AuthEmailLayout({ preview, heading, intro, details, actionLabel, action
 							</Text>
 
 							<Text className="font-heading mt-8 text-base font-bold tracking-tight text-[#4A423C]">
-								Reactive Resume
+								Resume Builder
 							</Text>
 						</Section>
 					</Container>
@@ -140,7 +156,7 @@ export function ResetPasswordEmail({ url }: ResetPasswordEmailProps) {
 			details="If this was not you, you can ignore this message and your password will remain unchanged."
 			actionLabel="Create new password"
 			actionUrl={url}
-			outro="For security, only use links from emails sent by Reactive Resume."
+			outro="For security, only use links from emails sent by Resume Builder."
 		/>
 	);
 }

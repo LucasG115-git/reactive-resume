@@ -483,7 +483,7 @@ function Result({ result, file, onFix, onReset }: ResultProps) {
 						<Trans>Fix these in a few minutes</Trans>
 					</b>
 					<span className="text-[13px] leading-[19px] text-ink-2 max-lg:hidden">
-						<Trans>Import this file into a free Reactive Resume. Every issue is waiting for you in Check.</Trans>
+						<Trans>Import this file into Resume Builder. Every issue is waiting for you in Check.</Trans>
 					</span>
 					<Button className="h-10" onClick={onFix}>
 						<Trans>Fix these in the editor</Trans>

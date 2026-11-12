@@ -272,7 +272,7 @@ export function NewDocument() {
 									<Card>
 										<ListRow
 											title={t`Import a resume`}
-											subtitle={t`PDF, Word, Reactive Resume, JSON Resume or LinkedIn export.`}
+											subtitle={t`PDF, Word, Resume Builder, JSON Resume or LinkedIn export.`}
 											leading="file-arrow-up"
 											chevron
 											disabled={busy}

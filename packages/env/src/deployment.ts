@@ -22,7 +22,7 @@ export function deploymentEnvironment(input: NodeJS.ProcessEnv): NodeJS.ProcessE
 					SMTP_PORT: value("CLOUDRON_MAIL_SMTP_PORT"),
 					SMTP_USER: value("CLOUDRON_MAIL_SMTP_USERNAME"),
 					SMTP_PASS: value("CLOUDRON_MAIL_SMTP_PASSWORD"),
-					SMTP_FROM: mailFrom && `${value("CLOUDRON_MAIL_FROM_DISPLAY_NAME") ?? "Reactive Resume"} <${mailFrom}>`,
+					SMTP_FROM: mailFrom && `${value("CLOUDRON_MAIL_FROM_DISPLAY_NAME") ?? "Resume Builder"} <${mailFrom}>`,
 					OAUTH_PROVIDER_NAME: value("CLOUDRON_OIDC_PROVIDER_NAME"),
 					OAUTH_CLIENT_ID: value("CLOUDRON_OIDC_CLIENT_ID"),
 					OAUTH_CLIENT_SECRET: value("CLOUDRON_OIDC_CLIENT_SECRET"),

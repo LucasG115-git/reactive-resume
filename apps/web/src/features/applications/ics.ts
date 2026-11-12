@@ -35,7 +35,7 @@ export function buildIcs(event: CalendarEvent | CalendarEvent[], now = new Date(
 	const lines = [
 		"BEGIN:VCALENDAR",
 		"VERSION:2.0",
-		"PRODID:-//Reactive Resume//Applications//EN",
+		"PRODID:-//Resume Builder//Applications//EN",
 		"CALSCALE:GREGORIAN",
 		...events.flatMap((item) => [
 			"BEGIN:VEVENT",

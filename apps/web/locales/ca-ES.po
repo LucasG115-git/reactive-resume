@@ -1107,8 +1107,8 @@ msgid "A accepts and R rejects the focused edit. ↑ and ↓ move between edits.
 msgstr "A accepta i R rebutja l'edició enfocada. ↑ i ↓ es mouen entre edicions."
 
 #: src/routes/builder/letter/-components/download-sheet.tsx
-msgid "A backup of this letter. Imports back into Reactive Resume as a letter."
-msgstr "Una còpia de seguretat d'aquesta carta. Torna a importar a Reactive Resume com a carta."
+msgid "A backup of this letter. Imports back into Resume Builder as a letter."
+msgstr ""
 
 #: src/features/applications/components/detail/assemble-dialog.tsx
 msgid "A blank template, with your account's name and email"
@@ -3603,8 +3603,8 @@ msgid "Compares your resume with the posting"
 msgstr "Compara el teu currículum amb l'oferta de feina"
 
 #: src/features/resume/share/download-tab.tsx
-msgid "Complete data backup. Imports back into Reactive Resume or JSON Resume tools."
-msgstr "Còpia de seguretat de dades completa. Torna a importar a les eines Reactive Resume o JSON Resume."
+msgid "Complete data backup. Imports back into Resume Builder or JSON Resume tools."
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Compress or remove large images to keep uploads quick."
@@ -5473,8 +5473,8 @@ msgid "Drag to reposition and use the slider to zoom before uploading."
 msgstr "Arrossega per reposicionar i utilitza el control lliscant per fer zoom abans de carregar."
 
 #: src/features/documents/new-document-dialog.tsx
-msgid "Drop a file here or browse. PDF, Word, Reactive Resume or JSON Resume. We fill in every section and flag anything we're unsure of."
-msgstr "Deixeu un fitxer aquí o navegueu. PDF, Word, Reactive Resume o JSON Resume. Omplim totes les seccions i marquem qualsevol cosa del que no estem segurs."
+msgid "Drop a file here or browse. PDF, Word, Resume Builder or JSON Resume. We fill in every section and flag anything we're unsure of."
+msgstr ""
 
 #: src/features/ats-checker/checker.tsx
 msgid "Drop a PDF here or choose a file"
@@ -7107,8 +7107,8 @@ msgid "Import steps"
 msgstr "Passos d'importació"
 
 #: src/features/ats-checker/checker.tsx
-msgid "Import this file into a free Reactive Resume. Every issue is waiting for you in Check."
-msgstr "Importeu aquest fitxer a un Reactive Resume gratuït. Cada problema us està esperant a Check."
+msgid "Import this file into Resume Builder. Every issue is waiting for you in Check."
+msgstr ""
 
 #: src/features/documents/documents-page.tsx
 msgid "Import your current resume and we'll lay out every section for you to refine. Or start fresh. Start with your name. Build from there."
@@ -7974,14 +7974,6 @@ msgstr "Enllaç"
 msgid "Link (optional)"
 msgstr ""
 
-#: src/features/applications/components/application-form-sheet.tsx
-msgid "Link a Reactive Resume (recommended)"
-msgstr "Enllaça un Reactive Resume (recomanat)"
-
-#: src/features/applications/components/application-form-sheet.tsx
-msgid "Link a Reactive Resume to use AI match scoring and tailoring."
-msgstr "Enllaça un currículum de Reactive Resume per fer servir la puntuació d'adequació i l'adaptació amb IA."
-
 #: src/features/resume/editor/write/basics-card.tsx
 #: src/features/resume/editor/write/rich-text-editor-field.tsx
 msgid "Link address"
@@ -8001,6 +7993,14 @@ msgstr "Enllaça una sol·licitud de feina..."
 #: src/features/resume/share/web-page-text.ts
 msgid "Link copied"
 msgstr "S'ha copiat l'enllaç"
+
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Link one of your resumes (recommended)"
+msgstr ""
+
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Link one of your resumes to use AI match scoring and tailoring."
+msgstr ""
 
 #: src/features/documents/document-actions.tsx
 msgid "Link to application"
@@ -9825,12 +9825,12 @@ msgstr "Obre la història"
 msgid "Open the exported file and confirm you can select and copy every part of it."
 msgstr "Obre el fitxer exportat i confirma que pots seleccionar i copiar cada part."
 
-#: src/routes/auth/native-callback.tsx
-msgid "Open the Reactive Resume app"
-msgstr "Obriu l'aplicació Reactive Resume"
-
 #: src/features/applications/components/detail/assemble-dialog.tsx
 msgid "Open the resume"
+msgstr ""
+
+#: src/routes/auth/native-callback.tsx
+msgid "Open the Resume Builder app"
 msgstr ""
 
 #: src/features/career/today.tsx
@@ -10934,10 +10934,6 @@ msgstr "Re: Senior Product Designer"
 msgid "Reactive Resume - Go to homepage"
 msgstr "Reactive Resume - Ves a la pàgina inicial"
 
-#: src/routes/dashboard/settings/route.tsx
-msgid "Reactive Resume {__APP_VERSION__} · MIT"
-msgstr "Reactive Resume {__APP_VERSION__} · MIT"
-
 #: src/features/homepage/sections.tsx
 msgid "Reactive Resume is open source under the MIT License. Amruth Pillai and a community of contributors keep it running, and donations pay for hosting and development. There’s no paid tier."
 msgstr "Reactive Resume és de codi obert amb la llicència MIT. Amruth Pillai i una comunitat de col·laboradors el mantenen en marxa, i les donacions paguen l'allotjament i el desenvolupament. No hi ha cap pla de pagament."
@@ -11666,6 +11662,10 @@ msgstr "per crear currículums"
 #: src/features/homepage/sections.tsx
 msgid "Resume builder"
 msgstr "Editor de currículums"
+
+#: src/routes/dashboard/settings/route.tsx
+msgid "Resume Builder {__APP_VERSION__} · based on Reactive Resume (MIT)"
+msgstr ""
 
 #: src/features/resume/preview/preview.browser.tsx
 msgid "Resume content"
@@ -14347,8 +14347,8 @@ msgid "This file is larger than many application forms accept."
 msgstr "Aquest fitxer és més gran del que accepten molts formularis de sol·licitud."
 
 #: src/features/documents/new-document-dialog.tsx
-msgid "This file type can't be imported. Use a PDF, Word, Reactive Resume or JSON Resume file, or a LinkedIn export (.zip)."
-msgstr "Aquest tipus de fitxer no es pot importar. Utilitzeu un fitxer PDF, Word, Reactive Resume o JSON Resume o una exportació LinkedIn (.zip)."
+msgid "This file type can't be imported. Use a PDF, Word, Resume Builder or JSON Resume file, or a LinkedIn export (.zip)."
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "This file uses a lot of different fonts."

@@ -23,7 +23,6 @@ const getStoryScenes = () => [
 
 export function LandingHeader() {
 	const scrolled = useLanding((state) => state.scrolled);
-	const night = useLanding((state) => state.night);
 	const activeScene = useLanding((state) => state.activeScene);
 
 	return (
@@ -42,20 +41,7 @@ export function LandingHeader() {
 			/>
 
 			<a href="#top" className="flex items-center gap-2.5 rounded-md">
-				<img
-					src="/icon/light.svg"
-					alt=""
-					width={30}
-					height={30}
-					className={cn("size-[30px] dark:hidden", night && "hidden")}
-				/>
-				<img
-					src="/icon/dark.svg"
-					alt=""
-					width={30}
-					height={30}
-					className={cn("hidden size-[30px] dark:block", night && "block")}
-				/>
+				<img src="/icon/mark.png" alt="" width={30} height={30} className="size-[30px]" />
 				{/* The wordmark stays in the DOM for screen readers and crawlers; the logomark is what shows. */}
 				<span className="sr-only">Reactive Resume</span>
 			</a>

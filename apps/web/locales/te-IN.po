@@ -1107,8 +1107,8 @@ msgid "A accepts and R rejects the focused edit. ↑ and ↓ move between edits.
 msgstr "A ఆమోదిస్తుంది మరియు R కేంద్రీకరించిన సవరణను తిరస్కరిస్తుంది. ↑ మరియు ↓ సవరణల మధ్య తరలించండి."
 
 #: src/routes/builder/letter/-components/download-sheet.tsx
-msgid "A backup of this letter. Imports back into Reactive Resume as a letter."
-msgstr "ఈ లేఖ యొక్క బ్యాకప్. అక్షరం వలె Reactive Resumeకి తిరిగి దిగుమతి అవుతుంది."
+msgid "A backup of this letter. Imports back into Resume Builder as a letter."
+msgstr ""
 
 #: src/features/applications/components/detail/assemble-dialog.tsx
 msgid "A blank template, with your account's name and email"
@@ -3603,8 +3603,8 @@ msgid "Compares your resume with the posting"
 msgstr "జాబ్ పోస్టింగ్‌తో మీ రెజ్యూమేని సరిపోల్చండి"
 
 #: src/features/resume/share/download-tab.tsx
-msgid "Complete data backup. Imports back into Reactive Resume or JSON Resume tools."
-msgstr "పూర్తి డేటా బ్యాకప్. Reactive Resume లేదా JSON Resume సాధనాల్లోకి తిరిగి దిగుమతి అవుతుంది."
+msgid "Complete data backup. Imports back into Resume Builder or JSON Resume tools."
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Compress or remove large images to keep uploads quick."
@@ -5473,8 +5473,8 @@ msgid "Drag to reposition and use the slider to zoom before uploading."
 msgstr "స్థానాన్ని మార్చడానికి లాగండి మరియు అప్‌లోడ్ చేసే ముందు జూమ్ చేయడానికి స్లైడర్‌ను ఉపయోగించండి."
 
 #: src/features/documents/new-document-dialog.tsx
-msgid "Drop a file here or browse. PDF, Word, Reactive Resume or JSON Resume. We fill in every section and flag anything we're unsure of."
-msgstr "ఫైల్‌ను ఇక్కడ వదలండి లేదా బ్రౌజ్ చేయండి. PDF, Word, Reactive Resume లేదా JSON Resume. మేము ప్రతి విభాగాన్ని పూరించాము మరియు మాకు ఖచ్చితంగా తెలియని ఏదైనా ఫ్లాగ్ చేస్తాము."
+msgid "Drop a file here or browse. PDF, Word, Resume Builder or JSON Resume. We fill in every section and flag anything we're unsure of."
+msgstr ""
 
 #: src/features/ats-checker/checker.tsx
 msgid "Drop a PDF here or choose a file"
@@ -7107,8 +7107,8 @@ msgid "Import steps"
 msgstr "దశలను దిగుమతి చేయండి"
 
 #: src/features/ats-checker/checker.tsx
-msgid "Import this file into a free Reactive Resume. Every issue is waiting for you in Check."
-msgstr "ఈ ఫైల్‌ని ఉచిత Reactive Resumeకి దిగుమతి చేయండి. ప్రతి సమస్య చెక్‌లో మీ కోసం వేచి ఉంది."
+msgid "Import this file into Resume Builder. Every issue is waiting for you in Check."
+msgstr ""
 
 #: src/features/documents/documents-page.tsx
 msgid "Import your current resume and we'll lay out every section for you to refine. Or start fresh. Start with your name. Build from there."
@@ -7974,14 +7974,6 @@ msgstr "లింక్"
 msgid "Link (optional)"
 msgstr ""
 
-#: src/features/applications/components/application-form-sheet.tsx
-msgid "Link a Reactive Resume (recommended)"
-msgstr "Reactive Resumeను లింక్ చేయండి (సిఫార్సు చేయబడింది)"
-
-#: src/features/applications/components/application-form-sheet.tsx
-msgid "Link a Reactive Resume to use AI match scoring and tailoring."
-msgstr "AI మ్యాచ్ స్కోరింగ్, టైలరింగ్ ఉపయోగించడానికి ఒక Reactive Resume రెజ్యూమ్‌ను లింక్ చేయండి."
-
 #: src/features/resume/editor/write/basics-card.tsx
 #: src/features/resume/editor/write/rich-text-editor-field.tsx
 msgid "Link address"
@@ -8001,6 +7993,14 @@ msgstr "ఉద్యోగ దరఖాస్తును లింక్ చే
 #: src/features/resume/share/web-page-text.ts
 msgid "Link copied"
 msgstr "లింక్ కాపీ చేయబడింది"
+
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Link one of your resumes (recommended)"
+msgstr ""
+
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Link one of your resumes to use AI match scoring and tailoring."
+msgstr ""
 
 #: src/features/documents/document-actions.tsx
 msgid "Link to application"
@@ -9825,12 +9825,12 @@ msgstr "కథను తెరువు"
 msgid "Open the exported file and confirm you can select and copy every part of it."
 msgstr "ఎగుమతి చేసిన ఫైల్‌ను తెరిచి, దానిలోని ప్రతి భాగాన్ని ఎంపిక చేసి కాపీ చేయగలరా అని నిర్ధారించుకోండి."
 
-#: src/routes/auth/native-callback.tsx
-msgid "Open the Reactive Resume app"
-msgstr "Reactive Resume యాప్‌ను తెరవండి"
-
 #: src/features/applications/components/detail/assemble-dialog.tsx
 msgid "Open the resume"
+msgstr ""
+
+#: src/routes/auth/native-callback.tsx
+msgid "Open the Resume Builder app"
 msgstr ""
 
 #: src/features/career/today.tsx
@@ -10934,10 +10934,6 @@ msgstr "Re: సీనియర్ ప్రోడక్ట్ డిజైనర
 msgid "Reactive Resume - Go to homepage"
 msgstr "Reactive Resume - హోమ్‌పేజీకి వెళ్ళండి"
 
-#: src/routes/dashboard/settings/route.tsx
-msgid "Reactive Resume {__APP_VERSION__} · MIT"
-msgstr "Reactive Resume {__APP_VERSION__} · MIT"
-
 #: src/features/homepage/sections.tsx
 msgid "Reactive Resume is open source under the MIT License. Amruth Pillai and a community of contributors keep it running, and donations pay for hosting and development. There’s no paid tier."
 msgstr "Reactive Resume MIT లైసెన్స్ కింద ఓపెన్ సోర్స్. Amruth Pillai, సహకారుల సమూహం దీన్ని నడుపుతున్నారు, హోస్టింగ్ మరియు డెవలప్‌మెంట్ ఖర్చులను విరాళాలు భరిస్తాయి. చెల్లింపు ప్లాన్ ఏదీ లేదు."
@@ -11666,6 +11662,10 @@ msgstr "రెజ్యూమ్ తయారీ"
 #: src/features/homepage/sections.tsx
 msgid "Resume builder"
 msgstr "రెజ్యూమే బిల్డర్"
+
+#: src/routes/dashboard/settings/route.tsx
+msgid "Resume Builder {__APP_VERSION__} · based on Reactive Resume (MIT)"
+msgstr ""
 
 #: src/features/resume/preview/preview.browser.tsx
 msgid "Resume content"
@@ -14347,8 +14347,8 @@ msgid "This file is larger than many application forms accept."
 msgstr "చాలా అప్లికేషన్ ఫారమ్‌లు అంగీకరించే దానికంటే ఈ ఫైల్ పెద్దది."
 
 #: src/features/documents/new-document-dialog.tsx
-msgid "This file type can't be imported. Use a PDF, Word, Reactive Resume or JSON Resume file, or a LinkedIn export (.zip)."
-msgstr "ఈ ఫైల్ రకాన్ని దిగుమతి చేయడం సాధ్యపడదు. PDF, Word, Reactive Resume లేదా JSON Resume ఫైల్ లేదా LinkedIn ఎగుమతి (.zip) ఉపయోగించండి."
+msgid "This file type can't be imported. Use a PDF, Word, Resume Builder or JSON Resume file, or a LinkedIn export (.zip)."
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "This file uses a lot of different fonts."

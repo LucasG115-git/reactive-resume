@@ -130,7 +130,7 @@ function Fields() {
 					value={server}
 					onChangeText={setServer}
 					placeholder="rxresu.me"
-					helper="The address you open Reactive Resume at."
+					helper="The address you open Resume Builder at."
 					autoCapitalize="none"
 					keyboardType="url"
 				/>

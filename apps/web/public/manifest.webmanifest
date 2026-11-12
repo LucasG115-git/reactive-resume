@@ -1,6 +1,6 @@
 {
-	"name": "Reactive Resume",
-	"short_name": "Reactive Resume",
+	"name": "Resume Builder",
+	"short_name": "Resume Builder",
 	"description": "A free and open-source resume builder.",
 	"id": "/?source=pwa",
 	"start_url": "/dashboard",
