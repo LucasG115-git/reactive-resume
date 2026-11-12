@@ -17,6 +17,7 @@ export const aiTasksRouter = {
 			description:
 				"Per-task connection and model, reasoning effort, the Thorough model and the default quality mode. Unset values use the default connection.",
 		})
+		.input(z.object({}).optional())
 		.output(aiTaskSettingsSchema)
 		.handler(({ context }) => aiTasksService.get(context.user.id)),
 
