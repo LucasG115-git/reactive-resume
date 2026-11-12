@@ -121,9 +121,7 @@ export function UsedAt({ label, entries, value, onChange, className }: UsedAtPro
 							{groups.length === 0 && <p className="text-xs text-ink-3">{t`Nothing matches.`}</p>}
 							{groups.map((group) => (
 								<fieldset key={group.kind} className="grid gap-1">
-									<legend className="mb-1 font-mono text-[11px] font-medium tracking-wide text-ink-3 uppercase">
-										{groupLabel(group.kind)}
-									</legend>
+									<legend className="mb-1 eyebrow text-ink-3">{groupLabel(group.kind)}</legend>
 									{group.list.map((entry) => (
 										<label
 											key={entry.id}
