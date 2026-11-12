@@ -91,19 +91,17 @@ export function LandingFooter() {
 				<div className="flex min-w-0 flex-col items-start gap-5">
 					<img
 						loading="lazy"
-						src="/logo/light.svg"
-						alt="Reactive Resume"
-						width={140}
-						height={140}
-						className="-ms-[18px] -mt-[22px] -mb-[22px] size-[140px] dark:hidden"
+						src="/logo/light.png"
+						alt="Countdown Creative"
+						height={56}
+						className="h-14 w-auto dark:hidden"
 					/>
 					<img
 						loading="lazy"
-						src="/logo/dark.svg"
-						alt="Reactive Resume"
-						width={140}
-						height={140}
-						className="-ms-[18px] -mt-[22px] -mb-[22px] hidden size-[140px] dark:block"
+						src="/logo/dark.png"
+						alt="Countdown Creative"
+						height={56}
+						className="hidden h-14 w-auto dark:block"
 					/>
 					<p className="font-display text-[clamp(30px,3vw,46px)] leading-[1.06] tracking-[-.01em] text-balance text-ink">
 						<span className="block">{headline[0]}</span>

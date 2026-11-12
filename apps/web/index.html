@@ -35,8 +35,8 @@
 			content="Free, open-source resume builder. Create, update, and share your resume, with PDF and Word downloads, no ads and no paywall."
 		/>
 
-		<link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="128x128" />
-		<link rel="icon" href="/favicon.svg" type="image/svg+xml" sizes="256x256 any" />
+		<link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="16x16 32x32 48x48 64x64" />
+		<link rel="icon" href="/pwa-192x192.png" type="image/png" sizes="192x192" />
 		<link rel="apple-touch-icon" href="/apple-touch-icon-180x180.png" type="image/png" sizes="180x180 any" />
 		<link rel="manifest" href="/manifest.webmanifest" crossorigin="use-credentials" />
 
@@ -47,8 +47,7 @@
 		<div id="app"></div>
 		<!-- Branded first paint; hidden once React populates #app (higher-specificity rule below). -->
 		<div id="initial-loader">
-			<img class="initial-loader__logo-light" src="/icon/light.svg" width="48" height="48" alt="Reactive Resume" />
-			<img class="initial-loader__logo-dark" src="/icon/dark.svg" width="48" height="48" alt="" />
+			<img src="/icon/mark.png" width="48" height="48" alt="Countdown Creative" />
 			<div class="initial-loader__spinner"></div>
 			<span class="initial-loader__sr-only">Loading</span>
 		</div>
@@ -70,13 +69,6 @@
 			}
 			html.dark #initial-loader {
 				background: #1c1815;
-			}
-			.initial-loader__logo-dark,
-			html.dark .initial-loader__logo-light {
-				display: none;
-			}
-			html.dark .initial-loader__logo-dark {
-				display: block;
 			}
 			#app:not(:empty) ~ #initial-loader {
 				display: none;

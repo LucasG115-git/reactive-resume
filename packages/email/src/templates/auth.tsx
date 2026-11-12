@@ -21,7 +21,14 @@ import {
 void React;
 
 const appName = "Reactive Resume";
-const logoUrl = "https://rxresu.me/icon/light.svg";
+// The Countdown Creative lockup, served by the instance that sent the email (the action link's origin).
+const logoUrlFor = (actionUrl: string) => {
+	try {
+		return `${new URL(actionUrl).origin}/logo/light.png`;
+	} catch {
+		return null;
+	}
+};
 
 interface AuthEmailLayoutProps {
 	preview: string;
@@ -65,7 +72,14 @@ function AuthEmailLayout({ preview, heading, intro, details, actionLabel, action
 					<Preview>{preview}</Preview>
 					<Container className="mx-auto w-full max-w-xl rounded-[14px] border border-solid border-[#ECE5DE] bg-white p-6 text-[#1E1A17]">
 						<Section>
-							<Img src={logoUrl} alt={appName} width="48" height="48" className="block" />
+							{logoUrlFor(actionUrl) ? (
+								<Img
+									src={logoUrlFor(actionUrl) ?? ""}
+									alt="Countdown Creative"
+									height="40"
+									className="block h-10 w-auto"
+								/>
+							) : null}
 						</Section>
 
 						<Section className="mt-6">

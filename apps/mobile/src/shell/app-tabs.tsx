@@ -14,7 +14,7 @@ import Animated, {
 } from "react-native-reanimated";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { routes } from "@/routes";
-import { Button, Icon, IconButton, Text, haptics, useReducedMotion, useTheme } from "@/ui";
+import { Brand, Button, Icon, IconButton, Text, haptics, useReducedMotion, useTheme } from "@/ui";
 import { useKeyboardVisible } from "@/ui/keyboard";
 
 /** The tab routes of `app/(tabs)`, in tab-bar order. `create` is the raised "+" that opens New. */
@@ -399,15 +399,17 @@ export function AppSidebar(props: BottomTabBarProps) {
 				borderEndColor: colors.line,
 			}}
 		>
-			<Text
-				variant="heading"
-				accessibilityLabel="Reactive Resume"
-				align={compact ? "center" : undefined}
-				numberOfLines={1}
-				style={{ paddingHorizontal: compact ? 0 : space.s3, paddingBottom: space.s3 }}
+			<View
+				accessible
+				accessibilityLabel="Countdown Creative"
+				style={{
+					alignItems: compact ? "center" : "flex-start",
+					paddingHorizontal: compact ? 0 : space.s3,
+					paddingBottom: space.s3,
+				}}
 			>
-				{compact ? "Rx" : "Reactive Resume"}
-			</Text>
+				<Brand variant={compact ? "mark" : "logo"} size={compact ? 28 : 32} />
+			</View>
 			{compact ? (
 				<View style={{ alignItems: "center" }}>
 					<IconButton icon="magnifying-glass" label={t`Search or run…`} onPress={() => router.push(routes.search())} />
