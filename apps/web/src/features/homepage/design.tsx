@@ -93,7 +93,7 @@ export function Design() {
 					<span
 						aria-hidden="true"
 						data-text={`${design}.`}
-						className="absolute inset-0 text-center font-display leading-none tracking-[-.03em] text-[oklch(0.56_0.13_40)] italic opacity-[calc(clamp(0,(var(--w2)-.35)*3.4,1)*(1-clamp(0,(var(--w3)-.35)*3.4,1)))] before:content-[attr(data-text)] dark:text-[oklch(0.74_0.12_40)]"
+						className="absolute inset-0 text-center font-display leading-none tracking-[-.03em] text-[oklch(0.56_0.13_40)] opacity-[calc(clamp(0,(var(--w2)-.35)*3.4,1)*(1-clamp(0,(var(--w3)-.35)*3.4,1)))] before:content-[attr(data-text)] dark:text-[oklch(0.74_0.12_40)]"
 					/>
 					<span
 						aria-hidden="true"
@@ -219,7 +219,7 @@ export function Design() {
 						<span className="font-anybody pointer-events-auto font-light tracking-[-.02em] text-ink">
 							{t`${templateCount} free resume templates.`}
 						</span>
-						<span className="pointer-events-auto font-display tracking-[-.02em] text-accent-text italic">
+						<span className="pointer-events-auto font-display tracking-[-.02em] text-accent-text">
 							{t`Make any of them yours.`}
 						</span>
 					</Link>

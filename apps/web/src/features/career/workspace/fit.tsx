@@ -144,7 +144,7 @@ export function FitTab({ application, version }: WorkspaceTabProps) {
 					<h2 className="font-display text-[22px] leading-7 font-medium">{item.data.headline}</h2>
 					<p className="max-w-[560px] text-sm leading-[19px] text-ink-2">{item.data.summary}</p>
 				</div>
-				<p className="flex flex-wrap items-baseline gap-x-2 font-mono text-xs font-medium text-ink-2">
+				<p className="flex flex-wrap items-baseline gap-x-2 text-xs font-medium text-ink-2 tabular-nums">
 					{t`${supported} supported · ${partial} partly · ${missing} missing`}
 					{item.outdated && !readOnly && provider && (
 						<Button
@@ -329,7 +329,7 @@ function EvidenceEditor({ requirement, onCancel, onSaved }: EvidenceEditorProps)
 				onKeyDown={(event) => {
 					if (event.key === "Escape") onCancel();
 				}}
-				className="min-h-14 border-accent text-sm shadow-[0_0_0_3px_var(--accent-soft)]"
+				className="min-h-14 border-accent text-sm shadow-focus"
 			/>
 			{touched && empty && (
 				<p role="alert" className="text-xs text-danger-text">

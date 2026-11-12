@@ -101,7 +101,7 @@ function RenameInput({ document, onDone }: { document: DocumentSummary; onDone: 
 					onDone();
 				}
 			}}
-			className="h-7 w-full min-w-0 rounded-md border border-accent bg-raised px-1.5 text-sm font-semibold ring-3 ring-accent-soft outline-none"
+			className="h-7 w-full min-w-0 rounded-md border border-accent bg-raised px-1.5 text-sm font-semibold ring-3 ring-focus/32 outline-none"
 		/>
 	);
 }
@@ -176,7 +176,7 @@ export function DocumentCard({
 						label={document.name}
 						onSelect={selecting && onSelectedChange ? () => onSelectedChange(!selected) : undefined}
 						className={cn(
-							"relative block aspect-page overflow-hidden rounded-md shadow-[0_0_0_1px_var(--line),var(--shadow-1)] transition-[translate,scale,box-shadow] duration-quick ease-enter hover:-translate-y-0.5 hover:shadow-[0_0_0_1px_var(--line),var(--shadow-2)] active:scale-[0.98]",
+							"relative block aspect-page overflow-hidden rounded-md shadow-[0_0_0_1px_var(--line),var(--shadow-1)] transition-[translate,scale,box-shadow] duration-quick ease-enter hover:-translate-y-0.5 hover:shadow-[0_0_0_1px_var(--line),var(--shadow-2)]",
 							(isNew || selected) &&
 								"shadow-[0_0_0_2px_var(--accent),var(--shadow-1)] hover:shadow-[0_0_0_2px_var(--accent),var(--shadow-2)] starting:shadow-[0_0_0_2px_transparent,var(--shadow-1)]",
 							document.trashedAt && "pointer-events-none",

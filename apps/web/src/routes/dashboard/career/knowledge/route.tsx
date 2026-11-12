@@ -93,7 +93,7 @@ function KnowledgeLayout() {
 								<Icon name={section.icon} size={18} className="relative hidden md:block" />
 								<span className="relative md:flex-1">{section.label}</span>
 								{section.count !== undefined && (
-									<span className="relative hidden font-mono text-xs text-ink-3 md:inline">{section.count}</span>
+									<span className="relative hidden text-xs text-ink-3 tabular-nums md:inline">{section.count}</span>
 								)}
 							</Link>
 						);

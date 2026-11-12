@@ -126,7 +126,7 @@ function FaqItem({ item, index }: FaqItemProps) {
 					className="relative rounded-md bg-paper px-6 py-5 text-[oklch(0.28_0.01_95)] shadow-[0_1px_2px_oklch(0.2_0.01_95/.12),0_18px_36px_-18px_oklch(0.2_0.01_95/.4)]"
 					style={{ "--tilt": `${index % 2 === 0 ? -0.5 : 0.4}deg` } as CSSProperties}
 				>
-					<p className="font-display text-[clamp(17px,1.3vw,20px)] leading-normal text-pretty">{item.answer}</p>
+					<p className="font-sans text-[clamp(17px,1.3vw,20px)] leading-normal text-pretty">{item.answer}</p>
 					{item.link &&
 						("to" in item.link ? (
 							<Link to={item.link.to} className={linkClass}>
@@ -174,10 +174,10 @@ export function Faq() {
 					className="font-anybody text-[clamp(48px,5.6vw,100px)] leading-[.98] font-light tracking-[-.03em] text-ink"
 				>
 					<Trans>
-						Asked and <em className="font-display font-normal text-accent-text italic">answered.</em>
+						Asked and <em className="font-display text-accent-text">answered.</em>
 					</Trans>
 				</h2>
-				<p className="max-w-[24em] font-display text-[clamp(17px,1.4vw,21px)] leading-normal text-pretty text-ink-2">
+				<p className="max-w-[24em] font-sans text-[clamp(17px,1.4vw,21px)] leading-normal text-pretty text-ink-2">
 					<Trans>
 						9 short answers to what people ask before they start. Anything else, ask on{" "}
 						<a

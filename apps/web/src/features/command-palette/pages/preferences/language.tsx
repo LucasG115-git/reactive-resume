@@ -11,7 +11,7 @@ export function LanguageCommandPage() {
 		<BaseCommandGroup page="language" heading={<Trans>Language</Trans>}>
 			{selectableLocales.map((value) => (
 				<CommandItem key={value} onSelect={() => changeLocale(value)}>
-					<span className="font-mono text-xs text-ink-3">{value}</span>
+					<span className="text-xs text-ink-3 tabular-nums">{value}</span>
 					{i18n.t(localeMap[value])}
 				</CommandItem>
 			))}

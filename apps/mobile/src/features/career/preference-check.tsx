@@ -11,7 +11,7 @@ import { Button, Icon, Text, showToast, useTheme } from "@/ui";
 function useVerdicts() {
 	const { t } = useLingui();
 	return {
-		fits: { label: t`Fits your must-haves`, tone: "accent" },
+		fits: { label: t`Fits your must-haves`, tone: "success" },
 		check: { label: t`Check before applying`, tone: "warn" },
 		conflict: { label: t`Misses a must-have`, tone: "danger" },
 	} as const;
@@ -22,8 +22,8 @@ type VerdictBadgeProps = { verdict: PreferenceEvaluation["verdict"] };
 export function VerdictBadge({ verdict }: VerdictBadgeProps) {
 	const { colors, radius, space } = useTheme();
 	const { label, tone } = useVerdicts()[verdict];
-	const background = { accent: colors.accentSoft, warn: colors.warnSoft, danger: colors.dangerSoft }[tone];
-	const foreground = { accent: colors.accentText, warn: colors.warnText, danger: colors.dangerText }[tone];
+	const background = { success: colors.successSoft, warn: colors.warnSoft, danger: colors.dangerSoft }[tone];
+	const foreground = { success: colors.successText, warn: colors.warnText, danger: colors.dangerText }[tone];
 	return (
 		<View
 			style={{
@@ -52,7 +52,7 @@ export function PreferenceChecks({ checks, onToggle, pending }: PreferenceChecks
 	const { colors, space } = useTheme();
 	const priority = { must: t`Must have`, strong: t`Strong preference`, nice: t`Nice to have` };
 	const icons = {
-		met: { name: "check-circle", color: colors.accentText, label: t`Met` },
+		met: { name: "check-circle", color: colors.successText, label: t`Met` },
 		violated: { name: "x-circle", color: colors.dangerText, label: t`Not met` },
 		unknown: { name: "question", color: colors.warnText, label: t`Not stated` },
 		overridden: { name: "minus", color: colors.ink3, label: t`Set aside for this role` },

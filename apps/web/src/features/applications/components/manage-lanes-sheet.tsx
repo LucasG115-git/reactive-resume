@@ -286,7 +286,7 @@ function ColorSwatches({ value, label, disabled, onChange }: ColorSwatchesProps)
 							aria-pressed={color.toLowerCase() === value.toLowerCase()}
 							onClick={() => onChange(color)}
 							className={cn(
-								"size-7 rounded-md border-2 border-transparent transition-transform duration-quick ease-enter focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-hidden active:scale-[0.97]",
+								"size-7 rounded-md border-2 border-transparent transition-transform duration-quick ease-enter focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-hidden",
 								color.toLowerCase() === value.toLowerCase() && "border-ink",
 							)}
 							style={{ background: color }}

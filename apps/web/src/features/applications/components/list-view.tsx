@@ -199,7 +199,7 @@ export function ApplicationList({ applications, showClosed, selectedId, onOpen }
 											style={{ background: lane.color }}
 										/>
 										<span className="truncate">{getLaneLabel(lane)}</span>
-										<span className="font-mono text-xs font-normal text-ink-3">{rows.length}</span>
+										<span className="text-xs font-normal text-ink-3 tabular-nums">{rows.length}</span>
 									</button>
 								</th>
 							</tr>

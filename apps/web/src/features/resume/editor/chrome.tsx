@@ -181,7 +181,7 @@ export function ZoomBar({ fitScale, pageCount }: ZoomBarProps) {
 			<button
 				type="button"
 				aria-label={t`Fit page to width`}
-				className="h-8 min-w-[52px] rounded-lg px-1.5 font-mono text-xs font-medium text-ink transition-colors duration-quick hover:bg-hover"
+				className="h-8 min-w-[52px] rounded-lg px-1.5 text-xs font-medium text-ink tabular-nums transition-colors duration-quick hover:bg-hover"
 				onClick={() => setZoom("fit")}
 			>
 				{zoom === "fit" ? <Trans>Fit</Trans> : `${Math.round(current * 100)}%`}
@@ -195,7 +195,7 @@ export function ZoomBar({ fitScale, pageCount }: ZoomBarProps) {
 			>
 				<Icon name="plus" />
 			</button>
-			<span className="px-2 font-mono text-xs whitespace-nowrap text-ink-3">
+			<span className="px-2 text-xs whitespace-nowrap text-ink-3 tabular-nums">
 				<Plural value={pageCount} one="# page" other="# pages" />
 			</span>
 		</div>

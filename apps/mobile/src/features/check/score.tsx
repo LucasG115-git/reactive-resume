@@ -51,7 +51,7 @@ export function Score({ report }: ScoreProps) {
 						cx={diameter / 2}
 						cy={diameter / 2}
 						r={ringRadius}
-						stroke={report.score >= 80 ? colors.accent : colors.warn}
+						stroke={report.score >= 80 ? colors.success : colors.warn}
 						strokeWidth={space.s1}
 						fill="none"
 						strokeDasharray={`${circumference} ${circumference}`}

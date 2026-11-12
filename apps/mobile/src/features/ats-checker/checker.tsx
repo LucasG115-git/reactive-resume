@@ -385,7 +385,7 @@ function Result({ result, uri, size, onFix, onReset, onBlank }: ResultProps) {
 				contentContainerStyle={{ padding: space.s4, gap: space.s4 }}
 			>
 				<View style={{ flexDirection: "row", alignItems: "center", gap: space.s4 }}>
-					<ScoreRing score={report.score} color={report.score >= 80 ? colors.accent : colors.warn} />
+					<ScoreRing score={report.score} color={report.score >= 80 ? colors.success : colors.warn} />
 					<View style={{ flex: 1, gap: space.s1 }}>
 						<Text variant="title">{verdict}</Text>
 						<Text variant="callout" color="ink2">

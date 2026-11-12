@@ -161,7 +161,7 @@ export function RenderingPanel({ rendering }: RenderingPanelProps) {
 			<h4 className="text-xs font-semibold text-ink-3">
 				<Trans>Exported files</Trans>
 			</h4>
-			<ul className="grid gap-0.5 font-mono text-xs text-ink-2">
+			<ul className="grid gap-0.5 text-xs text-ink-2 tabular-nums">
 				{rendering.pdf && (
 					<li>
 						{t`PDF: ${plural(rendering.pdf.pages, { one: "# page", other: "# pages" })} · ${percent(rendering.pdf.textCoverage)} of lines read back`}

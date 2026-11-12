@@ -151,7 +151,7 @@ export function LandingFooter() {
 							</a>
 						</Trans>
 					</span>
-					<span className="font-mono text-xs">v{__APP_VERSION__}</span>
+					<span className="text-xs tabular-nums">v{__APP_VERSION__}</span>
 				</p>
 			</div>
 
@@ -233,7 +233,7 @@ function FooterDesk() {
 				<a key={spot.href} href={spot.href} className={spotClass} style={spotStyle(spot.box)}>
 					<span aria-hidden="true" className={spotWashClass} />
 					<span className={spotLabelClass}>
-						<span aria-hidden="true" className="font-mono text-[10px] opacity-60">
+						<span aria-hidden="true" className="text-[10px] tabular-nums opacity-60">
 							{spot.number}
 						</span>
 						{spot.label}

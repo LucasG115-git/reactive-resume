@@ -339,7 +339,7 @@ export function RichTextEditor({
 			}}
 			className={cn(
 				"rounded-lg border border-line-2 bg-raised transition-[border-color,box-shadow] duration-quick",
-				editing && "border-accent shadow-[0_0_0_3px_var(--accent-soft)]",
+				editing && "border-accent shadow-focus",
 				disabled && "bg-sunken",
 				className,
 			)}
@@ -409,7 +409,7 @@ export function RichTextEditor({
 			{editing && (
 				<div className="flex items-center justify-between gap-3 border-t border-line px-3 py-1.5 text-xs text-ink-3">
 					<span>{hint ?? <Trans>Markdown shortcuts on</Trans>}</span>
-					<span className="font-mono">
+					<span className="tabular-nums">
 						<Plural value={state?.characters ?? 0} one="# character" other="# characters" />
 					</span>
 				</div>

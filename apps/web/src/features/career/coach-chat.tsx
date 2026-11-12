@@ -731,7 +731,7 @@ function AutoRemembered({ id, text, knowledge }: AutoRememberedProps) {
 
 	return (
 		<p className="flex flex-wrap items-center gap-1.5 text-sm text-ink-2">
-			<Icon name="check-circle" size={18} className="text-accent-text" />
+			<Icon name="check-circle" size={18} className="text-success-text" />
 			<Trans>Remembered: “{text}”</Trans>
 			<span aria-hidden="true">·</span>
 			<button type="button" className="font-medium text-ink underline underline-offset-2" onClick={() => void undo()}>

@@ -56,9 +56,7 @@ export function Numbers() {
 					>
 						<dt className="flex flex-col gap-2">
 							<span className={cn(labelClass, "text-ink-3")}>{row.label}</span>
-							<span className="font-display text-[clamp(18px,1.6vw,24px)] leading-[1.3] text-ink-2 italic">
-								{row.detail}
-							</span>
+							<span className="font-sans text-[clamp(18px,1.6vw,24px)] leading-[1.3] text-ink-2">{row.detail}</span>
 						</dt>
 						<dd className="font-anybody text-[clamp(44px,14cqi,80px)] leading-none font-light tracking-[-.03em] text-ink tabular-nums min-[900px]:text-[clamp(40px,calc(15cqi/var(--count)),80px)]">
 							{row.value == null ? (
@@ -164,7 +162,7 @@ export function Languages() {
 					<Icon name={paused ? "play" : "pause"} size={16} filled />
 				</button>
 			</div>
-			<p className="mt-3 flex max-w-[30em] flex-col font-display text-[clamp(17px,1.4vw,21px)] leading-normal text-pretty text-ink-2">
+			<p className="mt-3 flex max-w-[30em] flex-col font-sans text-[clamp(17px,1.4vw,21px)] leading-normal text-pretty text-ink-2">
 				<span>{t`Translated into ${languageCount} languages.`}</span>{" "}
 				<a
 					href={crowdinUrl}
@@ -232,10 +230,10 @@ export function Support() {
 					className="font-anybody text-[clamp(48px,5.6vw,100px)] leading-[.98] font-light tracking-[-.03em] text-ink"
 				>
 					<Trans>
-						Keep it <em className="font-display font-normal text-accent-text italic">free.</em>
+						Keep it <em className="font-display text-accent-text">free.</em>
 					</Trans>
 				</h2>
-				<p className="max-w-[28em] font-display text-[clamp(17px,1.4vw,21px)] leading-normal text-pretty text-ink-2">
+				<p className="max-w-[28em] font-sans text-[clamp(17px,1.4vw,21px)] leading-normal text-pretty text-ink-2">
 					{t`Reactive Resume is open source under the MIT License. Amruth Pillai and a community of contributors keep it running, and donations pay for hosting and development. There’s no paid tier.`}
 				</p>
 				<ul className="flex flex-wrap gap-2">
@@ -355,7 +353,7 @@ export function Closing() {
 					))}
 				</div>
 				<div className="mt-2.5 grid grid-cols-4 gap-2 text-start">
-					<span className="flex h-11 items-center justify-center rounded-lg border-[1.5px] border-dashed border-accent font-display text-[15px] text-accent-text italic">
+					<span className="flex h-11 items-center justify-center rounded-lg border-[1.5px] border-dashed border-accent font-sans text-[15px] text-accent-text">
 						{t`Yours`}
 					</span>
 					<span className="col-start-3 flex h-11 min-w-0 flex-col justify-center rounded-lg border border-line bg-raised px-2 font-ui text-[11.5px] leading-[1.2] font-semibold text-ink shadow-e2">
@@ -370,10 +368,10 @@ export function Closing() {
 				className="font-anybody text-[clamp(48px,6vw,108px)] leading-none font-light tracking-[-.03em] text-balance text-ink"
 			>
 				<Trans>
-					Put it all on <em className="font-display font-normal text-accent-text italic">one page.</em>
+					Put it all on <em className="font-display text-accent-text">one page.</em>
 				</Trans>
 			</h2>
-			<p className="max-w-[28em] font-display text-[clamp(17px,1.4vw,21px)] leading-normal text-pretty text-ink-2">
+			<p className="max-w-[28em] font-sans text-[clamp(17px,1.4vw,21px)] leading-normal text-pretty text-ink-2">
 				{t`Start from scratch or import what you have. It takes a few minutes, and you can come back to it anytime.`}
 			</p>
 			<CtaLink size="closing" />
@@ -382,7 +380,7 @@ export function Closing() {
 				<div className="flex flex-wrap justify-center gap-3">
 					<a
 						href="https://play.google.com/store/apps/details?id=me.rxresu"
-						className="inline-flex min-h-14 items-center gap-3 rounded-xl border border-line-2 bg-raised px-5 py-2.5 text-start font-ui text-ink transition-[background-color,transform] duration-[160ms] ease-out-strong hover:bg-hover motion-safe:active:scale-[.97]"
+						className="motion-safe: inline-flex min-h-14 items-center gap-3 rounded-xl border border-line-2 bg-raised px-5 py-2.5 text-start font-ui text-ink transition-[background-color,transform] duration-[160ms] ease-out-strong hover:bg-hover"
 					>
 						<GooglePlayLogoIcon aria-hidden="true" size={28} weight="fill" className="shrink-0" />
 						<span className="flex flex-col gap-0.5">

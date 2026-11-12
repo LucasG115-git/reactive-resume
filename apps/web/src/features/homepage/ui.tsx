@@ -45,7 +45,7 @@ export function SceneCaption({ number, title, children, action, className }: Sce
 			<span className={cn(labelClass, "text-accent-text")}>
 				{number} / {title}
 			</span>
-			<p className="font-display text-base leading-[1.45] text-pretty text-ink min-[900px]:text-[clamp(17px,1.35vw,20px)]">
+			<p className="font-sans text-base leading-[1.45] text-pretty text-ink min-[900px]:text-[clamp(17px,1.35vw,20px)]">
 				{children}
 			</p>
 			{action}

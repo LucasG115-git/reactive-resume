@@ -112,7 +112,7 @@ function SectionHeading({ id, title, count, note }: SectionHeadingProps) {
 			<h2 id={id} className="text-[17px] font-semibold">
 				{title}
 			</h2>
-			{count !== undefined && <span className="font-mono text-xs font-medium text-ink-3">{count}</span>}
+			{count !== undefined && <span className="text-xs font-medium text-ink-3 tabular-nums">{count}</span>}
 			{note && <span className="ms-auto text-xs text-ink-3">{note}</span>}
 		</div>
 	);
@@ -611,7 +611,7 @@ function ComingUp({ now, className }: ComingUpProps) {
 			</Eyebrow>
 			<div className="flex items-start gap-3">
 				<span className="flex w-11 shrink-0 flex-col items-center rounded-lg bg-sunken py-1.5">
-					<span className="font-mono text-[11px] font-medium text-ink-3">
+					<span className="text-[11px] font-medium text-ink-3 tabular-nums">
 						{format(start, { weekday: "short" }).toLocaleUpperCase(locale)}
 					</span>
 					<span className="font-display text-[22px] leading-[26px] font-medium">

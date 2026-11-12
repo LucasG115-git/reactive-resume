@@ -198,7 +198,7 @@ function Plan({ application, interview, briefing, readOnly, go }: PlanProps) {
 						<h2 className="font-display text-[22px] leading-7 font-medium">{data.headline}</h2>
 						<p className="text-sm text-ink-2">{data.summary}</p>
 					</div>
-					<span className="flex flex-wrap items-baseline gap-x-2 font-mono text-xs font-medium text-ink-3">
+					<span className="flex flex-wrap items-baseline gap-x-2 text-xs font-medium text-ink-3 tabular-nums">
 						<Trans>
 							{doneMinutes} of {total} min
 						</Trans>
@@ -244,7 +244,7 @@ function Plan({ application, interview, briefing, readOnly, go }: PlanProps) {
 								checked={done(index)}
 								onCheckedChange={(checked) => ticks.toggle(String(index), checked)}
 							/>
-							<span className="font-mono text-xs leading-5 font-medium text-ink-3">
+							<span className="text-xs leading-5 font-medium text-ink-3 tabular-nums">
 								<Trans>{row.minutes} min</Trans>
 							</span>
 							<div className="col-start-2 grid gap-0.5 sm:col-start-auto">
@@ -271,7 +271,7 @@ function Plan({ application, interview, briefing, readOnly, go }: PlanProps) {
 						<ol className="grid gap-2">
 							{questions.map((question, index) => (
 								<li key={`${question.text}-${index}`} className="flex gap-2.5 text-sm leading-5">
-									<span className="w-4 shrink-0 font-mono text-xs leading-5 font-medium text-accent-text">
+									<span className="w-4 shrink-0 text-xs leading-5 font-medium text-accent-text tabular-nums">
 										{index + 1}
 									</span>
 									<span className="min-w-0 flex-1">{question.text}</span>
@@ -642,7 +642,7 @@ function Soon({ application, interview, briefing, now, go }: SoonProps) {
 									</span>
 									<span className="text-[13px] leading-[19px] text-ink-2">{row.detail}</span>
 								</span>
-								<span className="ms-auto font-mono text-xs font-medium whitespace-nowrap text-ink-3">
+								<span className="ms-auto text-xs font-medium whitespace-nowrap text-ink-3 tabular-nums">
 									<Trans>{row.minutes} min</Trans>
 								</span>
 							</label>

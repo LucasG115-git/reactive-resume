@@ -202,13 +202,16 @@ function NavLink({ item, current }: { item: NavItem; current: boolean }) {
 			to={item.to}
 			aria-current={current ? "page" : undefined}
 			className={cn(
-				"flex h-[34px] items-center gap-2.5 rounded-lg px-2.5 text-sm transition-[background-color,color,scale] duration-quick ease-enter active:scale-[0.97]",
-				current ? "bg-sunken font-medium text-ink" : "text-ink-2 hover:bg-hover hover:text-ink",
+				"flex h-[34px] items-center gap-2.5 rounded-lg px-2.5 text-sm transition-[background-color,color] duration-quick ease-enter",
+				// The selected item: orange-50 with a 3px orange edge.
+				current
+					? "bg-accent-soft font-semibold text-ink shadow-[inset_3px_0_0_var(--accent)] [&>[data-slot=icon]]:text-accent-text"
+					: "text-ink-2 hover:bg-hover hover:text-ink",
 			)}
 		>
 			<Icon name={item.icon} filled={current} />
 			<span className="flex-1">{item.label}</span>
-			{item.count ? <span className="font-mono text-xs text-ink-3">{item.count}</span> : null}
+			{item.count ? <span className="text-xs text-ink-3 tabular-nums">{item.count}</span> : null}
 		</Link>
 	);
 }
@@ -233,7 +236,7 @@ function Rail() {
 					type="button"
 					aria-label={t`Search or run…`}
 					onClick={() => openPalette(true)}
-					className="grid size-10 place-items-center rounded-lg text-ink-2 transition-[background-color,scale] duration-quick ease-enter hover:bg-hover active:scale-[0.97]"
+					className="grid size-10 place-items-center rounded-lg text-ink-2 transition-[background-color,scale] duration-quick ease-enter hover:bg-hover"
 				/>
 			</RailTip>
 			<nav aria-label={t`App`} className="grid gap-1">
@@ -244,7 +247,7 @@ function Rail() {
 							aria-label={item.label}
 							aria-current={isCurrent(item.to) ? "page" : undefined}
 							className={cn(
-								"grid size-10 place-items-center rounded-lg transition-[background-color,color,scale] duration-quick ease-enter active:scale-[0.97]",
+								"grid size-10 place-items-center rounded-lg transition-[background-color,color,scale] duration-quick ease-enter",
 								isCurrent(item.to) ? "bg-sunken text-ink" : "text-ink-2 hover:bg-hover",
 							)}
 						/>
@@ -257,7 +260,7 @@ function Rail() {
 						<Link
 							to={trash.to}
 							aria-label={t`Trash`}
-							className="grid size-10 place-items-center rounded-lg text-ink-2 transition-[background-color,scale] duration-quick ease-enter hover:bg-hover active:scale-[0.97]"
+							className="grid size-10 place-items-center rounded-lg text-ink-2 transition-[background-color,scale] duration-quick ease-enter hover:bg-hover"
 						/>
 					</RailTip>
 				)}
@@ -321,7 +324,7 @@ function MobileTabs() {
 				to={to}
 				aria-current={current ? "page" : undefined}
 				viewTransition={false}
-				className="relative flex min-h-[52px] flex-col items-center justify-center gap-0.5 transition-[scale] duration-quick ease-enter active:scale-[0.97]"
+				className="relative flex min-h-[52px] flex-col items-center justify-center gap-0.5 transition-[scale] duration-quick ease-enter"
 			>
 				{current && <MobileTabIndicator />}
 				<Icon name={icon} size={24} filled={current} />
@@ -339,7 +342,7 @@ function MobileTabs() {
 			<button
 				type="button"
 				onClick={() => openDialog("document.new", undefined)}
-				className="flex min-h-[52px] flex-col items-center justify-center gap-0.5 transition-[scale] duration-quick ease-enter active:scale-[0.97]"
+				className="flex min-h-[52px] flex-col items-center justify-center gap-0.5 transition-[scale] duration-quick ease-enter"
 			>
 				<span className="grid h-[26px] w-[34px] place-items-center rounded-sm bg-accent text-on-accent">
 					<Icon name="plus" size={20} />

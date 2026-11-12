@@ -94,7 +94,7 @@ const getFragments = () => [
 	{
 		text: t`Shipped checkout for iOS`,
 		at: ["-27vw", "23vh", "-5vw", "8vh", "3deg", 1, 0.7],
-		className: cn(fragmentKind.serif, "text-[1.7vw] text-ink-2 italic"),
+		className: cn(fragmentKind.serif, "text-[1.7vw] text-ink-2"),
 	},
 	{
 		text: t`Prototyping`,
@@ -109,7 +109,7 @@ const getFragments = () => [
 	{
 		text: t`Barista, 2012`,
 		at: ["-44vw", "38vh", "-6vw", "15vh", "-7deg", 1, 0.8],
-		className: cn(fragmentKind.serif, "text-[2.2vw] text-ink-3 italic"),
+		className: cn(fragmentKind.serif, "text-[2.2vw] text-ink-3"),
 	},
 	{
 		text: t`40% faster reviews`,
@@ -247,18 +247,18 @@ export function Hero() {
 					<span className="font-anybody block font-light tracking-[-.025em] [font-stretch:calc(112%-var(--e)*12%)]">
 						{headline[0]}
 					</span>
-					<span className="block font-display tracking-[-.02em] text-accent-text italic">{headline[1]}</span>
+					<span className="block font-display tracking-[-.02em] text-accent-text">{headline[1]}</span>
 				</div>
 				<div
 					aria-hidden="true"
 					className="absolute start-[calc(50%+var(--pw)/2+2.6vw)] top-1/2 hidden max-w-[calc(50vw-var(--pw)/2-2.6vw-var(--gutter))] [transform:translate(calc(var(--dir)*(1-var(--e))*6vw),-50%)] text-[3.4vw] leading-none text-balance opacity-[clamp(0,(var(--e)-.5)*3,1)] [transition:transform_.45s_var(--ease)] min-[900px]:block"
 				>
 					<span className="font-anybody block tracking-[-.025em] text-ink">{headline[2]}</span>
-					<span className="block font-display tracking-[-.02em] text-accent-text italic">{headline[3]}</span>
+					<span className="block font-display tracking-[-.02em] text-accent-text">{headline[3]}</span>
 				</div>
 
 				<div className="absolute inset-x-(--gutter) bottom-[clamp(20px,4vh,40px)] z-2 flex flex-wrap items-end justify-between gap-x-8 gap-y-4">
-					<p className="max-w-full font-display text-base leading-[1.45] text-pretty text-ink-2 min-[900px]:max-w-[min(25em,calc(50vw-var(--pw)/2-5vw))] min-[900px]:text-[clamp(17px,1.3vw,20px)]">
+					<p className="max-w-full font-sans text-base leading-[1.45] text-pretty text-ink-2 min-[900px]:max-w-[min(25em,calc(50vw-var(--pw)/2-5vw))] min-[900px]:text-[clamp(17px,1.3vw,20px)]">
 						{t`Build a professional resume, download it as PDF or Word, and manage your job search in one place. Free templates, no ads, no paywall.`}
 					</p>
 					<CtaLink size="hero" />

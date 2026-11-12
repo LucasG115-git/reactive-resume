@@ -124,7 +124,7 @@ export function TypeGroup({ onCustomFonts }: TypeGroupProps) {
 					<span id={sizeLabelId} className="font-medium">
 						<Trans>Text size</Trans>
 					</span>
-					<span className="font-mono text-xs text-ink-2">{size} pt</span>
+					<span className="text-xs text-ink-2 tabular-nums">{size} pt</span>
 				</div>
 				<Slider
 					aria-labelledby={sizeLabelId}
@@ -206,7 +206,7 @@ export function ColorGroup() {
 						value={accent.hex}
 						aria-label={accent.label}
 						title={accent.label}
-						className="aspect-square cursor-pointer rounded-sm transition-[box-shadow,scale] duration-quick ease-enter active:scale-[0.97] data-checked:shadow-[0_0_0_2px_var(--surface),0_0_0_4px_var(--swatch)]"
+						className="aspect-square cursor-pointer rounded-sm transition-[box-shadow,scale] duration-quick ease-enter data-checked:shadow-[0_0_0_2px_var(--surface),0_0_0_4px_var(--swatch)]"
 						style={{ backgroundColor: accent.hex, "--swatch": accent.hex } as CSSProperties}
 					/>
 				))}
@@ -225,7 +225,7 @@ export function ColorGroup() {
 					}}
 					onBlur={() => setTyped(null)}
 				/>
-				<span className={cn("shrink-0 font-mono text-xs", tooLight ? "text-warn-text" : "text-ink-3")}>
+				<span className={cn("shrink-0 text-xs tabular-nums", tooLight ? "text-warn-text" : "text-ink-3")}>
 					{ratio.toFixed(1)}:1
 				</span>
 			</div>
