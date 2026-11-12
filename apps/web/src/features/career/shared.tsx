@@ -244,8 +244,8 @@ export function Eyebrow({ children, className }: EyebrowProps) {
 }
 
 const statusPill = {
-	supported: { icon: "check-circle", tone: "bg-accent-soft text-accent-text" },
-	added: { icon: "check-circle", tone: "bg-accent-soft text-accent-text" },
+	supported: { icon: "check-circle", tone: "bg-success-soft text-success-text" },
+	added: { icon: "check-circle", tone: "bg-success-soft text-success-text" },
 	partial: { icon: "circle-half", tone: "bg-warn-soft text-warn-text" },
 	missing: { icon: "question", tone: "bg-sunken text-ink-2" },
 } satisfies Record<string, { icon: IconName; tone: string }>;
@@ -292,7 +292,7 @@ export function FilterChip({ pressed, onClick, children, className }: FilterChip
 			aria-pressed={pressed}
 			onClick={onClick}
 			className={cn(
-				"touch-target inline-flex h-[30px] items-center rounded-sm border px-2.5 text-xs font-medium transition-[background-color,border-color,color,scale] duration-quick ease-enter active:scale-[0.97]",
+				"touch-target inline-flex h-[30px] items-center rounded-sm border px-2.5 text-xs font-medium transition-[background-color,border-color,color,scale] duration-quick ease-enter",
 				pressed ? "border-ink bg-ink text-bg" : "border-line-2 text-ink hover:bg-hover",
 				className,
 			)}

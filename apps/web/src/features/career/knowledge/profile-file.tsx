@@ -263,7 +263,7 @@ function ProfileFileDialog({ open, onOpenChange, onImported }: ProfileFileDialog
 
 				{checked && counts && (
 					<div className="grid gap-3">
-						<p className="font-mono text-xs text-ink-3">
+						<p className="text-xs text-ink-3 tabular-nums">
 							{plural(counts.entries, { one: "# new entry", other: "# new entries" })} ·{" "}
 							{plural(counts.achievements, { one: "# achievement", other: "# achievements" })} ·{" "}
 							{plural(counts.skills, { one: "# skill", other: "# skills" })}

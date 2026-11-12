@@ -178,7 +178,7 @@ function Column({ lane, applications, onOpen }: ColumnProps) {
 				<span className="truncate" title={label}>
 					{label}
 				</span>
-				<span className="font-mono text-xs font-normal text-ink-3">{applications.length}</span>
+				<span className="text-xs font-normal text-ink-3 tabular-nums">{applications.length}</span>
 			</h2>
 			<div ref={setNodeRef} className="flex min-h-24 flex-1 flex-col gap-2 overflow-y-auto px-2 pb-2">
 				{shown.map((application) => (

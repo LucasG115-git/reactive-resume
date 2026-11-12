@@ -34,13 +34,13 @@ type Answer = {
 const EMPTY: Answer = { have: null, skills: [], places: {}, entryId: null, note: "", text: "" };
 
 const RATING_LABELS = () => [t`None`, t`Adjacent`, t`Some`, t`Strong`];
-const RATING_TONES = ["text-danger-text", "text-warn-text", "text-ink-2", "text-accent-text"];
+const RATING_TONES = ["text-danger-text", "text-warn-text", "text-ink-2", "text-success-text"];
 
 type MatchBarProps = { report: Report; className?: string };
 
 /** The match, as a number and a bar, with how it was worked out. */
 export function MatchBar({ report, className }: MatchBarProps) {
-	const tone = report.match >= 75 ? "bg-accent" : report.match >= 50 ? "bg-warn-text" : "bg-danger-text";
+	const tone = report.match >= 75 ? "bg-success" : report.match >= 50 ? "bg-warn-text" : "bg-danger-text";
 	const labels = RATING_LABELS();
 	return (
 		<div className={cn("grid gap-1.5", className)}>
@@ -178,10 +178,7 @@ export function GapStep({ applicationId, report, entries, onDone, onSkip }: GapS
 				.filter((group) => group.list.length > 0)
 				.map((group) => (
 					<section key={group.key} className="grid gap-2" aria-labelledby={`${applicationId}-gap-${group.key}`}>
-						<h3
-							id={`${applicationId}-gap-${group.key}`}
-							className="text-xs font-semibold tracking-wide text-ink-3 uppercase"
-						>
+						<h3 id={`${applicationId}-gap-${group.key}`} className="eyebrow text-ink-3">
 							{group.title}
 						</h3>
 						<ul className="grid gap-2">
@@ -200,10 +197,7 @@ export function GapStep({ applicationId, report, entries, onDone, onSkip }: GapS
 
 			{experience.length > 0 && (
 				<section className="grid gap-2" aria-labelledby={`${applicationId}-gap-experience`}>
-					<h3
-						id={`${applicationId}-gap-experience`}
-						className="text-xs font-semibold tracking-wide text-ink-3 uppercase"
-					>
+					<h3 id={`${applicationId}-gap-experience`} className="eyebrow text-ink-3">
 						<Trans>Experience you might have</Trans>
 					</h3>
 					<ul className="grid gap-2">

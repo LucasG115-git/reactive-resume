@@ -1,105 +1,113 @@
-// Desk & Paper tokens for React Native.
+// Countdown Creative tokens for React Native (rebrand spec v1; same values as packages/ui globals.css).
 // Screens use these and nothing else; add a missing token here rather than hard-coding a value.
-import { Easing } from "react-native";
+import { Easing, Platform } from "react-native";
 
 export type ColorScheme = "light" | "dark";
 
 // §1 Colours and §1.1 named tints. Alpha is the last two hex digits (#RRGGBBAA).
 const light = {
-	bg: "#F8F7F3",
-	surface: "#FEFDFC",
+	bg: "#F4EFE9",
+	surface: "#FDFCFB",
 	raised: "#FFFFFF",
-	sunken: "#F0EFEB",
-	line: "#DFDEDA",
-	line2: "#C5C4BE",
-	lineStrong: "#888680",
-	ink: "#1C1B15",
-	ink2: "#4F4D47",
-	ink3: "#6D6C65",
-	accent: "#337344",
-	accentHover: "#206133",
-	onAccent: "#F7FEF8",
-	accentSoft: "#DCF2DF",
-	accentText: "#195C2E",
-	danger: "#BA3630",
-	dangerSoft: "#FFE7E4",
-	dangerText: "#A92321",
-	warn: "#D29922",
-	warnSoft: "#FCEDCD",
-	warnText: "#81520A",
-	infoSoft: "#E0F1FF",
-	infoText: "#1D5B92",
-	hover: "#1C1B150D",
-	press: "#1C1B1517",
-	scrim: "#17161152",
-	scrimSheet: "#1716112E",
+	sunken: "#ECE5DE",
+	line: "#ECE5DE",
+	line2: "#D3C7BB",
+	lineStrong: "#8A7C70",
+	ink: "#1E1A17",
+	ink2: "#4A423C",
+	ink3: "#5C534C",
+	accent: "#FF7739",
+	accentHover: "#E85F1E",
+	onAccent: "#FFFFFF",
+	accentSoft: "#FFF7F2",
+	accentText: "#C44E14",
+	danger: "#D2605A",
+	dangerSoft: "#FBEBEB",
+	dangerText: "#B3413B",
+	warn: "#D9A33A",
+	warnSoft: "#FDF3D9",
+	warnText: "#8A6410",
+	infoSoft: "#EAF1FB",
+	infoText: "#3B6AB3",
+	hover: "#1E1A170D",
+	press: "#1E1A1717",
+	scrim: "#1E140A52",
+	scrimSheet: "#1E140A2E",
 	paper: "#FFFFFF",
-	paperInk: "#1C1B15",
-	paperLine: "#DFDEDA",
-	paperAccent: "#337344",
-	paperWarn: "#D29922",
-	paperWarnSoft: "#FCEDCD",
-	stageSaved: "#908C7F",
-	stageApplied: "#5590CC",
-	stageScreen: "#00A0A6",
-	stageInterv: "#AF8433",
-	stageOffer: "#579F68",
-	stageClosed: "#C67067",
-	pageSelectFill: "#3373441F",
-	pageSelectLine: "#337344",
-	pageIssueFill: "#D2992238",
-	pageProposalFill: "#3373441F",
-	selectedFill: "#DCF2DF",
+	paperInk: "#1E1A17",
+	paperLine: "#ECE5DE",
+	paperAccent: "#FF7739",
+	paperWarn: "#D9A33A",
+	paperWarnSoft: "#FDF3D9",
+	stageSaved: "#8A7C70",
+	stageApplied: "#5E7FAE",
+	stageScreen: "#3E7C78",
+	stageInterv: "#C99A2E",
+	stageOffer: "#4E9A6C",
+	stageClosed: "#8A5A7C",
+	pageSelectFill: "#FF77391F",
+	pageSelectLine: "#FF7739",
+	pageIssueFill: "#D9A33A38",
+	pageProposalFill: "#FF77391F",
+	selectedFill: "#FFF7F2",
+	success: "#4E9A6C",
+	successSoft: "#EAF4EE",
+	successText: "#2E7D4F",
+	focus: "#FF9660",
 };
 
 export type ColorToken = keyof typeof light;
 export type Colors = Record<ColorToken, string>;
 
 const dark: Colors = {
-	bg: "#100F0C",
-	surface: "#171613",
-	raised: "#1F1E1A",
-	sunken: "#0B0A08",
-	line: "#2C2B27",
-	line2: "#494843",
-	lineStrong: "#73726C",
-	ink: "#EFEEEB",
-	ink2: "#BCBAB5",
-	ink3: "#979590",
-	accent: "#6FC082",
-	accentHover: "#83D494",
-	onAccent: "#07150A",
-	accentSoft: "#1A3520",
-	accentText: "#8FD89E",
-	danger: "#D9544B",
-	dangerSoft: "#47211D",
-	dangerText: "#FDA297",
-	warn: "#E4B750",
-	warnSoft: "#3E2D10",
-	warnText: "#EFCC83",
-	infoSoft: "#192F46",
-	infoText: "#9DC9F7",
-	hover: "#FFFFFF0F",
-	press: "#FFFFFF1A",
-	scrim: "#00000080",
-	scrimSheet: "#00000080",
+	bg: "#1C1815",
+	surface: "#241F1B",
+	raised: "#2A2420",
+	sunken: "#171310",
+	line: "#3A322C",
+	line2: "#5E544C",
+	lineStrong: "#958879",
+	ink: "#F6F1EC",
+	ink2: "#C2B6AB",
+	ink3: "#A09387",
+	accent: "#FF7739",
+	accentHover: "#FF8A52",
+	onAccent: "#FFFFFF",
+	accentSoft: "#33221A",
+	accentText: "#FF9660",
+	danger: "#E0726B",
+	dangerSoft: "#3A211F",
+	dangerText: "#EC8B85",
+	warn: "#E0AE48",
+	warnSoft: "#31280F",
+	warnText: "#E3BC67",
+	infoSoft: "#1D2838",
+	infoText: "#8FB0E3",
+	hover: "#F6F1EC0F",
+	press: "#F6F1EC1A",
+	scrim: "#0C080580",
+	scrimSheet: "#0C080580",
 	paper: "#FFFFFF",
-	paperInk: "#1C1B15",
-	paperLine: "#DFDEDA",
-	paperAccent: "#337344",
-	paperWarn: "#D29922",
-	paperWarnSoft: "#FCEDCD",
-	stageSaved: "#908C7F",
-	stageApplied: "#5590CC",
-	stageScreen: "#00A0A6",
-	stageInterv: "#AF8433",
-	stageOffer: "#579F68",
-	stageClosed: "#C67067",
-	pageSelectFill: "#3373441F",
-	pageSelectLine: "#337344",
-	pageIssueFill: "#D2992238",
-	pageProposalFill: "#3373441F",
-	selectedFill: "#1A3520",
+	paperInk: "#1E1A17",
+	paperLine: "#ECE5DE",
+	paperAccent: "#FF7739",
+	paperWarn: "#D9A33A",
+	paperWarnSoft: "#FDF3D9",
+	stageSaved: "#A09387",
+	stageApplied: "#86A6D6",
+	stageScreen: "#5FA8A2",
+	stageInterv: "#DDB25A",
+	stageOffer: "#5DB081",
+	stageClosed: "#B985A9",
+	pageSelectFill: "#FF77392E",
+	pageSelectLine: "#FF7739",
+	pageIssueFill: "#E0AE4838",
+	pageProposalFill: "#FF77392E",
+	selectedFill: "#33221A",
+	success: "#5DB081",
+	successSoft: "#1E2D24",
+	successText: "#7CC49A",
+	focus: "#FF9660",
 };
 
 export const colors: Record<ColorScheme, Colors> = { light, dark };
@@ -108,17 +116,18 @@ export const colors: Record<ColorScheme, Colors> = { light, dark };
 // own family, loaded under these names in src/ui/fonts.ts.
 export const fonts = {
 	ui: {
-		400: "Figtree-Regular",
-		500: "Figtree-Medium",
-		600: "Figtree-SemiBold",
-		700: "Figtree-Bold",
+		400: "Manrope-Regular",
+		500: "Manrope-Medium",
+		600: "Manrope-SemiBold",
+		700: "Manrope-Bold",
 	},
-	/** Instrument Serif ships one weight (no bold); never pair it with fontWeight. */
+	/** Space Grotesk 700 is the only display cut bundled (titles use weight, never italic); don't pair it with fontWeight. */
 	display: {
-		400: "InstrumentSerif-Regular",
+		400: "SpaceGrotesk-Bold",
 	},
+	/** The system's monospace, for codes and addresses only. */
 	mono: {
-		400: "GeistMono-Regular",
+		400: Platform.select({ ios: "Menlo", default: "monospace" }),
 	},
 } as const;
 
@@ -131,10 +140,10 @@ type TextStyleToken = {
 };
 
 export const type = {
-	largeIOS: { fontFamily: fonts.display[400], fontSize: 34, lineHeight: 41, letterSpacing: -0.3 },
-	largeAnd: { fontFamily: fonts.display[400], fontSize: 28, lineHeight: 34, letterSpacing: 0 },
-	display: { fontFamily: fonts.display[400], fontSize: 28, lineHeight: 34, letterSpacing: -0.2 },
-	heading: { fontFamily: fonts.display[400], fontSize: 22, lineHeight: 28, letterSpacing: 0 },
+	largeIOS: { fontFamily: fonts.display[400], fontSize: 34, lineHeight: 41, letterSpacing: -0.68 },
+	largeAnd: { fontFamily: fonts.display[400], fontSize: 28, lineHeight: 34, letterSpacing: -0.56 },
+	display: { fontFamily: fonts.display[400], fontSize: 28, lineHeight: 34, letterSpacing: -0.56 },
+	heading: { fontFamily: fonts.display[400], fontSize: 22, lineHeight: 28, letterSpacing: -0.44 },
 	title: { fontFamily: fonts.ui[600], fontSize: 17, lineHeight: 22, letterSpacing: 0 },
 	bodyLarge: { fontFamily: fonts.ui[400], fontSize: 16, lineHeight: 22, letterSpacing: 0 },
 	body: { fontFamily: fonts.ui[400], fontSize: 15, lineHeight: 21, letterSpacing: 0 },
@@ -143,17 +152,17 @@ export const type = {
 	caption: { fontFamily: fonts.ui[500], fontSize: 12, lineHeight: 16, letterSpacing: 0 },
 	micro: { fontFamily: fonts.ui[600], fontSize: 11, lineHeight: 13, letterSpacing: 0.1, maxFontSizeMultiplier: 1.6 },
 	mono: { fontFamily: fonts.mono[400], fontSize: 13, lineHeight: 18, letterSpacing: 0 },
-	/** Section labels and eyebrows, in sentence case. */
+	/** Section labels and eyebrows: Manrope 700, 11pt, widely tracked; set textTransform uppercase where used. */
 	eyebrow: {
-		fontFamily: fonts.ui[600],
-		fontSize: 12,
+		fontFamily: fonts.ui[700],
+		fontSize: 11,
 		lineHeight: 16,
-		letterSpacing: 0,
+		letterSpacing: 1.2,
 		maxFontSizeMultiplier: 1.6,
 	},
 } satisfies Record<string, TextStyleToken>;
 
-/** `pageThumb`: Instrument Serif 400 that scales with the letter card, 3.3% of its width. */
+/** `pageThumb`: Space Grotesk 700 that scales with the letter card, 3.3% of its width. */
 export const pageThumb = { fontFamily: fonts.display[400], widthRatio: 0.033 } as const;
 
 // §3 Spacing, 4 pt grid.
@@ -182,10 +191,12 @@ export const size = {
 
 // §4 Radii.
 export const radius = {
-	rSm: 2,
-	rMd: 3,
-	/** Every larger shape (cards, sheets, former pills): corners stay square-ish everywhere. */
-	rLg: 4,
+	/** Tags and small marks. */
+	rSm: 6,
+	/** Controls: buttons, inputs, nav rows. */
+	rMd: 7,
+	/** Cards, sheets and other larger shapes. Only status chips are full pills. */
+	rLg: 14,
 } as const;
 
 // §5 Shadows. `boxShadow` first; `ios` and `elevation` are the legacy fallback for Android below API 28.
@@ -203,23 +214,23 @@ type ShadowToken = {
 export const shadows: Record<ColorScheme, Record<"e1" | "e2" | "e3" | "ePage", ShadowToken>> = {
 	light: {
 		e1: {
-			boxShadow: "0 1px 2px #17161112",
-			ios: { shadowColor: "#171611", shadowOffset: { width: 0, height: 1 }, shadowOpacity: 0.07, shadowRadius: 1 },
+			boxShadow: "0 1px 2px #2E201412",
+			ios: { shadowColor: "#2E2014", shadowOffset: { width: 0, height: 1 }, shadowOpacity: 0.07, shadowRadius: 1 },
 			elevation: 1,
 		},
 		e2: {
-			boxShadow: "0 1px 2px #1716110F, 0 10px 28px -8px #1716112E",
-			ios: { shadowColor: "#171611", shadowOffset: { width: 0, height: 6 }, shadowOpacity: 0.14, shadowRadius: 12 },
+			boxShadow: "0 1px 2px #2E20140F, 0 10px 28px -8px #2E20142E",
+			ios: { shadowColor: "#2E2014", shadowOffset: { width: 0, height: 6 }, shadowOpacity: 0.14, shadowRadius: 12 },
 			elevation: 4,
 		},
 		e3: {
-			boxShadow: "0 2px 6px #17161114, 0 28px 64px -16px #1716114D",
-			ios: { shadowColor: "#171611", shadowOffset: { width: 0, height: 16 }, shadowOpacity: 0.22, shadowRadius: 28 },
+			boxShadow: "0 2px 6px #2E201414, 0 28px 64px -16px #2E20144D",
+			ios: { shadowColor: "#2E2014", shadowOffset: { width: 0, height: 16 }, shadowOpacity: 0.22, shadowRadius: 28 },
 			elevation: 12,
 		},
 		ePage: {
-			boxShadow: "0 1px 2px #17161114, 0 12px 36px -12px #17161140",
-			ios: { shadowColor: "#171611", shadowOffset: { width: 0, height: 6 }, shadowOpacity: 0.18, shadowRadius: 14 },
+			boxShadow: "0 1px 2px #2E201414, 0 12px 36px -12px #2E201440",
+			ios: { shadowColor: "#2E2014", shadowOffset: { width: 0, height: 6 }, shadowOpacity: 0.18, shadowRadius: 14 },
 			elevation: 3,
 		},
 	},
@@ -250,9 +261,9 @@ export const shadows: Record<ColorScheme, Record<"e1" | "e2" | "e3" | "ePage", S
 // §6 Motion. With reduced motion on, d1–d3 become 0 for movement (see tokens.md §6).
 export const motion = {
 	d1: 120,
-	d2: 200,
-	d3: 320,
-	ease: Easing.bezier(0.2, 0.8, 0.2, 1),
+	d2: 180,
+	d3: 240,
+	ease: Easing.bezier(0.2, 0.6, 0.3, 1),
 	easeMove: Easing.bezier(0.77, 0, 0.175, 1),
 	easeDrawer: Easing.bezier(0.32, 0.72, 0, 1),
 } as const;

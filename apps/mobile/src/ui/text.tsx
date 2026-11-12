@@ -17,8 +17,8 @@ export type TextProps = NativeTextProps & {
 	/** A colour token. Defaults to `ink`. */
 	color?: ColorToken | undefined;
 	/**
-	 * Figtree weight for UI variants, where tokens.md names one (field labels 600, document names 600).
-	 * Ignored for the Instrument Serif (single weight) and mono variants.
+	 * Manrope weight for UI variants, where tokens.md names one (field labels 600, document names 600).
+	 * Ignored for the Space Grotesk (single weight) and mono variants.
 	 */
 	weight?: 400 | 500 | 600 | 700 | undefined;
 	align?: "auto" | "left" | "center" | "right" | undefined;
@@ -38,7 +38,13 @@ export function Text({ variant = "body", color = "ink", weight, align, style, ..
 		<NativeText
 			maxFontSizeMultiplier={maxFontSizeMultiplier}
 			{...props}
-			style={[font, { fontFamily, color: colors[color] }, align ? { textAlign: align } : null, style]}
+			style={[
+				font,
+				{ fontFamily, color: colors[color] },
+				variant === "eyebrow" ? { textTransform: "uppercase" } : null,
+				align ? { textAlign: align } : null,
+				style,
+			]}
 		/>
 	);
 }

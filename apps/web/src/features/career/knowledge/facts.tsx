@@ -122,7 +122,7 @@ export function FactsPage({ highlight }: FactsPageProps) {
 			<MemoryCard />
 
 			<div className="flex flex-wrap items-center gap-2">
-				<label className="flex h-[34px] w-full items-center gap-1.5 rounded-md border border-line-2 bg-raised px-2.5 transition-[border-color,box-shadow] duration-quick focus-within:border-accent focus-within:shadow-[0_0_0_3px_var(--accent-soft)] sm:w-[280px] pointer-coarse:h-11">
+				<label className="flex h-[34px] w-full items-center gap-1.5 rounded-md border border-line-2 bg-raised px-2.5 transition-[border-color,box-shadow] duration-quick focus-within:border-accent focus-within:shadow-focus sm:w-[280px] pointer-coarse:h-11">
 					<Icon name="magnifying-glass" size={18} className="text-ink-3" />
 					<input
 						type="search"
@@ -379,7 +379,7 @@ const FactRow = memo(function FactRow({ fact, onStatus, onCorrect, onShare, onFo
 				className="flex items-start gap-4 px-4 py-3.5 [contain-intrinsic-size:auto_112px] [content-visibility:auto]"
 			>
 				<div className="grid min-w-0 flex-1 gap-1.5">
-					<p className="flex flex-wrap items-center gap-2 font-mono text-xs font-medium text-ink-3">
+					<p className="flex flex-wrap items-center gap-2 text-xs font-medium text-ink-3 tabular-nums">
 						{categoryLabel(categoryOf(fact))}
 						<span
 							className={cn(
@@ -449,7 +449,7 @@ const FactRow = memo(function FactRow({ fact, onStatus, onCorrect, onShare, onFo
 										<ol className="mt-1 grid gap-1 border-t border-line pt-2">
 											{fact.revisions.toReversed().map((revision) => (
 												<li key={revision.at} className="text-ink-3">
-													<span className="font-mono text-[11px]">{date(revision.at)}</span> · {revision.text}
+													<span className="text-[11px] tabular-nums">{date(revision.at)}</span> · {revision.text}
 												</li>
 											))}
 										</ol>
@@ -496,7 +496,7 @@ function Correction({ text, onSave, onCancel }: CorrectionProps) {
 				onKeyDown={(event) => {
 					if (event.key === "Escape") onCancel();
 				}}
-				className="border-accent px-3 py-2.5 text-sm leading-[21px] shadow-[0_0_0_3px_var(--accent-soft)]"
+				className="border-accent px-3 py-2.5 text-sm leading-[21px] shadow-focus"
 			/>
 			<div className="flex flex-wrap items-center gap-1.5">
 				<Button variant="secondary" size="sm" className="h-[30px] px-3" disabled={!draft.trim()} onClick={save}>

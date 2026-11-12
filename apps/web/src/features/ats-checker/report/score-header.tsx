@@ -8,7 +8,7 @@ import { getPdfFindingMessage } from "../messages";
 import { RollingNumber } from "@/components/ui/rolling-number";
 
 function scoreTone(score: number) {
-	if (score >= 80) return { text: "text-accent-text", bar: "bg-accent" };
+	if (score >= 80) return { text: "text-success-text", bar: "bg-success" };
 	if (score >= 60) return { text: "text-warn-text", bar: "bg-warn" };
 	return { text: "text-danger-text", bar: "bg-danger" };
 }

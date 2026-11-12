@@ -480,7 +480,7 @@ function EmptyState({ disabled, onPick }: EmptyStateProps) {
 						type="button"
 						disabled={disabled}
 						onClick={() => onPick(starter.text)}
-						className="flex min-h-[112px] flex-col items-start gap-3 rounded-xl border border-line bg-raised p-3.5 text-start text-sm leading-5 shadow-e1 transition-[box-shadow,scale] duration-quick ease-enter hover:shadow-e2 enabled:active:scale-[0.98] disabled:opacity-60"
+						className="enabled: flex min-h-[112px] flex-col items-start gap-3 rounded-xl border border-line bg-raised p-3.5 text-start text-sm leading-5 shadow-e1 transition-[box-shadow,scale] duration-quick ease-enter hover:shadow-e2 disabled:opacity-60"
 					>
 						<Icon name={starter.icon} size={22} className="text-accent-text" />
 						{starter.text}

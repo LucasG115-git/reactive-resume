@@ -422,7 +422,7 @@ function Session({ applicationId, interviewId, questions, voice, initialMode, st
 		<div className="grid min-w-0 gap-4">
 			<section className="grid gap-3 rounded-xl border border-line bg-surface p-5">
 				<div className="flex flex-wrap items-center justify-between gap-2">
-					<p className="font-mono text-xs font-medium text-ink-2">
+					<p className="text-xs font-medium text-ink-2 tabular-nums">
 						{t`Question ${position} of ${total}`} · {question.origin === "recalled" ? t`Recalled` : t`Practice`}
 					</p>
 					{canHear && (
@@ -476,7 +476,7 @@ function Session({ applicationId, interviewId, questions, voice, initialMode, st
 						<p className="-mb-2 flex flex-wrap items-center gap-1.5 text-xs text-ink-3">
 							<Icon name="waveform" size={16} />
 							<Trans>Transcribed</Trans>
-							{spoken.seconds !== null && <span className="font-mono">· {clock(spoken.seconds)}</span>}
+							{spoken.seconds !== null && <span className="tabular-nums">· {clock(spoken.seconds)}</span>}
 							<span>
 								· <Trans>check numbers and names before using it</Trans>
 							</span>
@@ -530,7 +530,7 @@ function Session({ applicationId, interviewId, questions, voice, initialMode, st
 								type="button"
 								aria-label={recordingNow ? t`Stop recording` : t`Record your answer`}
 								onClick={toggleRecording}
-								className="touch-target relative grid size-[52px] shrink-0 place-items-center rounded-sm bg-danger text-white transition-[filter,scale] duration-quick ease-enter hover:brightness-95 active:scale-[0.97]"
+								className="touch-target relative grid size-[52px] shrink-0 place-items-center rounded-sm bg-danger text-white transition-[filter,scale] duration-quick ease-enter hover:brightness-95"
 							>
 								<Icon name={recordingNow ? "stop" : "microphone"} filled={recordingNow} size={24} />
 							</button>
@@ -1043,7 +1043,7 @@ function SavedAttempt({ item }: { item: Attempt }) {
 	return (
 		<div className="grid min-w-0 gap-4">
 			<section className="grid gap-3 rounded-xl border border-line bg-surface p-5">
-				<p className="font-mono text-xs font-medium text-ink-2">
+				<p className="text-xs font-medium text-ink-2 tabular-nums">
 					{item.data.origin === "recalled" ? t`Recalled` : t`Practice`}
 				</p>
 				<h2 className="font-display text-[22px] leading-[29px]">{item.data.question}</h2>

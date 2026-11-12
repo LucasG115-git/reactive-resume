@@ -128,10 +128,10 @@ export function Remember() {
 					</h2>
 				</div>
 				<div className="flex max-w-[30em] flex-col gap-3 pb-[1vw]">
-					<p className="font-display text-[clamp(26px,2.6vw,42px)] leading-[1.1] tracking-[-.01em] text-accent-text italic">
+					<p className="font-display text-[clamp(26px,2.6vw,42px)] leading-[1.1] tracking-[-.01em] text-accent-text">
 						{t`Same you. Less starting over.`}
 					</p>
-					<p className="font-display text-[clamp(17px,1.35vw,20px)] leading-[1.45] text-pretty text-ink-2">
+					<p className="font-sans text-[clamp(17px,1.35vw,20px)] leading-[1.45] text-pretty text-ink-2">
 						{t`Write a story once, with the facts behind it, and the coach uses it in 3 places. Switch a fact off and nothing leans on it.`}
 					</p>
 				</div>
@@ -246,7 +246,7 @@ export function Remember() {
 									className="[filter:url(#landing-pencil)] [stroke-dashoffset:calc(1-clamp(0,(var(--p)-.55)/.25,1))] [transition:stroke-dashoffset_.8s_var(--ease)]"
 								/>
 							</svg>
-							<span className="mb-6 -rotate-3 font-display text-[19px] whitespace-nowrap italic opacity-[clamp(0,(var(--p)-.6)*6,1)]">
+							<span className="mb-6 -rotate-3 font-sans text-[19px] whitespace-nowrap opacity-[clamp(0,(var(--p)-.6)*6,1)]">
 								{t`Switch it off`}
 							</span>
 						</span>

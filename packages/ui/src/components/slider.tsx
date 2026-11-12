@@ -76,7 +76,7 @@ function Slider({
 						key={thumb.key}
 						aria-describedby={ariaDescribedBy}
 						inputRef={syncThumbInput}
-						className="relative block size-4 shrink-0 rounded-sm border-2 border-accent bg-white shadow-e1 transition-[box-shadow] duration-quick select-none after:absolute after:-inset-2 hover:shadow-[0_0_0_4px_var(--accent-soft)] active:shadow-[0_0_0_4px_var(--accent-soft)] disabled:pointer-events-none disabled:opacity-50 has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-accent"
+						className="relative block size-4 shrink-0 rounded-sm border-2 border-accent bg-white shadow-e1 transition-[box-shadow] duration-quick select-none after:absolute after:-inset-2 hover:shadow-[0_0_0_4px_rgb(255_119_57_/_0.24)] active:shadow-[0_0_0_4px_rgb(255_119_57_/_0.32)] disabled:pointer-events-none disabled:opacity-50 has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-accent"
 					/>
 				))}
 			</SliderPrimitive.Control>

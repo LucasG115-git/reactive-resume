@@ -426,7 +426,7 @@ function ViewsAndDownloads({ isPublic }: { isPublic: boolean }) {
 							/>
 						))}
 					</div>
-					<div className="flex justify-between font-mono text-[11px] font-medium text-ink-3">
+					<div className="flex justify-between text-[11px] font-medium text-ink-3 tabular-nums">
 						<span>
 							{firstDay
 								? new Date(`${firstDay}T00:00:00`).toLocaleDateString(i18n.locale, { month: "short", day: "numeric" })

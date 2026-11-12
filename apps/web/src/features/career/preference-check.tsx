@@ -29,7 +29,7 @@ export function VerdictBadge({ verdict }: VerdictBadgeProps) {
 }
 
 const statusIcon = {
-	met: { name: "check-circle", className: "text-accent-text" },
+	met: { name: "check-circle", className: "text-success-text" },
 	violated: { name: "x-circle", className: "text-danger-text" },
 	unknown: { name: "question", className: "text-warn-text" },
 	overridden: { name: "minus", className: "text-ink-3" },

@@ -366,7 +366,7 @@ export function ImportApplicationsSheet({ open, onOpenChange }: ImportSheetProps
 									</div>
 								)}
 								<p className="flex items-center gap-1.5 font-medium">
-									<Icon name="check-circle" size={18} className="text-accent-text" />
+									<Icon name="check-circle" size={18} className="text-success-text" />
 									<Plural
 										value={importable.length}
 										one="# application ready to import"

@@ -201,11 +201,11 @@ function MessagesPanel() {
 				</span>
 				<b className="text-[1.08em] font-semibold text-ink">{t`They’ve confirmed your interview for today`}</b>
 				<span className="flex items-start gap-[.5em] text-ink-2">
-					<Icon name="check" size={17} className="mt-[.1em] shrink-0 text-accent-text" />
+					<Icon name="check" size={17} className="mt-[.1em] shrink-0 text-success-text" />
 					{t`Confirms ${time} today, by video.`}
 				</span>
 				<span className="flex items-start gap-[.5em] text-ink-2">
-					<Icon name="check" size={17} className="mt-[.1em] shrink-0 text-accent-text" />
+					<Icon name="check" size={17} className="mt-[.1em] shrink-0 text-success-text" />
 					{t`Asks for an example of your onboarding work.`}
 				</span>
 				<div className="mt-[.2em] flex flex-wrap items-center justify-between gap-[.6em] rounded-sm border border-accent bg-surface px-[.9em] py-[.7em]">
@@ -430,7 +430,7 @@ function DebriefPanel() {
 			</div>
 			<div className="flex flex-col gap-[.3em]">
 				<span className="text-[.86em] text-ink-2">{t`What did they ask?`}</span>
-				<span className="font-display text-[1.3em] leading-[1.3] text-ink italic">
+				<span className="font-display text-[1.3em] leading-[1.3] text-ink">
 					{t`“How did you measure the onboarding redesign?”`}
 				</span>
 			</div>
@@ -714,7 +714,7 @@ export function Prepare() {
 					aria-hidden={step !== STEP.interview}
 					className="pointer-events-none absolute inset-x-(--gutter) top-[calc(10vh+16vw+44px)] bottom-[3vh] flex flex-col items-center justify-center gap-4 text-center opacity-(--nw) min-[900px]:start-auto min-[900px]:end-[4vw] min-[900px]:top-[14vh] min-[900px]:bottom-auto min-[900px]:h-[min(600px,74vh)] min-[900px]:w-[min(54vw,820px)]"
 				>
-					<p className="[transform:scale(calc(.94+var(--nw)*.06))] font-display text-[clamp(44px,6vw,108px)] leading-none tracking-[-.02em] text-accent-text italic">
+					<p className="[transform:scale(calc(.94+var(--nw)*.06))] font-display text-[clamp(44px,6vw,108px)] leading-none tracking-[-.02em] text-accent-text">
 						{t`Deep breath.`}
 					</p>
 					<p className={cn(labelClass, "text-ink-3")}>{t`${time} · Video call · 45 min`}</p>

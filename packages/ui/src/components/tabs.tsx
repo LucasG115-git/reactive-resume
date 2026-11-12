@@ -88,7 +88,7 @@ function TabsTrigger({ className, ...props }: TabsPrimitive.Tab.Props) {
 
 /** A count after a tab label, in mono. */
 function TabsCount({ className, ...props }: React.ComponentProps<"span">) {
-	return <span data-slot="tabs-count" className={cn("font-mono text-xs text-ink-3", className)} {...props} />;
+	return <span data-slot="tabs-count" className={cn("text-xs text-ink-3 tabular-nums", className)} {...props} />;
 }
 
 function TabsContent({ className, ...props }: TabsPrimitive.Panel.Props) {

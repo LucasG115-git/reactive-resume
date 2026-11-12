@@ -220,7 +220,7 @@ function StoryFileDialog({ open, onOpenChange }: StoryFileDialogProps) {
 
 				{checked && (
 					<div className="grid gap-3">
-						<p className="font-mono text-xs text-ink-3">
+						<p className="text-xs text-ink-3 tabular-nums">
 							{plural(checked.preview.added, { one: "# new story", other: "# new stories" })}
 							{checked.preview.skipped.length > 0 &&
 								` · ${plural(checked.preview.skipped.length, { one: "# already in Knowledge", other: "# already in Knowledge" })}`}

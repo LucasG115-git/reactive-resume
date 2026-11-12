@@ -227,7 +227,7 @@ function PartTiles({ story }: { story: Story }) {
 					key={part.key}
 					title={part.label}
 					className={cn(
-						"h-5 w-[22px] rounded-md text-center font-mono text-[11px] leading-5 font-semibold",
+						"h-5 w-[22px] rounded-md text-center text-[11px] leading-5 font-semibold tabular-nums",
 						story.data[part.key].trim() ? "bg-accent-soft text-accent-text" : "bg-sunken text-ink-3",
 					)}
 				>
@@ -242,7 +242,7 @@ function PartTiles({ story }: { story: Story }) {
 
 const partTile = (filled: boolean) =>
 	cn(
-		"size-7 rounded-lg text-center font-mono text-[13px] leading-7 font-semibold",
+		"size-7 rounded-lg text-center text-[13px] leading-7 font-semibold tabular-nums",
 		filled ? "bg-accent-soft text-accent-text" : "bg-sunken text-ink-3",
 	);
 

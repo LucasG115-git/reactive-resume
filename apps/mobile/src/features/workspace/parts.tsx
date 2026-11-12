@@ -108,9 +108,10 @@ export function CheckRow({ label, detail, checked, onChange, disabled, strike, t
 	);
 }
 
-type Tone = "accent" | "warn" | "info" | "danger" | "plain";
+type Tone = "accent" | "success" | "warn" | "info" | "danger" | "plain";
 const tones: Record<Tone, { background: ColorToken; text: ColorToken }> = {
 	accent: { background: "accentSoft", text: "accentText" },
+	success: { background: "successSoft", text: "successText" },
 	warn: { background: "warnSoft", text: "warnText" },
 	info: { background: "infoSoft", text: "infoText" },
 	danger: { background: "dangerSoft", text: "dangerText" },
@@ -149,8 +150,8 @@ export type EvidenceStatus = "supported" | "partial" | "missing" | "added";
 export function StatusPill({ status }: { status: EvidenceStatus }) {
 	const { t } = useLingui();
 	const pills = {
-		supported: { tone: "accent", icon: "check-circle", label: t`Supported` },
-		added: { tone: "accent", icon: "check-circle", label: t`Added by you` },
+		supported: { tone: "success", icon: "check-circle", label: t`Supported` },
+		added: { tone: "success", icon: "check-circle", label: t`Added by you` },
 		partial: { tone: "warn", icon: "circle-half", label: t`Partly supported` },
 		missing: { tone: "plain", icon: "question", label: t`No evidence yet` },
 	} as const;

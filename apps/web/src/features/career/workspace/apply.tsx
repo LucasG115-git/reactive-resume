@@ -307,7 +307,7 @@ function AnswerCard({
 							<button
 								type="button"
 								onClick={onToggleUnit}
-								className="shrink-0 rounded-sm font-mono text-xs leading-[22px] font-medium text-ink-2 transition-colors duration-quick hover:text-ink"
+								className="shrink-0 rounded-sm text-xs leading-[22px] font-medium text-ink-2 tabular-nums transition-colors duration-quick hover:text-ink"
 							/>
 						}
 					>
@@ -579,7 +579,7 @@ function Checklist({
 				<h2 className="text-sm font-semibold">
 					<Trans>Before you submit</Trans>
 				</h2>
-				<span className="font-mono text-xs font-medium text-ink-2">{t`${done} of ${items.length}`}</span>
+				<span className="text-xs font-medium text-ink-2 tabular-nums">{t`${done} of ${items.length}`}</span>
 			</div>
 			<div
 				role="progressbar"

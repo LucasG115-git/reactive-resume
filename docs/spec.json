@@ -12329,6 +12329,7 @@
 				"tags": [
 					"AI Providers"
 				],
+				"parameters": [],
 				"responses": {
 					"200": {
 						"description": "OK",
@@ -110661,6 +110662,7 @@
 				"tags": [
 					"Resume style"
 				],
+				"parameters": [],
 				"responses": {
 					"200": {
 						"description": "OK",
