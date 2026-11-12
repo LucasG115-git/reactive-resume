@@ -1107,8 +1107,8 @@ msgid "A accepts and R rejects the focused edit. ↑ and ↓ move between edits.
 msgstr "ଏକ ଗ୍ରହଣ ଏବଂ R ଫୋକସ୍ ହୋଇଥିବା ସମ୍ପାଦନାକୁ ପ୍ରତ୍ୟାଖ୍ୟାନ କରେ | Ed ଏବଂ ed ସମ୍ପାଦନା ମଧ୍ୟରେ ଗତି କର |"
 
 #: src/routes/builder/letter/-components/download-sheet.tsx
-msgid "A backup of this letter. Imports back into Reactive Resume as a letter."
-msgstr "ଏହି ଚିଠିର ଏକ ନକଲ ସଂରକ୍ଷଣ | ଏକ ଅକ୍ଷର ଭାବରେ Reactive Resume କୁ ପୁନର୍ବାର ଆମଦାନୀ କରନ୍ତୁ |"
+msgid "A backup of this letter. Imports back into Resume Builder as a letter."
+msgstr ""
 
 #: src/features/applications/components/detail/assemble-dialog.tsx
 msgid "A blank template, with your account's name and email"
@@ -3603,8 +3603,8 @@ msgid "Compares your resume with the posting"
 msgstr "ଚାକିରି ପୋଷ୍ଟିଂ ସହିତ ତୁମର ରେଜୁମ୍ ତୁଳନା କରେ |"
 
 #: src/features/resume/share/download-tab.tsx
-msgid "Complete data backup. Imports back into Reactive Resume or JSON Resume tools."
-msgstr "ସମ୍ପୂର୍ଣ୍ଣ ଡାଟା ବ୍ୟାକଅପ୍ | Reactive Resume କିମ୍ବା JSON Resume ଉପକରଣଗୁଡ଼ିକରେ ପୁନର୍ବାର ଆମଦାନୀ କରନ୍ତୁ |"
+msgid "Complete data backup. Imports back into Resume Builder or JSON Resume tools."
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Compress or remove large images to keep uploads quick."
@@ -5473,8 +5473,8 @@ msgid "Drag to reposition and use the slider to zoom before uploading."
 msgstr "ଅପଲୋଡ୍ କରିବା ପୂର୍ବରୁ ପୁନଃସ୍ଥାପନ କରିବାକୁ ଟାଣନ୍ତୁ ଏବଂ ଜୁମ୍ କରିବାକୁ ସ୍ଲାଇଡର୍‍ ବ୍ୟବହାର କରନ୍ତୁ।"
 
 #: src/features/documents/new-document-dialog.tsx
-msgid "Drop a file here or browse. PDF, Word, Reactive Resume or JSON Resume. We fill in every section and flag anything we're unsure of."
-msgstr "ଏଠାରେ ଏକ ଫାଇଲ୍ ଡ୍ରପ୍ କରନ୍ତୁ କିମ୍ବା ବ୍ରାଉଜ୍ କରନ୍ତୁ | PDF, Word, Reactive Resume କିମ୍ବା JSON Resume | ଆମେ ପ୍ରତ୍ୟେକ ବିଭାଗରେ ପୁରଣ କରୁ ଏବଂ ଯାହା ବିଷୟରେ ଆମେ ଅନିଶ୍ଚିତ ତାହା ଫ୍ଲାଗ୍ କରୁ |"
+msgid "Drop a file here or browse. PDF, Word, Resume Builder or JSON Resume. We fill in every section and flag anything we're unsure of."
+msgstr ""
 
 #: src/features/ats-checker/checker.tsx
 msgid "Drop a PDF here or choose a file"
@@ -7108,8 +7108,8 @@ msgid "Import steps"
 msgstr "ପଦକ୍ଷେପଗୁଡିକ ଆମଦାନି କରନ୍ତୁ |"
 
 #: src/features/ats-checker/checker.tsx
-msgid "Import this file into a free Reactive Resume. Every issue is waiting for you in Check."
-msgstr "ଏକ ମାଗଣା Reactive Resume ରେ ଏହି ଫାଇଲକୁ ଆମଦାନି କରନ୍ତୁ | ଚେକ୍ ରେ ପ୍ରତ୍ୟେକ ଇସୁ ଆପଣଙ୍କୁ ଅପେକ୍ଷା କରିଛି |"
+msgid "Import this file into Resume Builder. Every issue is waiting for you in Check."
+msgstr ""
 
 #: src/features/documents/documents-page.tsx
 msgid "Import your current resume and we'll lay out every section for you to refine. Or start fresh. Start with your name. Build from there."
@@ -7975,14 +7975,6 @@ msgstr "ଲିଙ୍କ୍ |"
 msgid "Link (optional)"
 msgstr ""
 
-#: src/features/applications/components/application-form-sheet.tsx
-msgid "Link a Reactive Resume (recommended)"
-msgstr "Reactive Resume ଲିଙ୍କ୍ କରନ୍ତୁ (ସୁପାରିଶ କରାଯାଇଛି)"
-
-#: src/features/applications/components/application-form-sheet.tsx
-msgid "Link a Reactive Resume to use AI match scoring and tailoring."
-msgstr "AI ମେଳ ସ୍କୋରିଂ ଏବଂ ଅନୁକୂଳନ ବ୍ୟବହାର କରିବା ପାଇଁ ଏକ Reactive Resume ରେଜ୍ୟୁମେକୁ ଲିଙ୍କ୍ କରନ୍ତୁ।"
-
 #: src/features/resume/editor/write/basics-card.tsx
 #: src/features/resume/editor/write/rich-text-editor-field.tsx
 msgid "Link address"
@@ -8002,6 +7994,14 @@ msgstr "ଏକ ଚାକିରି ଆବେଦନକୁ ଲିଙ୍କ୍ କ�
 #: src/features/resume/share/web-page-text.ts
 msgid "Link copied"
 msgstr "ଲିଙ୍କ୍ କପି ହୋଇଛି |"
+
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Link one of your resumes (recommended)"
+msgstr ""
+
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Link one of your resumes to use AI match scoring and tailoring."
+msgstr ""
 
 #: src/features/documents/document-actions.tsx
 msgid "Link to application"
@@ -9826,13 +9826,12 @@ msgstr "କାହାଣୀ ଖୋଲନ୍ତୁ"
 msgid "Open the exported file and confirm you can select and copy every part of it."
 msgstr "ରପ୍ତାନି ହୋଇଥିବା ଫାଇଲ୍ ଖୋଲନ୍ତୁ ଏବଂ ନିଶ୍ଚିତ କରନ୍ତୁ ଯେ ଆପଣ ଏହାର ପ୍ରତ୍ୟେକ ଅଂଶକୁ ଚୟନ ଏବଂ କପି କରିପାରୁଛନ୍ତି।"
 
-#: src/routes/auth/native-callback.tsx
-msgid "Open the Reactive Resume app"
-msgstr "|\n"
-"Reactive Resume ଆପ୍ ଖୋଲନ୍ତୁ |"
-
 #: src/features/applications/components/detail/assemble-dialog.tsx
 msgid "Open the resume"
+msgstr ""
+
+#: src/routes/auth/native-callback.tsx
+msgid "Open the Resume Builder app"
 msgstr ""
 
 #: src/features/career/today.tsx
@@ -10936,10 +10935,6 @@ msgstr "Re: Senior Product Designer"
 msgid "Reactive Resume - Go to homepage"
 msgstr "Reactive Resume - ହୋମ୍ପେଜ୍‌କୁ ଯାଆନ୍ତୁ"
 
-#: src/routes/dashboard/settings/route.tsx
-msgid "Reactive Resume {__APP_VERSION__} · MIT"
-msgstr "Reactive Resume {__APP_VERSION__} · MIT"
-
 #: src/features/homepage/sections.tsx
 msgid "Reactive Resume is open source under the MIT License. Amruth Pillai and a community of contributors keep it running, and donations pay for hosting and development. There’s no paid tier."
 msgstr "Reactive Resume MIT ଲାଇସେନ୍ସ ଅଧୀନରେ ଓପନ୍ ସୋର୍ସ। Amruth Pillai ଓ ଅବଦାନକାରୀଙ୍କ ଏକ ସମୁଦାୟ ଏହାକୁ ଚଳାନ୍ତି, ଏବଂ ଦାନରୁ ହୋଷ୍ଟିଂ ଓ ବିକାଶର ଖର୍ଚ୍ଚ ବହନ ହୁଏ। କୌଣସି ପେଡ୍ ସ୍ତର ନାହିଁ।"
@@ -11668,6 +11663,10 @@ msgstr "ଜୀବନବୃତ୍ତାନ୍ତ ତିଆରି"
 #: src/features/homepage/sections.tsx
 msgid "Resume builder"
 msgstr "ରେଜୁମ୍ ବିଲଡର୍ |"
+
+#: src/routes/dashboard/settings/route.tsx
+msgid "Resume Builder {__APP_VERSION__} · based on Reactive Resume (MIT)"
+msgstr ""
 
 #: src/features/resume/preview/preview.browser.tsx
 msgid "Resume content"
@@ -14349,8 +14348,8 @@ msgid "This file is larger than many application forms accept."
 msgstr "ଏହି ଫାଇଲ୍ ଅନେକ ଆବେଦନ ଫର୍ମ ଗ୍ରହଣ କରୁଥିବାଠାରୁ ବଡ଼।"
 
 #: src/features/documents/new-document-dialog.tsx
-msgid "This file type can't be imported. Use a PDF, Word, Reactive Resume or JSON Resume file, or a LinkedIn export (.zip)."
-msgstr "ଏହି ଫାଇଲ୍ ପ୍ରକାର ଆମଦାନୀ ହୋଇପାରିବ ନାହିଁ | ଏକ PDF, Word, Reactive Resume କିମ୍ବା JSON Resume ଫାଇଲ, କିମ୍ବା LinkedIn ରପ୍ତାନି (.zip) ବ୍ୟବହାର କରନ୍ତୁ |"
+msgid "This file type can't be imported. Use a PDF, Word, Resume Builder or JSON Resume file, or a LinkedIn export (.zip)."
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "This file uses a lot of different fonts."

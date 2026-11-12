@@ -1107,8 +1107,8 @@ msgid "A accepts and R rejects the focused edit. ↑ and ↓ move between edits.
 msgstr "ಕೇಂದ್ರೀಕೃತ ಸಂಪಾದನೆಯನ್ನು A ಸ್ವೀಕರಿಸುತ್ತದೆ ಮತ್ತು R ತಿರಸ್ಕರಿಸುತ್ತದೆ. ↑ ಮತ್ತು ↓ ಸಂಪಾದನೆಗಳ ನಡುವೆ ಸರಿಸಿ."
 
 #: src/routes/builder/letter/-components/download-sheet.tsx
-msgid "A backup of this letter. Imports back into Reactive Resume as a letter."
-msgstr "ಈ ಪತ್ರದ ಬ್ಯಾಕಪ್. ಅಕ್ಷರದಂತೆ Reactive Resume ಗೆ ಮರಳಿ ಆಮದು ಮಾಡಿಕೊಳ್ಳುತ್ತದೆ."
+msgid "A backup of this letter. Imports back into Resume Builder as a letter."
+msgstr ""
 
 #: src/features/applications/components/detail/assemble-dialog.tsx
 msgid "A blank template, with your account's name and email"
@@ -3603,8 +3603,8 @@ msgid "Compares your resume with the posting"
 msgstr "ನಿಮ್ಮ ರೆಸ್ಯೂಮೆಯನ್ನು ಉದ್ಯೋಗ ಪೋಸ್ಟ್‌ನೊಂದಿಗೆ ಹೋಲಿಸುತ್ತದೆ"
 
 #: src/features/resume/share/download-tab.tsx
-msgid "Complete data backup. Imports back into Reactive Resume or JSON Resume tools."
-msgstr "ಸಂಪೂರ್ಣ ಡೇಟಾ ಬ್ಯಾಕಪ್. Reactive Resume ಅಥವಾ JSON Resume ಪರಿಕರಗಳಿಗೆ ಮರಳಿ ಆಮದು ಮಾಡಿಕೊಳ್ಳುತ್ತದೆ."
+msgid "Complete data backup. Imports back into Resume Builder or JSON Resume tools."
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Compress or remove large images to keep uploads quick."
@@ -5473,8 +5473,8 @@ msgid "Drag to reposition and use the slider to zoom before uploading."
 msgstr "ಮರುಸ್ಥಾನಗೊಳಿಸಲು ಎಳೆಯಿರಿ ಮತ್ತು ಅಪ್‌ಲೋಡ್ ಮಾಡುವ ಮೊದಲು ಜೂಮ್ ಮಾಡಲು ಸ್ಲೈಡರ್ ಬಳಸಿ."
 
 #: src/features/documents/new-document-dialog.tsx
-msgid "Drop a file here or browse. PDF, Word, Reactive Resume or JSON Resume. We fill in every section and flag anything we're unsure of."
-msgstr "ಫೈಲ್ ಅನ್ನು ಇಲ್ಲಿ ಬಿಡಿ ಅಥವಾ ಬ್ರೌಸ್ ಮಾಡಿ. PDF, Word, Reactive Resume ಅಥವಾ JSON Resume. ನಾವು ಪ್ರತಿ ವಿಭಾಗವನ್ನು ತುಂಬುತ್ತೇವೆ ಮತ್ತು ನಮಗೆ ಖಚಿತವಾಗಿರದ ಯಾವುದನ್ನಾದರೂ ಫ್ಲ್ಯಾಗ್ ಮಾಡುತ್ತೇವೆ."
+msgid "Drop a file here or browse. PDF, Word, Resume Builder or JSON Resume. We fill in every section and flag anything we're unsure of."
+msgstr ""
 
 #: src/features/ats-checker/checker.tsx
 msgid "Drop a PDF here or choose a file"
@@ -7107,8 +7107,8 @@ msgid "Import steps"
 msgstr "ಆಮದು ಹಂತಗಳು"
 
 #: src/features/ats-checker/checker.tsx
-msgid "Import this file into a free Reactive Resume. Every issue is waiting for you in Check."
-msgstr "ಈ ಫೈಲ್ ಅನ್ನು ಉಚಿತ Reactive Resume ಗೆ ಆಮದು ಮಾಡಿ. ಪ್ರತಿ ಸಮಸ್ಯೆಯು ಚೆಕ್‌ನಲ್ಲಿ ನಿಮಗಾಗಿ ಕಾಯುತ್ತಿದೆ."
+msgid "Import this file into Resume Builder. Every issue is waiting for you in Check."
+msgstr ""
 
 #: src/features/documents/documents-page.tsx
 msgid "Import your current resume and we'll lay out every section for you to refine. Or start fresh. Start with your name. Build from there."
@@ -7974,14 +7974,6 @@ msgstr "ಲಿಂಕ್"
 msgid "Link (optional)"
 msgstr ""
 
-#: src/features/applications/components/application-form-sheet.tsx
-msgid "Link a Reactive Resume (recommended)"
-msgstr "Reactive Resume ಲಿಂಕ್ ಮಾಡಿ (ಶಿಫಾರಸು)"
-
-#: src/features/applications/components/application-form-sheet.tsx
-msgid "Link a Reactive Resume to use AI match scoring and tailoring."
-msgstr "AI ಹೊಂದಾಣಿಕೆ ಅಂಕ ಮತ್ತು ಸೂಕ್ತಗೊಳಿಸುವಿಕೆಯನ್ನು ಬಳಸಲು ಒಂದು Reactive Resume ರೆಸ್ಯೂಮ್ ಅನ್ನು ಲಿಂಕ್ ಮಾಡಿ."
-
 #: src/features/resume/editor/write/basics-card.tsx
 #: src/features/resume/editor/write/rich-text-editor-field.tsx
 msgid "Link address"
@@ -8001,6 +7993,14 @@ msgstr "ಉದ್ಯೋಗ ಅರ್ಜಿಯನ್ನು ಲಿಂಕ್ ಮಾ
 #: src/features/resume/share/web-page-text.ts
 msgid "Link copied"
 msgstr "ಲಿಂಕ್ ನಕಲಿಸಲಾಗಿದೆ"
+
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Link one of your resumes (recommended)"
+msgstr ""
+
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Link one of your resumes to use AI match scoring and tailoring."
+msgstr ""
 
 #: src/features/documents/document-actions.tsx
 msgid "Link to application"
@@ -9825,12 +9825,12 @@ msgstr "ಕಥೆಯನ್ನು ತೆರೆಯಿರಿ"
 msgid "Open the exported file and confirm you can select and copy every part of it."
 msgstr "ಎಕ್ಸ್‌ಪೋರ್ಟ್ ಮಾಡಿದ ಫೈಲ್ ತೆರೆದು ಅದರ ಪ್ರತಿಯೊಂದು ಭಾಗವನ್ನೂ ಆಯ್ಕೆಮಾಡಿ ಕಾಪಿ ಮಾಡಬಹುದೆಂದು ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಿ."
 
-#: src/routes/auth/native-callback.tsx
-msgid "Open the Reactive Resume app"
-msgstr "Reactive Resume ಅಪ್ಲಿಕೇಶನ್ ತೆರೆಯಿರಿ"
-
 #: src/features/applications/components/detail/assemble-dialog.tsx
 msgid "Open the resume"
+msgstr ""
+
+#: src/routes/auth/native-callback.tsx
+msgid "Open the Resume Builder app"
 msgstr ""
 
 #: src/features/career/today.tsx
@@ -10934,10 +10934,6 @@ msgstr "Re: Senior Product Designer"
 msgid "Reactive Resume - Go to homepage"
 msgstr "Reactive Resume - ಮುಖ್ಯ ಪುಟಕ್ಕೆ ಹೋಗಿ"
 
-#: src/routes/dashboard/settings/route.tsx
-msgid "Reactive Resume {__APP_VERSION__} · MIT"
-msgstr "Reactive Resume {__APP_VERSION__} · MIT"
-
 #: src/features/homepage/sections.tsx
 msgid "Reactive Resume is open source under the MIT License. Amruth Pillai and a community of contributors keep it running, and donations pay for hosting and development. There’s no paid tier."
 msgstr "Reactive Resume MIT ಪರವಾನಗಿಯ ಅಡಿಯಲ್ಲಿ ಮುಕ್ತ ಮೂಲವಾಗಿದೆ. Amruth Pillai ಮತ್ತು ಕೊಡುಗೆದಾರರ ಸಮುದಾಯ ಇದನ್ನು ನಡೆಸುತ್ತಾರೆ, ಮತ್ತು ದೇಣಿಗೆಗಳು ಹೋಸ್ಟಿಂಗ್ ಮತ್ತು ಅಭಿವೃದ್ಧಿಯ ವೆಚ್ಚವನ್ನು ಭರಿಸುತ್ತವೆ. ಯಾವುದೇ ಪಾವತಿಸಿದ ಶ್ರೇಣಿ ಇಲ್ಲ."
@@ -11666,6 +11662,10 @@ msgstr "ಜೀವನವೃತ್ತಾಂತ ರಚನೆ"
 #: src/features/homepage/sections.tsx
 msgid "Resume builder"
 msgstr "ರೆಸ್ಯೂಮ್ ಬಿಲ್ಡರ್"
+
+#: src/routes/dashboard/settings/route.tsx
+msgid "Resume Builder {__APP_VERSION__} · based on Reactive Resume (MIT)"
+msgstr ""
 
 #: src/features/resume/preview/preview.browser.tsx
 msgid "Resume content"
@@ -14347,8 +14347,8 @@ msgid "This file is larger than many application forms accept."
 msgstr "ಈ ಫೈಲ್ ಅನೇಕ ಅರ್ಜಿ ನಮೂನೆಗಳು ಸ್ವೀಕರಿಸುವುದಕ್ಕಿಂತ ದೊಡ್ಡದಾಗಿದೆ."
 
 #: src/features/documents/new-document-dialog.tsx
-msgid "This file type can't be imported. Use a PDF, Word, Reactive Resume or JSON Resume file, or a LinkedIn export (.zip)."
-msgstr "ಈ ಫೈಲ್ ಪ್ರಕಾರವನ್ನು ಆಮದು ಮಾಡಲಾಗುವುದಿಲ್ಲ. PDF, Word, Reactive Resume ಅಥವಾ JSON Resume ಫೈಲ್ ಅಥವಾ LinkedIn ರಫ್ತು (.zip) ಬಳಸಿ."
+msgid "This file type can't be imported. Use a PDF, Word, Resume Builder or JSON Resume file, or a LinkedIn export (.zip)."
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "This file uses a lot of different fonts."

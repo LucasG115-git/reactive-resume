@@ -20,7 +20,7 @@ import {
 // ponytail: server dev consumes this source through tsx, which emits React.createElement here.
 void React;
 
-const appName = "Reactive Resume";
+const appName = "Resume Builder";
 // The Countdown Creative lockup, served by the instance that sent the email (the action link's origin).
 const logoUrlFor = (actionUrl: string) => {
 	try {
@@ -116,7 +116,9 @@ function AuthEmailLayout({ preview, heading, intro, details, actionLabel, action
 
 							<Hr className="my-10 border-[#ECE5DE]" />
 
-							<Text className="mt-8 text-xs leading-1 text-[#5C534C]">By the community, for the community.</Text>
+							<Text className="mt-8 text-xs leading-1 text-[#5C534C]">
+								Built on Reactive Resume, by the community, for the community.
+							</Text>
 							<Text className="text-xs leading-1 text-[#5C534C]">
 								A passion project by{" "}
 								<Link
@@ -131,7 +133,7 @@ function AuthEmailLayout({ preview, heading, intro, details, actionLabel, action
 							</Text>
 
 							<Text className="font-heading mt-8 text-base font-bold tracking-tight text-[#4A423C]">
-								Reactive Resume
+								Resume Builder
 							</Text>
 						</Section>
 					</Container>
@@ -154,7 +156,7 @@ export function ResetPasswordEmail({ url }: ResetPasswordEmailProps) {
 			details="If this was not you, you can ignore this message and your password will remain unchanged."
 			actionLabel="Create new password"
 			actionUrl={url}
-			outro="For security, only use links from emails sent by Reactive Resume."
+			outro="For security, only use links from emails sent by Resume Builder."
 		/>
 	);
 }

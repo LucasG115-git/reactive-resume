@@ -1107,8 +1107,8 @@ msgid "A accepts and R rejects the focused edit. ↑ and ↓ move between edits.
 msgstr "A ले स्वीकार गर्दछ र R ले केन्द्रित सम्पादनलाई अस्वीकार गर्दछ। ↑ र ↓ सम्पादनहरू बीच सार्नुहोस्।"
 
 #: src/routes/builder/letter/-components/download-sheet.tsx
-msgid "A backup of this letter. Imports back into Reactive Resume as a letter."
-msgstr "यस पत्रको ब्याकअप। पत्रको रूपमा Reactive Resume मा फिर्ता आयात गर्दछ।"
+msgid "A backup of this letter. Imports back into Resume Builder as a letter."
+msgstr ""
 
 #: src/features/applications/components/detail/assemble-dialog.tsx
 msgid "A blank template, with your account's name and email"
@@ -3603,8 +3603,8 @@ msgid "Compares your resume with the posting"
 msgstr "तपाइँको रिज्युमलाई रोजगार पोस्टिङसँग तुलना गर्नुहोस्"
 
 #: src/features/resume/share/download-tab.tsx
-msgid "Complete data backup. Imports back into Reactive Resume or JSON Resume tools."
-msgstr "डाटा ब्याकअप पूरा गर्नुहोस्। Reactive Resume वा JSON Resume उपकरणहरूमा फिर्ता आयात गर्दछ।"
+msgid "Complete data backup. Imports back into Resume Builder or JSON Resume tools."
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Compress or remove large images to keep uploads quick."
@@ -5473,8 +5473,8 @@ msgid "Drag to reposition and use the slider to zoom before uploading."
 msgstr "अपलोड गर्नुअघि स्थान परिवर्तन गर्न तान्नुहोस् र जुम गर्न स्लाइडर प्रयोग गर्नुहोस्।"
 
 #: src/features/documents/new-document-dialog.tsx
-msgid "Drop a file here or browse. PDF, Word, Reactive Resume or JSON Resume. We fill in every section and flag anything we're unsure of."
-msgstr "एउटा फाइल यहाँ छोड्नुहोस् वा ब्राउज गर्नुहोस्। PDF, Word, Reactive Resume वा JSON Resume। हामी प्रत्येक खण्ड भर्छौं र हामी अनिश्चित छौं कुनै पनि कुरालाई फ्ल्याग गर्छौं।"
+msgid "Drop a file here or browse. PDF, Word, Resume Builder or JSON Resume. We fill in every section and flag anything we're unsure of."
+msgstr ""
 
 #: src/features/ats-checker/checker.tsx
 msgid "Drop a PDF here or choose a file"
@@ -7107,8 +7107,8 @@ msgid "Import steps"
 msgstr "चरणहरू आयात गर्नुहोस्"
 
 #: src/features/ats-checker/checker.tsx
-msgid "Import this file into a free Reactive Resume. Every issue is waiting for you in Check."
-msgstr "यो फाइललाई नि:शुल्क Reactive Resume मा आयात गर्नुहोस्। प्रत्येक मुद्दा चेक मा तपाइँको लागि पर्खिरहेको छ।"
+msgid "Import this file into Resume Builder. Every issue is waiting for you in Check."
+msgstr ""
 
 #: src/features/documents/documents-page.tsx
 msgid "Import your current resume and we'll lay out every section for you to refine. Or start fresh. Start with your name. Build from there."
@@ -7974,14 +7974,6 @@ msgstr "लिङ्क"
 msgid "Link (optional)"
 msgstr ""
 
-#: src/features/applications/components/application-form-sheet.tsx
-msgid "Link a Reactive Resume (recommended)"
-msgstr "Reactive Resume लिंक गर्नुहोस् (सिफारिस गरिएको)"
-
-#: src/features/applications/components/application-form-sheet.tsx
-msgid "Link a Reactive Resume to use AI match scoring and tailoring."
-msgstr "AI मिलान अंक र अनुकूलन प्रयोग गर्न कुनै Reactive Resume लिङ्क गर्नुहोस्।"
-
 #: src/features/resume/editor/write/basics-card.tsx
 #: src/features/resume/editor/write/rich-text-editor-field.tsx
 msgid "Link address"
@@ -8001,6 +7993,14 @@ msgstr "जागिरको आवेदन लिङ्क गर्नुह
 #: src/features/resume/share/web-page-text.ts
 msgid "Link copied"
 msgstr "लिङ्क प्रतिलिपि गरियो"
+
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Link one of your resumes (recommended)"
+msgstr ""
+
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Link one of your resumes to use AI match scoring and tailoring."
+msgstr ""
 
 #: src/features/documents/document-actions.tsx
 msgid "Link to application"
@@ -9825,12 +9825,12 @@ msgstr "कथा खोल्नुहोस्"
 msgid "Open the exported file and confirm you can select and copy every part of it."
 msgstr "निर्यात गरिएको फाइल खोल्नुहोस् र यसको हरेक भाग चयन र प्रतिलिपि गर्न सकिन्छ भनी पक्का गर्नुहोस्।"
 
-#: src/routes/auth/native-callback.tsx
-msgid "Open the Reactive Resume app"
-msgstr "Reactive Resume एप खोल्नुहोस्"
-
 #: src/features/applications/components/detail/assemble-dialog.tsx
 msgid "Open the resume"
+msgstr ""
+
+#: src/routes/auth/native-callback.tsx
+msgid "Open the Resume Builder app"
 msgstr ""
 
 #: src/features/career/today.tsx
@@ -10934,10 +10934,6 @@ msgstr "Re: वरिष्ठ प्रोडक्ट डिजाइनर"
 msgid "Reactive Resume - Go to homepage"
 msgstr "Reactive Resume - गृहपृष्ठमा जानुहोस्"
 
-#: src/routes/dashboard/settings/route.tsx
-msgid "Reactive Resume {__APP_VERSION__} · MIT"
-msgstr "Reactive Resume {__APP_VERSION__} · MIT"
-
 #: src/features/homepage/sections.tsx
 msgid "Reactive Resume is open source under the MIT License. Amruth Pillai and a community of contributors keep it running, and donations pay for hosting and development. There’s no paid tier."
 msgstr "Reactive Resume MIT License अन्तर्गत खुला स्रोत हो। Amruth Pillai र योगदानकर्ताहरूको समुदायले यसलाई चलाइराखेका छन्, र दानले होस्टिङ र विकासको खर्च धान्छ। कुनै सशुल्क तह छैन।"
@@ -11666,6 +11662,10 @@ msgstr "बायोडाटा बनाउने"
 #: src/features/homepage/sections.tsx
 msgid "Resume builder"
 msgstr "पुन: सुरु बिल्डर"
+
+#: src/routes/dashboard/settings/route.tsx
+msgid "Resume Builder {__APP_VERSION__} · based on Reactive Resume (MIT)"
+msgstr ""
 
 #: src/features/resume/preview/preview.browser.tsx
 msgid "Resume content"
@@ -14347,8 +14347,8 @@ msgid "This file is larger than many application forms accept."
 msgstr "यो फाइल धेरै आवेदन फारामले स्वीकार गर्नेभन्दा ठूलो छ।"
 
 #: src/features/documents/new-document-dialog.tsx
-msgid "This file type can't be imported. Use a PDF, Word, Reactive Resume or JSON Resume file, or a LinkedIn export (.zip)."
-msgstr "यो फाइल प्रकार आयात गर्न सकिँदैन। PDF, Word, Reactive Resume वा JSON Resume फाइल, वा LinkedIn निर्यात (.zip) प्रयोग गर्नुहोस्।"
+msgid "This file type can't be imported. Use a PDF, Word, Resume Builder or JSON Resume file, or a LinkedIn export (.zip)."
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "This file uses a lot of different fonts."

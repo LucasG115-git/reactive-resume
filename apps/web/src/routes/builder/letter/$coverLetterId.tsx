@@ -46,7 +46,7 @@ export const Route = createFileRoute("/builder/letter/$coverLetterId")({
 	},
 	head: ({ loaderData }) => ({
 		meta: loaderData
-			? [{ title: `${loaderData.name} - Reactive Resume` }, createNoindexFollowMeta()]
+			? [{ title: `${loaderData.name} - Resume Builder` }, createNoindexFollowMeta()]
 			: [createNoindexFollowMeta()],
 	}),
 });

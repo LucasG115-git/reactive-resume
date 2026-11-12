@@ -804,7 +804,7 @@ export function Attachments({ application }: SectionProps) {
 				),
 			)}
 			<Text variant="callout" color="ink3" style={{ paddingHorizontal: space.s1 }}>
-				{t`PDF only · up to 10 MB each. Linking a Reactive Resume enables AI match scoring and tailoring.`}
+				{t`PDF only · up to 10 MB each. Linking one of your resumes enables AI match scoring and tailoring.`}
 			</Text>
 			<ConfirmDialog
 				open={removing !== null}

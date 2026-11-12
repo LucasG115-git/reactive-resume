@@ -217,7 +217,7 @@ export default function PreferencesScreen() {
 			<ConfirmDialog
 				open={restart}
 				title={t`Restart to change text direction`}
-				message={t`Your language is saved. Restart Reactive Resume to apply the new left-to-right or right-to-left layout.`}
+				message={t`Your language is saved. Restart Resume Builder to apply the new left-to-right or right-to-left layout.`}
 				confirmLabel={__DEV__ ? t`Reload now` : t`Done`}
 				cancelLabel={t`Later`}
 				onCancel={() => setRestart(false)}

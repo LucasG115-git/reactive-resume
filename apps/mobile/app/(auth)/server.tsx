@@ -104,7 +104,7 @@ export default function CustomServer() {
 					</Text>
 				) : null}
 				<Text variant="callout" color="ink3">
-					{t`Enter the address you open Reactive Resume at in a browser. The app checks it's a Reactive Resume server that allows app sign-in before you continue.`}
+					{t`Enter the address you open Resume Builder at in a browser. The app checks it's a Resume Builder server that allows app sign-in before you continue.`}
 				</Text>
 			</KeyboardAwareScrollView>
 			<KeyboardStickyView offset={{ opened: insets.bottom }} style={{ backgroundColor: colors.bg }}>

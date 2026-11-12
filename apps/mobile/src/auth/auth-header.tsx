@@ -18,7 +18,7 @@ export function AuthHeader({ subtitle }: AuthHeaderProps) {
 				<Brand variant="mark" size={space.s12 * 2} />
 			</View>
 			<Text variant="display" align="center" accessibilityRole="header">
-				{t`Reactive Resume`}
+				{t`Resume Builder`}
 			</Text>
 			{subtitle ? (
 				<Text color="ink2" align="center">

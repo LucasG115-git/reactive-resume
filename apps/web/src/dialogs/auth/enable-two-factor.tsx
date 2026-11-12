@@ -69,7 +69,7 @@ export function EnableTwoFactorDialog(_: DialogProps<"auth.two-factor.enable">) 
 
 			const { data, error } = await authClient.twoFactor.enable({
 				password: value.password,
-				issuer: "Reactive Resume",
+				issuer: "Resume Builder",
 			});
 
 			if (error) {

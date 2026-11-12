@@ -155,13 +155,13 @@ function htmlResponse(html: string, headers: Record<string, string>, template = 
 const githubUrl = "https://github.com/reactive-resume/reactive-resume";
 // The English copy, for a build without prerendered pages; a prerendered page carries its own locale's title and
 // description, and the social cards reuse them.
-const ROOT_TITLE = "Free resume builder with PDF &amp; Word downloads | Reactive Resume";
+const ROOT_TITLE = "Free resume builder with PDF &amp; Word downloads | Resume Builder";
 const ROOT_DESCRIPTION =
 	"Free, open-source resume builder. Create, update, and share your resume, with PDF and Word downloads, no ads and no paywall.";
-const ATS_CHECKER_TITLE = "Free ATS resume checker | Reactive Resume";
+const ATS_CHECKER_TITLE = "Free ATS resume checker | Resume Builder";
 const ATS_CHECKER_DESCRIPTION =
 	"Check whether software can read your resume PDF. Runs entirely in your browser, so your file is never uploaded.";
-const TEMPLATES_TITLE = "Free resume templates with PDF examples | Reactive Resume";
+const TEMPLATES_TITLE = "Free resume templates with PDF examples | Resume Builder";
 const TEMPLATES_DESCRIPTION =
 	"Browse free resume templates, compare one-column and two-column layouts, and download sample PDFs. Customize your resume and export to PDF or Word.";
 

@@ -26,6 +26,6 @@ export function serverErrorMessage(i18n: I18n, error: ServerError): string {
 	return error.reason === "outdated"
 		? i18n._(msg`This server is too old for the app. Ask your administrator to update it.`)
 		: i18n._(
-				msg`No Reactive Resume server answered at this address. Check the spelling, or ask your administrator whether the server allows app sign-in.`,
+				msg`No Resume Builder server answered at this address. Check the spelling, or ask your administrator whether the server allows app sign-in.`,
 			);
 }
