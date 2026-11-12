@@ -100,6 +100,18 @@ export const writingRulesSchema = z.object({
 export type WritingRules = z.infer<typeof writingRulesSchema>;
 export const DEFAULT_WRITING_RULES: WritingRules = writingRulesSchema.parse({});
 
+/** The page target for a candidate with this many years of experience. */
+export const pagesFor = (rules: Pick<WritingRules, "pages">, years: number) =>
+	years >= rules.pages.experiencedYears ? rules.pages.experienced : rules.pages.early;
+
+/** Years since the first position started, as page targets count them. */
+export function yearsSinceFirstRole(entries: Array<{ kind: string; startDate: string | null }>, now: Date) {
+	const starts = entries
+		.filter((entry) => entry.kind === "position" && entry.startDate)
+		.map((entry) => Number(entry.startDate?.slice(0, 4)));
+	return starts.length ? now.getFullYear() - Math.min(...starts) : 0;
+}
+
 export const qualityFindingSchema = z.object({
 	/** Stable, so findings can be counted and compared across runs. */
 	code: z.enum([

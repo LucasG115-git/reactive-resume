@@ -66706,6 +66706,27 @@
 																	},
 																	"default": []
 																},
+																"style": {
+																	"type": "object",
+																	"properties": {
+																		"presetId": {
+																			"type": "string"
+																		},
+																		"name": {
+																			"type": "string"
+																		},
+																		"pages": {
+																			"type": "integer",
+																			"minimum": -9007199254740991,
+																			"maximum": 9007199254740991
+																		}
+																	},
+																	"required": [
+																		"presetId",
+																		"name",
+																		"pages"
+																	]
+																},
 																"assessment": {
 																	"type": "object",
 																	"properties": {
@@ -67257,6 +67278,27 @@
 																		]
 																	},
 																	"default": []
+																},
+																"style": {
+																	"type": "object",
+																	"properties": {
+																		"presetId": {
+																			"type": "string"
+																		},
+																		"name": {
+																			"type": "string"
+																		},
+																		"pages": {
+																			"type": "integer",
+																			"minimum": -9007199254740991,
+																			"maximum": 9007199254740991
+																		}
+																	},
+																	"required": [
+																		"presetId",
+																		"name",
+																		"pages"
+																	]
 																},
 																"assessment": {
 																	"type": "object",
@@ -68508,6 +68550,27 @@
 															},
 															"default": []
 														},
+														"style": {
+															"type": "object",
+															"properties": {
+																"presetId": {
+																	"type": "string"
+																},
+																"name": {
+																	"type": "string"
+																},
+																"pages": {
+																	"type": "integer",
+																	"minimum": -9007199254740991,
+																	"maximum": 9007199254740991
+																}
+															},
+															"required": [
+																"presetId",
+																"name",
+																"pages"
+															]
+														},
 														"assessment": {
 															"type": "object",
 															"properties": {
@@ -69059,6 +69122,27 @@
 																]
 															},
 															"default": []
+														},
+														"style": {
+															"type": "object",
+															"properties": {
+																"presetId": {
+																	"type": "string"
+																},
+																"name": {
+																	"type": "string"
+																},
+																"pages": {
+																	"type": "integer",
+																	"minimum": -9007199254740991,
+																	"maximum": 9007199254740991
+																}
+															},
+															"required": [
+																"presetId",
+																"name",
+																"pages"
+															]
 														},
 														"assessment": {
 															"type": "object",
@@ -69940,6 +70024,27 @@
 															},
 															"default": []
 														},
+														"style": {
+															"type": "object",
+															"properties": {
+																"presetId": {
+																	"type": "string"
+																},
+																"name": {
+																	"type": "string"
+																},
+																"pages": {
+																	"type": "integer",
+																	"minimum": -9007199254740991,
+																	"maximum": 9007199254740991
+																}
+															},
+															"required": [
+																"presetId",
+																"name",
+																"pages"
+															]
+														},
 														"assessment": {
 															"type": "object",
 															"properties": {
@@ -70492,6 +70597,27 @@
 															},
 															"default": []
 														},
+														"style": {
+															"type": "object",
+															"properties": {
+																"presetId": {
+																	"type": "string"
+																},
+																"name": {
+																	"type": "string"
+																},
+																"pages": {
+																	"type": "integer",
+																	"minimum": -9007199254740991,
+																	"maximum": 9007199254740991
+																}
+															},
+															"required": [
+																"presetId",
+																"name",
+																"pages"
+															]
+														},
 														"assessment": {
 															"type": "object",
 															"properties": {
@@ -70714,6 +70840,10 @@
 											"thorough"
 										],
 										"type": "string"
+									},
+									"presetId": {
+										"type": "string",
+										"minLength": 1
 									}
 								}
 							}
@@ -71322,6 +71452,27 @@
 															},
 															"default": []
 														},
+														"style": {
+															"type": "object",
+															"properties": {
+																"presetId": {
+																	"type": "string"
+																},
+																"name": {
+																	"type": "string"
+																},
+																"pages": {
+																	"type": "integer",
+																	"minimum": -9007199254740991,
+																	"maximum": 9007199254740991
+																}
+															},
+															"required": [
+																"presetId",
+																"name",
+																"pages"
+															]
+														},
 														"assessment": {
 															"type": "object",
 															"properties": {
@@ -71873,6 +72024,27 @@
 																]
 															},
 															"default": []
+														},
+														"style": {
+															"type": "object",
+															"properties": {
+																"presetId": {
+																	"type": "string"
+																},
+																"name": {
+																	"type": "string"
+																},
+																"pages": {
+																	"type": "integer",
+																	"minimum": -9007199254740991,
+																	"maximum": 9007199254740991
+																}
+															},
+															"required": [
+																"presetId",
+																"name",
+																"pages"
+															]
 														},
 														"assessment": {
 															"type": "object",
@@ -72741,6 +72913,27 @@
 															},
 															"default": []
 														},
+														"style": {
+															"type": "object",
+															"properties": {
+																"presetId": {
+																	"type": "string"
+																},
+																"name": {
+																	"type": "string"
+																},
+																"pages": {
+																	"type": "integer",
+																	"minimum": -9007199254740991,
+																	"maximum": 9007199254740991
+																}
+															},
+															"required": [
+																"presetId",
+																"name",
+																"pages"
+															]
+														},
 														"assessment": {
 															"type": "object",
 															"properties": {
@@ -73292,6 +73485,27 @@
 																]
 															},
 															"default": []
+														},
+														"style": {
+															"type": "object",
+															"properties": {
+																"presetId": {
+																	"type": "string"
+																},
+																"name": {
+																	"type": "string"
+																},
+																"pages": {
+																	"type": "integer",
+																	"minimum": -9007199254740991,
+																	"maximum": 9007199254740991
+																}
+															},
+															"required": [
+																"presetId",
+																"name",
+																"pages"
+															]
 														},
 														"assessment": {
 															"type": "object",

@@ -175,6 +175,11 @@ msgstr ""
 msgid "{0, plural, one {# character} other {# characters}}"
 msgstr "{0, plural, one {# ಅಕ್ಷರ} other {# ಅಕ್ಷರಗಳು}}"
 
+#. placeholder {0}: value.length
+#: src/features/career/knowledge/used-at.tsx
+msgid "{0, plural, one {# chosen} other {# chosen}}"
+msgstr ""
+
 #. placeholder {0}: result.contactsSkipped
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "{0, plural, one {# contact has an invalid email or no name; its application still imports.} other {# contacts have an invalid email or no name; their applications still import.}}"
@@ -232,6 +237,12 @@ msgstr ""
 #. placeholder {0}: checked.preview.added
 #: src/features/career/knowledge/story-file.tsx
 msgid "{0, plural, one {# new story} other {# new stories}}"
+msgstr ""
+
+#. placeholder {0}: pagesFor(item.rules, years)
+#: src/features/applications/components/detail/assemble-dialog.tsx
+#: src/features/settings/resume-style.tsx
+msgid "{0, plural, one {# page} other {# pages}}"
 msgstr ""
 
 #. placeholder {0}: proposals.length
@@ -387,7 +398,7 @@ msgstr "{0} · {providerLabel}. ಈ ಅರ್ಜಿ ಮತ್ತು ನಿಮ್
 msgid "{0} (copy)"
 msgstr "{0} (ನಕಲು)"
 
-#. placeholder {0}: item.name
+#. placeholder {0}: item.label
 #: src/features/applications/components/detail/assemble-dialog.tsx
 msgid "{0} (matches this posting)"
 msgstr ""
@@ -900,6 +911,10 @@ msgstr "{starCount, plural, one {GitHub ನಲ್ಲಿ ನಮಗೆ ಸ್ಟ�
 #: src/features/homepage/header.tsx
 msgid "{stars, plural, one {Star Reactive Resume on GitHub, # star} other {Star Reactive Resume on GitHub, # stars}}"
 msgstr "{stars, plural, one {GitHub ನಲ್ಲಿ Reactive Resume ಗೆ ಸ್ಟಾರ್ ನೀಡಿ, # ಸ್ಟಾರ್} other {GitHub ನಲ್ಲಿ Reactive Resume ಗೆ ಸ್ಟಾರ್ ನೀಡಿ, # ಸ್ಟಾರ್‌ಗಳು}}"
+
+#: src/features/career/knowledge/used-at.tsx
+msgid "{start} – now"
+msgstr ""
 
 #: src/features/career/workspace/saved.tsx
 msgid "{stories, plural, one {# story} other {# stories}}"
@@ -2637,6 +2652,7 @@ msgid "Awarder"
 msgstr "ಪ್ರಶಸ್ತಿದಾರ"
 
 #: src/features/applications/components/detail/selection-review.tsx
+#: src/features/career/knowledge/used-at.tsx
 #: src/features/settings/resume-style.tsx
 #: src/libs/resume/section.tsx
 msgid "Awards"
@@ -3020,6 +3036,7 @@ msgid "Certification"
 msgstr ""
 
 #: src/features/applications/components/detail/selection-review.tsx
+#: src/features/career/knowledge/used-at.tsx
 #: src/features/settings/resume-style.tsx
 #: src/libs/resume/section.tsx
 msgid "Certifications"
@@ -3029,6 +3046,7 @@ msgstr "ಪ್ರಮಾಣಪತ್ರಗಳು"
 msgid "Challenge, action, result"
 msgstr ""
 
+#: src/features/career/knowledge/used-at.tsx
 #: src/features/resume/editor/check/job-match.tsx
 #: src/features/resume/editor/check/writing-tab.tsx
 #: src/features/settings/account/security.tsx
@@ -3332,6 +3350,10 @@ msgstr "ಇನ್ನೊಂದು ಫೈಲ್ ಆಯ್ಕೆಮಾಡಿ"
 #: src/components/input/color-picker.tsx
 msgid "Choose color"
 msgstr "ಬಣ್ಣವನ್ನು ಆರಿಸಿ"
+
+#: src/features/career/knowledge/used-at.tsx
+msgid "Choose places"
+msgstr ""
 
 #: src/features/applications/components/detail/assemble-dialog.tsx
 msgid "Choose what to include"
@@ -5671,6 +5693,7 @@ msgstr "ಸಂಪಾದಕೀಯ"
 
 #: src/features/applications/components/detail/selection-review.tsx
 #: src/features/career/knowledge/profile.tsx
+#: src/features/career/knowledge/used-at.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 #: src/features/settings/resume-style.tsx
@@ -5935,6 +5958,7 @@ msgid "Exit focus mode"
 msgstr "ಫೋಕಸ್ ಮೋಡ್‌ನಿಂದ ನಿರ್ಗಮಿಸಿ"
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/used-at.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 #: src/features/homepage/write.tsx
@@ -6215,6 +6239,10 @@ msgstr "ಅಗಲಕ್ಕೆ ಪುಟವನ್ನು ಹೊಂದಿಸಿ"
 
 #: src/features/career/preference-check.tsx
 msgid "Fits your must-haves"
+msgstr ""
+
+#: src/features/applications/components/detail/assemble-dialog.tsx
+msgid "Fitting the selection to the new length…"
 msgstr ""
 
 #: src/features/applications/components/detail/assemble-dialog.tsx
@@ -7810,7 +7838,7 @@ msgid "Length is not a defect, and there is no universal one-page rule. Keep the
 msgstr "ಉದ್ದವು ದೋಷವಲ್ಲ, ಮತ್ತು ಸಾರ್ವತ್ರಿಕ ಒಂದು-ಪುಟ ನಿಯಮ ಇಲ್ಲ. ತಮ್ಮ ಸ್ಥಾನವನ್ನು ಅರ್ಹಗೊಳಿಸುವ ಪುಟಗಳನ್ನು ಇರಿಸಿ."
 
 #: src/features/applications/components/detail/assemble-dialog.tsx
-msgid "Length, tone, bullets and skills follow this preset. <0>Edit your resume style</0>"
+msgid "Length, tone, bullets and skills follow this preset. Choosing one with a different length refits the selection. <0>Edit your resume style</0>"
 msgstr ""
 
 #: src/features/career/knowledge/profile.tsx
@@ -9503,6 +9531,10 @@ msgstr "\"{0}\" ಗೆ ಯಾವುದೂ ಹೊಂದಿಕೆಯಾಗುವ�
 msgid "Nothing matches these filters"
 msgstr "ಈ ಫಿಲ್ಟರ್‌ಗಳಿಗೆ ಯಾವುದೂ ಹೊಂದಿಕೆಯಾಗುವುದಿಲ್ಲ"
 
+#: src/features/career/knowledge/used-at.tsx
+msgid "Nothing matches."
+msgstr ""
+
 #: src/features/career/knowledge/profile.tsx
 msgid "Nothing new in that resume. Your profile already has it."
 msgstr ""
@@ -9857,10 +9889,6 @@ msgstr ""
 
 #: src/features/applications/components/detail/gap-step.tsx
 msgid "Optional: what you did with it, in a sentence. It's added as an achievement."
-msgstr ""
-
-#: src/features/career/knowledge/used-at.tsx
-msgid "Optional. Pick every place it applies."
 msgstr ""
 
 #: src/components/ui/combobox.tsx
@@ -10276,6 +10304,10 @@ msgstr "ಈಗಿನ ನಂತರದ ಸಮಯವನ್ನು ಆರಿಸಿ."
 msgid "Pick an icon"
 msgstr "ಐಕಾನ್ ಆರಿಸಿ"
 
+#: src/features/career/knowledge/used-at.tsx
+msgid "Pick every place it applies."
+msgstr ""
+
 #: src/features/homepage/design.tsx
 msgid "Pick from {templateCount} templates, then set the type, color and spacing. The words stay put, so try as many looks as you like."
 msgstr "{templateCount} ಟೆಂಪ್ಲೇಟ್‌ಗಳಿಂದ ಆರಿಸಿ, ನಂತರ ಫಾಂಟ್‌ಗಳು, ಬಣ್ಣ ಮತ್ತು ಅಂತರವನ್ನು ಹೊಂದಿಸಿ. ನಿಮ್ಮ ಪಠ್ಯವು ಒಂದೇ ಆಗಿರುತ್ತದೆ, ಆದ್ದರಿಂದ ನೀವು ಇಷ್ಟಪಡುವಷ್ಟು ವಿನ್ಯಾಸಗಳನ್ನು ಪ್ರಯತ್ನಿಸಿ."
@@ -10674,6 +10706,7 @@ msgid "Project name"
 msgstr ""
 
 #: src/features/applications/components/detail/selection-review.tsx
+#: src/features/career/knowledge/used-at.tsx
 #: src/features/settings/resume-style.tsx
 #: src/libs/resume/section.tsx
 msgid "Projects"
@@ -11324,11 +11357,12 @@ msgstr "“{name}” ತೆಗೆದುಹಾಕುವುದೇ?"
 
 #. placeholder {0}: attachment.filename
 #. placeholder {0}: contact.name
-#. placeholder {0}: example.title
+#. placeholder {0}: entryLabel(entry)
 #: src/features/applications/components/detail/contacts.tsx
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
 #: src/features/career/knowledge/structured-preferences.tsx
+#: src/features/career/knowledge/used-at.tsx
 #: src/features/settings/account/security.tsx
 #: src/features/settings/resume-style.tsx
 msgid "Remove {0}"
@@ -12226,6 +12260,7 @@ msgid "Screening"
 msgstr "ಸ್ಕ್ರೀನಿಂಗ್"
 
 #: src/features/applications/components/add-application-dialog.tsx
+#: src/features/career/knowledge/used-at.tsx
 #: src/features/documents/documents-page.tsx
 #: src/routes/dashboard/-components/app-shell.tsx
 msgid "Search"
@@ -12321,6 +12356,10 @@ msgstr "ನಿಮ್ಮ ಸರ್ವರ್‌ನ ಹುಡುಕಾಟದೊಂ�
 #: src/features/settings/ai/web-access.tsx
 msgid "Search works"
 msgstr "ಹುಡುಕಾಟ ಕಾರ್ಯಗಳು"
+
+#: src/features/career/knowledge/used-at.tsx
+msgid "Search your profile"
+msgstr ""
 
 #: src/components/ui/combobox.tsx
 msgid "Search..."
@@ -13402,7 +13441,7 @@ msgid "Stronger verb"
 msgstr "ಬಲವಾದ ಕ್ರಿಯಾಪದ"
 
 #: src/features/applications/components/detail/assemble-dialog.tsx
-msgid "Style"
+msgid "Style and length"
 msgstr ""
 
 #: src/features/resume/stylesheet/toolbar.tsx
@@ -15482,6 +15521,10 @@ msgstr "ಸ್ವಯಂಸೇವಕ"
 
 #: src/features/applications/components/detail/selection-review.tsx
 msgid "Volunteer work"
+msgstr ""
+
+#: src/features/career/knowledge/used-at.tsx
+msgid "Volunteering"
 msgstr ""
 
 #: src/features/career/workspace/messages.tsx

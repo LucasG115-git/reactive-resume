@@ -160,6 +160,8 @@ export const masterProfileRouter = {
 				applicationInput.extend({
 					reanalyze: z.boolean().optional(),
 					quality: z.enum(["standard", "thorough"]).optional(),
+					/** The resume style preset to fit the proposal to; without it, the one matching the posting. */
+					presetId: z.string().min(1).optional(),
 				}),
 			)
 			.output(selectionSchema)

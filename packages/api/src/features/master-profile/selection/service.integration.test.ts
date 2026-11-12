@@ -273,6 +273,21 @@ describe.skipIf(!databaseUrl)("resume selection plans", { timeout: 30_000 }, () 
 			["evidence", "thorough"],
 			["evidence", "thorough"],
 		]);
+		// The proposal records the style it was fitted to; a chosen preset is used instead of the posting's match.
+		expect(proposed?.plan.style).toMatchObject({ presetId: expect.any(String), pages: expect.any(Number) });
+		const { resumeStyleService } = await import("../../resume-style/service");
+		const other = (await resumeStyleService.get("alice")).presets.find(
+			(item) => item.id !== proposed?.plan.style?.presetId,
+		);
+		if (other) {
+			const refit = await selection.propose(
+				"alice",
+				{ applicationId: "alice-app", presetId: other.id },
+				{ ask: counted },
+			);
+			expect(refit?.plan.style?.presetId).toBe(other.id);
+			seen.length = 0;
+		}
 		expect(proposed?.plan.usage.map((item) => [item.step, item.task, item.inputTokens])).toEqual([
 			["analysis", "extraction", 100],
 			["review", "evidence", 100],

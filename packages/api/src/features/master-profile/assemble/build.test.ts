@@ -164,7 +164,14 @@ describe("chooseWording", () => {
 
 describe("buildResume", () => {
 	it("places chosen bullets under their entries and keeps the base resume's details", () => {
-		const base = { ...defaultResumeData, basics: { ...defaultResumeData.basics, name: "Lucas" } };
+		const base = {
+			...defaultResumeData,
+			basics: {
+				...defaultResumeData.basics,
+				name: "Lucas",
+				website: { ...defaultResumeData.basics.website, url: "https://countdowncreative.agency/", label: "" },
+			},
+		};
 		const result = buildResume({
 			base,
 			profile,
@@ -184,6 +191,11 @@ describe("buildResume", () => {
 		});
 
 		expect(result.data.basics.name).toBe("Lucas");
+		// The website reads as a short address in the header.
+		expect(result.data.basics.website).toMatchObject({
+			url: "https://countdowncreative.agency/",
+			label: "countdowncreative.agency",
+		});
 		const experience = result.data.sections.experience.items;
 		// The 2008–2010 role is older than ten years and had nothing chosen, so it's left out.
 		expect(experience.map((item) => item.position)).toEqual(["Founder"]);

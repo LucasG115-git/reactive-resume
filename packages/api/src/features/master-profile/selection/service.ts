@@ -17,7 +17,7 @@ import { masterProfileService } from "../service";
 import { analysisOutputSchema, analysisPrompt, ANALYSIS_SYSTEM, normalizeAnalysis, postingHash } from "./analysis";
 import { assessFit } from "./assessment";
 import { applyEdit, composePlan, finalize } from "./compose";
-import { fitToPages } from "./fit";
+import { fitToPages, targetPages } from "./fit";
 import { askDefaultModel, usageOf } from "./model";
 import { eligibleProfile, rankEvidence, requirementTerms, shortlist } from "./rank";
 import { EMPTY_REVIEW, resolveReview, REVIEW_SYSTEM, reviewOutputSchema, reviewPrompt } from "./review";
@@ -194,7 +194,12 @@ export const selectionService = {
 	/** Analyses the posting (unless already analysed and unchanged) and proposes a selection plan. */
 	propose: async (
 		userId: string,
-		input: { applicationId: string; reanalyze?: boolean | undefined; quality?: "standard" | "thorough" | undefined },
+		input: {
+			applicationId: string;
+			reanalyze?: boolean | undefined;
+			quality?: "standard" | "thorough" | undefined;
+			presetId?: string | undefined;
+		},
 		options: Options = {},
 	) => {
 		const usage: TokenUsage[] = [];
@@ -241,9 +246,10 @@ export const selectionService = {
 		const preset = choosePreset(
 			guide,
 			analysis.title || application.role,
-			null,
+			input.presetId ?? null,
 			[analysis.summary, ...analysis.domain].join(" "),
 		);
+		const rules = rulesFor(preset);
 		const selection = await buildSelection({
 			applicationId: input.applicationId,
 			analysis,
@@ -251,7 +257,7 @@ export const selectionService = {
 			blocked,
 			emphasis,
 			previous: previous?.plan ?? null,
-			rules: rulesFor(preset),
+			rules,
 			now,
 			review: async (prompt) => {
 				try {
@@ -286,9 +292,11 @@ export const selectionService = {
 			now,
 		});
 		usage.push(...fit.usage);
+		const style = { presetId: preset.id, name: preset.name, pages: targetPages(profile, rules, now) };
 		for (const item of [selection.proposed, selection.plan]) {
 			item.usage = usage;
 			item.assessment = fit.assessment;
+			item.style = style;
 		}
 		const values = {
 			postingText: posting,

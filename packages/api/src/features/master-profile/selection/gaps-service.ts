@@ -113,7 +113,12 @@ export const gapsService = {
 
 		const selection =
 			added > 0
-				? await selectionService.propose(userId, { applicationId: input.applicationId }, options)
+				? await selectionService.propose(
+						userId,
+						// Fitted to the same style as before, so the page target the user chose holds.
+						{ applicationId: input.applicationId, presetId: row.plan.style?.presetId },
+						options,
+					)
 				: await selectionService.get(userId, input.applicationId);
 		return { selection, report: await gapsService.get(userId, input.applicationId), added };
 	},

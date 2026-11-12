@@ -485,9 +485,14 @@ export function buildResume(input: {
 	const unknown = plan ? 0 : selection.achievements.filter((pick) => !visibleAchievements.has(pick.id)).length;
 	if (unknown > 0) warnings.push(`Ignored ${unknown} suggestion(s) that didn't match your profile.`);
 
-	const basics = input.writing?.headline
+	const headed = input.writing?.headline
 		? { ...base.basics, headline: singleHeadline(input.writing.headline) }
 		: base.basics;
+	// The header shows "countdowncreative.agency", not "https://countdowncreative.agency", unless the user set a label.
+	const basics =
+		headed.website.url && !headed.website.label.trim()
+			? { ...headed, website: { ...headed.website, label: displayUrl(headed.website.url) } }
+			: headed;
 	const metadata = plan
 		? { ...base.metadata, layout: orderSections(base.metadata.layout, input.writing?.sectionOrder ?? plan.sections) }
 		: base.metadata;

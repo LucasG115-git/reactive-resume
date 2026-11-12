@@ -13,11 +13,11 @@ import { words } from "../selection/text";
  * what wasn't finished. Notes like these belong in the career record, never on a resume, where they read as doubt.
  */
 const EVIDENCE_MARKER =
-	/\b(?:unverified|not (?:yet )?verified|unconfirmed|not confirmed|needs? (?:verification|confirmation|checking)|to be (?:confirmed|verified)|tb[cd]|reportedly|(?:was|were|is|are|been) reported|(?:organi[sz]ational|internal) reporting|claimed|according to (?:internal|organi[sz]ational|the organi[sz]ation)|at (?:that|the) time|definition unclear|timing (?:and [a-z]+ )?unverified|without completing|did not (?:complete|finish)|didn't (?:complete|finish)|not completed|unfinished|i (?:think|believe)|not sure|unsure|citation needed|source:)/i;
+	/\b(?:unverified|not (?:yet )?verified|unconfirmed|not confirmed|needs? (?:verification|confirmation|checking)|to be (?:confirmed|verified)|tb[cd]|reportedly|(?:was|were|is|are|been) reported|(?:organi[sz]ational|internal) reporting|claimed|according to (?:internal|organi[sz]ational|the organi[sz]ation)|at (?:that|the) time|definition unclear|timing (?:and [a-z]+ )?unverified|without completing|did not (?:complete|finish)|didn't (?:complete|finish)|not completed|unfinished|i (?:think|believe)|not sure|unsure|citation needed|source:|recollection|from memory|as i recall|rather than (?:a |an )?(?:verified|confirmed|exact))/i;
 
 /** Trailing phrases that undercut the line they end ("…, without completing either minor"). */
 const UNDERCUTTING_TAIL =
-	/[,;]?\s+(?:without (?:completing|finishing)|though (?:not|never)|but (?:not|never)|at (?:that|the) time|as of [a-z]+ \d{4}|(?:timing|definition) (?:and [a-z]+ )?unverified)\b[^.;]*/gi;
+	/[,;]?\s+(?:without (?:completing|finishing)|though (?:not|never)|but (?:not|never)|at (?:that|the) time|as of [a-z]+ \d{4}|(?:timing|definition) (?:and [a-z]+ )?unverified|based on (?:my )?(?:recollection|memory|own count)|from memory|as i recall|rather than (?:a |an )?(?:verified|confirmed|exact))\b[^.;]*/gi;
 
 /** Parenthetical notes: "(unverified)", "(reported, Sept 2023)". */
 const NOTE_PARENTHETICAL =

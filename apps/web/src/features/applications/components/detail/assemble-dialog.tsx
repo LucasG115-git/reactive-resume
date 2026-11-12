@@ -7,6 +7,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { Link } from "@tanstack/react-router";
 import { useEffect, useId, useRef, useState } from "react";
 import { choosePreset } from "@reactive-resume/schema/resume-style";
+import { pagesFor, yearsSinceFirstRole } from "@reactive-resume/schema/resume-writing";
 import { Button, buttonVariants } from "@reactive-resume/ui/components/button";
 import {
 	Dialog,
@@ -123,7 +124,32 @@ export function AssembleDialog({ application, open, onOpenChange, autoPropose }:
 				selection.data ? [selection.data.analysis.summary, ...selection.data.analysis.domain].join(" ") : "",
 			)
 		: null;
-	const preset = presetId ?? suggested?.id ?? null;
+	const preset = presetId ?? selection.data?.plan.style?.presetId ?? suggested?.id ?? null;
+	const [now] = useState(() => new Date());
+	const years = profile.data ? yearsSinceFirstRole(profile.data.entries, now) : 0;
+	const presets = (styleGuide.data?.presets ?? []).map((item) => ({
+		id: item.id,
+		pages: pagesFor(item.rules, years),
+		label: `${item.name} · ${plural(pagesFor(item.rules, years), { one: "# page", other: "# pages" })}`,
+		suggested: item.id === suggested?.id,
+	}));
+	/** A preset with a different page target refits the selection, so what was left out for length comes back. */
+	const choosePresetFor = (id: string) => {
+		setPresetId(id);
+		const next = presets.find((item) => item.id === id);
+		if (current && next && next.pages !== current.plan.style?.pages)
+			propose.mutate({ applicationId: application.id, quality, presetId: id });
+	};
+	const styleControl =
+		presets.length > 0 ? (
+			<StyleChoice
+				id={`${formId}-style`}
+				value={preset ?? ""}
+				presets={presets}
+				pending={propose.isPending}
+				onChange={choosePresetFor}
+			/>
+		) : null;
 	const [result, setResult] = useState<AssembleResult | null>(null);
 
 	const achievements =
@@ -228,6 +254,7 @@ export function AssembleDialog({ application, open, onOpenChange, autoPropose }:
 									)}
 								</div>
 							)}
+							{styleControl}
 							<SelectionReview
 								selection={current}
 								saving={update.isPending}
@@ -282,32 +309,7 @@ export function AssembleDialog({ application, open, onOpenChange, autoPropose }:
 							)}
 						</div>
 
-						{styleGuide.data && (
-							<div className="grid gap-1">
-								<label htmlFor={`${formId}-style`} className="text-xs font-medium text-ink-2">
-									<Trans>Style</Trans>
-								</label>
-								<NativeSelect
-									id={`${formId}-style`}
-									value={preset ?? ""}
-									onChange={(event) => setPresetId(event.target.value)}
-								>
-									{styleGuide.data.presets.map((item) => (
-										<option key={item.id} value={item.id}>
-											{item.id === suggested?.id ? t`${item.name} (matches this posting)` : item.name}
-										</option>
-									))}
-								</NativeSelect>
-								<p className="text-xs text-ink-3">
-									<Trans>
-										Length, tone, bullets and skills follow this preset.{" "}
-										<Link to="/dashboard/settings/resume-style" className="underline underline-offset-2">
-											Edit your resume style
-										</Link>
-									</Trans>
-								</p>
-							</div>
-						)}
+						{styleControl}
 
 						<div className="grid gap-1.5">
 							<span id={`${formId}-mode`} className="text-xs font-medium text-ink-2">
@@ -365,7 +367,12 @@ export function AssembleDialog({ application, open, onOpenChange, autoPropose }:
 										variant="secondary"
 										loading={propose.isPending}
 										onClick={() =>
-											propose.mutate({ applicationId: application.id, reanalyze: current.postingChanged, quality })
+											propose.mutate({
+												applicationId: application.id,
+												reanalyze: current.postingChanged,
+												quality,
+												...(preset ? { presetId: preset } : {}),
+											})
 										}
 									>
 										{current.postingChanged ? <Trans>Analyse again</Trans> : <Trans>Propose again</Trans>}
@@ -383,7 +390,13 @@ export function AssembleDialog({ application, open, onOpenChange, autoPropose }:
 									<Button
 										loading={propose.isPending || selection.isPending}
 										disabled={achievements === 0 || !hasPosting}
-										onClick={() => propose.mutate({ applicationId: application.id, quality })}
+										onClick={() =>
+											propose.mutate({
+												applicationId: application.id,
+												quality,
+												...(preset ? { presetId: preset } : {}),
+											})
+										}
 									>
 										<Icon name="magic-wand" size={16} />
 										<Trans>Analyse the posting</Trans>
@@ -462,6 +475,45 @@ function QualityChoice(props: QualityChoiceProps) {
 				{props.value === "thorough"
 					? t`Evidence review and writing use your Thorough model. It usually costs more and takes longer.`
 					: t`Uses the model set for each task.`}
+			</p>
+		</div>
+	);
+}
+
+type StyleChoiceProps = {
+	id: string;
+	value: string;
+	presets: Array<{ id: string; label: string; pages: number; suggested: boolean }>;
+	pending: boolean;
+	onChange: (presetId: string) => void;
+};
+
+/** The resume style preset, with each one's page target; one with a different length refits the selection. */
+function StyleChoice({ id, value, presets, pending, onChange }: StyleChoiceProps) {
+	return (
+		<div className="grid gap-1">
+			<label htmlFor={id} className="text-xs font-medium text-ink-2">
+				<Trans>Style and length</Trans>
+			</label>
+			<NativeSelect id={id} value={value} disabled={pending} onChange={(event) => onChange(event.target.value)}>
+				{presets.map((item) => (
+					<option key={item.id} value={item.id}>
+						{item.suggested ? t`${item.label} (matches this posting)` : item.label}
+					</option>
+				))}
+			</NativeSelect>
+			<p className="text-xs text-ink-3">
+				{pending ? (
+					<Trans>Fitting the selection to the new length…</Trans>
+				) : (
+					<Trans>
+						Length, tone, bullets and skills follow this preset. Choosing one with a different length refits the
+						selection.{" "}
+						<Link to="/dashboard/settings/resume-style" className="underline underline-offset-2">
+							Edit your resume style
+						</Link>
+					</Trans>
+				)}
 			</p>
 		</div>
 	);

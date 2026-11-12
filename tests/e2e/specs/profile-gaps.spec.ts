@@ -60,12 +60,15 @@ test("before tailoring, the posting's missing skills and experience can be added
 	await expect(dialog.getByRole("checkbox", { name: /WordPress/ })).toHaveCount(0);
 	const photography = dialog.getByRole("listitem").filter({ hasText: "Skilled in photography" });
 	await photography.getByRole("checkbox", { name: /^Photography/ }).check();
-	// A skill can be tied to every place it was used.
-	await photography.getByRole("button", { name: "Founder — Northbrook Digital" }).click();
-	await expect(photography.getByRole("button", { name: "Founder — Northbrook Digital" })).toHaveAttribute(
-		"aria-pressed",
-		"true",
-	);
+	// A skill can be tied to every place it was used, chosen in a popup grouped by kind.
+	await photography.getByRole("button", { name: "Choose places" }).click();
+	await expect(page.getByRole("group", { name: "Experience" })).toBeVisible();
+	await page.getByRole("checkbox", { name: /Founder/ }).check();
+	if (process.env.E2E_SCREENSHOTS) await page.screenshot({ path: `${process.env.E2E_SCREENSHOTS}/used-at.png` });
+	await page.keyboard.press("Escape");
+	await expect(page.getByRole("checkbox", { name: /Founder/ })).toBeHidden();
+	await expect(dialog.getByRole("heading", { name: "Fill the gaps in your profile" })).toBeVisible();
+	await expect(photography.getByRole("button", { name: "Remove Founder — Northbrook Digital" })).toBeVisible();
 	const printers = dialog.getByRole("listitem").filter({ hasText: "Plan Open House events" });
 	await printers.getByRole("radio", { name: "I've done this" }).click();
 	await printers.getByLabel("Where did you do it?").selectOption({ label: "Founder — Northbrook Digital" });
