@@ -47,12 +47,13 @@ const searchSchema = z.object({
 	q: z.string().default("").catch(""),
 	view: z.enum(VIEWS).default("list").catch("list"),
 	closed: z.boolean().default(false).catch(false),
-	// Deep links: open Add, or one application.
+	// Deep links: open Add, or one application (optionally straight into Build a resume).
 	create: z.boolean().default(false).catch(false),
 	applicationId: z.string().optional().catch(undefined),
+	assemble: z.boolean().default(false).catch(false),
 });
 type Search = z.output<typeof searchSchema>;
-const defaultSearch: Search = { q: "", view: "list", closed: false, create: false };
+const defaultSearch: Search = { q: "", view: "list", closed: false, create: false, assemble: false };
 
 export const Route = createFileRoute("/dashboard/applications/")({
 	component: RouteComponent,
@@ -76,7 +77,7 @@ function matches(application: ApplicationSummary, query: string) {
 }
 
 function RouteComponent() {
-	const { q, view, closed, create, applicationId } = Route.useSearch();
+	const { q, view, closed, create, applicationId, assemble } = Route.useSearch();
 	const navigate = useNavigate({ from: Route.fullPath });
 	const phone = useBreakpoint() === "mobile";
 	// Typing filters at once; the URL only seeds the search.
@@ -171,12 +172,14 @@ function RouteComponent() {
 		if (!applicationId || !applications) return;
 		// oxlint-disable-next-line react/set-state-in-effect -- takes the one-shot ?applicationId from the address, then clears it
 		setSelectedId(applicationId);
+		// oxlint-disable-next-line react/set-state-in-effect -- same one-shot deep link, opened straight into Build a resume
+		if (assemble) setAssembleId(applicationId);
 		void navigate({
 			replace: true,
 			resetScroll: false,
-			search: (prev: Search) => ({ ...prev, applicationId: undefined }),
+			search: (prev: Search) => ({ ...prev, applicationId: undefined, assemble: false }),
 		});
-	}, [applicationId, applications, navigate]);
+	}, [applicationId, assemble, applications, navigate]);
 
 	// The input updates at once; the list filters in a deferred render that typing can interrupt.
 	const text = useDeferredValue(query).trim().toLowerCase();

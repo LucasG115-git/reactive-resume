@@ -42,7 +42,8 @@ type Step =
 	| { name: "importing"; file: File; stage: number; notes: string[] }
 	| { name: "imported"; file: File; resumeId: string; sections: number; entries: number; flagged: number }
 	| { name: "failed"; file: File; message: string }
-	| { name: "copy" };
+	| { name: "copy" }
+	| { name: "build" };
 
 type OpenResumeOptions = { withAssistant?: boolean; importedFrom?: string };
 
@@ -223,6 +224,20 @@ export function NewDocumentDialog({ data }: { data?: NewDocumentDialogData | und
 						}}
 					/>
 				</div>
+			) : step.name === "build" ? (
+				<div key="build" className={cn(ENTER_CLASS, "grid gap-4")}>
+					<BuildForJob
+						onBack={() => setStep({ name: "choose" })}
+						onPick={(applicationId) => {
+							closeDialog();
+							void navigate({ to: "/dashboard/applications", search: { applicationId, assemble: true } });
+						}}
+						onNew={() => {
+							closeDialog();
+							void navigate({ to: "/dashboard/applications", search: { create: true } });
+						}}
+					/>
+				</div>
 			) : step.name !== "choose" ? (
 				<ImportStep
 					key="progress"
@@ -268,6 +283,24 @@ export function NewDocumentDialog({ data }: { data?: NewDocumentDialogData | und
 									Drop a file here or browse. PDF, Word, Resume Builder or JSON Resume. We fill in every section and
 									flag anything we're unsure of.
 								</Trans>
+							</span>
+						</span>
+					</button>
+
+					<button
+						type="button"
+						onClick={() => setStep({ name: "build" })}
+						className="flex items-start gap-4 rounded-xl border-[1.5px] border-accent/40 bg-accent-soft/40 p-5 text-start transition-[background-color,border-color,scale] duration-quick ease-enter hover:border-accent hover:bg-accent-soft"
+					>
+						<span className="grid size-11 shrink-0 place-items-center rounded-lg bg-accent-soft text-accent-text">
+							<Icon name="magic-wand" size={24} />
+						</span>
+						<span className="grid gap-1">
+							<span className="text-[15px] font-semibold">
+								<Trans>Build a resume for a job</Trans>
+							</span>
+							<span className="text-[13px] leading-[19px] text-ink-2">
+								<Trans>Pick a job and your AI connection assembles a tailored resume from your master profile.</Trans>
 							</span>
 						</span>
 					</button>
@@ -493,6 +526,95 @@ function ImportProgress({ stage, notes }: { stage: number; notes: string[] }) {
 				/>
 			</div>
 		</div>
+	);
+}
+
+type BuildForJobProps = {
+	onBack: () => void;
+	/** Open the chosen application straight into the build flow. */
+	onPick: (applicationId: string) => void;
+	/** No suitable application yet: start a new one with its posting. */
+	onNew: () => void;
+};
+
+/** Pick the job to build a resume for; the application opens straight into Assemble from the master profile. */
+function BuildForJob({ onBack, onPick, onNew }: BuildForJobProps) {
+	const { data: applications } = useQuery(applicationsListQueryOptions());
+	const jobs = (applications ?? []).filter((application) => application.status !== "closed");
+	const [jobId, setJobId] = useState<string | null>(null);
+	const selected = jobs.find((job) => job.id === jobId) ?? jobs[0] ?? null;
+
+	return (
+		<>
+			<DialogHeader>
+				<DialogTitle className="font-display text-[22px] font-medium">
+					<Trans>Build a resume for a job</Trans>
+				</DialogTitle>
+				<DialogDescription>
+					<Trans>
+						Pick the job you're applying to. Your AI connection analyses its posting and assembles a tailored resume
+						from your master profile.
+					</Trans>
+				</DialogDescription>
+			</DialogHeader>
+
+			{applications && jobs.length === 0 ? (
+				<p className="text-sm text-ink-2">
+					<Trans>
+						You don't have an open application yet. Start one with the job's posting, then build its resume.
+					</Trans>
+				</p>
+			) : (
+				<fieldset className="grid gap-1.5">
+					<legend className="mb-1.5 text-xs font-medium text-ink-2">
+						<Trans>Which job?</Trans>
+					</legend>
+					<div className="grid max-h-64 gap-1 overflow-y-auto">
+						{jobs.map((job) => (
+							<label
+								key={job.id}
+								className={cn(
+									"relative flex cursor-pointer items-center gap-3 rounded-lg border px-3 py-2.5 transition-colors duration-quick",
+									job.id === selected?.id ? "border-accent bg-accent-soft" : "border-line hover:bg-hover",
+								)}
+							>
+								<input
+									type="radio"
+									name="build-job"
+									className="sr-only"
+									checked={job.id === selected?.id}
+									onChange={() => setJobId(job.id)}
+								/>
+								<Icon name="briefcase" className="text-ink-2" />
+								<span className="grid min-w-0 flex-1">
+									<span className="truncate text-sm font-medium">{job.role}</span>
+									<span className="truncate text-xs text-ink-3">{job.company}</span>
+								</span>
+							</label>
+						))}
+					</div>
+				</fieldset>
+			)}
+
+			<div className="flex flex-wrap items-center justify-between gap-2">
+				<button
+					type="button"
+					className="text-[13px] text-ink-2 underline underline-offset-2 hover:text-ink"
+					onClick={onNew}
+				>
+					<Trans>New application instead</Trans>
+				</button>
+				<div className="flex gap-2">
+					<Button variant="ghost" onClick={onBack}>
+						<Trans>Back</Trans>
+					</Button>
+					<Button disabled={!selected} onClick={() => selected && onPick(selected.id)}>
+						<Icon name="magic-wand" size={16} />
+						<Trans>Open and build</Trans>
+					</Button>
+				</div>
+			</div>
+		</>
 	);
 }
 
