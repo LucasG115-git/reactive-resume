@@ -1803,6 +1803,10 @@ msgstr "เพิ่มอาสาสมัคร"
 msgid "Add what happened before you can save."
 msgstr "เพิ่มสิ่งที่เกิดขึ้นก่อนจึงจะบันทึกได้"
 
+#: src/features/resume/editor/write/insert-from-profile.tsx
+msgid "Add your experience and skills first"
+msgstr ""
+
 #: src/features/resume/editor/check/issues.ts
 msgid "Add your name"
 msgstr "เพิ่มชื่อของคุณ"
@@ -1839,6 +1843,10 @@ msgstr ""
 #. placeholder {1}: data.report?.match ?? report.match
 #: src/features/applications/components/detail/gap-step.tsx
 msgid "Added {0} items to your profile. Match: {1}%."
+msgstr ""
+
+#: src/features/resume/editor/write/insert-from-profile.tsx
+msgid "Added {total} items from your profile."
 msgstr ""
 
 #: src/features/career/knowledge/facts.tsx
@@ -2137,8 +2145,8 @@ msgstr ""
 msgid "Analyse the posting"
 msgstr ""
 
-#: src/features/applications/components/detail/assemble-dialog.tsx
-msgid "Analysing the posting and reviewing your profile…"
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Analysing the posting"
 msgstr ""
 
 #. Hero headline, line 3 of 4: A free, open-source / resume builder / and / career manager.
@@ -2653,6 +2661,7 @@ msgstr "ผู้ได้รับรางวัล"
 
 #: src/features/applications/components/detail/selection-review.tsx
 #: src/features/career/knowledge/used-at.tsx
+#: src/features/resume/editor/write/insert-from-profile.tsx
 #: src/features/settings/resume-style.tsx
 #: src/libs/resume/section.tsx
 msgid "Awards"
@@ -2890,7 +2899,12 @@ msgid "Build a professional resume, download it as PDF or Word, and manage your 
 msgstr "สร้าง CV แบบมืออาชีพ ดาวน์โหลดเป็น PDF หรือ Microsoft Word และจัดการการค้นหางานของคุณได้ในที่เดียว เทมเพลตฟรี ไม่มีโฆษณา ไม่มีเพย์วอลล์"
 
 #: src/features/career/knowledge/profile.tsx
+#: src/features/documents/new-document-dialog.tsx
 msgid "Build a resume for a job"
+msgstr ""
+
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Build progress"
 msgstr ""
 
 #: src/features/applications/components/detail/assemble-dialog.tsx
@@ -3002,6 +3016,7 @@ msgstr "ซอฟต์แวร์สามารถอ่านเรซูเ
 #: src/features/documents/new-document-dialog.tsx
 #: src/features/resume/builder/password-dialog.tsx
 #: src/features/resume/editor/check/job-match.tsx
+#: src/features/resume/editor/write/insert-from-profile.tsx
 #: src/features/resume/editor/write/picture-settings.tsx
 #: src/features/settings/ai/api-keys.tsx
 #: src/features/settings/ai/web-access.tsx
@@ -3037,6 +3052,7 @@ msgstr ""
 
 #: src/features/applications/components/detail/selection-review.tsx
 #: src/features/career/knowledge/used-at.tsx
+#: src/features/resume/editor/write/insert-from-profile.tsx
 #: src/features/settings/resume-style.tsx
 #: src/libs/resume/section.tsx
 msgid "Certifications"
@@ -5343,6 +5359,10 @@ msgstr "ดาวน์โหลด CSV"
 msgid "Download failed. Try again."
 msgstr "ดาวน์โหลดไม่สำเร็จ ลองอีกครั้ง"
 
+#: src/features/career/knowledge/profile.tsx
+msgid "Download JSON"
+msgstr ""
+
 #: src/features/resume/editor/chrome/bar.tsx
 #: src/features/resume/share/web-page-text.ts
 msgid "Download PDF"
@@ -5363,6 +5383,10 @@ msgstr "ดาวน์โหลดได้"
 #: src/features/resume/share/share-panel.tsx
 msgid "Download totals can include repeat clicks."
 msgstr "ยอดดาวน์โหลดทั้งหมดอาจรวมการคลิกซ้ำด้วย"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Download YAML"
+msgstr ""
 
 #: src/features/resume/share/download-tab.tsx
 #: src/routes/builder/letter/-components/download-sheet.tsx
@@ -5696,6 +5720,7 @@ msgstr "บทบรรณาธิการ"
 #: src/features/career/knowledge/used-at.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
+#: src/features/resume/editor/write/insert-from-profile.tsx
 #: src/features/settings/resume-style.tsx
 #: src/libs/resume/section.tsx
 msgid "Education"
@@ -5962,6 +5987,7 @@ msgstr "ออกจากโหมดโฟกัส"
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 #: src/features/homepage/write.tsx
+#: src/features/resume/editor/write/insert-from-profile.tsx
 #: src/features/settings/resume-style.tsx
 #: src/libs/resume/section.tsx
 msgid "Experience"
@@ -5991,6 +6017,7 @@ msgstr "หมดอายุ"
 msgid "explain one limit of the measurement clearly, without underselling the work."
 msgstr "อธิบายข้อจำกัดหนึ่งข้อของการวัดผลอย่างชัดเจน โดยไม่ลดคุณค่าของงาน"
 
+#: src/features/career/knowledge/profile.tsx
 #: src/features/settings/account/data.tsx
 #: src/libs/resume/section.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
@@ -6188,6 +6215,10 @@ msgstr "การกรอกรายการ"
 #: src/features/documents/documents-page.tsx
 msgid "Filter by tag"
 msgstr "กรองตามแท็ก"
+
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Final checks"
+msgstr ""
 
 #: src/features/homepage/remember.tsx
 msgid "Find out why, and shorten setup without adding support work."
@@ -7196,6 +7227,23 @@ msgstr ""
 msgid "Inline"
 msgstr "แบบอินไลน์"
 
+#: src/features/resume/editor/write/insert-from-profile.tsx
+msgid "Insert"
+msgstr ""
+
+#: src/features/resume/editor/write/insert-from-profile.tsx
+msgid "Insert {total}"
+msgstr ""
+
+#: src/features/resume/editor/write/add-section.tsx
+#: src/features/resume/editor/write/insert-from-profile.tsx
+msgid "Insert from your profile"
+msgstr ""
+
+#: src/features/resume/editor/write/add-section.tsx
+msgid "Insert from your profile…"
+msgstr ""
+
 #: src/routes/dashboard/applications/index.tsx
 msgid "Insights"
 msgstr "ข้อมูลเชิงลึก"
@@ -7902,6 +7950,7 @@ msgstr "หน้าจดหมาย"
 msgid "Letters"
 msgstr "จดหมาย"
 
+#: src/features/applications/components/detail/gap-step.tsx
 #: src/features/resume/editor/write/entries.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/design.tsx
 msgid "Level"
@@ -8172,6 +8221,10 @@ msgstr "กำลังโหลดยอดรวม"
 #: src/features/career/workspace/shell.tsx
 msgid "Loading workspace…"
 msgstr "กำลังโหลดพื้นที่ทำงาน…"
+
+#: src/features/resume/editor/write/insert-from-profile.tsx
+msgid "Loading your profile…"
+msgstr ""
 
 #: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/manage-lanes-sheet.tsx
@@ -8887,6 +8940,10 @@ msgstr "คีย์ API ใหม่"
 msgid "New application"
 msgstr "ใบสมัครใหม่"
 
+#: src/features/documents/new-document-dialog.tsx
+msgid "New application instead"
+msgstr ""
+
 #: src/features/career/knowledge/structured-preferences.tsx
 msgid "New area"
 msgstr ""
@@ -9439,6 +9496,7 @@ msgstr "ยังไม่ได้ให้คะแนน"
 msgid "Not selected"
 msgstr "ไม่ได้เลือก"
 
+#: src/features/applications/components/detail/gap-step.tsx
 #: src/features/career/knowledge/profile.tsx
 #: src/features/settings/ai/task-models.tsx
 msgid "Not set"
@@ -9786,6 +9844,10 @@ msgstr "เปิด {title}"
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Open AI settings"
 msgstr "เปิดการตั้งค่า AI"
+
+#: src/features/documents/new-document-dialog.tsx
+msgid "Open and build"
+msgstr ""
 
 #: src/features/career/today.tsx
 msgid "Open briefing"
@@ -10296,6 +10358,10 @@ msgstr "ภาพที่ซ่อนจากเพจ"
 msgid "Photo on the page."
 msgstr "รูปภาพในเพจ."
 
+#: src/features/documents/new-document-dialog.tsx
+msgid "Pick a job and your AI connection assembles a tailored resume from your master profile."
+msgstr ""
+
 #: src/features/career/schedule-sheet.tsx
 msgid "Pick a time after now."
 msgstr "เลือกเวลาหลังจากตอนนี้"
@@ -10303,6 +10369,10 @@ msgstr "เลือกเวลาหลังจากตอนนี้"
 #: src/components/input/icon-picker.tsx
 msgid "Pick an icon"
 msgstr "เลือกไอคอน"
+
+#: src/features/resume/editor/write/insert-from-profile.tsx
+msgid "Pick entries and skills from your master profile to add to this resume. They're copied in; your profile isn't changed."
+msgstr ""
 
 #: src/features/career/knowledge/used-at.tsx
 msgid "Pick every place it applies."
@@ -10315,6 +10385,10 @@ msgstr "เลือกจากเทมเพลต {templateCount} จาก�
 #: src/features/ats-checker/messages.ts
 msgid "Pick one format and use it everywhere."
 msgstr "เลือกรูปแบบเดียวแล้วใช้ให้เหมือนกันทุกที่"
+
+#: src/features/documents/new-document-dialog.tsx
+msgid "Pick the job you're applying to. Your AI connection analyses its posting and assembles a tailored resume from your master profile."
+msgstr ""
 
 #: src/features/career/workspace/prepare.tsx
 msgid "Pick two examples"
@@ -10707,6 +10781,7 @@ msgstr ""
 
 #: src/features/applications/components/detail/selection-review.tsx
 #: src/features/career/knowledge/used-at.tsx
+#: src/features/resume/editor/write/insert-from-profile.tsx
 #: src/features/settings/resume-style.tsx
 #: src/libs/resume/section.tsx
 msgid "Projects"
@@ -10897,6 +10972,10 @@ msgstr ""
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 msgid "Raise the design sheet"
 msgstr "ยกแผ่นการออกแบบ"
+
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Ranking your experience"
+msgstr ""
 
 #: src/features/applications/components/detail/sent-documents.tsx
 msgid "Re-assemble from profile"
@@ -11814,6 +11893,14 @@ msgstr "การตรวจทานต้องใช้การเชื่
 msgid "Reviewing resumes"
 msgstr ""
 
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Reviewing the best evidence"
+msgstr ""
+
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Reviewing the draft"
+msgstr ""
+
 #: src/features/settings/ai/task-models.tsx
 msgid "Reviews which of your achievements fit a posting."
 msgstr ""
@@ -12459,6 +12546,10 @@ msgstr "เลือก..."
 msgid "Selected documents"
 msgstr "เอกสารที่เลือก"
 
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Selecting the evidence"
+msgstr ""
+
 #: src/features/homepage/footer.tsx
 msgid "Self-hosting"
 msgstr "โฮสติ้งด้วยตนเอง"
@@ -12964,6 +13055,7 @@ msgstr ""
 #: src/features/career/knowledge/profile.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
+#: src/features/resume/editor/write/insert-from-profile.tsx
 #: src/features/settings/resume-style.tsx
 #: src/libs/resume/section.tsx
 msgid "Skills"
@@ -14281,6 +14373,10 @@ msgstr "เบราว์เซอร์นี้บันทึกเสีย
 msgid "This browser can't take dictation, and none of your AI connections can transcribe speech (OpenAI, Google Gemini, Mistral, xAI, Groq or Vercel AI Gateway can). <0>Add one in Settings</0>, or type your answer."
 msgstr "เบราว์เซอร์นี้พิมพ์ด้วยเสียงไม่ได้ และไม่มีการเชื่อมต่อ AI ของคุณที่ถอดเสียงได้ (OpenAI, Google Gemini, Mistral, xAI, Groq หรือ Vercel AI Gateway ทำได้) <0>เพิ่มได้ในการตั้งค่า</0> หรือพิมพ์คำตอบของคุณ"
 
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "This can take a minute — you can keep this open."
+msgstr ""
+
 #: src/features/auth/pages/consent.tsx
 msgid "This connection request is invalid or has expired. Start the connection again from your client."
 msgstr "คำขอเชื่อมต่อนี้ไม่ถูกต้องหรือหมดอายุแล้ว เริ่มการเชื่อมต่ออีกครั้งจากไคลเอนต์ของคุณ"
@@ -15524,6 +15620,7 @@ msgid "Volunteer work"
 msgstr ""
 
 #: src/features/career/knowledge/used-at.tsx
+#: src/features/resume/editor/write/insert-from-profile.tsx
 msgid "Volunteering"
 msgstr ""
 
@@ -15886,6 +15983,10 @@ msgstr "เรซูเม่ถูกแบ่งส่วนตามที่
 msgid "Whether your timeline can be reconstructed."
 msgstr "ไทม์ไลน์ของคุณสามารถสร้างขึ้นใหม่ได้หรือไม่"
 
+#: src/features/documents/new-document-dialog.tsx
+msgid "Which job?"
+msgstr ""
+
 #: src/features/homepage/faq.tsx
 msgid "Which languages does it speak?"
 msgstr "มันพูดภาษาอะไรได้บ้าง?"
@@ -16102,6 +16203,10 @@ msgstr "ความช่วยเหลือในการเขียน �
 msgid "Writing resumes"
 msgstr ""
 
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Writing the bullets"
+msgstr ""
+
 #: src/features/homepage/sections.tsx
 msgid "writing, tailoring and sending"
 msgstr "การเขียน การปรับตัว และการส่ง"
@@ -16180,6 +16285,10 @@ msgstr "คุณยกเลิกการลงชื่อเข้าใช
 #: src/features/documents/new-document-dialog.tsx
 msgid "You don't have a resume to copy yet. Import or create a resume first, then return to copy it for this job."
 msgstr "คุณยังไม่มีประวัติย่อที่จะคัดลอก นำเข้าหรือสร้างเรซูเม่ก่อน จากนั้นจึงกลับมาคัดลอกสำหรับงานนี้"
+
+#: src/features/documents/new-document-dialog.tsx
+msgid "You don't have an open application yet. Start one with the job's posting, then build its resume."
+msgstr ""
 
 #: src/features/career/workspace/debrief.tsx
 msgid "You forgot this before, so it wasn't saved again."
@@ -16399,6 +16508,10 @@ msgstr "ขอบกระดาษของคุณแคบมาก"
 
 #: src/features/applications/components/detail/assemble-dialog.tsx
 msgid "Your master profile has no achievements yet."
+msgstr ""
+
+#: src/features/resume/editor/write/insert-from-profile.tsx
+msgid "Your master profile is empty."
 msgstr ""
 
 #: src/features/career/coach.tsx

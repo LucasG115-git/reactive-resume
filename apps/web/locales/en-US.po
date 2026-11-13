@@ -1798,6 +1798,10 @@ msgstr "Add volunteering"
 msgid "Add what happened before you can save."
 msgstr "Add what happened before you can save."
 
+#: src/features/resume/editor/write/insert-from-profile.tsx
+msgid "Add your experience and skills first"
+msgstr "Add your experience and skills first"
+
 #: src/features/resume/editor/check/issues.ts
 msgid "Add your name"
 msgstr "Add your name"
@@ -1835,6 +1839,10 @@ msgstr "Added {0} entries, {1} achievements and {2} skills. Review them, add num
 #: src/features/applications/components/detail/gap-step.tsx
 msgid "Added {0} items to your profile. Match: {1}%."
 msgstr "Added {0} items to your profile. Match: {1}%."
+
+#: src/features/resume/editor/write/insert-from-profile.tsx
+msgid "Added {total} items from your profile."
+msgstr "Added {total} items from your profile."
 
 #: src/features/career/knowledge/facts.tsx
 #: src/features/career/shared.tsx
@@ -2132,9 +2140,9 @@ msgstr "Analyse again"
 msgid "Analyse the posting"
 msgstr "Analyse the posting"
 
-#: src/features/applications/components/detail/assemble-dialog.tsx
-msgid "Analysing the posting and reviewing your profile…"
-msgstr "Analysing the posting and reviewing your profile…"
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Analysing the posting"
+msgstr "Analysing the posting"
 
 #. Hero headline, line 3 of 4: A free, open-source / resume builder / and / career manager.
 #: src/features/homepage/hero.tsx
@@ -2648,6 +2656,7 @@ msgstr "Awarder"
 
 #: src/features/applications/components/detail/selection-review.tsx
 #: src/features/career/knowledge/used-at.tsx
+#: src/features/resume/editor/write/insert-from-profile.tsx
 #: src/features/settings/resume-style.tsx
 #: src/libs/resume/section.tsx
 msgid "Awards"
@@ -2885,8 +2894,13 @@ msgid "Build a professional resume, download it as PDF or Word, and manage your 
 msgstr "Build a professional resume, download it as PDF or Word, and manage your job search in one place. Free templates, no ads, no paywall."
 
 #: src/features/career/knowledge/profile.tsx
+#: src/features/documents/new-document-dialog.tsx
 msgid "Build a resume for a job"
 msgstr "Build a resume for a job"
+
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Build progress"
+msgstr "Build progress"
 
 #: src/features/applications/components/detail/assemble-dialog.tsx
 msgid "Build the resume"
@@ -2997,6 +3011,7 @@ msgstr "Can software read your resume?"
 #: src/features/documents/new-document-dialog.tsx
 #: src/features/resume/builder/password-dialog.tsx
 #: src/features/resume/editor/check/job-match.tsx
+#: src/features/resume/editor/write/insert-from-profile.tsx
 #: src/features/resume/editor/write/picture-settings.tsx
 #: src/features/settings/ai/api-keys.tsx
 #: src/features/settings/ai/web-access.tsx
@@ -3032,6 +3047,7 @@ msgstr "Certification"
 
 #: src/features/applications/components/detail/selection-review.tsx
 #: src/features/career/knowledge/used-at.tsx
+#: src/features/resume/editor/write/insert-from-profile.tsx
 #: src/features/settings/resume-style.tsx
 #: src/libs/resume/section.tsx
 msgid "Certifications"
@@ -5338,6 +5354,10 @@ msgstr "Download CSV"
 msgid "Download failed. Try again."
 msgstr "Download failed. Try again."
 
+#: src/features/career/knowledge/profile.tsx
+msgid "Download JSON"
+msgstr "Download JSON"
+
 #: src/features/resume/editor/chrome/bar.tsx
 #: src/features/resume/share/web-page-text.ts
 msgid "Download PDF"
@@ -5358,6 +5378,10 @@ msgstr "Download them"
 #: src/features/resume/share/share-panel.tsx
 msgid "Download totals can include repeat clicks."
 msgstr "Download totals can include repeat clicks."
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Download YAML"
+msgstr "Download YAML"
 
 #: src/features/resume/share/download-tab.tsx
 #: src/routes/builder/letter/-components/download-sheet.tsx
@@ -5691,6 +5715,7 @@ msgstr "Editorial"
 #: src/features/career/knowledge/used-at.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
+#: src/features/resume/editor/write/insert-from-profile.tsx
 #: src/features/settings/resume-style.tsx
 #: src/libs/resume/section.tsx
 msgid "Education"
@@ -5957,6 +5982,7 @@ msgstr "Exit focus mode"
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 #: src/features/homepage/write.tsx
+#: src/features/resume/editor/write/insert-from-profile.tsx
 #: src/features/settings/resume-style.tsx
 #: src/libs/resume/section.tsx
 msgid "Experience"
@@ -5986,6 +6012,7 @@ msgstr "Expires"
 msgid "explain one limit of the measurement clearly, without underselling the work."
 msgstr "explain one limit of the measurement clearly, without underselling the work."
 
+#: src/features/career/knowledge/profile.tsx
 #: src/features/settings/account/data.tsx
 #: src/libs/resume/section.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
@@ -6183,6 +6210,10 @@ msgstr "Filling in entries"
 #: src/features/documents/documents-page.tsx
 msgid "Filter by tag"
 msgstr "Filter by tag"
+
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Final checks"
+msgstr "Final checks"
 
 #: src/features/homepage/remember.tsx
 msgid "Find out why, and shorten setup without adding support work."
@@ -7191,6 +7222,23 @@ msgstr "Information density"
 msgid "Inline"
 msgstr "Inline"
 
+#: src/features/resume/editor/write/insert-from-profile.tsx
+msgid "Insert"
+msgstr "Insert"
+
+#: src/features/resume/editor/write/insert-from-profile.tsx
+msgid "Insert {total}"
+msgstr "Insert {total}"
+
+#: src/features/resume/editor/write/add-section.tsx
+#: src/features/resume/editor/write/insert-from-profile.tsx
+msgid "Insert from your profile"
+msgstr "Insert from your profile"
+
+#: src/features/resume/editor/write/add-section.tsx
+msgid "Insert from your profile…"
+msgstr "Insert from your profile…"
+
 #: src/routes/dashboard/applications/index.tsx
 msgid "Insights"
 msgstr "Insights"
@@ -7897,6 +7945,7 @@ msgstr "Letter page"
 msgid "Letters"
 msgstr "Letters"
 
+#: src/features/applications/components/detail/gap-step.tsx
 #: src/features/resume/editor/write/entries.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/design.tsx
 msgid "Level"
@@ -8167,6 +8216,10 @@ msgstr "Loading the total"
 #: src/features/career/workspace/shell.tsx
 msgid "Loading workspace…"
 msgstr "Loading workspace…"
+
+#: src/features/resume/editor/write/insert-from-profile.tsx
+msgid "Loading your profile…"
+msgstr "Loading your profile…"
 
 #: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/manage-lanes-sheet.tsx
@@ -8882,6 +8935,10 @@ msgstr "New API key"
 msgid "New application"
 msgstr "New application"
 
+#: src/features/documents/new-document-dialog.tsx
+msgid "New application instead"
+msgstr "New application instead"
+
 #: src/features/career/knowledge/structured-preferences.tsx
 msgid "New area"
 msgstr "New area"
@@ -9434,6 +9491,7 @@ msgstr "Not scored"
 msgid "Not selected"
 msgstr "Not selected"
 
+#: src/features/applications/components/detail/gap-step.tsx
 #: src/features/career/knowledge/profile.tsx
 #: src/features/settings/ai/task-models.tsx
 msgid "Not set"
@@ -9781,6 +9839,10 @@ msgstr "Open {title}"
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Open AI settings"
 msgstr "Open AI settings"
+
+#: src/features/documents/new-document-dialog.tsx
+msgid "Open and build"
+msgstr "Open and build"
 
 #: src/features/career/today.tsx
 msgid "Open briefing"
@@ -10291,6 +10353,10 @@ msgstr "Photo hidden from the page."
 msgid "Photo on the page."
 msgstr "Photo on the page."
 
+#: src/features/documents/new-document-dialog.tsx
+msgid "Pick a job and your AI connection assembles a tailored resume from your master profile."
+msgstr "Pick a job and your AI connection assembles a tailored resume from your master profile."
+
 #: src/features/career/schedule-sheet.tsx
 msgid "Pick a time after now."
 msgstr "Pick a time after now."
@@ -10298,6 +10364,10 @@ msgstr "Pick a time after now."
 #: src/components/input/icon-picker.tsx
 msgid "Pick an icon"
 msgstr "Pick an icon"
+
+#: src/features/resume/editor/write/insert-from-profile.tsx
+msgid "Pick entries and skills from your master profile to add to this resume. They're copied in; your profile isn't changed."
+msgstr "Pick entries and skills from your master profile to add to this resume. They're copied in; your profile isn't changed."
 
 #: src/features/career/knowledge/used-at.tsx
 msgid "Pick every place it applies."
@@ -10310,6 +10380,10 @@ msgstr "Pick from {templateCount} templates, then set the type, color and spacin
 #: src/features/ats-checker/messages.ts
 msgid "Pick one format and use it everywhere."
 msgstr "Pick one format and use it everywhere."
+
+#: src/features/documents/new-document-dialog.tsx
+msgid "Pick the job you're applying to. Your AI connection analyses its posting and assembles a tailored resume from your master profile."
+msgstr "Pick the job you're applying to. Your AI connection analyses its posting and assembles a tailored resume from your master profile."
 
 #: src/features/career/workspace/prepare.tsx
 msgid "Pick two examples"
@@ -10702,6 +10776,7 @@ msgstr "Project name"
 
 #: src/features/applications/components/detail/selection-review.tsx
 #: src/features/career/knowledge/used-at.tsx
+#: src/features/resume/editor/write/insert-from-profile.tsx
 #: src/features/settings/resume-style.tsx
 #: src/libs/resume/section.tsx
 msgid "Projects"
@@ -10892,6 +10967,10 @@ msgstr "Radius"
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 msgid "Raise the design sheet"
 msgstr "Raise the design sheet"
+
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Ranking your experience"
+msgstr "Ranking your experience"
 
 #: src/features/applications/components/detail/sent-documents.tsx
 msgid "Re-assemble from profile"
@@ -11809,6 +11888,14 @@ msgstr "Reviewing needs an AI connection. <0>Add one in Settings</0>. What you w
 msgid "Reviewing resumes"
 msgstr "Reviewing resumes"
 
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Reviewing the best evidence"
+msgstr "Reviewing the best evidence"
+
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Reviewing the draft"
+msgstr "Reviewing the draft"
+
 #: src/features/settings/ai/task-models.tsx
 msgid "Reviews which of your achievements fit a posting."
 msgstr "Reviews which of your achievements fit a posting."
@@ -12454,6 +12541,10 @@ msgstr "Select..."
 msgid "Selected documents"
 msgstr "Selected documents"
 
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Selecting the evidence"
+msgstr "Selecting the evidence"
+
 #: src/features/homepage/footer.tsx
 msgid "Self-hosting"
 msgstr "Self-hosting"
@@ -12959,6 +13050,7 @@ msgstr "Skill: an ability or method"
 #: src/features/career/knowledge/profile.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
+#: src/features/resume/editor/write/insert-from-profile.tsx
 #: src/features/settings/resume-style.tsx
 #: src/libs/resume/section.tsx
 msgid "Skills"
@@ -14276,6 +14368,10 @@ msgstr "This browser can't record here. Choose an audio file, or type your answe
 msgid "This browser can't take dictation, and none of your AI connections can transcribe speech (OpenAI, Google Gemini, Mistral, xAI, Groq or Vercel AI Gateway can). <0>Add one in Settings</0>, or type your answer."
 msgstr "This browser can't take dictation, and none of your AI connections can transcribe speech (OpenAI, Google Gemini, Mistral, xAI, Groq or Vercel AI Gateway can). <0>Add one in Settings</0>, or type your answer."
 
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "This can take a minute — you can keep this open."
+msgstr "This can take a minute — you can keep this open."
+
 #: src/features/auth/pages/consent.tsx
 msgid "This connection request is invalid or has expired. Start the connection again from your client."
 msgstr "This connection request is invalid or has expired. Start the connection again from your client."
@@ -15519,6 +15615,7 @@ msgid "Volunteer work"
 msgstr "Volunteer work"
 
 #: src/features/career/knowledge/used-at.tsx
+#: src/features/resume/editor/write/insert-from-profile.tsx
 msgid "Volunteering"
 msgstr "Volunteering"
 
@@ -15881,6 +15978,10 @@ msgstr "Whether the resume is segmented the way software expects."
 msgid "Whether your timeline can be reconstructed."
 msgstr "Whether your timeline can be reconstructed."
 
+#: src/features/documents/new-document-dialog.tsx
+msgid "Which job?"
+msgstr "Which job?"
+
 #: src/features/homepage/faq.tsx
 msgid "Which languages does it speak?"
 msgstr "Which languages does it speak?"
@@ -16097,6 +16198,10 @@ msgstr "Writing help, tailored suggestions and the assistant. The default provid
 msgid "Writing resumes"
 msgstr "Writing resumes"
 
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Writing the bullets"
+msgstr "Writing the bullets"
+
 #: src/features/homepage/sections.tsx
 msgid "writing, tailoring and sending"
 msgstr "writing, tailoring and sending"
@@ -16175,6 +16280,10 @@ msgstr "You canceled the sign-in before it finished. Try again when you're ready
 #: src/features/documents/new-document-dialog.tsx
 msgid "You don't have a resume to copy yet. Import or create a resume first, then return to copy it for this job."
 msgstr "You don't have a resume to copy yet. Import or create a resume first, then return to copy it for this job."
+
+#: src/features/documents/new-document-dialog.tsx
+msgid "You don't have an open application yet. Start one with the job's posting, then build its resume."
+msgstr "You don't have an open application yet. Start one with the job's posting, then build its resume."
 
 #: src/features/career/workspace/debrief.tsx
 msgid "You forgot this before, so it wasn't saved again."
@@ -16395,6 +16504,10 @@ msgstr "Your margins are very narrow."
 #: src/features/applications/components/detail/assemble-dialog.tsx
 msgid "Your master profile has no achievements yet."
 msgstr "Your master profile has no achievements yet."
+
+#: src/features/resume/editor/write/insert-from-profile.tsx
+msgid "Your master profile is empty."
+msgstr "Your master profile is empty."
 
 #: src/features/career/coach.tsx
 msgid "your message"

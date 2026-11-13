@@ -1803,6 +1803,10 @@ msgstr "Ko'ngillilikni qo'shing"
 msgid "Add what happened before you can save."
 msgstr "Saqlash uchun nima bo'lganini yozing."
 
+#: src/features/resume/editor/write/insert-from-profile.tsx
+msgid "Add your experience and skills first"
+msgstr ""
+
 #: src/features/resume/editor/check/issues.ts
 msgid "Add your name"
 msgstr "Ismingizni qo'shing"
@@ -1839,6 +1843,10 @@ msgstr ""
 #. placeholder {1}: data.report?.match ?? report.match
 #: src/features/applications/components/detail/gap-step.tsx
 msgid "Added {0} items to your profile. Match: {1}%."
+msgstr ""
+
+#: src/features/resume/editor/write/insert-from-profile.tsx
+msgid "Added {total} items from your profile."
 msgstr ""
 
 #: src/features/career/knowledge/facts.tsx
@@ -2137,8 +2145,8 @@ msgstr ""
 msgid "Analyse the posting"
 msgstr ""
 
-#: src/features/applications/components/detail/assemble-dialog.tsx
-msgid "Analysing the posting and reviewing your profile…"
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Analysing the posting"
 msgstr ""
 
 #. Hero headline, line 3 of 4: A free, open-source / resume builder / and / career manager.
@@ -2653,6 +2661,7 @@ msgstr "Mukofot beruvchi"
 
 #: src/features/applications/components/detail/selection-review.tsx
 #: src/features/career/knowledge/used-at.tsx
+#: src/features/resume/editor/write/insert-from-profile.tsx
 #: src/features/settings/resume-style.tsx
 #: src/libs/resume/section.tsx
 msgid "Awards"
@@ -2890,7 +2899,12 @@ msgid "Build a professional resume, download it as PDF or Word, and manage your 
 msgstr "Professional CV yarating, uni PDF yoki Microsoft Word formatida yuklab oling va ish qidirishingizni bir joydan boshqaring. Bepul andozalar, reklamalar yo'q, to'lovlar paneli yo'q."
 
 #: src/features/career/knowledge/profile.tsx
+#: src/features/documents/new-document-dialog.tsx
 msgid "Build a resume for a job"
+msgstr ""
+
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Build progress"
 msgstr ""
 
 #: src/features/applications/components/detail/assemble-dialog.tsx
@@ -3002,6 +3016,7 @@ msgstr "Dasturiy ta'minot sizning rezyumeingizni o'qiy oladimi?"
 #: src/features/documents/new-document-dialog.tsx
 #: src/features/resume/builder/password-dialog.tsx
 #: src/features/resume/editor/check/job-match.tsx
+#: src/features/resume/editor/write/insert-from-profile.tsx
 #: src/features/resume/editor/write/picture-settings.tsx
 #: src/features/settings/ai/api-keys.tsx
 #: src/features/settings/ai/web-access.tsx
@@ -3037,6 +3052,7 @@ msgstr ""
 
 #: src/features/applications/components/detail/selection-review.tsx
 #: src/features/career/knowledge/used-at.tsx
+#: src/features/resume/editor/write/insert-from-profile.tsx
 #: src/features/settings/resume-style.tsx
 #: src/libs/resume/section.tsx
 msgid "Certifications"
@@ -5343,6 +5359,10 @@ msgstr "CSV-ni yuklab oling"
 msgid "Download failed. Try again."
 msgstr "Yuklab olinmadi. Qayta urinib ko'ring."
 
+#: src/features/career/knowledge/profile.tsx
+msgid "Download JSON"
+msgstr ""
+
 #: src/features/resume/editor/chrome/bar.tsx
 #: src/features/resume/share/web-page-text.ts
 msgid "Download PDF"
@@ -5363,6 +5383,10 @@ msgstr "Ularni yuklab oling"
 #: src/features/resume/share/share-panel.tsx
 msgid "Download totals can include repeat clicks."
 msgstr "Yuklab olish jami takroriy bosishni o'z ichiga olishi mumkin."
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Download YAML"
+msgstr ""
 
 #: src/features/resume/share/download-tab.tsx
 #: src/routes/builder/letter/-components/download-sheet.tsx
@@ -5696,6 +5720,7 @@ msgstr "Tahririyat"
 #: src/features/career/knowledge/used-at.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
+#: src/features/resume/editor/write/insert-from-profile.tsx
 #: src/features/settings/resume-style.tsx
 #: src/libs/resume/section.tsx
 msgid "Education"
@@ -5962,6 +5987,7 @@ msgstr "Fokus rejimidan chiqish"
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 #: src/features/homepage/write.tsx
+#: src/features/resume/editor/write/insert-from-profile.tsx
 #: src/features/settings/resume-style.tsx
 #: src/libs/resume/section.tsx
 msgid "Experience"
@@ -5991,6 +6017,7 @@ msgstr "Muddati tugaydi"
 msgid "explain one limit of the measurement clearly, without underselling the work."
 msgstr "o'lchovning bitta cheklovini ishni kamsitmasdan aniq tushuntiring."
 
+#: src/features/career/knowledge/profile.tsx
 #: src/features/settings/account/data.tsx
 #: src/libs/resume/section.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
@@ -6188,6 +6215,10 @@ msgstr "Yozuvlarni to'ldirish"
 #: src/features/documents/documents-page.tsx
 msgid "Filter by tag"
 msgstr "Teg bo'yicha filtrlash"
+
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Final checks"
+msgstr ""
 
 #: src/features/homepage/remember.tsx
 msgid "Find out why, and shorten setup without adding support work."
@@ -7196,6 +7227,23 @@ msgstr ""
 msgid "Inline"
 msgstr "Ichki"
 
+#: src/features/resume/editor/write/insert-from-profile.tsx
+msgid "Insert"
+msgstr ""
+
+#: src/features/resume/editor/write/insert-from-profile.tsx
+msgid "Insert {total}"
+msgstr ""
+
+#: src/features/resume/editor/write/add-section.tsx
+#: src/features/resume/editor/write/insert-from-profile.tsx
+msgid "Insert from your profile"
+msgstr ""
+
+#: src/features/resume/editor/write/add-section.tsx
+msgid "Insert from your profile…"
+msgstr ""
+
 #: src/routes/dashboard/applications/index.tsx
 msgid "Insights"
 msgstr "Tahlillar"
@@ -7902,6 +7950,7 @@ msgstr "Xat sahifasi"
 msgid "Letters"
 msgstr "Xatlar"
 
+#: src/features/applications/components/detail/gap-step.tsx
 #: src/features/resume/editor/write/entries.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/design.tsx
 msgid "Level"
@@ -8172,6 +8221,10 @@ msgstr "Jami yuklanmoqda"
 #: src/features/career/workspace/shell.tsx
 msgid "Loading workspace…"
 msgstr "Ish maydoni yuklanmoqda…"
+
+#: src/features/resume/editor/write/insert-from-profile.tsx
+msgid "Loading your profile…"
+msgstr ""
 
 #: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/manage-lanes-sheet.tsx
@@ -8887,6 +8940,10 @@ msgstr "Yangi API kaliti"
 msgid "New application"
 msgstr "Yangi ariza"
 
+#: src/features/documents/new-document-dialog.tsx
+msgid "New application instead"
+msgstr ""
+
 #: src/features/career/knowledge/structured-preferences.tsx
 msgid "New area"
 msgstr ""
@@ -9439,6 +9496,7 @@ msgstr "Baholanmagan"
 msgid "Not selected"
 msgstr "Tanlanmagan"
 
+#: src/features/applications/components/detail/gap-step.tsx
 #: src/features/career/knowledge/profile.tsx
 #: src/features/settings/ai/task-models.tsx
 msgid "Not set"
@@ -9786,6 +9844,10 @@ msgstr "{title} ni oching"
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Open AI settings"
 msgstr "AI sozlamalarini oching"
+
+#: src/features/documents/new-document-dialog.tsx
+msgid "Open and build"
+msgstr ""
 
 #: src/features/career/today.tsx
 msgid "Open briefing"
@@ -10296,6 +10358,10 @@ msgstr "Surat sahifadan yashirilgan."
 msgid "Photo on the page."
 msgstr "Sahifada fotosurat."
 
+#: src/features/documents/new-document-dialog.tsx
+msgid "Pick a job and your AI connection assembles a tailored resume from your master profile."
+msgstr ""
+
 #: src/features/career/schedule-sheet.tsx
 msgid "Pick a time after now."
 msgstr "Hozirgidan keyingi vaqtni tanlang."
@@ -10303,6 +10369,10 @@ msgstr "Hozirgidan keyingi vaqtni tanlang."
 #: src/components/input/icon-picker.tsx
 msgid "Pick an icon"
 msgstr "Belgini tanlang"
+
+#: src/features/resume/editor/write/insert-from-profile.tsx
+msgid "Pick entries and skills from your master profile to add to this resume. They're copied in; your profile isn't changed."
+msgstr ""
 
 #: src/features/career/knowledge/used-at.tsx
 msgid "Pick every place it applies."
@@ -10315,6 +10385,10 @@ msgstr "{templateCount} shablondan tanlang, so'ng shrift, rang va intervallarni 
 #: src/features/ats-checker/messages.ts
 msgid "Pick one format and use it everywhere."
 msgstr "Bitta formatni tanlang va uni hamma joyda ishlating."
+
+#: src/features/documents/new-document-dialog.tsx
+msgid "Pick the job you're applying to. Your AI connection analyses its posting and assembles a tailored resume from your master profile."
+msgstr ""
 
 #: src/features/career/workspace/prepare.tsx
 msgid "Pick two examples"
@@ -10707,6 +10781,7 @@ msgstr ""
 
 #: src/features/applications/components/detail/selection-review.tsx
 #: src/features/career/knowledge/used-at.tsx
+#: src/features/resume/editor/write/insert-from-profile.tsx
 #: src/features/settings/resume-style.tsx
 #: src/libs/resume/section.tsx
 msgid "Projects"
@@ -10897,6 +10972,10 @@ msgstr ""
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 msgid "Raise the design sheet"
 msgstr "Dizayn varag'ini ko'taring"
+
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Ranking your experience"
+msgstr ""
 
 #: src/features/applications/components/detail/sent-documents.tsx
 msgid "Re-assemble from profile"
@@ -11814,6 +11893,14 @@ msgstr "Baholash uchun AI ulanishi kerak. <0>Uni Sozlamalarda qo'shing</0>. Unga
 msgid "Reviewing resumes"
 msgstr ""
 
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Reviewing the best evidence"
+msgstr ""
+
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Reviewing the draft"
+msgstr ""
+
 #: src/features/settings/ai/task-models.tsx
 msgid "Reviews which of your achievements fit a posting."
 msgstr ""
@@ -12459,6 +12546,10 @@ msgstr "Tanlang..."
 msgid "Selected documents"
 msgstr "Tanlangan hujjatlar"
 
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Selecting the evidence"
+msgstr ""
+
 #: src/features/homepage/footer.tsx
 msgid "Self-hosting"
 msgstr "O'z-o'zini xosting"
@@ -12964,6 +13055,7 @@ msgstr ""
 #: src/features/career/knowledge/profile.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
+#: src/features/resume/editor/write/insert-from-profile.tsx
 #: src/features/settings/resume-style.tsx
 #: src/libs/resume/section.tsx
 msgid "Skills"
@@ -14281,6 +14373,10 @@ msgstr "Bu brauzer bu yerda yozib ololmaydi. Audio fayl tanlang yoki javobingizn
 msgid "This browser can't take dictation, and none of your AI connections can transcribe speech (OpenAI, Google Gemini, Mistral, xAI, Groq or Vercel AI Gateway can). <0>Add one in Settings</0>, or type your answer."
 msgstr "Bu brauzer diktovkani qo'llab-quvvatlamaydi va AI ulanishlaringizdan hech biri nutqni transkripsiya qila olmaydi (OpenAI, Google Gemini, Mistral, xAI, Groq yoki Vercel AI Gateway buni qila oladi). <0>Sozlamalarda ulardan birini qo'shing</0> yoki javobingizni yozing."
 
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "This can take a minute — you can keep this open."
+msgstr ""
+
 #: src/features/auth/pages/consent.tsx
 msgid "This connection request is invalid or has expired. Start the connection again from your client."
 msgstr "Bu ulanish so'rovi noto'g'ri yoki muddati tugagan. Ulanishni mijozingizdan qayta boshlang."
@@ -15524,6 +15620,7 @@ msgid "Volunteer work"
 msgstr ""
 
 #: src/features/career/knowledge/used-at.tsx
+#: src/features/resume/editor/write/insert-from-profile.tsx
 msgid "Volunteering"
 msgstr ""
 
@@ -15886,6 +15983,10 @@ msgstr "Rezyume dastur kutgan tarzda segmentlanganmi."
 msgid "Whether your timeline can be reconstructed."
 msgstr "Vaqt jadvalingizni tiklab boʻladimi."
 
+#: src/features/documents/new-document-dialog.tsx
+msgid "Which job?"
+msgstr ""
+
 #: src/features/homepage/faq.tsx
 msgid "Which languages does it speak?"
 msgstr "U qaysi tillarda gapiradi?"
@@ -16102,6 +16203,10 @@ msgstr "Yozishda yordam, moslashtirilgan takliflar va yordamchi. Siz provayder t
 msgid "Writing resumes"
 msgstr ""
 
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Writing the bullets"
+msgstr ""
+
 #: src/features/homepage/sections.tsx
 msgid "writing, tailoring and sending"
 msgstr "yozish, moslashtirish va yuborish"
@@ -16180,6 +16285,10 @@ msgstr "Kirishni u tugamasdan bekor qildingiz. Tayyor bo'lganingizda qayta urini
 #: src/features/documents/new-document-dialog.tsx
 msgid "You don't have a resume to copy yet. Import or create a resume first, then return to copy it for this job."
 msgstr "Sizda hali nusxa ko'chirish uchun rezyume yo'q. Avval rezyumeni import qiling yoki yarating, so'ngra uni ushbu ish uchun nusxalash uchun qayting."
+
+#: src/features/documents/new-document-dialog.tsx
+msgid "You don't have an open application yet. Start one with the job's posting, then build its resume."
+msgstr ""
 
 #: src/features/career/workspace/debrief.tsx
 msgid "You forgot this before, so it wasn't saved again."
@@ -16399,6 +16508,10 @@ msgstr "Chekka boʻshliqlaringiz juda tor."
 
 #: src/features/applications/components/detail/assemble-dialog.tsx
 msgid "Your master profile has no achievements yet."
+msgstr ""
+
+#: src/features/resume/editor/write/insert-from-profile.tsx
+msgid "Your master profile is empty."
 msgstr ""
 
 #: src/features/career/coach.tsx

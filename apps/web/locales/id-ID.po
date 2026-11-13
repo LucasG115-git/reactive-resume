@@ -1803,6 +1803,10 @@ msgstr "Tambahkan kesukarelaan"
 msgid "Add what happened before you can save."
 msgstr "Tambahkan apa yang terjadi sebelum menyimpan."
 
+#: src/features/resume/editor/write/insert-from-profile.tsx
+msgid "Add your experience and skills first"
+msgstr ""
+
 #: src/features/resume/editor/check/issues.ts
 msgid "Add your name"
 msgstr "Tambahkan nama Anda"
@@ -1839,6 +1843,10 @@ msgstr ""
 #. placeholder {1}: data.report?.match ?? report.match
 #: src/features/applications/components/detail/gap-step.tsx
 msgid "Added {0} items to your profile. Match: {1}%."
+msgstr ""
+
+#: src/features/resume/editor/write/insert-from-profile.tsx
+msgid "Added {total} items from your profile."
 msgstr ""
 
 #: src/features/career/knowledge/facts.tsx
@@ -2137,8 +2145,8 @@ msgstr ""
 msgid "Analyse the posting"
 msgstr ""
 
-#: src/features/applications/components/detail/assemble-dialog.tsx
-msgid "Analysing the posting and reviewing your profile…"
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Analysing the posting"
 msgstr ""
 
 #. Hero headline, line 3 of 4: A free, open-source / resume builder / and / career manager.
@@ -2653,6 +2661,7 @@ msgstr "Pemenang"
 
 #: src/features/applications/components/detail/selection-review.tsx
 #: src/features/career/knowledge/used-at.tsx
+#: src/features/resume/editor/write/insert-from-profile.tsx
 #: src/features/settings/resume-style.tsx
 #: src/libs/resume/section.tsx
 msgid "Awards"
@@ -2890,7 +2899,12 @@ msgid "Build a professional resume, download it as PDF or Word, and manage your 
 msgstr "Buat CV profesional, unduh sebagai PDF atau Microsoft Word, dan kelola pencarian kerja Anda di satu tempat. Templat gratis, tanpa iklan, tanpa paywall."
 
 #: src/features/career/knowledge/profile.tsx
+#: src/features/documents/new-document-dialog.tsx
 msgid "Build a resume for a job"
+msgstr ""
+
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Build progress"
 msgstr ""
 
 #: src/features/applications/components/detail/assemble-dialog.tsx
@@ -3002,6 +3016,7 @@ msgstr "Bisakah perangkat lunak membaca resume Anda?"
 #: src/features/documents/new-document-dialog.tsx
 #: src/features/resume/builder/password-dialog.tsx
 #: src/features/resume/editor/check/job-match.tsx
+#: src/features/resume/editor/write/insert-from-profile.tsx
 #: src/features/resume/editor/write/picture-settings.tsx
 #: src/features/settings/ai/api-keys.tsx
 #: src/features/settings/ai/web-access.tsx
@@ -3037,6 +3052,7 @@ msgstr ""
 
 #: src/features/applications/components/detail/selection-review.tsx
 #: src/features/career/knowledge/used-at.tsx
+#: src/features/resume/editor/write/insert-from-profile.tsx
 #: src/features/settings/resume-style.tsx
 #: src/libs/resume/section.tsx
 msgid "Certifications"
@@ -5343,6 +5359,10 @@ msgstr "Unduh CSV"
 msgid "Download failed. Try again."
 msgstr "Pengunduhan gagal. Coba lagi."
 
+#: src/features/career/knowledge/profile.tsx
+msgid "Download JSON"
+msgstr ""
+
 #: src/features/resume/editor/chrome/bar.tsx
 #: src/features/resume/share/web-page-text.ts
 msgid "Download PDF"
@@ -5363,6 +5383,10 @@ msgstr "Unduh itu"
 #: src/features/resume/share/share-panel.tsx
 msgid "Download totals can include repeat clicks."
 msgstr "Total unduhan dapat mencakup klik berulang."
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Download YAML"
+msgstr ""
 
 #: src/features/resume/share/download-tab.tsx
 #: src/routes/builder/letter/-components/download-sheet.tsx
@@ -5696,6 +5720,7 @@ msgstr "Tajuk rencana"
 #: src/features/career/knowledge/used-at.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
+#: src/features/resume/editor/write/insert-from-profile.tsx
 #: src/features/settings/resume-style.tsx
 #: src/libs/resume/section.tsx
 msgid "Education"
@@ -5962,6 +5987,7 @@ msgstr "Keluar dari mode fokus"
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 #: src/features/homepage/write.tsx
+#: src/features/resume/editor/write/insert-from-profile.tsx
 #: src/features/settings/resume-style.tsx
 #: src/libs/resume/section.tsx
 msgid "Experience"
@@ -5991,6 +6017,7 @@ msgstr "Kedaluwarsa"
 msgid "explain one limit of the measurement clearly, without underselling the work."
 msgstr "jelaskan satu keterbatasan pengukurannya dengan jelas, tanpa mengecilkan hasil kerja Anda."
 
+#: src/features/career/knowledge/profile.tsx
 #: src/features/settings/account/data.tsx
 #: src/libs/resume/section.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
@@ -6188,6 +6215,10 @@ msgstr "Mengisi entri"
 #: src/features/documents/documents-page.tsx
 msgid "Filter by tag"
 msgstr "Filter berdasarkan tag"
+
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Final checks"
+msgstr ""
 
 #: src/features/homepage/remember.tsx
 msgid "Find out why, and shorten setup without adding support work."
@@ -7196,6 +7227,23 @@ msgstr ""
 msgid "Inline"
 msgstr "sebaris"
 
+#: src/features/resume/editor/write/insert-from-profile.tsx
+msgid "Insert"
+msgstr ""
+
+#: src/features/resume/editor/write/insert-from-profile.tsx
+msgid "Insert {total}"
+msgstr ""
+
+#: src/features/resume/editor/write/add-section.tsx
+#: src/features/resume/editor/write/insert-from-profile.tsx
+msgid "Insert from your profile"
+msgstr ""
+
+#: src/features/resume/editor/write/add-section.tsx
+msgid "Insert from your profile…"
+msgstr ""
+
 #: src/routes/dashboard/applications/index.tsx
 msgid "Insights"
 msgstr "Insight"
@@ -7902,6 +7950,7 @@ msgstr "Halaman surat"
 msgid "Letters"
 msgstr "Surat"
 
+#: src/features/applications/components/detail/gap-step.tsx
 #: src/features/resume/editor/write/entries.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/design.tsx
 msgid "Level"
@@ -8172,6 +8221,10 @@ msgstr "Memuat totalnya"
 #: src/features/career/workspace/shell.tsx
 msgid "Loading workspace…"
 msgstr "Memuat ruang kerja…"
+
+#: src/features/resume/editor/write/insert-from-profile.tsx
+msgid "Loading your profile…"
+msgstr ""
 
 #: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/manage-lanes-sheet.tsx
@@ -8887,6 +8940,10 @@ msgstr "Kunci API baru"
 msgid "New application"
 msgstr "Lamaran baru"
 
+#: src/features/documents/new-document-dialog.tsx
+msgid "New application instead"
+msgstr ""
+
 #: src/features/career/knowledge/structured-preferences.tsx
 msgid "New area"
 msgstr ""
@@ -9439,6 +9496,7 @@ msgstr "Tidak dinilai"
 msgid "Not selected"
 msgstr "Tidak dipilih"
 
+#: src/features/applications/components/detail/gap-step.tsx
 #: src/features/career/knowledge/profile.tsx
 #: src/features/settings/ai/task-models.tsx
 msgid "Not set"
@@ -9786,6 +9844,10 @@ msgstr "Buka {title}"
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Open AI settings"
 msgstr "Buka pengaturan AI"
+
+#: src/features/documents/new-document-dialog.tsx
+msgid "Open and build"
+msgstr ""
 
 #: src/features/career/today.tsx
 msgid "Open briefing"
@@ -10296,6 +10358,10 @@ msgstr "Foto disembunyikan dari halaman."
 msgid "Photo on the page."
 msgstr "Foto di halaman."
 
+#: src/features/documents/new-document-dialog.tsx
+msgid "Pick a job and your AI connection assembles a tailored resume from your master profile."
+msgstr ""
+
 #: src/features/career/schedule-sheet.tsx
 msgid "Pick a time after now."
 msgstr "Pilih waktu setelah saat ini."
@@ -10303,6 +10369,10 @@ msgstr "Pilih waktu setelah saat ini."
 #: src/components/input/icon-picker.tsx
 msgid "Pick an icon"
 msgstr "Pilih ikon"
+
+#: src/features/resume/editor/write/insert-from-profile.tsx
+msgid "Pick entries and skills from your master profile to add to this resume. They're copied in; your profile isn't changed."
+msgstr ""
 
 #: src/features/career/knowledge/used-at.tsx
 msgid "Pick every place it applies."
@@ -10315,6 +10385,10 @@ msgstr "Pilih dari {templateCount} templat, lalu atur font, warna, dan spasi. Te
 #: src/features/ats-checker/messages.ts
 msgid "Pick one format and use it everywhere."
 msgstr "Pilih satu format dan gunakan di mana pun."
+
+#: src/features/documents/new-document-dialog.tsx
+msgid "Pick the job you're applying to. Your AI connection analyses its posting and assembles a tailored resume from your master profile."
+msgstr ""
 
 #: src/features/career/workspace/prepare.tsx
 msgid "Pick two examples"
@@ -10707,6 +10781,7 @@ msgstr ""
 
 #: src/features/applications/components/detail/selection-review.tsx
 #: src/features/career/knowledge/used-at.tsx
+#: src/features/resume/editor/write/insert-from-profile.tsx
 #: src/features/settings/resume-style.tsx
 #: src/libs/resume/section.tsx
 msgid "Projects"
@@ -10897,6 +10972,10 @@ msgstr ""
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 msgid "Raise the design sheet"
 msgstr "Angkat lembar desain"
+
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Ranking your experience"
+msgstr ""
 
 #: src/features/applications/components/detail/sent-documents.tsx
 msgid "Re-assemble from profile"
@@ -11814,6 +11893,14 @@ msgstr "Peninjauan memerlukan koneksi AI. <0>Tambahkan di Pengaturan</0>. Sampai
 msgid "Reviewing resumes"
 msgstr ""
 
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Reviewing the best evidence"
+msgstr ""
+
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Reviewing the draft"
+msgstr ""
+
 #: src/features/settings/ai/task-models.tsx
 msgid "Reviews which of your achievements fit a posting."
 msgstr ""
@@ -12459,6 +12546,10 @@ msgstr "Pilih..."
 msgid "Selected documents"
 msgstr "Dokumen terpilih"
 
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Selecting the evidence"
+msgstr ""
+
 #: src/features/homepage/footer.tsx
 msgid "Self-hosting"
 msgstr "Hosting mandiri"
@@ -12964,6 +13055,7 @@ msgstr ""
 #: src/features/career/knowledge/profile.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
+#: src/features/resume/editor/write/insert-from-profile.tsx
 #: src/features/settings/resume-style.tsx
 #: src/libs/resume/section.tsx
 msgid "Skills"
@@ -14281,6 +14373,10 @@ msgstr "Browser ini tidak dapat merekam di sini. Pilih file audio, atau ketik ja
 msgid "This browser can't take dictation, and none of your AI connections can transcribe speech (OpenAI, Google Gemini, Mistral, xAI, Groq or Vercel AI Gateway can). <0>Add one in Settings</0>, or type your answer."
 msgstr "Browser ini tidak mendukung dikte, dan tidak satu pun koneksi AI Anda dapat mentranskripsi ucapan (OpenAI, Google Gemini, Mistral, xAI, Groq, atau Vercel AI Gateway bisa). <0>Tambahkan di Pengaturan</0>, atau ketik jawaban Anda."
 
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "This can take a minute — you can keep this open."
+msgstr ""
+
 #: src/features/auth/pages/consent.tsx
 msgid "This connection request is invalid or has expired. Start the connection again from your client."
 msgstr "Permintaan koneksi ini tidak valid atau telah kedaluwarsa. Mulai koneksi lagi dari klien Anda."
@@ -15524,6 +15620,7 @@ msgid "Volunteer work"
 msgstr ""
 
 #: src/features/career/knowledge/used-at.tsx
+#: src/features/resume/editor/write/insert-from-profile.tsx
 msgid "Volunteering"
 msgstr ""
 
@@ -15886,6 +15983,10 @@ msgstr "Apakah resume tersegmentasi sesuai yang diharapkan perangkat lunak."
 msgid "Whether your timeline can be reconstructed."
 msgstr "Apakah linimasa Anda dapat disusun ulang."
 
+#: src/features/documents/new-document-dialog.tsx
+msgid "Which job?"
+msgstr ""
+
 #: src/features/homepage/faq.tsx
 msgid "Which languages does it speak?"
 msgstr "Bahasa apa yang digunakannya?"
@@ -16102,6 +16203,10 @@ msgstr "Bantuan menulis, saran yang disesuaikan, dan asisten. Penyedia default d
 msgid "Writing resumes"
 msgstr ""
 
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Writing the bullets"
+msgstr ""
+
 #: src/features/homepage/sections.tsx
 msgid "writing, tailoring and sending"
 msgstr "menulis, mengadaptasi, dan mengirim"
@@ -16180,6 +16285,10 @@ msgstr "Anda membatalkan proses masuk sebelum selesai. Coba lagi saat Anda siap.
 #: src/features/documents/new-document-dialog.tsx
 msgid "You don't have a resume to copy yet. Import or create a resume first, then return to copy it for this job."
 msgstr "Anda belum memiliki resume untuk disalin. Impor atau buat resume terlebih dahulu, lalu kembali untuk menyalinnya untuk pekerjaan ini."
+
+#: src/features/documents/new-document-dialog.tsx
+msgid "You don't have an open application yet. Start one with the job's posting, then build its resume."
+msgstr ""
 
 #: src/features/career/workspace/debrief.tsx
 msgid "You forgot this before, so it wasn't saved again."
@@ -16399,6 +16508,10 @@ msgstr "Margin Anda sangat sempit."
 
 #: src/features/applications/components/detail/assemble-dialog.tsx
 msgid "Your master profile has no achievements yet."
+msgstr ""
+
+#: src/features/resume/editor/write/insert-from-profile.tsx
+msgid "Your master profile is empty."
 msgstr ""
 
 #: src/features/career/coach.tsx

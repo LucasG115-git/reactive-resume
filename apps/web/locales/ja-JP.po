@@ -1803,6 +1803,10 @@ msgstr "ボランティア活動を追加する"
 msgid "Add what happened before you can save."
 msgstr "保存するには、何が起きたかを入力してください。"
 
+#: src/features/resume/editor/write/insert-from-profile.tsx
+msgid "Add your experience and skills first"
+msgstr ""
+
 #: src/features/resume/editor/check/issues.ts
 msgid "Add your name"
 msgstr "あなたの名前を追加してください"
@@ -1839,6 +1843,10 @@ msgstr ""
 #. placeholder {1}: data.report?.match ?? report.match
 #: src/features/applications/components/detail/gap-step.tsx
 msgid "Added {0} items to your profile. Match: {1}%."
+msgstr ""
+
+#: src/features/resume/editor/write/insert-from-profile.tsx
+msgid "Added {total} items from your profile."
 msgstr ""
 
 #: src/features/career/knowledge/facts.tsx
@@ -2137,8 +2145,8 @@ msgstr ""
 msgid "Analyse the posting"
 msgstr ""
 
-#: src/features/applications/components/detail/assemble-dialog.tsx
-msgid "Analysing the posting and reviewing your profile…"
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Analysing the posting"
 msgstr ""
 
 #. Hero headline, line 3 of 4: A free, open-source / resume builder / and / career manager.
@@ -2653,6 +2661,7 @@ msgstr "受賞者"
 
 #: src/features/applications/components/detail/selection-review.tsx
 #: src/features/career/knowledge/used-at.tsx
+#: src/features/resume/editor/write/insert-from-profile.tsx
 #: src/features/settings/resume-style.tsx
 #: src/libs/resume/section.tsx
 msgid "Awards"
@@ -2890,7 +2899,12 @@ msgid "Build a professional resume, download it as PDF or Word, and manage your 
 msgstr "プロフェッショナルな履歴書を作成し、PDF または Microsoft Word としてダウンロードして、求職活動を 1 か所で管理します。無料のテンプレート、広告なし、ペイウォールなし。"
 
 #: src/features/career/knowledge/profile.tsx
+#: src/features/documents/new-document-dialog.tsx
 msgid "Build a resume for a job"
+msgstr ""
+
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Build progress"
 msgstr ""
 
 #: src/features/applications/components/detail/assemble-dialog.tsx
@@ -3002,6 +3016,7 @@ msgstr "ソフトウェアはあなたの履歴書を読み取ることができ
 #: src/features/documents/new-document-dialog.tsx
 #: src/features/resume/builder/password-dialog.tsx
 #: src/features/resume/editor/check/job-match.tsx
+#: src/features/resume/editor/write/insert-from-profile.tsx
 #: src/features/resume/editor/write/picture-settings.tsx
 #: src/features/settings/ai/api-keys.tsx
 #: src/features/settings/ai/web-access.tsx
@@ -3037,6 +3052,7 @@ msgstr ""
 
 #: src/features/applications/components/detail/selection-review.tsx
 #: src/features/career/knowledge/used-at.tsx
+#: src/features/resume/editor/write/insert-from-profile.tsx
 #: src/features/settings/resume-style.tsx
 #: src/libs/resume/section.tsx
 msgid "Certifications"
@@ -5343,6 +5359,10 @@ msgstr "CSV をダウンロード"
 msgid "Download failed. Try again."
 msgstr "ダウンロードに失敗しました。もう一度お試しください。"
 
+#: src/features/career/knowledge/profile.tsx
+msgid "Download JSON"
+msgstr ""
+
 #: src/features/resume/editor/chrome/bar.tsx
 #: src/features/resume/share/web-page-text.ts
 msgid "Download PDF"
@@ -5363,6 +5383,10 @@ msgstr "ダウンロードしてください"
 #: src/features/resume/share/share-panel.tsx
 msgid "Download totals can include repeat clicks."
 msgstr "ダウンロードの合計には、繰り返しクリックが含まれる場合があります。"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Download YAML"
+msgstr ""
 
 #: src/features/resume/share/download-tab.tsx
 #: src/routes/builder/letter/-components/download-sheet.tsx
@@ -5696,6 +5720,7 @@ msgstr "社説"
 #: src/features/career/knowledge/used-at.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
+#: src/features/resume/editor/write/insert-from-profile.tsx
 #: src/features/settings/resume-style.tsx
 #: src/libs/resume/section.tsx
 msgid "Education"
@@ -5962,6 +5987,7 @@ msgstr "フォーカスモードを終了する"
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 #: src/features/homepage/write.tsx
+#: src/features/resume/editor/write/insert-from-profile.tsx
 #: src/features/settings/resume-style.tsx
 #: src/libs/resume/section.tsx
 msgid "Experience"
@@ -5991,6 +6017,7 @@ msgstr "有効期限が切れます"
 msgid "explain one limit of the measurement clearly, without underselling the work."
 msgstr "仕事を過小評価せずに、測定の限界を1つ明確に説明しましょう。"
 
+#: src/features/career/knowledge/profile.tsx
 #: src/features/settings/account/data.tsx
 #: src/libs/resume/section.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
@@ -6188,6 +6215,10 @@ msgstr "エントリーの記入"
 #: src/features/documents/documents-page.tsx
 msgid "Filter by tag"
 msgstr "タグでフィルタリングする"
+
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Final checks"
+msgstr ""
 
 #: src/features/homepage/remember.tsx
 msgid "Find out why, and shorten setup without adding support work."
@@ -7196,6 +7227,23 @@ msgstr ""
 msgid "Inline"
 msgstr "インライン"
 
+#: src/features/resume/editor/write/insert-from-profile.tsx
+msgid "Insert"
+msgstr ""
+
+#: src/features/resume/editor/write/insert-from-profile.tsx
+msgid "Insert {total}"
+msgstr ""
+
+#: src/features/resume/editor/write/add-section.tsx
+#: src/features/resume/editor/write/insert-from-profile.tsx
+msgid "Insert from your profile"
+msgstr ""
+
+#: src/features/resume/editor/write/add-section.tsx
+msgid "Insert from your profile…"
+msgstr ""
+
 #: src/routes/dashboard/applications/index.tsx
 msgid "Insights"
 msgstr "インサイト"
@@ -7902,6 +7950,7 @@ msgstr "レターページ"
 msgid "Letters"
 msgstr "レター"
 
+#: src/features/applications/components/detail/gap-step.tsx
 #: src/features/resume/editor/write/entries.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/design.tsx
 msgid "Level"
@@ -8172,6 +8221,10 @@ msgstr "合計をロードしています"
 #: src/features/career/workspace/shell.tsx
 msgid "Loading workspace…"
 msgstr "ワークスペースを読み込み中…"
+
+#: src/features/resume/editor/write/insert-from-profile.tsx
+msgid "Loading your profile…"
+msgstr ""
 
 #: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/manage-lanes-sheet.tsx
@@ -8887,6 +8940,10 @@ msgstr "新しい API キー"
 msgid "New application"
 msgstr "新しい応募"
 
+#: src/features/documents/new-document-dialog.tsx
+msgid "New application instead"
+msgstr ""
+
 #: src/features/career/knowledge/structured-preferences.tsx
 msgid "New area"
 msgstr ""
@@ -9439,6 +9496,7 @@ msgstr "採点対象外"
 msgid "Not selected"
 msgstr "未選択"
 
+#: src/features/applications/components/detail/gap-step.tsx
 #: src/features/career/knowledge/profile.tsx
 #: src/features/settings/ai/task-models.tsx
 msgid "Not set"
@@ -9786,6 +9844,10 @@ msgstr "{title} を開きます"
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Open AI settings"
 msgstr "AI設定を開く"
+
+#: src/features/documents/new-document-dialog.tsx
+msgid "Open and build"
+msgstr ""
 
 #: src/features/career/today.tsx
 msgid "Open briefing"
@@ -10296,6 +10358,10 @@ msgstr "写真はページから隠されています。"
 msgid "Photo on the page."
 msgstr "ページ上の写真。"
 
+#: src/features/documents/new-document-dialog.tsx
+msgid "Pick a job and your AI connection assembles a tailored resume from your master profile."
+msgstr ""
+
 #: src/features/career/schedule-sheet.tsx
 msgid "Pick a time after now."
 msgstr "現在より後の時刻を選んでください。"
@@ -10303,6 +10369,10 @@ msgstr "現在より後の時刻を選んでください。"
 #: src/components/input/icon-picker.tsx
 msgid "Pick an icon"
 msgstr "アイコンを選択してください"
+
+#: src/features/resume/editor/write/insert-from-profile.tsx
+msgid "Pick entries and skills from your master profile to add to this resume. They're copied in; your profile isn't changed."
+msgstr ""
 
 #: src/features/career/knowledge/used-at.tsx
 msgid "Pick every place it applies."
@@ -10315,6 +10385,10 @@ msgstr "{templateCount} 個のテンプレートから選択し、フォント�
 #: src/features/ats-checker/messages.ts
 msgid "Pick one format and use it everywhere."
 msgstr "1つの形式を選び、全体を通して使用してください。"
+
+#: src/features/documents/new-document-dialog.tsx
+msgid "Pick the job you're applying to. Your AI connection analyses its posting and assembles a tailored resume from your master profile."
+msgstr ""
 
 #: src/features/career/workspace/prepare.tsx
 msgid "Pick two examples"
@@ -10707,6 +10781,7 @@ msgstr ""
 
 #: src/features/applications/components/detail/selection-review.tsx
 #: src/features/career/knowledge/used-at.tsx
+#: src/features/resume/editor/write/insert-from-profile.tsx
 #: src/features/settings/resume-style.tsx
 #: src/libs/resume/section.tsx
 msgid "Projects"
@@ -10897,6 +10972,10 @@ msgstr ""
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 msgid "Raise the design sheet"
 msgstr "デザインシートを上げる"
+
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Ranking your experience"
+msgstr ""
 
 #: src/features/applications/components/detail/sent-documents.tsx
 msgid "Re-assemble from profile"
@@ -11814,6 +11893,14 @@ msgstr "レビューにはAI接続が必要です。<0>設定で追加してく�
 msgid "Reviewing resumes"
 msgstr ""
 
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Reviewing the best evidence"
+msgstr ""
+
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Reviewing the draft"
+msgstr ""
+
 #: src/features/settings/ai/task-models.tsx
 msgid "Reviews which of your achievements fit a posting."
 msgstr ""
@@ -12459,6 +12546,10 @@ msgstr "選択..."
 msgid "Selected documents"
 msgstr "選択した書類"
 
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Selecting the evidence"
+msgstr ""
+
 #: src/features/homepage/footer.tsx
 msgid "Self-hosting"
 msgstr "セルフホスティング"
@@ -12964,6 +13055,7 @@ msgstr ""
 #: src/features/career/knowledge/profile.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
+#: src/features/resume/editor/write/insert-from-profile.tsx
 #: src/features/settings/resume-style.tsx
 #: src/libs/resume/section.tsx
 msgid "Skills"
@@ -14281,6 +14373,10 @@ msgstr "このブラウザーではここで録音できません。音声ファ
 msgid "This browser can't take dictation, and none of your AI connections can transcribe speech (OpenAI, Google Gemini, Mistral, xAI, Groq or Vercel AI Gateway can). <0>Add one in Settings</0>, or type your answer."
 msgstr "このブラウザーは音声入力に対応しておらず、あなたのAI接続にも音声を文字起こしできるものがありません（OpenAI、Google Gemini、Mistral、xAI、Groq、Vercel AI Gatewayは対応しています）。<0>設定で追加する</0>か、回答を入力してください。"
 
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "This can take a minute — you can keep this open."
+msgstr ""
+
 #: src/features/auth/pages/consent.tsx
 msgid "This connection request is invalid or has expired. Start the connection again from your client."
 msgstr "この接続リクエストは無効か、有効期限が切れています。クライアントから接続をやり直してください。"
@@ -15524,6 +15620,7 @@ msgid "Volunteer work"
 msgstr ""
 
 #: src/features/career/knowledge/used-at.tsx
+#: src/features/resume/editor/write/insert-from-profile.tsx
 msgid "Volunteering"
 msgstr ""
 
@@ -15886,6 +15983,10 @@ msgstr "履歴書がソフトウェアの想定通りに区分けされている
 msgid "Whether your timeline can be reconstructed."
 msgstr "経歴を時系列で再構築できるかどうか。"
 
+#: src/features/documents/new-document-dialog.tsx
+msgid "Which job?"
+msgstr ""
+
 #: src/features/homepage/faq.tsx
 msgid "Which languages does it speak?"
 msgstr "どの言語を話しますか?"
@@ -16102,6 +16203,10 @@ msgstr "文章作成の支援、カスタマイズされた提案、アシスタ
 msgid "Writing resumes"
 msgstr ""
 
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Writing the bullets"
+msgstr ""
+
 #: src/features/homepage/sections.tsx
 msgid "writing, tailoring and sending"
 msgstr "執筆、翻案、送信"
@@ -16180,6 +16285,10 @@ msgstr "完了する前にサインインをキャンセルしました。準備
 #: src/features/documents/new-document-dialog.tsx
 msgid "You don't have a resume to copy yet. Import or create a resume first, then return to copy it for this job."
 msgstr "コピーする履歴書がまだありません。まず履歴書をインポートまたは作成してから、この仕事用に履歴書をコピーしてください。"
+
+#: src/features/documents/new-document-dialog.tsx
+msgid "You don't have an open application yet. Start one with the job's posting, then build its resume."
+msgstr ""
 
 #: src/features/career/workspace/debrief.tsx
 msgid "You forgot this before, so it wasn't saved again."
@@ -16399,6 +16508,10 @@ msgstr "余白が非常に狭くなっています。"
 
 #: src/features/applications/components/detail/assemble-dialog.tsx
 msgid "Your master profile has no achievements yet."
+msgstr ""
+
+#: src/features/resume/editor/write/insert-from-profile.tsx
+msgid "Your master profile is empty."
 msgstr ""
 
 #: src/features/career/coach.tsx
