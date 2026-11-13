@@ -24,6 +24,7 @@ import { SwitchRow } from "@reactive-resume/ui/components/switch";
 import { cn } from "@reactive-resume/utils/style";
 import { useInvalidateApplications } from "../../use-application-actions";
 import { RenderingPanel, ReviewPanel } from "./assembly-review";
+import { BuildProgress } from "./build-progress";
 import { GapStep, MatchBar } from "./gap-step";
 import { SelectionReview } from "./selection-review";
 import { toastError } from "@/libs/error-message";
@@ -277,15 +278,12 @@ export function AssembleDialog({ application, open, onOpenChange, autoPropose }:
 								</p>
 							)}
 							{qualityControl}
-							{propose.isPending && (
-								<p className="text-[13px] text-ink-2" role="status">
-									<Trans>Analysing the posting and reviewing your profile…</Trans>
-								</p>
-							)}
+							{propose.isPending && <BuildProgress phase="propose" />}
 						</div>
 					)
 				) : (
 					<div className="grid gap-4">
+						{assemble.isPending && <BuildProgress phase="assemble" />}
 						<div className="grid gap-1">
 							<label htmlFor={`${formId}-base`} className="text-xs font-medium text-ink-2">
 								<Trans>Start from (keeps its contact details, template and design)</Trans>
