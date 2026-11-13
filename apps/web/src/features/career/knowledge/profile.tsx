@@ -9,6 +9,12 @@ import { Link } from "@tanstack/react-router";
 import { useId, useState } from "react";
 import { PROFILE_ENTRY_KINDS } from "@reactive-resume/schema/master-profile";
 import { Button, buttonVariants } from "@reactive-resume/ui/components/button";
+import {
+	DropdownMenu,
+	DropdownMenuContent,
+	DropdownMenuItem,
+	DropdownMenuTrigger,
+} from "@reactive-resume/ui/components/dropdown-menu";
 import { Icon } from "@reactive-resume/ui/components/icon";
 import { Input } from "@reactive-resume/ui/components/input";
 import { NativeSelect } from "@reactive-resume/ui/components/native-select";
@@ -18,6 +24,7 @@ import { toast } from "@reactive-resume/ui/components/toast";
 import { cn } from "@reactive-resume/utils/style";
 import { CareerLoadError, CareerLoading } from "../load-state";
 import { withUndo } from "../shared";
+import { downloadProfileFile } from "./profile-export";
 import { ProfileFileImport } from "./profile-file";
 import { ProfileKnowledgeSync } from "./profile-knowledge-sync";
 import { UsedAt } from "./used-at";
@@ -106,12 +113,34 @@ export function ProfilePage() {
 					{plural(achievementCount, { one: "# achievement", other: "# achievements" })} ·{" "}
 					{plural(profile.skills.length, { one: "# skill", other: "# skills" })}
 				</p>
-				{profile.entries.length + profile.standalone.length > 0 && (
-					<Link to="/dashboard/applications" search={{ create: true }} className={buttonVariants({ size: "sm" })}>
-						<Icon name="magic-wand" size={16} />
-						<Trans>Build a resume for a job</Trans>
-					</Link>
-				)}
+				<div className="flex items-center gap-2">
+					{(profile.entries.length > 0 || profile.standalone.length > 0 || profile.skills.length > 0) && (
+						<DropdownMenu>
+							<DropdownMenuTrigger
+								render={
+									<button type="button" className={buttonVariants({ variant: "secondary", size: "sm" })}>
+										<Icon name="download-simple" size={16} />
+										<Trans>Export</Trans>
+									</button>
+								}
+							/>
+							<DropdownMenuContent align="end">
+								<DropdownMenuItem onClick={() => downloadProfileFile(profile, "yaml")}>
+									<Trans>Download YAML</Trans>
+								</DropdownMenuItem>
+								<DropdownMenuItem onClick={() => downloadProfileFile(profile, "json")}>
+									<Trans>Download JSON</Trans>
+								</DropdownMenuItem>
+							</DropdownMenuContent>
+						</DropdownMenu>
+					)}
+					{profile.entries.length + profile.standalone.length > 0 && (
+						<Link to="/dashboard/applications" search={{ create: true }} className={buttonVariants({ size: "sm" })}>
+							<Icon name="magic-wand" size={16} />
+							<Trans>Build a resume for a job</Trans>
+						</Link>
+					)}
+				</div>
 			</div>
 
 			<ProfileKnowledgeSync />

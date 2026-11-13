@@ -26,12 +26,14 @@ type Answer = {
 	skills: string[];
 	/** Where each ticked skill or tool was used. */
 	places: Record<string, string[]>;
+	/** Self-rated proficiency (1–5) for each ticked skill, when the user set one. */
+	levels: Record<string, number | null>;
 	entryId: string | null;
 	note: string;
 	text: string;
 };
 
-const EMPTY: Answer = { have: null, skills: [], places: {}, entryId: null, note: "", text: "" };
+const EMPTY: Answer = { have: null, skills: [], places: {}, levels: {}, entryId: null, note: "", text: "" };
 
 const RATING_LABELS = () => [t`None`, t`Adjacent`, t`Some`, t`Strong`];
 const RATING_TONES = ["text-danger-text", "text-warn-text", "text-ink-2", "text-success-text"];
@@ -146,7 +148,12 @@ export function GapStep({ applicationId, report, entries, onDone, onSkip }: GapS
 				skills: answer.have
 					? gap.skills
 							.filter((skill) => answer.skills.includes(skill.name))
-							.map((skill) => ({ name: skill.name, kind: skill.kind, entryIds: answer.places[skill.name] ?? [] }))
+							.map((skill) => ({
+								name: skill.name,
+								kind: skill.kind,
+								entryIds: answer.places[skill.name] ?? [],
+								level: answer.levels[skill.name] ?? null,
+							}))
 					: [],
 				entryId: answer.have ? answer.entryId : null,
 				text: answer.have ? text : "",
@@ -283,6 +290,7 @@ function SkillGap({ gap, answer, entries, onChange }: GapProps) {
 		const entryId = answer.entryId && used.includes(answer.entryId) ? answer.entryId : (used[0] ?? null);
 		onChange({ places, entryId });
 	};
+	const setLevel = (skill: string, level: number | null) => onChange({ levels: { ...answer.levels, [skill]: level } });
 	const used = entries.filter((entry) => answer.skills.some((name) => answer.places[name]?.includes(entry.id)));
 	return (
 		<li className="grid gap-2 rounded-lg border border-line p-3">
@@ -301,13 +309,32 @@ function SkillGap({ gap, answer, entries, onChange }: GapProps) {
 								<span className="text-[11px] text-ink-3">{skill.kind === "tool" ? t`tool` : t`skill`}</span>
 							</label>
 							{on && (
-								<UsedAt
-									className="ms-6"
-									label={t`Where did you use ${skill.name}?`}
-									entries={entries}
-									value={answer.places[skill.name] ?? []}
-									onChange={(entryIds) => setPlaces(skill.name, entryIds)}
-								/>
+								<div className="ms-6 grid gap-2">
+									<UsedAt
+										label={t`Where did you use ${skill.name}?`}
+										entries={entries}
+										value={answer.places[skill.name] ?? []}
+										onChange={(entryIds) => setPlaces(skill.name, entryIds)}
+									/>
+									<div className="flex items-center gap-2">
+										<label htmlFor={`${id}-${skill.name}-level`} className="text-xs font-medium text-ink-2">
+											<Trans>Level</Trans>
+										</label>
+										<NativeSelect
+											id={`${id}-${skill.name}-level`}
+											value={answer.levels[skill.name]?.toString() ?? ""}
+											onChange={(event) => setLevel(skill.name, event.target.value ? Number(event.target.value) : null)}
+											className="h-8 w-auto text-[13px]"
+										>
+											<option value="">{t`Not set`}</option>
+											{[1, 2, 3, 4, 5].map((value) => (
+												<option key={value} value={value}>
+													{value}
+												</option>
+											))}
+										</NativeSelect>
+									</div>
+								</div>
 							)}
 						</li>
 					);

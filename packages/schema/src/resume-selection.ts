@@ -291,6 +291,8 @@ export const gapAnswerSchema = z.object({
 				name: z.string().trim().min(1).max(100),
 				kind: z.enum(["skill", "tool"]).default("skill"),
 				entryIds: z.array(z.string().min(1)).max(50).default([]),
+				/** Self-rated proficiency 1–5, saved onto the profile skill. Null leaves it unset. */
+				level: z.number().int().min(1).max(5).nullable().default(null),
 			}),
 		)
 		.max(10)
