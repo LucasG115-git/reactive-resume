@@ -11005,6 +11005,10 @@ msgstr "Експортуйте знову з вбудованими шрифта
 msgid "Re-export with fonts embedded, then open the file and check that the text copies out cleanly."
 msgstr "Експортуйте знову з вбудованими шрифтами, потім відкрийте файл і перевірте, що текст коректно копіюється."
 
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Re-ranking your experience"
+msgstr ""
+
 #: src/features/homepage/prepare.tsx
 msgid "Re: Senior Product Designer"
 msgstr "Re: Старший дизайнер продукції"
@@ -12289,6 +12293,10 @@ msgstr "Збереження {0}/{username}/{slug}… Копія доступн�
 #: src/features/resume/builder/draft.ts
 msgid "Saving is taking longer than expected. Your changes are still open."
 msgstr "Збереження триває довше, ніж очікувалося. Ваші зміни все ще відкриті."
+
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Saving to your profile"
+msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
 #: src/features/resume/editor/save-status.tsx

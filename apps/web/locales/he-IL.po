@@ -11005,6 +11005,10 @@ msgstr "ייצא מחדש עם גופנים מוטבעים, ובדוק שהטק�
 msgid "Re-export with fonts embedded, then open the file and check that the text copies out cleanly."
 msgstr "ייצא מחדש עם גופנים מוטבעים, ולאחר מכן פתח את הקובץ ובדוק שהטקסט מועתק בצורה נקייה."
 
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Re-ranking your experience"
+msgstr ""
+
 #: src/features/homepage/prepare.tsx
 msgid "Re: Senior Product Designer"
 msgstr "Re: מעצב מוצר בכיר"
@@ -12289,6 +12293,10 @@ msgstr "שומר את {0}/{username}/{slug}... העתק זמין לאחר השמ
 #: src/features/resume/builder/draft.ts
 msgid "Saving is taking longer than expected. Your changes are still open."
 msgstr "השמירה נמשכת זמן רב מהצפוי. השינויים שלך עדיין פתוחים."
+
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Saving to your profile"
+msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
 #: src/features/resume/editor/save-status.tsx

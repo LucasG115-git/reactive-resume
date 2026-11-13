@@ -11005,6 +11005,10 @@ msgstr "फाँट्स एम्बेड करून पुन्हा �
 msgid "Re-export with fonts embedded, then open the file and check that the text copies out cleanly."
 msgstr "फाँट्स एम्बेड करून पुन्हा निर्यात करा, नंतर फाइल उघडून मजकूर व्यवस्थित कॉपी होतो का ते तपासा."
 
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Re-ranking your experience"
+msgstr ""
+
 #: src/features/homepage/prepare.tsx
 msgid "Re: Senior Product Designer"
 msgstr "Re: सीनियर प्रॉडक्ट डिझायनर"
@@ -12289,6 +12293,10 @@ msgstr "{0}/{username}/{slug} जतन करत आहे... जतन के�
 #: src/features/resume/builder/draft.ts
 msgid "Saving is taking longer than expected. Your changes are still open."
 msgstr "सेव्ह करण्यास अपेक्षेपेक्षा जास्त वेळ लागत आहे. तुमच्या बदला अद्याप उघडे आहेत."
+
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Saving to your profile"
+msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
 #: src/features/resume/editor/save-status.tsx

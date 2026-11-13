@@ -11005,6 +11005,10 @@ msgstr "Eksportējiet atkārtoti ar iegultiem fontiem un pārbaudiet, vai teksts
 msgid "Re-export with fonts embedded, then open the file and check that the text copies out cleanly."
 msgstr "Eksportējiet atkārtoti ar iegultiem fontiem, pēc tam atveriet failu un pārbaudiet, vai teksts kopējas tīri."
 
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Re-ranking your experience"
+msgstr ""
+
 #: src/features/homepage/prepare.tsx
 msgid "Re: Senior Product Designer"
 msgstr "Re: Vecākais produktu dizainers"
@@ -12289,6 +12293,10 @@ msgstr "Saglabā {0}/{username}/{slug}… Pēc saglabāšanas ir pieejama kopija
 #: src/features/resume/builder/draft.ts
 msgid "Saving is taking longer than expected. Your changes are still open."
 msgstr "Saglabāšana aizņem ilgāku laiku, nekā paredzēts. Jūsu izmaiņas joprojām ir atvērtas."
+
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Saving to your profile"
+msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
 #: src/features/resume/editor/save-status.tsx

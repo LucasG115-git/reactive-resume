@@ -11005,6 +11005,10 @@ msgstr "Wyeksportuj ponownie z osadzonymi czcionkami i sprawdź, czy tekst kopiu
 msgid "Re-export with fonts embedded, then open the file and check that the text copies out cleanly."
 msgstr "Wyeksportuj ponownie z osadzonymi czcionkami, a następnie otwórz plik i sprawdź, czy tekst kopiuje się poprawnie."
 
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Re-ranking your experience"
+msgstr ""
+
 #: src/features/homepage/prepare.tsx
 msgid "Re: Senior Product Designer"
 msgstr "Odp: Senior Product Designer"
@@ -12289,6 +12293,10 @@ msgstr "Zapisywanie {0}/{username}/{slug}… Kopia jest dostępna po zapisaniu."
 #: src/features/resume/builder/draft.ts
 msgid "Saving is taking longer than expected. Your changes are still open."
 msgstr "Zapisywanie trwa dłużej, niż oczekiwano. Twoje zmiany są nadal otwarte."
+
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Saving to your profile"
+msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
 #: src/features/resume/editor/save-status.tsx

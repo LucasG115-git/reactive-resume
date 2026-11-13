@@ -11005,6 +11005,10 @@ msgstr "Eksportoni përsëri me fontet e integruara, dhe kontrolloni që teksti 
 msgid "Re-export with fonts embedded, then open the file and check that the text copies out cleanly."
 msgstr "Eksportoni përsëri me fontet e integruara, pastaj hapni skedarin dhe kontrolloni që teksti kopjohet pastër."
 
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Re-ranking your experience"
+msgstr ""
+
 #: src/features/homepage/prepare.tsx
 msgid "Re: Senior Product Designer"
 msgstr "Re: Dizajner i lartë produkti"
@@ -12289,6 +12293,10 @@ msgstr "Ruajtja e {0}/{username}/{slug}… Kopjimi ofrohet pas ruajtjes."
 #: src/features/resume/builder/draft.ts
 msgid "Saving is taking longer than expected. Your changes are still open."
 msgstr "Ruajtja po zgjat më shumë se sa pritej. Ndryshimet tuaja janë ende të hapura."
+
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Saving to your profile"
+msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
 #: src/features/resume/editor/save-status.tsx

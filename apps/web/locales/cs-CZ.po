@@ -11005,6 +11005,10 @@ msgstr "Znovu exportujte s vloženými písmy a ověřte, že se text čistě zk
 msgid "Re-export with fonts embedded, then open the file and check that the text copies out cleanly."
 msgstr "Znovu exportujte s vloženými písmy, poté soubor otevřete a ověřte, že se text čistě zkopíruje."
 
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Re-ranking your experience"
+msgstr ""
+
 #: src/features/homepage/prepare.tsx
 msgid "Re: Senior Product Designer"
 msgstr "Re: Senior Product Designer"
@@ -12289,6 +12293,10 @@ msgstr "Ukládání {0}/{username}/{slug}… Po uložení je k dispozici kopie."
 #: src/features/resume/builder/draft.ts
 msgid "Saving is taking longer than expected. Your changes are still open."
 msgstr "Ukládání trvá déle, než se očekávalo. Vaše změny jsou stále otevřené."
+
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Saving to your profile"
+msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
 #: src/features/resume/editor/save-status.tsx

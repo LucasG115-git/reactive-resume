@@ -11005,6 +11005,10 @@ msgstr "Vie tiedosto uudelleen fontit upotettuina ja tarkista, että teksti kopi
 msgid "Re-export with fonts embedded, then open the file and check that the text copies out cleanly."
 msgstr "Vie tiedosto uudelleen fontit upotettuina, avaa se sitten ja tarkista, että teksti kopioituu siististi."
 
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Re-ranking your experience"
+msgstr ""
+
 #: src/features/homepage/prepare.tsx
 msgid "Re: Senior Product Designer"
 msgstr "Vs: Senior Product Designer"
@@ -12289,6 +12293,10 @@ msgstr "Tallennetaan {0}/{username}/{slug}… Kopio on käytettävissä tallennu
 #: src/features/resume/builder/draft.ts
 msgid "Saving is taking longer than expected. Your changes are still open."
 msgstr "Tallentaminen kestää odotettua kauemmin. Muutoksesi ovat edelleen tallessa."
+
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Saving to your profile"
+msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
 #: src/features/resume/editor/save-status.tsx

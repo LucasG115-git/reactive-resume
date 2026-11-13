@@ -11005,6 +11005,10 @@ msgstr "Eksportuokite iš naujo su įterptais šriftais ir patikrinkite, ar teks
 msgid "Re-export with fonts embedded, then open the file and check that the text copies out cleanly."
 msgstr "Eksportuokite iš naujo su įterptais šriftais, tada atidarykite failą ir patikrinkite, ar tekstą galima švariai nukopijuoti."
 
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Re-ranking your experience"
+msgstr ""
+
 #: src/features/homepage/prepare.tsx
 msgid "Re: Senior Product Designer"
 msgstr "Re: Vyresnysis produkto dizaineris"
@@ -12289,6 +12293,10 @@ msgstr "Išsaugomas {0}/{username}/{slug}… Išsaugojus galima kopijuoti."
 #: src/features/resume/builder/draft.ts
 msgid "Saving is taking longer than expected. Your changes are still open."
 msgstr "Taupymas užtrunka ilgiau nei tikėtasi. Jūsų pakeitimai vis dar galioja."
+
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Saving to your profile"
+msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
 #: src/features/resume/editor/save-status.tsx

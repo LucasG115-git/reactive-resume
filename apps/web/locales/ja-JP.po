@@ -11005,6 +11005,10 @@ msgstr "フォントを埋め込んで再エクスポートし、テキストが
 msgid "Re-export with fonts embedded, then open the file and check that the text copies out cleanly."
 msgstr "フォントを埋め込んで再エクスポートしてからファイルを開き、テキストが正しくコピーできるか確認してください。"
 
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Re-ranking your experience"
+msgstr ""
+
 #: src/features/homepage/prepare.tsx
 msgid "Re: Senior Product Designer"
 msgstr "Re: Senior Product Designer"
@@ -12289,6 +12293,10 @@ msgstr "保存中 {0}/{username}/{slug}… 保存後コピー可能です。"
 #: src/features/resume/builder/draft.ts
 msgid "Saving is taking longer than expected. Your changes are still open."
 msgstr "保存に予想以上に時間がかかっています。変更は保持されています。"
+
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Saving to your profile"
+msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
 #: src/features/resume/editor/save-status.tsx

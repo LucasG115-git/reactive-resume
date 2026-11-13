@@ -11005,6 +11005,10 @@ msgstr "Shriftlar joylashtirilgan holda qayta eksport qiling va matn toza nusxal
 msgid "Re-export with fonts embedded, then open the file and check that the text copies out cleanly."
 msgstr "Shriftlar joylashtirilgan holda qayta eksport qiling, soʻng faylni ochib, matn toza nusxalanishini tekshiring."
 
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Re-ranking your experience"
+msgstr ""
+
 #: src/features/homepage/prepare.tsx
 msgid "Re: Senior Product Designer"
 msgstr "Re: Katta mahsulot dizayneri"
@@ -12289,6 +12293,10 @@ msgstr "Saqlanmoqda {0}/{username}/{slug}… Saqlangandan keyin nusxa olish mumk
 #: src/features/resume/builder/draft.ts
 msgid "Saving is taking longer than expected. Your changes are still open."
 msgstr "Saqlash kutilganidan ko'proq vaqt talab qilmoqda. Oʻzgartirishlaringiz hali ham ochiq."
+
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Saving to your profile"
+msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
 #: src/features/resume/editor/save-status.tsx

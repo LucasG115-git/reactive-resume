@@ -5,12 +5,14 @@ import { Icon } from "@reactive-resume/ui/components/icon";
 import { Spinner } from "@reactive-resume/ui/components/spinner";
 import { cn } from "@reactive-resume/utils/style";
 
-type Phase = "propose" | "assemble";
+type Phase = "propose" | "assemble" | "save";
 
 /** The known macro-steps of each long request. The server doesn't stream progress, so these are labels, not milestones. */
 const STEPS: Record<Phase, () => string[]> = {
 	propose: () => [t`Analysing the posting`, t`Ranking your experience`, t`Reviewing the best evidence`],
 	assemble: () => [t`Selecting the evidence`, t`Writing the bullets`, t`Reviewing the draft`, t`Final checks`],
+	// Saving gap answers writes the confirmed skills, then re-proposes the selection from the expanded profile.
+	save: () => [t`Saving to your profile`, t`Re-ranking your experience`, t`Reviewing the best evidence`],
 };
 
 // Roughly how long a step tends to run before we advance the indicator. The last step holds until the call resolves.

@@ -11005,6 +11005,10 @@ msgstr "Vuelva a exportar con las fuentes incrustadas y compruebe que el texto s
 msgid "Re-export with fonts embedded, then open the file and check that the text copies out cleanly."
 msgstr "Vuelva a exportar con las fuentes incrustadas, luego abra el archivo y compruebe que el texto se copia correctamente."
 
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Re-ranking your experience"
+msgstr ""
+
 #: src/features/homepage/prepare.tsx
 msgid "Re: Senior Product Designer"
 msgstr "Re: Senior Product Designer"
@@ -12289,6 +12293,10 @@ msgstr "Guardando {0}/{username}/{slug}… La copia está disponible después de
 #: src/features/resume/builder/draft.ts
 msgid "Saving is taking longer than expected. Your changes are still open."
 msgstr "El guardado está tardando más de lo esperado. Tus cambios siguen abiertos."
+
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Saving to your profile"
+msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
 #: src/features/resume/editor/save-status.tsx
