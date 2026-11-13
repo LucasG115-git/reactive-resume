@@ -87,8 +87,8 @@ export async function copy(text: string, done: string) {
 	}
 }
 
-export function download(text: string, name: string) {
-	const url = URL.createObjectURL(new Blob([text], { type: "text/yaml" }));
+export function download(text: string, name: string, type = "text/yaml") {
+	const url = URL.createObjectURL(new Blob([text], { type }));
 	const link = document.createElement("a");
 	link.href = url;
 	link.download = name;
