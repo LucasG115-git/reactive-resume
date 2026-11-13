@@ -12,6 +12,7 @@ import { Textarea } from "@reactive-resume/ui/components/textarea";
 import { toast } from "@reactive-resume/ui/components/toast";
 import { cn } from "@reactive-resume/utils/style";
 import { entryLabel, UsedAt } from "../../../career/knowledge/used-at";
+import { BuildProgress } from "./build-progress";
 import { toastError } from "@/libs/error-message";
 import { orpc } from "@/libs/orpc/client";
 
@@ -225,6 +226,8 @@ export function GapStep({ applicationId, report, entries, onDone, onSkip }: GapS
 			{earlier > 0 && (
 				<p className="text-xs text-ink-3">{t`${earlier} more you answered before aren't shown again.`}</p>
 			)}
+
+			{save.isPending && <BuildProgress phase="save" />}
 
 			<div className="flex flex-wrap justify-end gap-2 border-t border-line pt-4">
 				<Button variant="ghost" onClick={onSkip}>
