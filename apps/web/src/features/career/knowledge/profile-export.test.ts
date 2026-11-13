@@ -110,14 +110,20 @@ describe("buildProfileFile", () => {
 		const parsed = profileFileSchema.parse(buildProfileFile(profile));
 		const ts = parsed.skills.find((skill) => skill.name === "TypeScript");
 		expect(ts).toMatchObject({ level: 4, years: 5, category: "Web", aliases: ["TS"] });
-		expect(parsed.skills.find((skill) => skill.name === "Figma")?.hidden).toBe(true);
+		// Parsed skills are a union (string-or-object), so narrow before reading an object-only field.
+		const figma = parsed.skills.find((skill) => skill.name === "Figma") as Record<string, unknown> | undefined;
+		expect(figma?.hidden).toBe(true);
 	});
 
 	it("keeps achievement metrics, variants and core", () => {
 		const parsed = profileFileSchema.parse(buildProfileFile(profile));
-		const achievement = parsed.experience[0]?.achievements[0];
+		// Parsed achievements are a union (string-or-object); cast to read object-only fields in the test.
+		const achievement = parsed.experience[0]?.achievements[0] as Record<string, unknown> | undefined;
 		expect(achievement?.text).toBe("Cut build times by 40%");
-		expect(achievement?.metrics?.[0]).toMatchObject({ value: "40", unit: "%" });
+		expect((achievement?.metrics as { value: string; unit: string }[] | undefined)?.[0]).toMatchObject({
+			value: "40",
+			unit: "%",
+		});
 		expect(achievement?.core).toBe(true);
 	});
 });
