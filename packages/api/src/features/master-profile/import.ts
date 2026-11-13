@@ -60,6 +60,56 @@ const datesOf = (dates: ResumeDates | undefined) => ({
 /** For single-date items (certifications, awards) the date is when it was received. */
 const singleDateOf = (dates: ResumeDates | undefined) => ({ startDate: dates?.start ?? null, endDate: null });
 
+/** Lowercased, with punctuation and runs of space removed, for comparing titles and achievement text. */
+export function normalizeText(value: string): string {
+	return value
+		.toLocaleLowerCase()
+		.replace(/[\p{P}\p{S}]+/gu, " ")
+		.replace(/\s+/g, " ")
+		.trim();
+}
+
+/** Common legal suffixes dropped when matching organizations, so "Acme" and "Acme Inc." are the same. */
+const ORG_SUFFIXES = new Set([
+	"inc",
+	"incorporated",
+	"llc",
+	"llp",
+	"ltd",
+	"limited",
+	"co",
+	"corp",
+	"corporation",
+	"company",
+	"gmbh",
+	"plc",
+	"pty",
+	"ag",
+	"sa",
+	"bv",
+	"nv",
+	"oy",
+	"ab",
+	"srl",
+	"spa",
+	"group",
+	"holdings",
+]);
+
+/** Organization name for matching: normalized, with a leading "the" and trailing legal suffixes removed. */
+export function normalizeOrg(value: string): string {
+	let words = normalizeText(value).split(" ").filter(Boolean);
+	if (words[0] === "the") words = words.slice(1);
+	// Keep at least one word, so an org that is only a suffix ("Co") still matches itself.
+	while (words.length > 1 && ORG_SUFFIXES.has(words.at(-1) ?? "")) words = words.slice(0, -1);
+	return words.join(" ");
+}
+
+/** Skill name for matching: lowercased with spaces, dots, hyphens and slashes removed, so "React.js" = "React JS". */
+export function normalizeSkill(value: string): string {
+	return value.toLocaleLowerCase().replace(/[\s.\-_/]+/g, "");
+}
+
 export type ImportedEntry = { entry: ProfileEntryInput; achievements: Omit<ProfileAchievementInput, "entryId">[] };
 export type ResumeImport = { entries: ImportedEntry[]; skills: ProfileSkillInput[] };
 

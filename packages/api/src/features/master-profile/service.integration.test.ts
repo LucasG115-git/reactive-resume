@@ -185,6 +185,81 @@ describe.skipIf(!databaseUrl)("master profile persistence", () => {
 		expect((await service.importFile("alice", file, false)).counts).toEqual({ entries: 0, achievements: 0, skills: 0 });
 		expect((await service.importFile("bob", file, true)).counts).toEqual({ entries: 2, achievements: 3, skills: 2 });
 	});
+
+	it("merges near-duplicate entries and skills instead of re-adding them", async () => {
+		const { profileFileSchema } = await import("@reactive-resume/schema/master-profile");
+		const existing = await service.saveEntry(
+			"alice",
+			entry({ kind: "position", organization: "Countdown Creative Inc.", title: "Founder", startDate: "2019-03" }),
+		);
+		await service.saveAchievement("alice", achievement({ entryId: existing.id, text: "Built sites for nonprofits." }));
+		await service.saveSkill("alice", skill({ name: "React JS" }));
+		await service.saveSkill("alice", skill({ name: "JavaScript", aliases: ["JS"] }));
+
+		const file = profileFileSchema.parse({
+			experience: [
+				{
+					title: "Founder",
+					organization: "Countdown Creative",
+					start: "2019",
+					achievements: ["Built sites for nonprofits", "Ran discovery workshops"],
+				},
+			],
+			skills: ["React.js", "JS", "Figma"],
+		});
+
+		const preview = await service.importFile("alice", file, true);
+		// "Countdown Creative" vs "…Inc." and a year-only start still resolve to the existing role.
+		expect(preview.counts).toEqual({ entries: 0, achievements: 1, skills: 1 });
+		expect(preview.entries).toEqual([
+			{
+				kind: "position",
+				title: "Founder",
+				organization: "Countdown Creative",
+				isNew: false,
+				achievements: ["Ran discovery workshops"],
+			},
+		]);
+		// "React.js" matches "React JS"; "JS" matches the JavaScript alias; only "Figma" is new.
+		expect(preview.skills).toEqual(["Figma"]);
+		expect(preview.existingSkills).toEqual(["React.js", "JS"]);
+
+		await service.importFile("alice", file, false);
+		const profile = await service.get("alice");
+		expect(profile.entries).toHaveLength(1);
+		expect(profile.entries[0]?.achievements.map((a) => a.text)).toEqual([
+			"Built sites for nonprofits.",
+			"Ran discovery workshops",
+		]);
+		expect(profile.skills.map((s) => s.name).toSorted()).toEqual(["Figma", "JavaScript", "React JS"]);
+	});
+
+	it("deletes many records at once, cascading an entry's achievements", async () => {
+		const keep = await service.saveEntry("alice", entry({ kind: "position", title: "Keeper" }));
+		const drop1 = await service.saveEntry("alice", entry({ kind: "position", title: "Drop 1" }));
+		const drop2 = await service.saveEntry("alice", entry({ kind: "project", title: "Drop 2" }));
+		await service.saveAchievement("alice", achievement({ entryId: drop1.id, text: "Goes with its entry" }));
+		const keptAch = await service.saveAchievement("alice", achievement({ entryId: keep.id, text: "Stays" }));
+		const dropAch = await service.saveAchievement("alice", achievement({ text: "Standalone to drop" }));
+		const dropSkill = await service.saveSkill("alice", skill({ name: "Drop Skill" }));
+		await service.saveSkill("alice", skill({ name: "Keep Skill" }));
+
+		expect(await service.deleteMany("alice", { table: "entry", ids: [drop1.id, drop2.id] })).toEqual({ deleted: 2 });
+		expect(await service.deleteMany("alice", { table: "achievement", ids: [dropAch.id] })).toEqual({ deleted: 1 });
+		expect(await service.deleteMany("alice", { table: "skill", ids: [dropSkill.id] })).toEqual({ deleted: 1 });
+
+		const profile = await service.get("alice");
+		expect(profile.entries.map((e) => e.title)).toEqual(["Keeper"]);
+		expect(profile.entries[0]?.achievements.map((a) => a.id)).toEqual([keptAch.id]);
+		expect(profile.standalone).toEqual([]);
+		expect(profile.skills.map((s) => s.name)).toEqual(["Keep Skill"]);
+	});
+
+	it("bulk delete only touches the caller's records", async () => {
+		const aliceEntry = await service.saveEntry("alice", entry({ kind: "project", title: "Mine" }));
+		expect(await service.deleteMany("bob", { table: "entry", ids: [aliceEntry.id] })).toEqual({ deleted: 0 });
+		expect((await service.get("alice")).entries).toHaveLength(1);
+	});
 });
 
 describe("profile entry input", () => {

@@ -275,7 +275,9 @@ msgid "{0, plural, one {# section} other {# sections}}"
 msgstr "{0, plural, one {# பிரிவு} other {# பிரிவுகள்}}"
 
 #. placeholder {0}: ids.length
+#. placeholder {0}: selected.size
 #: src/features/applications/components/list-view.tsx
+#: src/features/career/knowledge/profile.tsx
 msgid "{0, plural, one {# selected} other {# selected}}"
 msgstr "{0, plural, one {# தேர்ந்தெடுக்கப்பட்டது} other {# தேர்ந்தெடுக்கப்பட்டது}}"
 
@@ -377,6 +379,11 @@ msgstr "{0, plural, one {# நிமிடத்திற்கு முன் 
 #: src/features/documents/document-actions.tsx
 msgid "{0, plural, one {Tags for # document} other {Tags for # documents}}"
 msgstr "{0, plural, one {# ஆவணத்திற்கான குறிச்சொற்கள்} other {# ஆவணங்களுக்கான குறிச்சொற்கள்}}"
+
+#. placeholder {0}: selected.size
+#: src/features/career/knowledge/profile.tsx
+msgid "{0, plural, one {This permanently removes 1 item from your profile. It can't be undone.} other {This permanently removes # items from your profile, including any achievements under deleted entries. It can't be undone.}}"
+msgstr ""
 
 #. placeholder {0}: fact.usedBy.savedItems
 #: src/features/career/knowledge/facts.tsx
@@ -883,6 +890,10 @@ msgstr "{pendingOnPage, plural, one {# இந்தப் பக்கத்த�
 #: src/features/resume/editor/write/section-row.tsx
 msgid "{proposed, plural, one {# proposed} other {# proposed}}"
 msgstr "{proposed, plural, one {# முன்மொழியப்பட்டது} other {# முன்மொழியப்பட்டது}}"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "{removed, plural, one {# item deleted} other {# items deleted}}"
+msgstr ""
 
 #: src/features/applications/components/detail/assemble-dialog.tsx
 msgid "{rephrased, plural, one {# reworded} other {# reworded}}"
@@ -4083,6 +4094,10 @@ msgid "Couldn't create your account. Try again."
 msgstr "உங்கள் கணக்கை உருவாக்க முடியவில்லை. மீண்டும் முயற்சிக்கவும்."
 
 #: src/features/career/knowledge/profile.tsx
+msgid "Couldn't delete everything. Try again."
+msgstr ""
+
+#: src/features/career/knowledge/profile.tsx
 msgid "Couldn't delete that achievement. Try again."
 msgstr ""
 
@@ -4972,6 +4987,7 @@ msgstr ""
 
 #: src/features/applications/components/interview-dialog.tsx
 #: src/features/career/coach.tsx
+#: src/features/career/knowledge/profile.tsx
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/workspace/saved.tsx
 #: src/features/resume/editor/write/entry-card.tsx
@@ -5039,6 +5055,10 @@ msgstr "வழங்குநரை நீக்கு"
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Delete section"
 msgstr "பகுதியை நீக்கு"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Delete selected items?"
+msgstr ""
 
 #: src/features/career/knowledge/stories.tsx
 msgid "Delete story"
@@ -5307,6 +5327,7 @@ msgstr "{0} ஐ அனுப்ப வேண்டாம்"
 msgid "Donate"
 msgstr "நன்கொடை அளிக்கவும்"
 
+#: src/features/career/knowledge/profile.tsx
 #: src/features/resume/editor/write/rich-text-editor-field.tsx
 #: src/features/settings/ai/api-keys.tsx
 msgid "Done"
@@ -12523,11 +12544,15 @@ msgid "See below"
 msgstr "கீழே பார்க்கவும்"
 
 #: src/features/applications/components/list-view.tsx
+#: src/features/career/knowledge/profile.tsx
 #: src/features/documents/document-actions.tsx
 msgid "Select"
 msgstr "தேர்ந்தெடு"
 
 #. placeholder {0}: document.name
+#. placeholder {0}: entry.title
+#. placeholder {0}: skill.name
+#: src/features/career/knowledge/profile.tsx
 #: src/features/documents/document-card.tsx
 msgid "Select {0}"
 msgstr "{0} ஐத் தேர்ந்தெடு"
@@ -12545,6 +12570,10 @@ msgstr "அனைத்தையும் தேர்ந்தெடு"
 #: src/features/settings/integrations/components/ai-provider-picker.tsx
 msgid "Select an AI provider"
 msgstr "ஒரு AI வழங்குநரைத் தேர்ந்தெடுக்கவும்"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Select: {excerpt}"
+msgstr ""
 
 #: src/components/ui/combobox.tsx
 msgid "Select..."

@@ -275,7 +275,9 @@ msgid "{0, plural, one {# section} other {# sections}}"
 msgstr "{0, plural, one {# sekcia} few {# sekcie} many {# sekcie} other {# sekcií}}"
 
 #. placeholder {0}: ids.length
+#. placeholder {0}: selected.size
 #: src/features/applications/components/list-view.tsx
+#: src/features/career/knowledge/profile.tsx
 msgid "{0, plural, one {# selected} other {# selected}}"
 msgstr "{0, plural, one {Zvolené #} other {Zvolené #}}"
 
@@ -377,6 +379,11 @@ msgstr "{0, plural, one {Začalo pred # minútou} few {Začalo pred # minútami}
 #: src/features/documents/document-actions.tsx
 msgid "{0, plural, one {Tags for # document} other {Tags for # documents}}"
 msgstr "{0, plural, one {Tagy pre # dokument} few {Tagy pre # dokumenty} many {Tagy pre # dokumentu} other {Tagy pre # dokumentov}}"
+
+#. placeholder {0}: selected.size
+#: src/features/career/knowledge/profile.tsx
+msgid "{0, plural, one {This permanently removes 1 item from your profile. It can't be undone.} other {This permanently removes # items from your profile, including any achievements under deleted entries. It can't be undone.}}"
+msgstr ""
 
 #. placeholder {0}: fact.usedBy.savedItems
 #: src/features/career/knowledge/facts.tsx
@@ -883,6 +890,10 @@ msgstr "{pendingOnPage, plural, one {# navrhovanú úpravu na tejto stránke · 
 #: src/features/resume/editor/write/section-row.tsx
 msgid "{proposed, plural, one {# proposed} other {# proposed}}"
 msgstr "{proposed, plural, one {Navrhnuté #} other {Navrhnuté #}}"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "{removed, plural, one {# item deleted} other {# items deleted}}"
+msgstr ""
 
 #: src/features/applications/components/detail/assemble-dialog.tsx
 msgid "{rephrased, plural, one {# reworded} other {# reworded}}"
@@ -4083,6 +4094,10 @@ msgid "Couldn't create your account. Try again."
 msgstr "Konto sa nepodarilo vytvoriť. Skúste to znova."
 
 #: src/features/career/knowledge/profile.tsx
+msgid "Couldn't delete everything. Try again."
+msgstr ""
+
+#: src/features/career/knowledge/profile.tsx
 msgid "Couldn't delete that achievement. Try again."
 msgstr ""
 
@@ -4972,6 +4987,7 @@ msgstr ""
 
 #: src/features/applications/components/interview-dialog.tsx
 #: src/features/career/coach.tsx
+#: src/features/career/knowledge/profile.tsx
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/workspace/saved.tsx
 #: src/features/resume/editor/write/entry-card.tsx
@@ -5039,6 +5055,10 @@ msgstr "Odstrániť poskytovateľa"
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Delete section"
 msgstr "Odstrániť sekciu"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Delete selected items?"
+msgstr ""
 
 #: src/features/career/knowledge/stories.tsx
 msgid "Delete story"
@@ -5307,6 +5327,7 @@ msgstr "Neposielajte {0}"
 msgid "Donate"
 msgstr "Darovať"
 
+#: src/features/career/knowledge/profile.tsx
 #: src/features/resume/editor/write/rich-text-editor-field.tsx
 #: src/features/settings/ai/api-keys.tsx
 msgid "Done"
@@ -12523,11 +12544,15 @@ msgid "See below"
 msgstr "Pozri nižšie"
 
 #: src/features/applications/components/list-view.tsx
+#: src/features/career/knowledge/profile.tsx
 #: src/features/documents/document-actions.tsx
 msgid "Select"
 msgstr "Vyberte"
 
 #. placeholder {0}: document.name
+#. placeholder {0}: entry.title
+#. placeholder {0}: skill.name
+#: src/features/career/knowledge/profile.tsx
 #: src/features/documents/document-card.tsx
 msgid "Select {0}"
 msgstr "Vybrať {0}"
@@ -12545,6 +12570,10 @@ msgstr "Vybrať všetko"
 #: src/features/settings/integrations/components/ai-provider-picker.tsx
 msgid "Select an AI provider"
 msgstr "Vyberte poskytovateľa umelej inteligencie"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Select: {excerpt}"
+msgstr ""
 
 #: src/components/ui/combobox.tsx
 msgid "Select..."

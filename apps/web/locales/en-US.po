@@ -270,7 +270,9 @@ msgid "{0, plural, one {# section} other {# sections}}"
 msgstr "{0, plural, one {# section} other {# sections}}"
 
 #. placeholder {0}: ids.length
+#. placeholder {0}: selected.size
 #: src/features/applications/components/list-view.tsx
+#: src/features/career/knowledge/profile.tsx
 msgid "{0, plural, one {# selected} other {# selected}}"
 msgstr "{0, plural, one {# selected} other {# selected}}"
 
@@ -372,6 +374,11 @@ msgstr "{0, plural, one {Started # minute ago} other {Started # minutes ago}}"
 #: src/features/documents/document-actions.tsx
 msgid "{0, plural, one {Tags for # document} other {Tags for # documents}}"
 msgstr "{0, plural, one {Tags for # document} other {Tags for # documents}}"
+
+#. placeholder {0}: selected.size
+#: src/features/career/knowledge/profile.tsx
+msgid "{0, plural, one {This permanently removes 1 item from your profile. It can't be undone.} other {This permanently removes # items from your profile, including any achievements under deleted entries. It can't be undone.}}"
+msgstr "{0, plural, one {This permanently removes 1 item from your profile. It can't be undone.} other {This permanently removes # items from your profile, including any achievements under deleted entries. It can't be undone.}}"
 
 #. placeholder {0}: fact.usedBy.savedItems
 #: src/features/career/knowledge/facts.tsx
@@ -878,6 +885,10 @@ msgstr "{pendingOnPage, plural, one {# proposed edit on this page · nothing cha
 #: src/features/resume/editor/write/section-row.tsx
 msgid "{proposed, plural, one {# proposed} other {# proposed}}"
 msgstr "{proposed, plural, one {# proposed} other {# proposed}}"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "{removed, plural, one {# item deleted} other {# items deleted}}"
+msgstr "{removed, plural, one {# item deleted} other {# items deleted}}"
 
 #: src/features/applications/components/detail/assemble-dialog.tsx
 msgid "{rephrased, plural, one {# reworded} other {# reworded}}"
@@ -4078,6 +4089,10 @@ msgid "Couldn't create your account. Try again."
 msgstr "Couldn't create your account. Try again."
 
 #: src/features/career/knowledge/profile.tsx
+msgid "Couldn't delete everything. Try again."
+msgstr "Couldn't delete everything. Try again."
+
+#: src/features/career/knowledge/profile.tsx
 msgid "Couldn't delete that achievement. Try again."
 msgstr "Couldn't delete that achievement. Try again."
 
@@ -4967,6 +4982,7 @@ msgstr "Degree or program"
 
 #: src/features/applications/components/interview-dialog.tsx
 #: src/features/career/coach.tsx
+#: src/features/career/knowledge/profile.tsx
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/workspace/saved.tsx
 #: src/features/resume/editor/write/entry-card.tsx
@@ -5034,6 +5050,10 @@ msgstr "Delete provider"
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Delete section"
 msgstr "Delete section"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Delete selected items?"
+msgstr "Delete selected items?"
 
 #: src/features/career/knowledge/stories.tsx
 msgid "Delete story"
@@ -5302,6 +5322,7 @@ msgstr "Don't send {0}"
 msgid "Donate"
 msgstr "Donate"
 
+#: src/features/career/knowledge/profile.tsx
 #: src/features/resume/editor/write/rich-text-editor-field.tsx
 #: src/features/settings/ai/api-keys.tsx
 msgid "Done"
@@ -12518,11 +12539,15 @@ msgid "See below"
 msgstr "See below"
 
 #: src/features/applications/components/list-view.tsx
+#: src/features/career/knowledge/profile.tsx
 #: src/features/documents/document-actions.tsx
 msgid "Select"
 msgstr "Select"
 
 #. placeholder {0}: document.name
+#. placeholder {0}: entry.title
+#. placeholder {0}: skill.name
+#: src/features/career/knowledge/profile.tsx
 #: src/features/documents/document-card.tsx
 msgid "Select {0}"
 msgstr "Select {0}"
@@ -12540,6 +12565,10 @@ msgstr "Select all"
 #: src/features/settings/integrations/components/ai-provider-picker.tsx
 msgid "Select an AI provider"
 msgstr "Select an AI provider"
+
+#: src/features/career/knowledge/profile.tsx
+msgid "Select: {excerpt}"
+msgstr "Select: {excerpt}"
 
 #: src/components/ui/combobox.tsx
 msgid "Select..."

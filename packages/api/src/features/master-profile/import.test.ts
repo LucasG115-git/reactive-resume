@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vite-plus/test";
 import { defaultResumeData } from "@reactive-resume/schema/resume/default";
-import { htmlText, resumeToProfile, splitDescription } from "./import";
+import { htmlText, normalizeOrg, normalizeSkill, normalizeText, resumeToProfile, splitDescription } from "./import";
 
 const website = { url: "", label: "", inlineLink: false };
 
@@ -21,6 +21,33 @@ describe("splitDescription", () => {
 
 	it("decodes entities and line breaks", () => {
 		expect(htmlText("A&nbsp;&#39;B&#x27;<br/>C")).toBe("A 'B' C");
+	});
+});
+
+describe("import normalizers", () => {
+	it("normalizeText lowercases and strips punctuation and extra space", () => {
+		expect(normalizeText("Senior  Software-Engineer!")).toBe("senior software engineer");
+		expect(normalizeText("Cut admin time by 40%.")).toBe("cut admin time by 40");
+		expect(normalizeText("")).toBe("");
+	});
+
+	it("normalizeOrg drops a leading 'the' and trailing legal suffixes", () => {
+		expect(normalizeOrg("Acme Inc.")).toBe("acme");
+		expect(normalizeOrg("Acme, Incorporated")).toBe("acme");
+		expect(normalizeOrg("The Acme Group")).toBe("acme");
+		expect(normalizeOrg("Acme")).toBe("acme");
+		// Keeps a word that is otherwise a suffix when it stands alone, and keeps real name words.
+		expect(normalizeOrg("Co")).toBe("co");
+		expect(normalizeOrg("Countdown Creative")).toBe("countdown creative");
+	});
+
+	it("normalizeSkill removes spaces, dots, hyphens and slashes", () => {
+		expect(normalizeSkill("React.js")).toBe("reactjs");
+		expect(normalizeSkill("React JS")).toBe("reactjs");
+		expect(normalizeSkill("ReactJS")).toBe("reactjs");
+		// Bare word stays distinct from the suffixed form unless aliased.
+		expect(normalizeSkill("React")).toBe("react");
+		expect(normalizeSkill("CI/CD")).toBe("cicd");
 	});
 });
 
