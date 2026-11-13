@@ -88,6 +88,13 @@ export const profileReorderInputSchema = z.object({
 });
 export type ProfileReorderInput = z.infer<typeof profileReorderInputSchema>;
 
+/** Which rows to delete in one go. Deleting an entry also deletes its achievements. */
+export const profileBulkDeleteInputSchema = z.object({
+	table: z.enum(["entry", "achievement", "skill"]),
+	ids: z.array(z.string().min(1)).min(1).max(500),
+});
+export type ProfileBulkDeleteInput = z.infer<typeof profileBulkDeleteInputSchema>;
+
 export const assembleModeSchema = z.enum(["rephrase", "verbatim"]);
 export type AssembleMode = z.infer<typeof assembleModeSchema>;
 

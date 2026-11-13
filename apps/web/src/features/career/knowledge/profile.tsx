@@ -6,9 +6,20 @@ import { plural, t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { Link } from "@tanstack/react-router";
-import { useId, useState } from "react";
+import { createContext, useContext, useId, useMemo, useState } from "react";
 import { PROFILE_ENTRY_KINDS } from "@reactive-resume/schema/master-profile";
+import {
+	AlertDialog,
+	AlertDialogAction,
+	AlertDialogCancel,
+	AlertDialogContent,
+	AlertDialogDescription,
+	AlertDialogFooter,
+	AlertDialogHeader,
+	AlertDialogTitle,
+} from "@reactive-resume/ui/components/alert-dialog";
 import { Button, buttonVariants } from "@reactive-resume/ui/components/button";
+import { Checkbox } from "@reactive-resume/ui/components/checkbox";
 import {
 	DropdownMenu,
 	DropdownMenuContent,
@@ -35,6 +46,34 @@ type MasterProfile = RouterOutput["masterProfile"]["get"];
 type Entry = MasterProfile["entries"][number];
 type Achievement = Entry["achievements"][number];
 type Skill = MasterProfile["skills"][number];
+
+// ---- Multi-select ----
+
+type SelectionApi = { active: boolean; has: (key: string) => boolean; toggle: (key: string) => void };
+const SelectionContext = createContext<SelectionApi | null>(null);
+const useSelection = () => useContext(SelectionContext);
+
+/** Table and id a selection key points at. Keys are `entry:<id>`, `ach:<id>` or `skill:<id>`. */
+const entryKeyFor = (id: string) => `entry:${id}`;
+const achKeyFor = (id: string) => `ach:${id}`;
+const skillKeyFor = (id: string) => `skill:${id}`;
+
+type SelectBoxProps = { selectionKey: string; label: string; className?: string };
+
+/** The checkbox shown on a row while selecting; its own click toggles selection without triggering the row. */
+function SelectBox({ selectionKey, label, className }: SelectBoxProps) {
+	const selection = useSelection();
+	if (!selection?.active) return null;
+	return (
+		<Checkbox
+			aria-label={label}
+			checked={selection.has(selectionKey)}
+			onCheckedChange={() => selection.toggle(selectionKey)}
+			onClick={(event) => event.stopPropagation()}
+			className={className}
+		/>
+	);
+}
 
 const kindLabel = (kind: ProfileEntryKind, count = 1) =>
 	({
@@ -86,144 +125,249 @@ export function ProfilePage() {
 	const queryClient = useQueryClient();
 	const query = useQuery(orpc.masterProfile.get.queryOptions());
 	const [adding, setAdding] = useState<ProfileEntryKind | null>(null);
+	const [selecting, setSelecting] = useState(false);
+	const [selected, setSelected] = useState<ReadonlySet<string>>(() => new Set());
+	const [confirmOpen, setConfirmOpen] = useState(false);
+	const [deleting, setDeleting] = useState(false);
 	const refresh = () => void queryClient.invalidateQueries({ queryKey: orpc.masterProfile.key() });
+
+	const selection = useMemo<SelectionApi>(
+		() => ({
+			active: selecting,
+			has: (key) => selected.has(key),
+			toggle: (key) =>
+				setSelected((prev) => {
+					const next = new Set(prev);
+					if (next.has(key)) next.delete(key);
+					else next.add(key);
+					return next;
+				}),
+		}),
+		[selecting, selected],
+	);
+	const exitSelect = () => {
+		setSelecting(false);
+		setSelected(new Set());
+	};
+	const removeSelected = async () => {
+		const groups: Record<"entry" | "achievement" | "skill", string[]> = { entry: [], achievement: [], skill: [] };
+		for (const key of selected) {
+			const divider = key.indexOf(":");
+			const recordId = key.slice(divider + 1);
+			const prefix = key.slice(0, divider);
+			if (prefix === "entry") groups.entry.push(recordId);
+			else if (prefix === "ach") groups.achievement.push(recordId);
+			else if (prefix === "skill") groups.skill.push(recordId);
+		}
+		const removed = selected.size;
+		setDeleting(true);
+		try {
+			await Promise.all(
+				(["entry", "achievement", "skill"] as const)
+					.filter((table) => groups[table].length > 0)
+					.map((table) => client.masterProfile.deleteMany({ table, ids: groups[table] })),
+			);
+			toast.add({ type: "success", description: plural(removed, { one: "# item deleted", other: "# items deleted" }) });
+			setConfirmOpen(false);
+			exitSelect();
+			refresh();
+		} catch (error) {
+			toastError(error, t`Couldn't delete everything. Try again.`);
+		} finally {
+			setDeleting(false);
+		}
+	};
 
 	if (!query.data) return query.isError ? <CareerLoadError onRetry={() => void query.refetch()} /> : <CareerLoading />;
 	const profile = query.data;
 	const achievementCount =
 		profile.standalone.length + profile.entries.reduce((sum, entry) => sum + entry.achievements.length, 0);
+	const hasRecords = profile.entries.length + profile.standalone.length + profile.skills.length > 0;
 
 	return (
-		<div className="grid gap-5">
-			<div className="flex flex-wrap items-center gap-3 rounded-xl border border-line bg-surface px-3.5 py-3">
-				<Icon name="user-circle" size={20} className="text-ink-2" />
-				<div className="grid min-w-0 flex-1 basis-56 gap-px">
-					<p className="text-sm font-semibold">
-						<Trans>Master profile</Trans>
+		<SelectionContext.Provider value={selection}>
+			<div className="grid gap-5">
+				<div className="flex flex-wrap items-center gap-3 rounded-xl border border-line bg-surface px-3.5 py-3">
+					<Icon name="user-circle" size={20} className="text-ink-2" />
+					<div className="grid min-w-0 flex-1 basis-56 gap-px">
+						<p className="text-sm font-semibold">
+							<Trans>Master profile</Trans>
+						</p>
+						<p className="text-xs text-ink-3">
+							<Trans>
+								Your verified career record. Tailored resumes are assembled from these entries, achievements and skills,
+								so keep each claim accurate and add numbers only when you can back them up.
+							</Trans>
+						</p>
+					</div>
+					<p className="text-xs text-ink-3 tabular-nums">
+						{plural(profile.entries.length, { one: "# entry", other: "# entries" })} ·{" "}
+						{plural(achievementCount, { one: "# achievement", other: "# achievements" })} ·{" "}
+						{plural(profile.skills.length, { one: "# skill", other: "# skills" })}
 					</p>
-					<p className="text-xs text-ink-3">
-						<Trans>
-							Your verified career record. Tailored resumes are assembled from these entries, achievements and skills,
-							so keep each claim accurate and add numbers only when you can back them up.
-						</Trans>
-					</p>
-				</div>
-				<p className="text-xs text-ink-3 tabular-nums">
-					{plural(profile.entries.length, { one: "# entry", other: "# entries" })} ·{" "}
-					{plural(achievementCount, { one: "# achievement", other: "# achievements" })} ·{" "}
-					{plural(profile.skills.length, { one: "# skill", other: "# skills" })}
-				</p>
-				<div className="flex items-center gap-2">
-					{(profile.entries.length > 0 || profile.standalone.length > 0 || profile.skills.length > 0) && (
-						<DropdownMenu>
-							<DropdownMenuTrigger
-								render={
-									<button type="button" className={buttonVariants({ variant: "secondary", size: "sm" })}>
-										<Icon name="download-simple" size={16} />
-										<Trans>Export</Trans>
-									</button>
-								}
-							/>
-							<DropdownMenuContent align="end">
-								<DropdownMenuItem onClick={() => downloadProfileFile(profile, "yaml")}>
-									<Trans>Download YAML</Trans>
-								</DropdownMenuItem>
-								<DropdownMenuItem onClick={() => downloadProfileFile(profile, "json")}>
-									<Trans>Download JSON</Trans>
-								</DropdownMenuItem>
-							</DropdownMenuContent>
-						</DropdownMenu>
-					)}
-					{profile.entries.length + profile.standalone.length > 0 && (
-						<Link to="/dashboard/applications" search={{ create: true }} className={buttonVariants({ size: "sm" })}>
-							<Icon name="magic-wand" size={16} />
-							<Trans>Build a resume for a job</Trans>
-						</Link>
-					)}
-				</div>
-			</div>
-
-			<ProfileKnowledgeSync />
-			<ProfileFileImport onImported={refresh} />
-			<ImportFromResume onImported={refresh} />
-
-			<section className="grid gap-3">
-				<div className="flex flex-wrap items-center gap-2">
-					<h2 className="flex-1 text-base font-semibold">
-						<Trans>Experience, projects and education</Trans>
-					</h2>
-					<div className="w-auto">
-						<NativeSelect
-							aria-label={t`Add an entry`}
-							value=""
-							onChange={(event) => setAdding(event.target.value as ProfileEntryKind)}
-							className="h-8 text-[13px] font-medium"
-						>
-							<option value="" disabled>
-								{t`Add…`}
-							</option>
-							{PROFILE_ENTRY_KINDS.map((kind) => (
-								<option key={kind} value={kind}>
-									{kindLabel(kind)}
-								</option>
+					<div className="flex items-center gap-2">
+						{hasRecords &&
+							(selecting ? (
+								<Button variant="ghost" size="sm" onClick={exitSelect}>
+									<Trans>Done</Trans>
+								</Button>
+							) : (
+								<Button variant="secondary" size="sm" onClick={() => setSelecting(true)}>
+									<Icon name="check-square" size={16} />
+									<Trans>Select</Trans>
+								</Button>
 							))}
-						</NativeSelect>
+						{(profile.entries.length > 0 || profile.standalone.length > 0 || profile.skills.length > 0) && (
+							<DropdownMenu>
+								<DropdownMenuTrigger
+									render={
+										<button type="button" className={buttonVariants({ variant: "secondary", size: "sm" })}>
+											<Icon name="download-simple" size={16} />
+											<Trans>Export</Trans>
+										</button>
+									}
+								/>
+								<DropdownMenuContent align="end">
+									<DropdownMenuItem onClick={() => downloadProfileFile(profile, "yaml")}>
+										<Trans>Download YAML</Trans>
+									</DropdownMenuItem>
+									<DropdownMenuItem onClick={() => downloadProfileFile(profile, "json")}>
+										<Trans>Download JSON</Trans>
+									</DropdownMenuItem>
+								</DropdownMenuContent>
+							</DropdownMenu>
+						)}
+						{profile.entries.length + profile.standalone.length > 0 && (
+							<Link to="/dashboard/applications" search={{ create: true }} className={buttonVariants({ size: "sm" })}>
+								<Icon name="magic-wand" size={16} />
+								<Trans>Build a resume for a job</Trans>
+							</Link>
+						)}
 					</div>
 				</div>
 
-				{adding && (
-					<EntryEditor
-						kind={adding}
-						onCancel={() => setAdding(null)}
-						onSaved={() => {
-							setAdding(null);
-							refresh();
-						}}
-					/>
-				)}
+				<ProfileKnowledgeSync />
+				<ProfileFileImport onImported={refresh} />
+				<ImportFromResume onImported={refresh} />
 
-				{profile.entries.length === 0 && !adding && (
-					<div className="grid justify-items-center gap-2 rounded-xl border border-dashed border-line-2 p-6 text-center text-sm text-ink-3">
-						<Trans>No entries yet. Start with your current or most recent role.</Trans>
-						<Button variant="secondary" size="sm" onClick={() => setAdding("position")}>
-							<Trans>Add a position</Trans>
+				<section className="grid gap-3">
+					<div className="flex flex-wrap items-center gap-2">
+						<h2 className="flex-1 text-base font-semibold">
+							<Trans>Experience, projects and education</Trans>
+						</h2>
+						<div className="w-auto">
+							<NativeSelect
+								aria-label={t`Add an entry`}
+								value=""
+								onChange={(event) => setAdding(event.target.value as ProfileEntryKind)}
+								className="h-8 text-[13px] font-medium"
+							>
+								<option value="" disabled>
+									{t`Add…`}
+								</option>
+								{PROFILE_ENTRY_KINDS.map((kind) => (
+									<option key={kind} value={kind}>
+										{kindLabel(kind)}
+									</option>
+								))}
+							</NativeSelect>
+						</div>
+					</div>
+
+					{adding && (
+						<EntryEditor
+							kind={adding}
+							onCancel={() => setAdding(null)}
+							onSaved={() => {
+								setAdding(null);
+								refresh();
+							}}
+						/>
+					)}
+
+					{profile.entries.length === 0 && !adding && (
+						<div className="grid justify-items-center gap-2 rounded-xl border border-dashed border-line-2 p-6 text-center text-sm text-ink-3">
+							<Trans>No entries yet. Start with your current or most recent role.</Trans>
+							<Button variant="secondary" size="sm" onClick={() => setAdding("position")}>
+								<Trans>Add a position</Trans>
+							</Button>
+						</div>
+					)}
+
+					{PROFILE_ENTRY_KINDS.map((kind) => {
+						const entries = profile.entries.filter((entry) => entry.kind === kind);
+						if (entries.length === 0) return null;
+						return (
+							<div key={kind} className="grid gap-2">
+								<h3 className="flex items-center gap-2 eyebrow text-ink-3">
+									<Icon name={kindIcon[kind]} size={16} />
+									{kindLabel(kind, entries.length)}
+								</h3>
+								{entries.map((entry) => (
+									<EntryCard key={entry.id} entry={entry} onChanged={refresh} />
+								))}
+							</div>
+						);
+					})}
+
+					{profile.standalone.length > 0 && (
+						<div className="grid gap-2">
+							<h3 className="eyebrow text-ink-3">
+								<Trans>Other achievements</Trans>
+							</h3>
+							<div className="overflow-hidden rounded-xl border border-line bg-surface">
+								{profile.standalone.map((achievement) => (
+									<AchievementRow key={achievement.id} achievement={achievement} onChanged={refresh} />
+								))}
+							</div>
+						</div>
+					)}
+				</section>
+
+				<SkillsSection kind="skill" skills={profile.skills} entries={profile.entries} onChanged={refresh} />
+				<SkillsSection kind="tool" skills={profile.skills} entries={profile.entries} onChanged={refresh} />
+
+				{selecting && (
+					<div className="sticky bottom-3 z-10 flex items-center gap-2 rounded-xl border border-line bg-raised px-3 py-2 shadow-e2">
+						<span className="flex-1 text-[13px] text-ink-2 tabular-nums">
+							{plural(selected.size, { one: "# selected", other: "# selected" })}
+						</span>
+						<Button variant="ghost" size="sm" onClick={exitSelect}>
+							<Trans>Cancel</Trans>
+						</Button>
+						<Button variant="danger" size="sm" disabled={selected.size === 0} onClick={() => setConfirmOpen(true)}>
+							<Icon name="trash" size={16} />
+							<Trans>Delete</Trans>
 						</Button>
 					</div>
 				)}
 
-				{PROFILE_ENTRY_KINDS.map((kind) => {
-					const entries = profile.entries.filter((entry) => entry.kind === kind);
-					if (entries.length === 0) return null;
-					return (
-						<div key={kind} className="grid gap-2">
-							<h3 className="flex items-center gap-2 eyebrow text-ink-3">
-								<Icon name={kindIcon[kind]} size={16} />
-								{kindLabel(kind, entries.length)}
-							</h3>
-							{entries.map((entry) => (
-								<EntryCard key={entry.id} entry={entry} onChanged={refresh} />
-							))}
-						</div>
-					);
-				})}
-
-				{profile.standalone.length > 0 && (
-					<div className="grid gap-2">
-						<h3 className="eyebrow text-ink-3">
-							<Trans>Other achievements</Trans>
-						</h3>
-						<div className="overflow-hidden rounded-xl border border-line bg-surface">
-							{profile.standalone.map((achievement) => (
-								<AchievementRow key={achievement.id} achievement={achievement} onChanged={refresh} />
-							))}
-						</div>
-					</div>
-				)}
-			</section>
-
-			<SkillsSection kind="skill" skills={profile.skills} entries={profile.entries} onChanged={refresh} />
-			<SkillsSection kind="tool" skills={profile.skills} entries={profile.entries} onChanged={refresh} />
-		</div>
+				<AlertDialog open={confirmOpen} onOpenChange={setConfirmOpen}>
+					<AlertDialogContent>
+						<AlertDialogHeader>
+							<AlertDialogTitle>
+								<Trans>Delete selected items?</Trans>
+							</AlertDialogTitle>
+							<AlertDialogDescription>
+								{plural(selected.size, {
+									one: "This permanently removes 1 item from your profile. It can't be undone.",
+									other:
+										"This permanently removes # items from your profile, including any achievements under deleted entries. It can't be undone.",
+								})}
+							</AlertDialogDescription>
+						</AlertDialogHeader>
+						<AlertDialogFooter>
+							<AlertDialogCancel disabled={deleting}>
+								<Trans>Cancel</Trans>
+							</AlertDialogCancel>
+							<AlertDialogAction variant="danger" loading={deleting} onClick={() => void removeSelected()}>
+								<Trans>Delete</Trans>
+							</AlertDialogAction>
+						</AlertDialogFooter>
+					</AlertDialogContent>
+				</AlertDialog>
+			</div>
+		</SelectionContext.Provider>
 	);
 }
 
@@ -294,6 +438,7 @@ type EntryCardProps = { entry: Entry; onChanged: () => void };
 function EntryCard({ entry, onChanged }: EntryCardProps) {
 	const [editing, setEditing] = useState(false);
 	const [gone, setGone] = useState(false);
+	const selection = useSelection();
 	if (gone) return null;
 	if (editing) {
 		return (
@@ -329,6 +474,7 @@ function EntryCard({ entry, onChanged }: EntryCardProps) {
 	return (
 		<article className={cn("overflow-hidden rounded-xl border border-line bg-surface", entry.hidden && "opacity-60")}>
 			<header className="flex items-start gap-3 border-b border-line px-4 py-3">
+				<SelectBox selectionKey={entryKeyFor(entry.id)} label={t`Select ${entry.title}`} className="mt-0.5" />
 				<div className="grid min-w-0 flex-1 gap-0.5">
 					<p className="text-sm font-semibold">
 						{entry.title}
@@ -344,16 +490,18 @@ function EntryCard({ entry, onChanged }: EntryCardProps) {
 				</div>
 				<div className="grid justify-items-end gap-1">
 					<span className="text-xs whitespace-nowrap text-ink-3 tabular-nums">{dateRange(entry)}</span>
-					<div className="flex gap-0.5">
-						<RowAction icon="pencil-simple" label={t`Edit ${entry.title}`} onClick={() => setEditing(true)} />
-						<RowAction icon="trash" label={t`Delete ${entry.title}`} onClick={remove} />
-					</div>
+					{!selection?.active && (
+						<div className="flex gap-0.5">
+							<RowAction icon="pencil-simple" label={t`Edit ${entry.title}`} onClick={() => setEditing(true)} />
+							<RowAction icon="trash" label={t`Delete ${entry.title}`} onClick={remove} />
+						</div>
+					)}
 				</div>
 			</header>
 			{entry.achievements.map((achievement) => (
 				<AchievementRow key={achievement.id} achievement={achievement} onChanged={onChanged} />
 			))}
-			<AddAchievement entryId={entry.id} onAdded={onChanged} />
+			{!selection?.active && <AddAchievement entryId={entry.id} onAdded={onChanged} />}
 		</article>
 	);
 }
@@ -523,6 +671,7 @@ type AchievementRowProps = { achievement: Achievement; onChanged: () => void };
 function AchievementRow({ achievement, onChanged }: AchievementRowProps) {
 	const [editing, setEditing] = useState(false);
 	const [gone, setGone] = useState(false);
+	const selection = useSelection();
 	if (gone) return null;
 	if (editing) {
 		return (
@@ -562,12 +711,20 @@ function AchievementRow({ achievement, onChanged }: AchievementRowProps) {
 				achievement.hidden && "opacity-60",
 			)}
 		>
-			<Icon
-				name={achievement.core ? "star" : "circle"}
-				size={14}
-				className={cn("mt-1 flex-none", achievement.core ? "text-accent" : "text-ink-3")}
-				aria-label={achievement.core ? t`Always included` : undefined}
-			/>
+			{selection?.active ? (
+				<SelectBox
+					selectionKey={achKeyFor(achievement.id)}
+					label={t`Select: ${excerpt}`}
+					className="mt-0.5 flex-none"
+				/>
+			) : (
+				<Icon
+					name={achievement.core ? "star" : "circle"}
+					size={14}
+					className={cn("mt-1 flex-none", achievement.core ? "text-accent" : "text-ink-3")}
+					aria-label={achievement.core ? t`Always included` : undefined}
+				/>
+			)}
 			<div className="grid min-w-0 flex-1 gap-1.5">
 				<p className="text-sm leading-[21px] text-pretty">{achievement.text}</p>
 				{(achievement.metrics.length > 0 || achievement.skills.length > 0 || achievement.tags.length > 0) && (
@@ -592,10 +749,12 @@ function AchievementRow({ achievement, onChanged }: AchievementRowProps) {
 					</p>
 				)}
 			</div>
-			<div className="flex flex-none gap-0.5">
-				<RowAction icon="pencil-simple" label={t`Edit: ${excerpt}`} onClick={() => setEditing(true)} />
-				<RowAction icon="trash" label={t`Delete: ${excerpt}`} onClick={remove} />
-			</div>
+			{!selection?.active && (
+				<div className="flex flex-none gap-0.5">
+					<RowAction icon="pencil-simple" label={t`Edit: ${excerpt}`} onClick={() => setEditing(true)} />
+					<RowAction icon="trash" label={t`Delete: ${excerpt}`} onClick={remove} />
+				</div>
+			)}
 		</div>
 	);
 }
@@ -796,6 +955,7 @@ type SkillsSectionProps = { kind: Skill["kind"]; skills: Skill[]; entries: Entry
 /** Skills (abilities and methods) or tools and platforms (named products), each in its own section. */
 function SkillsSection({ kind, skills: all, entries, onChanged }: SkillsSectionProps) {
 	const [editing, setEditing] = useState<Skill | "new" | null>(null);
+	const selection = useSelection();
 	const skills = all.filter((skill) => skill.kind === kind);
 	const groups = new Map<string, Skill[]>();
 	for (const skill of skills) {
@@ -851,11 +1011,19 @@ function SkillsSection({ kind, skills: all, entries, onChanged }: SkillsSectionP
 							<span
 								key={skill.id}
 								className={cn(
-									"flex h-8 items-center gap-1 rounded-lg border border-line bg-surface ps-2.5 pe-1 text-[13px]",
+									"flex h-8 items-center gap-1 rounded-lg border border-line bg-surface ps-2.5 text-[13px]",
+									selection?.active ? "pe-2.5" : "pe-1",
 									skill.hidden && "opacity-60",
 								)}
 							>
-								<button type="button" className="hover:underline" onClick={() => setEditing(skill)}>
+								{selection?.active && (
+									<SelectBox selectionKey={skillKeyFor(skill.id)} label={t`Select ${skill.name}`} className="size-4" />
+								)}
+								<button
+									type="button"
+									className={cn(!selection?.active && "hover:underline")}
+									onClick={() => (selection?.active ? selection.toggle(skillKeyFor(skill.id)) : setEditing(skill))}
+								>
 									{skill.name}
 								</button>
 								{skill.entryIds.length > 0 && (
@@ -871,7 +1039,9 @@ function SkillsSection({ kind, skills: all, entries, onChanged }: SkillsSectionP
 										{skill.level}/5
 									</span>
 								)}
-								<RowAction icon="x" label={t`Delete ${skill.name}`} onClick={() => void remove(skill)} />
+								{!selection?.active && (
+									<RowAction icon="x" label={t`Delete ${skill.name}`} onClick={() => void remove(skill)} />
+								)}
 							</span>
 						))}
 					</div>

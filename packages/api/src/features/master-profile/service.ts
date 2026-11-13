@@ -1,6 +1,7 @@
 import type { ResumeImport } from "./import";
 import type {
 	ProfileAchievementInput,
+	ProfileBulkDeleteInput,
 	ProfileEntryInput,
 	ProfileReorderInput,
 	ProfileSkillInput,
@@ -12,7 +13,7 @@ import { db } from "@reactive-resume/db/client";
 import * as tables from "@reactive-resume/db/schema";
 import { lockUser } from "../documents/ownership";
 import { resumeService } from "../resume/service";
-import { profileFileToRecords, resumeToProfile } from "./import";
+import { normalizeOrg, normalizeSkill, normalizeText, profileFileToRecords, resumeToProfile } from "./import";
 import { syncProfileKnowledge } from "./knowledge";
 
 type Entry = typeof tables.profileEntry.$inferSelect;
@@ -207,6 +208,21 @@ export const masterProfileService = {
 		});
 	},
 
+	/** Deletes several records at once. Deleting an entry cascades to its achievements. Returns how many rows went. */
+	deleteMany: async (userId: string, input: ProfileBulkDeleteInput): Promise<{ deleted: number }> => {
+		const table = {
+			entry: tables.profileEntry,
+			achievement: tables.profileAchievement,
+			skill: tables.profileSkill,
+		}[input.table];
+		const ids = [...new Set(input.ids)];
+		const deleted = await db
+			.delete(table)
+			.where(and(eq(table.userId, userId), inArray(table.id, ids)))
+			.returning({ id: table.id });
+		return { deleted: deleted.length };
+	},
+
 	/**
 	 * Adds a resume's experience, projects, education, volunteering, certifications, awards and skills to the
 	 * profile. Entries already present (same type, title, organization and start) only gain bullets they don't
@@ -236,9 +252,17 @@ export type ImportPreview = {
 	existingSkills: string[];
 };
 
+/**
+ * Match key for an entry, tolerant of the differences between two sources of the same role: the title and
+ * organization are normalized (so "Acme" and "Acme Inc." match) and only the start year is compared (so
+ * "2020" and "2020-01" match).
+ */
 const entryKey = (entry: { kind: string; title: string; organization: string; startDate: string | null }) =>
-	[entry.kind, entry.title, entry.organization, entry.startDate ?? ""].join("\u0000").toLocaleLowerCase();
-const textKey = (entryId: string, text: string) => `${entryId}\u0000${text.trim().toLocaleLowerCase()}`;
+	[entry.kind, normalizeText(entry.title), normalizeOrg(entry.organization), (entry.startDate ?? "").slice(0, 4)].join(
+		"\u0000",
+	);
+/** Match key for an achievement within an entry: normalized text, so punctuation and case don't duplicate a bullet. */
+const textKey = (entryId: string, text: string) => `${entryId}\u0000${normalizeText(text)}`;
 
 /**
  * Adds imported records to a profile, skipping what's already there: an entry with the same type, title,
@@ -258,14 +282,15 @@ function importRecords(userId: string, imported: ResumeImport, dryRun: boolean):
 					.where(eq(tables.profileAchievement.userId, userId))
 			).map((row) => textKey(row.entryId ?? "", row.text)),
 		);
-		const skillNames = new Set(
-			(
-				await tx
-					.select({ name: tables.profileSkill.name })
-					.from(tables.profileSkill)
-					.where(eq(tables.profileSkill.userId, userId))
-			).map((row) => row.name.toLocaleLowerCase()),
-		);
+		// Existing skills matched on normalized name and any alias, so "React.js" won't re-add "React JS".
+		const skillKeys = new Set<string>();
+		for (const row of await tx
+			.select({ name: tables.profileSkill.name, aliases: tables.profileSkill.aliases })
+			.from(tables.profileSkill)
+			.where(eq(tables.profileSkill.userId, userId))) {
+			skillKeys.add(normalizeSkill(row.name));
+			for (const alias of row.aliases) skillKeys.add(normalizeSkill(alias));
+		}
 
 		// Plan: entries keyed so repeats inside one import merge too.
 		type Planned = {
@@ -287,9 +312,9 @@ function importRecords(userId: string, imported: ResumeImport, dryRun: boolean):
 			planned.set(key, plan);
 		}
 		const skills = imported.skills.filter((skill) => {
-			const name = skill.name.toLocaleLowerCase();
-			if (skillNames.has(name)) return false;
-			skillNames.add(name);
+			const keys = [skill.name, ...skill.aliases].map(normalizeSkill).filter(Boolean);
+			if (keys.some((key) => skillKeys.has(key))) return false;
+			for (const key of keys) skillKeys.add(key);
 			return true;
 		});
 

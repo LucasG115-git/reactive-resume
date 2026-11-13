@@ -6,6 +6,7 @@ import {
 	assembleInputSchema,
 	profileAchievementInputSchema,
 	profileAssemblyResultSchema,
+	profileBulkDeleteInputSchema,
 	profileEntryInputSchema,
 	profileEntryKindSchema,
 	profileFileSchema,
@@ -511,4 +512,18 @@ export const masterProfileRouter = {
 		.input(profileReorderInputSchema)
 		.output(z.void())
 		.handler(({ context, input }) => masterProfileService.reorder(context.user.id, input)),
+
+	deleteMany: protectedProcedure
+		.route({
+			method: "POST",
+			path: "/master-profile/delete-many",
+			tags,
+			operationId: "deleteMasterProfileRecords",
+			summary: "Delete several entries, achievements or skills at once",
+			description:
+				"Deletes the given entries, achievements or skills. Deleting an entry also deletes its achievements. Returns how many rows were deleted.",
+		})
+		.input(profileBulkDeleteInputSchema)
+		.output(z.object({ deleted: z.number() }))
+		.handler(({ context, input }) => masterProfileService.deleteMany(context.user.id, input)),
 };
