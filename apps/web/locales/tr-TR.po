@@ -11005,6 +11005,10 @@ msgstr "Yazı tiplerini gömerek yeniden dışa aktarın ve metnin temiz şekild
 msgid "Re-export with fonts embedded, then open the file and check that the text copies out cleanly."
 msgstr "Yazı tiplerini gömerek yeniden dışa aktarın, ardından dosyayı açıp metnin temiz şekilde kopyalandığını kontrol edin."
 
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Re-ranking your experience"
+msgstr ""
+
 #: src/features/homepage/prepare.tsx
 msgid "Re: Senior Product Designer"
 msgstr "Ynt: Kıdemli Ürün Tasarımcısı"
@@ -12289,6 +12293,10 @@ msgstr "Kaydediliyor {0}/{username}/{slug}… Kaydetme sonrasında kopyalama yap
 #: src/features/resume/builder/draft.ts
 msgid "Saving is taking longer than expected. Your changes are still open."
 msgstr "Tasarruf beklenenden daha uzun sürüyor. Değişiklikleriniz hâlâ açık."
+
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Saving to your profile"
+msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
 #: src/features/resume/editor/save-status.tsx

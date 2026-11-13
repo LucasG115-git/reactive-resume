@@ -11005,6 +11005,10 @@ msgstr "Xuất lại với font đã nhúng, rồi kiểm tra xem văn bản có
 msgid "Re-export with fonts embedded, then open the file and check that the text copies out cleanly."
 msgstr "Xuất lại với font đã nhúng, sau đó mở tệp và kiểm tra xem văn bản có sao chép ra sạch sẽ không."
 
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Re-ranking your experience"
+msgstr ""
+
 #: src/features/homepage/prepare.tsx
 msgid "Re: Senior Product Designer"
 msgstr "Re: Nhà thiết kế sản phẩm cao cấp"
@@ -12289,6 +12293,10 @@ msgstr "Đang lưu {0}/{username}/{slug}… Bản sao sẽ có sẵn sau khi lư
 #: src/features/resume/builder/draft.ts
 msgid "Saving is taking longer than expected. Your changes are still open."
 msgstr "Quá trình lưu mất nhiều thời gian hơn dự kiến. Những thay đổi của bạn vẫn mở."
+
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Saving to your profile"
+msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
 #: src/features/resume/editor/save-status.tsx

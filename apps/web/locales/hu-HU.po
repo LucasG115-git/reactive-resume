@@ -11005,6 +11005,10 @@ msgstr "Exportáld újra beágyazott betűtípusokkal, és ellenőrizd, hogy a s
 msgid "Re-export with fonts embedded, then open the file and check that the text copies out cleanly."
 msgstr "Exportáld újra beágyazott betűtípusokkal, majd nyisd meg a fájlt, és ellenőrizd, hogy a szöveg tisztán másolható-e."
 
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Re-ranking your experience"
+msgstr ""
+
 #: src/features/homepage/prepare.tsx
 msgid "Re: Senior Product Designer"
 msgstr "Re: Senior termékdizájner"
@@ -12289,6 +12293,10 @@ msgstr "Mentés {0}/{username}/{slug}… Mentés után elérhető a másolás."
 #: src/features/resume/builder/draft.ts
 msgid "Saving is taking longer than expected. Your changes are still open."
 msgstr "A mentés a vártnál tovább tart. A módosítások továbbra is nyitva állnak."
+
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Saving to your profile"
+msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
 #: src/features/resume/editor/save-status.tsx

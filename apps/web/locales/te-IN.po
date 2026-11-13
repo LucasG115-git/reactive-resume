@@ -11005,6 +11005,10 @@ msgstr "ఫాంట్‌లు ఎంబెడ్ చేసి తిరిగ
 msgid "Re-export with fonts embedded, then open the file and check that the text copies out cleanly."
 msgstr "ఫాంట్‌లు ఎంబెడ్ చేసి తిరిగి ఎగుమతి చేయండి, తర్వాత ఫైల్‌ను తెరిచి టెక్స్ట్ శుభ్రంగా కాపీ అవుతుందో చెక్ చేయండి."
 
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Re-ranking your experience"
+msgstr ""
+
 #: src/features/homepage/prepare.tsx
 msgid "Re: Senior Product Designer"
 msgstr "Re: సీనియర్ ప్రోడక్ట్ డిజైనర్"
@@ -12289,6 +12293,10 @@ msgstr "{0}/{username}/{slug} సేవ్ చేస్తోంది... సే
 #: src/features/resume/builder/draft.ts
 msgid "Saving is taking longer than expected. Your changes are still open."
 msgstr "ఆదా చేయడానికి ఊహించిన దాని కంటే ఎక్కువ సమయం పడుతోంది. మీ మార్పులు ఇప్పటికీ తెరిచి ఉన్నాయి."
+
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Saving to your profile"
+msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
 #: src/features/resume/editor/save-status.tsx

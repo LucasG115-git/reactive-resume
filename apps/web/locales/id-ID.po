@@ -11005,6 +11005,10 @@ msgstr "Ekspor ulang dengan font tersemat, lalu periksa apakah teksnya tersalin 
 msgid "Re-export with fonts embedded, then open the file and check that the text copies out cleanly."
 msgstr "Ekspor ulang dengan font tersemat, lalu buka file dan periksa apakah teksnya tersalin dengan bersih."
 
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Re-ranking your experience"
+msgstr ""
+
 #: src/features/homepage/prepare.tsx
 msgid "Re: Senior Product Designer"
 msgstr "Re: Senior Product Designer"
@@ -12289,6 +12293,10 @@ msgstr "Menyimpan {0}/{username}/{slug}… Salinan tersedia setelah disimpan."
 #: src/features/resume/builder/draft.ts
 msgid "Saving is taking longer than expected. Your changes are still open."
 msgstr "Penghematan membutuhkan waktu lebih lama dari yang diperkirakan. Perubahan Anda masih terbuka."
+
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Saving to your profile"
+msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
 #: src/features/resume/editor/save-status.tsx

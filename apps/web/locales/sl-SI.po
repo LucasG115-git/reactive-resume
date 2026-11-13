@@ -11005,6 +11005,10 @@ msgstr "Izvozite znova z vdelanimi pisavami in preverite, da se besedilo kopira 
 msgid "Re-export with fonts embedded, then open the file and check that the text copies out cleanly."
 msgstr "Izvozite znova z vdelanimi pisavami, nato odprite datoteko in preverite, da se besedilo kopira brez napak."
 
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Re-ranking your experience"
+msgstr ""
+
 #: src/features/homepage/prepare.tsx
 msgid "Re: Senior Product Designer"
 msgstr "Re: Višji produktni oblikovalec"
@@ -12289,6 +12293,10 @@ msgstr "Shranjevanje {0}/{username}/{slug}… Kopija je na voljo po shranjevanju
 #: src/features/resume/builder/draft.ts
 msgid "Saving is taking longer than expected. Your changes are still open."
 msgstr "Shranjevanje traja dlje, kot je bilo pričakovano. Vaše spremembe so še vedno odprte."
+
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Saving to your profile"
+msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
 #: src/features/resume/editor/save-status.tsx

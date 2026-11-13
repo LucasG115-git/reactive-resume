@@ -11005,6 +11005,10 @@ msgstr "ಫಾಂಟ್‌ಗಳನ್ನು ಎಂಬೆಡ್ ಮಾಡಿ ಮ
 msgid "Re-export with fonts embedded, then open the file and check that the text copies out cleanly."
 msgstr "ಫಾಂಟ್‌ಗಳನ್ನು ಎಂಬೆಡ್ ಮಾಡಿ ಮರು-ಎಕ್ಸ್‌ಪೋರ್ಟ್ ಮಾಡಿ, ನಂತರ ಫೈಲ್ ತೆರೆದು ಪಠ್ಯ ಸ್ವಚ್ಛವಾಗಿ ಕಾಪಿ ಆಗುತ್ತದೆಯೇ ಎಂದು ಪರಿಶೀಲಿಸಿ."
 
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Re-ranking your experience"
+msgstr ""
+
 #: src/features/homepage/prepare.tsx
 msgid "Re: Senior Product Designer"
 msgstr "Re: Senior Product Designer"
@@ -12289,6 +12293,10 @@ msgstr "{0}/{username}/{slug} ಉಳಿಸಲಾಗುತ್ತಿದೆ... ಉ�
 #: src/features/resume/builder/draft.ts
 msgid "Saving is taking longer than expected. Your changes are still open."
 msgstr "ಉಳಿತಾಯ ನಿರೀಕ್ಷೆಗಿಂತ ಹೆಚ್ಚು ಸಮಯ ತೆಗೆದುಕೊಳ್ಳುತ್ತಿದೆ. ನಿಮ್ಮ ಬದಲಾವಣೆಗಳು ಇನ್ನೂ ತೆರೆದಿರುತ್ತವೆ."
+
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Saving to your profile"
+msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
 #: src/features/resume/editor/save-status.tsx

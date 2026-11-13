@@ -11005,6 +11005,10 @@ msgstr "重新匯出並嵌入字體，然後檢查文字複製出來是否乾淨
 msgid "Re-export with fonts embedded, then open the file and check that the text copies out cleanly."
 msgstr "重新匯出並嵌入字體，然後開啟檔案檢查文字複製出來是否乾淨無誤。"
 
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Re-ranking your experience"
+msgstr ""
+
 #: src/features/homepage/prepare.tsx
 msgid "Re: Senior Product Designer"
 msgstr "Re: 高級產品設計師"
@@ -12289,6 +12293,10 @@ msgstr "正在儲存 {0}/{username}/{slug}… 儲存後即可進行複製。"
 #: src/features/resume/builder/draft.ts
 msgid "Saving is taking longer than expected. Your changes are still open."
 msgstr "儲存時間比預期更久。您的變更仍然保留。"
+
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Saving to your profile"
+msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
 #: src/features/resume/editor/save-status.tsx

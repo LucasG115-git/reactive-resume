@@ -11005,6 +11005,10 @@ msgstr "Exporteer opnieuw met ingesloten lettertypen en controleer of de tekst n
 msgid "Re-export with fonts embedded, then open the file and check that the text copies out cleanly."
 msgstr "Exporteer opnieuw met ingesloten lettertypen, open het bestand en controleer of de tekst netjes te kopiëren is."
 
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Re-ranking your experience"
+msgstr ""
+
 #: src/features/homepage/prepare.tsx
 msgid "Re: Senior Product Designer"
 msgstr "Re: Senior Product Designer"
@@ -12289,6 +12293,10 @@ msgstr "{0}/{username}/{slug} opslaan… Kopiëren is mogelijk na het opslaan."
 #: src/features/resume/builder/draft.ts
 msgid "Saving is taking longer than expected. Your changes are still open."
 msgstr "Het opslaan duurt langer dan verwacht. Je wijzigingen staan er nog."
+
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Saving to your profile"
+msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
 #: src/features/resume/editor/save-status.tsx

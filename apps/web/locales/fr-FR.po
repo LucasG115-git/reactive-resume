@@ -11005,6 +11005,10 @@ msgstr "Réexportez avec les polices intégrées, et vérifiez que le texte se c
 msgid "Re-export with fonts embedded, then open the file and check that the text copies out cleanly."
 msgstr "Réexportez avec les polices intégrées, puis ouvrez le fichier et vérifiez que le texte se copie proprement."
 
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Re-ranking your experience"
+msgstr ""
+
 #: src/features/homepage/prepare.tsx
 msgid "Re: Senior Product Designer"
 msgstr "Re : Senior Product Designer"
@@ -12289,6 +12293,10 @@ msgstr "Enregistrement de {0}/{username}/{slug}… La copie est disponible aprè
 #: src/features/resume/builder/draft.ts
 msgid "Saving is taking longer than expected. Your changes are still open."
 msgstr "L'enregistrement prend plus de temps que prévu. Vos modifications sont toujours en cours."
+
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Saving to your profile"
+msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
 #: src/features/resume/editor/save-status.tsx

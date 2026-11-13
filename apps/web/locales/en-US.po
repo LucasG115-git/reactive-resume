@@ -11000,6 +11000,10 @@ msgstr "Re-export with fonts embedded, and check the text copies out cleanly."
 msgid "Re-export with fonts embedded, then open the file and check that the text copies out cleanly."
 msgstr "Re-export with fonts embedded, then open the file and check that the text copies out cleanly."
 
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Re-ranking your experience"
+msgstr "Re-ranking your experience"
+
 #: src/features/homepage/prepare.tsx
 msgid "Re: Senior Product Designer"
 msgstr "Re: Senior Product Designer"
@@ -12284,6 +12288,10 @@ msgstr "Saving {0}/{username}/{slug}… Copy is available after saving."
 #: src/features/resume/builder/draft.ts
 msgid "Saving is taking longer than expected. Your changes are still open."
 msgstr "Saving is taking longer than expected. Your changes are still open."
+
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Saving to your profile"
+msgstr "Saving to your profile"
 
 #: src/features/career/knowledge/preferences.tsx
 #: src/features/resume/editor/save-status.tsx

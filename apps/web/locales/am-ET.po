@@ -11005,6 +11005,10 @@ msgstr "ፊደሎች ተካትተው እንደገና ወደ ውጭ ይላኩ፣ 
 msgid "Re-export with fonts embedded, then open the file and check that the text copies out cleanly."
 msgstr "ፊደሎች ተካትተው እንደገና ወደ ውጭ ይላኩ፣ ከዚያም ፋይሉን ይክፈቱ እና ጽሁፉ በንጽህና እንደሚገለበጥ ያረጋግጡ።"
 
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Re-ranking your experience"
+msgstr ""
+
 #: src/features/homepage/prepare.tsx
 msgid "Re: Senior Product Designer"
 msgstr "Re: ከፍተኛ የምርት ዲዛይነር"
@@ -12289,6 +12293,10 @@ msgstr "{0}/{username}/{slug} በማስቀመጥ ላይ… ኮፒ ከተቀመ�
 #: src/features/resume/builder/draft.ts
 msgid "Saving is taking longer than expected. Your changes are still open."
 msgstr "ቁጠባ ከተጠበቀው በላይ እየወሰደ ነው። የእርስዎ ለውጦች አሁንም ክፍት ናቸው።"
+
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Saving to your profile"
+msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
 #: src/features/resume/editor/save-status.tsx

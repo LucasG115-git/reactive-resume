@@ -11005,6 +11005,10 @@ msgstr "នាំចេញម្តងទៀតជាមួយពុម្ពអ
 msgid "Re-export with fonts embedded, then open the file and check that the text copies out cleanly."
 msgstr "នាំចេញម្តងទៀតជាមួយពុម្ពអក្សរដែលបានបង្កប់ បន្ទាប់មកបើកឯកសារ ហើយត្រួតពិនិត្យថាអត្ថបទចម្លងចេញយ៉ាងស្អាត។"
 
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Re-ranking your experience"
+msgstr ""
+
 #: src/features/homepage/prepare.tsx
 msgid "Re: Senior Product Designer"
 msgstr "Re: Senior Product Designer"
@@ -12289,6 +12293,10 @@ msgstr "កំពុងរក្សាទុក {0}/{username}/{slug}… ច្�
 #: src/features/resume/builder/draft.ts
 msgid "Saving is taking longer than expected. Your changes are still open."
 msgstr "ការសន្សំចំណាយពេលយូរជាងការរំពឹងទុក។ ការផ្លាស់ប្តូររបស់អ្នកនៅតែបើកចំហ។"
+
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Saving to your profile"
+msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
 #: src/features/resume/editor/save-status.tsx

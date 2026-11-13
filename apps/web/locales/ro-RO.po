@@ -11005,6 +11005,10 @@ msgstr "Exportați din nou cu fonturile încorporate și verificați dacă textu
 msgid "Re-export with fonts embedded, then open the file and check that the text copies out cleanly."
 msgstr "Exportați din nou cu fonturile încorporate, apoi deschideți fișierul și verificați dacă textul se copiază corect."
 
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Re-ranking your experience"
+msgstr ""
+
 #: src/features/homepage/prepare.tsx
 msgid "Re: Senior Product Designer"
 msgstr "Re: Senior Product Designer"
@@ -12289,6 +12293,10 @@ msgstr "Se salvează {0}/{username}/{slug}... Copierea este disponibilă după s
 #: src/features/resume/builder/draft.ts
 msgid "Saving is taking longer than expected. Your changes are still open."
 msgstr "Salvarea durează mai mult decât se aștepta. Modificările tale sunt încă deschise."
+
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Saving to your profile"
+msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
 #: src/features/resume/editor/save-status.tsx

@@ -11005,6 +11005,10 @@ msgstr "ഫോണ്ടുകൾ എംബെഡ് ചെയ്ത് വീണ
 msgid "Re-export with fonts embedded, then open the file and check that the text copies out cleanly."
 msgstr "ഫോണ്ടുകൾ എംബെഡ് ചെയ്ത് വീണ്ടും എക്സ്പോർട്ട് ചെയ്ത്, ഫയൽ തുറന്ന് ടെക്സ്റ്റ് വൃത്തിയായി പകർത്താൻ കഴിയുമോ എന്ന് പരിശോധിക്കുക."
 
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Re-ranking your experience"
+msgstr ""
+
 #: src/features/homepage/prepare.tsx
 msgid "Re: Senior Product Designer"
 msgstr "Re: സീനിയർ പ്രോഡക്റ്റ് ഡിസൈനർ"
@@ -12289,6 +12293,10 @@ msgstr "സംരക്ഷിക്കുന്നു {0}/{username}/{slug}... �
 #: src/features/resume/builder/draft.ts
 msgid "Saving is taking longer than expected. Your changes are still open."
 msgstr "ലാഭിക്കാൻ പ്രതീക്ഷിച്ചതിലും കൂടുതൽ സമയമെടുക്കുന്നു. നിങ്ങളുടെ മാറ്റങ്ങൾ ഇപ്പോഴും തുറന്നിരിക്കുന്നു."
+
+#: src/features/applications/components/detail/build-progress.tsx
+msgid "Saving to your profile"
+msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
 #: src/features/resume/editor/save-status.tsx
