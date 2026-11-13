@@ -328,6 +328,19 @@ export function addBuiltinSection(draft: WritableDraft<ResumeData>, type: "summa
 	return entry.id;
 }
 
+/** Adds ready-made entries to a built-in section, creating, placing and showing it if needed (no draft entry). */
+export function addEntriesToBuiltinSection(
+	draft: WritableDraft<ResumeData>,
+	type: SectionType,
+	entries: Entry[],
+): void {
+	if (entries.length === 0) return;
+	ensurePlaced(draft, type);
+	const section = draft.sections[type];
+	section.hidden = false;
+	(section.items as Entry[]).push(...entries);
+}
+
 /** Add section → Custom section: a new section of a type, named after it, with one draft entry. */
 export function addCustomSection(draft: WritableDraft<ResumeData>, type: CustomSectionType, title: string) {
 	const entry = createEntry(type);

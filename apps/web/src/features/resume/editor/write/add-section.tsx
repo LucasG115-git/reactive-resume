@@ -76,7 +76,7 @@ function addCustom(type: CustomSectionType) {
  * section is in use, the custom types are listed directly. The new section starts with one draft entry, open and
  * focused.
  */
-export function AddSectionMenu() {
+export function AddSectionMenu({ onInsertFromProfile }: { onInsertFromProfile?: () => void }) {
 	const added = useEditorStore((state) => state.addedSections);
 	const unusedKey = useCurrentBuilderResumeSelector((resume) =>
 		(["summary", ...BUILTIN_SECTION_TYPES] as const)
@@ -105,6 +105,15 @@ export function AddSectionMenu() {
 				}
 			/>
 			<DropdownMenuContent align="start" className="w-[var(--anchor-width)] min-w-[320px]">
+				{onInsertFromProfile && (
+					<>
+						<DropdownMenuItem onClick={onInsertFromProfile}>
+							<Icon name="user-circle" />
+							<Trans>Insert from your profile…</Trans>
+						</DropdownMenuItem>
+						<DropdownMenuSeparator />
+					</>
+				)}
 				{unused.length > 0 && (
 					<DropdownMenuGroup className="grid grid-cols-2">
 						{unused.map((type) => (
@@ -148,7 +157,13 @@ export function AddSectionMenu() {
 const SUGGESTED: ("summary" | SectionType)[] = ["experience", "education", "skills", "summary"];
 
 /** A blank resume: the first sections to add, as + chips, and an offer to import instead. */
-export function StartSuggestions({ onImport }: { onImport: () => void }) {
+export function StartSuggestions({
+	onImport,
+	onInsertFromProfile,
+}: {
+	onImport: () => void;
+	onInsertFromProfile?: () => void;
+}) {
 	return (
 		<div className="grid gap-3 rounded-xl border border-dashed border-line p-4">
 			<p className="text-sm text-ink-2">
@@ -167,6 +182,16 @@ export function StartSuggestions({ onImport }: { onImport: () => void }) {
 					</button>
 				))}
 			</div>
+			{onInsertFromProfile && (
+				<button
+					type="button"
+					onClick={onInsertFromProfile}
+					className="flex h-8 w-fit items-center gap-1 rounded-sm border border-line-2 bg-raised px-3 text-sm hover:border-accent hover:text-accent-text"
+				>
+					<Icon name="user-circle" size={16} />
+					<Trans>Insert from your profile</Trans>
+				</button>
+			)}
 			<p className="text-xs text-ink-3">
 				<Trans>
 					Have a resume already?{" "}

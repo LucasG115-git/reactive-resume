@@ -2,6 +2,7 @@ import { t } from "@lingui/core/macro";
 import { Plural, Trans } from "@lingui/react/macro";
 import { useMutation } from "@tanstack/react-query";
 import { useNavigate, useSearch } from "@tanstack/react-router";
+import { useState } from "react";
 import { Alert, AlertDescription } from "@reactive-resume/ui/components/alert";
 import { Button } from "@reactive-resume/ui/components/button";
 import { Icon } from "@reactive-resume/ui/components/icon";
@@ -9,6 +10,7 @@ import { toast } from "@reactive-resume/ui/components/toast";
 import { useEditorStore } from "../store";
 import { AddSectionMenu, StartSuggestions } from "./add-section";
 import { BasicsCard } from "./basics-card";
+import { InsertFromProfile } from "./insert-from-profile";
 import { getOutlineRows, summarizeContent } from "./model";
 import { Outline } from "./outline";
 import { useDialogStore } from "@/dialogs/store";
@@ -34,6 +36,7 @@ export function WritePanel() {
 	const added = useEditorStore((state) => state.addedSections);
 	const isEmpty = useCurrentBuilderResumeSelector((resume) => getOutlineRows(resume.data, new Set(added)).length === 0);
 	const openDialog = useDialogStore((state) => state.openDialog);
+	const [insertOpen, setInsertOpen] = useState(false);
 
 	return (
 		<div className="grid gap-4 p-4">
@@ -53,17 +56,22 @@ export function WritePanel() {
 				</p>
 
 				{isEmpty && !locked ? (
-					<StartSuggestions onImport={() => openDialog("document.new", undefined)} />
+					<StartSuggestions
+						onImport={() => openDialog("document.new", undefined)}
+						onInsertFromProfile={() => setInsertOpen(true)}
+					/>
 				) : (
 					<Outline locked={locked} page={page} />
 				)}
 
-				{!locked && <AddSectionMenu />}
+				{!locked && <AddSectionMenu onInsertFromProfile={() => setInsertOpen(true)} />}
 			</div>
 
 			<p className="px-1 text-xs leading-4 text-ink-3">
 				<Trans>Hidden sections keep their content but aren't printed or shared. Fields save as you type.</Trans>
 			</p>
+
+			{!locked && <InsertFromProfile open={insertOpen} onOpenChange={setInsertOpen} />}
 		</div>
 	);
 }
