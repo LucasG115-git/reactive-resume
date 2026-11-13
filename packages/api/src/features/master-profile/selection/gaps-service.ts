@@ -69,20 +69,23 @@ export const gapsService = {
 					const places = [...new Set(item.entryIds.filter((id) => entryIds.has(id)))];
 					const existing = byName.get(key);
 					if (existing) {
-						// Already in the profile: only the new places it was used are added.
+						// Already in the profile: add new places it was used, and a level if the user set one here.
 						const merged = [...new Set([...existing.entryIds, ...places])];
-						if (merged.length === existing.entryIds.length) continue;
+						const nextLevel = item.level ?? existing.level;
+						const placesChanged = merged.length !== existing.entryIds.length;
+						const levelChanged = nextLevel !== existing.level;
+						if (!placesChanged && !levelChanged) continue;
 						// The input schema keeps only editable fields, so the rest of the skill is saved unchanged.
 						const saved = await masterProfileService.saveSkill(
 							userId,
-							profileSkillInputSchema.parse({ ...existing, entryIds: merged }),
+							profileSkillInputSchema.parse({ ...existing, entryIds: merged, level: nextLevel }),
 							existing.id,
 						);
 						byName.set(key, saved);
 					} else {
 						const saved = await masterProfileService.saveSkill(
 							userId,
-							profileSkillInputSchema.parse({ name: item.name, kind: item.kind, entryIds: places }),
+							profileSkillInputSchema.parse({ name: item.name, kind: item.kind, entryIds: places, level: item.level }),
 						);
 						byName.set(key, saved);
 					}

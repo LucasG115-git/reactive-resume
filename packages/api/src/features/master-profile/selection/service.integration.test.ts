@@ -469,7 +469,7 @@ describe.skipIf(!databaseUrl)("resume selection plans", { timeout: 30_000 }, () 
 					{
 						requirementId: french?.requirementId ?? "",
 						have: true,
-						skills: [{ name: "French", kind: "skill", entryIds: [seeded.founder.id, seeded.founder.id] }],
+						skills: [{ name: "French", kind: "skill", entryIds: [seeded.founder.id, seeded.founder.id], level: 4 }],
 						entryId: seeded.founder.id,
 						text: "Ran client meetings in French for two Quebec nonprofits",
 					},
@@ -482,6 +482,7 @@ describe.skipIf(!databaseUrl)("resume selection plans", { timeout: 30_000 }, () 
 		expect(saved.skills.find((skill) => skill.name === "French")).toMatchObject({
 			kind: "skill",
 			entryIds: [seeded.founder.id],
+			level: 4,
 		});
 		const founder = saved.entries.find((entry) => entry.id === seeded.founder.id);
 		expect(founder?.achievements.map((item) => item.text)).toContain(
@@ -502,7 +503,7 @@ describe.skipIf(!databaseUrl)("resume selection plans", { timeout: 30_000 }, () 
 					{
 						requirementId: french?.requirementId ?? "",
 						have: true,
-						skills: [{ name: "french", kind: "skill", entryIds: [seeded.retail.id, "not-mine"] }],
+						skills: [{ name: "french", kind: "skill", entryIds: [seeded.retail.id, "not-mine"], level: 5 }],
 						entryId: null,
 						text: "",
 					},
@@ -514,6 +515,9 @@ describe.skipIf(!databaseUrl)("resume selection plans", { timeout: 30_000 }, () 
 			seeded.founder.id,
 			seeded.retail.id,
 		]);
+
+		// The level the user set in the gap step is saved onto the skill.
+		expect((await profile.get("alice")).skills.find((skill) => skill.name === "French")?.level).toBe(5);
 
 		// A "no" is remembered for this posting and adds nothing.
 		const declined = await gapsService.answer("alice", {
